@@ -400,7 +400,7 @@
                 </svg>
                 <h2 id="user-name" style="margin: 10px 0 5px;">Scholar</h2>
                 <p id="user-id-text" style="color: #94A3B8; margin-bottom: 10px;"></p>
-			
+                
                 <div class="gender-container">
                     <span>ကျား</span>
                     <label class="switch">
@@ -409,10 +409,8 @@
                     </label>
                     <span>မ</span>
                 </div>
-				
-				
-				
-				<div class="profile-info-card">
+
+                <div class="profile-info-card">
     <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
     <div id="bought-items-container" class="bought-container"></div>
     <a href="https://t.me/minaphayarkot" target="_blank" class="btn buy-btn">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</a>
@@ -435,8 +433,6 @@
     </div>
 </div>
 
-</div> <div id="dynamic-content-area"></div>
-		
         <div id="menu-screen" class="screen">
             <h2 id="menu-title" style="text-align: center; color: var(--accent);"></h2>
             <div id="menu-content"></div>
@@ -1388,28 +1384,21 @@ function showGeneralActivities(subId, partName) {
         });
     }
 }
-        async function initQuiz(fileName) {
+        // --- Quiz Engine ---
+      async function initQuiz(fileName) {
     try {
         const res = await fetch(`./quizzes/${fileName}.json`);
         if(!res.ok) throw new Error();
         let data = await res.json();
         
-        // Local Storage မှ Setting ကို ဆွဲယူစစ်ဆေးခြင်း (Default အနေဖြင့် ကျပန်းကိုသာ ထားမည်)
-        const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
-        
-        // အသုံးပြုသူ ရွေးချယ်မှုပေါ် မူတည်၍ Random လုပ်/မလုပ် ဆုံးဖြတ်ခြင်း
-        if (isRandom) {
-            currentQuestions = shuffleArray(data); 
-        } else {
-            currentQuestions = [...data]; // မူရင်း အစဉ်လိုက်အတိုင်းထားမည်
-        }
+        // မေးခွန်းများကို မွှေနှောက်လိုက်ခြင်း (Randomize)
+        currentQuestions = shuffleArray(data); 
         
         currentIdx = 0; 
         showScreen('quiz'); 
         loadQuestion();
     } catch (e) { tg.showAlert("မေးခွန်းဖိုင်မတွေ့သေးပါ- " + fileName); }
 }
-
        function loadQuestion() {
     isAnswered = false; 
     const nextBtn = document.getElementById('next-btn');
@@ -1751,19 +1740,11 @@ function resetGoals() {
 }
 
 // App စဖွင့်ချိန်မှာ function တွေကို ခေါ်ခြင်း
-// App စဖွင့်ချိန်မှာ function တွေကို ခေါ်ခြင်း
 window.onload = () => {
-    loadGoals(); 
-    updateCountdown(); 
-    updateStreak();
-    loadPaidUsers();
-    
-    // Random Switch ကို Local Storage ထဲက data နဲ့ ပြန်ချိန်ပေးခြင်း
-    const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false'; // Default true
-    const randomSwitch = document.getElementById('random-switch');
-    if (randomSwitch) {
-        randomSwitch.checked = savedRandomSetting;
-    }
+    loadGoals(); // ဒီ function ကနေတစ်ဆင့် displayDailyQuote ကို ခေါ်သွားမှာပါ
+    updateCountdown(); // Profile tab မဟုတ်လည်း Streak UI ပေါ်နေစေရန်
+	updateStreak();
+	loadPaidUsers();
 };
        
 		// နေ့စဉ် Quote ပြောင်းလဲရန် Logic
@@ -1946,11 +1927,6 @@ async function startDailyQuiz(subId) {
         backBtn.innerText = "ထွက်မည်";
         backBtn.disabled = false;
     }
-}
-
-function updateRandomizeSetting() {
-    const isRandom = document.getElementById('random-switch').checked;
-    localStorage.setItem('randomQuizSetting', isRandom ? 'true' : 'false');
 }
     </script>
 </body>
