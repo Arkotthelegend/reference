@@ -1377,8 +1377,15 @@ function showGeneralActivities(subId, partName) {
         if(!res.ok) throw new Error();
         let data = await res.json();
         
-        // မေးခွန်းများကို မွှေနှောက်လိုက်ခြင်း (Randomize)
-        currentQuestions = shuffleArray(data); 
+        // Local Storage မှ Setting ကို ဆွဲယူစစ်ဆေးခြင်း (Default အနေဖြင့် ကျပန်းကိုသာ ထားမည်)
+        const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
+        
+        // အသုံးပြုသူ ရွေးချယ်မှုပေါ် မူတည်၍ Random လုပ်/မလုပ် ဆုံးဖြတ်ခြင်း
+        if (isRandom) {
+            currentQuestions = shuffleArray(data); 
+        } else {
+            currentQuestions = [...data]; // မူရင်း အစဉ်လိုက်အတိုင်းထားမည်
+        }
         
         currentIdx = 0; 
         showScreen('quiz'); 
@@ -1727,10 +1734,17 @@ function resetGoals() {
 
 // App စဖွင့်ချိန်မှာ function တွေကို ခေါ်ခြင်း
 window.onload = () => {
-    loadGoals(); // ဒီ function ကနေတစ်ဆင့် displayDailyQuote ကို ခေါ်သွားမှာပါ
-    updateCountdown(); // Profile tab မဟုတ်လည်း Streak UI ပေါ်နေစေရန်
-	updateStreak();
-	loadPaidUsers();
+    loadGoals(); 
+    updateCountdown(); 
+    updateStreak();
+    loadPaidUsers();
+    
+    // Random Switch ကို Local Storage ထဲက data နဲ့ ပြန်ချိန်ပေးခြင်း
+    const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false'; // Default true
+    const randomSwitch = document.getElementById('random-switch');
+    if (randomSwitch) {
+        randomSwitch.checked = savedRandomSetting;
+    }
 };
        
 		// နေ့စဉ် Quote ပြောင်းလဲရန် Logic
@@ -1913,6 +1927,11 @@ async function startDailyQuiz(subId) {
         backBtn.innerText = "ထွက်မည်";
         backBtn.disabled = false;
     }
+}
+
+function updateRandomizeSetting() {
+    const isRandom = document.getElementById('random-switch').checked;
+    localStorage.setItem('randomQuizSetting', isRandom ? 'true' : 'false');
 }
     </script>
 </body>
