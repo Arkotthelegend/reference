@@ -1387,16 +1387,15 @@ function showGeneralActivities(subId, partName) {
     }
 }
         // --- Quiz Engine ---
-     async function initQuiz(fileName) {
+  async function initQuiz(fileName) {
     try {
         const res = await fetch(`./quizzes/${fileName}.json`);
         if(!res.ok) throw new Error();
         let data = await res.json();
         
-        // Local Storage မှ Setting ကို ဆွဲယူစစ်ဆေးခြင်း (Default အနေဖြင့် ကျပန်းကိုသာ ထားမည်)
+        // Local Storage မှ Setting ကို ဆွဲယူစစ်ဆေးခြင်း 
         const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
         
-        // အသုံးပြုသူ ရွေးချယ်မှုပေါ် မူတည်၍ Random လုပ်/မလုပ် ဆုံးဖြတ်ခြင်း
         if (isRandom) {
             currentQuestions = shuffleArray(data); 
         } else {
@@ -1757,7 +1756,7 @@ window.onload = () => {
     loadPaidUsers();
     
     // Random Switch ကို Local Storage ထဲက data နဲ့ ပြန်ချိန်ပေးခြင်း
-    const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false'; // Default true
+    const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false'; 
     const randomSwitch = document.getElementById('random-switch');
     if (randomSwitch) {
         randomSwitch.checked = savedRandomSetting;
