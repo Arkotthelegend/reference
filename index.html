@@ -857,42 +857,58 @@ function loadQuestion() {
     } 
     // --- အခြားပုံမှန် မေးခွန်းများ (MCQ, True/False) ---
     else if (q.type === 'mcq' || q.type === 'tf') {
-        let opts = q.type === 'tf' ? ["မှန် (TRUE)", "မှား (FALSE)"] : q.a;
+        let opts = [];
+        let correctIdx = 0;
+
+        if (q.type === 'tf') {
+            // True/False ဆိုလျှင် မွှေနှောက်စရာမလိုပါ (အမြဲ မှန်၊ မှား ပုံစံသာပြမည်)
+            opts = ["မှန် (TRUE)", "မှား (FALSE)"];
+            correctIdx = q.c === true ? 0 : 1;
+        } else {
+            // MCQ ဆိုလျှင် အဖြေများကို မွှေနှောက်ပါမည်
+            let originalCorrectAnswer = q.a[q.c]; // မူလအဖြေမှန်စာသားကို မှတ်ထားမည်
+            opts = [...q.a]; // အဖြေများကို Copy ကူးမည်
+
+            // ရွေးချယ်စရာများကို ကျပန်း (Random) မွှေနှောက်ခြင်း
+            for (let i = opts.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [opts[i], opts[j]] = [opts[j], opts[i]];
+            }
+
+            // မွှေနှောက်ပြီးနောက် အဖြေမှန်စာသား ရောက်သွားသည့် နေရာသစ်ကို ရှာမည်
+            correctIdx = opts.indexOf(originalCorrectAnswer);
+        }
+
         opts.forEach((a, i) => {
             const btn = document.createElement('button'); 
             btn.className = 'btn option-btn'; 
-            btn.innerHTML = a;
-       // loadQuestion() ထဲက MCQ/TF နှိပ်သည့်နေရာကို ဒီလိုပြင်ပါ
-btn.onclick = () => {
-    if(isAnswered) return; 
-    isAnswered = true;
+            btn.innerHTML = a; // သင်္ချာသင်္ကေတများအတွက် innerHTML ကိုဆက်သုံးပါ
+            
+            btn.onclick = () => {
+                if(isAnswered) return; 
+                isAnswered = true;
 
-    let correctIdx = q.type === 'tf' ? (q.c === true ? 0 : 1) : q.c;
-    const options = document.querySelectorAll('.option-btn');
+                const options = document.querySelectorAll('.option-btn');
 
-    if (i === correctIdx) {
-        // အဖြေမှန်ကို နှိပ်ခဲ့လျှင် - အဖြေမှန် တစ်ခုတည်းကိုသာ အစိမ်းပြမည်
-        options[correctIdx].classList.add('correct-answer');
-    } else {
-        // အဖြေမှားကို နှိပ်ခဲ့လျှင် - အဖြေမှားများကို အနီပြပြီး အဖြေမှန်ကို အစိမ်းပြမည်
-        options.forEach((b, idx) => {
-            if(idx === correctIdx) {
-                b.classList.add('correct-answer');
-            } else {
-                b.classList.add('wrong-answer');
-            }
-        });
-    }
+                // အဖြေမှန်/မှား စစ်ဆေးခြင်း
+                if (i === correctIdx) {
+                    options[i].classList.add('correct-answer');
+                } else {
+                    options.forEach((b, idx) => {
+                        if(idx === correctIdx) b.classList.add('correct-answer');
+                        else if(idx === i) b.classList.add('wrong-answer');
+                    });
+                }
 
-    // နောက်ထပ် နှိပ်လို့မရအောင် အကုန်ပိတ်မည်
-    options.forEach(b => b.disabled = true);
+                // ခလုတ်အားလုံးကို ပိတ်မည်
+                options.forEach(b => b.disabled = true);
 
-    // ခလုတ်ကို "ထွက်မည်" ပုံစံအတိုင်း ပြသမည်
-    const nextBtn = document.getElementById('next-btn');
-    nextBtn.style.display = 'block';
-    nextBtn.className = 'next-btn-styled'; 
-    nextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ⮕';
-};
+                // Next Button ကို Display ပေးပြီး ပုံစံပြောင်းမည်
+                const nextBtn = document.getElementById('next-btn');
+                nextBtn.style.display = 'block';
+                nextBtn.className = 'next-btn-styled'; 
+                nextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ⮕';
+            };
             optDiv.appendChild(btn);
         });
     } 
