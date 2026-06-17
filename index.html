@@ -264,6 +264,22 @@
     margin-right: 10px;
 }
 
+.shuffle-btn {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.shuffle-active {
+    background: var(--accent);
+    color: white;
+}
+
     </style>
 </head>
 <body>
@@ -414,24 +430,8 @@
                     <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
                     <a href="https://t.me/minaphayarkot" target="_blank" class="btn buy-btn">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</a>
-					<div style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
-    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
-        <span style="font-size: 1.2rem;">⚙️</span>
-        <b style="color: var(--accent); font-size: 1.1rem;">မေးခွန်းဖြေဆိုမှု ပုံစံ</b>
-    </div>
-    <p style="color: #94A3B8; font-size: 0.85rem; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">မေးခွန်းများကို အစဉ်လိုက်ဖြေဆိုမည်လား၊ ကျပန်း (Random) ဖြေဆိုမည်လား ရွေးချယ်ပါ။</p>
-    
-    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; background: #0F172A; padding: 10px; border-radius: 12px; border: 1px solid #334155;">
-        <span style="font-size: 0.95rem; color: #cbd5e1;">အစဉ်လိုက်</span>
-        <label class="switch">
-            <input type="checkbox" id="random-switch" onchange="updateRandomizeSetting()">
-            <span class="slider"></span>
-        </label>
-        <span style="font-size: 0.95rem; color: #cbd5e1;">ကျပန်း</span>
-					 </div>
-					 </div>
-					 </div>
-            </div> 
+                </div>
+            </div>
 			<div id="dynamic-content-area"></div>
         </div>
 
@@ -448,7 +448,10 @@
         </div>
 
         <div id="flashcard-screen" class="screen">
-            <h2 id="flash-title" style="text-align: center; color: var(--accent); margin-bottom: 5px;">Flashcard</h2>
+            <div style="text-align: center; margin-bottom: 5px;">
+    <h2 id="flash-title" style="display: inline-block; color: var(--accent); margin: 0;">Flashcard</h2>
+    <button id="shuffle-toggle-btn" class="shuffle-btn" onclick="toggleFlashcardShuffle()">🔄 ပုံမှန်</button>
+</div>
             <p id="flash-count" style="text-align: center; color: #94A3B8; margin: 0;">1 / 1</p>
             
             <div class="flash-container" onclick="flipCard()">
@@ -1393,15 +1396,8 @@ function showGeneralActivities(subId, partName) {
         if(!res.ok) throw new Error();
         let data = await res.json();
         
-        // Local Storage မှ Setting ကို ဆွဲယူစစ်ဆေးခြင်း (Default အနေဖြင့် ကျပန်းကိုသာ ထားမည်)
-        const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
-        
-        // အသုံးပြုသူ ရွေးချယ်မှုပေါ် မူတည်၍ Random လုပ်/မလုပ် ဆုံးဖြတ်ခြင်း
-        if (isRandom) {
-            currentQuestions = shuffleArray(data); 
-        } else {
-            currentQuestions = [...data]; // မူရင်း အစဉ်လိုက်အတိုင်းထားမည်
-        }
+        // မေးခွန်းများကို မွှေနှောက်လိုက်ခြင်း (Randomize)
+        currentQuestions = shuffleArray(data); 
         
         currentIdx = 0; 
         showScreen('quiz'); 
@@ -1750,17 +1746,10 @@ function resetGoals() {
 
 // App စဖွင့်ချိန်မှာ function တွေကို ခေါ်ခြင်း
 window.onload = () => {
-    loadGoals(); 
-    updateCountdown(); 
-    updateStreak();
-    loadPaidUsers();
-    
-    // Random Switch ကို Local Storage ထဲက data နဲ့ ပြန်ချိန်ပေးခြင်း
-    const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false'; // Default true
-    const randomSwitch = document.getElementById('random-switch');
-    if (randomSwitch) {
-        randomSwitch.checked = savedRandomSetting;
-    }
+    loadGoals(); // ဒီ function ကနေတစ်ဆင့် displayDailyQuote ကို ခေါ်သွားမှာပါ
+    updateCountdown(); // Profile tab မဟုတ်လည်း Streak UI ပေါ်နေစေရန်
+	updateStreak();
+	loadPaidUsers();
 };
        
 		// နေ့စဉ် Quote ပြောင်းလဲရန် Logic
@@ -1945,9 +1934,55 @@ async function startDailyQuiz(subId) {
     }
 }
 
-function updateRandomizeSetting() {
-    const isRandom = document.getElementById('random-switch').checked;
-    localStorage.setItem('randomQuizSetting', isRandom ? 'true' : 'false');
+// Flashcard မူလဒေတာကို သိမ်းထားရန်
+let originalFlashCards = [];
+let isFlashcardShuffled = false;
+
+// မူလ initFlashcards function ကို အောက်ပါအတိုင်း အစားထိုးပါ
+async function initFlashcards(fileName, markTitle = "Flashcard") {
+    currentFlashMark = markTitle; 
+    try {
+        const res = await fetch(`./quizzes/${fileName}.json`);
+        if(!res.ok) throw new Error();
+        
+        const data = await res.json();
+        originalFlashCards = [...data]; // မူလအစီအစဉ်ကို သိမ်းထားမယ်
+        
+        // ယခင်က Shuffle ဖွင့်ထားခဲ့ရင် ဆက်ဖွင့်ထားပေးမယ်
+        if (isFlashcardShuffled) {
+            flashCards = shuffleArray([...originalFlashCards]);
+        } else {
+            flashCards = [...originalFlashCards];
+        }
+        
+        flashIdx = 0;
+        showScreen('flashcard');
+        updateFlashUI();
+    } catch (e) { 
+        tg.showAlert("ဖိုင်မတွေ့သေးပါ- " + fileName); 
+    }
+}
+
+// ခလုတ်နှိပ်လိုက်ရင် အလုပ်လုပ်မည့် Function
+function toggleFlashcardShuffle() {
+    const btn = document.getElementById('shuffle-toggle-btn');
+    isFlashcardShuffled = !isFlashcardShuffled; // အခြေအနေကို ပြောင်းမယ်
+    
+    if (isFlashcardShuffled) {
+        btn.classList.add('shuffle-active');
+        btn.innerText = "🔀 မွှေနှောက်";
+        // မွှေနှောက်လိုက်မယ်
+        flashCards = shuffleArray([...originalFlashCards]);
+    } else {
+        btn.classList.remove('shuffle-active');
+        btn.innerText = "🔄 ပုံမှန်";
+        // မူလအစီအစဉ်အတိုင်း ပြန်ထားမယ်
+        flashCards = [...originalFlashCards];
+    }
+    
+    // Index ပြန်စပြီး UI Update လုပ်မယ်
+    flashIdx = 0;
+    updateFlashUI();
 }
     </script>
 </body>
