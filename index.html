@@ -1970,12 +1970,12 @@ function toggleFlashcardShuffle() {
     
     if (isFlashcardShuffled) {
         btn.classList.add('shuffle-active');
-        btn.innerText = "🔀 မွှေနှောက်";
+        btn.innerText = "🔀 random";
         // မွှေနှောက်လိုက်မယ်
         flashCards = shuffleArray([...originalFlashCards]);
     } else {
         btn.classList.remove('shuffle-active');
-        btn.innerText = "🔄 ပုံမှန်";
+        btn.innerText = "🔄 normal";
         // မူလအစီအစဉ်အတိုင်း ပြန်ထားမယ်
         flashCards = [...originalFlashCards];
     }
