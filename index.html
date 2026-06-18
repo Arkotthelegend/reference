@@ -1622,18 +1622,25 @@ function selectOption(index) {
 }
 
 function nextQuestion() {
-
     if (currentIdx < currentQuestions.length - 1) {
         currentIdx++;
         loadQuestion();
-    } else {
-	if (currentIdx >= currentQuestions.length) {
-        clearInterval(quizTimerInterval);
-          tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
+    } else { 
+        tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
         
         // နောက်ထပ်နှိပ်စရာ မေးခွန်းမရှိတော့တဲ့အတွက် "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို ဖျောက်ထားလိုက်ပါမည်
         document.getElementById('next-btn').style.display = 'none';
-		return; 
+
+        // --- ⏱ Timer ကို ရပ်တန့်မည့် Code ---
+        if (isTimerRunning) {
+            clearInterval(quizTimerInterval);
+            isTimerRunning = false;
+            // ခလုတ်စာသားကို ပြောင်းပြီး ထပ်နှိပ်လို့မရအောင် ပိတ်ထားပါမည်
+            const startBtn = document.getElementById('timer-start-btn');
+            startBtn.innerText = "⏹ ပြီးဆုံးပါပြီ";
+            startBtn.disabled = true; 
+            startBtn.style.opacity = "0.5"; // ပိတ်ထားကြောင်း သိသာစေရန် မှိန်ထားမည်
+        }
     }
 }
 
