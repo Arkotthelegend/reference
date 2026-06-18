@@ -302,8 +302,30 @@
     color: white;
 }
 
-		/* ၁။ နှိပ်လိုက်လျှင် ပေါ်လာသော အပြာရောင် Tap Highlight ကို ဖျောက်ရန် */
 
+.timer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* ညာဘက်သို့ ကပ်ထားရန် */
+    margin-top: 15px;
+    gap: 8px;
+}
+.timer-btn {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+.timer-display {
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-family: monospace;
+    font-weight: bold;
+    display: none; /* အချိန်မစခင် ဖျောက်ထားမည် */
+}
     </style>
 </head>
 <body>
@@ -509,13 +531,19 @@
         </div>
 
         <div id="quiz-screen" class="screen">
-            <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
-            <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5;"></div>
-            <div id="quiz-options"></div>
-            <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
-            <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
-        </div>
+    <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
+    <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5;"></div>
+    <div id="quiz-options"></div>
+    
+    <div class="timer-wrapper" id="timer-wrapper">
+        <span id="timer-display" class="timer-display">00:00</span>
+        <button id="timer-start-btn" class="timer-btn" onclick="toggleTimer()">⏱ အချိန်မှတ်မည်</button>
+        <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none;">🔄 ပြန်စမည်</button>
+    </div>
 
+    <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
+    <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
+</div>
         <div id="poem-screen" class="screen">
             <h2 id="poem-title" style="text-align: center; color: var(--accent);"></h2>
             <div id="poem-body" class="poem-content"></div>
@@ -1619,6 +1647,10 @@ function nextQuestion() {
         }
 
         function showScreen(id) {
+		
+		if (screenId !== 'quiz') {
+        resetTimer(); 
+    }
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
             document.getElementById(id + '-screen').classList.add('active-screen');
         }
@@ -2067,6 +2099,45 @@ function toggleFlashcardShuffle() {
     // Index ပြန်စပြီး UI Update လုပ်မယ်
     flashIdx = 0;
     updateFlashUI();
+}
+
+// --- Timer Variables ---
+let quizTimerInterval = null;
+let quizSeconds = 0;
+let isTimerRunning = false;
+
+// Timer အဖွင့်/အပိတ် လုပ်မည့် Function
+function toggleTimer() {
+    if (isTimerRunning) {
+        // အချိန် ခဏရပ်မည်
+        clearInterval(quizTimerInterval);
+        isTimerRunning = false;
+        document.getElementById('timer-start-btn').innerText = "▶ ဆက်မှတ်မည်";
+    } else {
+        // အချိန် စမှတ်မည်
+        isTimerRunning = true;
+        document.getElementById('timer-display').style.display = 'inline';
+        document.getElementById('timer-reset-btn').style.display = 'inline';
+        document.getElementById('timer-start-btn').innerText = "⏸ ခဏရပ်မည်";
+        
+        quizTimerInterval = setInterval(() => {
+            quizSeconds++;
+            const m = Math.floor(quizSeconds / 60).toString().padStart(2, '0');
+            const s = (quizSeconds % 60).toString().padStart(2, '0');
+            document.getElementById('timer-display').innerText = `${m}:${s}`;
+        }, 1000);
+    }
+}
+
+// Timer ကို မူလအခြေအနေသို့ ပြန်ထားမည့် Function
+function resetTimer() {
+    clearInterval(quizTimerInterval);
+    isTimerRunning = false;
+    quizSeconds = 0;
+    document.getElementById('timer-display').innerText = "00:00";
+    document.getElementById('timer-display').style.display = 'none';
+    document.getElementById('timer-reset-btn').style.display = 'none';
+    document.getElementById('timer-start-btn').innerText = "⏱ အချိန်မှတ်မည်";
 }
     </script>
 </body>
