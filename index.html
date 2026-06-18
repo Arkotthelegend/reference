@@ -2137,15 +2137,20 @@ function toggleTimer() {
     }
 }
 
-// Timer ကို မူလအခြေအနေသို့ ပြန်ထားမည့် Function
 function resetTimer() {
     clearInterval(quizTimerInterval);
     isTimerRunning = false;
     quizSeconds = 0;
+    
     document.getElementById('timer-display').innerText = "00:00";
     document.getElementById('timer-display').style.display = 'none';
     document.getElementById('timer-reset-btn').style.display = 'none';
-    document.getElementById('timer-start-btn').innerText = "⏱ အချိန်မှတ်မည်";
+    
+    // ခလုတ်ကို မူလအခြေအနေ ပြန်ထားခြင်း
+    const startBtn = document.getElementById('timer-start-btn');
+    startBtn.innerText = "⏱ အချိန်မှတ်မည်";
+    startBtn.disabled = false; // ပြန်နှိပ်လို့ရအောင် ဖွင့်ပေးမည်
+    startBtn.style.opacity = "1"; // မူလအရောင်အတိုင်း ပြန်ထားမည်
 }
     </script>
 </body>
