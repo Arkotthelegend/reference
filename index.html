@@ -16,6 +16,28 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
+
+		/* ============================================================
+           🚀 PREMIUM NATIVE APP LOOK & FEEL FIXES (GLOBAL)
+           ============================================================ */
+        /* ၁။ ဘယ်နေရာနှိပ်နှိပ် အပြာရောင် စတုဂံကွက် မှိန်မှိန် ပေါ်လာခြင်းကို လုံးဝဖျောက်ရန် */
+        * {
+            -webkit-tap-highlight-color: transparent !important;
+            -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+            outline: none !important;
+        }
+        /* ၂။ ဖုန်းမှာ ဖိထားရင် စာသား/ပုံတွေ Blue Highlight (Select) ဖြစ်သွားတာကို တားဆီးရန် */
+        body, div, span, button, img, a, .subject-card, .option-item, .nav-item {
+            -webkit-touch-callout: none !important;
+            -webkit-user-select: none !important;
+            user-select: none !important;
+        }
+        /* ၃။ မေးခွန်းစာရိုက်ကွက် (Input) များတွင် စာရိုက်ရလွယ်ကူအောင် Select ပေးထားခြင်း */
+        input, textarea, .quiz-input {
+            -webkit-user-select: auto !important;
+            user-select: auto !important;
+        }
+		
         :root { 
             --bg: #0F172A; --card: #1E293B; --accent: #38BDF8; 
             --white: #ffffff; --lock: #475569; --success: #10B981; --error: #EF4444;
@@ -280,6 +302,8 @@
     color: white;
 }
 
+		/* ၁။ နှိပ်လိုက်လျှင် ပေါ်လာသော အပြာရောင် Tap Highlight ကို ဖျောက်ရန် */
+
     </style>
 </head>
 <body>
@@ -509,7 +533,7 @@
     <script>
 		
 		const ADMIN_ID = 8432363664;
-const specialUsers = [];
+const specialUsers = [5593040432,6889096884];
 		
 		function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
