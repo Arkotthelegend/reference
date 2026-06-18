@@ -302,7 +302,6 @@
     color: white;
 }
 
-
 .timer-wrapper {
     display: flex;
     align-items: center;
@@ -326,6 +325,7 @@
     font-weight: bold;
     display: none; /* အချိန်မစခင် ဖျောက်ထားမည် */
 }
+
     </style>
 </head>
 <body>
@@ -544,6 +544,7 @@
     <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
     <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
 </div>
+
         <div id="poem-screen" class="screen">
             <h2 id="poem-title" style="text-align: center; color: var(--accent);"></h2>
             <div id="poem-body" class="poem-content"></div>
@@ -1648,7 +1649,7 @@ function nextQuestion() {
 
         function showScreen(id) {
 		
-		if (screenId !== 'quiz') {
+		if (id !== 'quiz') {
         resetTimer(); 
     }
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
@@ -2100,7 +2101,6 @@ function toggleFlashcardShuffle() {
     flashIdx = 0;
     updateFlashUI();
 }
-
 // --- Timer Variables ---
 let quizTimerInterval = null;
 let quizSeconds = 0;
