@@ -1622,6 +1622,14 @@ function selectOption(index) {
 }
 
 function nextQuestion() {
+
+if (currentIdx >= currentQuestions.length) {
+        clearInterval(quizTimerInterval); // မေးခွန်းကုန်သွားရင် Timer ရပ်မယ်
+        // ကျန်တဲ့ မေးခွန်းကုန်သွားတဲ့အခါ ပြသရမည့် Code များ (ဥပမာ- ရလဒ်ပြခြင်း)
+        // ...
+        return; 
+    }
+	
     if (currentIdx < currentQuestions.length - 1) {
         currentIdx++;
         loadQuestion();
