@@ -542,7 +542,7 @@
         <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none;">🔄 ပြန်စမည်</button>
     </div>
 	<div class="markcount" id="markcount">
-	<span id="score-display" style="margin-left: 10px; font-weight: bold;  background: transparent; color: var(--accent); padding: 6px 12px; border-radius: 20px; font-size: 14px; display: inline-block; vertical-align: middle;"> ရမှတ်: 0</span>
+	<span id="score-display" style="margin-right: 10px; font-weight: bold;  background: transparent; color: var(--accent); padding: 6px 12px; border-radius: 20px; font-size: 14px; display: inline-block; vertical-align: middle;"> ရမှတ်: 0</span>
 </div>
 
         <div id="poem-screen" class="screen">
@@ -1540,7 +1540,7 @@ function showGeneralActivities(subId, partName) {
         if (i === correctIdx) {
             options[i].classList.add('correct-answer');
 			score++;
-    document.getElementById('score-display').innerText = `💯 ရမှတ်: ${score}`;
+    document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
         } else {
             options.forEach((b, idx) => {
                 if(idx === correctIdx) b.classList.add('correct-answer');
@@ -1578,7 +1578,7 @@ function showGeneralActivities(subId, partName) {
         if(input.value.trim().toLowerCase() === q.c.toString().toLowerCase()) {
             tg.showAlert("မှန်ကန်ပါသည်။ ✅");
 			score++;
-    document.getElementById('score-display').innerText = `💯 ရမှတ်: ${score}`;
+    document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
         } else {
             tg.showAlert("အဖြေမှန်မှာ: " + q.c);
         }
@@ -1609,7 +1609,7 @@ function selectOption(index) {
  if (index == q.answer) {
         options[index].classList.add('correct-answer');
 		score++;
-    document.getElementById('score-display').innerText = `💯 ရမှတ်: ${score}`;
+    document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
     }
     // ရွေးလိုက်တဲ့အဖြေက မှားနေရင် အနီရောင်ပြပါ
     if (index !== q.answer) {
@@ -2170,7 +2170,7 @@ function resetTimer() {
 
     // 🎯 ရမှတ်ကို ၀ ပြန်ပြောင်းပြီး Screen ပေါ်မှာ ပြန်ပြင်ပေးရန်
     score = 0;
-    document.getElementById('score-display').innerText = "💯 ရမှတ်: 0";
+    document.getElementById('score-display').innerText = "ရမှတ်: 0";
 }
     </script>
 </body>
