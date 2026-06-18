@@ -534,15 +534,13 @@
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
     <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5;"></div>
     <div id="quiz-options"></div>
-    
-    <div class="timer-wrapper" id="timer-wrapper">
+    <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
+    <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
+	<div class="timer-wrapper" id="timer-wrapper">
         <span id="timer-display" class="timer-display">00:00</span>
         <button id="timer-start-btn" class="timer-btn" onclick="toggleTimer()">⏱ အချိန်မှတ်မည်</button>
         <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none;">🔄 ပြန်စမည်</button>
     </div>
-
-    <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
-    <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
 </div>
 
         <div id="poem-screen" class="screen">
