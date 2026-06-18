@@ -538,6 +538,7 @@
     <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
 	<div class="timer-wrapper" id="timer-wrapper">
         <span id="timer-display" class="timer-display">00:00</span>
+		<span id="score-display" style="margin-left: 10px; font-weight: bold; background-color: #2ecc71; color: white; padding: 6px 12px; border-radius: 20px; font-size: 14px; display: inline-block; vertical-align: middle;">💯 ရမှတ်: 0</span>
         <button id="timer-start-btn" class="timer-btn" onclick="toggleTimer()">⏱ အချိန်မှတ်မည်</button>
         <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none;">🔄 ပြန်စမည်</button>
     </div>
@@ -1537,6 +1538,8 @@ function showGeneralActivities(subId, partName) {
         // Logic အသစ်- အဖြေမှန်ရင် အစိမ်းပဲပြ၊ မှားမှ အကုန်ပြ
         if (i === correctIdx) {
             options[i].classList.add('correct-answer');
+			score++;
+    document.getElementById('score-display').innerText = `💯 ရမှတ်: ${score}`;
         } else {
             options.forEach((b, idx) => {
                 if(idx === correctIdx) b.classList.add('correct-answer');
@@ -1573,6 +1576,8 @@ function showGeneralActivities(subId, partName) {
         // အဖြေစစ်ဆေးခြင်း
         if(input.value.trim().toLowerCase() === q.c.toString().toLowerCase()) {
             tg.showAlert("မှန်ကန်ပါသည်။ ✅");
+			score++;
+    document.getElementById('score-display').innerText = `💯 ရမှတ်: ${score}`;
         } else {
             tg.showAlert("အဖြေမှန်မှာ: " + q.c);
         }
@@ -1600,6 +1605,11 @@ function selectOption(index) {
     // အဖြေမှန်ကို အစိမ်းရောင်ပြပါ
     options[q.answer].classList.add('correct-answer');
 
+ if (index == q.answer) {
+        options[index].classList.add('correct-answer');
+		score++;
+    document.getElementById('score-display').innerText = `💯 ရမှတ်: ${score}`;
+    }
     // ရွေးလိုက်တဲ့အဖြေက မှားနေရင် အနီရောင်ပြပါ
     if (index !== q.answer) {
         options[index].classList.add('wrong-answer');
@@ -2113,6 +2123,7 @@ function toggleFlashcardShuffle() {
 let quizTimerInterval = null;
 let quizSeconds = 0;
 let isTimerRunning = false;
+let score = 0; // 🎯 ရမှတ်သိမ်းဆည်းရန် Variable အသစ်
 
 // Timer အဖွင့်/အပိတ် လုပ်မည့် Function
 function toggleTimer() {
@@ -2137,6 +2148,8 @@ function toggleTimer() {
     }
 }
 
+
+// ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
 function resetTimer() {
     clearInterval(quizTimerInterval);
     isTimerRunning = false;
@@ -2146,11 +2159,17 @@ function resetTimer() {
     document.getElementById('timer-display').style.display = 'none';
     document.getElementById('timer-reset-btn').style.display = 'none';
     
-    // ခလုတ်ကို မူလအခြေအနေ ပြန်ထားခြင်း
     const startBtn = document.getElementById('timer-start-btn');
     startBtn.innerText = "⏱ အချိန်မှတ်မည်";
-    startBtn.disabled = false; // ပြန်နှိပ်လို့ရအောင် ဖွင့်ပေးမည်
-    startBtn.style.opacity = "1"; // မူလအရောင်အတိုင်း ပြန်ထားမည်
+    startBtn.removeAttribute('disabled');
+    startBtn.disabled = false; 
+    startBtn.style.opacity = "1";
+    startBtn.style.cursor = "pointer";
+    startBtn.style.pointerEvents = "auto";
+
+    // 🎯 ရမှတ်ကို ၀ ပြန်ပြောင်းပြီး Screen ပေါ်မှာ ပြန်ပြင်ပေးရန်
+    score = 0;
+    document.getElementById('score-display').innerText = "💯 ရမှတ်: 0";
 }
     </script>
 </body>
