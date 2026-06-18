@@ -1623,22 +1623,17 @@ function selectOption(index) {
 
 function nextQuestion() {
 
-if (currentIdx >= currentQuestions.length) {
-        clearInterval(quizTimerInterval); // မေးခွန်းကုန်သွားရင် Timer ရပ်မယ်
-        // ကျန်တဲ့ မေးခွန်းကုန်သွားတဲ့အခါ ပြသရမည့် Code များ (ဥပမာ- ရလဒ်ပြခြင်း)
-        // ...
-        return; 
-    }
-	
     if (currentIdx < currentQuestions.length - 1) {
         currentIdx++;
         loadQuestion();
     } else {
-        // မေးခွန်းကုန်ပြီဆိုရင် finishQuiz ကိုမသွားတော့ဘဲ ဂုဏ်ယူကြောင်းစာ ပြမည်
-        tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
+	if (currentIdx >= currentQuestions.length) {
+        clearInterval(quizTimerInterval);
+          tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
         
         // နောက်ထပ်နှိပ်စရာ မေးခွန်းမရှိတော့တဲ့အတွက် "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို ဖျောက်ထားလိုက်ပါမည်
         document.getElementById('next-btn').style.display = 'none';
+		return; 
     }
 }
 
