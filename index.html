@@ -3,236 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SYSTEM OVERRIDE</title>
+    <title>TACO RAIN ADMIN EVENT</title>
     <style>
+        /* =========================================================
+           🎯 ဘောင်အပြာ ဖျောက်ခြင်းနှင့် ကလစ်နှိပ်မှု Reset (မင်းတောင်းဆိုချက်)
+           ========================================================= */
+        * {
+            -webkit-tap-highlight-color: transparent !important;
+            -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+            outline: none !important;
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
         body {
-            background-color: #050505;
-            color: #0f0;
-            font-family: 'Courier New', Courier, monospace;
             margin: 0;
+            overflow: hidden;
+            background-color: #70c5ce; /* စစချင်း ပုံမှန် မိုးကောင်းကင်အရောင် */
+            font-family: 'Courier New', Courier, monospace;
+            color: #fff;
             height: 100vh;
-            overflow: hidden; /* Scroll မပေါ်အောင် ပိတ်ထားမည် */
             display: flex;
             flex-direction: column;
-            padding: 20px;
-            box-sizing: border-box;
-            position: relative;
+            align-items: center;
+            transition: background-color 2s ease; /* နေ့ကနေ ညပြောင်းလဲမှု နူးညံ့စေရန် */
         }
 
-        /* --- စိတ်လှုပ်ရှားစရာ Glitch Effect --- */
-        .glitch-wrapper {
-            text-align: center;
-            margin-top: 10vh;
-            margin-bottom: 20px;
-            z-index: 10;
-        }
-        .glitch {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #ff003c;
-            position: relative;
-            display: inline-block;
-            text-shadow: 0 0 10px #ff003c;
-            opacity: 0; /* စစချင်း ဖျောက်ထားမည် */
-        }
-        .glitch::before, .glitch::after {
-            content: attr(data-text);
-            position: absolute;
+        /* =========================================================
+           ⛰️ PIXEL ART LANDSCAPE (စစချင်း စောင့်ဆိုင်းနေမည့် နေ့ဘက်မြင်ကွင်း)
+           ========================================================= */
+        #game-world {
+            position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: #050505;
-        }
-        .glitch::before {
-            left: 3px; text-shadow: -2px 0 blue;
-            animation: glitch-anim 2s infinite linear alternate-reverse;
-        }
-        .glitch::after {
-            left: -3px; text-shadow: -2px 0 yellow;
-            animation: glitch-anim 3s infinite linear alternate-reverse;
+            z-index: 1;
+            pointer-events: none;
         }
 
-        @keyframes glitch-anim {
-            0% { clip: rect(10px, 9999px, 30px, 0); }
-            20% { clip: rect(50px, 9999px, 60px, 0); transform: translate(-5px, 5px); }
-            40% { clip: rect(20px, 9999px, 40px, 0); }
-            60% { clip: rect(70px, 9999px, 80px, 0); transform: translate(5px, -5px); }
-            80% { clip: rect(30px, 9999px, 50px, 0); }
-            100% { clip: rect(60px, 9999px, 70px, 0); }
+        /* Pixel တောင်ကုန်း အမှတ် ၁ */
+        .pixel-hill-1 {
+            position: absolute; bottom: 0; left: -15%; width: 75%; height: 35vh;
+            background: #46c35f;
+            border-top: 12px solid #3ca850;
+            box-shadow: inset 0 15px 0 #3ca850;
+            border-radius: 40px 40px 0 0;
+            transition: all 1.5s ease;
         }
 
-        /* --- တုန်ခါသည့် Effect --- */
-        .shake-heavy {
-            animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both infinite;
-        }
-        @keyframes shake {
-            0%, 100% { transform: translate(0, 0); }
-            25% { transform: translate(-5px, 4px) rotate(-1deg); color: #ff003c; }
-            50% { transform: translate(4px, -5px) rotate(1deg); background-color: rgba(255,0,0,0.1); }
-            75% { transform: translate(-4px, -4px) rotate(-1deg); }
+        /* Pixel တောင်ကုန်း အမှတ် ၂ */
+        .pixel-hill-2 {
+            position: absolute; bottom: 0; right: -10%; width: 65%; height: 25vh;
+            background: #3ca850;
+            border-top: 12px solid #328c43;
+            box-shadow: inset 0 15px 0 #328c43;
+            border-radius: 50px 50px 0 0;
+            transition: all 1.5s ease;
         }
 
-        /* --- Terminal ပုံစံ --- */
-        #terminal {
-            flex: 1;
-            font-size: 1rem;
-            line-height: 1.8;
-            overflow-y: hidden;
+        /* =========================================================
+           🌌 NEON NIGHT MODE & CHAOS GLITCH (EVENT စချိန်တွင် ပြောင်းလဲမည့် Style)
+           ========================================================= */
+        body.neon-active {
+            background-color: #0b001a; /* ညဘက် နီယွန် ကောင်းကင်အမှောင် */
+        }
+
+        /* Event စချိန်တွင် နောက်ခံကမ္ဘာကြီး တစ်ခုလုံး ရူးသွပ်သွားမည့် Animation */
+        body.neon-active #game-world {
+            animation: chaos-glitch 0.15s infinite;
+        }
+
+        body.neon-active .pixel-hill-1 {
+            background: #120024;
+            border-top: 10px solid #ff007f;
+            box-shadow: 0 0 25px #ff007f, inset 0 15px 0 #ff007f;
+        }
+
+        body.neon-active .pixel-hill-2 {
+            background: #0a0014;
+            border-top: 10px solid #00ffff;
+            box-shadow: 0 0 25px #00ffff, inset 0 15px 0 #00ffff;
+        }
+
+        @keyframes chaos-glitch {
+            0% { filter: hue-rotate(0deg) contrast(1); }
+            50% { filter: hue-rotate(180deg) contrast(1.2); transform: translate(-2px, 2px); }
+            100% { filter: hue-rotate(360deg) contrast(1); transform: translate(2px, -2px); }
+        }
+
+        /* =========================================================
+           🌮 TACO RAIN SYSTEM (မိုးရွာကျလာမည့် တာကိုးပုံများ)
+           ========================================================= */
+        #taco-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 3;
+            pointer-events: none; /* တာကိုးတွေကို မှားနှိပ်မိလည်း ဘာမှမဖြစ်စေရန် */
+        }
+
+        .taco {
+            position: absolute;
+            top: -60px;
+            pointer-events: none;
+            animation: fall linear forwards, spin 2s linear infinite;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(105vh); }
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* =========================================================
+           💬 MESSAGE BOX & CHARACTER UI
+           ========================================================= */
+        .message-container {
+            position: relative;
             z-index: 10;
+            margin-top: 30px;
+            width: 90%;
+            max-width: 420px;
+            background: rgba(0, 0, 0, 0.85);
+            border: 3px solid #46c35f; /* စစချင်း အစိမ်းရောင် Border */
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: all 1s ease;
         }
-        .log-line { margin-bottom: 5px; }
-        .sys-danger { color: #ff003c; font-weight: bold; }
-        .sys-success { color: #38BDF8; font-weight: bold; }
-        
-        .cursor {
-            display: inline-block; width: 10px; height: 1rem; background: #0f0;
-            animation: blink 1s infinite; vertical-align: middle;
-        }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        /* --- နောက်ခံမှာ Random စာတွေပြေးနေမည့် နေရာ --- */
-        #bg-matrix {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            color: rgba(0, 255, 0, 0.15); font-size: 0.8rem; overflow: hidden;
-            z-index: 1; pointer-events: none; padding: 10px; box-sizing: border-box;
-            word-wrap: break-word; line-height: 1.2;
+        /* Neon Mode မှာ Message Box ပါ လိုက်ပြောင်းမည် */
+        body.neon-active .message-container {
+            border-color: #ff007f;
+            box-shadow: 0 0 20px #ff007f, inset 0 0 10px #ff007f;
         }
+
+        .character-img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            border: 2px solid #46c35f;
+            object-fit: cover;
+            transition: all 1s ease;
+        }
+
+        body.neon-active .character-img {
+            border-color: #00ffff;
+            animation: img-glitch 0.3s infinite;
+        }
+
+        @keyframes img-glitch {
+            0% { transform: translate(0); filter: saturate(1); }
+            50% { transform: translate(-2px, 1px); filter: saturate(2) hue-rotate(90deg); }
+            100% { transform: translate(2px, -1px); filter: saturate(1); }
+        }
+
+        .text-content {
+            flex: 1;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #fff;
+        }
+
+        .live-status {
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #3ca850;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        body.neon-active .live-status {
+            background: #ff003c;
+            box-shadow: 0 0 10px #ff003c;
+            animation: blink 1s infinite;
+        }
+
+        /* =========================================================
+           🔘 GLITCH BUTTON (ADMIN TELEGRAM LINK)
+           ========================================================= */
+        .glitch-btn {
+            position: absolute;
+            bottom: 40px;
+            z-index: 10;
+            background: #3ca850;
+            color: #fff;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+            border-radius: 6px;
+            box-shadow: 0 5px 0 #2c7a3a;
+            text-transform: uppercase;
+            transition: all 0.5s ease;
+        }
+
+        /* Event စချိန်တွင် ခလုတ်ပါ ရူးသွပ်ပြီး Neon Glitch ဖြစ်သွားမည် */
+        body.neon-active .glitch-btn {
+            background: #ff003c;
+            border-radius: 0px;
+            box-shadow: 4px 4px 0 #00ffff, -4px -4px 0 #ff007f;
+            animation: btn-glitch 0.1s infinite;
+        }
+
+        @keyframes btn-glitch {
+            0% { transform: translate(0, 0); box-shadow: 4px 4px 0 #00ffff, -4px -4px 0 #ff007f; }
+            50% { transform: translate(-2px, 2px); box-shadow: -4px 4px 0 #00ffff, 4px -4px 0 #ff007f; }
+            100% { transform: translate(2px, -2px); box-shadow: 4px -4px 0 #ff007f, -4px 4px 0 #00ffff; }
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
     </style>
 </head>
 <body>
 
-    <div id="bg-matrix"></div>
+    <audio id="bg-music" loop>
+        <source src="https://www.dropbox.com/scl/fi/rn7s8uv14m7kmucd15mmd/It_s-Raining-Tacos-Reanimated-MP3_160K.mp3?rlkey=qvayb3qcc61rcz2tby5j3oxsv&st=f9on83uf&raw=1" type="audio/mpeg">
+    </audio>
 
-    <div class="glitch-wrapper">
-        <div id="main-warning" class="glitch" data-text="SYSTEM COMPROMISED">SYSTEM COMPROMISED</div>
+    <div id="game-world">
+        <div class="pixel-hill-1"></div>
+        <div class="pixel-hill-2"></div>
     </div>
 
-    <div id="terminal"></div>
+    <div id="taco-container"></div>
+
+    <div class="message-container">
+        <div class="live-status" id="status-tag">💤 WAITING</div>
+        
+        <img src="https://www.dropbox.com/scl/fi/edtb5myal5u46g78xilyi/admin.png?rlkey=43tkapf04lkkrsy2y8fd6my3t&st=6kfowhh4&raw=1" class="character-img" alt="Admin">
+        
+        <div class="text-content">
+            <span id="message-text">Admin ကို စောင့်ဆိုင်းနေပါသည်...</span>
+        </div>
+    </div>
+
+    <button class="glitch-btn" onclick="window.location.href='https://t.me/minaphayarkot'">
+        Claim Gift ➔
+    </button>
 
     <script>
-        // 🚨 အရေးကြီးသည် 🚨
-        // ပွဲစမည့် အချိန် (Year, Month (0-11), Day, Hour, Minute, Second) ကို သတ်မှတ်ပါ။
-        // ဥပမာ - ၂၀၂၆၊ ဇူလိုင်လ (၆)၊ ၁ ရက်နေ့၊ ည ၈ နာရီ ၃၀ မိနစ်
-        // Month က 0 ကနေစလို့ ဇူလိုင်ဆိုရင် 6 လို့ရေးရပါမယ်။
-        const EVENT_START_TIME = new Date(2026, 5, 21, 21, 27, 0).getTime(); 
-
-        // စမ်းသပ်ချင်ရင် အပေါ်က Code ကို ပိတ်ပြီး အောက်က Code ကို ဖွင့်ပါ (App ဖွင့်လိုက်တဲ့အချိန်ကစပြီး Event စပါမယ်)
-        // const EVENT_START_TIME = Date.now(); 
-
-        const terminal = document.getElementById('terminal');
-        const warning = document.getElementById('main-warning');
-        const bgMatrix = document.getElementById('bg-matrix');
-        let currentLogs = "";
-
-        // Event အချိန်ဇယား (မီလီစက္ကန့် ဖြင့်)
-        const timeline = [
-            { time: 0,     text: "> [ROOT] Admin connection established..." },
-            { time: 3000,  text: "> Bypassing security protocols... [SUCCESS]" },
-            { time: 7000,  text: "> Initiating Level-5 Database Purge.", class: "sys-danger", action: "start-matrix" },
-            { time: 10000, text: "> WARNING: Core structure destabilizing!!!", action: "shake" },
-            { time: 13000, text: "> Deleting: old_questions_2024.db... [DELETED]", class: "sys-danger" },
-            { time: 16000, text: "> Deleting: user_cached_data.json... [DELETED]", class: "sys-danger" },
-            { time: 20000, text: "> ⚠️ SYSTEM CORRUPTION DETECTED ⚠️", class: "sys-danger", action: "heavy-shake" },
-            { time: 25000, text: "> Erasing complete. Halting purge operations." },
-            { time: 28000, text: "> Injecting July Update Patch_v2.0...", action: "stop-shake" },
-            { time: 32000, text: "> Restructuring UI Elements...", action: "stop-matrix" },
-            { time: 36000, text: "> Finalizing maintenance mode. Please wait.", class: "sys-success", action: "maintenance-mode" }
+        // =========================================================
+        // ⚙️ ပြင်ဆင်ရန်လွယ်ကူသော TIMELINE အပိုင်း (မင်းစိတ်ကြိုက် ဒီမှာပဲ ပြင်ပါ)
+        // =========================================================
+        
+        // ပွဲစမည့် အချိန်သတ်မှတ်ချက် (Date.now() ဆိုရင် ချက်ချင်းစပါမယ်၊ Live တစ်ပြေးညီအတွက် အချိန်သတ်မှတ်နိုင်ပါတယ်)
+        const EVENT_START_TIME = new Date(2026, 5, 21, 22, 22, 0).getTime(); 
+        
+        // 💬 စာသားများနှင့် အချိန်ခြားနားချက် (time: 4000 ဆိုသည်မှာ ပွဲစပြီး ၄ စက္ကန့်မြောက်တွင် ပေါ်မည်ဟု ဆိုလိုသည်)
+        const TIMELINE = [
+            { time: 0,     text: "[SYSTEM] Admin @minaphayarkot has joined the server..." },
+            { time: 4000,  text: "ဟေ့လူတွေ... အားလုံးပဲ အဆင်သင့်ဖြစ်ကြပြီလား!" },
+            { time: 8000,  text: "အခု ငါတို့ App ထဲမှာ Live User <span style='color:#00ffff; font-weight:bold;' class='live-user-placeholder'>1,245</span> ယောက်တောင် ရှိနေတယ်ဟ။" },
+            { time: 13000, text: "နောက်ထပ် <span style='color:#ff007f; font-weight:bold;'>အယောက် ၅၀</span> ထပ်ဝင်လာတာနဲ့ 1 Subject 1 Month FREE CODE ကို ဒီမှာပဲ ချပေးမယ်။" },
+            { time: 18000, text: "ခဏစောင့်နော်... လူတက်လာတာကို စောင့်ကြည့်နေတယ်..." },
+            { time: 23000, text: "အိုကေ!! လူပြည့်သွားပြီ! ကတိအတိုင်း FREE CODE ထုတ်ပေးလိုက်ပြီ။ 🎁" },
+            { time: 27000, text: "မင်းတို့ရဲ့ CODE ကတော့: <span style='color:yellow; font-weight:bold; font-size:1.1rem; background:rgba(255,0,0,0.5); padding:2px 5px;'>TACO_GARDEN_2026</span> ဖြစ်ပါတယ်။" },
+            { time: 32000, text: "Code ရတာနဲ့ အောက်ကခလုတ်ကို အမြန်ဆုံးနှိပ်ပြီး ငါ့ဆီလာပြောကြတော့! Limit ရှိတယ်နော်!!" }
         ];
 
-        // နောက်ခံမှာ Hacker စာတွေ ပြေးနေအောင် လုပ်မည့် Function
-        let matrixInterval;
-        function spawnMatrix() {
-            matrixInterval = setInterval(() => {
-                const randomHex = Math.floor(Math.random()*16777215).toString(16);
-                const randomFile = ["sys_config.dll", "boot_mgr.exe", "user_auth.key", "old_sub.db"][Math.floor(Math.random()*4)];
-                bgMatrix.innerHTML += `Deleting 0x${randomHex} ... ${randomFile} <br>`;
-                bgMatrix.scrollTop = bgMatrix.scrollHeight;
-            }, 50); // အရမ်းမြန်မြန် ပြေးနေမည်
-        }
+        // =========================================================
+        // 🚀 BACKEND LOGIC (မပြင်ဘဲ ထားနိုင်ပါသည်)
+        // =========================================================
 
-        // Action များ ခိုင်းစေရန်
-        function triggerAction(action) {
-            if (action === "start-matrix") spawnMatrix();
-            if (action === "shake") {
-                warning.style.opacity = "1";
-            }
-            if (action === "heavy-shake") {
-                document.body.classList.add('shake-heavy');
-                warning.setAttribute('data-text', 'DATABASE PURGE');
-                warning.innerText = 'DATABASE PURGE';
-            }
-            if (action === "stop-shake") {
-                document.body.classList.remove('shake-heavy');
-                warning.style.opacity = "0";
-            }
-            if (action === "stop-matrix") {
-                clearInterval(matrixInterval);
-                bgMatrix.innerHTML = "";
-            }
-            if (action === "maintenance-mode") {
-                warning.style.opacity = "1";
-                warning.style.color = "#38BDF8";
-                warning.style.textShadow = "0 0 15px #38BDF8";
-                warning.setAttribute('data-text', '🛠️ SYSTEM UPDATING 🛠️');
-                warning.innerText = '🛠️ SYSTEM UPDATING 🛠️';
-                document.querySelector('.cursor').style.background = "#38BDF8";
-            }
-        }
+        const messageText = document.getElementById('message-text');
+        const bgMusic = document.getElementById('bg-music');
+        const statusTag = document.getElementById('status-tag');
+        let fakeUsers = 1245;
+        let rainInterval = null;
 
-        // Terminal ထဲ စာထည့်ရန်
-        function printLog(item, instant = false) {
-            const cssClass = item.class ? `class="${item.class}"` : "";
-            const logHTML = `<div class="log-line" ${cssClass}>${item.text}</div>`;
+        // အတုအယောင် Live User Counter အော်တိုတက်စေမည့် စနစ်
+        setInterval(() => {
+            fakeUsers += Math.floor(Math.random() * 6) + 2;
+            document.querySelectorAll('.live-user-placeholder').forEach(el => {
+                el.innerText = fakeUsers.toLocaleString();
+            });
+            if(document.body.classList.contains('neon-active')) {
+                statusTag.innerHTML = `🔴 LIVE: ${fakeUsers.toLocaleString()} USERS`;
+            }
+        }, 1500);
+
+        // 🌮 TACO ਮိုးရွာချစေမည့် စနစ်
+        function startTacoRain() {
+            if (rainInterval) return; // ထပ်ခါထပ်ခါ မပွင့်စေရန်
+            rainInterval = setInterval(() => {
+                const taco = document.createElement('img');
+                
+                // 🖼️ မင်းရဲ့ TACO ပုံ Link ကို အောက်က src နေရာမှာ အစားထိုးပါ
+                taco.src = "https://www.dropbox.com/scl/fi/hdxlj7m8kycjfdam2f86w/taco.png?rlkey=q72088oopkhxlgklnwt9demva&st=uajly8ej&raw=1"; 
+                
+                taco.className = 'taco';
+                taco.style.left = Math.random() * 100 + "vw";
+                taco.style.width = (Math.random() * 25 + 30) + "px"; // ပုံအရွယ်အစား 30px မှ 55px ကြား Random ဖြစ်မည်
+                taco.style.animationDuration = (Math.random() * 2 + 1.5) + "s"; // ကျလာမည့်အရှိန် ၁.၅ သို့ ၂ စက္ကန့်
+                
+                document.getElementById('taco-container').appendChild(taco);
+                
+                // မျက်နှာပြင်အောက် ရောက်သွားရင် ဖျက်ပစ်မည်
+                setTimeout(() => { taco.remove(); }, 3500);
+            }, 180); // တာကိုး တစ်ခုနဲ့တစ်ခု ကျလာမည့် ကြာချိန် (180ms ဆိုလျှင် တရစပ် ရွာကျလာမည်)
+        }
+		
+		// =========================================================
+        // 🚀 BACKEND LOGIC (မပြင်ဘဲ ထားနိုင်ပါသည်)
+        // =========================================================
+
+        const messageText = document.getElementById('message-text');
+        const bgMusic = document.getElementById('bg-music');
+        
+        // 👇 သီချင်းအသံကို တိုးရန် ဤနေရာတွင် ထည့်ပါ 👇
+        bgMusic.volume = 0.3; // (0.3 ဆိုသည်မှာ 30% အသံအကျယ်ဖြစ်ပါသည်။ 0.1 မှ 1.0 ထိ စိတ်ကြိုက်ပြင်ပါ)
+
+        const statusTag = document.getElementById('status-tag');
+        let fakeUsers = 1245;
+        let rainInterval = null;
+
+        // Event စတင်ချိန်တွင် စနစ်အားလုံးအား Neon ပြောင်းလဲစေမည့် အပိုင်း
+        function activateNeonEvent() {
+            document.body.classList.add('neon-active');
+            statusTag.innerHTML = `🔴 LIVE: ${fakeUsers.toLocaleString()} USERS`;
+            startTacoRain();
             
-            if (instant) {
-                // အချိန်နောက်ကျမှ ဝင်လာသူများအတွက် ချက်ချင်းပြမည်
-                currentLogs += logHTML;
-            } else {
-                // အချိန်မှီ ကြည့်နေသူများအတွက် Typewriter မပါဘဲ ချက်ချင်းပေါ်လာသော်လည်း Time ကိုက်ပေါ်မည်
-                currentLogs += logHTML;
-                terminal.innerHTML = currentLogs + '<span class="cursor"></span>';
-                if (item.action) triggerAction(item.action);
-            }
+            // သီချင်းဖွင့်ခြင်း
+            bgMusic.play().catch(() => {
+                document.body.addEventListener('click', () => bgMusic.play(), { once: true });
+            });
         }
 
-        // Live Event Synchronization
-        function syncEvent() {
-            const now = Date.now();
-            let elapsed = now - EVENT_START_TIME; // ပွဲစကတည်းက ဘယ်လောက်ကြာသွားပြီလဲ တွက်မည်
+        // Live Timing Sync Engine
+        function syncEventEngine() {
+            const elapsed = Date.now() - EVENT_START_TIME;
             
             if (elapsed < 0) {
-                // ပွဲမစခင် ဝင်လာသူများအတွက်
-                terminal.innerHTML = `<div>> Waiting for Admin connection...</div><span class="cursor"></span>`;
-                setTimeout(syncEvent, -elapsed);
+                // ပွဲမစခင်အချိန်
+                statusTag.innerHTML = "💤 WAITING";
+                setTimeout(syncEventEngine, -elapsed);
                 return;
             }
 
-            let futureEvents = [];
+            // ပွဲစပြီဆိုလျှင် Neon Mode ပြောင်းမည်
+            activateNeonEvent();
 
-            // Timeline တစ်ခုလုံးကို စစ်ဆေးမည်
-            timeline.forEach(item => {
-                if (item.time <= elapsed) {
-                    // အချိန်ကျော်သွားသော (အရှေ့က) Event များကို ချက်ချင်း Print ထုတ်မည်
-                    printLog(item, true);
-                    // နောက်ဆုံး Action အခြေအနေကို ယူထားမည် (ဥပမာ- ရှုပ်ထွေးနေချိန် ဝင်လာရင် တုန်ခါနေအောင်)
-                    if (item.action) triggerAction(item.action);
+            let activeText = "Initializing protocols...";
+
+            TIMELINE.forEach(item => {
+                if (elapsed >= item.time) {
+                    activeText = item.text; // ကျော်သွားပြီးသားစာတွေထဲက နောက်ဆုံးစာကို ယူပြထားမည်
                 } else {
-                    // မရောက်သေးသော Event များကို စုထားမည်
-                    futureEvents.push(item);
+                    // မရောက်သေးတဲ့ စာတွေကို သတ်မှတ်စက္ကန့်အလိုက် ပေါ်လာစေမည်
+                    setTimeout(() => {
+                        messageText.innerHTML = item.text;
+                    }, item.time - elapsed);
                 }
             });
 
-            // ကျော်သွားသော စာများအားလုံးကို တစ်ခါတည်း Terminal ထဲထည့်မည်
-            terminal.innerHTML = currentLogs + '<span class="cursor"></span>';
-
-            // မရောက်သေးသော Event များကို အချိန်ကိုက် ပေါ်လာစေရန် setTimeout ပေးမည်
-            futureEvents.forEach(item => {
-                const timeLeft = item.time - elapsed;
-                setTimeout(() => {
-                    printLog(item, false);
-                }, timeLeft);
-            });
+            messageText.innerHTML = activeText;
         }
 
-        window.onload = syncEvent;
+        window.onload = syncEventEngine;
     </script>
 </body>
 </html>
