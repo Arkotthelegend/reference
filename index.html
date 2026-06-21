@@ -87,8 +87,8 @@
             100% { filter: hue-rotate(360deg) contrast(1); transform: translate(2px, -2px); }
         }
 
-        /* =========================================================
-           🌮 TACO RAIN SYSTEM
+       /* =========================================================
+           🌮 TACO RAIN SYSTEM (FIXED)
            ========================================================= */
         #taco-container {
             position: fixed;
@@ -99,13 +99,19 @@
 
         .taco {
             position: absolute;
-            top: -60px;
             pointer-events: none;
+            /* top နဲ့ rotate ကို ခွဲခြားအလုပ်လုပ်စေသည် */
             animation: fall linear forwards, spin 2s linear infinite;
         }
 
-        @keyframes fall { to { transform: translateY(105vh); } }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes fall { 
+            0% { top: -60px; }
+            100% { top: 110vh; } 
+        }
+        @keyframes spin { 
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); } 
+        }
 
         /* =========================================================
            💬 MESSAGE BOX UI
@@ -220,7 +226,7 @@
 <body>
 
     <audio id="bg-music" loop>
-        <source src="https://www.dropbox.com/scl/fi/rn7s8uv14m7kmucd15mmd/It_s-Raining-Tacos-Reanimated-MP3_160K.mp3?rlkey=qvayb3qcc61rcz2tby5j3oxsv&st=el83uapf&raw=1" type="audio/mpeg">
+        <source src="https://www.dropbox.com/scl/fi/rn7s8uv14m7kmucd15mmd/It_s-Raining-Tacos-Reanimated-MP3_160K.mp3?rlkey=qvayb3qcc61rcz2tby5j3oxsv&st=4v1fk53c&raw=1" type="audio/mpeg">
     </audio>
 
     <div id="game-world">
@@ -233,7 +239,7 @@
     <div class="message-container">
         <div class="live-status" id="status-tag">💤 WAITING</div>
         
-        <img src="https://www.dropbox.com/scl/fi/edtb5myal5u46g78xilyi/admin.png?rlkey=43tkapf04lkkrsy2y8fd6my3t&st=4bu4x24o&raw=1" class="character-img" alt="Admin">
+        <img src="https://www.dropbox.com/scl/fi/edtb5myal5u46g78xilyi/admin.png?rlkey=43tkapf04lkkrsy2y8fd6my3t&st=e9klunrl&raw=1" class="character-img" alt="Admin">
         
         <div class="text-content">
             <span id="message-text">Admin ကို စောင့်ဆိုင်းနေပါသည်...</span>
@@ -251,17 +257,39 @@
         
         // 🚨 စမ်းသပ်ရန်အတွက် လက်ရှိအချိန် (ချက်ချင်းပွဲစမည့်စနစ်) ထားပေးထားသည်။
         // တကယ့်အချိန်နဲ့ ချိန်းချင်ရင် အောက်က line ကိုဖျက်ပြီး new Date(2026, 5, 25, 20, 30, 0).getTime() ပုံစံမျိုး ပြောင်းရေးပါ။
-        const EVENT_START_TIME = new Date(2026, 5, 21, 22, 38, 0).getTime(); 
+        const EVENT_START_TIME = new Date(2026, 5, 21, 23, 44, 0).getTime(); 
         
         const TIMELINE = [
-            { time: 0,     text: "[SYSTEM] Admin @minaphayarkot has joined the server..." },
-            { time: 4000,  text: "ဟေ့လူတွေ... အားလုံးပဲ အဆင်သင့်ဖြစ်ကြပြီလား!" },
-            { time: 8000,  text: "အခု ငါတို့ App ထဲမှာ Live User <span style='color:#00ffff; font-weight:bold;' class='live-user-placeholder'>1,245</span> ယောက်တောင် ရှိနေတယ်ဟ။" },
-            { time: 13000, text: "နောက်ထပ် <span style='color:#ff007f; font-weight:bold;'>အယောက် ၅၀</span> ထပ်ဝင်လာတာနဲ့ 1 Subject 1 Month FREE CODE ကို ဒီမှာပဲ ချပေးမယ်။" },
-            { time: 18000, text: "ခဏစောင့်နော်... လူတက်လာတာကို စောင့်ကြည့်နေတယ်..." },
-            { time: 23000, text: "အိုကေ!! လူပြည့်သွားပြီ! ကတိအတိုင်း FREE CODE ထုတ်ပေးလိုက်ပြီ။ 🎁" },
-            { time: 27000, text: "မင်းတို့ရဲ့ CODE ကတော့: <span style='color:yellow; font-weight:bold; font-size:1.1rem; background:rgba(255,0,0,0.5); padding:2px 5px;'>TACO_GARDEN_2026</span> ဖြစ်ပါတယ်။" },
-            { time: 32000, text: "Code ရတာနဲ့ အောက်ကခလုတ်ကို အမြန်ဆုံးနှိပ်ပြီး ငါ့ဆီလာပြောကြတော့! Limit ရှိတယ်နော်!!" }
+            { time: 0,     text: "[SYSTEM] Admin has joined the server..." },
+            { time: 5000,  text: "စောင့်နေရတာကြာသွားလို့တောင်းပန်ပါတယ်ဗျာ" },
+            { time: 9000,  text: "အဆင်သင့်ဖြစ်နေကြပြီလား" },
+			{ time: 12000,  text: "အားလုံးမျှော်လင့်နေကြတဲ့" },
+            { time: 14000, text: "Update အသစ်မှာဘာပါမလဲဆိုတော့ ...." },
+            { time: 19000, text: "အသစ်တွေပါမှာပေါ့ဗျာ" },
+            { time: 22000, text: "ကျွန်တော်လည်းမသိဘူး" },
+			{ time: 25000, text: "ပြီးမှပဲဝင်ကြည့်ကြတော့" },
+            { time: 29000, text: "လက်ရှိ <span style='color:#00ffff; font-weight:bold;' >Mini App</span> ကိုဝင်ထားတဲ့သူတွေအများကြီးပဲဟ" },
+            { time: 32000, text: "အစီအစဉ်လေးတစ်ခုလုပ်ထားတယ်" },
+            { time: 35000, text: "နောက်ထပ် <span style='color:#00ffff; font-weight:bold;' >Mini App</span> ကိုအခုအချိန်မှာဝင်ထားပြီး <span style='color:#00ffff; font-weight:bold;' >Admin Abuse</span> မှာပါဝင်တဲ့သူအယောက် ၄၀ ထပ်ရောက်တာနဲ့ <span style='color:blue; font-weight:bold; font-size:1.1rem; background:rgba(255,0,0,0.5); padding:2px 5px;'>1 Subject Free 1 Month Code</span> ချပေးမယ်" },
+			{ time: 40000, text: "အဲ့ဒီ Code ကို အောက်က <span style='color:#00ffff; font-weight:bold;'>Claim Gift</span> ကိုနှိပ်ပြီးကျွန်တော့်အကောင့်မှာလာပို့ပါ" },
+			{ time: 43000, text: "အရင်ဆုံးပို့နိုင်တဲ့ သူ <span style='color:#ff007f; font-weight:bold;'>၅ ယောက်ကိုပဲ</span> ပေးမှာနော်" },
+			{ time: 47000, text: "လူမြန်မြန်ပြည့်အောင်သူငယ်ချင်းတွေကိုခေါ်ကြနော်" },
+			{ time: 50000, text: "လူပြည့်လည်း ခဏစောင့်ပေးပါ့မယ်အေးဆေးလုပ်" },
+            { time: 64000,  text: "ကဲအဆင်သင့်ဖြစ်ကြပြီလား..." },
+			{ time: 67000,  text: "ပထမဆုံး CODE ကတော့: <span style='color:yellow; font-weight:bold; font-size:1.1rem; background:rgba(255,0,0,0.5); padding:2px 5px;'>REEDADMINABUSEST</span> ဖြစ်ပါတယ်။" },
+            { time: 77000, text: "ဘယ်လိုတုန်းရကြလား" },
+            { time: 79000, text: "အော်ဒါနဲ့ Update ပြီးရင်တော့ တစ်ဘာသာတစ်လစာ ဈေးနှုန်းတက်မယ်နော်" },
+            { time: 81000, text: "အခုမတိုင်ခင်ဝယ်ထားတဲ့သူတွေကတော့ ဝယ်ထားတဲ့ဘာသာရပ်ကို အရင်ဈေးနဲ့ပဲဝယ်လို့ရပါတယ်" },
+			{ time: 85000, text: " Gift မရလိုက်တဲ့သူတွေလည်းရှိကြမယ်ထင်ပါတယ်" },
+			{ time: 87000, text: "ကဲပါ" },
+            { time: 89000, text: "နောက် code တစ်ခုချပေးမယ်" },
+            { time: 92000, text: "ဒီတစ်ခေါက်ကတော့မတူဘူး" },
+			{ time: 95000, text: " Reed channel မှာဒီ event ကြီးရဲ့ Link ရှိတယ်လေ နောက်ဆုံး post မှာ" },
+			{ time: 97000, text: "အဲ့ဒီ post ကိုသူငယ်ချင်း ၁ ယောက်ကို share ပေးပြီး ss နဲ့ code နဲ့လာပို့ရမှာ" },
+            { time: 99000, text: "ပထမတစ်ခေါက်ရပြီးသားသူတွေကိုဒီတစ်ကြိမ်မှာထပ်ယူခွင့်မပေးထားပါဘူး" },
+            { time: 101000, text: "ကဲအဆင်သင့်ဖြစ်ကြပြီလား" },
+			{ time: 103000, text: "ချပြီ" },
+			{ time: 106000, text: "နောက် CODE ကတော့: <span style='color:yellow; font-weight:bold; font-size:1.1rem; background:rgba(255,0,0,0.5); padding:2px 5px;'>CHANCES</span> ဖြစ်ပါတယ်။" }
         ];
 
         // =========================================================
@@ -273,26 +301,60 @@
         bgMusic.volume = 0.3; // သီချင်းအသံချုံ့ထားသည်
 
         const statusTag = document.getElementById('status-tag');
-        let fakeUsers = 1245;
+        let fakeUsers = 97;
         let rainInterval = null;
+        let isUserCounterRunning = false; // ထပ်ခါထပ်ခါ Run တာကို တားရန်
 
-        // User Counter
-        setInterval(() => {
-            fakeUsers += Math.floor(Math.random() * 6) + 2;
+        // User Counter Engine သစ်
+        function startUserCounter() {
+            if (isUserCounterRunning) return;
+            isUserCounterRunning = true;
+
+            // စစချင်း 97 ယောက်ကို ပြပေးမည်
+            updateUserUI();
+
+            function loopCounter() {
+                // ၂ စက္ကန့် မှ ၄ စက္ကန့် ကြား Random အချိန် (2000ms to 4000ms)
+                const randomDelay = Math.floor(Math.random() * 2000) + 1000;
+
+                setTimeout(() => {
+                    // User တက်မလား၊ ကျမလား သတ်မှတ်ခြင်း (80% chance က တက်မည်၊ 20% chance က ကျမည်)
+                    const isIncrease = Math.random() < 0.7.3;
+
+                    if (isIncrease) {
+                        // ၃ ယောက် မှ ၅ ယောက် အထိ တက်မည်
+                        fakeUsers += Math.floor(Math.random() * 3) + 3;
+                    } else {
+                        // ၁ ယောက် မှ ၂ ယောက် အထိ ကျမည်
+                        fakeUsers -= Math.floor(Math.random() * 2) + 1;
+                        
+                        // User အရေအတွက် 97 အောက် မရောက်သွားအောင် ထိန်းထားမည်
+                        if (fakeUsers < 97) fakeUsers = 97; 
+                    }
+
+                    updateUserUI();
+                    loopCounter(); // နောက်တစ်ကြိမ်အတွက် ဆက်ပြီး Run မည်
+                }, randomDelay);
+            }
+
+            loopCounter();
+        }
+
+        function updateUserUI() {
             document.querySelectorAll('.live-user-placeholder').forEach(el => {
                 el.innerText = fakeUsers.toLocaleString();
             });
             if(document.body.classList.contains('neon-active')) {
                 statusTag.innerHTML = `🔴 LIVE: ${fakeUsers.toLocaleString()} USERS`;
             }
-        }, 1500);
+        }
 
         // Taco Rain Function
         function startTacoRain() {
             if (rainInterval) return;
             rainInterval = setInterval(() => {
                 const taco = document.createElement('img');
-                taco.src = "https://www.dropbox.com/scl/fi/hdxlj7m8kycjfdam2f86w/taco.png?rlkey=q72088oopkhxlgklnwt9demva&st=dizdia88&raw=1"; 
+                taco.src = "https://www.dropbox.com/scl/fi/hdxlj7m8kycjfdam2f86w/taco.png?rlkey=q72088oopkhxlgklnwt9demva&st=8pl3atab&raw=1"; 
                 taco.className = 'taco';
                 taco.style.left = Math.random() * 100 + "vw";
                 taco.style.width = (Math.random() * 25 + 30) + "px";
@@ -304,11 +366,14 @@
         }
 
         // Active Neon Page Function
+        // Active Neon Page Function
         function activateNeonEvent() {
             if (!document.body.classList.contains('neon-active')) {
                 document.body.classList.add('neon-active');
-                statusTag.innerHTML = `🔴 LIVE: ${fakeUsers.toLocaleString()} USERS`;
+                
+                // Event စပြီဖြစ်တဲ့အတွက် Taco မိုးရွာမယ်၊ User 97 ယောက်ကနေ စတက်မယ်
                 startTacoRain();
+                startUserCounter(); 
                 
                 bgMusic.play().catch(() => {
                     document.body.addEventListener('click', () => bgMusic.play(), { once: true });
