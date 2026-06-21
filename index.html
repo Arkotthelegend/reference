@@ -3,2175 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-	<script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>SYSTEM OVERRIDE</title>
     <style>
-
-		/* ============================================================
-           🚀 PREMIUM NATIVE APP LOOK & FEEL FIXES (GLOBAL)
-           ============================================================ */
-        /* ၁။ ဘယ်နေရာနှိပ်နှိပ် အပြာရောင် စတုဂံကွက် မှိန်မှိန် ပေါ်လာခြင်းကို လုံးဝဖျောက်ရန် */
-        * {
-            -webkit-tap-highlight-color: transparent !important;
-            -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
-            outline: none !important;
+        body {
+            background-color: #050505;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden; /* Scroll မပေါ်အောင် ပိတ်ထားမည် */
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
         }
-        /* ၂။ ဖုန်းမှာ ဖိထားရင် စာသား/ပုံတွေ Blue Highlight (Select) ဖြစ်သွားတာကို တားဆီးရန် */
-        body, div, span, button, img, a, .subject-card, .option-item, .nav-item {
-            -webkit-touch-callout: none !important;
-            -webkit-user-select: none !important;
-            user-select: none !important;
+
+        /* --- စိတ်လှုပ်ရှားစရာ Glitch Effect --- */
+        .glitch-wrapper {
+            text-align: center;
+            margin-top: 10vh;
+            margin-bottom: 20px;
+            z-index: 10;
         }
-        /* ၃။ မေးခွန်းစာရိုက်ကွက် (Input) များတွင် စာရိုက်ရလွယ်ကူအောင် Select ပေးထားခြင်း */
-        input, textarea, .quiz-input {
-            -webkit-user-select: auto !important;
-            user-select: auto !important;
+        .glitch {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff003c;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 10px #ff003c;
+            opacity: 0; /* စစချင်း ဖျောက်ထားမည် */
         }
-		
-        :root { 
-            --bg: #0F172A; --card: #1E293B; --accent: #38BDF8; 
-            --white: #ffffff; --lock: #475569; --success: #10B981; --error: #EF4444;
-            --secondary-btn: #334155;
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #050505;
         }
-        body { background-color: var(--bg); color: var(--white); font-family: sans-serif; margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
-        .container { padding: 15px; flex: 1; overflow-y: auto; box-sizing: border-box; padding-bottom: 90px; }
+        .glitch::before {
+            left: 3px; text-shadow: -2px 0 blue;
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+        .glitch::after {
+            left: -3px; text-shadow: -2px 0 yellow;
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(10px, 9999px, 30px, 0); }
+            20% { clip: rect(50px, 9999px, 60px, 0); transform: translate(-5px, 5px); }
+            40% { clip: rect(20px, 9999px, 40px, 0); }
+            60% { clip: rect(70px, 9999px, 80px, 0); transform: translate(5px, -5px); }
+            80% { clip: rect(30px, 9999px, 50px, 0); }
+            100% { clip: rect(60px, 9999px, 70px, 0); }
+        }
+
+        /* --- တုန်ခါသည့် Effect --- */
+        .shake-heavy {
+            animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both infinite;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(-5px, 4px) rotate(-1deg); color: #ff003c; }
+            50% { transform: translate(4px, -5px) rotate(1deg); background-color: rgba(255,0,0,0.1); }
+            75% { transform: translate(-4px, -4px) rotate(-1deg); }
+        }
+
+        /* --- Terminal ပုံစံ --- */
+        #terminal {
+            flex: 1;
+            font-size: 1rem;
+            line-height: 1.8;
+            overflow-y: hidden;
+            z-index: 10;
+        }
+        .log-line { margin-bottom: 5px; }
+        .sys-danger { color: #ff003c; font-weight: bold; }
+        .sys-success { color: #38BDF8; font-weight: bold; }
         
-        .subject-card { background: var(--accent); padding: 20px; border-radius: 18px; margin-bottom: 12px; font-size: 1.2rem; font-weight: bold; display: flex; justify-content: space-between; align-items: center; cursor: pointer; color: white; }
-        .locked { background: var(--lock); opacity: 0.6; }
-        
-        .screen { display: none; }
-        .active-screen { display: block; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .cursor {
+            display: inline-block; width: 10px; height: 1rem; background: #0f0;
+            animation: blink 1s infinite; vertical-align: middle;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        .btn { background: var(--accent); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: bold; width: 100%; margin: 8px 0; cursor: pointer; text-align: center; box-sizing: border-box; font-size: 1rem; -webkit-tap-highlight-color: transparent; }
-        .back-btn { background: var(--secondary-btn); margin-top: 20px; }
-        .next-btn { background: var(--success); display: none; margin-top: 10px; }
-
-        .option-btn { background: var(--card); border: 2px solid #334155; transition: 0.2s; color: white; }
-        .correct-opt { background: var(--success) !important; border-color: var(--success) !important; }
-        .wrong-opt { background: var(--error) !important; border-color: var(--error) !important; }
-
-        /* Flashcard Styling */
-.flash-container { 
-    height: 320px; 
-    cursor: pointer; 
-    margin: 20px 0; 
-}
-
-.flash-card { 
-    width: 100%; 
-    height: 100%; 
-    position: relative; 
-    border-radius: 20px; 
-}
-
-.flash-face { 
-    position: absolute; 
-    width: 100%; 
-    height: 100%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 1.4rem; 
-    border-radius: 20px; 
-    padding: 25px; 
-    text-align: center; 
-    box-sizing: border-box; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
-    
-    /* Lagging မဖြစ်အောင် Opacity နဲ့ Transform ကိုပဲ Transition ပေးထားပါတယ် */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; 
-}
-
-/* --- ကတ်အရှေ့မျက်နှာပြင် (Sleek Dark Slate) --- */
-.flash-front { 
-    background: #0F172A; /* အရောင်ကို နည်းနည်းပြင်ထားပါတယ် */
-    color: #ffffff; 
-    opacity: 1;
-	border: 3px solid var(--accent, #3b82f6); 
-    transform: scale(1);
-    z-index: 2;
-}
-
-/* --- ကတ်အနောက်မျက်နှာပြင် (Distinct Dark Blue) --- */
-.flash-back { 
-    background: #0F2A2A; /* အရှေ့အရောင်နဲ့ ကွဲပြားအောင် ပိုရင့်တဲ့အရောင် သုံးထားပါတယ် */
-    color: #f1f5f9; 
-    opacity: 0;
-	border: 3px solid var(--accent, #F63B3B); 
-    transform: scale(0.95); /* စစချင်းမှာ နည်းနည်းကျုံ့ထားပြီးမှ Pop-up ပုံစံ ပေါ်လာအောင်လို့ပါ */
-    z-index: 1;
-    pointer-events: none; /* ပုန်းနေချိန်မှာ Click နှိပ်လို့မရအောင် ပိတ်ထားတာပါ */
-}
-
-/* --- အလှည့် (Toggle State Animation) --- */
-.is-flipped .flash-front {
-    opacity: 0;
-    transform: scale(0.95);
-    pointer-events: none;
-}
-
-.is-flipped .flash-back {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 2;
-    pointer-events: auto;
-}
-
-        #profile-avatar { width: 100px; height: 100px; margin: 0 auto; display: block; }
-        .profile-info-card { background: var(--card); padding: 20px; border-radius: 15px; text-align: center; margin-top: 15px; border: 1px solid #334155; }
-        .bought-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
-        .bought-badge { background: rgba(56, 189, 248, 0.15); color: var(--accent); padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; border: 1px solid var(--accent); font-weight: bold; }
-        .buy-btn { background: var(--success); text-decoration: none; display: block; margin-top: 10px; }
-        
-        .gender-container { margin: 15px 0; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; }
-        .switch { position: relative; display: inline-block; width: 60px; height: 30px; }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #475569; transition: .4s; border-radius: 30px; }
-        .slider:before { position: absolute; content: ""; height: 22px; width: 22px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
-        input:checked + .slider { background-color: var(--accent); }
-        input:checked + .slider:before { transform: translateX(30px); }
-
-        .nav { position: fixed; bottom: 0; width: 100%; height: 70px; background: var(--card); display: flex; justify-content: space-around; align-items: center; border-top: 1px solid #334155; z-index: 100; }
-        .nav-item { font-size: 1.8rem; opacity: 0.4; cursor: pointer; transition: 0.3s; }
-        .nav-active { opacity: 1; color: var(--accent); transform: scale(1.1); }
-        
-        .quiz-input { width: 100%; padding: 16px; border-radius: 12px; border: 2px solid var(--accent); background: var(--card); color: white; margin-bottom: 10px; box-sizing: border-box; font-size: 1rem; outline: none; }
-        .poem-content { background: var(--card); padding: 20px; border-radius: 15px; line-height: 1; white-space: pre-line; text-align: center; }
-          /* Flashcard အတွင်းစာသားများ ရှင်းလင်းစေရန် */
-
-/* အဖြေမှန် Outline */
-.correct-answer {
-    border: 2px solid #10b981 !important;
-    background: rgba(16, 185, 129, 0.1) !important;
-    color: #10b981 !important;
-}
-
-/* အဖြေမှား Outline */
-.wrong-answer {
-    border: 2px solid #ef4444 !important;
-    background: rgba(239, 68, 68, 0.1) !important;
-    color: #ef4444 !important;
-}
-
-.btn.locked {
-    background-color: var(--lock);
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-/* "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို "ထွက်မည်" ခလုတ်အတိုင်း အတိအကျညှိခြင်း */
-.next-btn-styled {
-    background: rgb(1, 167, 248) !important;
-    color: white !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    padding: 14px 20px; /* ထွက်မည် ခလုတ်လို ခပ်ကြီးကြီး */
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%; /* အလယ်ဗဟိုမှာ အပြည့်ပေါ်ရန် */
-    margin-top: 20px;
-    display: block;
-    text-align: center;
-}
-		
-        #exam-countdown {
-    background: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    border-radius: 12px;
-    padding: 12px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    backdrop-filter: blur(5px);
-}
-
-.countdown-unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 55px;
-}
-
-.countdown-value {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--accent);
-}
-
-.countdown-label {
-    font-size: 0.65rem;
-    color: #94a3b8;
-    text-transform: uppercase;
-    margin-top: 2px;
-}
-
-/* Premium User များအတွက် နောက်ခံအရောင် */
-.premium-bg {
-    background: linear-gradient(135.2deg, #0F172A 0%, #1E1B4B 50%, #312E81 100%) !important;
-}
-
-.premium-card {
-    border: 1px solid #F59E0B !important; /* ရွှေရောင် Border */
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
-}
-
-.premium-tag {
-    background: #F59E0B;
-    color: #0F172A;
-    padding: 2px 8px;
-    border-radius: 5px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-.subject-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 10px;
-}
-.sub-btn {
-    background-color: var(--card);
-    color: var(--white);
-    border: 2px solid var(--lock);
-    padding: 25px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.sub-btn:hover {
-    border-color: var(--accent);
-    background-color: #24334d;
-}
-.quiz-card {
-    background-color: var(--card);
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border-left: 4px solid var(--accent);
-}
-.quiz-card p {
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-.option-item {
-    display: block;
-    background-color: #24324a;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.option-item:hover {
-    background-color: #2e3f5c;
-}
-.option-item input {
-    margin-right: 10px;
-}
-
-.shuffle-btn {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 4px 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    margin-left: 10px;
-    vertical-align: middle;
-}
-.shuffle-active {
-    background: var(--accent);
-    color: white;
-}
-
-.timer-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* ညာဘက်သို့ ကပ်ထားရန် */
-    margin-top: 15px;
-    gap: 8px;
-}
-.timer-btn {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    cursor: pointer;
-}
-.timer-display {
-    font-size: 0.95rem;
-    color: var(--accent);
-    font-family: monospace;
-    font-weight: bold;
-    display: none; /* အချိန်မစခင် ဖျောက်ထားမည် */
-}
-
+        /* --- နောက်ခံမှာ Random စာတွေပြေးနေမည့် နေရာ --- */
+        #bg-matrix {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            color: rgba(0, 255, 0, 0.15); font-size: 0.8rem; overflow: hidden;
+            z-index: 1; pointer-events: none; padding: 10px; box-sizing: border-box;
+            word-wrap: break-word; line-height: 1.2;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div id="home-screen" class="screen active-screen">
-            <h2 style="text-align: center; color: var(--accent);">ဘာသာရပ်များ</h2>
-            <div id="subject-list"></div>
-            <div style="padding: 20px; margin-top: 10px;">
-    <button class="btn" style="background: linear-gradient(135deg, #10B981, #059669); font-weight: bold; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);" onclick="openTrialMenu()">
-        🎁 ဘာသာရပ်များကို အစမ်းသုံးရန်
-    </button>
-	<div id="admin-announcement" style="margin-top: 20px; padding: 15px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border: 1px solid var(--accent); color: var(--accent); font-size: 0.9rem; text-align: center; display: none;">
-    </div>
-</div>
-        </div>
-		
-		<div id="daily-screen" class="screen">
-    <h2 style="text-align: center; color: var(--accent);">Daily Quiz (Free)</h2>
-    <p style="text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top:-10px; margin-bottom: 20px;">နေ့စဉ် မေးခွန်းသစ် ၃ ခုကို ကျပန်းဖြေဆိုနိုင်ပါသည်။</p>
-    
-    <div style="padding: 15px;">
-        <div class="subject-card" onclick="startDailyQuiz('mm')">
-            <span>မြန်မာစာ</span> <span>➔</span>
-        </div>
-        <div class="subject-card" onclick="startDailyQuiz('en')">
-            <span>အင်္ဂလိပ်စာ</span> <span>➔</span>
-        </div>
-        <div class="subject-card" onclick="startDailyQuiz('phy')">
-            <span>ရူပဗေဒ</span> <span>➔</span>
-        </div>
-        <div class="subject-card" onclick="startDailyQuiz('chem')">
-            <span>ဓာတုဗေဒ</span> <span>➔</span>
-        </div>
-        <div class="subject-card" onclick="startDailyQuiz('bio')">
-            <span>ဇီဝဗေဒ</span> <span>➔</span>
-        </div>
-		<div class="subject-card" onclick="startDailyQuiz('eco')">
-            <span>ဘောဂဗေဒ</span> <span>➔</span>
-        </div>
-    </div>
-</div>
+    <div id="bg-matrix"></div>
 
-		
-	<div id="scroll-screen" class="screen">
-    
-    <div id="old-questions-main" style="padding: 15px;">
-        <h2 style="text-align: center;">Old Questions</h2>
-        <button class="btn" onclick="showOldSubjects('2024')">📅 2024</button>
-        <button class="btn" onclick="showOldSubjects('2025')">📅 2025</button>
+    <div class="glitch-wrapper">
+        <div id="main-warning" class="glitch" data-text="SYSTEM COMPROMISED">SYSTEM COMPROMISED</div>
     </div>
 
-    <div id="old-subjects-screen" style="display:none; padding: 15px;">
-        <h3 id="selected-year-title" style="text-align: center;"></h3>
-        <div id="old-subject-list"></div>
-        <button class="btn back-btn" onclick="backToOldYears()">နောက်သို့</button> 
-    </div>
-
-    <div id="old-sets-screen" style="display:none; padding: 15px;">
-        <h3 id="old-set-title" style="text-align: center;"></h3>
-        <div id="old-set-list"></div>
-        <button class="btn back-btn" onclick="backToOldSubjects()">နောက်သို့</button>
-    </div>
-
-    <div id="old-types-screen" style="display:none; padding: 15px;">
-        <h3 id="selected-sub-title" style="text-align: center;"></h3>
-        <div id="old-type-list"></div>
-        <button class="btn back-btn" onclick="backToOldSets()">နောက်သို့</button>
-    </div>
-
-</div>
-		
-    <div id="middle-screen" class="screen">
-    <div style="padding: 20px; padding-bottom: 100px;">
-        
-        <div style="margin-bottom: 25px; text-align: center; padding: 20px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 20px;">
-            <span style="font-size: 1.5rem;">💡</span>
-            <h4 style="color: var(--accent); margin: 10px 0 5px 0;">Daily Motivation</h4>
-            <p id="daily-quote" style="font-style: italic; font-size: 0.95rem; color: #CBD5E1; line-height: 1.5;">
-                "ရင်းနှီးမြုပ်နှံမှုတွေထဲမှာအကောင်းဆုံးက ပညာရေးမှာရင်းနှီးမြုပ်နှံခြင်းပါပဲ""
-            </p>
-        </div>
-
-        <h3 style="color: var(--accent); text-align: center; margin-bottom: 15px;">Daily Study Tracker</h3>
-        <div class="profile-info-card" style="text-align: left; padding: 15px; margin-bottom: 25px;">
-            <div id="checklist-container">
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal1" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal1">မြန်မာစာ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal2" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal2">အင်္ဂလိပ်စာ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal3" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal3">သင်္ချာ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal4" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal4">ရူပဗေဒ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal5" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal5">ဓာတုဗေဒ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal6" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal6">ဘောဂဗေဒ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal7" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal7">ဇီဝဗေဒ</label>
-                </div>
-            </div>
-        </div>
-        <div id="countdown-label" style="text-align: center; color: var(--accent); font-size: 0.9rem; margin-bottom: 8px; font-weight: bold; letter-spacing: 0.5px;">
-    ⏳ ခန့်မှန်းခြေ စာမေးပွဲဖြေဆိုရန် ကျန်ရှိချိန်
-</div>
-<div id="exam-countdown"></div>
-    </div>
-</div>
-
-        <div id="profile-screen" class="screen">
-            <div style="text-align: center;">
-                <svg id="profile-avatar" viewBox="0 0 100 100">
-                    <circle cx="50" cy="25" r="10" stroke="white" stroke-width="3" fill="none" />
-                    <line x1="50" y1="35" x2="50" y2="70" stroke="white" stroke-width="3" />
-                    <line x1="50" y1="45" x2="30" y2="60" stroke="white" stroke-width="3" />
-                    <line x1="50" y1="45" x2="70" y2="60" stroke="white" stroke-width="3" />
-                    <line x1="50" y1="70" x2="35" y2="90" stroke="white" stroke-width="3" />
-                    <line x1="50" y1="70" x2="65" y2="90" stroke="white" stroke-width="3" />
-                    <path id="hair" d="M38,20 Q35,5 45,15 M62,20 Q65,5 55,15" stroke="white" stroke-width="2" fill="none" style="display:none;" />
-                </svg>
-                <h2 id="user-name" style="margin: 10px 0 5px;">Scholar</h2>
-                <p id="user-id-text" style="color: #94A3B8; margin-bottom: 10px;"></p>
-                
-                <div class="gender-container">
-                    <span>ကျား</span>
-                    <label class="switch">
-                        <input type="checkbox" id="gender-switch" onchange="updateAvatar(true)">
-                        <span class="slider"></span>
-                    </label>
-                    <span>မ</span>
-                </div>
-
-                <div class="profile-info-card">
-                    <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
-                    <div id="bought-items-container" class="bought-container"></div>
-                    <a href="https://t.me/minaphayarkot" target="_blank" class="btn buy-btn">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</a>
-					<div style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
-    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
-        <span style="font-size: 1.2rem;">⚙️</span>
-        <b style="color: var(--accent); font-size: 1.1rem;">မေးခွန်းဖြေဆိုမှု ပုံစံ</b>
-    </div>
-    <p style="color: #94A3B8; font-size: 0.85rem; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">မေးခွန်းများကို အစဉ်လိုက်ဖြေဆိုမည်လား၊ ကျပန်း (Random) ဖြေဆိုမည်လား ရွေးချယ်ပါ။</p>
-    
-    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; background: #0F172A; padding: 10px; border-radius: 12px; border: 1px solid #334155;">
-        <span style="font-size: 0.95rem; color: #cbd5e1;">အစဉ်လိုက်</span>
-        <label class="switch">
-            <input type="checkbox" id="random-switch" onchange="updateRandomizeSetting()">
-            <span class="slider"></span>
-        </label>
-        <span style="font-size: 0.95rem; color: #cbd5e1;">ကျပန်း</span>
-					 </div>
-					 </div>
-					 </div>
-            </div> 
-			<div id="dynamic-content-area"></div>
-        </div>
-
-        <div id="menu-screen" class="screen">
-            <h2 id="menu-title" style="text-align: center; color: var(--accent);"></h2>
-            <div id="menu-content"></div>
-            <button class="btn back-btn" onclick="showScreen('home')">ပင်မစာမျက်နှာသို့</button>
-        </div>
-
-        <div id="activity-screen" class="screen">
-            <h2 id="activity-title" style="text-align: center; color: var(--accent);"></h2>
-            <div id="activity-content"></div>
-            <button class="btn back-btn" id="activity-back-btn">နောက်သို့</button>
-        </div>
-
-        <div id="flashcard-screen" class="screen">
-            <div style="text-align: center; margin-bottom: 5px;">
-    <h2 id="flash-title" style="display: inline-block; color: var(--accent); margin: 0;">Flashcard</h2>
-    <button id="shuffle-toggle-btn" class="shuffle-btn" onclick="toggleFlashcardShuffle()">🔄 ပုံမှန်</button>
-</div>
-            <p id="flash-count" style="text-align: center; color: #94A3B8; margin: 0;">1 / 1</p>
-            
-            <div class="flash-container" onclick="flipCard()">
-                <div id="flash-card" class="flash-card">
-                    <div class="flash-face flash-front" id="flash-front-content"></div>
-                    <div class="flash-face flash-back" id="flash-back-content"></div>
-                </div>
-            </div>
-
-            <div style="display: flex; gap: 10px;">
-                <button class="btn" style="background: var(--secondary-btn);" onclick="prevFlash()">⬅️ ရှေ့သို့</button>
-                <button class="btn" onclick="nextFlash()">နောက်သို့ ➡️</button>
-            </div>
-            <button class="btn back-btn" onclick="showScreen('activity')">ထွက်မည်</button>
-        </div>
-
-        <div id="quiz-screen" class="screen">
-    <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
-    <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5;"></div>
-    <div id="quiz-options"></div>
-    <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
-    <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
-	<div class="timer-wrapper" id="timer-wrapper">
-        <span id="timer-display" class="timer-display">00:00</span>
-        <button id="timer-start-btn" class="timer-btn" onclick="toggleTimer()">⏱ အချိန်မှတ်မည်</button>
-        <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none;">🔄 ပြန်စမည်</button>
-    </div>
-	<div class="markcount" id="markcount">
-	<span id="score-display" style="display: block; text-align: center; margin: 15px auto; font-weight: bold; background: transparent;border: 1px solid var(--accent); color: var(--accent); padding: 10px 40px; border-radius: 20px; font-size: 16px; width: fit-content;"> ရမှတ်: 0</span>
-</div>
-
-        <div id="poem-screen" class="screen">
-            <h2 id="poem-title" style="text-align: center; color: var(--accent);"></h2>
-            <div id="poem-body" class="poem-content"></div>
-            <button class="btn back-btn" onclick="showENPoemOptions()">နောက်သို့</button>
-        </div>
-    </div>
-
-    <div class="nav">
-        <div class="nav-item nav-active" onclick="changeTab('home', this)">🏠</div>
-		<div class="nav-item" onclick="changeTab('daily', this)">📝</div>
-        <div class="nav-item" onclick="changeTab('middle', this)">⏳</div>
-        <div class="nav-item" onclick="changeTab('profile', this)">👤</div>
-    </div>
+    <div id="terminal"></div>
 
     <script>
-		
-		const ADMIN_ID = 8432363664;
-const specialUsers = [5593040432,6889096884];
-		
-		function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-// ဘာသာရပ်အလိုက် ရှိမယ့် Set အရေအတွက်ကို ဒီမှာ စိတ်ကြိုက်ပြင်ပါ
-const subjectSetsConfig = {
-    'mm': 5,    // မြန်မာစာအတွက် ၅ set
-    'en': 3,    // အင်္ဂလိပ်စာအတွက် ၃ set// သင်္ချာအတွက် ၁၀ set
-    'phy': 4,
-    'chem': 2,
-    'bio': 6,
-    'default': 2 // config ထဲမှာ မပါတဲ့ ဘာသာရပ်တွေအတွက် default ၂ set ထားမယ်
-};
-		
-        const tg = window.Telegram.WebApp;
-        tg.ready(); tg.expand();
+        // 🚨 အရေးကြီးသည် 🚨
+        // ပွဲစမည့် အချိန် (Year, Month (0-11), Day, Hour, Minute, Second) ကို သတ်မှတ်ပါ။
+        // ဥပမာ - ၂၀၂၆၊ ဇူလိုင်လ (၆)၊ ၁ ရက်နေ့၊ ည ၈ နာရီ ၃၀ မိနစ်
+        // Month က 0 ကနေစလို့ ဇူလိုင်ဆိုရင် 6 လို့ရေးရပါမယ်။
+        const EVENT_START_TIME = new Date(2026, 6, 21, 21, 15, 0).getTime(); 
 
-      let paidUsers = {}; 
-        let userBought = {}; // const အစား let ပြောင်းပေးရမည်
+        // စမ်းသပ်ချင်ရင် အပေါ်က Code ကို ပိတ်ပြီး အောက်က Code ကို ဖွင့်ပါ (App ဖွင့်လိုက်တဲ့အချိန်ကစပြီး Event စပါမယ်)
+        // const EVENT_START_TIME = Date.now(); 
 
-        const userId = tg.initDataUnsafe?.user?.id?.toString() || "Guest";
+        const terminal = document.getElementById('terminal');
+        const warning = document.getElementById('main-warning');
+        const bgMatrix = document.getElementById('bg-matrix');
+        let currentLogs = "";
 
-        async function loadPaidUsers() {
-            const sheetURL = "https://script.google.com/macros/s/AKfycbywFT-elmwvQOLoHS0RYZUdYl5WbdgB1q5pSjoJ5Krf_WvZLtyPRXhyPdSEr8vQEPFL/exec";
-            
-            // ၁။ ဖုန်းထဲမှာ အရင်က သိမ်းထားဖူးတဲ့ စာရင်းရှိလား အရင်စစ်မယ်
-            const cachedData = localStorage.getItem('cached_paid_users');
-            if (cachedData) {
-                paidUsers = JSON.parse(cachedData);
-                userBought = paidUsers[userId] || [];
-                renderSubjects(); // သိမ်းထားတာ ရှိရင် ချက်ချင်း လော့ဖွင့်ပေးလိုက်မယ်
-            }
-
-            try {
-                // ၂။ Background မှာ Google Sheet ဆီကနေ နောက်ဆုံးရ ဒေတာကို လှမ်းယူမယ်
-                const response = await fetch(sheetURL);
-                const newData = await response.json();
-                
-                // ၃။ ဒေတာအသစ်ကို ဖုန်းထဲမှာ ပြန်သိမ်းမယ်
-                localStorage.setItem('cached_paid_users', JSON.stringify(newData));
-                
-                // ၄။ အကယ်၍ ဒေတာအသစ်က အရင်ဟာနဲ့ မတူရင် (ဥပမာ- အခုမှ ဝယ်ထားတာဆိုရင်) UI ကို Update လုပ်မယ်
-                paidUsers = newData;
-                userBought = paidUsers[userId] || [];
-                renderSubjects();
-                
-                console.log("Database updated in background");
-            } catch (e) {
-                console.error("Database error:", e);
-            }
-        }
-
-        const subjects = [
-            { id: 'mm', name: 'မြန်မာစာ' },
-            { id: 'en', name: 'အင်္ဂလိပ်စာ' },
-            { id: 'phy', name: 'ရူပဗေဒ', chapters: 13 },
-            { id: 'chem', name: 'ဓာတုဗေဒ', chapters: 8 },
-            { id: 'bio', name: 'ဇီဝဗေဒ', chapters: 6 },
-            { id: 'eco', name: 'ဘောဂဗေဒ', chapters: 8 }
+        // Event အချိန်ဇယား (မီလီစက္ကန့် ဖြင့်)
+        const timeline = [
+            { time: 0,     text: "> [ROOT] Admin connection established..." },
+            { time: 3000,  text: "> Bypassing security protocols... [SUCCESS]" },
+            { time: 7000,  text: "> Initiating Level-5 Database Purge.", class: "sys-danger", action: "start-matrix" },
+            { time: 10000, text: "> WARNING: Core structure destabilizing!!!", action: "shake" },
+            { time: 13000, text: "> Deleting: old_questions_2024.db... [DELETED]", class: "sys-danger" },
+            { time: 16000, text: "> Deleting: user_cached_data.json... [DELETED]", class: "sys-danger" },
+            { time: 20000, text: "> ⚠️ SYSTEM CORRUPTION DETECTED ⚠️", class: "sys-danger", action: "heavy-shake" },
+            { time: 25000, text: "> Erasing complete. Halting purge operations." },
+            { time: 28000, text: "> Injecting July Update Patch_v2.0...", action: "stop-shake" },
+            { time: 32000, text: "> Restructuring UI Elements...", action: "stop-matrix" },
+            { time: 36000, text: "> Finalizing maintenance mode. Please wait.", class: "sys-success", action: "maintenance-mode" }
         ];
 
-        let currentSubject = null;
-        let currentQuestions = [];
-        let currentIdx = 0;
-        let flashIdx = 0;
-        let flashCards = [];
-        let isAnswered = false;
-        // မူလရှိနေသော const userId နှင့် const userBought နေရာများကို အပေါ်သို့ ရွှေ့လိုက်ပါပြီ။
-
-
-// --- Old Questions Navigation Logic ---
-let selectedYear = "";
-let selectedOldSub = null;
-
-function showOldSubjects(year) {
-    selectedYear = year; // ရွေးလိုက်တဲ့ ခုနှစ်ကို မှတ်ထားရန်
-    
-    // ၁။ Screen အကူးအပြောင်း လုပ်ခြင်း
-    document.getElementById('old-questions-main').style.display = 'none';
-    document.getElementById('old-subjects-screen').style.display = 'block';
-    document.getElementById('selected-year-title').innerText = year + " Questions";
-    
-    const list = document.getElementById('old-subject-list');
-    list.innerHTML = '';
-    
-    subjects.forEach(sub => {
-        const isSpecial = specialUsers.includes(userId);
-        
-        let isPaid = checkAccess(sub.id); 
-        
-        // Special User အတွက် စစ်ဆေးခြင်း
-        if (isSpecial && (['mm', 'en', 'phy', 'chem'].includes(sub.id) || sub.id === 'bio' || sub.id === 'eco')) {
-            isPaid = true;
+        // နောက်ခံမှာ Hacker စာတွေ ပြေးနေအောင် လုပ်မည့် Function
+        let matrixInterval;
+        function spawnMatrix() {
+            matrixInterval = setInterval(() => {
+                const randomHex = Math.floor(Math.random()*16777215).toString(16);
+                const randomFile = ["sys_config.dll", "boot_mgr.exe", "user_auth.key", "old_sub.db"][Math.floor(Math.random()*4)];
+                bgMatrix.innerHTML += `Deleting 0x${randomHex} ... ${randomFile} <br>`;
+                bgMatrix.scrollTop = bgMatrix.scrollHeight;
+            }, 50); // အရမ်းမြန်မြန် ပြေးနေမည်
         }
 
-        // ၂။ ဘာသာရပ်ကတ်လေးများ ဖန်တီးခြင်း
-        const card = document.createElement('div');
-        card.className = `subject-card ${isPaid ? '' : 'locked'}`;
-        card.innerHTML = `
-            <span>${sub.name}</span>
-            ${isPaid ? '<span>➔</span>' : '<span class="lock-icon">🔒</span>'}
-        `;
-        
-        // ၃။ နှိပ်လိုက်ရင် အလုပ်လုပ်မည့် စနစ်
-        if (isPaid) {
-            card.onclick = () => {
-                currentSubject = sub;
-                isAnswered = false;
-                showOldSets(sub); // သော့ပွင့်နေရင် Set ရွေးတဲ့ မျက်နှာပြင်ကို ဆက်သွားမည်
-            };
-        } else {
-            card.onclick = () => {
-                tg.showAlert("ဒီဘာသာရပ်ကို ဝယ်ယူထားခြင်း မရှိသေးပါ။ Unlock လုပ်ရန် ဆက်သွယ်ပါ။");
-            };
-        }
-        list.appendChild(card);
-    });
-}
-
-// ၂။ Set ရွေးချယ်သည့် Screen
-function showOldSets(sub) {
-    selectedOldSub = sub;
-    document.getElementById('old-subjects-screen').style.display = 'none';
-    document.getElementById('old-sets-screen').style.display = 'block';
-    document.getElementById('old-set-title').innerText = `${selectedYear} - ${sub.name}`;
-    
-    const list = document.getElementById('old-set-list');
-    list.innerHTML = '';
-    
-    // ဘာသာရပ်အလိုက် Set အရေအတွက် သတ်မှတ်ခြင်း (ဥပမာ- Math ကို ၅ set၊ တခြားကို ၂ set)
-    const setCount = (sub.id === 'math') ? 5 : 2; 
-
-    for (let i = 1; i <= setCount; i++) {
-        const b = document.createElement('button');
-        b.className = 'btn';
-        b.innerText = `Set ${i}`;
-        b.onclick = () => showOldTypes(sub, `Set ${i}`);
-        list.appendChild(b);
-    }
-}
-
-// ၃။ Quiz Types (True/False, MCQ စသည်ဖြင့် ပြသခြင်း)
-function showOldTypes(sub, setName) {
-    document.getElementById('old-sets-screen').style.display = 'none';
-    document.getElementById('old-types-screen').style.display = 'block';
-    document.getElementById('selected-sub-title').innerText = `${sub.name} (${setName})`;
-    
-    const list = document.getElementById('old-type-list');
-    list.innerHTML = '';
-    
-    let types = [];
-    // သတ်မှတ်ချက်အတိုင်း ခလုပ်နာမည်များ ခွဲခြားခြင်း
-    if (sub.id === 'mm') {
-        types = [{id:'tf', n:'မှား/မှန်'}, {id:'blank', n:'ကွက်လပ်ဖြည့်'}, {id:'mcq', n:'ရွေးချယ်'}];
-    } else if (sub.id === 'en') {
-        types = [{id:'initial_letter', n:'Initial Letter'}, {id:'mcq', n:'MCQ'}, {id:'grammar', n:'Grammar'}];
-    }  else {
-        types = [{id:'tf', n:'True/False'}, {id:'blank', n:'Fill Blank'}, {id:'mcq', n:'MCQ'}];
-    }
-
-    types.forEach(t => {
-        const b = document.createElement('button');
-        b.className = 'btn';
-        b.innerText = t.n;
-        b.onclick = () => {
-            const formattedSet = setName.replace(/ /g, '').toLowerCase();
-            const fileName = `old_${selectedYear}_${sub.id}_${formattedSet}_${t.id}`;
-            initQuiz(fileName);
-            document.getElementById('quiz-back-btn').onclick = () => { showScreen('middle'); };
-        };
-        list.appendChild(b);
-    });
-}
-
-// ၄။ Back Buttons များအတွက် Functions
-// ၄။ Back Buttons များအတွက် Functions
-function backToOldYears() {
-    document.getElementById('old-subjects-screen').style.display = 'none';
-    document.getElementById('old-questions-main').style.display = 'block';
-}
-
-function backToOldSubjects() {
-    document.getElementById('old-sets-screen').style.display = 'none';
-    document.getElementById('old-subjects-screen').style.display = 'block';
-}
-
-function backToOldSets() {
-    document.getElementById('old-types-screen').style.display = 'none';
-    document.getElementById('old-sets-screen').style.display = 'block';
-}
-
-function checkAccess(subId) {
-    // ၁။ ဒီနေ့ ရက်စွဲကို အချိန် (Time) မပါဘဲ ယူမည်
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); 
-
-    // ၂။ ရက်စွဲ စစ်ဆေးမည့် အတွင်းပိုင်း Function
-    function isValid(expiryStr) {
-        if (!expiryStr) return false;
-        
-        // စာသားကို Date Object အဖြစ် ပြောင်းမည်
-        const expiryDate = new Date(expiryStr);
-        
-        // အကယ်၍ ရက်စွဲ မဟုတ်ခဲ့လျှင် (ဥပမာ- စာသားအမှား ဖြစ်နေလျှင်) False ပြန်မည်
-        if (isNaN(expiryDate.getTime())) return false;
-        
-        expiryDate.setHours(0, 0, 0, 0);
-        
-        // Expire Date က ဒီနေ့ထက် ကြီးရင် (သို့) ညီရင် True (ပွင့်မည်)
-        return expiryDate >= today;
-    }
-
-    // ၃။ 'all' သို့မဟုတ် သက်ဆိုင်ရာ 'subId' ကို စစ်ဆေးခြင်း
-    if (isValid(userBought['all'])) return true;
-    if (isValid(userBought[subId])) return true;
-
-    return false;
-}
-
-
-// သော့ဖွင့်ပေးသည့် Function
-function unlockCard(div, sub) {
-    div.classList.remove('locked');
-    const lockSpan = div.querySelector('.lock-icon');
-    if (lockSpan) lockSpan.remove(); // သော့ပုံလေးကို ဖြုတ်လိုက်မည်
-    div.onclick = () => openSubjectMenu(sub);
-}
-
-        function renderSubjects() {
-    const list = document.getElementById('subject-list');
-    list.innerHTML = '';
-    
-    // specialUsers ကို အပေါ်မှာ Global ထားခဲ့ပြီးဖြစ်လို့ ဒီမှာ ထပ်ကြေညာစရာမလိုပါ
-    const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || "0";
-    const isSpecial = specialUsers.map(String).includes(currentUserId);
-
-    subjects.forEach(sub => {
-        let isPaid = checkAccess(sub.id);
-
-        // Special User ဆိုလျှင် ၆ ဘာသာ ပွင့်ပေးမည်
-        if (isSpecial) {
-            const fiveSubjects = ['mm', 'en', 'math', 'phy', 'chem'];
-            if (fiveSubjects.includes(sub.id) || sub.id === 'bio' || sub.id === 'eco') {
-                isPaid = true;
+        // Action များ ခိုင်းစေရန်
+        function triggerAction(action) {
+            if (action === "start-matrix") spawnMatrix();
+            if (action === "shake") {
+                warning.style.opacity = "1";
+            }
+            if (action === "heavy-shake") {
+                document.body.classList.add('shake-heavy');
+                warning.setAttribute('data-text', 'DATABASE PURGE');
+                warning.innerText = 'DATABASE PURGE';
+            }
+            if (action === "stop-shake") {
+                document.body.classList.remove('shake-heavy');
+                warning.style.opacity = "0";
+            }
+            if (action === "stop-matrix") {
+                clearInterval(matrixInterval);
+                bgMatrix.innerHTML = "";
+            }
+            if (action === "maintenance-mode") {
+                warning.style.opacity = "1";
+                warning.style.color = "#38BDF8";
+                warning.style.textShadow = "0 0 15px #38BDF8";
+                warning.setAttribute('data-text', '🛠️ SYSTEM UPDATING 🛠️');
+                warning.innerText = '🛠️ SYSTEM UPDATING 🛠️';
+                document.querySelector('.cursor').style.background = "#38BDF8";
             }
         }
 
-        const div = document.createElement('div');
-        div.className = `subject-card ${isPaid ? '' : 'locked'} ${isSpecial && isPaid ? 'premium-card' : ''}`;
-        div.innerHTML = `<span>${sub.name} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
-        
-        div.onclick = () => isPaid ? openSubjectMenu(sub) : tg.showAlert("ဘာသာရပ်၀ယ်ယူထားသူများသာ အသုံးပြုနိုင်ပါသည်။");
-        list.appendChild(div);
-    });
-}
-
-function openSubjectMenu(sub) {
-    const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || "0";
-    const isSpecial = specialUsers.map(String).includes(currentUserId);
-
-    // ပုံမှန်ဝယ်ထားသူလား (သို့မဟုတ်) Special User ဖြစ်ပြီး ၆ ဘာသာထဲက တစ်ခုလား စစ်ဆေးခြင်း
-    const isPaidInCode = checkAccess(sub.id);
-    const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(sub.id) || sub.id === 'bio' || sub.id === 'eco');
-    
-    const canAccess = isPaidInCode || isSpecialSubject;
-
-    // အကယ်၍ ဝယ်မထားဘဲ Menu ထဲရောက်နေလျှင် ပြန်ထုတ်ရန်
-    if (!canAccess) {
-        tg.showAlert("တစ်ဘာသာလုံးကို‌လေ့ကျင့်ဖို့ ဒီဘာသာရပ်ကိုဝယ်ယူလိုက်ပါ");
-        showScreen('home');
-        return;
-    }
-
-    currentSubject = sub;
-    showScreen('menu');
-    document.getElementById('menu-title').innerText = sub.name;
-    const content = document.getElementById('menu-content');
-    content.innerHTML = '';
-
-    if (sub.id === 'en') {
-        ['Initial Letter', 'MCQ', 'Grammar', 'Poem'].forEach(type => {
-            createBtn(type, content, () => {
-                if (type === 'Initial Letter' || type === 'MCQ') showENUnits(type);
-                else if (type === 'Grammar') showENGrammarOptions();
-                else if (type === 'Poem') showENPoemOptions();
-            });
-        });
-    } else if (sub.id === 'mm') {
-        ['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး', 'ခက်ဆစ်', 'အလင်္ကာ'].forEach(m => {
-            createBtn(m, content, () => {
-                if (['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး'].includes(m)) showMMQuizOptions(m);
-                else showMMFlashcardOptions(m);
-            });
-        });
-    } else if (sub.id === 'phy' || sub.id === 'chem') {
-        for(let i=1; i<=sub.chapters; i++) {
-            createBtn(`Chapter ${i}`, content, () => showPhyChemActivities(sub.id, `Chapter ${i}`));
-        }
-    } else {
-        for(let i=1; i<=sub.chapters; i++) {
-            createBtn(`Chapter ${i}`, content, () => showGeneralActivities(sub.id, `Chapter ${i}`));
-        }
-    }
-}
-
-function loadQuestion() {
-    isAnswered = false; 
-    document.getElementById('next-btn').style.display = 'none';
-    const q = currentQuestions[currentIdx];
-    
-    // Progress နှင့် မေးခွန်းပြသခြင်း
-    document.getElementById('quiz-progress').innerHTML = `${currentIdx + 1} / ${currentQuestions.length}`;
-    document.getElementById('question-box').innerHTML = q.q;
-    
-    const optDiv = document.getElementById('quiz-options'); 
-    optDiv.innerHTML = '';
-
-    // --- အရေးကြီးဆုံးအပိုင်း: သင်္ချာမေးခွန်းဖြစ်မဖြစ် စစ်ဆေးခြင်း ---
-    // JSON ထဲမှာ type: "math_show" လို့ ရေးထားရင် ဒီထဲကို ဝင်ပါမယ်
-    if (q.type === 'math_show') {
-        // ၁။ အဖြေကြည့်ရန် ခလုတ်ကို အရင်ဖန်တီးမယ်
-        const showBtn = document.createElement('button');
-        showBtn.className = 'btn';
-        showBtn.innerText = "အဖြေကြည့်ရန်";
-        
-        // ၂။ အဖြေပြမယ့် Box ကို ဖန်တီးမယ် (စစချင်း ဖျောက်ထားမယ်)
-        const answerDiv = document.createElement('div');
-        answerDiv.style.cssText = "display:none; background:#334155; padding:15px; border-radius:10px; margin-top:10px; border-left:5px solid #10B981; text-align:left; color:white;";
-        answerDiv.innerHTML = `<b style="color:#38BDF8;">အဖြေ:</b><br>${q.c}`;
-
-        // ၃။ ခလုတ်နှိပ်လိုက်ရင် အဖြေပေါ်လာအောင် လုပ်မယ်
-        showBtn.onclick = function() {
-            answerDiv.style.display = 'block';
-            showBtn.style.display = 'none';
-            document.getElementById('next-btn').style.display = 'block';
-            if (window.MathJax) MathJax.typesetPromise();
-        };
-
-        optDiv.appendChild(showBtn);
-        optDiv.appendChild(answerDiv);
-    } 
-    // --- အခြားပုံမှန် မေးခွန်းများ (MCQ, True/False) ---
-    else if (q.type === 'mcq' || q.type === 'tf') {
-    let opts = [];
-    let correctIdx = 0;
-
-    if (q.type === 'tf') {
-        opts = ["မှန် (TRUE)", "မှား (FALSE)"];
-        // 🌟 စာသား "true" ရော Boolean true ပါ အလုပ်လုပ်အောင် ပြင်ဆင်ခြင်း
-        correctIdx = (q.c === true || q.c === "true" || q.c === 0 || q.c === "မှန်") ? 0 : 1;
-    } else {
-        // MCQ 
-        // 🌟 အဖြေမှန်စာသားကို ယူတဲ့အခါ trim() သုံးပြီး ရှေ့နောက် Space တွေကို ဖြတ်ပါ
-        let originalCorrectAnswer = String(q.a[q.c]).trim(); 
-        opts = [...q.a]; 
-
-        // ရွေးချယ်စရာများကို မွှေနှောက်ခြင်း
-        for (let i = opts.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [opts[i], opts[j]] = [opts[j], opts[i]];
-        }
-
-        // 🌟 trim() သုံးပြီး မြန်မာစာသားချင်း အတိအကျ ပြန်ရှာခြင်း
-        correctIdx = opts.map(opt => String(opt).trim()).indexOf(originalCorrectAnswer);
-        
-        // တကယ်လို့ ရှာမတွေ့ရင် (Encoding လွဲနေရင်) default အနေနဲ့ 0 ပဲ ထားလိုက်ခြင်းမျိုး မဖြစ်အောင် စစ်ပါ
-        if (correctIdx === -1) {
-            console.error("အဖြေမှန်စာသားကို ရှာမတွေ့ပါ - မြန်မာစာ Encoding ကို စစ်ဆေးပါ");
-            // အဖြေမှန်ကို ရှာမတွေ့ရင် မူရင်းအတိုင်း ပြန်သုံးဖို့ (Fallback)
-            opts = [...q.a];
-            correctIdx = q.c;
-        }
-    }
-
-        opts.forEach((a, i) => {
-            const btn = document.createElement('button'); 
-            btn.className = 'btn option-btn'; 
-            btn.innerHTML = a; // သင်္ချာသင်္ကေတများအတွက် innerHTML ကိုဆက်သုံးပါ
+        // Terminal ထဲ စာထည့်ရန်
+        function printLog(item, instant = false) {
+            const cssClass = item.class ? `class="${item.class}"` : "";
+            const logHTML = `<div class="log-line" ${cssClass}>${item.text}</div>`;
             
-            btn.onclick = () => {
-                if(isAnswered) return; 
-                isAnswered = true;
-
-                const options = document.querySelectorAll('.option-btn');
-
-                // အဖြေမှန်/မှား စစ်ဆေးခြင်း
-                if (i === correctIdx) {
-                    options[i].classList.add('correct-answer');
-                } else {
-                    options.forEach((b, idx) => {
-                        if(idx === correctIdx) b.classList.add('correct-answer');
-                        else if(idx === i) b.classList.add('wrong-answer');
-                    });
-                }
-
-                // ခလုတ်အားလုံးကို ပိတ်မည်
-                options.forEach(b => b.disabled = true);
-
-                // Next Button ကို Display ပေးပြီး ပုံစံပြောင်းမည်
-                const nextBtn = document.getElementById('next-btn');
-                nextBtn.style.display = 'block';
-                nextBtn.className = 'next-btn-styled'; 
-                nextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ⮕';
-            };
-            optDiv.appendChild(btn);
-        });
-    } 
-    // --- ကွက်လပ်ဖြည့် ---
-    else if (q.type === 'blank') {
-        const input = document.createElement('input');
-        input.className = 'quiz-input'; 
-        input.placeholder = "အဖြေရိုက်ထည့်ပါ...";
-        const sBtn = document.createElement('button');
-        sBtn.className = 'btn'; 
-        sBtn.innerText = "အဖြေစစ်မည်";
-        sBtn.onclick = () => {
-            if(isAnswered) return; 
-            isAnswered = true;
-            if(input.value.trim().toLowerCase() === q.c.toString().toLowerCase()) {
-                tg.showAlert("မှန်ကန်ပါသည်။ ✅");
+            if (instant) {
+                // အချိန်နောက်ကျမှ ဝင်လာသူများအတွက် ချက်ချင်းပြမည်
+                currentLogs += logHTML;
             } else {
-                tg.showAlert(" အဖြေမှန် " + q.c <br> " အခြားသောအဖြေမှန်များလည်းရှိနိုင်ပါသည် ");
-            }
-            document.getElementById('next-btn').style.display = 'block';
-        };
-        optDiv.append(input, sBtn);
-    }
-    
-    if (window.MathJax) MathJax.typesetPromise();
-}
-
-
-        
-        // --- English Specific ---
-        function showENUnits(typeName) {
-            showScreen('activity');
-            document.getElementById('activity-title').innerText = typeName;
-            const content = document.getElementById('activity-content');
-            content.innerHTML = '';
-            document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-            for (let i = 1; i <= 12; i++) {
-                createBtn(`Unit ${i}`, content, () => {
-                    initQuiz(`en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`);
-                    document.getElementById('quiz-back-btn').onclick = () => showENUnits(typeName);
-                });
+                // အချိန်မှီ ကြည့်နေသူများအတွက် Typewriter မပါဘဲ ချက်ချင်းပေါ်လာသော်လည်း Time ကိုက်ပေါ်မည်
+                currentLogs += logHTML;
+                terminal.innerHTML = currentLogs + '<span class="cursor"></span>';
+                if (item.action) triggerAction(item.action);
             }
         }
 
-        function showENGrammarOptions() {
-    showScreen('activity');
-    document.getElementById('activity-title').innerText = "Grammar";
-    const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-    document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-
-    // လူကြီးမင်း ပေးထားသော Grammar ခေါင်းစဉ်အသစ်များအားလုံး၏ စာရင်း
-    const grammarTopics = [
-        { title: "Past Simple", id: "past_simple" },
-        { title: "Present Simple", id: "present_simple" },
-        { title: "Present Continuous", id: "present_continuous" },
-        { title: "Past Continuous", id: "past_continuous" },
-        { title: "Present Perfect", id: "present_perfect" },
-        { title: "Present Perfect Continuous", id: "present_perfect_continuous" },
-        { title: "Future Simple", id: "future_simple" },
-        { title: "Going To/Will Be", id: "going_to" },
-        { title: "Future Continuous", id: "future_continuous" },
-        { title: "Used To", id: "used_to" },
-        { title: "Modal Auxiliaries", id: "modal_auxiliaries" },
-        { title: "Nouns In Apposition", id: "nouns_in_apposition" },
-        { title: "Not + Any = No", id: "not_any_no" },
-        { title: "Active Voice To Passive Voice", id: "active_passive_voice" },
-		{ title: "Passive Voice To Active Voice", id: "passive_active_voice" },
-        { title: "Impersonal Passive", id: "impersonal_passive" },
-        
-        // Conditional ၄ မျိုး ခွဲခြားထားခြင်း
-        { title: "Zero Conditional", id: "zero_conditional" },
-        { title: "First Conditional", id: "first_conditional" },
-        { title: "Second Conditional", id: "second_conditional" },
-        { title: "Third Conditional", id: "third_conditional" },
-        
-        { title: "Subordinating Conjunction", id: "subordinating_conjunction" },
-        { title: "Clauses Of Contact", id: "clauses_of_contact" },
-        { title: "As If / As Though", id: "as_if_as_though" },
-        { title: "Preposition and Conjunction for Purposes", id: "preposition_conjunction_purpose" },
-        { title: "Verbs of Cause and Effect", id: "verbs_cause_effect" },
-        { title: "Linking Words to Show Cause and Effect", id: "linking_words_cause_effect" },
-        { title: "As soon as To No sooner", id: "as_soon_as_no_sooner" },
-		{ title: "No sooner To As soon as", id: "no_sooner_as_soon_as" },
-        { title: "Both ... and", id: "both_and" },
-        { title: "Not only ... But also", id: "not_only_but_also" },
-        { title: "Neither ... nor", id: "neither_nor" },
-        { title: "Either ... or", id: "either_or" },
-        { title: "So and Neither", id: "so_and_neither" },
-        { title: "So that", id: "so_that" },
-        { title: "Such that", id: "such_that" },
-        { title: "Too ... to / Enough to", id: "too_to_enough_to" },
-        { title: "Before + V-ing", id: "before_ving" },
-        { title: "After + V-ing", id: "after_ving" },
-        { title: "Without + V-ing", id: "without_ving" },
-        { title: "By + V-ing", id: "by_ving" },
-        { title: "Introductory Phrases", id: "introductory_phrases" },
-        { title: "Participle Phrases", id: "participle_phrases" },
-        { title: "Gerund and Infinitive with 'to'", id: "gerund_infinitive" },
-        { title: "Verbs followed by a noun group", id: "verbs_followed_by_noun_group" },
-        { title: "Joining Sentences Using Relative Pronouns", id: "joining_relative_pronouns" },
-        { title: "Omission Of Relative Pronouns", id: "omission_relative_pronouns" },
-        { title: "It is / It was", id: "it_is_it_was" },
-        { title: "Double Negative Structure", id: "double_negative_structure" },
-        { title: "No Matter", id: "no_matter" },
-        { title: "Omission of Verbs", id: "omission_of_verbs" },
-        { title: "The more / The less", id: "the_more_the_less" },
-        { title: "As ... As", id: "as_as" },
-        { title: "Not as ... as", id: "not_as_as" },
-        { title: "Inversion (Full Verb Before Subject)", id: "inversion_full_verb" },
-        { title: "As and Like", id: "as_and_like" }
-    ];
-
-    // ခလုတ်များ အလိုအလျောက် တည်ဆောက်ပြီး openFlashcard သို့ ချိတ်ဆက်ပေးခြင်း
-    grammarTopics.forEach(topic => {
-        createBtn(topic.title, content, () => initFlashcards(topic.id, topic.title));
-    });
-}
-
-
-       function showENPoemOptions() {
-    showScreen('activity');
-    document.getElementById('activity-title').innerHTML = "Poems";
-    const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-  document.getElementById('activity-back-btn').onclick = () => {
-    const userId = tg.initDataUnsafe?.user?.id || 0;
-    const isSpecial = specialUsers.includes(userId);
-    
-    // ပြင်ဆင်ချက်: subId အစား currentSubject.id ကို အသုံးပြုထားပါသည်
-    const currentId = currentSubject.id; 
-    const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(currentId) || currentId === 'bio' || currentId === 'eco');
-
-    // checkAccess ကိုလည်း currentId ဖြင့်သာ စစ်ဆေးပါမည်
-    if (checkAccess(currentId) || isSpecialSubject) {
-        openSubjectMenu(currentSubject);
-    } else {
-        openTrialMenu();
-    }
-};
-
-    // ကဗျာ (၄) ပုဒ်၏ စာသားအပြည့်အစုံ
-    const poemsData = {
-        "The Library": `
-            <div style="display: flex; justify-content: center;">
-                <div style="white-space: pre-line; text-align: left; line-height: 2;">It looks like any building
-     When you pass it on the street,
-Made of stone and glass and marble,
-     Made of iron and concrete.
- 
-But once inside you can ride
-     A camel or a train,
-Visit Rome, Siam, or Nome,
-     Feel a hurricane,
-Meet a king, learn to sing,
-     How to bake a pie,
-Go to sea, plant a tree,
-     Find how airplanes fly,
-Train a horse, and of course
-     Have all the dogs you’d like,
-See the moon, a sandy dune,
-     Or catch a whopping pike.
-Everything that books can bring
-     You’ll find inside these walls.
-A world is there for you to share
-     When adventure calls.
- 
-You cannot tell its magic
-     By the way the building looks,
-But there’s wonderment within it,
-     The wonderment of books.
-	 
-	 <i>by Barbara A. Huff</i>
-                </div>
-            </div>`,
+        // Live Event Synchronization
+        function syncEvent() {
+            const now = Date.now();
+            let elapsed = now - EVENT_START_TIME; // ပွဲစကတည်းက ဘယ်လောက်ကြာသွားပြီလဲ တွက်မည်
             
-        "The Quiet Life": `
-            <div style="display: flex; justify-content: center;">
-                <div style="white-space: pre-line; text-align: left; line-height: 2;">Happy the man, whose wish and care
-                    A few paternal acres bound,
-                    Content to breathe his native air,
-                    In his own ground.
-
-                    Whose herds with milk, whose fields with bread,
-                    Whose flocks supply him with attire,
-                    Whose trees in summer yield him shade,
-                    In winter fire.
-
-                    Blest, who can unconcernedly find
-                    Hours, days, and years slide soft away,
-                    In health of body, peace of mind,
-                    Quiet by day,
-
-                    Sound sleep by night; study and ease,
-                    Together mixed; sweet recreation;
-                    And innocence, which most does please,
-                    With meditation.
-
-                    Thus let me live, unseen, unknown;
-                    Thus unlamented let me die;
-                    Steal from the world, and not a stone
-                    Tell where I lie.
-					
-					<i>by Alexander Pope</i>
-                </div>
-            </div>`,
-            
-        "The Road Not Taken": `
-            <div style="display: flex; justify-content: center;">
-                <div style="white-space: pre-line; text-align: left; line-height: 2;">Two roads diverged in a yellow wood,
-                    And sorry I could not travel both
-                    And be one traveler, long I stood
-                    And looked down one as far as I could
-                    To where it bent in the undergrowth;
-
-                    Then took the other, as just as fair,
-                    And having perhaps the better claim,
-                    Because it was grassy and wanted wear;
-                    Though as for that the passing there
-                    Had worn them really about the same,
-
-                    And both that morning equally lay
-                    In leaves no step had trodden black.
-                    Oh, I kept the first for another day!
-                    Yet knowing how way leads on to way,
-                    I doubted if I should ever come back.
-
-                    I shall be telling this with a sigh
-                    Somewhere ages and ages hence:
-                    Two roads diverged in a wood, and I—
-                    I took the one less traveled by,
-                    And that has made all the difference.
-					
-					<i>by Robert Frost</i>
-                </div>
-            </div>`,
-            
-        "Windy Nights": `
-            <div style="display: flex; justify-content: center;">
-                <div style="white-space: pre-line; text-align: left; line-height: 2;">Whenever the moon and stars are set,
-                    Whenever the wind is high,
-                    All night long in the dark and wet,
-                    A man goes riding by.
-                    Late in the night when the fires are out,
-                    Why does he gallop and gallop about?
-
-                    Whenever the trees are crying aloud,
-                    And ships are tossed at sea,
-                    By, on the highway, low and loud,
-                    By at the gallop goes he.
-                    By at the gallop he goes, and then
-                    By he comes back at the gallop again.
-					
-					<i>by Robert Louis Stevenson</i>
-                </div>
-            </div>`
-    };
-
-    // ကဗျာခေါင်းစဉ်များဖြင့် ခလုတ်များ ဖန်တီးခြင်း
-    ["The Library", "The Quiet Life", "The Road Not Taken", "Windy Nights"].forEach(p => createBtn(p, content, () => {
-        showScreen('poem');
-        document.getElementById('poem-title').innerText = p;
-        
-        // poemsData ထဲမှ ကဗျာစာသားများကို ယူ၍ ပြသခြင်း
-        document.getElementById('poem-body').innerHTML = poemsData[p] || "<div style='text-align:center;'>ကဗျာစာသား မရှိသေးပါ။</div>";
-    }));
-}
-
-        // --- Myanmar Specific ---
-        function showMMQuizOptions(typeName) {
-            showScreen('activity');
-            document.getElementById('activity-title').innerText = typeName;
-            const content = document.getElementById('activity-content');
-            content.innerHTML = '';
-            document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-            ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
-                createBtn(cat, content, () => {
-                    initQuiz(`mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
-                    document.getElementById('quiz-back-btn').onclick = () => showMMQuizOptions(typeName);
-                });
-            });
-        }
-
-      function showMMFlashcardOptions(typeName) {
-    showScreen('activity');
-    document.getElementById('activity-title').innerText = typeName;
-    const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-    document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-
-    if (typeName === "အလင်္ကာ") {
-        // အလင်္ကာအတွက် သီးသန့်ခွဲထားသော ခလုတ် (၅) ခု
-        createBtn("ဥပမာအလင်္ကာ", content, () => initFlashcards("mm_ဥပမာအလင်္ကာ"));
-        createBtn("ရူပကအလင်္ကာ", content, () => initFlashcards("mm_ရူပကအလင်္ကာ"));
-        createBtn("ဝင်္ကဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_ဝင်္ကဝုတ္တိအလင်္ကာ"));
-        createBtn("အတိယဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_အတိသယဝုတ္တိအလင်္ကာ"));
-        createBtn("မြည်သံစွဲအလင်္ကာ", content, () => initFlashcards("mm_မြည်သံစွဲအလင်္ကာ"));
-
-    } else {
-        // ကျန်တဲ့ စကားပြေ၊ ကဗျာ၊ ရေသည် များအတွက် မူလအတိုင်း
-        createBtn("စကားပြေ", content, () => showMMSubTopics(typeName, "စကားပြေ"));
-        createBtn("ကဗျာ", content, () => showMMSubTopics(typeName, "ကဗျာ"));
-        createBtn("ရေသည်", content, () => initFlashcards("mm_ရေသည်_ခက်ဆစ်"));
-    }
-}
-
-        function showMMSubTopics(typeName, category) {
-            showScreen('activity');
-            const content = document.getElementById('activity-content');
-            content.innerHTML = `<h3 style="text-align:center">${category} (${typeName})</h3>`;
-            document.getElementById('activity-back-btn').onclick = () => showMMFlashcardOptions(typeName);
-
-            let topics = [];
-            if (category === "စကားပြေ") {
-                topics = ["ညောင်ရမ်းကြီးသမီး", "သစ္စာနှင့်ပညာ", "ခေတ်", "မလုပ်မစား", "စာဘူးတောင်း", "ဦးဖေမောင်တင်", "အဖြူနှင့်အနက်", "စိတ်ဓာတ်ရင့်ကျက်တည်ငြိမ်ခြင်း"];
-            } else if (category === "ကဗျာ") {
-                topics = ["ပေါ်နွေလလျှင်", "ငါ့ကိုလွယ်အမယ်ကြီးနှင့်", "ဩဝါဒထူးပျို့", "ပေါင်းရှစ်ယောက် ကောက်စိုက်သူ", "အညာမင်္ဂလာဆောင်", "ကမ္ဗောဇသို့", "လက်ဖက်ရည်ကြမ်းဝိုင်း", "ပဒေသာလက်ရာ"];
+            if (elapsed < 0) {
+                // ပွဲမစခင် ဝင်လာသူများအတွက်
+                terminal.innerHTML = `<div>> Waiting for Admin connection...</div><span class="cursor"></span>`;
+                setTimeout(syncEvent, -elapsed);
+                return;
             }
 
-            topics.forEach(t => {
-                createBtn(t, content, () => {
-                    const fName = `${currentSubject.id}_${category}_${typeName}_${t}`.replace(/ /g, "_");
-                    initFlashcards(fName);
-                });
-            });
-        }
+            let futureEvents = [];
 
-        // --- Phy/Chem Special Menu ---
-        function showPhyChemActivities(subId, partName) {
-            showScreen('activity');
-            document.getElementById('activity-title').innerText = partName;
-            const content = document.getElementById('activity-content');
-            content.innerHTML = '';
-            document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-            
-            // Standard Quizzes
-            ['True_False', 'Fill_Blank', 'MCQ'].forEach(type => {
-                createBtn(type.replace('_', ' '), content, () => {
-                    initQuiz(`${subId}_${partName}_${type}`.replace(/ /g, "_"));
-                    document.getElementById('quiz-back-btn').onclick = () => showPhyChemActivities(subId, partName);
-                });
-            });
-
-           
-        }
-
-  // --- Trial System Functions ---
-
-function openTrialMenu() {
-    showScreen('activity');
-    document.getElementById('activity-title').innerText = "Free Trial (စမ်းသုံးရန်)";
-    const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-    
-    // ပင်မစာမျက်နှာသို့ ပြန်သွားရန်
-    document.getElementById('activity-back-btn').onclick = () => showScreen('home');
-
-    subjects.forEach(sub => {
-        createBtn(`${sub.name} (Trial)`, content, () => {
-            currentSubject = sub;
-            
-            if (sub.id === 'mm') {
-                showMyanmarTrialParts();
-            } else if (sub.id === 'en') {
-                showENPoemOptions();
-                // Back Button ကို Trial Menu သို့ ပြန်လှည့်
-                document.getElementById('activity-back-btn').onclick = () => openTrialMenu();
-            } else {
-                // Chapter 1 ကိုသာ ပြသရန်
-                
-                showGeneralActivities(sub.id, 'Chapter 1');
-                
-                // Back Button ကို Trial Menu သို့ ပြန်လှည့်
-                document.getElementById('activity-back-btn').onclick = () => openTrialMenu();
-            }
-        });
-    });
-}
-
-function showMyanmarTrialParts() {
-    const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-    document.getElementById('activity-title').innerText = "မြန်မာစာ ခက်ဆစ် (Trial)";
-    document.getElementById('activity-back-btn').onclick = () => openTrialMenu();
-
-    const mmTrialItems = [
-       { name: "စကားပြေ (ညောင်ရမ်းကြီးသမီး)", file: "mm_စကားပြေ_ခက်ဆစ်_ညောင်ရမ်းကြီးသမီး" },
-         { name: "စကားပြေ (သစ္စာနှင့်ပညာ)", file: "mm_စကားပြေ_ခက်ဆစ်_သစ္စာနှင့်ပညာ" },
-         { name: "စကားပြေ (ခေတ်)", file: "mm_စကားပြေ_ခက်ဆစ်_ခေတ်" },
-          { name: "ကဗျာ (ပေါ်နွေလလျှင်)", file: "mm_ကဗျာ_ခက်ဆစ်_ပေါ်နွေလလျှင်" },
-          { name: "ကဗျာ (ငါ့ကိုလွယ်အမယ်ကြီးနှင့်)", file: "mm_ကဗျာ_ခက်ဆစ်_ငါ့ကိုလွယ်အမယ်ကြီးနှင့်" },
-          { name: "ကဗျာ (ဩဝါဒထူးပျို့)", file: "mm_ကဗျာ_ခက်ဆစ်_ဩဝါဒထူးပျို့" },
-        { name: "ရေသည်ပြဇာတ် (ခက်ဆစ်)", file: "mm_ရေသည်ပြဇာတ်_ခက်ဆစ်_ရေသည်" }
-    ];
-
-    mmTrialItems.forEach(item => {
-        createBtn(item.name, content, () => {
-            initFlashcards(item.file);
-            // Flashcard ထဲက ထွက်ရင် မြန်မာစာ Trial menu ကို ပြန်လာရန်
-            const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-            flashExitBtn.onclick = () => {
-                showScreen('activity');
-                showMyanmarTrialParts();
-            };
-        });
-    });
-}
-        // --- Flashcard Engine ---
-  let currentFlashMark = ""; // ခေါင်းစဉ်မှတ်ရန် variable အသစ်
-
-async function initFlashcards(fileName, markTitle = "Flashcard") {
-    currentFlashMark = markTitle; // လက်ရှိနှိပ်လိုက်တဲ့ Mark နာမည်ကို သိမ်းမယ်
-    try {
-        const res = await fetch(`./quizzes/${fileName}.json`);
-        if(!res.ok) throw new Error();
-        flashCards = await res.json();
-        flashIdx = 0;
-        showScreen('flashcard');
-        updateFlashUI();
-    } catch (e) { tg.showAlert("ဖိုင်မတွေ့သေးပါ- " + fileName); }
-}
-
-function updateFlashUI() {
-    const card = document.getElementById('flash-card');
-    card.classList.remove('is-flipped');
-    
-    // ခေါင်းစဉ်ကို ပြောင်းလဲပေးခြင်း
-    document.getElementById('flash-title').innerText = currentFlashMark;
-    
-    // innerText ကို innerHTML သို့ ပြောင်းလဲခြင်း (Messy ဖြစ်တာကို ရှင်းဖို့)
-    document.getElementById('flash-front-content').innerHTML = flashCards[flashIdx].q;
-    document.getElementById('flash-back-content').innerHTML = flashCards[flashIdx].a;
-    
-    document.getElementById('flash-count').innerText = `${flashIdx + 1} / ${flashCards.length}`;
-    if (window.MathJax) MathJax.typesetPromise();
-}
-
-        function flipCard() {
-            document.getElementById('flash-card').classList.toggle('is-flipped');
-        }
-
-        function nextFlash() {
-            if (flashIdx < flashCards.length - 1) { flashIdx++; updateFlashUI(); }
-        }
-
-        function prevFlash() {
-            if (flashIdx > 0) { flashIdx--; updateFlashUI(); }
-        }
-
-        // --- General Subjects ---
-// --- General Subjects ---
-function showGeneralActivities(subId, partName) {
-    showScreen('activity');
-    document.getElementById('activity-title').innerText = partName;
-    const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-
-    // --- Back Button Logic ပြင်ဆင်ခြင်း (Error ရှင်းလင်းပြီး) ---
-    document.getElementById('activity-back-btn').onclick = () => {
-        const userId = tg.initDataUnsafe?.user?.id || 0;
-        const isSpecial = specialUsers.includes(userId);
-        const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(subId) || subId === 'bio' || subId === 'eco');
-
-        // .includes အဟောင်းနေရာတွင် checkAccess အသစ်ဖြင့် အစားထိုးလိုက်ပါသည်
-        if (checkAccess(subId) || isSpecialSubject) {
-            openSubjectMenu(currentSubject);
-        } else {
-            openTrialMenu();
-        }
-    };
-    
-    if(subId === 'math') {
-        const mathMarks = ['1_Mark', '2_Marks'];
-        mathMarks.forEach(mark => {
-            createBtn(mark.replace('_', ' '), content, () => {
-                const fileName = `math_${partName}_${mark}`.replace(/ /g, "_");
-                if (mark === '1_Mark') {
-                    initQuiz(fileName);
-                    document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName);
+            // Timeline တစ်ခုလုံးကို စစ်ဆေးမည်
+            timeline.forEach(item => {
+                if (item.time <= elapsed) {
+                    // အချိန်ကျော်သွားသော (အရှေ့က) Event များကို ချက်ချင်း Print ထုတ်မည်
+                    printLog(item, true);
+                    // နောက်ဆုံး Action အခြေအနေကို ယူထားမည် (ဥပမာ- ရှုပ်ထွေးနေချိန် ဝင်လာရင် တုန်ခါနေအောင်)
+                    if (item.action) triggerAction(item.action);
                 } else {
-                    initFlashcards(fileName, mark.replace('_', ' '));
-                    // Flashcard ကနေထွက်ရင် ဒီ Menu ကိုပြန်လာဖို့
-                    const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-                    flashExitBtn.onclick = () => { showScreen('activity'); showGeneralActivities(subId, partName); };
+                    // မရောက်သေးသော Event များကို စုထားမည်
+                    futureEvents.push(item);
                 }
             });
-        });
-    } else {
-        // အခြားဘာသာရပ်များအတွက် (Bio, Eco, etc.)
-        let types = ['True_False', 'Fill_Blank', 'MCQ'];
-        
-        // Bio နဲ့ Eco ဖြစ်ပါက Definition (Flashcard) ခလုတ်ကို types ထဲ ထည့်ပေးမယ်
 
-        types.forEach(type => {
-            createBtn(type.replace('_', ' '), content, () => {
-                const fileName = `${subId}_${partName}_${type}`.replace(/ /g, "_");
-                
-                if (type === 'Definition') {
-                    // Definition ဆိုရင် Flashcard နဲ့ပြမယ်
-                    initFlashcards(fileName, "Definition");
-                    // Flashcard ထဲက "ထွက်မည်" ကိုနှိပ်ရင် ဒီ Menu ကိုပြန်လာဖို့
-                    const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-                    flashExitBtn.onclick = () => { showScreen('activity'); showGeneralActivities(subId, partName); };
-                } else {
-                    // ကျန်တာတွေကို Quiz နဲ့ပြမယ်
-                    initQuiz(fileName);
-                    document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName);
-                }
-            });
-        });
-    }
-}
-        // --- Quiz Engine ---
-      async function initQuiz(fileName) {
-    try {
-        const res = await fetch(`./quizzes/${fileName}.json`);
-        if(!res.ok) throw new Error();
-        let data = await res.json();
-        
-        // Local Storage မှ Setting ကို ဆွဲယူစစ်ဆေးခြင်း (Default အနေဖြင့် ကျပန်းကိုသာ ထားမည်)
-        const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
-        
-        // အသုံးပြုသူ ရွေးချယ်မှုပေါ် မူတည်၍ Random လုပ်/မလုပ် ဆုံးဖြတ်ခြင်း
-        if (isRandom) {
-            currentQuestions = shuffleArray(data); 
-        } else {
-            currentQuestions = [...data]; // မူရင်း အစဉ်လိုက်အတိုင်းထားမည်
-        }
-        
-        currentIdx = 0; 
-        showScreen('quiz'); 
-        loadQuestion();
-    } catch (e) { tg.showAlert("မေးခွန်းဖိုင်မတွေ့သေးပါ- " + fileName); }
-}
-       function loadQuestion() {
-    isAnswered = false; 
-    const nextBtn = document.getElementById('next-btn');
-    nextBtn.style.display = 'none';
-    nextBtn.className = 'btn'; // Reset to default class first
+            // ကျော်သွားသော စာများအားလုံးကို တစ်ခါတည်း Terminal ထဲထည့်မည်
+            terminal.innerHTML = currentLogs + '<span class="cursor"></span>';
 
-    const q = currentQuestions[currentIdx];
-    document.getElementById('quiz-progress').innerHTML = `${currentIdx + 1} / ${currentQuestions.length}`;
-    document.getElementById('question-box').innerHTML = q.q;
-    
-    const optDiv = document.getElementById('quiz-options'); 
-    optDiv.innerHTML = '';
-
-    if (currentSubject.id === 'math' && (q.type === undefined || q.type === 'math_show')) {
-        q.type = 'math_show';
-    }
-
-    if (q.type === 'mcq' || q.type === 'tf') {
-        let opts = q.type === 'tf' ? ["မှန် (TRUE)", "မှား (FALSE)"] : q.a;
-        opts.forEach((a, i) => {
-    const btn = document.createElement('button'); 
-    btn.className = 'btn option-btn'; 
-    btn.innerText = a;
-    
-    btn.onclick = () => {
-        if(isAnswered) return; 
-        isAnswered = true;
-
-        let correctIdx = q.type === 'tf' ? (q.c === true ? 0 : 1) : q.c;
-        const options = document.querySelectorAll('.option-btn');
-
-        // Logic အသစ်- အဖြေမှန်ရင် အစိမ်းပဲပြ၊ မှားမှ အကုန်ပြ
-        if (i === correctIdx) {
-            options[i].classList.add('correct-answer');
-			score++;
-    document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
-        } else {
-            options.forEach((b, idx) => {
-                if(idx === correctIdx) b.classList.add('correct-answer');
-                else if(idx === i) b.classList.add('wrong-answer');
-                else b.classList.add('wrong-answer');
+            // မရောက်သေးသော Event များကို အချိန်ကိုက် ပေါ်လာစေရန် setTimeout ပေးမည်
+            futureEvents.forEach(item => {
+                const timeLeft = item.time - elapsed;
+                setTimeout(() => {
+                    printLog(item, false);
+                }, timeLeft);
             });
         }
 
-        // ခလုတ်အားလုံးကို ပိတ်မည်
-        options.forEach(b => b.disabled = true);
-
-        // Next Button ကို Display ပေးပြီး ပုံစံပြောင်းမည်
-        const nextBtn = document.getElementById('next-btn');
-        nextBtn.style.display = 'block';
-        nextBtn.className = 'next-btn-styled'; 
-        nextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ⮕';
-    };
-    optDiv.appendChild(btn);
-});
-    } else if (q.type === 'blank') {
-    const input = document.createElement('input');
-    input.className = 'quiz-input'; 
-    input.placeholder = "အဖြေရိုက်ထည့်ပါ...";
-    
-    const sBtn = document.createElement('button');
-    sBtn.className = 'btn'; 
-    sBtn.style.width = '100%'; // အဖြေစစ်မည် ခလုတ်ကို အပြည့်ထားခြင်း
-    sBtn.innerText = "အဖြေစစ်မည်";
-    
-    sBtn.onclick = () => {
-        if(isAnswered) return; 
-        isAnswered = true;
-        
-        // အဖြေစစ်ဆေးခြင်း
-        if(input.value.trim().toLowerCase() === q.c.toString().toLowerCase()) {
-            tg.showAlert("မှန်ကန်ပါသည်။ ✅");
-			score++;
-    document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
-        } else {
-            tg.showAlert("အဖြေမှန်မှာ: " + q.c);
-        }
-
-        // "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို ပုံစံသစ်ဖြင့် ပြသခြင်း
-        const nextBtn = document.getElementById('next-btn');
-        nextBtn.style.display = 'block';
-        nextBtn.className = 'next-btn-styled'; // CSS class နာမည်အသစ် ချိတ်ခြင်း
-        nextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ⮕';
-    };
-    
-    optDiv.append(input, sBtn);
-}
-
-    if (window.MathJax) MathJax.typesetPromise();
-}
-		// loadQuestion() { ... } ရဲ့ အောက်မှာ ထည့်ပါ
-function selectOption(index) {
-    const q = currentQuestions[currentQuestionIndex];
-    const options = document.querySelectorAll('.option-btn');
-    
-    // အကုန်လုံးကို အရင်ပိတ်လိုက်ပါ (ထပ်နှိပ်လို့မရအောင်)
-    options.forEach(btn => btn.disabled = true);
-
-    // အဖြေမှန်ကို အစိမ်းရောင်ပြပါ
-    options[q.answer].classList.add('correct-answer');
-
- if (index == q.answer) {
-        options[index].classList.add('correct-answer');
-		score++;
-    document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
-    }
-    // ရွေးလိုက်တဲ့အဖြေက မှားနေရင် အနီရောင်ပြပါ
-    if (index !== q.answer) {
-        options[index].classList.add('wrong-answer');
-    }
-    
-    // ကျန်တဲ့ အဖြေမှားတွေကိုပါ အနီရောင်ပြရန်
-    options.forEach((btn, i) => {
-        if (i !== q.answer) {
-            btn.classList.add('wrong-answer');
-        }
-    });
-
-    // "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို ပြသခြင်း
-    const nextBtn = document.getElementById('next-btn');
-    if (nextBtn) {
-        nextBtn.style.display = 'block';
-        nextBtn.className = 'next-btn'; // CSS class ချိတ်ခြင်း
-        nextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ⮕';
-    }
-}
-
-function nextQuestion() {
-    if (currentIdx < currentQuestions.length - 1) {
-        currentIdx++;
-        loadQuestion();
-    } else { 
-        tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
-        
-        // နောက်ထပ်နှိပ်စရာ မေးခွန်းမရှိတော့တဲ့အတွက် "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို ဖျောက်ထားလိုက်ပါမည်
-        document.getElementById('next-btn').style.display = 'none';
-
-        // --- ⏱ Timer ကို ရပ်တန့်မည့် Code ---
-        if (isTimerRunning) {
-            clearInterval(quizTimerInterval);
-            isTimerRunning = false;
-            // ခလုတ်စာသားကို ပြောင်းပြီး ထပ်နှိပ်လို့မရအောင် ပိတ်ထားပါမည်
-            const startBtn = document.getElementById('timer-start-btn');
-            startBtn.innerText = "⏹ ပြီးဆုံးပါပြီ";
-            startBtn.disabled = true; 
-            startBtn.style.opacity = "0.5"; // ပိတ်ထားကြောင်း သိသာစေရန် မှိန်ထားမည်
-        }
-    }
-}
-
-        // --- UI Utils ---
-        function updateAvatar(save = false) {
-            const isFemale = document.getElementById('gender-switch').checked;
-            document.getElementById('hair').style.display = isFemale ? 'block' : 'none';
-            if(save) localStorage.setItem('userGender', isFemale ? 'female' : 'male');
-        }
-
-        function createBtn(txt, parent, act) {
-            const b = document.createElement('button'); b.className = 'btn'; b.innerText = txt; b.onclick = act; parent.appendChild(b);
-        }
-
-        function showScreen(id) {
-		
-		if (id !== 'quiz') {
-        resetTimer(); 
-    }
-            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
-            document.getElementById(id + '-screen').classList.add('active-screen');
-        }
-
-        function changeTab(id, el) {
-            showScreen(id);
-            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('nav-active'));
-            el.classList.add('nav-active');
-			if(id === 'scroll') {
-        // Tab ကို ပြန်နှိပ်ရင် Year selection ပြန်ရောက်အောင်
-        document.getElementById('old-q-years').style.display = 'block';
-        document.getElementById('old-q-subjects').style.display = 'none';
-        document.getElementById('old-q-types').style.display = 'none';
-    }
-            if(id === 'home') renderSubjects();
-            if(id === 'profile') renderProfileData();
-        }
-// Special Users ID များစာရင်း (ဒီမှာ ID ထည့်ရုံနဲ့ Premium ဖြစ်ပြီး ၆ ဘာသာပွင့်ပါမယ်)
-
-function renderProfileData() {
-    const userId = tg.initDataUnsafe?.user?.id || 0;
-    const userName = tg.initDataUnsafe?.user?.first_name || "Scholar";
-    const isSpecial = specialUsers.includes(userId);
-    
-    // ၁။ Local Storage ကနေ Streak ကို ယူမယ်
-    let currentStreak = parseInt(localStorage.getItem('streak_count')) || updateStreak();
-    let streakMsg = currentStreak > 1 ? "အရမ်းတော်တယ်! ဆက်ကြိုးစားထားပါ။ 🔥" : "နေ့တိုင်းစာလုပ်ပြီး မီးတောက်လေးကို ထိန်းထားပါ! 💧";
-    
-    // UI Elements များကို သတ်မှတ်ခြင်း
-    document.getElementById('user-name').innerText = userName;
-    document.getElementById('user-id-text').innerText = "ID: " + userId;
-    
-    // Premium ဖြစ်ပါက Body ကို class ထည့်ပြီး အရောင်ပြောင်းရန်
-    if (isSpecial) {
-        document.body.classList.add('premium-bg');
-    } else {
-        document.body.classList.remove('premium-bg');
-    }
-
-    // ဝယ်ယူထားသည့် ဘာသာရပ်ကွက် (Bought Badges) ပြသခြင်း
-    const container = document.getElementById('bought-items-container');
-    container.innerHTML = ''; 
-    
-    const bought = subjects.filter(s => {
-        const isPaidInCode = checkAccess(s.id);
-        const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(s.id) || s.id === 'bio' || s.id === 'eco');
-        return isPaidInCode || isSpecialSubject;
-    });
-
-    if(bought.length > 0) {
-        bought.forEach(s => {
-            const span = document.createElement('span');
-            span.className = 'bought-badge';
-            if (isSpecial) span.style.border = "1px solid #F59E0B"; 
-            span.innerText = s.name;
-            container.appendChild(span);
-        });
-    }
-
-    // ၂။ Dynamic Area ထဲကို UI တွေ ထည့်မယ် (ဒီထဲမှာ currentStreak ကို တိုက်ရိုက်ထည့်ထားပါတယ်)
-    const dynamicArea = document.getElementById('dynamic-content-area');
-    dynamicArea.innerHTML = `
-        <div id="level-container" class="${isSpecial ? 'premium-card' : ''}" style="background: var(--card); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: center; border: 1px solid rgba(56, 189, 248, 0.2);">
-            <div id="streak-icon" style="font-size: 50px; margin-bottom: 10px;">🔥</div>
-            <div style="font-size: 18px; color: var(--accent); font-weight: bold;">Daily Streak</div>
-            <div id="streak-count" style="font-size: 32px; font-weight: bold; margin: 10px 0;">${currentStreak} Days</div>
-            <p id="streak-message" style="font-size: 14px; color: #94a3b8; margin: 0;">${streakMsg}</p>
-        </div>
-        <button onclick="contactDeveloper()" style="width: 100%; background: #242F3D; color: #38BDF8; border: 1px solid #38BDF8; padding: 14px; border-radius: 12px; margin-top: 20px; font-weight: bold;">
-            အမှားများတိုင်ကြားရန်
-        </button>
-    `;
-    
-    // (အရေးကြီးဆုံး) မရှိတော့တဲ့ loadUserProgress(); ကို ဖျက်လိုက်ပါပြီ။
-}
-
-        // --- Init ---
-        if(localStorage.getItem('userGender') === 'female') {
-            document.getElementById('gender-switch').checked = true;
-            updateAvatar();
-        }
-        renderSubjects();
-
-
-// ၂။ Checkbox အားလုံးကို Save လုပ်ခြင်း
-function saveGoals() {
-    const goals = {};
-    for(let i=1; i<=7; i++) {
-        goals[`goal${i}`] = document.getElementById(`goal${i}`).checked;
-    }
-    // ယနေ့ ရက်စွဲကိုပါ သိမ်းမည်
-    const data = {
-        date: new Date().toLocaleDateString(),
-        values: goals
-    };
-    localStorage.setItem('dailyStudyData', JSON.stringify(data));
-}
-
-function loadGoals() {
-    const today = new Date().toLocaleDateString();
-    let savedData = JSON.parse(localStorage.getItem('dailyStudyData'));
-
-    // ၁။ နေ့ရက်အသစ်ရောက်မရောက် စစ်ဆေးပြီး Reset ချခြင်း
-    if (!savedData || savedData.date !== today) {
-        // Data အသစ်တည်ဆောက်ပြီး Checkbox အားလုံးကို အလွတ် (false) ထားမည်
-        savedData = {
-            date: today,
-            values: {
-                goal1: false, goal2: false, goal3: false,
-                goal4: false, goal5: false, goal6: false, goal7: false
-            }
-        };
-        localStorage.setItem('dailyStudyData', JSON.stringify(savedData));
-    }
-
-    // ၂။ Checkbox အခြေအနေများကို UI တွင် ပြန်လည်ပြသခြင်း
-    for (let i = 1; i <= 7; i++) {
-        const checkbox = document.getElementById(`goal${i}`);
-        if (checkbox) {
-            checkbox.checked = savedData.values[`goal${i}`] || false;
-        }
-    }
-
-    // ၃။ Motivation Quote ပြောင်းလဲခြင်း (၁၅ ခုအနက်မှ တစ်ရက်တစ်ခု)
-    const quotes = [
-        "အောင်မြင်မှုဆီသို့ သွားရာလမ်းသည် ကြိုးစားအားထုတ်မှုဖြင့် စတင်သည်။",
-        "မနက်ဖြန်အတွက် အကောင်းဆုံး ပြင်ဆင်မှုက ဒီနေ့မှာ အကောင်းဆုံး ကြိုးစားခြင်းပဲ။",
-        "အခက်အခဲဆိုတာ ကျော်ဖြတ်ဖို့အတွက်ပဲ ဖြစ်ပါတယ်။",
-        "မရပ်မနား ကြိုးစားနေသရွေ့ မင်းဟာ အရှုံးမပေးသေးပါဘူး။",
-        "ပညာဆိုတာ မင်းဘယ်သူ့ဆီကမှ ခိုးယူလို့မရတဲ့ ရတနာတစ်ခုပဲ။",
-        "မင်းရဲ့ အနာဂတ်ဟာ မင်းဒီနေ့လုပ်ဆောင်တဲ့ အရာတွေအပေါ်မှာပဲ မူတည်တယ်။",
-        "ရှုံးနိမ့်ခြင်းဆိုတာ အောင်မြင်မှုအတွက် သင်ခန်းစာတစ်ခု ရလိုက်တာပါပဲ။",
-        "အိပ်မက်တွေကို အကောင်အထည်ဖော်ဖို့ အကောင်းဆုံးအချိန်ဟာ အခုအချိန်ပဲ။",
-        "မဖြစ်နိုင်ဘူးဆိုတာ ဇွဲမရှိတဲ့သူတွေ ပြောတဲ့ စကားလုံးသက်သက်ပါ။",
-        "သေးငယ်တဲ့ ခြေလှမ်းတွေကနေ ကြီးမားတဲ့ အောင်မြင်မှုတွေ ဖြစ်လာတတ်တယ်။",
-        "ကိုယ့်ကိုယ်ကိုယ် ယုံကြည်မှုရှိခြင်းဟာ အောင်မြင်မှုရဲ့ ပထမဆုံး လျှို့ဝှက်ချက်ပဲ။",
-        "ပန်းတိုင်ကို ရောက်ဖို့ ဖြတ်လမ်းမရှိဘူး၊ ကြိုးစားမှုပဲ ရှိတယ်။",
-        "အကောင်းဆုံးဖြစ်အောင် လုပ်ပါ၊ ကျန်တာကို ကံကြမ္မာအပေါ် ပုံချမထားပါနဲ့။",
-        "သူများထက် ပိုသိချင်ရင် သူများထက် ပိုကြိုးစားရမယ်။",
-        "ရင်းနှီးမြုပ်နှံမှုတွေထဲမှာအကောင်းဆုံးက ပညာရေးမှာရင်းနှီးမြုပ်နှံခြင်းပါပဲ"
-    ];
-
-    const d = new Date();
-    const dayOfYear = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
-    const quoteIdx = dayOfYear % quotes.length;
-    document.getElementById('daily-quote').innerText = `"${quotes[quoteIdx]}"`;
-}
-
-        // ၁။ Exam Date သတ်မှတ်ရန် (ဥပမာ - ၂၀၂၇ မတ်လ ၁ ရက်)
-
-function updateCountdown() {
-    const examDate = new Date("March 9, 2027 09:00:00").getTime();
- // စာမေးပွဲရက် သတ်မှတ်ချက်
-    const now = new Date().getTime();
-    const diff = examDate - now;
-
-    if (diff <= 0) {
-        document.getElementById('exam-countdown').innerHTML = "စာမေးပွဲရက်သို့ ရောက်ရှိပါပြီ";
-        return;
-    }
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById('exam-countdown').innerHTML = `
-        <div class="countdown-unit">
-            <span class="countdown-value">${d}</span>
-            <span class="countdown-label">Days</span>
-        </div>
-        <div class="countdown-unit">
-            <span class="countdown-value">${h}</span>
-            <span class="countdown-label">Hrs</span>
-        </div>
-        <div class="countdown-unit">
-            <span class="countdown-value">${m}</span>
-            <span class="countdown-label">Mins</span>
-        </div>
-        <div class="countdown-unit">
-            <span class="countdown-value">${s}</span>
-            <span class="countdown-label">Secs</span>
-        </div>
-    `;
-}
-setInterval(updateCountdown, 1000);
-
-
-
-
-function resetGoals() {
-    for(let i=1; i<=7; i++) {
-        if(document.getElementById(`goal${i}`)) document.getElementById(`goal${i}`).checked = false;
-    }
-    saveGoals();
-}
-
-// App စဖွင့်ချိန်မှာ function တွေကို ခေါ်ခြင်း
-window.onload = () => {
-    loadGoals(); 
-    updateCountdown(); 
-    updateStreak();
-    loadPaidUsers();
-    
-    // Random Switch ကို Local Storage ထဲက data နဲ့ ပြန်ချိန်ပေးခြင်း
-    const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false'; // Default true
-    const randomSwitch = document.getElementById('random-switch');
-    if (randomSwitch) {
-        randomSwitch.checked = savedRandomSetting;
-    }
-};
-       
-		// နေ့စဉ် Quote ပြောင်းလဲရန် Logic
-function displayDailyQuote() {
-    const today = new Date();
-    // နေ့၊ လ၊ ခုနှစ်ကို ပေါင်းပြီး နံပါတ်တစ်ခုထုတ်ယူခြင်း (ဥပမာ - ၂၆၅၂၀၂၆)
-    const daySeed = today.getDate() + (today.getMonth() + 1) * 100 + today.getFullYear();
-    
-    // နေ့ရက်အပေါ် မူတည်ပြီး array ထဲက quote တစ်ခုကို ပုံသေရွေးချယ်ခြင်း
-    const quoteIdx = daySeed % quotes.length;
-    document.getElementById('daily-quote').innerText = `"${quotes[quoteIdx]}"`;
-}
-
-
-// Developer ကို ဆက်သွယ်ရန် (Telegram သို့ တိုက်ရိုက်ပို့ပေးမည်)
-function contactDeveloper() {
-    const devUsername = "minaphayarkot"; // သင့် Telegram Username ပြောင်းပါ
-    const message = encodeURIComponent("မေးခွန်းမှားနေတာလေးပြောချင်လို့ပါ");
-    window.open(`https://t.me/${devUsername}?text=${message}`, '_blank');
-}
-
-function updateStreak() {
-    const todayDate = new Date().toISOString().split('T')[0];
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayDate = yesterday.toISOString().split('T')[0];
-
-    let lastLogin = localStorage.getItem('last_login_date');
-    let streak = parseInt(localStorage.getItem('streak_count')) || 0;
-
-    if (!lastLogin) {
-        // ပထမဆုံးအကြိမ် App သုံးသူဖြစ်လျှင်
-        streak = 1;
-    } else if (lastLogin === todayDate) {
-        // ဒီနေ့ ဝင်ပြီးသားဖြစ်လျှင် (ဘာမှမလုပ်ဘူး၊ လက်ရှိ streak အတိုင်းပဲ)
-        if (streak === 0) streak = 1; 
-    } else if (lastLogin === yesterdayDate) {
-        // မနေ့က ဝင်ခဲ့လျှင် Streak ၁ တိုးမယ်
-        streak += 1;
-    } else {
-        // တစ်ရက်ထက်ကျော်ပြီး ပျက်ကွက်သွားလျှင် ၁ ကနေ ပြန်စမယ်
-        streak = 1;
-    }
-
-    localStorage.setItem('last_login_date', todayDate);
-    localStorage.setItem('streak_count', streak.toString());
-    return streak;
-}
-      
-	  // ၁။ Daily Quiz အတွက် မေးခွန်းများ စုစည်းထားမည့် နေရာ
-// သင့်ရဲ့ မူရင်း JSON ပုံစံအတိုင်း (q, type, a, c) အတိအကျ သုံးထားပါတယ်
-const dailyQuizDB = {
-    'mm': [
-        { q: "မြန်မာစာ မေးခွန်း ၁", type: "mcq", a: ["က", "ခ", "ဂ", "ဃ"], c: 0 },
-        { q: "မြန်မာစာ မေးခွန်း ၂", type: "mcq", a: ["က", "ခ", "ဂ", "ဃ"], c: 1 },
-        { q: "မြန်မာစာ မေးခွန်း ၃", type: "mcq", a: ["က", "ခ", "ဂ", "ဃ"], c: 2 },
-        { q: "မြန်မာစာ မေးခွန်း ၄", type: "mcq", a: ["က", "ခ", "ဂ", "ဃ"], c: 3 }
-    ],
-    'en': [], 'eco': [], 'phy': [], 'chem': [], 'bio': []
-};
-
-// နေ့စဉ် ရက်စွဲအလိုက် ကျပန်းနံပါတ်ထုတ်ပေးမည့် စနစ်
-function getDailySeed() {
-    const today = new Date();
-    return today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-}
-
-function seededRandom(seed) {
-    const x = Math.sin(seed) * 10000;
-    return x - Math.floor(x);
-}
-
-// သက်ဆိုင်ရာ ဘာသာရပ်အလိုက် JSON ဖိုင်နာမည်များ စုစည်းပေးမည့် Function
-function getFileNamesForSubject(subId) {
-    let fileNames = [];
-    
-    if (subId === 'phy' || subId === 'chem' || subId === 'bio' || subId === 'eco') {
-        // Physics, Chem, Bio, Eco အတွက် (ဥပမာ- phy_Chapter_1_MCQ မှ 13 အထိ)
-        const sub = subjects.find(s => s.id === subId);
-        const maxChap = sub ? sub.chapters : 10;
-        for (let i = 1; i <= maxChap; i++) {
-            fileNames.push(`${subId}_Chapter_${i}_MCQ`);
-        }
-    } 
-    else if (subId === 'math') {
-        // သင်္ချာအတွက် (ဥပမာ- math_Chapter_1_1_Mark)
-        for (let i = 1; i <= 10; i++) { // Chapter 10 ထိရှိသည်ဟု ယူဆ၍
-            fileNames.push(`math_Chapter_${i}_1_Mark`);
-        }
-    }
-    else if (subId === 'en') {
-        // English အတွက် (ဥပမာ- en_unit1_mcq)
-        for (let i = 1; i <= 12; i++) {
-            fileNames.push(`en_unit${i}_mcq`);
-        }
-    }
-    else if (subId === 'mm') {
-        // မြန်မာစာအတွက်က ဖိုင်နာမည် ကွဲပြားလွန်းသဖြင့် အမှန်ရွေးဖိုင်များကို သီးသန့်ထည့်ပေးရမည်
-        fileNames = [
-            "mm_အပြော_အမှန်ရွေး",
-            "mm_စကားပြေ_အမှန်ရွေး",
-            "mm_ကဗျာ_အမှန်ရွေး",
-			"mm_အဖတ်_အမှန်ရွေး"
-			
-            // လိုအပ်လျှင် မြန်မာစာ ဖိုင်နာမည်များကို ဤနေရာတွင် ထပ်တိုးပါ
-        ];
-    }
-    
-    return fileNames;
-}
-async function startDailyQuiz(subId) {
-    const backBtn = document.getElementById('quiz-back-btn');
-    backBtn.innerText = "ခဏစောင့်ပါ...";
-    backBtn.disabled = true;
-
-    // အရေးကြီးသော ပြင်ဆင်ချက်: currentSubject ကို မှန်ကန်စွာ သတ်မှတ်ပေးခြင်း
-    // ဒါက App ဖွင့်ဖွင့်ချင်းမှာ currentSubject null ဖြစ်နေတဲ့ ပြဿနာကို ရှင်းပေးပါလိမ့်မယ်။
-    const selectedSub = subjects.find(s => s.id === subId);
-    if (selectedSub) {
-        currentSubject = selectedSub;
-    } else {
-        // အကယ်၍ ရှာမတွေ့ပါက ပုံသေတစ်ခု ထည့်ထားပေးပါမည် (Error ကာကွယ်ရန်)
-        currentSubject = { id: subId, name: subId };
-    }
-
-    const filesToFetch = getFileNamesForSubject(subId);
-    let allQuestionsPool = [];
-
-    try {
-        let fetchPromises = filesToFetch.map(fileName => {
-            return fetch(`./quizzes/${fileName}.json`)
-                .then(res => res.ok ? res.json() : []) 
-                .catch(() => []); 
-        });
-
-        const chaptersData = await Promise.all(fetchPromises);
-        
-        chaptersData.forEach((chapterQuestions) => {
-            if (Array.isArray(chapterQuestions)) {
-                const validQuestions = chapterQuestions.filter(item => {
-                    return item.q && item.a && Array.isArray(item.a);
-                }).map(item => {
-                    if (!item.type) {
-                        item.type = 'mcq';
-                    }
-                    return item;
-                });
-                
-                allQuestionsPool = allQuestionsPool.concat(validQuestions);
-            }
-        });
-
-        if(allQuestionsPool.length < 3) {
-            tg.showAlert("မေးခွန်းဖိုင်များ မတွေ့ပါ သို့မဟုတ် မပြည့်စုံပါ။");
-            backBtn.innerText = "ထွက်မည်";
-            backBtn.disabled = false;
-            return;
-        }
-
-        let seed = getDailySeed();
-        let shuffled = [...allQuestionsPool];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const r = seededRandom(seed + i);
-            const j = Math.floor(r * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-
-        currentQuestions = shuffled.slice(0, 3);
-        currentIdx = 0;
-        
-        backBtn.innerText = "ထွက်မည်";
-        backBtn.disabled = false;
-        backBtn.onclick = () => showScreen('daily');
-
-        showScreen('quiz');
-        loadQuestion();
-
-    } catch (error) {
-        tg.showAlert("Error: " + error.message);
-        backBtn.innerText = "ထွက်မည်";
-        backBtn.disabled = false;
-    }
-}
-
-function updateRandomizeSetting() {
-    const isRandom = document.getElementById('random-switch').checked;
-    localStorage.setItem('randomQuizSetting', isRandom ? 'true' : 'false');
-}
-
-// Flashcard မူလဒေတာကို သိမ်းထားရန်
-let originalFlashCards = [];
-let isFlashcardShuffled = false;
-
-// မူလ initFlashcards function ကို အောက်ပါအတိုင်း အစားထိုးပါ
-async function initFlashcards(fileName, markTitle = "Flashcard") {
-    currentFlashMark = markTitle; 
-    try {
-        const res = await fetch(`./quizzes/${fileName}.json`);
-        if(!res.ok) throw new Error();
-        
-        const data = await res.json();
-        originalFlashCards = [...data]; // မူလအစီအစဉ်ကို သိမ်းထားမယ်
-        
-        // ယခင်က Shuffle ဖွင့်ထားခဲ့ရင် ဆက်ဖွင့်ထားပေးမယ်
-        if (isFlashcardShuffled) {
-            flashCards = shuffleArray([...originalFlashCards]);
-        } else {
-            flashCards = [...originalFlashCards];
-        }
-        
-        flashIdx = 0;
-        showScreen('flashcard');
-        updateFlashUI();
-    } catch (e) { 
-        tg.showAlert("ဖိုင်မတွေ့သေးပါ- " + fileName); 
-    }
-}
-
-// ခလုတ်နှိပ်လိုက်ရင် အလုပ်လုပ်မည့် Function
-function toggleFlashcardShuffle() {
-    const btn = document.getElementById('shuffle-toggle-btn');
-    isFlashcardShuffled = !isFlashcardShuffled; // အခြေအနေကို ပြောင်းမယ်
-    
-    if (isFlashcardShuffled) {
-        btn.classList.add('shuffle-active');
-        btn.innerText = "🔀 မွှေနှောက်";
-        // မွှေနှောက်လိုက်မယ်
-        flashCards = shuffleArray([...originalFlashCards]);
-    } else {
-        btn.classList.remove('shuffle-active');
-        btn.innerText = "🔄 ပုံမှန်";
-        // မူလအစီအစဉ်အတိုင်း ပြန်ထားမယ်
-        flashCards = [...originalFlashCards];
-    }
-    
-    // Index ပြန်စပြီး UI Update လုပ်မယ်
-    flashIdx = 0;
-    updateFlashUI();
-}
-// --- Timer Variables ---
-let quizTimerInterval = null;
-let quizSeconds = 0;
-let isTimerRunning = false;
-let score = 0; // 🎯 ရမှတ်သိမ်းဆည်းရန် Variable အသစ်
-
-// Timer အဖွင့်/အပိတ် လုပ်မည့် Function
-function toggleTimer() {
-    if (isTimerRunning) {
-        // အချိန် ခဏရပ်မည်
-        clearInterval(quizTimerInterval);
-        isTimerRunning = false;
-        document.getElementById('timer-start-btn').innerText = "▶ ဆက်မှတ်မည်";
-    } else {
-        // အချိန် စမှတ်မည်
-        isTimerRunning = true;
-        document.getElementById('timer-display').style.display = 'inline';
-        document.getElementById('timer-reset-btn').style.display = 'inline';
-        document.getElementById('timer-start-btn').innerText = "⏸ ခဏရပ်မည်";
-        
-        quizTimerInterval = setInterval(() => {
-            quizSeconds++;
-            const m = Math.floor(quizSeconds / 60).toString().padStart(2, '0');
-            const s = (quizSeconds % 60).toString().padStart(2, '0');
-            document.getElementById('timer-display').innerText = `${m}:${s}`;
-        }, 1000);
-    }
-}
-
-
-// ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
-function resetTimer() {
-    clearInterval(quizTimerInterval);
-    isTimerRunning = false;
-    quizSeconds = 0;
-    
-    document.getElementById('timer-display').innerText = "00:00";
-    document.getElementById('timer-display').style.display = 'none';
-    document.getElementById('timer-reset-btn').style.display = 'none';
-    
-    const startBtn = document.getElementById('timer-start-btn');
-    startBtn.innerText = "⏱ အချိန်မှတ်မည်";
-    startBtn.removeAttribute('disabled');
-    startBtn.disabled = false; 
-    startBtn.style.opacity = "1";
-    startBtn.style.cursor = "pointer";
-    startBtn.style.pointerEvents = "auto";
-
-    // 🎯 ရမှတ်ကို ၀ ပြန်ပြောင်းပြီး Screen ပေါ်မှာ ပြန်ပြင်ပေးရန်
-    score = 0;
-    document.getElementById('score-display').innerText = "ရမှတ်: 0";
-}
+        window.onload = syncEvent;
     </script>
 </body>
 </html>
