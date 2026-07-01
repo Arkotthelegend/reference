@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TACO RAIN ADMIN EVENT</title>
     <style>
-
         * {
             -webkit-tap-highlight-color: transparent !important;
             -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
@@ -28,14 +27,71 @@
             transition: background-color 2s ease;
         }
 
-    
+        /* နောက်ခံမြေကြီးနှင့် နေလုံးပါဝင်သည့် World */
         #game-world {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1;
+            z-index: 1; /* အောက်ဆုံးတွင်ထားမည် */
             pointer-events: none;
         }
 
+        /* နေလုံး (Sun) - ညာဘက်အပေါ်ထောင့် */
+        .glitch-sun {
+            position: absolute;
+            top: 5vh;
+            right: 5vw;
+            width: 70px;
+            height: 70px;
+            background: #ffda66;
+            border-radius: 50%;
+            box-shadow: 0 0 25px #ffaa00;
+            transition: all 1.5s ease;
+        }
+
+        /* Neon Mode တွင် နေလုံး Glitch ဖြစ်ခြင်း */
+        body.neon-active .glitch-sun {
+            background: #fff;
+            box-shadow: 0 0 30px #00ffff, inset 0 0 15px #ff007f;
+            animation: sun-core-glitch 4s infinite;
+        }
+
+        /* နေလုံးမှ အလင်းတန်းများ ဖြာထွက်ခြင်း */
+        body.neon-active .glitch-sun::before,
+        body.neon-active .glitch-sun::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid transparent;
+            animation: sun-rays-glitch 4s infinite;
+        }
+
+        body.neon-active .glitch-sun::before {
+            border-color: #00ffff;
+            animation-delay: 0.1s;
+        }
+
+        body.neon-active .glitch-sun::after {
+            border-color: #ff007f;
+            animation-delay: 0.25s;
+        }
+
+        @keyframes sun-core-glitch {
+            0%, 90%, 100% { transform: scale(1) translate(0,0); }
+            92% { transform: scale(1.1) translate(-3px, 3px); filter: hue-rotate(90deg); box-shadow: -5px 5px 0 #00ffff, 5px -5px 0 #ff007f; }
+            94% { transform: scale(0.9) translate(3px, -3px); filter: hue-rotate(-90deg); box-shadow: 5px 5px 0 #ff007f, -5px -5px 0 #00ffff; }
+            96% { transform: scale(1) translate(0,0); box-shadow: 0 0 30px #00ffff, inset 0 0 15px #ff007f; }
+        }
+
+        @keyframes sun-rays-glitch {
+            0%, 90%, 100% { width: 100%; height: 100%; opacity: 0; }
+            92% { width: 180%; height: 180%; opacity: 0.8; }
+            95% { width: 300%; height: 300%; opacity: 0; }
+        }
+
+        /* နောက်ခံမြေကြီး (Glitch) */
         .pixel-hill-1 {
             position: absolute; bottom: 0; left: -15%; width: 75%; height: 35vh;
             background: #46c35f;
@@ -54,23 +110,14 @@
             transition: all 1.5s ease;
         }
 
-        body.neon-active {
-            background-color: #0b001a; 
-        }
-
-        body.neon-active #game-world {
-            animation: chaos-glitch 0.15s infinite;
-        }
-
+        body.neon-active { background-color: #0b001a; }
+        body.neon-active #game-world { animation: chaos-glitch 0.15s infinite; }
         body.neon-active .pixel-hill-1 {
-            background: #120024;
-            border-top: 10px solid #ff007f;
+            background: #120024; border-top: 10px solid #ff007f;
             box-shadow: 0 0 25px #ff007f, inset 0 15px 0 #ff007f;
         }
-
         body.neon-active .pixel-hill-2 {
-            background: #0a0014;
-            border-top: 10px solid #00ffff;
+            background: #0a0014; border-top: 10px solid #00ffff;
             box-shadow: 0 0 25px #00ffff, inset 0 15px 0 #00ffff;
         }
 
@@ -81,28 +128,19 @@
         }
 
         #taco-container {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 3;
-            pointer-events: none; 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 3; pointer-events: none; 
         }
 
         .taco {
-            position: absolute;
-            pointer-events: none;
-            /* top နဲ့ rotate ကို ခွဲခြားအလုပ်လုပ်စေသည် */
+            position: absolute; pointer-events: none;
             animation: fall linear forwards, spin 2s linear infinite;
         }
 
-        @keyframes fall { 
-            0% { top: -60px; }
-            100% { top: 110vh; } 
-        }
-        @keyframes spin { 
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); } 
-        }
+        @keyframes fall { 0% { top: -60px; } 100% { top: 110vh; } }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
+        /* Message Box Z-index မြှင့်ထားသည် */
         .message-container {
             position: relative;
             z-index: 10;
@@ -121,22 +159,16 @@
         }
 
         body.neon-active .message-container {
-            border-color: #ff007f;
-            box-shadow: 0 0 20px #ff007f, inset 0 0 10px #ff007f;
+            border-color: #ff007f; box-shadow: 0 0 20px #ff007f, inset 0 0 10px #ff007f;
         }
 
         .character-img {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            border: 2px solid #46c35f;
-            object-fit: cover;
-            transition: all 1s ease;
+            width: 65px; height: 65px; border-radius: 50%;
+            border: 2px solid #46c35f; object-fit: cover; transition: all 1s ease;
         }
 
         body.neon-active .character-img {
-            border-color: #00ffff;
-            animation: img-glitch 0.3s infinite;
+            border-color: #00ffff; animation: img-glitch 0.3s infinite;
         }
 
         @keyframes img-glitch {
@@ -145,57 +177,30 @@
             100% { transform: translate(2px, -1px); filter: saturate(1); }
         }
 
-        .text-content {
-            flex: 1;
-            font-size: 0.95rem;
-            line-height: 1.4;
-            color: #fff;
-        }
+        .text-content { flex: 1; font-size: 0.95rem; line-height: 1.4; color: #fff; }
 
         .live-status {
-            position: absolute;
-            top: -12px;
-            right: 15px;
-            background: #3ca850;
-            color: white;
-            font-size: 0.7rem;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-weight: bold;
+            position: absolute; top: -12px; right: 15px;
+            background: #3ca850; color: white; font-size: 0.7rem;
+            padding: 2px 8px; border-radius: 10px; font-weight: bold;
         }
 
         body.neon-active .live-status {
-            background: #ff003c;
-            box-shadow: 0 0 10px #ff003c;
-            animation: blink 1s infinite;
+            background: #ff003c; box-shadow: 0 0 10px #ff003c; animation: blink 1s infinite;
         }
 
         .glitch-btn {
-            position: absolute;
-            bottom: 40px;
-            z-index: 10;
-            background: #ffaa00; 
-            color: #000; 
-            border: 2px solid #000;
-            padding: 15px 35px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            font-family: 'Courier New', Courier, monospace;
-            cursor: pointer;
-            border-radius: 6px;
-            box-shadow: 0 5px 0 #b37700;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
+            position: absolute; bottom: 40px; z-index: 10;
+            background: #ffaa00; color: #000; border: 2px solid #000;
+            padding: 15px 35px; font-size: 1.1rem; font-weight: bold;
+            font-family: 'Courier New', Courier, monospace; cursor: pointer;
+            border-radius: 6px; box-shadow: 0 5px 0 #b37700;
+            text-transform: uppercase; transition: all 0.3s ease;
         }
 
-
         body.neon-active .glitch-btn {
-            background: #ff003c;
-            color: #fff;
-            border: none;
-            border-radius: 0px;
-            box-shadow: 4px 4px 0 #00ffff, -4px -4px 0 #ff007f;
-            animation: btn-glitch 0.1s infinite;
+            background: #ff003c; color: #fff; border: none; border-radius: 0px;
+            box-shadow: 4px 4px 0 #00ffff, -4px -4px 0 #ff007f; animation: btn-glitch 0.1s infinite;
         }
 
         @keyframes btn-glitch {
@@ -214,6 +219,7 @@
     </audio>
 
     <div id="game-world">
+        <div class="glitch-sun"></div>
         <div class="pixel-hill-1"></div>
         <div class="pixel-hill-2"></div>
     </div>
@@ -230,13 +236,19 @@
         </div>
     </div>
 
-    <button class="glitch-btn" onclick="window.location.href='https://t.me/minaphayarkot'">
+    <button id="claim-btn" class="glitch-btn" style="display: none;" onclick="window.location.href='https://t.me/minaphayarkot'">
         Claim Gift ➔
     </button>
 
+    <div id="update-screen" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0b001a; z-index: 99999; flex-direction: column; justify-content: center; align-items: center; font-family: 'Courier New', Courier, monospace; text-align: center;">
+        <h1 style="color: #ff007f; font-size: 2.2rem; text-shadow: 0 0 15px #ff007f; margin-bottom: 15px; animation: blink 1s infinite;">⚠️ SYSTEM UPDATE</h1>
+        <p style="color: #00ffff; font-size: 1.3rem; text-shadow: 0 0 10px #00ffff; font-weight: bold;">App Update လုပ်နေပါသည်... ခေတ္တစောင့်ဆိုင်းပေးပါ။</p>
+    </div>
+
     <script>
-        
-        const EVENT_START_TIME = new Date(2026, 6, 2, 0, 18, 0).getTime(); 
+        // အချိန်ကိုမိမိအလိုရှိသလို ချိန်ညှိပါ
+        const EVENT_START_TIME = new Date(2026, 6, 2, 0, 38, 0).getTime(); 
+        const TIME_MULTIPLIER = 1.5; 
         
         const TIMELINE = [
             { time: 0,      text: "[SYSTEM] Admin has joined the server..." },
@@ -263,88 +275,59 @@
             { time: 87000,  text: "ကဲပါ" },
             { time: 89000,  text: "နောက် code တစ်ခုချပေးမယ်" },
             { time: 92000,  text: "ဒီတစ်ခေါက်ကတော့မတူဘူး" },
-            { time: 95000,  text: "Reed channel မှာဒီ event ကြီးရဲ့ Link ရှိတယ်လေ နောက်ဆုံး post မှာ" },
+            { time: 95000,  text: "Reed channel မှာဒီ event ကြီးရဲ့ Linkရှိတယ်လေ နောက်ဆုံး post မှာ" },
             { time: 97000,  text: "အဲ့ဒီ post ကိုသူငယ်ချင်း ၁ ယောက်ကို share ပေးပြီး ss နဲ့ code နဲ့လာပို့ရမှာ" },
             { time: 99000,  text: "ပထမတစ်ခေါက်ရပြီးသားသူတွေကိုဒီတစ်ကြိမ်မှာထပ်ယူခွင့်မပေးထားပါဘူး" },
             { time: 101000, text: "ကဲအဆင်သင့်ဖြစ်ကြပြီလား" },
             { time: 103000, text: "ချပြီ" },
             { time: 106000, text: "နောက် CODE ကတော့: <span style='color:yellow; font-weight:bold; font-size:1.1rem; background:rgba(255,0,0,0.5); padding:2px 5px;'>CHANCES</span> ဖြစ်ပါတယ်။" },
-            { time: 112000,  text: "မြန်မြန်ပို့ကြ‌နော်" },
-{ time: 118000,  text: "ရကြလား" },
-{ time: 124000,  text: "လူတော်တော်များများလာပို့ကြပါတယ်" },
-{ time: 128000,  text: "ကဲ...." },
-{ time: 130000,  text: "ဒီ Admin Abuse ရဲ့နောက်ဆုံး Code ချပေးမယ်" },
-{ time: 132000,  text: "ရယ်ဒီဖြစ်ပြီလား" },
-{ time: 134000,  text: "နောက်ထပ်လူနည်းနည်းထပ်ရောက်လာရင်ချပေးမယ်‌" },
-{ time: 138000,  text: "စပြီနော်" },
-{ time: 140000,  text: "......" },
-{ time: 144000,  text: "နောက်ဆုံး Code ကတော့ <span style='color:yellow; font-weight:bold; font-size:1.1rem; background:rgba(255,0,0,0.5); padding:2px 5px;'>ADMIN</span> " },
-{ time: 150000,  text: "ကံကောင်းကြပါစေ" },
-{ time: 153000,  text: "ရကြလား" },
-{ time: 156000,  text: "ဒီနေ့ Admin Abuse Event ကတော့ဒါပါပဲ" },
-{ time: 159000,  text: "မကြာခင် App ကိုပုံမှန်သုံးလို့ရအောင်လုပ်ပေးပါမယ်ဗျ" },
-{ time: 161000,  text: "Bye Bye" },
-{ time: 164000,  text: "     " }
+            { time: 112000, text: "မြန်မြန်ပို့ကြ‌နော်" },
+            { time: 118000, text: "ရကြလား" },
+            { time: 124000, text: "လူတော်တော်များများလာပို့ကြပါတယ်" },
+            { time: 128000, text: "ကဲ...." },
+            { time: 130000, text: "ဒီ Admin Abuse ရဲ့နောက်ဆုံး Code ချပေးမယ်" },
+            { time: 132000, text: "ရယ်ဒီဖြစ်ပြီလား" },
+            { time: 134000, text: "နောက်ထပ်လူနည်းနည်းထပ်ရောက်လာရင်ချပေးမယ်‌" },
+            { time: 138000, text: "စပြီနော်" },
+            { time: 140000, text: "......" },
+            { time: 144000, text: "နောက်ဆုံး Code ကတော့ <span style='color:yellow; font-weight:bold; font-size:1.1rem; background:rgba(255,0,0,0.5); padding:2px 5px;'>ADMIN</span> " },
+            { time: 150000, text: "ကံကောင်းကြပါစေ" },
+            { time: 153000, text: "ရကြလား" },
+            { time: 156000, text: "ဒီနေ့ Admin Abuse Event ကတော့ဒါပါပဲ" },
+            { time: 159000, text: "မကြာခင် App ကိုပုံမှန်သုံးလို့ရအောင်လုပ်ပေးပါမယ်ဗျ" },
+            { time: 164000, text: "Bye Bye" },
+            { time: 167000, text: "     " }
         ];
 
-        // =========================================================
-        // 🚀 ENGINE LOGIC (အမှားပြင်ဆင်ပြီးသားစနစ်)
-        // =========================================================
+        TIMELINE.forEach(item => { item.time = item.time * TIME_MULTIPLIER; });
 
         const messageText = document.getElementById('message-text');
         const bgMusic = document.getElementById('bg-music');
-        bgMusic.volume = 0.3; // သီချင်းအသံချုံ့ထားသည်
+        bgMusic.volume = 0.3; 
 
         const statusTag = document.getElementById('status-tag');
-        let fakeUsers = 97;
+        const claimBtn = document.getElementById('claim-btn');
         let rainInterval = null;
-        let isUserCounterRunning = false; // ထပ်ခါထပ်ခါ Run တာကို တားရန်
 
-        // User Counter Engine သစ်
-        function startUserCounter() {
-            if (isUserCounterRunning) return;
-            isUserCounterRunning = true;
-
-            // စစချင်း 97 ယောက်ကို ပြပေးမည်
-            updateUserUI();
-
-            function loopCounter() {
-                // ၂ စက္ကန့် မှ ၄ စက္ကန့် ကြား Random အချိန် (2000ms to 4000ms)
-                const randomDelay = Math.floor(Math.random() * 2000) + 1000;
-
-                setTimeout(() => {
-                    // User တက်မလား၊ ကျမလား သတ်မှတ်ခြင်း (80% chance က တက်မည်၊ 20% chance က ကျမည်)
-                    const isIncrease = Math.random() < 0.73;
-
-                    if (isIncrease) {
-                        // ၃ ယောက် မှ ၅ ယောက် အထိ တက်မည်
-                        fakeUsers += Math.floor(Math.random() * 3) + 3;
-                    } else {
-                        // ၁ ယောက် မှ ၂ ယောက် အထိ ကျမည်
-                        fakeUsers -= Math.floor(Math.random() * 2) + 1;
-                        
-                        // User အရေအတွက် 97 အောက် မရောက်သွားအောင် ထိန်းထားမည်
-                        if (fakeUsers < 97) fakeUsers = 97; 
+        // 🎵 သီချင်းကို Real-time ချိန်ညှိပေးမည့် Function
+        function syncAudioTime() {
+            if (bgMusic.readyState >= 1) { // သီချင်း Data ရပြီဆိုပါက
+                const elapsedMS = Date.now() - EVENT_START_TIME;
+                if (elapsedMS > 0 && bgMusic.duration > 0) {
+                    const expectedTime = (elapsedMS / 1000) % bgMusic.duration; // သီချင်းကြာချိန်နှင့် လှည့်ပတ်စစ်ဆေးခြင်း
+                    // ရောက်ရမည့်အချိန်နှင့် လက်ရှိဖွင့်နေသည့်အချိန် ၀.၅ စက္ကန့်ထက်ပိုကွာနေမှသာ ပြင်ဆင်မည် (အထစ်အငေါ့မဖြစ်စေရန်)
+                    if (Math.abs(bgMusic.currentTime - expectedTime) > 0.5) {
+                        bgMusic.currentTime = expectedTime;
                     }
-
-                    updateUserUI();
-                    loopCounter(); // နောက်တစ်ကြိမ်အတွက် ဆက်ပြီး Run မည်
-                }, randomDelay);
-            }
-
-            loopCounter();
-        }
-
-        function updateUserUI() {
-            document.querySelectorAll('.live-user-placeholder').forEach(el => {
-                el.innerText = fakeUsers.toLocaleString();
-            });
-            if(document.body.classList.contains('neon-active')) {
-                statusTag.innerHTML = `🔴 LIVE: ${fakeUsers.toLocaleString()} USERS`;
+                }
             }
         }
 
-        // Taco Rain Function
+        // သီချင်း Data ဝင်လာသည်နှင့် အချိန်ချက်ချင်း ချိန်မည်
+        bgMusic.addEventListener('loadedmetadata', syncAudioTime);
+        // User Tab ခေါက်ထား၍ နောက်ကျကျန်ခဲ့လျှင် အချိန်ပြန်ညှိရန် ၅ စက္ကန့်တစ်ခါ စစ်ဆေးမည်
+        setInterval(syncAudioTime, 5000); 
+
         function startTacoRain() {
             if (rainInterval) return;
             rainInterval = setInterval(() => {
@@ -360,53 +343,74 @@
             }, 180);
         }
 
-        // Active Neon Page Function
-        // Active Neon Page Function
         function activateNeonEvent() {
             if (!document.body.classList.contains('neon-active')) {
                 document.body.classList.add('neon-active');
                 
-                // Event စပြီဖြစ်တဲ့အတွက် Taco မိုးရွာမယ်၊ User 97 ယောက်ကနေ စတက်မယ်
                 startTacoRain();
-                startUserCounter(); 
+                statusTag.innerHTML = "🔴 LIVE";
                 
-                bgMusic.play().catch(() => {
-                    document.body.addEventListener('click', () => bgMusic.play(), { once: true });
+                // သီချင်းကို Real-time sync လုပ်ပြီး ဖွင့်မည်
+                bgMusic.play().then(() => {
+                    syncAudioTime();
+                }).catch(() => {
+                    document.body.addEventListener('click', () => {
+                        bgMusic.play();
+                        syncAudioTime();
+                    }, { once: true });
                 });
             }
         }
 
-        // 🛠️ FIX: ၁ စက္ကန့်တစ်ခါ အချိန်ကို စစ်ဆေးမောင်းနှင်မည့် ပိုမိုသေချာသော Engine စနစ်
+        function endEvent() {
+            bgMusic.pause();
+            if (rainInterval) clearInterval(rainInterval); 
+            document.getElementById('taco-container').innerHTML = '';
+            claimBtn.style.display = 'none'; 
+            document.getElementById('update-screen').style.display = 'flex'; 
+        }
+
         function syncEventEngine() {
             const elapsed = Date.now() - EVENT_START_TIME;
             
             if (elapsed < 0) {
-                // အချိန်မရောက်သေးပါက နဂို Screen (Waiting) အတိုင်းပြထားမည်
                 statusTag.innerHTML = "💤 WAITING";
                 messageText.innerHTML = "Admin ကို စောင့်ဆိုင်းနေပါသည်...";
-                setTimeout(syncEventEngine, 1000); // ၁ စက္ကန့်တစ်ခါ အချိန်ကို စစ်နေမည်
+                setTimeout(syncEventEngine, 1000); 
                 return;
             }
 
-            // အချိန်ရောက်တာနဲ့ / ကျော်တာနဲ့ Neon Mode ချက်ချင်းပြောင်းမည်
             activateNeonEvent();
 
             let activeText = "Initializing protocols...";
+            let codeRevealed = false;
 
             TIMELINE.forEach(item => {
+                const hasCode = item.text.includes("CODE") || item.text.includes("Code");
                 if (elapsed >= item.time) {
                     activeText = item.text; 
+                    if (hasCode) codeRevealed = true;
                 } else {
                     setTimeout(() => {
                         messageText.innerHTML = item.text;
+                        if (hasCode) claimBtn.style.display = 'block'; 
                     }, item.time - elapsed);
                 }
             });
 
             messageText.innerHTML = activeText;
+            if (codeRevealed) claimBtn.style.display = 'block';
+
+            const lastItem = TIMELINE[TIMELINE.length - 1];
+            const endTime = lastItem.time + (3000 * TIME_MULTIPLIER);
+            
+            if (elapsed >= endTime) {
+                endEvent();
+            } else {
+                setTimeout(endEvent, endTime - elapsed);
+            }
         }
 
-        // 🛠️ FIX: window.onload ကို မစောင့်တော့ဘဲ Code ဖတ်တာနဲ့ တိုက်ရိုက် Engine ကို နှိုးလိုက်သည်
         syncEventEngine();
     </script>
 </body>
