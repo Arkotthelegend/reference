@@ -53,7 +53,7 @@
         .active-screen { display: block; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .btn { background: var(--accent); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: bold; width: 100%; margin: 8px 0; cursor: pointer; text-align: center; box-sizing: border-box; font-size: 1rem; -webkit-tap-highlight-color: transparent; }
+         .btn { background: var(--accent); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: bold; width: 100%; margin: 8px 0; cursor: pointer; text-align: center; box-sizing: border-box; font-size: 1rem; -webkit-tap-highlight-color: transparent; }
         .back-btn { background: var(--secondary-btn); margin-top: 20px; }
         .next-btn { background: var(--success); display: none; margin-top: 10px; }
 
@@ -372,16 +372,9 @@
 		
 	<div id="scroll-screen" class="screen">
     
-    <div id="old-questions-main" style="padding: 15px;">
-        <h2 style="text-align: center;">Old Questions</h2>
-        <button class="btn" onclick="showOldSubjects('2024')">📅 2024</button>
-        <button class="btn" onclick="showOldSubjects('2025')">📅 2025</button>
-    </div>
-
-    <div id="old-subjects-screen" style="display:none; padding: 15px;">
-        <h3 id="selected-year-title" style="text-align: center; color: var(--accent);"></h3>
+    <div id="old-subjects-screen" style="padding: 15px;">
+        <h2 style="text-align: center; color: var(--accent);">မေးခွန်းဟောင်းများ</h2>
         <div id="old-subject-list"></div>
-        <button class="btn back-btn" onclick="backToOldYears()">နောက်သို့</button> 
     </div>
 
     <div id="old-types-screen" style="display:none; padding: 15px;">
@@ -630,18 +623,24 @@ const subjectSetsConfig = {
         // မူလရှိနေသော const userId နှင့် const userBought နေရာများကို အပေါ်သို့ ရွှေ့လိုက်ပါပြီ။
 
 
-// --- Old Questions Navigation Logic ---
-// --- Old Questions Navigation Logic ---
-let selectedYear = "";
 
-function showOldSubjects(year) {
-    selectedYear = year;
-    document.getElementById('old-questions-main').style.display = 'none';
-    document.getElementById('old-types-screen').style.display = 'none';
-    document.getElementById('old-subjects-screen').style.display = 'block';
-    document.getElementById('selected-year-title').innerText = year + " မေးခွန်းဟောင်းများ";
+// --- Old Questions Navigation Logic ---
 
+// Grammar ခေါင်းစဉ်များကို နှစ်အလိုက်မခွဲတော့ဘဲ တစ်ခုတည်းအဖြစ် ပေါင်းထားပါသည်
+const oldENGrammarTopics = [
+    { title: "Past Simple", id: "past_simple" },
+    { title: "Present Simple", id: "present_simple" },
+    { title: "Present Continuous", id: "present_continuous" },
+    { title: "Zero Conditional", id: "zero_conditional" },
+    { title: "First Conditional", id: "first_conditional" },
+    { title: "Active Voice To Passive Voice", id: "active_passive_voice" }
+    // လိုအပ်သလို ထပ်ဖြည့်နိုင်ပါသည်
+];
+
+// App စတင်သည်နှင့် Old Subjects များကို အသင့်တည်ဆောက်ထားရန်
+function initOldSubjects() {
     const list = document.getElementById('old-subject-list');
+    if (!list) return; // Check for safety
     list.innerHTML = '';
 
     subjects.forEach(sub => {
@@ -655,10 +654,11 @@ function showOldSubjects(year) {
 
         const card = document.createElement('div');
         card.className = `subject-card ${isPaid ? '' : 'locked'}`;
-        // ပင်မ Tab နှင့် ကွဲပြားစေရန် မေးခွန်းဟောင်း ကတ်များကို ခရမ်းရောင်ပြောင်းထားခြင်း
-        card.style.background = 'linear-gradient(135deg, #6366f1, #4f46e5)';
-        card.style.boxShadow = '0 4px 15px rgba(99, 102, 241, 0.3)';
-        card.style.border = '1px solid #818cf8';
+        // အစိမ်းနုရောင်
+        card.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
+        card.style.boxShadow = '0 4px 15px rgba(34, 197, 94, 0.3)';
+        card.style.border = '1px solid #16a34a';
+        card.style.color = '#064e3b'; 
 
         card.innerHTML = `
             <span>${sub.name}</span>
@@ -669,7 +669,7 @@ function showOldSubjects(year) {
             if (isPaid) {
                 currentSubject = sub;
                 isAnswered = false;
-                showOldMenu(sub); // Set အဆင့်မရှိတော့ဘဲ Menu သို့ တိုက်ရိုက်သွားမည်
+                showOldMenu(sub); 
             } else {
                 tg.showAlert("ဒီဘာသာရပ်ကို ဝယ်ယူထားခြင်း မရှိသေးပါ။ Unlock လုပ်ရန် ဆက်သွယ်ပါ။");
             }
@@ -682,8 +682,9 @@ function showOldSubjects(year) {
 function createOldBtn(txt, parent, act) {
     const b = document.createElement('button');
     b.className = 'btn';
-    b.style.background = '#3730A3'; // ရင့်သော ခရမ်းရောင် (Indigo)
-    b.style.border = '1px solid #4F46E5';
+    b.style.background = '#4ade80'; 
+    b.style.border = '1px solid #22c55e';
+    b.style.color = '#064e3b';
     b.innerText = txt;
     b.onclick = act;
     parent.appendChild(b);
@@ -692,26 +693,24 @@ function createOldBtn(txt, parent, act) {
 function showOldMenu(sub) {
     document.getElementById('old-subjects-screen').style.display = 'none';
     document.getElementById('old-types-screen').style.display = 'block';
-    document.getElementById('selected-sub-title').innerText = `${selectedYear} - ${sub.name}`;
+    document.getElementById('selected-sub-title').innerText = sub.name; // Year မပါတော့ပါ
 
     const list = document.getElementById('old-type-list');
     list.innerHTML = '';
     document.querySelector('#old-types-screen .back-btn').onclick = backToOldSubjects;
 
-    // သတ်မှတ်ထားသော စည်းမျဉ်းများအတိုင်း Filter လုပ်ခြင်း
     if (sub.id === 'en') {
-        ['Initial Letter', 'MCQ', 'Grammar'].forEach(type => { // Poem ဖြုတ်ထားသည်
+        ['Initial Letter', 'MCQ', 'Grammar'].forEach(type => { 
             createOldBtn(type, list, () => {
                 if (type === 'Grammar') showOldENGrammarOptions();
                 else showOldENUnits(type);
             });
         });
     } else if (sub.id === 'mm') {
-        ['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး'].forEach(m => { // ခက်ဆစ်နှင့် အလင်္ကာ ဖြုတ်ထားသည်
+        ['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး'].forEach(m => { 
             createOldBtn(m, list, () => showOldMMQuizOptions(m));
         });
     } else {
-        // အခြားဘာသာရပ်များအတွက် (Physics, Chem, Bio, Eco, Math)
         for(let i=1; i<=sub.chapters; i++) {
             createOldBtn(`Chapter ${i}`, list, () => showOldGeneralActivities(sub.id, `Chapter ${i}`));
         }
@@ -721,12 +720,12 @@ function showOldMenu(sub) {
 function showOldENUnits(typeName) {
     const list = document.getElementById('old-type-list');
     list.innerHTML = '';
-    document.getElementById('selected-sub-title').innerText = `${selectedYear} - ${typeName}`;
+    document.getElementById('selected-sub-title').innerText = typeName;
     document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
 
     for (let i = 1; i <= 12; i++) {
         createOldBtn(`Unit ${i}`, list, () => {
-            initQuiz(`old_${selectedYear}_en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`);
+            initQuiz(`old_en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`);
             document.getElementById('quiz-back-btn').onclick = () => {
                 showScreen('scroll'); 
                 showOldENUnits(typeName);
@@ -738,70 +737,12 @@ function showOldENUnits(typeName) {
 function showOldENGrammarOptions() {
     const list = document.getElementById('old-type-list');
     list.innerHTML = '';
-    document.getElementById('selected-sub-title').innerText = `${selectedYear} - Grammar`;
+    document.getElementById('selected-sub-title').innerText = "Grammar";
     document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
 
-    const topics = [
-        { title: "Past Simple", id: "past_simple" },
-        { title: "Present Simple", id: "present_simple" },
-        { title: "Present Continuous", id: "present_continuous" },
-        { title: "Past Continuous", id: "past_continuous" },
-        { title: "Present Perfect", id: "present_perfect" },
-        { title: "Present Perfect Continuous", id: "present_perfect_continuous" },
-        { title: "Future Simple", id: "future_simple" },
-        { title: "Going To/Will Be", id: "going_to" },
-        { title: "Future Continuous", id: "future_continuous" },
-        { title: "Used To", id: "used_to" },
-        { title: "Modal Auxiliaries", id: "modal_auxiliaries" },
-        { title: "Nouns In Apposition", id: "nouns_in_apposition" },
-        { title: "Not + Any = No", id: "not_any_no" },
-        { title: "Active Voice To Passive Voice", id: "active_passive_voice" },
-        { title: "Passive Voice To Active Voice", id: "passive_active_voice" },
-        { title: "Impersonal Passive", id: "impersonal_passive" },
-        { title: "Zero Conditional", id: "zero_conditional" },
-        { title: "First Conditional", id: "first_conditional" },
-        { title: "Second Conditional", id: "second_conditional" },
-        { title: "Third Conditional", id: "third_conditional" },
-        { title: "Subordinating Conjunction", id: "subordinating_conjunction" },
-        { title: "Clauses Of Contact", id: "clauses_of_contact" },
-        { title: "As If / As Though", id: "as_if_as_though" },
-        { title: "Preposition and Conjunction for Purposes", id: "preposition_conjunction_purpose" },
-        { title: "Verbs of Cause and Effect", id: "verbs_cause_effect" },
-        { title: "Linking Words to Show Cause and Effect", id: "linking_words_cause_effect" },
-        { title: "As soon as To No sooner", id: "as_soon_as_no_sooner" },
-        { title: "No sooner To As soon as", id: "no_sooner_as_soon_as" },
-        { title: "Both ... and", id: "both_and" },
-        { title: "Not only ... But also", id: "not_only_but_also" },
-        { title: "Neither ... nor", id: "neither_nor" },
-        { title: "Either ... or", id: "either_or" },
-        { title: "So and Neither", id: "so_and_neither" },
-        { title: "So that", id: "so_that" },
-        { title: "Such that", id: "such_that" },
-        { title: "Too ... to / Enough to", id: "too_to_enough_to" },
-        { title: "Before + V-ing", id: "before_ving" },
-        { title: "After + V-ing", id: "after_ving" },
-        { title: "Without + V-ing", id: "without_ving" },
-        { title: "By + V-ing", id: "by_ving" },
-        { title: "Introductory Phrases", id: "introductory_phrases" },
-        { title: "Participle Phrases", id: "participle_phrases" },
-        { title: "Gerund and Infinitive with 'to'", id: "gerund_infinitive" },
-        { title: "Verbs followed by a noun group", id: "verbs_followed_by_noun_group" },
-        { title: "Joining Sentences Using Relative Pronouns", id: "joining_relative_pronouns" },
-        { title: "Omission Of Relative Pronouns", id: "omission_relative_pronouns" },
-        { title: "It is / It was", id: "it_is_it_was" },
-        { title: "Double Negative Structure", id: "double_negative_structure" },
-        { title: "No Matter", id: "no_matter" },
-        { title: "Omission of Verbs", id: "omission_of_verbs" },
-        { title: "The more / The less", id: "the_more_the_less" },
-        { title: "As ... As", id: "as_as" },
-        { title: "Not as ... as", id: "not_as_as" },
-        { title: "Inversion (Full Verb Before Subject)", id: "inversion_full_verb" },
-        { title: "As and Like", id: "as_and_like" }
-    ];
-
-    topics.forEach(topic => {
+    oldENGrammarTopics.forEach(topic => {
         createOldBtn(topic.title, list, () => {
-            initFlashcards(`old_${selectedYear}_${topic.id}`, topic.title);
+            initFlashcards(`old_${topic.id}`, topic.title);
             const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
             flashExitBtn.onclick = () => {
                 showScreen('scroll');
@@ -814,12 +755,12 @@ function showOldENGrammarOptions() {
 function showOldMMQuizOptions(typeName) {
     const list = document.getElementById('old-type-list');
     list.innerHTML = '';
-    document.getElementById('selected-sub-title').innerText = `${selectedYear} - ${typeName}`;
+    document.getElementById('selected-sub-title').innerText = typeName;
     document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
 
     ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
         createOldBtn(cat, list, () => {
-            initQuiz(`old_${selectedYear}_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
+            initQuiz(`old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
             document.getElementById('quiz-back-btn').onclick = () => {
                 showScreen('scroll');
                 showOldMMQuizOptions(typeName);
@@ -831,13 +772,13 @@ function showOldMMQuizOptions(typeName) {
 function showOldGeneralActivities(subId, partName) {
     const list = document.getElementById('old-type-list');
     list.innerHTML = '';
-    document.getElementById('selected-sub-title').innerText = `${selectedYear} - ${partName}`;
+    document.getElementById('selected-sub-title').innerText = partName;
     document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
 
     if(subId === 'math') {
         ['1_Mark', '2_Marks'].forEach(mark => {
             createOldBtn(mark.replace('_', ' '), list, () => {
-                const fileName = `old_${selectedYear}_math_${partName}_${mark}`.replace(/ /g, "_");
+                const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
                 if (mark === '1_Mark') {
                     initQuiz(fileName);
                     document.getElementById('quiz-back-btn').onclick = () => {
@@ -858,7 +799,7 @@ function showOldGeneralActivities(subId, partName) {
         let types = ['True_False', 'Fill_Blank', 'MCQ'];
         types.forEach(type => {
             createOldBtn(type.replace('_', ' '), list, () => {
-                const fileName = `old_${selectedYear}_${subId}_${partName}_${type}`.replace(/ /g, "_");
+                const fileName = `old_${subId}_${partName}_${type}`.replace(/ /g, "_");
                 initQuiz(fileName);
                 document.getElementById('quiz-back-btn').onclick = () => {
                     showScreen('scroll');
@@ -869,15 +810,15 @@ function showOldGeneralActivities(subId, partName) {
     }
 }
 
-function backToOldYears() {
-    document.getElementById('old-subjects-screen').style.display = 'none';
-    document.getElementById('old-questions-main').style.display = 'block';
-}
-
 function backToOldSubjects() {
     document.getElementById('old-types-screen').style.display = 'none';
     document.getElementById('old-subjects-screen').style.display = 'block';
 }
+
+// App စတက်တာနဲ့ Old Subjects တွေကို အဆင်သင့်လုပ်ထားရန် ခေါ်ပေးခြင်း
+setTimeout(() => {
+    initOldSubjects();
+}, 500);
 
 function checkAccess(subId) {
     // ၁။ ဒီနေ့ ရက်စွဲကို အချိန် (Time) မပါဘဲ ယူမည်
