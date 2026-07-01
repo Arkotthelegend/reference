@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TACO RAIN ADMIN EVENT</title>
     <style>
-        /* =========================================================
-           🎯 ဘောင်အပြာ ဖျောက်ခြင်းနှင့် ကလစ်နှိပ်မှု Reset
-           ========================================================= */
+
         * {
             -webkit-tap-highlight-color: transparent !important;
             -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
@@ -20,7 +18,7 @@
         body {
             margin: 0;
             overflow: hidden;
-            background-color: #70c5ce; /* စစချင်း ပုံမှန် မိုးကောင်းကင်အရောင် */
+            background-color: #70c5ce; 
             font-family: 'Courier New', Courier, monospace;
             color: #fff;
             height: 100vh;
@@ -30,9 +28,7 @@
             transition: background-color 2s ease;
         }
 
-        /* =========================================================
-           ⛰️ PIXEL ART LANDSCAPE (နေ့ဘက် မြင်ကွင်း)
-           ========================================================= */
+    
         #game-world {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -58,9 +54,6 @@
             transition: all 1.5s ease;
         }
 
-        /* =========================================================
-           🌌 NEON NIGHT MODE & CHAOS GLITCH (EVENT စချိန် Style)
-           ========================================================= */
         body.neon-active {
             background-color: #0b001a; 
         }
@@ -87,9 +80,6 @@
             100% { filter: hue-rotate(360deg) contrast(1); transform: translate(2px, -2px); }
         }
 
-       /* =========================================================
-           🌮 TACO RAIN SYSTEM (FIXED)
-           ========================================================= */
         #taco-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -113,9 +103,6 @@
             100% { transform: rotate(360deg); } 
         }
 
-        /* =========================================================
-           💬 MESSAGE BOX UI
-           ========================================================= */
         .message-container {
             position: relative;
             z-index: 10;
@@ -183,15 +170,12 @@
             animation: blink 1s infinite;
         }
 
-        /* =========================================================
-           🔘 GLITCH BUTTON (မင်းတောင်းဆိုချက်အရ အရောင်ပြင်ဆင်ထားသည်)
-           ========================================================= */
         .glitch-btn {
             position: absolute;
             bottom: 40px;
             z-index: 10;
-            background: #ffaa00; /* ✨ အစိမ်းရောင်နောက်ခံနဲ့ မရောမွှေမယ့် တောက်ပသော ရွှေဝါရောင် ပြောင်းထားသည် */
-            color: #000; /* စာလုံးအမည်း */
+            background: #ffaa00; 
+            color: #000; 
             border: 2px solid #000;
             padding: 15px 35px;
             font-size: 1.1rem;
@@ -204,7 +188,7 @@
             transition: all 0.3s ease;
         }
 
-        /* Event စချိန်တွင်မှ နီယွန်အနီရောင် Glitch ဖြစ်သွားမည် */
+
         body.neon-active .glitch-btn {
             background: #ff003c;
             color: #fff;
@@ -251,13 +235,8 @@
     </button>
 
     <script>
-        // =========================================================
-        // ⚙️ ပြင်ဆင်ရန် အပိုင်း
-        // =========================================================
         
-        // 🚨 စမ်းသပ်ရန်အတွက် လက်ရှိအချိန် (ချက်ချင်းပွဲစမည့်စနစ်) ထားပေးထားသည်။
-        // တကယ့်အချိန်နဲ့ ချိန်းချင်ရင် အောက်က line ကိုဖျက်ပြီး new Date(2026, 5, 25, 20, 30, 0).getTime() ပုံစံမျိုး ပြောင်းရေးပါ။
-        const EVENT_START_TIME = new Date(2026, 5, 22, 0, 2, 0).getTime(); 
+        const EVENT_START_TIME = new Date(2026, 6, 2, 0, 18, 0).getTime(); 
         
         const TIMELINE = [
             { time: 0,      text: "[SYSTEM] Admin has joined the server..." },
@@ -289,7 +268,23 @@
             { time: 99000,  text: "ပထမတစ်ခေါက်ရပြီးသားသူတွေကိုဒီတစ်ကြိမ်မှာထပ်ယူခွင့်မပေးထားပါဘူး" },
             { time: 101000, text: "ကဲအဆင်သင့်ဖြစ်ကြပြီလား" },
             { time: 103000, text: "ချပြီ" },
-            { time: 106000, text: "နောက် CODE ကတော့: <span style='color:yellow; font-weight:bold; font-size:1.1rem; background:rgba(255,0,0,0.5); padding:2px 5px;'>CHANCES</span> ဖြစ်ပါတယ်။" }
+            { time: 106000, text: "နောက် CODE ကတော့: <span style='color:yellow; font-weight:bold; font-size:1.1rem; background:rgba(255,0,0,0.5); padding:2px 5px;'>CHANCES</span> ဖြစ်ပါတယ်။" },
+            { time: 112000,  text: "မြန်မြန်ပို့ကြ‌နော်" },
+{ time: 118000,  text: "ရကြလား" },
+{ time: 124000,  text: "လူတော်တော်များများလာပို့ကြပါတယ်" },
+{ time: 128000,  text: "ကဲ...." },
+{ time: 130000,  text: "ဒီ Admin Abuse ရဲ့နောက်ဆုံး Code ချပေးမယ်" },
+{ time: 132000,  text: "ရယ်ဒီဖြစ်ပြီလား" },
+{ time: 134000,  text: "နောက်ထပ်လူနည်းနည်းထပ်ရောက်လာရင်ချပေးမယ်‌" },
+{ time: 138000,  text: "စပြီနော်" },
+{ time: 140000,  text: "......" },
+{ time: 144000,  text: "နောက်ဆုံး Code ကတော့ <span style='color:yellow; font-weight:bold; font-size:1.1rem; background:rgba(255,0,0,0.5); padding:2px 5px;'>ADMIN</span> " },
+{ time: 150000,  text: "ကံကောင်းကြပါစေ" },
+{ time: 153000,  text: "ရကြလား" },
+{ time: 156000,  text: "ဒီနေ့ Admin Abuse Event ကတော့ဒါပါပဲ" },
+{ time: 159000,  text: "မကြာခင် App ကိုပုံမှန်သုံးလို့ရအောင်လုပ်ပေးပါမယ်ဗျ" },
+{ time: 161000,  text: "Bye Bye" },
+{ time: 164000,  text: "     " }
         ];
 
         // =========================================================
