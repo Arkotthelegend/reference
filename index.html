@@ -15,16 +15,16 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-
+   <style>
 		/* ============================================================
-           🚀 PREMIUM NATIVE APP LOOK & FEEL FIXES (GLOBAL)
+           🚀 CRYPTO MINI-APP STYLE (DARK + NEON CYAN)
            ============================================================ */
+        
         /* ၁။ ဘယ်နေရာနှိပ်နှိပ် အပြာရောင် စတုဂံကွက် မှိန်မှိန် ပေါ်လာခြင်းကို လုံးဝဖျောက်ရန် */
         * {
             -webkit-tap-highlight-color: transparent !important;
-            -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
             outline: none !important;
+            box-sizing: border-box;
         }
         /* ၂။ ဖုန်းမှာ ဖိထားရင် စာသား/ပုံတွေ Blue Highlight (Select) ဖြစ်သွားတာကို တားဆီးရန် */
         body, div, span, button, img, a, .subject-card, .option-item, .nav-item {
@@ -39,293 +39,231 @@
         }
 		
         :root { 
-            --bg: #0F172A; --card: #1E293B; --accent: #38BDF8; 
-            --white: #ffffff; --lock: #475569; --success: #10B981; --error: #EF4444;
-            --secondary-btn: #334155;
+            --bg: #050914; /* Deep Space Dark */
+            --card-glass: rgba(16, 24, 40, 0.5); /* Glassmorphism */
+            --card-border: rgba(0, 229, 255, 0.15);
+            --accent: #00E5FF; /* Neon Cyan */
+            --accent-glow: rgba(0, 229, 255, 0.4);
+            --white: #ffffff; 
+            --text-muted: #94A3B8;
+            --lock: #1E293B; 
+            --success: #00FFA3; /* Neon Green */
+            --error: #FF2E93; /* Neon Pink/Red */
+            --secondary-btn: rgba(30, 41, 59, 0.8);
         }
-        body { background-color: var(--bg); color: var(--white); font-family: sans-serif; margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
-        .container { padding: 15px; flex: 1; overflow-y: auto; box-sizing: border-box; padding-bottom: 90px; }
+
+        body { 
+            background-color: var(--bg); 
+            background-image: radial-gradient(circle at 50% -20%, #112240 0%, var(--bg) 80%);
+            color: var(--white); 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; 
+        }
+
+        .container { 
+            padding: 20px; flex: 1; overflow-y: auto; box-sizing: border-box; padding-bottom: 110px; 
+        }
         
-        .subject-card { background: var(--accent); padding: 20px; border-radius: 18px; margin-bottom: 12px; font-size: 1.2rem; font-weight: bold; display: flex; justify-content: space-between; align-items: center; cursor: pointer; color: white; }
-        .locked { background: var(--lock); opacity: 0.6; }
+        /* 💎 Subject Cards (Asset Vibe) */
+        .subject-card { 
+            background: var(--card-glass); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            padding: 22px 20px; 
+            border-radius: 20px; 
+            margin-bottom: 15px; 
+            font-size: 1.15rem; 
+            font-weight: 700; 
+            display: flex; justify-content: space-between; align-items: center; 
+            cursor: pointer; color: var(--white); 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        }
+        .subject-card:active {
+            transform: scale(0.96);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+        .subject-card span:last-child { color: var(--accent); font-size: 1.3rem; text-shadow: 0 0 8px var(--accent-glow); }
+        .locked { background: var(--lock); opacity: 0.5; border-color: transparent; box-shadow: none; }
         
         .screen { display: none; }
-        .active-screen { display: block; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .active-screen { display: block; animation: zoomFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes zoomFadeIn { 
+            from { opacity: 0; transform: translateY(15px) scale(0.98); } 
+            to { opacity: 1; transform: translateY(0) scale(1); } 
+        }
 
-         .btn { background: var(--accent); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: bold; width: 100%; margin: 8px 0; cursor: pointer; text-align: center; box-sizing: border-box; font-size: 1rem; -webkit-tap-highlight-color: transparent; }
-        .back-btn { background: var(--secondary-btn); margin-top: 20px; }
-        .next-btn { background: var(--success); display: none; margin-top: 10px; }
+        /* 🔘 Buttons */
+        .btn { 
+            background: linear-gradient(135deg, #00B3CC, var(--accent)); 
+            color: #000; 
+            border: none; 
+            padding: 16px; 
+            border-radius: 16px; 
+            font-weight: 800; 
+            width: 100%; 
+            margin: 8px 0; 
+            cursor: pointer; text-align: center; font-size: 1.05rem; 
+            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.3);
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .btn:active { transform: scale(0.97); box-shadow: 0 2px 10px rgba(0, 229, 255, 0.2); }
+        .back-btn { background: transparent; border: 1px solid var(--card-border); color: var(--accent); box-shadow: none; margin-top: 25px; }
+        .next-btn { background: linear-gradient(135deg, #00C9FF, #92FE9D); display: none; margin-top: 15px; color: #000; }
 
-        .option-btn { background: var(--card); border: 2px solid #334155; transition: 0.2s; color: white; }
-        .correct-opt { background: var(--success) !important; border-color: var(--success) !important; }
-        .wrong-opt { background: var(--error) !important; border-color: var(--error) !important; }
+        /* 🕹 Option Buttons */
+        .option-btn { 
+            background: var(--card-glass); 
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.08); 
+            color: var(--white); 
+            text-transform: none; font-weight: 600; box-shadow: none;
+            border-radius: 14px;
+        }
+        .correct-opt, .correct-answer { 
+            background: rgba(0, 255, 163, 0.15) !important; 
+            border: 2px solid var(--success) !important; 
+            color: var(--success) !important;
+            box-shadow: 0 0 15px rgba(0, 255, 163, 0.2) !important; 
+        }
+        .wrong-opt, .wrong-answer { 
+            background: rgba(255, 46, 147, 0.15) !important; 
+            border: 2px solid var(--error) !important; 
+            color: var(--error) !important; 
+            box-shadow: 0 0 15px rgba(255, 46, 147, 0.2) !important;
+        }
 
-        /* Flashcard Styling */
-.flash-container { 
-    height: 320px; 
-    cursor: pointer; 
-    margin: 20px 0; 
-}
+        /* 🎴 Flashcard Vibe (Crypto NFT Card Look) */
+        .flash-container { height: 350px; cursor: pointer; margin: 30px 0; perspective: 1000px; }
+        .flash-card { width: 100%; height: 100%; position: relative; border-radius: 24px; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-style: preserve-3d; }
+        .flash-face { 
+            position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; 
+            font-size: 1.4rem; border-radius: 24px; padding: 25px; text-align: center; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            backface-visibility: hidden;
+        }
+        .flash-front { 
+            background: linear-gradient(145deg, rgba(16,24,40,0.8), rgba(5,9,20,0.9)); 
+            border: 2px solid rgba(0, 229, 255, 0.5); 
+            color: #fff; z-index: 2; 
+        }
+        .flash-back { 
+            background: linear-gradient(145deg, rgba(20,10,30,0.8), rgba(5,9,20,0.9)); 
+            border: 2px solid rgba(255, 46, 147, 0.5); 
+            color: #fff; transform: rotateY(180deg); 
+        }
+        .is-flipped { transform: rotateY(180deg); }
 
-.flash-card { 
-    width: 100%; 
-    height: 100%; 
-    position: relative; 
-    border-radius: 20px; 
-}
-
-.flash-face { 
-    position: absolute; 
-    width: 100%; 
-    height: 100%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 1.4rem; 
-    border-radius: 20px; 
-    padding: 25px; 
-    text-align: center; 
-    box-sizing: border-box; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
-    
-    /* Lagging မဖြစ်အောင် Opacity နဲ့ Transform ကိုပဲ Transition ပေးထားပါတယ် */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; 
-}
-
-/* --- ကတ်အရှေ့မျက်နှာပြင် (Sleek Dark Slate) --- */
-.flash-front { 
-    background: #0F172A; /* အရောင်ကို နည်းနည်းပြင်ထားပါတယ် */
-    color: #ffffff; 
-    opacity: 1;
-	border: 3px solid var(--accent, #3b82f6); 
-    transform: scale(1);
-    z-index: 2;
-}
-
-/* --- ကတ်အနောက်မျက်နှာပြင် (Distinct Dark Blue) --- */
-.flash-back { 
-    background: #0F2A2A; /* အရှေ့အရောင်နဲ့ ကွဲပြားအောင် ပိုရင့်တဲ့အရောင် သုံးထားပါတယ် */
-    color: #f1f5f9; 
-    opacity: 0;
-	border: 3px solid var(--accent, #F63B3B); 
-    transform: scale(0.95); /* စစချင်းမှာ နည်းနည်းကျုံ့ထားပြီးမှ Pop-up ပုံစံ ပေါ်လာအောင်လို့ပါ */
-    z-index: 1;
-    pointer-events: none; /* ပုန်းနေချိန်မှာ Click နှိပ်လို့မရအောင် ပိတ်ထားတာပါ */
-}
-
-/* --- အလှည့် (Toggle State Animation) --- */
-.is-flipped .flash-front {
-    opacity: 0;
-    transform: scale(0.95);
-    pointer-events: none;
-}
-
-.is-flipped .flash-back {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 2;
-    pointer-events: auto;
-}
-
-        #profile-avatar { width: 100px; height: 100px; margin: 0 auto; display: block; }
-        .profile-info-card { background: var(--card); padding: 20px; border-radius: 15px; text-align: center; margin-top: 15px; border: 1px solid #334155; }
-        .bought-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
-        .bought-badge { background: rgba(56, 189, 248, 0.15); color: var(--accent); padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; border: 1px solid var(--accent); font-weight: bold; }
-        .buy-btn { background: var(--success); text-decoration: none; display: block; margin-top: 10px; }
+        /* 👤 Profile & Avatars */
+        #profile-avatar { width: 110px; height: 110px; margin: 0 auto; display: block; filter: drop-shadow(0 0 10px var(--accent-glow)); }
+        .profile-info-card { 
+            background: var(--card-glass); backdrop-filter: blur(10px); 
+            padding: 20px; border-radius: 20px; text-align: center; margin-top: 20px; 
+            border: 1px solid var(--card-border); 
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2); 
+        }
+        .bought-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 15px 0; }
+        .bought-badge { 
+            background: rgba(0, 229, 255, 0.1); color: var(--accent); padding: 8px 14px; 
+            border-radius: 10px; font-size: 0.9rem; border: 1px solid var(--accent); 
+            font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+        .buy-btn { background: transparent; border: 1px solid var(--success); color: var(--success); text-decoration: none; display: block; margin-top: 15px; box-shadow: none; }
         
-        .gender-container { margin: 15px 0; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; }
-        .switch { position: relative; display: inline-block; width: 60px; height: 30px; }
+        /* 🔘 Custom Toggle Switch */
+        .gender-container { margin: 20px 0; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; color: var(--text-muted); }
+        .switch { position: relative; display: inline-block; width: 64px; height: 34px; }
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #475569; transition: .4s; border-radius: 30px; }
-        .slider:before { position: absolute; content: ""; height: 22px; width: 22px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
-        input:checked + .slider { background-color: var(--accent); }
-        input:checked + .slider:before { transform: translateX(30px); }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255,255,255,0.1); border: 1px solid var(--card-border); transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 24px; width: 24px; left: 4px; bottom: 4px; background-color: var(--white); transition: .4s cubic-bezier(0.68, -0.55, 0.265, 1.55); border-radius: 50%; box-shadow: 0 0 10px rgba(255,255,255,0.5); }
+        input:checked + .slider { background-color: rgba(0, 229, 255, 0.2); border-color: var(--accent); }
+        input:checked + .slider:before { transform: translateX(30px); background-color: var(--accent); box-shadow: 0 0 15px var(--accent); }
 
-        .nav { position: fixed; bottom: 0; width: 100%; height: 70px; background: var(--card); display: flex; justify-content: space-around; align-items: center; border-top: 1px solid #334155; z-index: 100; }
-        .nav-item { font-size: 1.8rem; opacity: 0.4; cursor: pointer; transition: 0.3s; }
-        .nav-active { opacity: 1; color: var(--accent); transform: scale(1.1); }
+        /* 📱 Floating Bottom Navigation */
+        .nav { 
+            position: fixed; bottom: 20px; left: 5%; width: 90%; height: 75px; 
+            background: rgba(10, 15, 25, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            display: flex; justify-content: space-around; align-items: center; 
+            border-radius: 25px; border: 1px solid rgba(255,255,255,0.08); 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6); z-index: 100; 
+        }
+        .nav-item { 
+            font-size: 1.6rem; filter: grayscale(100%); opacity: 0.4; cursor: pointer; 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        .nav-active { 
+            filter: grayscale(0%); opacity: 1; transform: scale(1.25) translateY(-8px); 
+            text-shadow: 0 10px 20px var(--accent-glow);
+        }
         
-        .quiz-input { width: 100%; padding: 16px; border-radius: 12px; border: 2px solid var(--accent); background: var(--card); color: white; margin-bottom: 10px; box-sizing: border-box; font-size: 1rem; outline: none; }
-        .poem-content { background: var(--card); padding: 20px; border-radius: 15px; line-height: 1; white-space: pre-line; text-align: center; }
-          /* Flashcard အတွင်းစာသားများ ရှင်းလင်းစေရန် */
+        /* 📝 Inputs & Typography */
+        h2, h3, h4 { color: var(--accent); text-shadow: 0 0 15px var(--accent-glow); letter-spacing: 0.5px; }
+        .quiz-input { 
+            width: 100%; padding: 18px; border-radius: 16px; 
+            border: 1px solid var(--accent); background: rgba(0, 229, 255, 0.05); 
+            color: var(--accent); margin-bottom: 15px; font-size: 1.1rem; 
+            text-align: center; font-weight: bold; font-family: monospace;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+        .quiz-input::placeholder { color: rgba(0, 229, 255, 0.3); }
+        .poem-content { background: var(--card-glass); backdrop-filter: blur(10px); padding: 25px; border-radius: 20px; border: 1px solid var(--card-border); line-height: 1.8; text-align: center; }
 
-/* အဖြေမှန် Outline */
-.correct-answer {
-    border: 2px solid #10b981 !important;
-    background: rgba(16, 185, 129, 0.1) !important;
-    color: #10b981 !important;
-}
+        .btn.locked { background: transparent; border: 1px solid #334155; color: #475569; opacity: 0.5; cursor: not-allowed; box-shadow: none; }
 
-/* အဖြေမှား Outline */
-.wrong-answer {
-    border: 2px solid #ef4444 !important;
-    background: rgba(239, 68, 68, 0.1) !important;
-    color: #ef4444 !important;
-}
-
-.btn.locked {
-    background-color: var(--lock);
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-/* "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို "ထွက်မည်" ခလုတ်အတိုင်း အတိအကျညှိခြင်း */
-.next-btn-styled {
-    background: rgb(1, 167, 248) !important;
-    color: white !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    padding: 14px 20px; /* ထွက်မည် ခလုတ်လို ခပ်ကြီးကြီး */
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%; /* အလယ်ဗဟိုမှာ အပြည့်ပေါ်ရန် */
-    margin-top: 20px;
-    display: block;
-    text-align: center;
-}
+        .next-btn-styled {
+            background: linear-gradient(135deg, var(--accent), #0099FF) !important;
+            color: #000 !important; font-weight: 900 !important;
+            box-shadow: 0 5px 20px var(--accent-glow) !important;
+            border-radius: 16px; padding: 16px 20px; margin-top: 25px; display: block; text-align: center; width: 100%;
+        }
 		
+        /* ⏳ Countdown & Gamified Stats */
         #exam-countdown {
-    background: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    border-radius: 12px;
-    padding: 12px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    backdrop-filter: blur(5px);
-}
+            background: rgba(0, 229, 255, 0.05); border: 1px solid var(--card-border);
+            border-radius: 16px; padding: 15px; margin-bottom: 25px; display: flex; justify-content: center; gap: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        .countdown-unit { display: flex; flex-direction: column; align-items: center; min-width: 60px; }
+        .countdown-value { font-size: 1.5rem; font-weight: 900; font-family: monospace; color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
+        .countdown-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; letter-spacing: 1px; }
 
-.countdown-unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 55px;
-}
+        /* 👑 Premium Elements */
+        .premium-bg { background-image: radial-gradient(circle at 50% -20%, #2A1B38 0%, var(--bg) 80%) !important; }
+        .premium-card { border: 1px solid #FFD700 !important; box-shadow: 0 8px 32px rgba(255, 215, 0, 0.15) !important; }
+        .premium-card span:last-child { color: #FFD700; text-shadow: 0 0 10px rgba(255,215,0,0.5); }
+        .premium-tag { background: linear-gradient(135deg, #F6D365, #FDA085); color: #000; padding: 3px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 900; margin-left: 8px; }
 
-.countdown-value {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--accent);
-}
+        .quiz-card { background: var(--card-glass); padding: 20px; border-radius: 16px; margin-bottom: 20px; border-left: 4px solid var(--accent); }
+        
+        .shuffle-btn { background: rgba(0,229,255,0.1); color: var(--accent); border: 1px solid var(--accent); padding: 6px 16px; border-radius: 10px; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; }
+        .shuffle-active { background: var(--accent); color: #000; box-shadow: 0 0 15px var(--accent-glow); }
 
-.countdown-label {
-    font-size: 0.65rem;
-    color: #94a3b8;
-    text-transform: uppercase;
-    margin-top: 2px;
-}
+        /* ⏲ Timer & Crypto Score */
+        .timer-wrapper { display: flex; align-items: center; justify-content: center; margin-top: 25px; gap: 10px; }
+        .timer-btn { background: rgba(0,229,255,0.1); color: var(--accent); border: 1px solid var(--accent); padding: 10px 18px; border-radius: 12px; font-size: 0.9rem; font-weight: bold; }
+        .timer-display { font-size: 1.2rem; color: var(--white); font-family: monospace; font-weight: 900; background: rgba(0,0,0,0.5); padding: 8px 15px; border-radius: 10px; border: 1px solid var(--card-border); display: none; }
+        
+        .markcount { text-align: center; margin-top: 20px; }
+        #score-display { 
+            display: inline-block; background: rgba(0, 255, 163, 0.1); border: 1px solid var(--success); 
+            color: var(--success); padding: 10px 25px; border-radius: 20px; font-family: monospace; 
+            font-size: 1.3rem; font-weight: 900; text-shadow: 0 0 10px rgba(0, 255, 163, 0.5);
+            box-shadow: 0 0 20px rgba(0, 255, 163, 0.15);
+        }
 
-/* Premium User များအတွက် နောက်ခံအရောင် */
-.premium-bg {
-    background: linear-gradient(135.2deg, #0F172A 0%, #1E1B4B 50%, #312E81 100%) !important;
-}
-
-.premium-card {
-    border: 1px solid #F59E0B !important; /* ရွှေရောင် Border */
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
-}
-
-.premium-tag {
-    background: #F59E0B;
-    color: #0F172A;
-    padding: 2px 8px;
-    border-radius: 5px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    margin-left: 5px;
-}
-
-.subject-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 10px;
-}
-.sub-btn {
-    background-color: var(--card);
-    color: var(--white);
-    border: 2px solid var(--lock);
-    padding: 25px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-.sub-btn:hover {
-    border-color: var(--accent);
-    background-color: #24334d;
-}
-.quiz-card {
-    background-color: var(--card);
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border-left: 4px solid var(--accent);
-}
-.quiz-card p {
-    margin-bottom: 10px;
-    font-size: 16px;
-}
-.option-item {
-    display: block;
-    background-color: #24324a;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.option-item:hover {
-    background-color: #2e3f5c;
-}
-.option-item input {
-    margin-right: 10px;
-}
-
-.shuffle-btn {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 4px 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    margin-left: 10px;
-    vertical-align: middle;
-}
-.shuffle-active {
-    background: var(--accent);
-    color: white;
-}
-
-.timer-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* ညာဘက်သို့ ကပ်ထားရန် */
-    margin-top: 15px;
-    gap: 8px;
-}
-.timer-btn {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    cursor: pointer;
-}
-.timer-display {
-    font-size: 0.95rem;
-    color: var(--accent);
-    font-family: monospace;
-    font-weight: bold;
-    display: none; /* အချိန်မစခင် ဖျောက်ထားမည် */
-}
-
+        /* 🏆 Daily Tracker Style */
+        #checklist-container div { 
+            background: rgba(255,255,255,0.03); padding: 12px 15px; border-radius: 12px; 
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; 
+        }
+        #checklist-container div:hover { border-color: var(--card-border); background: rgba(0, 229, 255, 0.05); }
+        #checklist-container input[type="checkbox"] { accent-color: var(--accent); transform: scale(1.2); }
     </style>
 </head>
 <body>
@@ -682,9 +620,9 @@ function initOldSubjects() {
 function createOldBtn(txt, parent, act) {
     const b = document.createElement('button');
     b.className = 'btn';
-    b.style.background = '#4ade80'; 
+    b.style.background = '#38BDF8'; 
     b.style.border = '1px solid #22c55e';
-    b.style.color = '#064e3b';
+    b.style.color = '#475569';
     b.innerText = txt;
     b.onclick = act;
     parent.appendChild(b);
