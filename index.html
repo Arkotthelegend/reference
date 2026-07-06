@@ -310,6 +310,57 @@
             text-shadow: 0 0 8px rgba(0, 255, 163, 0.5) !important; 
         }
 		
+		.subject-card, .option-btn, .profile-info-card, .poem-content, .flash-face {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background: rgba(16, 24, 40, 0.95) !important; /* Solid နီးပါး အရောင်ပြောင်းသုံးခြင်းဖြင့် ပေါ့ပါးသွားစေမည် */
+        }
+        
+        /* Animation လေးလံမှုကို သက်သာစေရန် Hardware Acceleration ဖွင့်ခြင်း */
+        .subject-card, .btn {
+            will-change: transform, box-shadow;
+        }
+
+        /* ၂။ Flashcard ထဲက ရှေ့သို့ / နောက်သို့ ခလုတ်များ (Neon Outline Style) */
+        #flashcard-screen div[style*="display: flex; gap: 10px;"] .btn {
+            background: rgba(0, 229, 255, 0.05) !important;
+            border: 1px solid var(--accent) !important;
+            color: var(--accent) !important;
+            font-size: 1.1rem !important;
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.1) !important;
+            text-transform: none !important; /* စာလုံးကြီးမပြောင်းဖို့ */
+            padding: 14px !important;
+        }
+        #flashcard-screen div[style*="display: flex; gap: 10px;"] .btn:active {
+            background: var(--accent) !important;
+            color: #000 !important;
+            box-shadow: 0 0 20px var(--accent-glow) !important;
+            transform: scale(0.95);
+        }
+
+        /* ၃။ မေးခွန်းထဲက "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို ပိုမိုက်ပြီး ပိုကြီးအောင်လုပ်ရန် */
+        .next-btn-styled, .next-btn {
+            background: linear-gradient(135deg, #00FFA3, #00B8FF) !important; /* အစိမ်းနဲ့ အပြာစပ် */
+            color: #000 !important; 
+            font-size: 1.25rem !important; /* စာလုံးကို ပိုကြီးကြီးထားပါမည် */
+            font-weight: 900 !important;
+            box-shadow: 0 0 20px rgba(0, 255, 163, 0.4) !important;
+            border-radius: 18px !important;
+            padding: 18px 20px !important;
+            margin-top: 25px !important; 
+            display: block !important; 
+            text-align: center !important; 
+            width: 100% !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            animation: pulseNext 2s infinite !important; /* အသက်ဝင်အောင် လှုပ်နေမည့် Effect */
+        }
+
+        /* နောက်တစ်ပုဒ်သို့ ခလုတ်အတွက် အလင်းရောင် လှုပ်ရှားမှု */
+        @keyframes pulseNext {
+            0% { box-shadow: 0 0 15px rgba(0, 255, 163, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 25px rgba(0, 255, 163, 0.8); transform: scale(1.02); }
+            100% { box-shadow: 0 0 15px rgba(0, 255, 163, 0.4); transform: scale(1); }
+        }
     </style>
 </head>
 <body>
