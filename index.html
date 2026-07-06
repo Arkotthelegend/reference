@@ -16,7 +16,6 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
    <style>
-		<style>
         /* ============================================================
            🎨 FLAT VIBRANT DARK MODE (NO GLOW / NO BLUR / HIGH PERFORMANCE)
            ============================================================ */
@@ -252,7 +251,64 @@
         }
         #checklist-container div { background: #162235; padding: 12px; border-radius: 10px; border: 1px solid #2D3748; margin-bottom: 8px; }
         #checklist-container input[type="checkbox"] { accent-color: #00D5FF; transform: scale(1.1); }
-    </style>
+		#middle-screen > div > div:first-child {
+            background: linear-gradient(145deg, #0F172A, #162235) !important;
+            border: 1px solid #00D5FF !important;
+            box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important;
+            border-radius: 16px !important;
+        }
+
+        /* Profile & Setting Cards - Premium Border */
+        .profile-info-card, #profile-screen div[style*="background: var(--card)"] {
+            background: linear-gradient(145deg, #0F172A, #162235) !important;
+            border: 1px solid #00D5FF !important;
+            box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important;
+        }
+
+        /* Exam Countdown Box - Purple Premium Border */
+        #exam-countdown {
+            background: linear-gradient(145deg, #0F172A, #162235) !important;
+            border: 1px solid #A855F7 !important;
+            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1) !important;
+        }
+
+        /* Study Tracker ကို သေးငယ်ပြီး ကျစ်လစ်သွားစေရန် */
+        #checklist-container div {
+            padding: 8px 12px !important;
+            margin-bottom: 6px !important;
+            background: #0B0F19 !important;
+            border: 1px solid #334155 !important;
+            border-radius: 10px !important;
+        }
+        #checklist-container label {
+            font-size: 0.9rem !important; /* စာလုံးကို သေးလိုက်သည် */
+            color: #CBD5E1 !important;
+        }
+        #checklist-container input[type="checkbox"] {
+            transform: scale(1) !important; /* Checkbox အကြီးကြီးဖြစ်နေတာကို ပုံမှန်ဆိုဒ်ပြန်ထားသည် */
+            width: 16px; height: 16px;
+            margin-right: 5px;
+        }
+
+        /* Profile Avatar ဘေးက Streak Badge အသေးလေးအတွက် Style */
+        .streak-mini-badge {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-120px); /* Profile ပုံရဲ့ ဘယ်ဘက်ကို ရွှေ့ထားခြင်း */
+            background: linear-gradient(135deg, #FF7E5F, #FEB47B);
+            color: #000;
+            font-weight: 900;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.3);
+            border: 1px solid #FFF;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 10;
+        }
     </style>
 </head>
 <body>
@@ -1686,7 +1742,6 @@ function renderProfileData() {
     
     // ၁။ Local Storage ကနေ Streak ကို ယူမယ်
     let currentStreak = parseInt(localStorage.getItem('streak_count')) || updateStreak();
-    let streakMsg = currentStreak > 1 ? "အရမ်းတော်တယ်! ဆက်ကြိုးစားထားပါ။ 🔥" : "နေ့တိုင်းစာလုပ်ပြီး မီးတောက်လေးကို ထိန်းထားပါ! 💧";
     
     // UI Elements များကို သတ်မှတ်ခြင်း
     document.getElementById('user-name').innerText = userName;
@@ -1719,23 +1774,28 @@ function renderProfileData() {
         });
     }
 
-    // ၂။ Dynamic Area ထဲကို UI တွေ ထည့်မယ် (ဒီထဲမှာ currentStreak ကို တိုက်ရိုက်ထည့်ထားပါတယ်)
+    // --- (အသစ်) Streak Mini Badge ကို Profile Avatar ဘေးတွင် ထည့်ခြင်း ---
+    let streakBadge = document.getElementById('streak-mini-badge');
+    if (!streakBadge) {
+        streakBadge = document.createElement('div');
+        streakBadge.id = 'streak-mini-badge';
+        streakBadge.className = 'streak-mini-badge';
+        
+        const avatar = document.getElementById('profile-avatar');
+        // Avatar ရဲ့ မိခင် Container ကို relative ပေးပြီး သူ့ထဲကို Badge ထည့်မည်
+        avatar.parentElement.style.position = 'relative';
+        avatar.parentElement.appendChild(streakBadge);
+    }
+    streakBadge.innerHTML = `🔥 ${currentStreak} Day${currentStreak > 1 ? 's' : ''}`;
+
+    // ၂။ Dynamic Area ထဲကို UI တွေ ထည့်မယ် (Streak Box အကြီးကြီးကို ဖြုတ်လိုက်ပါပြီ)
     const dynamicArea = document.getElementById('dynamic-content-area');
     dynamicArea.innerHTML = `
-        <div id="level-container" class="${isSpecial ? 'premium-card' : ''}" style="background: var(--card); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: center; border: 1px solid rgba(56, 189, 248, 0.2);">
-            <div id="streak-icon" style="font-size: 50px; margin-bottom: 10px;">🔥</div>
-            <div style="font-size: 18px; color: var(--accent); font-weight: bold;">Daily Streak</div>
-            <div id="streak-count" style="font-size: 32px; font-weight: bold; margin: 10px 0;">${currentStreak} Days</div>
-            <p id="streak-message" style="font-size: 14px; color: #94a3b8; margin: 0;">${streakMsg}</p>
-        </div>
-        <button onclick="contactDeveloper()" style="width: 100%; background: #242F3D; color: #38BDF8; border: 1px solid #38BDF8; padding: 14px; border-radius: 12px; margin-top: 20px; font-weight: bold;">
-            အမှားများတိုင်ကြားရန်
+        <button onclick="contactDeveloper()" style="width: 100%; background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
+            🛠 အမှားများတိုင်ကြားရန်
         </button>
     `;
-    
-    // (အရေးကြီးဆုံး) မရှိတော့တဲ့ loadUserProgress(); ကို ဖျက်လိုက်ပါပြီ။
 }
-
         // --- Init ---
         if(localStorage.getItem('userGender') === 'female') {
             document.getElementById('gender-switch').checked = true;
