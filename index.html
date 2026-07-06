@@ -1310,20 +1310,57 @@ But there’s wonderment within it,
     }));
 }
 
-        // --- Myanmar Specific ---
-        function showMMQuizOptions(typeName) {
-            showScreen('activity');
-            document.getElementById('activity-title').innerText = typeName;
-            const content = document.getElementById('activity-content');
-            content.innerHTML = '';
-            document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-            ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
-                createBtn(cat, content, () => {
-                    initQuiz(`mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
-                    document.getElementById('quiz-back-btn').onclick = () => showMMQuizOptions(typeName);
-                });
-            });
-        }
+        // စကားပြေနှင့် ကဗျာ ခေါင်းစဉ် (၈) မျိုးစီကို Array အဖြစ် ကြိုတင်သတ်မှတ်ထားခြင်း
+const proseTitles = ['ညောင်ရမ်းကြီးသမီး', 'သစ္စာနှင့်ပညာ', 'ခေတ်', 'မလုပ်မစား', 'စာဘူးတောင်း', 'ဦးဖေမောင်တင်', 'အဖြူနှင့်အနက်', 'စိတ်ဓာတ်ရင့်ကျက်တည်ငြိမ်ခြင်း'];
+const poetryTitles = ['ပေါ်နွေလလျှင်', 'ငါ့ကိုလွယ်အမယ်ကြီးနှင့်', 'ဩဝါဒထူးပျို့', 'ပေါင်းရှစ်ယောက်ကောက်စိုက်သူ', 'အညာမင်္ဂလာဆောင်', 'ကမ္ဗောဇသို့', 'လက်ဖက်ရည်ကြမ်းဝိုင်း', 'ပဒေသာလက်ရာ'];
+
+function showMMQuizOptions(typeName) {
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = typeName;
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    
+    // Back button နှိပ်ပါက Subject Menu သို့ ပြန်သွားရန်
+    document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
+    
+    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
+        createBtn(cat, content, () => {
+            if (cat === 'စကားပြေ') {
+                // စကားပြေကို ရွေးချယ်ပါက စကားပြေ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
+                showSubMenu(typeName, cat, proseTitles);
+            } else if (cat === 'ကဗျာ') {
+                // ကဗျာကို ရွေးချယ်ပါက ကဗျာ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
+                showSubMenu(typeName, cat, poetryTitles);
+            } else {
+                // အပြော နှင့် အရေး အတွက် မူလအတိုင်း ဆက်သွားရန်
+                initQuiz(`mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
+                document.getElementById('quiz-back-btn').onclick = () => showMMQuizOptions(typeName);
+            }
+        });
+    });
+}
+
+// ခေါင်းစဉ်ခွဲ (Sub Menu) များကို ပြသပေးမည့် Function အသစ်
+function showSubMenu(typeName, cat, titles) {
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = cat; 
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    
+    // ခေါင်းစဉ်ခွဲများမှ Back button နှိပ်ပါက မူလ (အပြော, စကားပြေ, ကဗျာ, အရေး) ရွေးချယ်သည့် နေရာသို့ ပြန်သွားရန်
+    document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
+    
+    titles.forEach(title => {
+        createBtn(title, content, () => {
+            // Quiz ကို စတင်ရန် (ဥပမာ - mm_စကားပြေ_ခေတ်_ရွေးချယ် စသဖြင့် ဖြစ်လာပါမည်)
+            // သင့်ရဲ့ ဒေတာဘေ့စ် သို့မဟုတ် မေးခွန်း Format ပေါ်မူတည်ပြီး string ကို လိုအပ်သလို ပြင်ဆင်နိုင်ပါသည်။
+            initQuiz(`mm_${cat}_${title}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
+            
+            // Quiz အတွင်းမှ Back နှိပ်ပါက ခေါင်းစဉ်ခွဲ (၈) မျိုး ပြသသည့် မျက်နှာပြင်ဆီသို့ ပြန်သွားရန်
+            document.getElementById('quiz-back-btn').onclick = () => showSubMenu(typeName, cat, titles);
+        });
+    });
+}
 
       function showMMFlashcardOptions(typeName) {
     showScreen('activity');
