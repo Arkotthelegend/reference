@@ -16,351 +16,243 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
    <style>
-		/* ============================================================
-           🚀 CRYPTO MINI-APP STYLE (DARK + NEON CYAN)
+		<style>
+        /* ============================================================
+           🎨 FLAT VIBRANT DARK MODE (NO GLOW / NO BLUR / HIGH PERFORMANCE)
            ============================================================ */
         
-        /* ၁။ ဘယ်နေရာနှိပ်နှိပ် အပြာရောင် စတုဂံကွက် မှိန်မှိန် ပေါ်လာခြင်းကို လုံးဝဖျောက်ရန် */
         * {
             -webkit-tap-highlight-color: transparent !important;
             outline: none !important;
             box-sizing: border-box;
         }
-        /* ၂။ ဖုန်းမှာ ဖိထားရင် စာသား/ပုံတွေ Blue Highlight (Select) ဖြစ်သွားတာကို တားဆီးရန် */
         body, div, span, button, img, a, .subject-card, .option-item, .nav-item {
             -webkit-touch-callout: none !important;
             -webkit-user-select: none !important;
             user-select: none !important;
         }
-        /* ၃။ မေးခွန်းစာရိုက်ကွက် (Input) များတွင် စာရိုက်ရလွယ်ကူအောင် Select ပေးထားခြင်း */
         input, textarea, .quiz-input {
             -webkit-user-select: auto !important;
             user-select: auto !important;
         }
 		
         :root { 
-            --bg: #050914; /* Deep Space Dark */
-            --card-glass: rgba(16, 24, 40, 0.5); /* Glassmorphism */
-            --card-border: rgba(0, 229, 255, 0.15);
-            --accent: #00E5FF; /* Neon Cyan */
-            --accent-glow: rgba(0, 229, 255, 0.4);
-            --white: #ffffff; 
-            --text-muted: #94A3B8;
+            --bg: #0B0F19; /* Solid Deep Dark */
+            --card-bg: #162235; /* Solid Card Background */
+            --white: #FFFFFF; 
+            --text-muted: #64748B;
             --lock: #1E293B; 
-            --success: #00FFA3; /* Neon Green */
-            --error: #FF2E93; /* Neon Pink/Red */
-            --secondary-btn: rgba(30, 41, 59, 0.8);
+            --success: #10B981; /* Flat Green */
+            --error: #EF4444; /* Flat Red */
         }
 
         body { 
             background-color: var(--bg); 
-            background-image: radial-gradient(circle at 50% -20%, #112240 0%, var(--bg) 80%);
             color: var(--white); 
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
             margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; 
+        }
+
+        /* Effect များနှင့် Glow များ အားလုံးကို တစ်ကမ္ဘာလုံးဆိုင်ရာ ပိတ်သိမ်းခြင်း */
+        h2, h3, h4, span, div, button, .nav-item {
+            text-shadow: none !important; 
+            box-shadow: none !important;  
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
         }
 
         .container { 
             padding: 20px; flex: 1; overflow-y: auto; box-sizing: border-box; padding-bottom: 110px; 
         }
         
-        /* 💎 Subject Cards (Asset Vibe) */
+        /* 🗂 Subject Cards (Tab အလိုက် ရိုးရိုးတောက်တောက် အရောင်ခွဲခြားမှု) */
         .subject-card { 
-            background: var(--card-glass); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--card-border);
-            padding: 22px 20px; 
-            border-radius: 20px; 
-            margin-bottom: 15px; 
-            font-size: 1.15rem; 
+            background: var(--card-bg) !important; 
+            padding: 20px; 
+            border-radius: 16px; 
+            margin-bottom: 14px; 
+            font-size: 1.1rem; 
             font-weight: 700; 
             display: flex; justify-content: space-between; align-items: center; 
             cursor: pointer; color: var(--white); 
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            transition: transform 0.1s ease; 
         }
-        .subject-card:active {
-            transform: scale(0.96);
-            border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-        .subject-card span:last-child { color: var(--accent); font-size: 1.3rem; text-shadow: 0 0 8px var(--accent-glow); }
-        .locked { background: var(--lock); opacity: 0.5; border-color: transparent; box-shadow: none; }
+        .subject-card:active { transform: scale(0.97); }
+        .locked { background: var(--lock) !important; opacity: 0.4; border-color: transparent !important; }
+        .locked span:last-child { color: var(--text-muted) !important; }
+
+        /* ၁။ Home Tab (Objectives) - စိမ်းပြာရောင်တောက်တောက် (Cyan) */
+        #subject-list .subject-card { border: 2px solid #00D5FF !important; }
+        #subject-list .subject-card span:last-child { color: #00D5FF !important; }
+
+        /* ၂။ Old Questions Tab (Past Papers) - ခရမ်းရောင်တောက်တောက် (Purple) */
+        #old-subject-list .subject-card { border: 2px solid #A855F7 !important; color: var(--white) !important; }
+        #old-subject-list .subject-card span:last-child { color: #A855F7 !important; }
+
+        /* ၃။ Daily Quiz Tab (Free Daily) - အစိမ်းရောင်တောက်တောက် (Green) */
+        #daily-screen .subject-card { border: 2px solid #22C55E !important; }
+        #daily-screen .subject-card span:last-child { color: #22C55E !important; }
         
         .screen { display: none; }
-        .active-screen { display: block; animation: zoomFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        @keyframes zoomFadeIn { 
-            from { opacity: 0; transform: translateY(15px) scale(0.98); } 
-            to { opacity: 1; transform: translateY(0) scale(1); } 
-        }
+        .active-screen { display: block; }
 
-        /* 🔘 Buttons */
+        /* 🔘 Standard Buttons */
         .btn { 
-            background: linear-gradient(135deg, #00B3CC, var(--accent)); 
-            color: #000; 
+            background: #00D5FF; 
+            color: #000000; 
             border: none; 
-            padding: 16px; 
-            border-radius: 16px; 
-            font-weight: 800; 
+            padding: 15px; 
+            border-radius: 14px; 
+            font-weight: 700; 
             width: 100%; 
             margin: 8px 0; 
-            cursor: pointer; text-align: center; font-size: 1.05rem; 
-            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.3);
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            cursor: pointer; text-align: center; font-size: 1rem; 
+            transition: transform 0.1s ease;
         }
-        .btn:active { transform: scale(0.97); box-shadow: 0 2px 10px rgba(0, 229, 255, 0.2); }
-        .back-btn { background: transparent; border: 1px solid var(--card-border); color: var(--accent); box-shadow: none; margin-top: 25px; }
-        .next-btn { background: linear-gradient(135deg, #00C9FF, #92FE9D); display: none; margin-top: 15px; color: #000; }
+        .btn:active { transform: scale(0.97); }
+        .back-btn { background: #1E293B; border: 1px solid #334155; color: var(--white); margin-top: 25px; }
 
-        /* 🕹 Option Buttons */
+        /* 🕹 Option Buttons (Quiz) */
         .option-btn { 
-            background: var(--card-glass); 
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.08); 
+            background: var(--card-bg) !important; 
+            border: 1px solid #334155; 
             color: var(--white); 
-            text-transform: none; font-weight: 600; box-shadow: none;
-            border-radius: 14px;
+            font-weight: 600; 
+            border-radius: 12px;
         }
         .correct-opt, .correct-answer { 
-            background: rgba(0, 255, 163, 0.15) !important; 
-            border: 2px solid var(--success) !important; 
-            color: var(--success) !important;
-            box-shadow: 0 0 15px rgba(0, 255, 163, 0.2) !important; 
+            background: #065F46 !important; 
+            border: 2px solid #10B981 !important; 
+            color: var(--white) !important;
         }
         .wrong-opt, .wrong-answer { 
-            background: rgba(255, 46, 147, 0.15) !important; 
-            border: 2px solid var(--error) !important; 
-            color: var(--error) !important; 
-            box-shadow: 0 0 15px rgba(255, 46, 147, 0.2) !important;
-        }
-
-        /* 🎴 Flashcard Vibe (Crypto NFT Card Look) */
-        .flash-container { height: 350px; cursor: pointer; margin: 30px 0; perspective: 1000px; }
-        .flash-card { width: 100%; height: 100%; position: relative; border-radius: 24px; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-style: preserve-3d; }
-        .flash-face { 
-            position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; 
-            font-size: 1.4rem; border-radius: 24px; padding: 25px; text-align: center; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5); 
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            backface-visibility: hidden;
-        }
-        .flash-front { 
-            background: linear-gradient(145deg, rgba(16,24,40,0.8), rgba(5,9,20,0.9)); 
-            border: 2px solid rgba(0, 229, 255, 0.5); 
-            color: #fff; z-index: 2; 
-        }
-        .flash-back { 
-            background: linear-gradient(145deg, rgba(20,10,30,0.8), rgba(5,9,20,0.9)); 
-            border: 2px solid rgba(255, 46, 147, 0.5); 
-            color: #fff; transform: rotateY(180deg); 
-        }
-        .is-flipped { transform: rotateY(180deg); }
-
-        /* 👤 Profile & Avatars */
-        #profile-avatar { width: 110px; height: 110px; margin: 0 auto; display: block; filter: drop-shadow(0 0 10px var(--accent-glow)); }
-        .profile-info-card { 
-            background: var(--card-glass); backdrop-filter: blur(10px); 
-            padding: 20px; border-radius: 20px; text-align: center; margin-top: 20px; 
-            border: 1px solid var(--card-border); 
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2); 
-        }
-        .bought-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 15px 0; }
-        .bought-badge { 
-            background: rgba(0, 229, 255, 0.1); color: var(--accent); padding: 8px 14px; 
-            border-radius: 10px; font-size: 0.9rem; border: 1px solid var(--accent); 
-            font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-        .buy-btn { background: transparent; border: 1px solid var(--success); color: var(--success); text-decoration: none; display: block; margin-top: 15px; box-shadow: none; }
-        
-        /* 🔘 Custom Toggle Switch */
-        .gender-container { margin: 20px 0; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; color: var(--text-muted); }
-        .switch { position: relative; display: inline-block; width: 64px; height: 34px; }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255,255,255,0.1); border: 1px solid var(--card-border); transition: .4s; border-radius: 34px; }
-        .slider:before { position: absolute; content: ""; height: 24px; width: 24px; left: 4px; bottom: 4px; background-color: var(--white); transition: .4s cubic-bezier(0.68, -0.55, 0.265, 1.55); border-radius: 50%; box-shadow: 0 0 10px rgba(255,255,255,0.5); }
-        input:checked + .slider { background-color: rgba(0, 229, 255, 0.2); border-color: var(--accent); }
-        input:checked + .slider:before { transform: translateX(30px); background-color: var(--accent); box-shadow: 0 0 15px var(--accent); }
-
-        /* 📱 Floating Bottom Navigation */
-        .nav { 
-            position: fixed; bottom: 20px; left: 5%; width: 90%; height: 75px; 
-            background: rgba(10, 15, 25, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            display: flex; justify-content: space-around; align-items: center; 
-            border-radius: 25px; border: 1px solid rgba(255,255,255,0.08); 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6); z-index: 100; 
-        }
-        .nav-item { 
-            font-size: 1.6rem; filter: grayscale(100%); opacity: 0.4; cursor: pointer; 
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-        }
-        .nav-active { 
-            filter: grayscale(0%); opacity: 1; transform: scale(1.25) translateY(-8px); 
-            text-shadow: 0 10px 20px var(--accent-glow);
-        }
-        
-        /* 📝 Inputs & Typography */
-        h2, h3, h4 { color: var(--accent); text-shadow: 0 0 15px var(--accent-glow); letter-spacing: 0.5px; }
-        .quiz-input { 
-            width: 100%; padding: 18px; border-radius: 16px; 
-            border: 1px solid var(--accent); background: rgba(0, 229, 255, 0.05); 
-            color: var(--accent); margin-bottom: 15px; font-size: 1.1rem; 
-            text-align: center; font-weight: bold; font-family: monospace;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-        }
-        .quiz-input::placeholder { color: rgba(0, 229, 255, 0.3); }
-        .poem-content { background: var(--card-glass); backdrop-filter: blur(10px); padding: 25px; border-radius: 20px; border: 1px solid var(--card-border); line-height: 1.8; text-align: center; }
-
-        .btn.locked { background: transparent; border: 1px solid #334155; color: #475569; opacity: 0.5; cursor: not-allowed; box-shadow: none; }
-
-        .next-btn-styled {
-            background: linear-gradient(135deg, var(--accent), #0099FF) !important;
-            color: #000 !important; font-weight: 900 !important;
-            box-shadow: 0 5px 20px var(--accent-glow) !important;
-            border-radius: 16px; padding: 16px 20px; margin-top: 25px; display: block; text-align: center; width: 100%;
-        }
-		
-        /* ⏳ Countdown & Gamified Stats */
-        #exam-countdown {
-            background: rgba(0, 229, 255, 0.05); border: 1px solid var(--card-border);
-            border-radius: 16px; padding: 15px; margin-bottom: 25px; display: flex; justify-content: center; gap: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
-        }
-        .countdown-unit { display: flex; flex-direction: column; align-items: center; min-width: 60px; }
-        .countdown-value { font-size: 1.5rem; font-weight: 900; font-family: monospace; color: var(--accent); text-shadow: 0 0 10px var(--accent-glow); }
-        .countdown-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-top: 4px; letter-spacing: 1px; }
-
-        /* 👑 Premium Elements */
-        .premium-bg { background-image: radial-gradient(circle at 50% -20%, #2A1B38 0%, var(--bg) 80%) !important; }
-        .premium-card { border: 1px solid #FFD700 !important; box-shadow: 0 8px 32px rgba(255, 215, 0, 0.15) !important; }
-        .premium-card span:last-child { color: #FFD700; text-shadow: 0 0 10px rgba(255,215,0,0.5); }
-        .premium-tag { background: linear-gradient(135deg, #F6D365, #FDA085); color: #000; padding: 3px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 900; margin-left: 8px; }
-
-        .quiz-card { background: var(--card-glass); padding: 20px; border-radius: 16px; margin-bottom: 20px; border-left: 4px solid var(--accent); }
-        
-        .shuffle-btn { background: rgba(0,229,255,0.1); color: var(--accent); border: 1px solid var(--accent); padding: 6px 16px; border-radius: 10px; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; }
-        .shuffle-active { background: var(--accent); color: #000; box-shadow: 0 0 15px var(--accent-glow); }
-
-        /* ⏲ Timer & Crypto Score */
-        .timer-wrapper { display: flex; align-items: center; justify-content: center; margin-top: 25px; gap: 10px; }
-        .timer-btn { background: rgba(0,229,255,0.1); color: var(--accent); border: 1px solid var(--accent); padding: 10px 18px; border-radius: 12px; font-size: 0.9rem; font-weight: bold; }
-        .timer-display { font-size: 1.2rem; color: var(--white); font-family: monospace; font-weight: 900; background: rgba(0,0,0,0.5); padding: 8px 15px; border-radius: 10px; border: 1px solid var(--card-border); display: none; }
-        
-        .markcount { text-align: center; margin-top: 20px; }
-        #score-display { 
-            display: inline-block; background: rgba(0, 255, 163, 0.1); border: 1px solid var(--success); 
-            color: var(--success); padding: 10px 25px; border-radius: 20px; font-family: monospace; 
-            font-size: 1.3rem; font-weight: 900; text-shadow: 0 0 10px rgba(0, 255, 163, 0.5);
-            box-shadow: 0 0 20px rgba(0, 255, 163, 0.15);
-        }
-
-        /* 🏆 Daily Tracker Style */
-        #checklist-container div { 
-            background: rgba(255,255,255,0.03); padding: 12px 15px; border-radius: 12px; 
-            border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; 
-        }
-        #checklist-container div:hover { border-color: var(--card-border); background: rgba(0, 229, 255, 0.05); }
-        #checklist-container input[type="checkbox"] { accent-color: var(--accent); transform: scale(1.2); }
-		
-		#subject-list .subject-card {
-            border: 1px solid rgba(0, 229, 255, 0.3) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 229, 255, 0.05) !important;
-        }
-        #subject-list .subject-card:active {
-            border-color: #00E5FF !important;
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4) !important;
-        }
-        #subject-list .subject-card span:last-child { 
-            color: #00E5FF !important; 
-            text-shadow: 0 0 8px rgba(0, 229, 255, 0.5) !important; 
-        }
-
-        /* ၂။ Old Questions Tab (Past Papers) - Neon Purple (ခရမ်းရောင်) */
-        /* JS က ထည့်ထားတဲ့ inline အစိမ်းရောင်တွေကို !important နဲ့ ဖျက်ပြီး ခရမ်းရောင်ပြောင်းပါမည် */
-        #old-subject-list .subject-card {
-            background: var(--card-glass) !important; 
-            border: 1px solid rgba(176, 38, 255, 0.3) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(176, 38, 255, 0.05) !important;
+            background: #991B1B !important; 
+            border: 2px solid #EF4444 !important; 
             color: var(--white) !important; 
         }
-        #old-subject-list .subject-card:active {
-            border-color: #B026FF !important;
-            transform: scale(0.96) !important;
-            box-shadow: 0 0 15px rgba(176, 38, 255, 0.4) !important;
-        }
-        #old-subject-list .subject-card span:last-child { 
-            color: #B026FF !important; 
-            text-shadow: 0 0 8px rgba(176, 38, 255, 0.5) !important; 
-        }
 
-        /* ၃။ Daily Quiz Tab (Free Daily) - Neon Green (အစိမ်းရောင်) */
-        #daily-screen .subject-card {
-            border: 1px solid rgba(0, 255, 163, 0.3) !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 255, 163, 0.05) !important;
+        /* 🎴 Flashcard Vibe (သွက်လက်မြန်ဆန်သော 3D Animation) */
+        .flash-container { height: 320px; cursor: pointer; margin: 25px 0; perspective: 1000px; }
+        .flash-card { 
+            width: 100%; height: 100%; position: relative; border-radius: 20px; 
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); /* ပိုမိုမြန်ဆန်သော ကြာချိန် */
+            transform-style: preserve-3d; 
         }
-        #daily-screen .subject-card:active {
-            border-color: #00FFA3 !important;
-            box-shadow: 0 0 15px rgba(0, 255, 163, 0.4) !important;
+        .flash-face { 
+            position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; 
+            font-size: 1.3rem; border-radius: 20px; padding: 25px; text-align: center; 
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform: translate3d(0,0,0); /* GPU သုံးပြီး Performance မြှင့်တင်ရန် */
         }
-        #daily-screen .subject-card span:last-child { 
-            color: #00FFA3 !important; 
-            text-shadow: 0 0 8px rgba(0, 255, 163, 0.5) !important; 
-        }
-		
-		.subject-card, .option-btn, .profile-info-card, .poem-content, .flash-face {
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            background: rgba(16, 24, 40, 0.95) !important; /* Solid နီးပါး အရောင်ပြောင်းသုံးခြင်းဖြင့် ပေါ့ပါးသွားစေမည် */
-        }
-        
-        /* Animation လေးလံမှုကို သက်သာစေရန် Hardware Acceleration ဖွင့်ခြင်း */
-        .subject-card, .btn {
-            will-change: transform, box-shadow;
-        }
+        .flash-front { background: var(--card-bg); border: 2px solid #00D5FF; color: #fff; }
+        .flash-back { background: var(--card-bg); border: 2px solid #EF4444; color: #fff; transform: rotateY(180deg); }
+        .is-flipped { transform: rotateY(180deg); }
 
-        /* ၂။ Flashcard ထဲက ရှေ့သို့ / နောက်သို့ ခလုတ်များ (Neon Outline Style) */
+        /* Flashcard အောက်ခြေ ရှေ့/နောက် ခလုတ်များ */
         #flashcard-screen div[style*="display: flex; gap: 10px;"] .btn {
-            background: rgba(0, 229, 255, 0.05) !important;
-            border: 1px solid var(--accent) !important;
-            color: var(--accent) !important;
-            font-size: 1.1rem !important;
-            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.1) !important;
-            text-transform: none !important; /* စာလုံးကြီးမပြောင်းဖို့ */
-            padding: 14px !important;
-        }
-        #flashcard-screen div[style*="display: flex; gap: 10px;"] .btn:active {
-            background: var(--accent) !important;
-            color: #000 !important;
-            box-shadow: 0 0 20px var(--accent-glow) !important;
-            transform: scale(0.95);
+            background: #1E293B !important;
+            border: 1px solid #334155 !important;
+            color: var(--white) !important;
+            font-size: 1rem !important;
         }
 
-        /* ၃။ မေးခွန်းထဲက "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို ပိုမိုက်ပြီး ပိုကြီးအောင်လုပ်ရန် */
+        /* 🟢 "နောက်တစ်ပုဒ်သို့" ခလုတ် (ရိုးရိုးအစိမ်းရောင်၊ Animation မပါ၊ စာလုံးအလယ်အလတ်) */
         .next-btn-styled, .next-btn {
-            background: linear-gradient(135deg, #00FFA3, #00B8FF) !important; /* အစိမ်းနဲ့ အပြာစပ် */
-            color: #000 !important; 
-            font-size: 1.25rem !important; /* စာလုံးကို ပိုကြီးကြီးထားပါမည် */
-            font-weight: 900 !important;
-            box-shadow: 0 0 20px rgba(0, 255, 163, 0.4) !important;
-            border-radius: 18px !important;
-            padding: 18px 20px !important;
-            margin-top: 25px !important; 
+            background: #22C55E !important; 
+            color: #FFFFFF !important; 
+            font-size: 1.1rem !important; /* စာလုံးအရွယ်အစား ပြန်သေးပေးထားသည် */
+            font-weight: 700 !important;
+            border-radius: 14px !important;
+            padding: 15px 20px !important;
+            margin-top: 20px !important; 
             display: block !important; 
             text-align: center !important; 
             width: 100% !important;
-            border: 2px solid rgba(255, 255, 255, 0.3) !important;
-            animation: pulseNext 2s infinite !important; /* အသက်ဝင်အောင် လှုပ်နေမည့် Effect */
+            border: none !important;
+            animation: none !important; /* Animation လုံးဝပိတ်သိမ်းထားသည် */
         }
 
-        /* နောက်တစ်ပုဒ်သို့ ခလုတ်အတွက် အလင်းရောင် လှုပ်ရှားမှု */
-        @keyframes pulseNext {
-            0% { box-shadow: 0 0 15px rgba(0, 255, 163, 0.4); transform: scale(1); }
-            50% { box-shadow: 0 0 25px rgba(0, 255, 163, 0.8); transform: scale(1.02); }
-            100% { box-shadow: 0 0 15px rgba(0, 255, 163, 0.4); transform: scale(1); }
+        /* 👤 Profile Section */
+        #profile-avatar { width: 100px; height: 100px; margin: 0 auto; display: block; }
+        .profile-info-card { background: var(--card-bg); padding: 20px; border-radius: 16px; text-align: center; margin-top: 20px; border: 1px solid #334155; }
+        .bought-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
+        .bought-badge { background: #1E293B; color: #00D5FF; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #00D5FF; font-weight: 700; }
+        .buy-btn { background: transparent; border: 1px solid #10B981; color: #10B981; text-decoration: none; display: block; margin-top: 15px; }
+        
+        /* 🔘 Toggle Switch */
+        .gender-container { margin: 20px 0; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; color: var(--text-muted); }
+        .switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #1E293B; border: 1px solid #334155; transition: .3s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 3px; bottom: 3px; background-color: var(--white); transition: .3s; border-radius: 50%; }
+        input:checked + .slider { background-color: #00D5FF; }
+        input:checked + .slider:before { transform: translateX(26px); background-color: #0B0F19; }
+
+        /* 📱 Floating Bottom Navigation */
+        .nav { 
+            position: fixed; bottom: 20px; left: 5%; width: 90%; height: 70px; 
+            background: #111827; 
+            display: flex; justify-content: space-around; align-items: center; 
+            border-radius: 20px; border: 1px solid #1F2937; 
+            z-index: 100; 
         }
+        .nav-item { 
+            font-size: 1.5rem; filter: grayscale(100%); opacity: 0.4; cursor: pointer; 
+            transition: transform 0.2s ease, opacity 0.2s ease; 
+        }
+        /* ⚠️ ဒီနေရာမှာ ပုံဖျက်နေတဲ့ စိမ်းပြာရောင် Shadow ကြီးကို လုံးဝ ဖယ်ရှားလိုက်ပါပြီ */
+        .nav-active { 
+            filter: grayscale(0%) !important; 
+            opacity: 1 !important; 
+            transform: scale(1.2) translateY(-8px) !important; 
+            text-shadow: none !important; 
+            box-shadow: none !important;
+        }
+        
+        /* 📝 Inputs & Others */
+        h2, h3, h4 { color: var(--white); letter-spacing: 0.5px; }
+        .quiz-input { 
+            width: 100%; padding: 16px; border-radius: 12px; 
+            border: 2px solid #334155; background: #0B0F19; 
+            color: var(--white); margin-bottom: 15px; font-size: 1.1rem; 
+            text-align: center; font-weight: bold;
+        }
+        .quiz-input:focus { border-color: #00D5FF; }
+        .poem-content { background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #334155; line-height: 1.8; text-align: center; }
+        .btn.locked { background: #1E293B; border: 1px solid #334155; color: #475569; opacity: 0.5; cursor: not-allowed; }
+
+        /* ⏳ Exam Countdown & Stats */
+        #exam-countdown {
+            background: var(--card-bg); border: 1px solid #334155;
+            border-radius: 14px; padding: 12px; margin-bottom: 25px; display: flex; justify-content: center; gap: 15px;
+        }
+        .countdown-unit { display: flex; flex-direction: column; align-items: center; min-width: 55px; }
+        .countdown-value { font-size: 1.4rem; font-weight: 800; font-family: monospace; color: #00D5FF; }
+        .countdown-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-top: 2px; }
+
+        /* 👑 Premium Badges */
+        .premium-card { border: 2px solid #F59E0B !important; }
+        .premium-card span:last-child { color: #F59E0B !important; }
+        .premium-tag { background: #F59E0B; color: #000; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 800; margin-left: 6px; }
+
+        .quiz-card { background: var(--card-bg); padding: 18px; border-radius: 14px; margin-bottom: 15px; border-left: 4px solid #00D5FF; }
+        .shuffle-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; }
+        .shuffle-active { background: #00D5FF; color: #000; }
+
+        .timer-wrapper { display: flex; align-items: center; justify-content: center; margin-top: 20px; gap: 10px; }
+        .timer-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 8px 16px; border-radius: 10px; font-size: 0.9rem; }
+        .timer-display { font-size: 1.1rem; color: var(--white); font-family: monospace; font-weight: 700; background: #000; padding: 6px 12px; border-radius: 8px; border: 1px solid #334155; display: none; }
+        
+        .markcount { text-align: center; margin-top: 20px; }
+        #score-display { 
+            display: inline-block; background: #065F46; border: 1px solid #10B981; 
+            color: #10B981; padding: 8px 20px; border-radius: 12px; font-family: monospace; 
+            font-size: 1.2rem; font-weight: 700;
+        }
+        #checklist-container div { background: #162235; padding: 12px; border-radius: 10px; border: 1px solid #2D3748; margin-bottom: 8px; }
+        #checklist-container input[type="checkbox"] { accent-color: #00D5FF; transform: scale(1.1); }
+    </style>
     </style>
 </head>
 <body>
