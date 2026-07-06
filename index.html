@@ -326,6 +326,32 @@
             z-index: 10;
         }
 
+.flash-container {
+            height: 240px !important; /* အရင် 320px ကနေ 240px သို့ လျှော့ချထားသည် */
+            margin: 15px 0 !important;
+        }
+        .flash-face {
+            font-size: 1.15rem !important; /* နေရာဆန့်အောင် စာလုံးကို အနည်းငယ် သေးလိုက်သည် */
+            padding: 20px !important;
+        }
+
+        /* ၂။ ခလုတ်များ ဘောင်ကျော်ထွက်ခြင်းကို ဖြေရှင်းရန် */
+        .btn, .buy-btn, button {
+            width: 100% !important;
+            max-width: 100% !important; /* Container ထက် မကျော်စေရန် ထိန်းချုပ်ခြင်း */
+            box-sizing: border-box !important;
+            white-space: normal !important; /* စာသားများလျှင် ဘေးသို့မထွက်ဘဲ အောက်တစ်ကြောင်းဆင်းရန် */
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+        }
+        
+        /* ၃။ မျက်နှာပြင် (Screen) တစ်ခုလုံး ဘေးတိုက်ရွေ့နေခြင်းကို ပိတ်ရန် */
+        .container, .screen {
+            overflow-x: hidden !important; /* ဘေးတိုက် Scroll (ဘောင်ကျော်ခြင်း) ကို အပြီးတိုင် ပိတ်ရန် */
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+		
     </style>
 </head>
 <body>
