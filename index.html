@@ -1286,7 +1286,7 @@ But there’s wonderment within it,
     }));
 }
 
-       // --- Myanmar Specific ---
+     // --- Myanmar Specific ---
         function showMMQuizOptions(typeName) {
             showScreen('activity');
             document.getElementById('activity-title').innerText = typeName;
@@ -1294,9 +1294,9 @@ But there’s wonderment within it,
             content.innerHTML = '';
             document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
             
+            // မှားမှန်၊ ရွေးချယ်၊ ကွက်လပ်ဖြည့် ထဲက စကားပြေ/ကဗျာ ကို နှိပ်ရင် ခေါင်းစဉ်ခွဲဆီ သွားခိုင်းခြင်း
             ['အပြော', 'စကားပြေ', 'ကဗျာ', 'အရေး'].forEach(cat => {
                 createBtn(cat, content, () => {
-                    // စကားပြေ သို့မဟုတ် ကဗျာ ဖြစ်ပါက ခေါင်းစဉ်ခွဲများကို ပြသရန် Function အသစ်ကို ခေါ်မည်
                     if (cat === 'စကားပြေ' || cat === 'ကဗျာ') {
                         showMMQuizSubTopics(typeName, cat);
                     } else {
@@ -1308,12 +1308,13 @@ But there’s wonderment within it,
             });
         }
 
-        // ဤ Function အသစ်ကို showMMQuizOptions ၏ အောက်တွင် ထပ်ထည့်ပေးပါ
+        // ခေါင်းစဉ် (၈) မျိုးကို ခွဲခြားပြသပေးမည့် Function အသစ်
         function showMMQuizSubTopics(typeName, category) {
             showScreen('activity');
             const content = document.getElementById('activity-content');
+            content.innerHTML = '';
             
-            // ခေါင်းစဉ်တွင် ဥပမာ - "စကားပြေ (မှား/မှန်)" ဟု ပေါ်စေရန်
+            // ခေါင်းစဉ်ပြသမှုပုံစံ (ဥပမာ - စကားပြေ - ရွေးချယ်)
             document.getElementById('activity-title').innerText = `${category} (${typeName})`;
             
             // နောက်သို့ခလုတ် နှိပ်ပါက မူလ မှား/မှန်၊ အမှန်ရွေး စသည့် ရွေးချယ်စရာများဆီ ပြန်သွားရန်
@@ -1329,11 +1330,11 @@ But there’s wonderment within it,
 
             topics.forEach(t => {
                 createBtn(t, content, () => {
-                    // JSON ဖိုင်နာမည်များ ခေါ်ယူရန် ဥပမာ - mm_စကားပြေ_အမှန်ရွေး_ညောင်ရမ်းကြီးသမီး
+                    // JSON ဖိုင်နာမည်များကို စနစ်တကျ ချိတ်ဆက်ပေးခြင်း
                     const fName = `${currentSubject.id}_${category}_${typeName}_${t}`.replace(/\//g, "_").replace(/ /g, "_");
                     initQuiz(fName);
                     
-                    // Quiz မှ ထွက်ပါက ယခု ခေါင်းစဉ်ခွဲ (၈) ခု ရွေးချယ်သည့် စာမျက်နှာသို့ ပြန်လာရန်
+                    // Quiz ထဲက "ထွက်မည်" ကို နှိပ်ပါက ယခု ခေါင်းစဉ်ခွဲ (၈) ခု ရွေးချယ်သည့် နေရာသို့ ပြန်လာရန်
                     document.getElementById('quiz-back-btn').onclick = () => showMMQuizSubTopics(typeName, category);
                 });
             });
