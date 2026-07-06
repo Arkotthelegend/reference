@@ -517,21 +517,30 @@
             <button class="btn back-btn" onclick="showScreen('activity')">ထွက်မည်</button>
         </div>
 
-        <div id="quiz-screen" class="screen">
+        <div id="quiz-screen" class="screen" style="position: relative; padding-top: 35px;">
+    
+    <!-- ရမှတ်ကို absolute ဖြင့် အပေါ်ထောင့်ပို့ရန် div အစီအစဉ် -->
+    <div class="markcount" id="markcount">
+        <span id="score-display"> ရမှတ်: 0</span>
+    </div>
+    
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
     <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5;"></div>
     <div id="quiz-options"></div>
     <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
-    <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
-	<div class="timer-wrapper" id="timer-wrapper">
+    
+    <!-- Timer ကို ထွက်မည် ခလုတ်အပေါ် ရွှေ့လိုက်ပါပြီ -->
+    <div class="timer-wrapper" id="timer-wrapper">
         <span id="timer-display" class="timer-display">00:00</span>
         <button id="timer-start-btn" class="timer-btn" onclick="toggleTimer()">⏱ အချိန်မှတ်မည်</button>
         <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none;">🔄 ပြန်စမည်</button>
     </div>
-	<div class="markcount" id="markcount">
-        <span id="score-display" style="display: block; ... "> ရမှတ်: 0</span>
-    </div>
-</div> <div id="poem-screen" class="screen">
+
+    <!-- ထွက်မည် ခလုတ်ကို အောက်ဆုံးသို့ ပို့လိုက်ပါပြီ -->
+    <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
+</div>
+
+<div id="poem-screen" class="screen">
     <h2 id="poem-title" style="text-align: center; color: var(--accent);"></h2>
     <div id="poem-body" class="poem-content"></div>
     <button class="btn back-btn" onclick="showENPoemOptions()">နောက်သို့</button>
