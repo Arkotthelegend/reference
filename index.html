@@ -264,6 +264,52 @@
         }
         #checklist-container div:hover { border-color: var(--card-border); background: rgba(0, 229, 255, 0.05); }
         #checklist-container input[type="checkbox"] { accent-color: var(--accent); transform: scale(1.2); }
+		
+		#subject-list .subject-card {
+            border: 1px solid rgba(0, 229, 255, 0.3) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 229, 255, 0.05) !important;
+        }
+        #subject-list .subject-card:active {
+            border-color: #00E5FF !important;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4) !important;
+        }
+        #subject-list .subject-card span:last-child { 
+            color: #00E5FF !important; 
+            text-shadow: 0 0 8px rgba(0, 229, 255, 0.5) !important; 
+        }
+
+        /* ၂။ Old Questions Tab (Past Papers) - Neon Purple (ခရမ်းရောင်) */
+        /* JS က ထည့်ထားတဲ့ inline အစိမ်းရောင်တွေကို !important နဲ့ ဖျက်ပြီး ခရမ်းရောင်ပြောင်းပါမည် */
+        #old-subject-list .subject-card {
+            background: var(--card-glass) !important; 
+            border: 1px solid rgba(176, 38, 255, 0.3) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(176, 38, 255, 0.05) !important;
+            color: var(--white) !important; 
+        }
+        #old-subject-list .subject-card:active {
+            border-color: #B026FF !important;
+            transform: scale(0.96) !important;
+            box-shadow: 0 0 15px rgba(176, 38, 255, 0.4) !important;
+        }
+        #old-subject-list .subject-card span:last-child { 
+            color: #B026FF !important; 
+            text-shadow: 0 0 8px rgba(176, 38, 255, 0.5) !important; 
+        }
+
+        /* ၃။ Daily Quiz Tab (Free Daily) - Neon Green (အစိမ်းရောင်) */
+        #daily-screen .subject-card {
+            border: 1px solid rgba(0, 255, 163, 0.3) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 255, 163, 0.05) !important;
+        }
+        #daily-screen .subject-card:active {
+            border-color: #00FFA3 !important;
+            box-shadow: 0 0 15px rgba(0, 255, 163, 0.4) !important;
+        }
+        #daily-screen .subject-card span:last-child { 
+            color: #00FFA3 !important; 
+            text-shadow: 0 0 8px rgba(0, 255, 163, 0.5) !important; 
+        }
+		
     </style>
 </head>
 <body>
