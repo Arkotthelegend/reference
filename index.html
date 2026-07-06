@@ -1284,21 +1284,59 @@ But there’s wonderment within it,
     }));
 }
 
-        // --- Myanmar Specific ---
+      // --- Myanmar Specific ---
         function showMMQuizOptions(typeName) {
             showScreen('activity');
             document.getElementById('activity-title').innerText = typeName;
             const content = document.getElementById('activity-content');
             content.innerHTML = '';
             document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-            ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
+            
+            ['အပြော', 'စကားပြေ', 'ကဗျာ', 'အရေး'].forEach(cat => {
                 createBtn(cat, content, () => {
-                    initQuiz(`mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
-                    document.getElementById('quiz-back-btn').onclick = () => showMMQuizOptions(typeName);
+                    // စကားပြေ သို့မဟုတ် ကဗျာ ဖြစ်ပါက ခေါင်းစဉ်ခွဲများကို ပြသရန် Function အသစ်ကို ခေါ်မည်
+                    if (cat === 'စကားပြေ' || cat === 'ကဗျာ') {
+                        showMMQuizSubTopics(typeName, cat);
+                    } else {
+                        // အပြော နှင့် အရေး အတွက် မူလအတိုင်း တိုက်ရိုက် Quiz ခေါ်မည်
+                        initQuiz(`mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
+                        document.getElementById('quiz-back-btn').onclick = () => showMMQuizOptions(typeName);
+                    }
                 });
             });
         }
 
+        // ဤ Function အသစ်ကို showMMQuizOptions ၏ အောက်တွင် ထပ်ထည့်ပေးပါ
+        function showMMQuizSubTopics(typeName, category) {
+            showScreen('activity');
+            const content = document.getElementById('activity-content');
+            
+            // ခေါင်းစဉ်တွင် ဥပမာ - "စကားပြေ (မှား/မှန်)" ဟု ပေါ်စေရန်
+            document.getElementById('activity-title').innerText = `${category} (${typeName})`;
+            
+            // နောက်သို့ခလုတ် နှိပ်ပါက မူလ မှား/မှန်၊ အမှန်ရွေး စသည့် ရွေးချယ်စရာများဆီ ပြန်သွားရန်
+            document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
+
+            let topics = [];
+            
+            if (category === "စကားပြေ") {
+                topics = ["ညောင်ရမ်းကြီးသမီး", "သစ္စာနှင့်ပညာ", "ခေတ်", "မလုပ်မစား", "စာဘူးတောင်း", "ဦးဖေမောင်တင်", "အဖြူနှင့်အနက်", "စိတ်ဓာတ်ရင့်ကျက်တည်ငြိမ်ခြင်း"];
+            } else if (category === "ကဗျာ") {
+                topics = ["ပေါ်နွေလလျှင်", "ငါ့ကိုလွယ်အမယ်ကြီးနှင့်", "ဩဝါဒထူးပျို့", "ပေါင်းရှစ်ယောက်ကောက်စိုက်သူ", "အညာမင်္ဂလာဆောင်", "ကမ္ဗောဇသို့", "လက်ဖက်ရည်ကြမ်းဝိုင်း", "ပဒေသာလက်ရာ"];
+            }
+
+            topics.forEach(t => {
+                createBtn(t, content, () => {
+                    // JSON ဖိုင်နာမည်များ ခေါ်ယူရန် ဥပမာ - mm_စကားပြေ_အမှန်ရွေး_ညောင်ရမ်းကြီးသမီး
+                    const fName = `${currentSubject.id}_${category}_${typeName}_${t}`.replace(/\//g, "_").replace(/ /g, "_");
+                    initQuiz(fName);
+                    
+                    // Quiz မှ ထွက်ပါက ယခု ခေါင်းစဉ်ခွဲ (၈) ခု ရွေးချယ်သည့် စာမျက်နှာသို့ ပြန်လာရန်
+                    document.getElementById('quiz-back-btn').onclick = () => showMMQuizSubTopics(typeName, category);
+                });
+            });
+        }
+		
       function showMMFlashcardOptions(typeName) {
     showScreen('activity');
     document.getElementById('activity-title').innerText = typeName;
