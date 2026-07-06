@@ -16,6 +16,7 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
    <style>
+		<style>
         /* ============================================================
            🎨 FLAT VIBRANT DARK MODE (NO GLOW / NO BLUR / HIGH PERFORMANCE)
            ============================================================ */
@@ -251,7 +252,13 @@
         }
         #checklist-container div { background: #162235; padding: 12px; border-radius: 10px; border: 1px solid #2D3748; margin-bottom: 8px; }
         #checklist-container input[type="checkbox"] { accent-color: #00D5FF; transform: scale(1.1); }
-		#middle-screen > div > div:first-child {
+		
+		/* ============================================================
+           💎 PREMIUM TOUCHES & COMPACT UI (NO LAG)
+           ============================================================ */
+
+        /* Daily Motivation Box - Premium Border & Gradient */
+        #middle-screen > div > div:first-child {
             background: linear-gradient(145deg, #0F172A, #162235) !important;
             border: 1px solid #00D5FF !important;
             box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important;
@@ -309,6 +316,7 @@
             gap: 5px;
             z-index: 10;
         }
+
     </style>
 </head>
 <body>
@@ -500,23 +508,21 @@
             <button class="btn back-btn" onclick="showScreen('activity')">ထွက်မည်</button>
         </div>
 
-       <div id="quiz-info" style="display:none; margin-bottom: 15px; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); position: relative;">
-            
-            <div id="score-display" style="position: absolute; top: 12px; right: 12px; font-size: 14px; font-weight: bold; background: #2ecc71; color: #fff; padding: 4px 10px; border-radius: 20px;">
-                ⭐ ရမှတ်: <span id="score">0</span>
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 8px; width: calc(100% - 100px);">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                    <button id="timer-start-btn" onclick="toggleTimer()" style="background: #3498db; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-size: 13px; cursor: pointer;">⏱ အချိန်မှတ်မည်</button>
-                    <span id="timer-display" style="display: none; font-size: 15px; font-weight: bold; color: #e74c3c;">00:00</span>
-                    <button id="timer-reset-btn" onclick="resetTimer()" style="display: none; background: #95a5a6; color: white; border: none; padding: 4px 8px; border-radius: 6px; font-size: 11px; cursor: pointer;">🔄 ပြန်စ</button>
-                </div>
-
-                <button id="quiz-back-btn" class="back-btn" style="background: #e74c3c; color: white; border: none; padding: 6px 15px; border-radius: 8px; font-size: 13px; cursor: pointer; max-width: 100px; display: inline-block;">↩ ထွက်မည်</button>
-            </div>
-        </div>
-<div id="poem-screen" class="screen">
+        <div id="quiz-screen" class="screen">
+    <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
+    <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5;"></div>
+    <div id="quiz-options"></div>
+    <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
+    <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
+	<div class="timer-wrapper" id="timer-wrapper">
+        <span id="timer-display" class="timer-display">00:00</span>
+        <button id="timer-start-btn" class="timer-btn" onclick="toggleTimer()">⏱ အချိန်မှတ်မည်</button>
+        <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none;">🔄 ပြန်စမည်</button>
+    </div>
+	<div class="markcount" id="markcount">
+        <span id="score-display" style="display: block; ... "> ရမှတ်: 0</span>
+    </div>
+</div> <div id="poem-screen" class="screen">
     <h2 id="poem-title" style="text-align: center; color: var(--accent);"></h2>
     <div id="poem-body" class="poem-content"></div>
     <button class="btn back-btn" onclick="showENPoemOptions()">နောက်သို့</button>
@@ -1286,56 +1292,17 @@ But there’s wonderment within it,
     }));
 }
 
-     // --- Myanmar Specific ---
+        // --- Myanmar Specific ---
         function showMMQuizOptions(typeName) {
             showScreen('activity');
             document.getElementById('activity-title').innerText = typeName;
             const content = document.getElementById('activity-content');
             content.innerHTML = '';
             document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-            
-            // မှားမှန်၊ ရွေးချယ်၊ ကွက်လပ်ဖြည့် ထဲက စကားပြေ/ကဗျာ ကို နှိပ်ရင် ခေါင်းစဉ်ခွဲဆီ သွားခိုင်းခြင်း
-            ['အပြော', 'စကားပြေ', 'ကဗျာ', 'အရေး'].forEach(cat => {
+            ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
                 createBtn(cat, content, () => {
-                    if (cat === 'စကားပြေ' || cat === 'ကဗျာ') {
-                        showMMQuizSubTopics(typeName, cat);
-                    } else {
-                        // အပြော နှင့် အရေး အတွက် မူလအတိုင်း တိုက်ရိုက် Quiz ခေါ်မည်
-                        initQuiz(`mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
-                        document.getElementById('quiz-back-btn').onclick = () => showMMQuizOptions(typeName);
-                    }
-                });
-            });
-        }
-
-        // ခေါင်းစဉ် (၈) မျိုးကို ခွဲခြားပြသပေးမည့် Function အသစ်
-        function showMMQuizSubTopics(typeName, category) {
-            showScreen('activity');
-            const content = document.getElementById('activity-content');
-            content.innerHTML = '';
-            
-            // ခေါင်းစဉ်ပြသမှုပုံစံ (ဥပမာ - စကားပြေ - ရွေးချယ်)
-            document.getElementById('activity-title').innerText = `${category} (${typeName})`;
-            
-            // နောက်သို့ခလုတ် နှိပ်ပါက မူလ မှား/မှန်၊ အမှန်ရွေး စသည့် ရွေးချယ်စရာများဆီ ပြန်သွားရန်
-            document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
-
-            let topics = [];
-            
-            if (category === "စကားပြေ") {
-                topics = ["ညောင်ရမ်းကြီးသမီး", "သစ္စာနှင့်ပညာ", "ခေတ်", "မလုပ်မစား", "စာဘူးတောင်း", "ဦးဖေမောင်တင်", "အဖြူနှင့်အနက်", "စိတ်ဓာတ်ရင့်ကျက်တည်ငြိမ်ခြင်း"];
-            } else if (category === "ကဗျာ") {
-                topics = ["ပေါ်နွေလလျှင်", "ငါ့ကိုလွယ်အမယ်ကြီးနှင့်", "ဩဝါဒထူးပျို့", "ပေါင်းရှစ်ယောက်ကောက်စိုက်သူ", "အညာမင်္ဂလာဆောင်", "ကမ္ဗောဇသို့", "လက်ဖက်ရည်ကြမ်းဝိုင်း", "ပဒေသာလက်ရာ"];
-            }
-
-            topics.forEach(t => {
-                createBtn(t, content, () => {
-                    // JSON ဖိုင်နာမည်များကို စနစ်တကျ ချိတ်ဆက်ပေးခြင်း
-                    const fName = `${currentSubject.id}_${category}_${typeName}_${t}`.replace(/\//g, "_").replace(/ /g, "_");
-                    initQuiz(fName);
-                    
-                    // Quiz ထဲက "ထွက်မည်" ကို နှိပ်ပါက ယခု ခေါင်းစဉ်ခွဲ (၈) ခု ရွေးချယ်သည့် နေရာသို့ ပြန်လာရန်
-                    document.getElementById('quiz-back-btn').onclick = () => showMMQuizSubTopics(typeName, category);
+                    initQuiz(`mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
+                    document.getElementById('quiz-back-btn').onclick = () => showMMQuizOptions(typeName);
                 });
             });
         }
@@ -1837,6 +1804,7 @@ function renderProfileData() {
         </button>
     `;
 }
+
         // --- Init ---
         if(localStorage.getItem('userGender') === 'female') {
             document.getElementById('gender-switch').checked = true;
