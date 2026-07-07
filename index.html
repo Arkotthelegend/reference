@@ -137,23 +137,24 @@
             transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); /* ပိုမိုမြန်ဆန်သော ကြာချိန် */
             transform-style: preserve-3d; 
         }
-        .flash-face { 
-            position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; 
-            font-size: 1.3rem; border-radius: 20px; padding: 25px; text-align: center; 
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            transform: translate3d(0,0,0); /* GPU သုံးပြီး Performance မြှင့်တင်ရန် */
+        .flash-face {
+            font-size: 1.1rem !important; /* နေရာဆန့်အောင် စာလုံးဆိုဒ်ကို ချိန်ညှိထားသည် */
+            padding: 15px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            overflow-y: auto !important; /* စာသားများလျှင် Flashcard အတွင်း၌သာ Scroll လုပ်ရန် */
         }
         .flash-front { background: var(--card-bg); border: 2px solid #00D5FF; color: #fff; }
         .flash-back { background: var(--card-bg); border: 2px solid #EF4444; color: #fff; transform: rotateY(180deg); }
         .is-flipped { transform: rotateY(180deg); }
 
-        /* Flashcard အောက်ခြေ ရှေ့/နောက် ခလုတ်များ */
-        #flashcard-screen div[style*="display: flex; gap: 10px;"] .btn {
-            background: #1E293B !important;
-            border: 1px solid #334155 !important;
-            color: var(--white) !important;
-            font-size: 1rem !important;
+        #flashcard-screen {
+            display: flex; /* Flexbox သုံးပြီး နေရာချထားမှုကို ထိန်းချုပ်မည် */
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100vh; /* မျက်နှာပြင် အပြည့်ယူမည် */
+            padding-bottom: 90px !important; /* အောက်ခြေ Nav Bar မကွယ်စေရန် */
         }
 
         /* 🟢 "နောက်တစ်ပုဒ်သို့" ခလုတ် (ရိုးရိုးအစိမ်းရောင်၊ Animation မပါ၊ စာလုံးအလယ်အလတ်) */
@@ -326,8 +327,12 @@
         }
 
 .flash-container {
-            height: 240px !important; /* အရင် 320px ကနေ 240px သို့ လျှော့ချထားသည် */
-            margin: 15px 0 !important;
+            flex: 1; /* ရသမျှ နေရာလွတ်ကိုသာ ယူမည် (Fixed Height အသေမပေးတော့ပါ) */
+            min-height: 200px !important; /* အနည်းဆုံး အမြင့် */
+            max-height: 300px !important; /* အများဆုံး အမြင့် (ခလုတ်တွေကို လုံးဝ မကွယ်စေရန်) */
+            margin: 20px 0 !important;
+            width: 100% !important;
+            perspective: 1000px;
         }
 
         /* ၂။ ခလုတ်များ ဘောင်ကျော်ထွက်ခြင်းကို ဖြေရှင်းရန် */
