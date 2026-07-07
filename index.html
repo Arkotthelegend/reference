@@ -233,6 +233,36 @@
     }
     .nav-item { font-size: 1.5rem; filter: grayscale(100%); opacity: 0.4; cursor: pointer; transition: transform 0.2s ease, opacity 0.2s ease; }
     .nav-active { filter: grayscale(0%) !important; opacity: 1 !important; transform: scale(1.2) translateY(-8px) !important; }
+	
+	/* ============================================================
+           📱 GRID LAYOUT FIX (ဘာသာရပ်များကို ၂ ကော်လံ ခွဲပြသရန်)
+           ============================================================ */
+        
+        /* Subject List Container များကို Grid (၂ ကွက်ယှဉ်) ပုံစံပြောင်းခြင်း */
+        #subject-list, 
+        #old-subject-list, 
+        #daily-screen div[style*="padding: 15px;"] {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important; /* နေရာလွတ်ကို တူညီသော ၂ ကွက် တိတိ ခွဲမည် */
+            gap: 12px !important; /* Card တစ်ခုနဲ့တစ်ခုကြား အကွာအဝေး */
+        }
+
+        /* နေရာကျဉ်းသွားသည့်အတွက် Card များကို အံဝင်ခွင်ကျဖြစ်အောင် ပြန်ချိန်ခြင်း */
+        .subject-card {
+            margin-bottom: 0 !important; /* Grid တွင် Gap သုံးထားသဖြင့် Margin ကို ပယ်ဖျက်မည် */
+            padding: 16px 12px !important; /* ဘေးတိုက်နေရာဆန့်အောင် Padding အနည်းငယ် လျှော့မည် */
+            font-size: 0.95rem !important; /* စာလုံးဆိုဒ်ကို အနည်းငယ် သေးပေးမည် */
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            height: 100% !important; /* Card များ အမြင့်ညီစေရန် */
+        }
+
+        /* ညာဘက်ထောင့်က မြား (➔) သို့မဟုတ် သော့ (🔒) ကို နေရာချရန် */
+        .subject-card span:last-child {
+            font-size: 1rem !important;
+            margin-left: 5px !important;
+        }
 </style>
 </head>
 <body>
