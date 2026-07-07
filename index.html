@@ -263,6 +263,82 @@
             font-size: 1rem !important;
             margin-left: 5px !important;
         }
+		
+		/* ============================================================
+           🛠 UI REFINEMENTS (GRID MENUS, COMPACT TRACKER & PROFILE)
+           ============================================================ */
+
+        /* ၁။ Free Trial နှင့် အခြား Menu ခလုတ်များအားလုံးကို ၂ ကော်လံ ခွဲခြင်း */
+        #activity-content, #menu-content, #old-type-list {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+        }
+        #activity-content .btn, #menu-content .btn, #old-type-list .btn {
+            margin: 0 !important;
+            height: 100% !important;
+            font-size: 0.95rem !important;
+            padding: 12px 10px !important;
+        }
+
+        /* ၂။ Daily Study Tracker ကို ၂ ကော်လံ ခွဲခြင်း */
+        #checklist-container {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 8px !important;
+        }
+        #checklist-container div {
+            margin-bottom: 0 !important; /* Grid သုံးထားသဖြင့် Margin အောက်ဆင်းခြင်းကို ပိတ်မည် */
+            padding: 6px 10px !important;
+        }
+
+        /* ၃။ Daily Motivation Box ကို သေးငယ်စေခြင်း */
+        #middle-screen > div > div:first-child {
+            padding: 12px 15px !important;
+            margin-bottom: 15px !important;
+        }
+        #middle-screen > div > div:first-child span { font-size: 1.2rem !important; }
+        #middle-screen > div > div:first-child h4 { font-size: 0.95rem !important; margin: 5px 0 !important; }
+        #daily-quote { font-size: 0.85rem !important; line-height: 1.4 !important; }
+
+        /* ၄။ Exam Countdown ကို သေးငယ်စေခြင်း */
+        #countdown-label { font-size: 0.8rem !important; margin-bottom: 5px !important; }
+        #exam-countdown {
+            padding: 8px !important;
+            gap: 10px !important;
+            margin-bottom: 15px !important;
+        }
+        .countdown-unit { min-width: 45px !important; }
+        .countdown-value { font-size: 1.15rem !important; }
+        .countdown-label { font-size: 0.6rem !important; }
+
+        /* ၅။ Profile Tab တစ်ခုလုံးကို သေးငယ်စေခြင်း */
+        #profile-avatar { width: 75px !important; height: 75px !important; }
+        #user-name { font-size: 1.15rem !important; margin: 8px 0 2px 0 !important; }
+        
+        /* Copy ကူးလို့ရမည့် ID အကွက် ဒီဇိုင်း */
+        #user-id-text { 
+            font-size: 0.85rem !important; 
+            margin-bottom: 8px !important; 
+            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+            background: rgba(255,255,255,0.05); padding: 5px 12px; 
+            border-radius: 8px; border: 1px solid #334155;
+            transition: background 0.2s;
+        }
+        #user-id-text:active { background: rgba(0, 213, 255, 0.2); } /* နှိပ်လိုက်လျှင် အရောင်လင်းသွားမည် */
+
+        .profile-info-card, #profile-screen div[style*="background: var(--card)"] {
+            padding: 15px !important; margin-top: 15px !important;
+        }
+        .bought-badge { font-size: 0.75rem !important; padding: 4px 8px !important; }
+        .buy-btn { padding: 10px !important; font-size: 0.9rem !important; margin-top: 10px !important; margin-bottom: 0 !important; }
+        
+        /* Profile ပုံ သေးသွားသောကြောင့် Streak Badge (မီးတောက်) ကို နေရာပြန်ချိန်ခြင်း */
+        .streak-mini-badge {
+            font-size: 0.7rem !important;
+            padding: 3px 8px !important;
+            transform: translateX(-100px) !important; /* ဘေးသို့ အနည်းငယ် ပြန်ရွှေ့သည် */
+        }
 </style>
 </head>
 <body>
@@ -1740,12 +1816,24 @@ function renderProfileData() {
     const userName = tg.initDataUnsafe?.user?.first_name || "Scholar";
     const isSpecial = specialUsers.includes(userId);
     
-    // ၁။ Local Storage ကနေ Streak ကို ယူမယ်
+    // Local Storage ကနေ Streak ကို ယူမယ်
     let currentStreak = parseInt(localStorage.getItem('streak_count')) || updateStreak();
     
     // UI Elements များကို သတ်မှတ်ခြင်း
     document.getElementById('user-name').innerText = userName;
-    document.getElementById('user-id-text').innerText = "ID: " + userId;
+    
+    // --- 📋 ID ကို နှိပ်လိုက်လျှင် Copy ကူးမည့် စနစ် ---
+    const idTextElement = document.getElementById('user-id-text');
+    idTextElement.innerHTML = `ID: ${userId} <span style="font-size: 0.9rem; opacity: 0.8;">📋</span>`;
+    idTextElement.style.cursor = "pointer"; // နှိပ်လို့ရကြောင်း လက်ညှိုးပုံပေါ်စေရန်
+    idTextElement.onclick = () => {
+        // Clipboard သို့ Copy ကူးခြင်း
+        navigator.clipboard.writeText(userId.toString()).then(() => {
+            tg.showAlert("သင့် ID (" + userId + ") ကို Copy ကူးပြီးပါပြီ ✅");
+        }).catch(err => {
+            console.error('Copy failed', err);
+        });
+    };
     
     // Premium ဖြစ်ပါက Body ကို class ထည့်ပြီး အရောင်ပြောင်းရန်
     if (isSpecial) {
@@ -1774,7 +1862,7 @@ function renderProfileData() {
         });
     }
 
-    // --- (အသစ်) Streak Mini Badge ကို Profile Avatar ဘေးတွင် ထည့်ခြင်း ---
+    // Streak Mini Badge ကို Profile Avatar ဘေးတွင် ထည့်ခြင်း
     let streakBadge = document.getElementById('streak-mini-badge');
     if (!streakBadge) {
         streakBadge = document.createElement('div');
@@ -1782,13 +1870,12 @@ function renderProfileData() {
         streakBadge.className = 'streak-mini-badge';
         
         const avatar = document.getElementById('profile-avatar');
-        // Avatar ရဲ့ မိခင် Container ကို relative ပေးပြီး သူ့ထဲကို Badge ထည့်မည်
         avatar.parentElement.style.position = 'relative';
         avatar.parentElement.appendChild(streakBadge);
     }
     streakBadge.innerHTML = `🔥 ${currentStreak} Day${currentStreak > 1 ? 's' : ''}`;
 
-    // ၂။ Dynamic Area ထဲကို UI တွေ ထည့်မယ် (Streak Box အကြီးကြီးကို ဖြုတ်လိုက်ပါပြီ)
+    // Dynamic Area ထဲကို UI တွေ ထည့်မယ်
     const dynamicArea = document.getElementById('dynamic-content-area');
     dynamicArea.innerHTML = `
         <button onclick="contactDeveloper()" style="width: 100%; background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
