@@ -312,32 +312,48 @@
         .countdown-value { font-size: 1.15rem !important; }
         .countdown-label { font-size: 0.6rem !important; }
 
-        /* ၅။ Profile Tab တစ်ခုလုံးကို သေးငယ်စေခြင်း */
-        #profile-avatar { width: 75px !important; height: 75px !important; }
-        #user-name { font-size: 1.15rem !important; margin: 8px 0 2px 0 !important; }
+        /* ၅။ Profile Tab အားလုံးကို ထပ်မံသေးငယ်ပြီး ကျစ်လစ်စေခြင်း */
+        #profile-screen { position: relative; } /* ကျား/မ ခလုတ်ကို နေရာချရန် */
         
-        /* Copy ကူးလို့ရမည့် ID အကွက် ဒီဇိုင်း */
+        #profile-avatar { width: 65px !important; height: 65px !important; }
+        #user-name { font-size: 1.05rem !important; margin: 6px 0 2px 0 !important; }
+        
+        /* Copy ကူးလို့ရမည့် ID အကွက် */
         #user-id-text { 
-            font-size: 0.85rem !important; 
-            margin-bottom: 8px !important; 
-            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-            background: rgba(255,255,255,0.05); padding: 5px 12px; 
-            border-radius: 8px; border: 1px solid #334155;
-            transition: background 0.2s;
+            font-size: 0.75rem !important; margin-bottom: 5px !important; 
+            padding: 4px 10px !important; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+            background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid #334155; transition: background 0.2s;
         }
-        #user-id-text:active { background: rgba(0, 213, 255, 0.2); } /* နှိပ်လိုက်လျှင် အရောင်လင်းသွားမည် */
+        #user-id-text:active { background: rgba(0, 213, 255, 0.2); }
 
         .profile-info-card, #profile-screen div[style*="background: var(--card)"] {
-            padding: 15px !important; margin-top: 15px !important;
+            padding: 12px !important; margin-top: 10px !important;
         }
-        .bought-badge { font-size: 0.75rem !important; padding: 4px 8px !important; }
-        .buy-btn { padding: 10px !important; font-size: 0.9rem !important; margin-top: 10px !important; margin-bottom: 0 !important; }
         
-        /* Profile ပုံ သေးသွားသောကြောင့် Streak Badge (မီးတောက်) ကို နေရာပြန်ချိန်ခြင်း */
+        .bought-container { gap: 5px !important; margin: 8px 0 !important; }
+        .bought-badge { font-size: 0.7rem !important; padding: 3px 6px !important; }
+        .buy-btn { padding: 8px !important; font-size: 0.85rem !important; margin-top: 8px !important; margin-bottom: 0 !important; }
+        
+        /* ညာဘက်အပေါ်ထောင့်က ကျား/မ ရွေးချယ်သည့်ခလုတ် (အသေးစား ဒေါင်လိုက်) */
+        .gender-container { 
+            position: absolute !important; top: 10px !important; right: 15px !important; 
+            flex-direction: column !important; /* အပေါ်အောက် ဒေါင်လိုက်စီရန် */
+            gap: 4px !important; margin: 0 !important; font-size: 0.7rem !important; 
+        }
+        .switch { width: 34px !important; height: 20px !important; }
+        .slider:before { height: 14px !important; width: 14px !important; left: 3px !important; bottom: 2px !important; }
+        input:checked + .slider:before { transform: translateX(14px) !important; }
+
+        /* "မေးခွန်းများကို အစဉ်လိုက်..." ရှင်းလင်းချက်စာသားကို ဖျောက်ရန် */
+        #profile-screen div[style*="background: var(--card)"] p {
+            display: none !important;
+        }
+
+        /* Profile ပုံ ပိုသေးသွားသောကြောင့် Streak Badge (မီးတောက်) ကို နေရာပြန်ချိန်ခြင်း */
         .streak-mini-badge {
-            font-size: 0.7rem !important;
-            padding: 3px 8px !important;
-            transform: translateX(-100px) !important; /* ဘေးသို့ အနည်းငယ် ပြန်ရွှေ့သည် */
+            font-size: 0.65rem !important;
+            padding: 2px 6px !important;
+            transform: translateX(-80px) !important; 
         }
 </style>
 </head>
