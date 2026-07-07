@@ -383,6 +383,9 @@
         <div class="subject-card" onclick="startDailyQuiz('en')">
             <span>အင်္ဂလိပ်စာ</span> <span>➔</span>
         </div>
+		<div class="subject-card" onclick="startDailyQuiz('math')">
+            <span>သင်္ချာ</span> <span>➔</span>
+        </div>
         <div class="subject-card" onclick="startDailyQuiz('phy')">
             <span>ရူပဗေဒ</span> <span>➔</span>
         </div>
@@ -569,6 +572,18 @@
     <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
 </div>
 
+<div id="math-solution-screen" class="screen" style="position: relative; padding: 20px; padding-top: 35px;">
+    <h3 style="text-align: center; color: var(--accent); margin-bottom: 20px;">အဖြေနှင့် တွက်နည်း</h3>
+    <div id="math-solution-content" style="background: var(--card-bg); padding: 20px; border-radius: 12px; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8; overflow-x: auto;"></div>
+    
+    <div style="display: flex; justify-content: space-between; gap: 10px; margin-bottom: 20px;">
+        <button class="btn" id="math-prev-btn" style="background: #1E293B; color: var(--white); border: 1px solid #334155;">⬅️ နောက်သို့</button>
+        <button class="btn" id="math-next-btn" style="background: #22C55E; color: white;">ရှေ့သို့ ➡️</button>
+    </div>
+    
+    <button class="btn back-btn" id="math-exit-btn">ထွက်မည်</button>
+</div>
+
 <div id="poem-screen" class="screen">
     <h2 id="poem-title" style="text-align: center; color: var(--accent);"></h2>
     <div id="poem-body" class="poem-content"></div>
@@ -595,15 +610,7 @@ const specialUsers = [5593040432,6889096884,1709037573];
     }
     return array;
 }
-// ဘာသာရပ်အလိုက် ရှိမယ့် Set အရေအတွက်ကို ဒီမှာ စိတ်ကြိုက်ပြင်ပါ
-const subjectSetsConfig = {
-    'mm': 5,    // မြန်မာစာအတွက် ၅ set
-    'en': 3,    // အင်္ဂလိပ်စာအတွက် ၃ set// သင်္ချာအတွက် ၁၀ set
-    'phy': 4,
-    'chem': 2,
-    'bio': 6,
-    'default': 2 // config ထဲမှာ မပါတဲ့ ဘာသာရပ်တွေအတွက် default ၂ set ထားမယ်
-};
+
 		
         const tg = window.Telegram.WebApp;
         tg.ready(); tg.expand();
@@ -644,13 +651,14 @@ const subjectSetsConfig = {
         }
 
         const subjects = [
-            { id: 'mm', name: 'မြန်မာစာ' },
-            { id: 'en', name: 'အင်္ဂလိပ်စာ' },
-            { id: 'phy', name: 'ရူပဗေဒ', chapters: 13 },
-            { id: 'chem', name: 'ဓာတုဗေဒ', chapters: 8 },
-            { id: 'bio', name: 'ဇီဝဗေဒ', chapters: 6 },
-            { id: 'eco', name: 'ဘောဂဗေဒ', chapters: 8 }
-        ];
+    { id: 'mm', name: 'မြန်မာစာ' },
+    { id: 'en', name: 'အင်္ဂလိပ်စာ' },
+    { id: 'math', name: 'သင်္ချာ', chapters: 11 }, // သင်္ချာကို ပြန်ထည့်ထားသည်
+    { id: 'phy', name: 'ရူပဗေဒ', chapters: 13 },
+    { id: 'chem', name: 'ဓာတုဗေဒ', chapters: 8 },
+    { id: 'bio', name: 'ဇီဝဗေဒ', chapters: 6 },
+    { id: 'eco', name: 'ဘောဂဗေဒ', chapters: 8 }
+];
 
         let currentSubject = null;
         let currentQuestions = [];
@@ -750,6 +758,7 @@ function showOldMenu(sub) {
         });
     } else {
         for(let i=1; i<=sub.chapters; i++) {
+            if (sub.id === 'eco' && i === 6) continue;
             createOldBtn(`Chapter ${i}`, list, () => showOldGeneralActivities(sub.id, `Chapter ${i}`));
         }
     }
@@ -814,23 +823,14 @@ function showOldGeneralActivities(subId, partName) {
     document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
 
     if(subId === 'math') {
-        ['1_Mark', '2_Marks'].forEach(mark => {
+        ['1_Mark', '2_Marks', '3_Marks'].forEach(mark => {
             createOldBtn(mark.replace('_', ' '), list, () => {
                 const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
-                if (mark === '1_Mark') {
-                    initQuiz(fileName);
-                    document.getElementById('quiz-back-btn').onclick = () => {
-                        showScreen('scroll');
-                        showOldGeneralActivities(subId, partName);
-                    };
-                } else {
-                    initFlashcards(fileName, mark.replace('_', ' '));
-                    const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-                    flashExitBtn.onclick = () => {
-                        showScreen('scroll');
-                        showOldGeneralActivities(subId, partName);
-                    };
-                }
+                initQuiz(fileName);
+                document.getElementById('quiz-back-btn').onclick = () => {
+                    showScreen('scroll');
+                    showOldGeneralActivities(subId, partName);
+                };
             });
         });
     } else {
@@ -967,6 +967,8 @@ function openSubjectMenu(sub) {
         }
     } else {
         for(let i=1; i<=sub.chapters; i++) {
+            // ဘောဂဗေဒ (eco) ဖြစ်ပြီး Chapter 6 ဆိုလျှင် ကျော်သွားမည်
+            if (sub.id === 'eco' && i === 6) continue; 
             createBtn(`Chapter ${i}`, content, () => showGeneralActivities(sub.id, `Chapter ${i}`));
         }
     }
@@ -984,31 +986,46 @@ function loadQuestion() {
     const optDiv = document.getElementById('quiz-options'); 
     optDiv.innerHTML = '';
 
-    // --- အရေးကြီးဆုံးအပိုင်း: သင်္ချာမေးခွန်းဖြစ်မဖြစ် စစ်ဆေးခြင်း ---
-    // JSON ထဲမှာ type: "math_show" လို့ ရေးထားရင် ဒီထဲကို ဝင်ပါမယ်
+   // --- အရေးကြီးဆုံးအပိုင်း: သင်္ချာမေးခွန်းဖြစ်မဖြစ် စစ်ဆေးခြင်း ---
     if (q.type === 'math_show') {
-        // ၁။ အဖြေကြည့်ရန် ခလုတ်ကို အရင်ဖန်တီးမယ်
         const showBtn = document.createElement('button');
         showBtn.className = 'btn';
         showBtn.innerText = "အဖြေကြည့်ရန်";
         
-        // ၂။ အဖြေပြမယ့် Box ကို ဖန်တီးမယ် (စစချင်း ဖျောက်ထားမယ်)
-        const answerDiv = document.createElement('div');
-        answerDiv.style.cssText = "display:none; background:#334155; padding:15px; border-radius:10px; margin-top:10px; border-left:5px solid #10B981; text-align:left; color:white;";
-        answerDiv.innerHTML = `<b style="color:#38BDF8;">အဖြေ:</b><br>${q.c}`;
-
-        // ၃။ ခလုတ်နှိပ်လိုက်ရင် အဖြေပေါ်လာအောင် လုပ်မယ်
         showBtn.onclick = function() {
-            answerDiv.style.display = 'block';
-            showBtn.style.display = 'none';
-            document.getElementById('next-btn').style.display = 'block';
+            // Screen အသစ်ကို ပြောင်းမည်
+            showScreen('math-solution');
+            document.getElementById('math-solution-content').innerHTML = q.c;
             if (window.MathJax) MathJax.typesetPromise();
+
+            // နောက်သို့ (မေးခွန်း ပြန်ကြည့်ရန်)
+            document.getElementById('math-prev-btn').onclick = () => {
+                showScreen('quiz');
+            };
+
+            // ရှေ့သို့ (နောက်တစ်ပုဒ် သွားရန်)
+            const mathNextBtn = document.getElementById('math-next-btn');
+            if (currentIdx < currentQuestions.length - 1) {
+                mathNextBtn.style.display = 'block';
+                mathNextBtn.onclick = () => {
+                    currentIdx++;
+                    showScreen('quiz');
+                    loadQuestion();
+                };
+            } else {
+                mathNextBtn.style.display = 'none'; // မေးခွန်းကုန်သွားရင် ဖျောက်ထားမည်
+            }
+
+            // ထွက်မည် (Menu သို့ ပြန်သွားရန်)
+            document.getElementById('math-exit-btn').onclick = () => {
+                document.getElementById('quiz-back-btn').click(); 
+            };
         };
 
         optDiv.appendChild(showBtn);
-        optDiv.appendChild(answerDiv);
     } 
     // --- အခြားပုံမှန် မေးခွန်းများ (MCQ, True/False) ---
+	
     else if (q.type === 'mcq' || q.type === 'tf') {
     let opts = [];
     let correctIdx = 0;
@@ -1580,19 +1597,13 @@ function showGeneralActivities(subId, partName) {
     };
     
     if(subId === 'math') {
-        const mathMarks = ['1_Mark', '2_Marks'];
+        const mathMarks = ['1_Mark', '2_Marks', '3_Marks'];
         mathMarks.forEach(mark => {
             createBtn(mark.replace('_', ' '), content, () => {
                 const fileName = `math_${partName}_${mark}`.replace(/ /g, "_");
-                if (mark === '1_Mark') {
-                    initQuiz(fileName);
-                    document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName);
-                } else {
-                    initFlashcards(fileName, mark.replace('_', ' '));
-                    // Flashcard ကနေထွက်ရင် ဒီ Menu ကိုပြန်လာဖို့
-                    const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-                    flashExitBtn.onclick = () => { showScreen('activity'); showGeneralActivities(subId, partName); };
-                }
+                // အားလုံးကို initQuiz ဖြင့်သာ ခေါ်မည်
+                initQuiz(fileName);
+                document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName);
             });
         });
     } else {
@@ -2119,8 +2130,8 @@ function getFileNamesForSubject(subId) {
         }
     } 
     else if (subId === 'math') {
-        // သင်္ချာအတွက် (ဥပမာ- math_Chapter_1_1_Mark)
-        for (let i = 1; i <= 10; i++) { // Chapter 10 ထိရှိသည်ဟု ယူဆ၍
+        // သင်္ချာအတွက် (ဥပမာ- math_Chapter_1_1_Mark မှ 11 ထိ)
+        for (let i = 1; i <= 11; i++) { 
             fileNames.push(`math_Chapter_${i}_1_Mark`);
         }
     }
