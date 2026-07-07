@@ -16,367 +16,224 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
    <style>
-		<style>
-        /* ============================================================
-           🎨 FLAT VIBRANT DARK MODE (NO GLOW / NO BLUR / HIGH PERFORMANCE)
-           ============================================================ */
-        
-        * {
-            -webkit-tap-highlight-color: transparent !important;
-            outline: none !important;
-            box-sizing: border-box;
-        }
-        body, div, span, button, img, a, .subject-card, .option-item, .nav-item {
-            -webkit-touch-callout: none !important;
-            -webkit-user-select: none !important;
-            user-select: none !important;
-        }
-        input, textarea, .quiz-input {
-            -webkit-user-select: auto !important;
-            user-select: auto !important;
-        }
-		
-        :root { 
-            --bg: #0B0F19; /* Solid Deep Dark */
-            --card-bg: #162235; /* Solid Card Background */
-            --white: #FFFFFF; 
-            --text-muted: #64748B;
-            --lock: #1E293B; 
-            --success: #10B981; /* Flat Green */
-            --error: #EF4444; /* Flat Red */
-        }
+    /* ============================================================
+       🎨 FLAT VIBRANT DARK MODE (CLEANED & OPTIMIZED)
+       ============================================================ */
+    
+    /* --- 1. Global & Reset --- */
+    * {
+        -webkit-tap-highlight-color: transparent !important;
+        outline: none !important;
+        box-sizing: border-box;
+    }
+    body, div, span, button, img, a, .subject-card, .option-item, .nav-item {
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+    }
+    input, textarea, .quiz-input {
+        -webkit-user-select: auto !important;
+        user-select: auto !important;
+    }
+    
+    :root { 
+        --bg: #0B0F19; /* Solid Deep Dark */
+        --card-bg: #162235; /* Solid Card Background */
+        --white: #FFFFFF; 
+        --text-muted: #64748B;
+        --lock: #1E293B; 
+        --success: #10B981; 
+        --error: #EF4444; 
+    }
 
-        body { 
-            background-color: var(--bg); 
-            color: var(--white); 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-            margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; 
-        }
+    body { 
+        background-color: var(--bg); 
+        color: var(--white); 
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+        margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; 
+    }
 
-        /* Effect များနှင့် Glow များ အားလုံးကို တစ်ကမ္ဘာလုံးဆိုင်ရာ ပိတ်သိမ်းခြင်း */
-        h2, h3, h4, span, div, button, .nav-item {
-            text-shadow: none !important; 
-            box-shadow: none !important;  
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-        }
+    h2, h3, h4, span, div, button, .nav-item {
+        text-shadow: none !important; 
+        box-shadow: none !important;  
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
 
-        .container { 
-            padding: 20px; flex: 1; overflow-y: auto; box-sizing: border-box; padding-bottom: 110px; 
-        }
-        
-        /* 🗂 Subject Cards (Tab အလိုက် ရိုးရိုးတောက်တောက် အရောင်ခွဲခြားမှု) */
-        .subject-card { 
-            background: var(--card-bg) !important; 
-            padding: 20px; 
-            border-radius: 16px; 
-            margin-bottom: 14px; 
-            font-size: 1.1rem; 
-            font-weight: 700; 
-            display: flex; justify-content: space-between; align-items: center; 
-            cursor: pointer; color: var(--white); 
-            transition: transform 0.1s ease; 
-        }
-        .subject-card:active { transform: scale(0.97); }
-        .locked { background: var(--lock) !important; opacity: 0.4; border-color: transparent !important; }
-        .locked span:last-child { color: var(--text-muted) !important; }
+    .container, .screen { 
+        overflow-x: hidden !important; /* ဘောင်ကျော်ခြင်းကို ကာကွယ်ရန် */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .container {
+        padding: 20px; flex: 1; overflow-y: auto; padding-bottom: 110px; 
+    }
+    
+    .screen { display: none; }
+    .active-screen { display: block; }
+    h2, h3, h4 { letter-spacing: 0.5px; }
 
-        /* ၁။ Home Tab (Objectives) - စိမ်းပြာရောင်တောက်တောက် (Cyan) */
-        #subject-list .subject-card { border: 2px solid #00D5FF !important; }
-        #subject-list .subject-card span:last-child { color: #00D5FF !important; }
+    /* --- 2. Subject Cards --- */
+    .subject-card { 
+        background: var(--card-bg) !important; 
+        padding: 20px; border-radius: 16px; margin-bottom: 14px; 
+        font-size: 1.1rem; font-weight: 700; 
+        display: flex; justify-content: space-between; align-items: center; 
+        cursor: pointer; color: var(--white); transition: transform 0.1s ease; 
+    }
+    .subject-card:active { transform: scale(0.97); }
+    .locked { background: var(--lock) !important; opacity: 0.4; border-color: transparent !important; }
+    .locked span:last-child { color: var(--text-muted) !important; }
 
-        /* ၂။ Old Questions Tab (Past Papers) - ခရမ်းရောင်တောက်တောက် (Purple) */
-        #old-subject-list .subject-card { border: 2px solid #A855F7 !important; color: var(--white) !important; }
-        #old-subject-list .subject-card span:last-child { color: #A855F7 !important; }
+    /* Tab Colors */
+    #subject-list .subject-card { border: 2px solid #00D5FF !important; }
+    #subject-list .subject-card span:last-child { color: #00D5FF !important; }
+    #old-subject-list .subject-card { border: 2px solid #A855F7 !important; color: var(--white) !important; }
+    #old-subject-list .subject-card span:last-child { color: #A855F7 !important; }
+    #daily-screen .subject-card { border: 2px solid #22C55E !important; }
+    #daily-screen .subject-card span:last-child { color: #22C55E !important; }
 
-        /* ၃။ Daily Quiz Tab (Free Daily) - အစိမ်းရောင်တောက်တောက် (Green) */
-        #daily-screen .subject-card { border: 2px solid #22C55E !important; }
-        #daily-screen .subject-card span:last-child { color: #22C55E !important; }
-        
-        .screen { display: none; }
-        .active-screen { display: block; }
+    /* --- 3. Buttons --- */
+    .btn, button {
+        width: 100% !important; max-width: 100% !important; 
+        box-sizing: border-box !important;
+        white-space: normal !important; word-wrap: break-word !important; overflow-wrap: break-word !important;
+    }
+    .btn { 
+        background: #00D5FF; color: #000000; border: none; padding: 15px; border-radius: 14px; 
+        font-weight: 700; margin: 8px 0; cursor: pointer; text-align: center; font-size: 1rem; 
+        transition: transform 0.1s ease;
+    }
+    .btn:active { transform: scale(0.97); }
+    .back-btn { background: #1E293B !important; border: 1px solid #334155 !important; color: var(--white) !important; margin-top: 25px !important; }
+    .btn.locked { background: #1E293B; border: 1px solid #334155; color: #475569; opacity: 0.5; cursor: not-allowed; }
 
-        /* 🔘 Standard Buttons */
-        .btn { 
-            background: #00D5FF; 
-            color: #000000; 
-            border: none; 
-            padding: 15px; 
-            border-radius: 14px; 
-            font-weight: 700; 
-            width: 100%; 
-            margin: 8px 0; 
-            cursor: pointer; text-align: center; font-size: 1rem; 
-            transition: transform 0.1s ease;
-        }
-        .btn:active { transform: scale(0.97); }
-        .back-btn { background: #1E293B; border: 1px solid #334155; color: var(--white); margin-top: 25px; }
+    /* Quiz Option Buttons */
+    .option-btn { background: var(--card-bg) !important; border: 1px solid #334155; color: var(--white); font-weight: 600; border-radius: 12px; }
+    .correct-opt, .correct-answer { background: #065F46 !important; border: 2px solid #10B981 !important; color: var(--white) !important; }
+    .wrong-opt, .wrong-answer { background: #991B1B !important; border: 2px solid #EF4444 !important; color: var(--white) !important; }
 
-        /* 🕹 Option Buttons (Quiz) */
-        .option-btn { 
-            background: var(--card-bg) !important; 
-            border: 1px solid #334155; 
-            color: var(--white); 
-            font-weight: 600; 
-            border-radius: 12px;
-        }
-        .correct-opt, .correct-answer { 
-            background: #065F46 !important; 
-            border: 2px solid #10B981 !important; 
-            color: var(--white) !important;
-        }
-        .wrong-opt, .wrong-answer { 
-            background: #991B1B !important; 
-            border: 2px solid #EF4444 !important; 
-            color: var(--white) !important; 
-        }
+    /* Next Button */
+    .next-btn-styled, .next-btn {
+        background: #22C55E !important; color: #FFFFFF !important; font-size: 1.1rem !important; font-weight: 700 !important;
+        border-radius: 14px !important; padding: 15px 20px !important; margin-top: 20px !important; display: block !important; 
+        text-align: center !important; border: none !important; animation: none !important;
+    }
 
-        /* 🎴 Flashcard Vibe (သွက်လက်မြန်ဆန်သော 3D Animation) */
-        .flash-card { 
-            width: 100%; height: 100%; position: relative; border-radius: 20px; 
-            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); /* ပိုမိုမြန်ဆန်သော ကြာချိန် */
-            transform-style: preserve-3d; 
-        }
-        .flash-face {
-            font-size: 1.1rem !important; /* နေရာဆန့်အောင် စာလုံးဆိုဒ်ကို ချိန်ညှိထားသည် */
-            padding: 15px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            overflow-y: auto !important; /* စာသားများလျှင် Flashcard အတွင်း၌သာ Scroll လုပ်ရန် */
-        }
-        .flash-front { background: var(--card-bg); border: 2px solid #00D5FF; color: #fff; }
-        .flash-back { background: var(--card-bg); border: 2px solid #EF4444; color: #fff; transform: rotateY(180deg); }
-        .is-flipped { transform: rotateY(180deg); }
+    /* Buy Button Fixed */
+    .buy-btn {
+        display: block !important; width: auto !important; 
+        margin: 15px 0 8px 0 !important;
+        box-sizing: border-box !important; white-space: normal !important; text-align: center !important;
+        background: transparent; border: 1px solid #10B981; color: #10B981; text-decoration: none; padding: 12px; border-radius: 12px;
+    }
 
-        /* Flashcard အောက်ခြေ ရှေ့/နောက် ခလုတ်များ */
-        #flashcard-screen div[style*="display: flex; gap: 10px;"] .btn {
+    /* --- 4. Flashcard UI (Rebuilt & Perfectly Centered) --- */
+      #flashcard-screen div[style*="display: flex; gap: 10px;"] .btn {
             background: #1E293B !important;
             border: 1px solid #334155 !important;
             color: var(--white) !important;
             font-size: 1rem !important;
         }
+    #flashcard-screen > div:first-child { width: 100%; } /* Title Area */
+    
+    .flash-container { 
+        width: 100%; max-width: 350px; /* ဖုန်းအကြီး/အသေး အားလုံးနှင့် အချိုးကျစေရန် */
+        height: 280px; /* တိကျသော အချိုးအစား သတ်မှတ်ခြင်း */
+        margin: auto 0; /* အလယ်ဗဟို၌ နေရာယူစေရန် */
+        cursor: pointer; perspective: 1000px; 
+    }
+    .flash-card { 
+        width: 100%; height: 100%; position: relative; border-radius: 20px; 
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); transform-style: preserve-3d; 
+    }
+    .flash-face { 
+        position: absolute; width: 100%; height: 100%; 
+        display: flex !important; align-items: center !important; justify-content: center !important; 
+        font-size: 1.15rem !important; border-radius: 20px; padding: 20px !important; text-align: center; 
+        backface-visibility: hidden; -webkit-backface-visibility: hidden; /* 3D လှည့်ရာတွင် အနောက်ဘက်မမြင်ရအောင် ကာကွယ်ခြင်း */
+        transform: translate3d(0,0,0);
+        overflow: hidden !important; /* စာသားများလျှင် ရုပ်ဆိုးမသွားစေရန် */
+    }
+    .flash-front { background: #1E293B; border: 2px solid #00D5FF; color: #fff; }
+    .flash-back { background: #1E293B; border: 2px solid #EF4444; color: #fff; transform: rotateY(180deg); }
+    .is-flipped { transform: rotateY(180deg); }
 
-        /* 🟢 "နောက်တစ်ပုဒ်သို့" ခလုတ် (ရိုးရိုးအစိမ်းရောင်၊ Animation မပါ၊ စာလုံးအလယ်အလတ်) */
-        .next-btn-styled, .next-btn {
-            background: #22C55E !important; 
-            color: #FFFFFF !important; 
-            font-size: 1.1rem !important; /* စာလုံးအရွယ်အစား ပြန်သေးပေးထားသည် */
-            font-weight: 700 !important;
-            border-radius: 14px !important;
-            padding: 15px 20px !important;
-            margin-top: 20px !important; 
-            display: block !important; 
-            text-align: center !important; 
-            width: 100% !important;
-            border: none !important;
-            animation: none !important; /* Animation လုံးဝပိတ်သိမ်းထားသည် */
-        }
+    #flashcard-screen div[style*="display: flex; gap: 10px;"] { width: 100%; margin-bottom: 10px; }
+    #flashcard-screen div[style*="display: flex; gap: 10px;"] .btn {
+        background: #1E293B !important; border: 1px solid #334155 !important; color: var(--white) !important; font-size: 1rem !important;
+    }
+    #flashcard-screen .back-btn { margin-top: 0 !important; margin-bottom: 20px !important; width: 100%; }
 
-        /* 👤 Profile Section */
-        #profile-avatar { width: 100px; height: 100px; margin: 0 auto; display: block; }
-        .profile-info-card { background: var(--card-bg); padding: 20px; border-radius: 16px; text-align: center; margin-top: 20px; border: 1px solid #334155; }
-        .bought-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
-        .bought-badge { background: #1E293B; color: #00D5FF; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #00D5FF; font-weight: 700; }
-        .buy-btn { background: transparent; border: 1px solid #10B981; color: #10B981; text-decoration: none; display: block; margin-top: 15px; }
-        
-        /* 🔘 Toggle Switch */
-        .gender-container { margin: 20px 0; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; color: var(--text-muted); }
-        .switch { position: relative; display: inline-block; width: 60px; height: 34px; }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #1E293B; border: 1px solid #334155; transition: .3s; border-radius: 34px; }
-        .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 3px; bottom: 3px; background-color: var(--white); transition: .3s; border-radius: 50%; }
-        input:checked + .slider { background-color: #00D5FF; }
-        input:checked + .slider:before { transform: translateX(26px); background-color: #0B0F19; }
+    /* --- 5. Profile & Settings --- */
+    #profile-avatar { width: 100px; height: 100px; margin: 0 auto; display: block; }
+    .profile-info-card, #profile-screen div[style*="background: var(--card)"], #exam-countdown, #middle-screen > div > div:first-child { 
+        background: linear-gradient(145deg, #0F172A, #162235) !important; 
+        padding: 20px; border-radius: 16px; text-align: center; margin-top: 20px; 
+        border: 1px solid #00D5FF !important; box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important; 
+    }
+    #exam-countdown { border-color: #A855F7 !important; box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1) !important; display: flex; justify-content: center; gap: 15px; padding: 12px; margin-bottom: 25px; }
+    
+    .bought-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
+    .bought-badge { background: #1E293B; color: #00D5FF; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #00D5FF; font-weight: 700; }
+    
+    .streak-mini-badge {
+        position: absolute; top: 5px; left: 50%; transform: translateX(-120px); 
+        background: linear-gradient(135deg, #FF7E5F, #FEB47B); color: #000; font-weight: 900; font-size: 0.8rem; 
+        padding: 4px 10px; border-radius: 12px; border: 1px solid #FFF; display: inline-flex; align-items: center; gap: 5px; z-index: 10;
+    }
 
-        /* 📱 Floating Bottom Navigation */
-        .nav { 
-            position: fixed; bottom: 20px; left: 5%; width: 90%; height: 70px; 
-            background: #111827; 
-            display: flex; justify-content: space-around; align-items: center; 
-            border-radius: 20px; border: 1px solid #1F2937; 
-            z-index: 100; 
-        }
-        .nav-item { 
-            font-size: 1.5rem; filter: grayscale(100%); opacity: 0.4; cursor: pointer; 
-            transition: transform 0.2s ease, opacity 0.2s ease; 
-        }
-        /* ⚠️ ဒီနေရာမှာ ပုံဖျက်နေတဲ့ စိမ်းပြာရောင် Shadow ကြီးကို လုံးဝ ဖယ်ရှားလိုက်ပါပြီ */
-        .nav-active { 
-            filter: grayscale(0%) !important; 
-            opacity: 1 !important; 
-            transform: scale(1.2) translateY(-8px) !important; 
-            text-shadow: none !important; 
-            box-shadow: none !important;
-        }
-        
-        /* 📝 Inputs & Others */
-        h2, h3, h4 { color: var(--white); letter-spacing: 0.5px; }
-        .quiz-input { 
-    width: 90% !important; /* အပြည့်မယူဘဲ ၉၀% သာယူရန် */
-    display: block !important;
-    margin: 0 auto 15px auto !important; /* ဘေးဘယ်ညာ margin auto ဖြင့် အလယ်တည့်တည့်ပို့ခြင်း */
-    padding: 16px; border-radius: 12px; 
-    border: 2px solid #334155; background: #0B0F19; 
-    color: var(--white); font-size: 1.1rem; 
-    text-align: center; font-weight: bold;
-}
-        .quiz-input:focus { border-color: #00D5FF; }
-        .poem-content { background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #334155; line-height: 1.8; text-align: center; }
-        .btn.locked { background: #1E293B; border: 1px solid #334155; color: #475569; opacity: 0.5; cursor: not-allowed; }
+    /* Toggle Switch */
+    .gender-container { margin: 20px 0; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; color: var(--text-muted); }
+    .switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #1E293B; border: 1px solid #334155; transition: .3s; border-radius: 34px; }
+    .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 3px; bottom: 3px; background-color: var(--white); transition: .3s; border-radius: 50%; }
+    input:checked + .slider { background-color: #00D5FF; }
+    input:checked + .slider:before { transform: translateX(26px); background-color: #0B0F19; }
 
-        /* ⏳ Exam Countdown & Stats */
-        #exam-countdown {
-            background: var(--card-bg); border: 1px solid #334155;
-            border-radius: 14px; padding: 12px; margin-bottom: 25px; display: flex; justify-content: center; gap: 15px;
-        }
-        .countdown-unit { display: flex; flex-direction: column; align-items: center; min-width: 55px; }
-        .countdown-value { font-size: 1.4rem; font-weight: 800; font-family: monospace; color: #00D5FF; }
-        .countdown-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-top: 2px; }
+    /* Study Tracker */
+    #checklist-container div { padding: 8px 12px !important; margin-bottom: 6px !important; background: #0B0F19 !important; border: 1px solid #334155 !important; border-radius: 10px !important; display: flex; align-items: center; }
+    #checklist-container label { font-size: 0.9rem !important; color: #CBD5E1 !important; }
+    #checklist-container input[type="checkbox"] { transform: scale(1) !important; width: 16px; height: 16px; margin-right: 5px; accent-color: #00D5FF; }
 
-        /* 👑 Premium Badges */
-        .premium-card { border: 2px solid #F59E0B !important; }
-        .premium-card span:last-child { color: #F59E0B !important; }
-        .premium-tag { background: #F59E0B; color: #000; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 800; margin-left: 6px; }
+    /* --- 6. Inputs & Quizzes --- */
+    .quiz-input { 
+        width: 90% !important; display: block !important; margin: 0 auto 15px auto !important; 
+        padding: 16px; border-radius: 12px; border: 2px solid #334155; background: #0B0F19; 
+        color: var(--white); font-size: 1.1rem; text-align: center; font-weight: bold;
+    }
+    .quiz-input:focus { border-color: #00D5FF; }
+    .poem-content { background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #334155; line-height: 1.8; text-align: center; }
+    .quiz-card { background: var(--card-bg); padding: 18px; border-radius: 14px; margin-bottom: 15px; border-left: 4px solid #00D5FF; }
 
-        .quiz-card { background: var(--card-bg); padding: 18px; border-radius: 14px; margin-bottom: 15px; border-left: 4px solid #00D5FF; }
-        .shuffle-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; }
-        .shuffle-active { background: #00D5FF; color: #000; }
+    /* Stats & Badges */
+    .countdown-unit { display: flex; flex-direction: column; align-items: center; min-width: 55px; }
+    .countdown-value { font-size: 1.4rem; font-weight: 800; font-family: monospace; color: #00D5FF; }
+    .countdown-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-top: 2px; }
+    .premium-card { border: 2px solid #F59E0B !important; }
+    .premium-card span:last-child { color: #F59E0B !important; }
+    .premium-tag { background: #F59E0B; color: #000; padding: 2px 8px; border-radius: 6px; font-size: 0.75rem; font-weight: 800; margin-left: 6px; }
 
-        .timer-wrapper { display: flex; align-items: center; justify-content: center; margin-top: 20px; gap: 10px; }
-        .timer-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 8px 16px; border-radius: 10px; font-size: 0.9rem; }
-        .timer-display { font-size: 1.1rem; color: var(--white); font-family: monospace; font-weight: 700; background: #000; padding: 6px 12px; border-radius: 8px; border: 1px solid #334155; display: none; }
-        
-        .markcount { 
-    position: absolute;
-    top: 5px;
-    right: 15px;
-    margin: 0;
-    z-index: 50;
-}
-        #score-display { 
-    display: inline-block; background: #065F46; border: 1px solid #10B981; 
-    color: #10B981; padding: 6px 15px; border-radius: 12px; font-family: monospace; 
-    font-size: 1rem; font-weight: 700;
-}
-        #checklist-container div { background: #162235; padding: 12px; border-radius: 10px; border: 1px solid #2D3748; margin-bottom: 8px; }
-        #checklist-container input[type="checkbox"] { accent-color: #00D5FF; transform: scale(1.1); }
-		
-		/* ============================================================
-           💎 PREMIUM TOUCHES & COMPACT UI (NO LAG)
-           ============================================================ */
+    /* Timer & Score */
+    .timer-wrapper { display: flex; align-items: center; justify-content: center; margin-top: 20px; gap: 10px; }
+    .timer-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 8px 16px; border-radius: 10px; font-size: 0.9rem; }
+    .timer-display { font-size: 1.1rem; color: var(--white); font-family: monospace; font-weight: 700; background: #000; padding: 6px 12px; border-radius: 8px; border: 1px solid #334155; display: none; }
+    .markcount { position: absolute; top: 5px; right: 15px; margin: 0; z-index: 50; }
+    #score-display { display: inline-block; background: #065F46; border: 1px solid #10B981; color: #10B981; padding: 6px 15px; border-radius: 12px; font-family: monospace; font-size: 1rem; font-weight: 700; }
+    
+    .shuffle-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; }
+    .shuffle-active { background: #00D5FF; color: #000; }
 
-        /* Daily Motivation Box - Premium Border & Gradient */
-        #middle-screen > div > div:first-child {
-            background: linear-gradient(145deg, #0F172A, #162235) !important;
-            border: 1px solid #00D5FF !important;
-            box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important;
-            border-radius: 16px !important;
-        }
-
-        /* Profile & Setting Cards - Premium Border */
-        .profile-info-card, #profile-screen div[style*="background: var(--card)"] {
-            background: linear-gradient(145deg, #0F172A, #162235) !important;
-            border: 1px solid #00D5FF !important;
-            box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important;
-        }
-
-        /* Exam Countdown Box - Purple Premium Border */
-        #exam-countdown {
-            background: linear-gradient(145deg, #0F172A, #162235) !important;
-            border: 1px solid #A855F7 !important;
-            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1) !important;
-        }
-
-        /* Study Tracker ကို သေးငယ်ပြီး ကျစ်လစ်သွားစေရန် */
-        #checklist-container div {
-            padding: 8px 12px !important;
-            margin-bottom: 6px !important;
-            background: #0B0F19 !important;
-            border: 1px solid #334155 !important;
-            border-radius: 10px !important;
-        }
-        #checklist-container label {
-            font-size: 0.9rem !important; /* စာလုံးကို သေးလိုက်သည် */
-            color: #CBD5E1 !important;
-        }
-        #checklist-container input[type="checkbox"] {
-            transform: scale(1) !important; /* Checkbox အကြီးကြီးဖြစ်နေတာကို ပုံမှန်ဆိုဒ်ပြန်ထားသည် */
-            width: 16px; height: 16px;
-            margin-right: 5px;
-        }
-
-        /* Profile Avatar ဘေးက Streak Badge အသေးလေးအတွက် Style */
-        .streak-mini-badge {
-            position: absolute;
-            top: 5px;
-            left: 50%;
-            transform: translateX(-120px); /* Profile ပုံရဲ့ ဘယ်ဘက်ကို ရွှေ့ထားခြင်း */
-            background: linear-gradient(135deg, #FF7E5F, #FEB47B);
-            color: #000;
-            font-weight: 900;
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.3);
-            border: 1px solid #FFF;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            z-index: 10;
-        }
-
-.flash-container {
-            flex: 1; /* ရသမျှ နေရာလွတ်ကိုသာ ယူမည် (Fixed Height အသေမပေးတော့ပါ) */
-            min-height: 200px !important; /* အနည်းဆုံး အမြင့် */
-            max-height: 300px !important; /* အများဆုံး အမြင့် (ခလုတ်တွေကို လုံးဝ မကွယ်စေရန်) */
-            margin: 20px 0 !important;
-            width: 100% !important;
-            perspective: 1000px;
-        }
-		
-		#flashcard-screen > div[style*="display: flex; gap: 10px;"] {
-            margin-bottom: 15px !important;
-            flex-shrink: 0; /* ခလုတ်တွေကို မဖိပြားစေရန် */
-        }
-        
-        /* ထွက်မည် ခလုတ် နေရာချထားမှု */
-        #flashcard-screen .back-btn {
-            margin-top: 0 !important;
-            margin-bottom: 20px !important;
-            flex-shrink: 0;
-        }
-
-        /* ၂။ ခလုတ်များ ဘောင်ကျော်ထွက်ခြင်းကို ဖြေရှင်းရန် */
-        .btn, .buy-btn, button {
-            width: 100% !important;
-            max-width: 100% !important; /* Container ထက် မကျော်စေရန် ထိန်းချုပ်ခြင်း */
-            box-sizing: border-box !important;
-            white-space: normal !important; /* စာသားများလျှင် ဘေးသို့မထွက်ဘဲ အောက်တစ်ကြောင်းဆင်းရန် */
-            word-wrap: break-word !important;
-            overflow-wrap: break-word !important;
-        }
-        
-        /* ၃။ မျက်နှာပြင် (Screen) တစ်ခုလုံး ဘေးတိုက်ရွေ့နေခြင်းကို ပိတ်ရန် */
-        .container, .screen {
-            overflow-x: hidden !important; /* ဘေးတိုက် Scroll (ဘောင်ကျော်ခြင်း) ကို အပြီးတိုင် ပိတ်ရန် */
-            width: 100% !important;
-            box-sizing: border-box !important;
-        }
-		
-		.buy-btn {
-            display: block !important; /* Inline ကနေ Block element အဖြစ် သတ်မှတ်ခြင်း */
-            width: auto !important;    /* 100% အစား auto သုံးခြင်းက ဘေးဘောင်ကျော်ခြင်းကို လုံးဝရပ်တန့်စေပါတယ် */
-            margin-left: 0 !important;  /* ဘယ်ဘက်ကို ကပ်စေရန် */
-            margin-right: 0 !important; /* ညာဘက်ကို မကျော်စေရန် */
-            margin-top: 15px !important;
-            margin-bottom: 8px !important;
-            box-sizing: border-box !important;
-            white-space: normal !important; /* စာသားရှည်လျှင် အလိုအလျောက် အောက်ကြောင်းဆင်းရန် */
-            text-align: center !important;  /* စာသားကို အလယ်ဗဟို၌ ထားရန် */
-        }
-		
-    </style>
+    /* --- 7. Floating Nav --- */
+    .nav { 
+        position: fixed; bottom: 20px; left: 5%; width: 90%; height: 70px; background: #111827; 
+        display: flex; justify-content: space-around; align-items: center; 
+        border-radius: 20px; border: 1px solid #1F2937; z-index: 100; 
+    }
+    .nav-item { font-size: 1.5rem; filter: grayscale(100%); opacity: 0.4; cursor: pointer; transition: transform 0.2s ease, opacity 0.2s ease; }
+    .nav-active { filter: grayscale(0%) !important; opacity: 1 !important; transform: scale(1.2) translateY(-8px) !important; }
+</style>
 </head>
 <body>
 
