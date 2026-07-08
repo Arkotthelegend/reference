@@ -626,30 +626,23 @@
 		const ADMIN_ID = 8432363664;
 const specialUsers = [5593040432,6889096884,1709037573];
 
-// ဘာသာရပ်နှင့် အခန်းများအလိုက် အခန်းခွဲများကို မိမိစိတ်ကြိုက် သတ်မှတ်နိုင်သော Data Object
-const subChapterData = {
-    'Physics': { 
-        'Chapter 1': ['1.1 Introduction', '1.2 Kinematics', '1.3 Dynamics'],
-        'Chapter 2': ['2.1 Work', '2.2 Energy']
+// --- Sub-Chapter Configuration ---
+// အခန်းခွဲများကို မိမိစိတ်ကြိုက် ဤနေရာတွင် ပြင်ဆင်/ထပ်ထည့်နိုင်ပါသည်။
+const subChapterConfig = {
+    'phy': {
+        'Chapter 1': ['1.1 Introduction', '1.2 Motion'],
+        'Chapter 2': ['2.1', '2.2', '2.3']
     },
-    'Chemistry': { 
-        'Chapter 1': ['1.1 Atomic Structure', '4.2.1', '5.2'],
-        'Chapter 2': ['2.1 Bonds']
+    'chem': {
+        'Chapter 1': ['1.1', '1.2']
     },
-    'Math': { // သင်္ချာအတွက် ထည့်သွင်းထားပါသည်
-        'Chapter 1': ['1.1 Algebra', '1.2 Geometry'],
-        'Chapter 2': ['2.1 Calculus', '2.2 Functions']
+    'bio': {
+        'Chapter 1': ['1.1']
     },
-    'Biology': {
-        'Chapter 1': ['1.1 Cell Structure', '1.2 DNA']
-    },
-    'Economy': {
-        'Chapter 1': ['1.1 Basic Concepts']
+    'eco': {
+        'Chapter 1': ['1.1']
     }
 };
-
-// 🌟 Free Trial အတွက် ခွင့်ပြုမည့် သီးသန့် အခန်းခွဲ (၁) ခုကို ဤနေရာတွင် သတ်မှတ်ပါ 🌟
-const freeTrialSubChapter = "1.1 Introduction"; // (ဥပမာ - 1.1 Introduction ကိုပဲ Free ပေးမည်)
 		
 		function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -1048,71 +1041,24 @@ function openSubjectMenu(sub) {
         });
     } else if (sub.id === 'phy' || sub.id === 'chem') {
         for(let i=1; i<=sub.chapters; i++) {
-            createBtn(`Chapter ${i}`, content, () => showPhyChemActivities(sub.id, `Chapter ${i}`));
+            // ဤနေရာတွင် showSubChaptersMenu သို့ ပြောင်းလိုက်ပါသည်
+            createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
         }
     } else {
         for(let i=1; i<=sub.chapters; i++) {
-            // ဘောဂဗေဒ (eco) ဖြစ်ပြီး Chapter 6 ဆိုလျှင် ကျော်သွားမည်
-            if (sub.id === 'eco' && i === 6) continue; 
-            createBtn(`Chapter ${i}`, content, () => showGeneralActivities(sub.id, `Chapter ${i}`));
+            if (sub.id === 'eco' && i === 6) continue;
+            
+            // သင်္ချာဆိုလျှင် မူလအတိုင်း၊ ကျန်တာဆိုလျှင် SubChapter Menu
+            if (sub.id === 'math') {
+                createBtn(`Chapter ${i}`, content, () => showGeneralActivities(sub.id, `Chapter ${i}`));
+            } else {
+                createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
+            }
         }
     }
-}
+	}
 
-function showSubChapters(subjectName, chapter) {
-    showScreen('activity');
-    document.getElementById('activity-title').innerText = `${subjectName} (${chapter})`;
-    const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-    
-    document.getElementById('activity-back-btn').onclick = () => showChapters(subjectName);
 
-    // [၁] "တစ်ခန်းလုံးကိုလေ့ကျင့်မယ်" ခလုတ် (Premium တွေအတွက်သာ ခွင့်ပြုမည်)
-    createBtn("တစ်ခန်းလုံးကိုလေ့ကျင့်မယ်", content, () => {
-        // သင့် Code ရှိ Premium စစ်ဆေးသည့် Variable ဖြင့် အစားထိုးပါ (ဥပမာ isPremium)
-        if (!isPremium) { 
-            alert("တစ်ခန်းလုံးလေ့ကျင့်ရန် Premium အကောင့် လိုအပ်ပါသည်။"); // Premium Modal ပြသည့် Function ဖြင့် ပြင်နိုင်ပါသည်
-            return;
-        }
-        showQuizOptions(subjectName, chapter);
-    });
-
-    // [၂] သတ်မှတ်ထားသော အခန်းခွဲများ (Sub-chapters) ကို Data Object ထဲမှ ဆွဲထုတ်ပြသခြင်း
-    const currentSubjectData = subChapterData[subjectName] || subChapterData[getEngSubjectName(subjectName)]; 
-    
-    if (currentSubjectData && currentSubjectData[chapter]) {
-        currentSubjectData[chapter].forEach(subChap => {
-            createBtn(subChap, content, () => {
-                
-                // 🌟 Free Trial စစ်ဆေးခြင်း 🌟
-                if (!isPremium) {
-                    // Premium လည်းမဟုတ်၊ Free ပေးထားတဲ့ အခန်းခွဲ (ဥပမာ 1.1 Introduction) လည်းမဟုတ်ရင် ဝင်ခွင့်ပိတ်မည်
-                    if (subChap !== freeTrialSubChapter) {
-                        alert("ဤအခန်းခွဲကို လေ့ကျင့်ရန် Premium အကောင့် လိုအပ်ပါသည်။"); 
-                        return;
-                    }
-                }
-
-                // အားလုံး အိုကေပါက မေးခွန်းရွေးသည့် Screen သို့ သွားမည်
-                // ဖိုင်နာမည် ဥပမာ - Physics_Chapter_1_1.1 Introduction_MCQ.json
-                showQuizOptions(subjectName, `${chapter}_${subChap}`);
-            });
-        });
-    } else {
-        // Data ထဲတွင် အခန်းခွဲများ မထည့်ရသေးပါက ပြသမည့်စာသား
-        const msg = document.createElement('div');
-        msg.style.color = "var(--accent)";
-        msg.style.padding = "20px";
-        msg.innerText = "ဤအခန်းအတွက် အခန်းခွဲများ မထည့်ရသေးပါ။";
-        content.appendChild(msg);
-    }
-}
-
-// မြန်မာလို ဘာသာရပ်အမည်များကို အင်္ဂလိပ်သို့ ပြောင်းပေးရန် အထောက်အကူပြု Function
-function getEngSubjectName(mmName) {
-    const map = { 'ရူပဗေဒ': 'Physics', 'ဓာတုဗေဒ': 'Chemistry', 'သင်္ချာ': 'Math', 'ဇီဝဗေဒ': 'Biology', 'ဘောဂဗေဒ': 'Economy' };
-    return map[mmName] || mmName;
-}
         
         // --- English Specific ---
         function showENUnits(typeName) {
@@ -1472,25 +1418,77 @@ function showSubMenu(typeName, cat, titles) {
                 });
             });
         }
-
-        // --- Phy/Chem Special Menu ---
-        function showPhyChemActivities(subId, partName) {
-            showScreen('activity');
-            document.getElementById('activity-title').innerText = partName;
-            const content = document.getElementById('activity-content');
-            content.innerHTML = '';
-            document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-            
-            // Standard Quizzes
-            ['True_False', 'Fill_Blank', 'MCQ'].forEach(type => {
-                createBtn(type.replace('_', ' '), content, () => {
-                    initQuiz(`${subId}_${partName}_${type}`.replace(/ /g, "_"));
-                    document.getElementById('quiz-back-btn').onclick = () => showPhyChemActivities(subId, partName);
-                });
-            });
-
-           
+		
+// --- Sub-Chapters ပြသမည့် Menu အသစ် ---
+function showSubChaptersMenu(subId, chapterName) {
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = chapterName;
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    
+    // နောက်သို့နှိပ်လျှင် ဘာသာရပ်ရွေးသည့် Menu (သို့) Trial Menu သို့ ပြန်သွားရန်
+    document.getElementById('activity-back-btn').onclick = () => {
+        const userId = tg.initDataUnsafe?.user?.id || 0;
+        const isSpecial = specialUsers.includes(userId);
+        const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(subId) || subId === 'bio' || subId === 'eco');
+        
+        if (checkAccess(subId) || isSpecialSubject) {
+            openSubjectMenu(currentSubject);
+        } else {
+            openTrialMenu();
         }
+    };
+
+    // ၁။ တစ်ခန်းလုံးကို လေ့ကျင့်ရန် ခလုတ်
+    createBtn("တစ်ခန်းလုံးကိုလေ့ကျင့်မယ်", content, () => {
+        if (subId === 'phy' || subId === 'chem') {
+            showPhyChemActivities(subId, chapterName, chapterName);
+        } else {
+            showGeneralActivities(subId, chapterName, chapterName);
+        }
+    });
+
+    // ၂။ Config ထဲတွင် ရေးထားသော အခန်းခွဲများ (Sub-chapters) ကို ခလုတ်အဖြစ် ထုတ်ပေးရန်
+    const subChapters = (subChapterConfig[subId] && subChapterConfig[subId][chapterName]) || [];
+    subChapters.forEach(subChap => {
+        createBtn(subChap, content, () => {
+            // ဖိုင်နာမည် မှတ်သားရန် e.g., "Chapter 1_1.1"
+            const activityPartName = `${chapterName}_${subChap}`;
+            if (subId === 'phy' || subId === 'chem') {
+                showPhyChemActivities(subId, activityPartName, chapterName);
+            } else {
+                showGeneralActivities(subId, activityPartName, chapterName);
+            }
+        });
+    });
+}
+        function showPhyChemActivities(subId, partName, parentChapter = null) {
+    showScreen('activity');
+    
+    // အခန်းခွဲ (e.g., Chapter 1_1.1) ဖြစ်နေလျှင် 1.1 ကိုသာ ခေါင်းစဉ်တပ်ရန်
+    let displayTitle = partName.includes('_') ? partName.split('_')[1] : partName;
+    document.getElementById('activity-title').innerText = displayTitle;
+    
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    
+    // နောက်သို့နှိပ်လျှင် သက်ဆိုင်ရာ SubChapter Menu သို့ ပြန်သွားရန်
+    document.getElementById('activity-back-btn').onclick = () => {
+        if (parentChapter) {
+            showSubChaptersMenu(subId, parentChapter);
+        } else {
+            openSubjectMenu(currentSubject);
+        }
+    };
+
+    ['True_False', 'Fill_Blank', 'MCQ'].forEach(type => {
+        createBtn(type.replace('_', ' '), content, () => {
+            initQuiz(`${subId}_${partName}_${type}`.replace(/ /g, "_"));
+            // Quiz ကနေ ပြန်ထွက်လျှင် လက်ရှိ menu သို့ ပြန်လာရန်
+            document.getElementById('quiz-back-btn').onclick = () => showPhyChemActivities(subId, partName, parentChapter);
+        });
+    });
+}
 
   // --- Trial System Functions ---
 
@@ -1514,13 +1512,13 @@ function openTrialMenu() {
                 // Back Button ကို Trial Menu သို့ ပြန်လှည့်
                 document.getElementById('activity-back-btn').onclick = () => openTrialMenu();
             } else {
-                // Chapter 1 ကိုသာ ပြသရန်
-                
+            if (sub.id === 'math') {
                 showGeneralActivities(sub.id, 'Chapter 1');
-                
-                // Back Button ကို Trial Menu သို့ ပြန်လှည့်
-                document.getElementById('activity-back-btn').onclick = () => openTrialMenu();
+            } else {
+                showSubChaptersMenu(sub.id, 'Chapter 1');
             }
+            // back btn onclick ကို ဒီမှာ ထပ်မရေးတော့ပါ။ အတွင်းမှ function က အလိုအလျောက် Trial ကို ပြန်ပို့ပေးပါမည်။
+        }
         });
     });
 }
@@ -1595,30 +1593,34 @@ function updateFlashUI() {
             if (flashIdx > 0) { flashIdx--; updateFlashUI(); }
         }
 
-        // --- General Subjects ---
-// --- General Subjects ---
-function showGeneralActivities(subId, partName) {
+       function showGeneralActivities(subId, partName, parentChapter = null) {
     showScreen('activity');
-    document.getElementById('activity-title').innerText = partName;
+    
+    // အခန်းခွဲ ဖြစ်နေလျှင် ဖြတ်ထုတ်ပြသရန်
+    let displayTitle = partName.includes('_') ? partName.split('_')[1] : partName;
+    document.getElementById('activity-title').innerText = displayTitle;
+    
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
 
-    // --- Back Button Logic ပြင်ဆင်ခြင်း (Error ရှင်းလင်းပြီး) ---
+    // နောက်သို့နှိပ်လျှင် သက်ဆိုင်ရာ နေရာများသို့ ပြန်သွားရန်
     document.getElementById('activity-back-btn').onclick = () => {
-        const userId = tg.initDataUnsafe?.user?.id || 0;
-        const isSpecial = specialUsers.includes(userId);
-        const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(subId) || subId === 'bio' || subId === 'eco');
-
-        // .includes အဟောင်းနေရာတွင် checkAccess အသစ်ဖြင့် အစားထိုးလိုက်ပါသည်
-        if (checkAccess(subId) || isSpecialSubject) {
-            openSubjectMenu(currentSubject);
+        if (parentChapter) {
+            showSubChaptersMenu(subId, parentChapter);
         } else {
-            openTrialMenu();
+            const userId = tg.initDataUnsafe?.user?.id || 0;
+            const isSpecial = specialUsers.includes(userId);
+            const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(subId) || subId === 'bio' || subId === 'eco');
+            
+            if (checkAccess(subId) || isSpecialSubject) {
+                openSubjectMenu(currentSubject);
+            } else {
+                openTrialMenu();
+            }
         }
     };
-    
-   if(subId === 'math') {
-        // 🛠 သင်္ချာ Chapter 2 ဆိုလျှင် 3_Marks တစ်ခုတည်းသာ ထုတ်ပေးမည်
+
+    if(subId === 'math') {
         let mathMarks = ['1_Mark', '2_Marks', '3_Marks'];
         if (partName === 'Chapter 2') {
             mathMarks = ['3_Marks'];
@@ -1627,31 +1629,24 @@ function showGeneralActivities(subId, partName) {
         mathMarks.forEach(mark => {
             createBtn(mark.replace('_', ' '), content, () => {
                 const fileName = `math_${partName}_${mark}`.replace(/ /g, "_");
-                // အားလုံးကို initQuiz ဖြင့်သာ ခေါ်မည်
                 initQuiz(fileName);
-                document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName);
+                document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName, parentChapter);
             });
         });
-    } else{
-        // အခြားဘာသာရပ်များအတွက် (Bio, Eco, etc.)
-        let types = ['True_False', 'Fill_Blank', 'MCQ'];
-        
-        // Bio နဲ့ Eco ဖြစ်ပါက Definition (Flashcard) ခလုတ်ကို types ထဲ ထည့်ပေးမယ်
+    } else {
+        let types = ['True_False', 'Fill_Blank', 'MCQ']; 
 
         types.forEach(type => {
             createBtn(type.replace('_', ' '), content, () => {
                 const fileName = `${subId}_${partName}_${type}`.replace(/ /g, "_");
                 
                 if (type === 'Definition') {
-                    // Definition ဆိုရင် Flashcard နဲ့ပြမယ်
                     initFlashcards(fileName, "Definition");
-                    // Flashcard ထဲက "ထွက်မည်" ကိုနှိပ်ရင် ဒီ Menu ကိုပြန်လာဖို့
                     const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-                    flashExitBtn.onclick = () => { showScreen('activity'); showGeneralActivities(subId, partName); };
+                    flashExitBtn.onclick = () => { showScreen('activity'); showGeneralActivities(subId, partName, parentChapter); };
                 } else {
-                    // ကျန်တာတွေကို Quiz နဲ့ပြမယ်
                     initQuiz(fileName);
-                    document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName);
+                    document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName, parentChapter);
                 }
             });
         });
