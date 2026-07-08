@@ -365,6 +365,7 @@
             padding: 2px 6px !important;
             transform: translateX(-80px) !important; 
         }
+		
 	
 </style>
 </head>
@@ -1266,12 +1267,36 @@ function showMMQuizOptions(typeName) {
                 showSubMenu(typeName, cat, poetryTitles);
             } else {
                 // အပြော နှင့် အရေး အတွက် မူလအတိုင်း ဆက်သွားရန်
-                initQuiz(`mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
+                { showMMChapters(typeName, cat) };
                 document.getElementById('quiz-back-btn').onclick = () => showMMQuizOptions(typeName);
             }
         });
     });
 }
+
+// အပြော နှင့် အရေး အတွက် အခန်းခွဲများကို ပြသမည့် Function အသစ်
+        function showMMChapters(typeName, cat) {
+            showScreen('activity');
+            // ဥပမာ - "အပြော (အမှန်ရွေး)" ဟု ခေါင်းစဉ်တပ်ရန်
+            document.getElementById('activity-title').innerText = `${cat} (${typeName})`;
+            const content = document.getElementById('activity-content');
+            content.innerHTML = '';
+            
+            // "နောက်သို့" ခလုတ်နှိပ်ပါက မူလရွေးချယ်ရမည့်နေရာသို့ ပြန်သွားရန်
+            document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
+
+            // အခန်း (၃) ခန်း ဖန်တီးခြင်း (လိုအပ်ပါက ဤနေရာတွင် အခန်းများ ထပ်တိုးနိုင်ပါသည်)
+            ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
+                createBtn(chapter, content, () => {
+                    // ဖိုင်နာမည်ကို mm_အပြော_အခန်း_၁_အမှန်ရွေး.json ပုံစံဖြင့် ဖွဲ့စည်းမည်
+                    const fileName = `mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                    initQuiz(fileName);
+                    
+                    // Quiz ပြီး၍ "ထွက်မည်" ကိုနှိပ်ပါက ယခု အခန်းရွေးသည့် စာမျက်နှာသို့ ပြန်လာရန်
+                    document.getElementById('quiz-back-btn').onclick = () => showMMChapters(typeName, cat);
+                });
+            });
+        }
 
 // ခေါင်းစဉ်ခွဲ (Sub Menu) များကို ပြသပေးမည့် Function အသစ်
 function showSubMenu(typeName, cat, titles) {
