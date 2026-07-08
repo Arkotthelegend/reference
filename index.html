@@ -365,6 +365,7 @@
             padding: 2px 6px !important;
             transform: translateX(-80px) !important; 
         }
+	
 </style>
 </head>
 <body>
@@ -741,7 +742,7 @@ function createOldBtn(txt, parent, act) {
     b.className = 'btn';
     b.style.background = '#38BDF8'; 
     b.style.border = '1px solid #22c55e';
-    b.style.color = '#475569';
+    b.style.color = '#FFFFFF';
     b.innerText = txt;
     b.onclick = act;
     parent.appendChild(b);
@@ -834,7 +835,13 @@ function showOldGeneralActivities(subId, partName) {
     document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
 
     if(subId === 'math') {
-        ['1_Mark', '2_Marks', '3_Marks'].forEach(mark => {
+        // 🛠 သင်္ချာ Chapter 2 ဆိုလျှင် 3_Marks တစ်ခုတည်းသာ ထုတ်ပေးမည်
+        let marksArray = ['1_Mark', '2_Marks', '3_Marks'];
+        if (partName === 'Chapter 2') {
+            marksArray = ['3_Marks']; 
+        }
+        
+        marksArray.forEach(mark => {
             createOldBtn(mark.replace('_', ' '), list, () => {
                 const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
                 initQuiz(fileName);
@@ -1467,16 +1474,23 @@ function showGeneralActivities(subId, partName) {
     };
     
     if(subId === 'math') {
-        const mathMarks = ['1_Mark', '2_Marks', '3_Marks'];
-        mathMarks.forEach(mark => {
-            createBtn(mark.replace('_', ' '), content, () => {
-                const fileName = `math_${partName}_${mark}`.replace(/ /g, "_");
-                // အားလုံးကို initQuiz ဖြင့်သာ ခေါ်မည်
+        // 🛠 သင်္ချာ Chapter 2 ဆိုလျှင် 3_Marks တစ်ခုတည်းသာ ထုတ်ပေးမည်
+        let marksArray = ['1_Mark', '2_Marks', '3_Marks'];
+        if (partName === 'Chapter 2') {
+            marksArray = ['3_Marks']; 
+        }
+        
+        marksArray.forEach(mark => {
+            createOldBtn(mark.replace('_', ' '), list, () => {
+                const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
                 initQuiz(fileName);
-                document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName);
+                document.getElementById('quiz-back-btn').onclick = () => {
+                    showScreen('scroll');
+                    showOldGeneralActivities(subId, partName);
+                };
             });
         });
-    } else {
+    } else{
         // အခြားဘာသာရပ်များအတွက် (Bio, Eco, etc.)
         let types = ['True_False', 'Fill_Blank', 'MCQ'];
         
