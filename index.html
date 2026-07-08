@@ -625,6 +625,31 @@
 		
 		const ADMIN_ID = 8432363664;
 const specialUsers = [5593040432,6889096884,1709037573];
+
+// ဘာသာရပ်နှင့် အခန်းများအလိုက် အခန်းခွဲများကို မိမိစိတ်ကြိုက် သတ်မှတ်နိုင်သော Data Object
+const subChapterData = {
+    'Physics': { 
+        'Chapter 1': ['1.1 Introduction', '1.2 Kinematics', '1.3 Dynamics'],
+        'Chapter 2': ['2.1 Work', '2.2 Energy']
+    },
+    'Chemistry': { 
+        'Chapter 1': ['1.1 Atomic Structure', '4.2.1', '5.2'],
+        'Chapter 2': ['2.1 Bonds']
+    },
+    'Math': { // သင်္ချာအတွက် ထည့်သွင်းထားပါသည်
+        'Chapter 1': ['1.1 Algebra', '1.2 Geometry'],
+        'Chapter 2': ['2.1 Calculus', '2.2 Functions']
+    },
+    'Biology': {
+        'Chapter 1': ['1.1 Cell Structure', '1.2 DNA']
+    },
+    'Economy': {
+        'Chapter 1': ['1.1 Basic Concepts']
+    }
+};
+
+// 🌟 Free Trial အတွက် ခွင့်ပြုမည့် သီးသန့် အခန်းခွဲ (၁) ခုကို ဤနေရာတွင် သတ်မှတ်ပါ 🌟
+const freeTrialSubChapter = "1.1 Introduction"; // (ဥပမာ - 1.1 Introduction ကိုပဲ Free ပေးမည်)
 		
 		function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -1034,7 +1059,60 @@ function openSubjectMenu(sub) {
     }
 }
 
+function showSubChapters(subjectName, chapter) {
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = `${subjectName} (${chapter})`;
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    
+    document.getElementById('activity-back-btn').onclick = () => showChapters(subjectName);
 
+    // [၁] "တစ်ခန်းလုံးကိုလေ့ကျင့်မယ်" ခလုတ် (Premium တွေအတွက်သာ ခွင့်ပြုမည်)
+    createBtn("တစ်ခန်းလုံးကိုလေ့ကျင့်မယ်", content, () => {
+        // သင့် Code ရှိ Premium စစ်ဆေးသည့် Variable ဖြင့် အစားထိုးပါ (ဥပမာ isPremium)
+        if (!isPremium) { 
+            alert("တစ်ခန်းလုံးလေ့ကျင့်ရန် Premium အကောင့် လိုအပ်ပါသည်။"); // Premium Modal ပြသည့် Function ဖြင့် ပြင်နိုင်ပါသည်
+            return;
+        }
+        showQuizOptions(subjectName, chapter);
+    });
+
+    // [၂] သတ်မှတ်ထားသော အခန်းခွဲများ (Sub-chapters) ကို Data Object ထဲမှ ဆွဲထုတ်ပြသခြင်း
+    const currentSubjectData = subChapterData[subjectName] || subChapterData[getEngSubjectName(subjectName)]; 
+    
+    if (currentSubjectData && currentSubjectData[chapter]) {
+        currentSubjectData[chapter].forEach(subChap => {
+            createBtn(subChap, content, () => {
+                
+                // 🌟 Free Trial စစ်ဆေးခြင်း 🌟
+                if (!isPremium) {
+                    // Premium လည်းမဟုတ်၊ Free ပေးထားတဲ့ အခန်းခွဲ (ဥပမာ 1.1 Introduction) လည်းမဟုတ်ရင် ဝင်ခွင့်ပိတ်မည်
+                    if (subChap !== freeTrialSubChapter) {
+                        alert("ဤအခန်းခွဲကို လေ့ကျင့်ရန် Premium အကောင့် လိုအပ်ပါသည်။"); 
+                        return;
+                    }
+                }
+
+                // အားလုံး အိုကေပါက မေးခွန်းရွေးသည့် Screen သို့ သွားမည်
+                // ဖိုင်နာမည် ဥပမာ - Physics_Chapter_1_1.1 Introduction_MCQ.json
+                showQuizOptions(subjectName, `${chapter}_${subChap}`);
+            });
+        });
+    } else {
+        // Data ထဲတွင် အခန်းခွဲများ မထည့်ရသေးပါက ပြသမည့်စာသား
+        const msg = document.createElement('div');
+        msg.style.color = "var(--accent)";
+        msg.style.padding = "20px";
+        msg.innerText = "ဤအခန်းအတွက် အခန်းခွဲများ မထည့်ရသေးပါ။";
+        content.appendChild(msg);
+    }
+}
+
+// မြန်မာလို ဘာသာရပ်အမည်များကို အင်္ဂလိပ်သို့ ပြောင်းပေးရန် အထောက်အကူပြု Function
+function getEngSubjectName(mmName) {
+    const map = { 'ရူပဗေဒ': 'Physics', 'ဓာတုဗေဒ': 'Chemistry', 'သင်္ချာ': 'Math', 'ဇီဝဗေဒ': 'Biology', 'ဘောဂဗေဒ': 'Economy' };
+    return map[mmName] || mmName;
+}
         
         // --- English Specific ---
         function showENUnits(typeName) {
