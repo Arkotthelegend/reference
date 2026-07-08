@@ -1439,14 +1439,29 @@ function showSubChaptersMenu(subId, chapterName) {
         }
     };
 
-    // ၁။ တစ်ခန်းလုံးကို လေ့ကျင့်ရန် ခလုတ်
-    createBtn("တစ်ခန်းလုံးကိုလေ့ကျင့်မယ်", content, () => {
+    const fullBtn = document.createElement('button');
+    fullBtn.className = 'btn';
+    fullBtn.innerText = "တစ်ခန်းလုံးကိုလေ့ကျင့်မယ်";
+    
+    // Grid ၂ ကွက်စလုံးကို ဖြတ်ပြီး တစ်ကြောင်းတည်း အပြည့်နေရာယူစေရန်
+    fullBtn.style.gridColumn = "1 / -1"; 
+    
+    // စိမ်းပြာရောင် (Teal/Cyan) ဒီဇိုင်း
+    fullBtn.style.background = "#00FF80"; 
+    fullBtn.style.color = "#000000"; 
+    fullBtn.style.border = "none";
+    fullBtn.style.boxShadow = "0 4px 15px rgba(0, 213, 255, 0.3)";
+    fullBtn.style.marginBottom = "5px"; // အောက်က အခန်းခွဲခလုတ်တွေနဲ့ အနည်းငယ်ခွာရန်
+    fullBtn.style.fontWeight = "bold";
+
+    fullBtn.onclick = () => {
         if (subId === 'phy' || subId === 'chem') {
             showPhyChemActivities(subId, chapterName, chapterName);
         } else {
             showGeneralActivities(subId, chapterName, chapterName);
         }
-    });
+    };
+    content.appendChild(fullBtn);
 
     // ၂။ Config ထဲတွင် ရေးထားသော အခန်းခွဲများ (Sub-chapters) ကို ခလုတ်အဖြစ် ထုတ်ပေးရန်
     const subChapters = (subChapterConfig[subId] && subChapterConfig[subId][chapterName]) || [];
