@@ -822,22 +822,54 @@ function showOldENGrammarOptions() {
     });
 }
 
-function showOldMMQuizOptions(typeName) {
-    const list = document.getElementById('old-type-list');
-    list.innerHTML = '';
-    document.getElementById('selected-sub-title').innerText = typeName;
-    document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
+function showOldMMOptions(typeName) {
+            showScreen('activity');
+            // ခေါင်းစဉ်ကို မေးခွန်းဟောင်းဖြစ်ကြောင်း ပြရန် လိုအပ်သလို ပြင်နိုင်ပါသည်
+            document.getElementById('activity-title').innerText = typeName + " (ဟောင်း)";
+            const content = document.getElementById('activity-content');
+            content.innerHTML = '';
+            
+            // ဤနေရာရှိ back-btn onclick ကို သင့် Code ရှိ မူလ Function နာမည်အတိုင်း ပြန်ထားပေးပါ
+            document.getElementById('activity-back-btn').onclick = () => openOldSubjectMenu(currentSubject); 
+            
+            ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
+                createBtn(cat, content, () => {
+                    if (cat === 'အပြော' || cat === 'အရေး') {
+                        // "အပြော" နှင့် "အရေး" ဆိုလျှင် အခန်းရွေးမည့်ဆီသို့ သွားမည်
+                        showOldMMChapters(typeName, cat);
+                    } else {
+                        // "စကားပြေ" နှင့် "ကဗျာ" အတွက် မေးခွန်းဟောင်းကို တိုက်ရိုက်ခေါ်မည် 
+                        // (သင့်ဖိုင်နာမည်ပေးသည့် စနစ်ပေါ်မူတည်၍ old_ နေရာတွင် လိုအပ်သလို ပြင်ပါ)
+                        initQuiz(`old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
+                        document.getElementById('quiz-back-btn').onclick = () => showOldMMOptions(typeName);
+                    }
+                });
+            });
+        }
+		
+		// Old Question ၏ အပြော နှင့် အရေး အတွက် အခန်းခွဲများကို ပြသမည့် Function အသစ်
+        function showOldMMChapters(typeName, cat) {
+            showScreen('activity');
+            document.getElementById('activity-title').innerText = `${cat} (${typeName}) - ဟောင်း`;
+            const content = document.getElementById('activity-content');
+            content.innerHTML = '';
+            
+            // "နောက်သို့" နှိပ်လျှင် မေးခွန်းဟောင်း အမျိုးအစားရွေးသည့် နေရာသို့ ပြန်သွားရန်
+            document.getElementById('activity-back-btn').onclick = () => showOldMMOptions(typeName);
 
-    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
-        createOldBtn(cat, list, () => {
-            initQuiz(`old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
-            document.getElementById('quiz-back-btn').onclick = () => {
-                showScreen('scroll');
-                showOldMMQuizOptions(typeName);
-            };
-        });
-    });
-}
+            // အခန်း (၃) ခန်း ဖန်တီးခြင်း
+            ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
+                createBtn(chapter, content, () => {
+                    // မေးခွန်းဟောင်း ဖိုင်နာမည်ကို ခေါ်ယူခြင်း 
+                    // (ဥပမာ - old_mm_အပြော_အခန်း_၁_အမှန်ရွေး.json)
+                    const fileName = `old_mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                    initQuiz(fileName);
+                    
+                    // Quiz ပြီး၍ "ထွက်မည်" ကိုနှိပ်ပါက ယခု Old Question အခန်းရွေးသည့်ဆီ ပြန်လာရန်
+                    document.getElementById('quiz-back-btn').onclick = () => showOldMMChapters(typeName, cat);
+                });
+            });
+        }
 
 function showOldGeneralActivities(subId, partName) {
     const list = document.getElementById('old-type-list');
