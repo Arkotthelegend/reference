@@ -1483,21 +1483,19 @@ function showGeneralActivities(subId, partName) {
         }
     };
     
-    if(subId === 'math') {
+   if(subId === 'math') {
         // 🛠 သင်္ချာ Chapter 2 ဆိုလျှင် 3_Marks တစ်ခုတည်းသာ ထုတ်ပေးမည်
-        let marksArray = ['1_Mark', '2_Marks', '3_Marks'];
+        let mathMarks = ['1_Mark', '2_Marks', '3_Marks'];
         if (partName === 'Chapter 2') {
-            marksArray = ['3_Marks']; 
+            mathMarks = ['3_Marks'];
         }
         
-        marksArray.forEach(mark => {
-            createOldBtn(mark.replace('_', ' '), list, () => {
-                const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
+        mathMarks.forEach(mark => {
+            createBtn(mark.replace('_', ' '), content, () => {
+                const fileName = `math_${partName}_${mark}`.replace(/ /g, "_");
+                // အားလုံးကို initQuiz ဖြင့်သာ ခေါ်မည်
                 initQuiz(fileName);
-                document.getElementById('quiz-back-btn').onclick = () => {
-                    showScreen('scroll');
-                    showOldGeneralActivities(subId, partName);
-                };
+                document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName);
             });
         });
     } else{
