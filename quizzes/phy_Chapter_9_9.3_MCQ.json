@@ -1,90 +1,24 @@
 [
-    {
-      "type": "mcq",
-      "q": "What constitutes a parallel-plate capacitor?",
-      "a": [
-        "Two concentric spheres",
-        "Two parallel metal plates separated by an insulator",
-        "A single metal plate in a vacuum",
-        "Two crossed wires"
-      ],
-      "c": 1
-    },
-    {
-      "type": "mcq",
-      "q": "What is the definition of surface charge density $\\sigma$ on a plate?",
-      "a": [
-        "Charge per unit volume",
-        "Potential per unit area",
-        "Charge per unit surface area",
-        "Electric field per unit distance"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "The capacitance of a parallel-plate capacitor is directly proportional to which factor?",
-      "a": [
-        "Separation of the plates",
-        "Charge on the plates",
-        "Area of its plates",
-        "Potential difference"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "How is the capacitance of a parallel-plate capacitor affected by the distance $d$ between the plates?",
-      "a": [
-        "Directly proportional",
-        "Inversely proportional",
-        "Independent of distance",
-        "Proportional to the square of distance"
-      ],
-      "c": 1
-    },
-    {
-      "type": "mcq",
-      "q": "What is the value of the dielectric constant $\\kappa$ for a vacuum?",
-      "a": [
-        "0",
-        "1",
-        "1.0006",
-        "Infinity"
-      ],
-      "c": 1
-    },
-    {
-      "type": "mcq",
-      "q": "According to Table 9.1, which material has the highest dielectric constant?",
-      "a": [
-        "Mica",
-        "Glass",
-        "Water ($18\\ ^{\\circ}C$)",
-        "Ammonia (liquid)"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "When a dielectric is inserted into a disconnected charged capacitor, what happens to the potential difference?",
-      "a": [
-        "It increases",
-        "It remains the same",
-        "It decreases",
-        "It becomes zero"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "Which of the following is NOT an advantage of using a dielectric in a capacitor?",
-      "a": [
-        "Increase in capacitance",
-        "Increase in maximum operating voltage",
-        "Decrease in the physical size of the plates",
-        "Mechanical support between the plates"
-      ],
-      "c": 2
-    }
+    {"type":"mcq","q":"Which capacitor is described as the simplest capacitor?","a":["parallel-plate capacitor","electrolytic capacitor","variable capacitor","supercapacitor"],"c":0},
+    {"type":"mcq","q":"Charging a capacitor means connecting it to a?","a":["battery","resistor","motor","switch"],"c":0},
+    {"type":"mcq","q":"Surface charge density $\\sigma$ is defined as?","a":["charge per unit surface area","charge per unit volume","mass per unit area","force per unit charge"],"c":0},
+    {"type":"mcq","q":"If the plates of a parallel-plate capacitor are very close together, the electric field between them is?","a":["uniform","zero","divergent","non-linear"],"c":0},
+    {"type":"mcq","q":"The magnitude of the potential difference $V$ between the plates equals?","a":["$Ed$","$E/d$","$d/E$","$Q/E$"],"c":0},
+    {"type":"mcq","q":"The capacitance of a parallel-plate capacitor is directly proportional to?","a":["the area of its plates","the separation of its plates","the weight of its plates","the length of the wires"],"c":0},
+    {"type":"mcq","q":"The capacitance of a parallel-plate capacitor is inversely proportional to?","a":["the separation of the plates","the area of the plates","the charge on the plates","the dielectric constant"],"c":0},
+    {"type":"mcq","q":"The symbol $\\kappa$ represents the?","a":["dielectric constant","permittivity of vacuum","surface charge density","electric field"],"c":0},
+    {"type":"mcq","q":"The permittivity of vacuum $\\epsilon_0$ is approximately?","a":["$8.85 \\times 10^{-12}\\text{ C}^2\\text{ N}^{-1}\\text{ m}^{-2}$","$9.0 \\times 10^9\\text{ N m}^2\\text{ C}^{-2}$","$1.6 \\times 10^{-19}\\text{ C}$","$3.0 \\times 10^8\\text{ m s}^{-1}$"],"c":0},
+    {"type":"mcq","q":"For a vacuum, the dielectric constant $\\kappa$ is?","a":["$1$","$0$","$8.85$","$\\infty$"],"c":0},
+    {"type":"mcq","q":"For insulating materials other than vacuum, the dielectric constant $\\kappa$ is?","a":["greater than $1$","less than $1$","exactly $0$","exactly $1$"],"c":0},
+    {"type":"mcq","q":"The dielectric constant is the ratio of permittivity of a material to?","a":["permittivity of vacuum","area of plates","separation of plates","charge magnitude"],"c":0},
+    {"type":"mcq","q":"When a charged capacitor is disconnected from a battery and a dielectric is inserted, the potential difference?","a":["decreases","increases","remains the same","becomes zero"],"c":0},
+    {"type":"mcq","q":"What happens to the capacitance when a dielectric is inserted between the plates?","a":["it increases","it decreases","it remains constant","it vanishes"],"c":0},
+    {"type":"mcq","q":"The dielectric constant can be expressed as the ratio of?","a":["capacitances $C/C_0$","potential differences $V/V_0$","charges $Q/Q_0$","areas $A/A_0$"],"c":0},
+    {"type":"mcq","q":"A dielectric provides mechanical support between the plates, allowing them to be?","a":["close together without electrical contact","far apart","made of plastic","disconnected"],"c":0},
+    {"type":"mcq","q":"A dielectric increases the maximum?","a":["operating voltage","operating current","plate area","plate weight"],"c":0},
+    {"type":"mcq","q":"The dielectric strength of insulating materials is?","a":["greater than that of air","less than that of air","same as that of air","always zero"],"c":0},
+    {"type":"mcq","q":"What is the dielectric constant of water at $18^{\\circ}\\text{C}$?","a":["$81$","$1$","$3.6$","$25$"],"c":0},
+    {"type":"mcq","q":"What is the dielectric constant of Nylon (solid)?","a":["$3.8$","$81$","$2$","$6$"],"c":0},
+    {"type":"mcq","q":"The dielectric constant of Mica ranges from?","a":["$3-6$","$1-2$","$10-20$","$81-100$"],"c":0},
+    {"type":"mcq","q":"The dielectric constant of Amber is?","a":["$3$","$1$","$81$","$25$"],"c":0}
   ]
