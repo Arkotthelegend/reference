@@ -1,303 +1,101 @@
-
 [
-  {
-    "type": "mcq",
-    "q": "Which of the following is an electronic appliance?",
-    "a": ["A microwave oven", "A hammer", "A wooden chair"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "Electronic circuits contain active electrical components and associated _______ interconnection technologies.",
-    "a": ["passive", "active", "direct"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "Which of these is an active electrical component?",
-    "a": ["Resistor", "Capacitor", "Transistor"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "Passive electrical components _______ a power source to operate.",
-    "a": ["require", "do not require", "always use"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The most important material in the electronic industry is the _______.",
-    "a": ["Conductor", "Insulator", "Semiconductor"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "Pure semiconductors are called _______ semiconductors.",
-    "a": ["intrinsic", "extrinsic", "doped"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The process of adding a tiny amount of impurity to an intrinsic semiconductor is called _______.",
-    "a": ["rectification", "doping", "amplification"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "Pentavalent impurities are also called _______ impurities.",
-    "a": ["acceptor", "donor", "neutral"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "Trivalent impurities are also called _______ impurities.",
-    "a": ["acceptor", "donor", "neutral"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "In n-type semiconductors, the majority charge carriers are _______.",
-    "a": ["holes", "electrons", "protons"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "In p-type semiconductors, the majority charge carriers are _______.",
-    "a": ["holes", "electrons", "neutrons"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "A p-n junction diode allows current to flow in _______ direction(s).",
-    "a": ["one", "two", "all"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "When the p-type is connected to the positive terminal, the diode is in _______ bias.",
-    "a": ["reverse", "forward", "zero"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "A _______ bias p-n junction has a very high resistance.",
-    "a": ["forward", "reverse", "direct"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The process of converting AC into DC is called _______.",
-    "a": ["doping", "rectification", "induction"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "A half-wave rectifier uses _______ diode(s).",
-    "a": ["one", "two", "four"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "A full-wave bridge rectifier uses _______ diodes.",
-    "a": ["one", "two", "four"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "An LED _______ light directly.",
-    "a": ["absorbs", "emits", "reflects"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "For an LED to emit light, it must be connected in _______ bias.",
-    "a": ["forward", "reverse", "breakdown"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "LDR stands for _______.",
-    "a": ["Light-Doping Resistor", "Light-Dependent Resistor", "Low-Direct Resistance"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The resistance of an LDR _______ as the light intensity increases.",
-    "a": ["increases", "decreases", "remains the same"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "A _______ is a resistor whose resistance changes with temperature.",
-    "a": ["transformer", "thermistor", "capacitor"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The transistor was invented in _______.",
-    "a": ["1900", "1947", "1980"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "An n-p-n transistor has _______ regions.",
-    "a": ["two", "three", "four"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The middle layer of a transistor is called the _______.",
-    "a": ["emitter", "base", "collector"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The _______ is heavily doped to provide a large number of charge carriers.",
-    "a": ["emitter", "base", "collector"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "In a transistor, IE = _______.",
-    "a": ["IB - IC", "IB + IC", "IC - IB"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "A transistor can be used as an electronic _______.",
-    "a": ["battery", "switch", "insulator"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "Logic gates are the basic building blocks of _______ systems.",
-    "a": ["analog", "digital", "mechanical"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "Which gate is also known as an inverter?",
-    "a": ["AND gate", "OR gate", "NOT gate"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The output of an AND gate is high only if _______ inputs are high.",
-    "a": ["any", "one", "all"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The output of an OR gate is low only if _______ inputs are low.",
-    "a": ["all", "any", "no"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "A NAND gate is a combination of an AND gate and a _______ gate.",
-    "a": ["OR", "NOT", "NOR"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "A NOR gate output is high only if all inputs are _______.",
-    "a": ["high", "low", "different"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "LCD stands for _______ Display.",
-    "a": ["Light Crystal", "Liquid Crystal", "Low Current"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "LCDs produce an image using a _______.",
-    "a": ["battery", "backlight", "filament"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "LCDs consume much _______ power than LEDs.",
-    "a": ["more", "less", "the same"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The _______ diode is designed to operate in the breakdown region.",
-    "a": ["p-n junction", "Zener", "Light-emitting"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "Integrated circuit (IC) is a small _______ chip.",
-    "a": ["silicon", "copper", "iron"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "An _______ signal is a continuous signal.",
-    "a": ["analog", "digital", "binary"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "A digital signal consists of discrete values, usually _______.",
-    "a": ["0 and 1", "1 and 2", "0 and 10"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The thinnest layer in a transistor is the _______.",
-    "a": ["emitter", "base", "collector"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "Liquid crystals are a state of matter between _______ and conventional liquids.",
-    "a": ["gases", "solid crystals", "plasma"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "Which of these components is a passive electrical component?",
-    "a": ["Diode", "Integrated circuit", "Capacitor"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "A _______ can convert unpolarized light into polarized light.",
-    "a": ["polarizer", "thermistor", "rectifier"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "Which gate's Boolean expression is Y = A + B?",
-    "a": ["AND", "OR", "NAND"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "Which gate's Boolean expression is Y = A . B?",
-    "a": ["AND", "OR", "NOR"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "A Zener diode is used for voltage _______.",
-    "a": ["amplification", "regulation", "induction"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "In a transistor, the collector current (IC) is slightly _______ than the emitter current (IE).",
-    "a": ["greater", "less", "more"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "What component is used to store electrical energy in an electric field?",
-    "a": ["Resistor", "Inductor", "Capacitor"],
-    "c": 2
-  }
+{"type": "mcq", "q": "What is the branch of physics and technology concerned with the design of circuits using transistors, integrated circuits and microchips known as?", "a": ["Mechanics", "Electronics", "Thermodynamics"], "c": 1},
+{"type": "mcq", "q": "Which of the following is classified as an active electrical component?", "a": ["Resistor", "Capacitor", "Transistor"], "c": 2},
+{"type": "mcq", "q": "Which components are capable of operating without an external power source?", "a": ["Active electrical components", "Passive electrical components", "Integrated circuits"], "c": 1},
+{"type": "mcq", "q": "Which of these is a passive electrical component?", "a": ["Vacuum tube", "Inductor", "LED"], "c": 1},
+{"type": "mcq", "q": "A zener diode is a heavily doped semiconductor pn junction diode made of which materials?", "a": ["Silicon or germanium", "Gallium or arsenic", "Carbon or lead"], "c": 0},
+{"type": "mcq", "q": "In which direction does a zener diode allow current to flow when it is reverse biased?", "a": ["Forward direction", "Backward direction", "No direction"], "c": 1},
+{"type": "mcq", "q": "What is the typical turn-on voltage of a zener diode in forward-bias mode?", "a": ["$0.1$ and $0.2 V$", "$0.3$ and $0.7 V$", "$1.0$ and $1.5 V$"], "c": 1},
+{"type": "mcq", "q": "What is the effect called when large current starts flowing through a zener diode as reverse voltage increases to the breakdown voltage?", "a": ["Photoelectric effect", "Zener effect", "Avalanche effect"], "c": 1},
+{"type": "mcq", "q": "Which type of breakdown occurs at junctions that are lightly doped and have wide depletion layers?", "a": ["Zener breakdown", "Avalanche breakdown", "Thermal breakdown"], "c": 1},
+{"type": "mcq", "q": "Zener breakdown occurs at junctions that are heavily doped and have which characteristic?", "a": ["Wide depletion layers", "Narrow depletion layers", "No depletion layers"], "c": 1},
+{"type": "mcq", "q": "For normal operation of a zener diode in the breakdown region, how should the current be limited?", "a": ["By an internal battery", "By an external circuit", "By a cooling fan"], "c": 1},
+{"type": "mcq", "q": "What remains constant across a zener diode irrespective of the applied voltage in the breakdown mode?", "a": ["Current", "Resistance", "Voltage drop"], "c": 2},
+{"type": "mcq", "q": "A light emitting diode (LED) is known to be one of the best examples of which device type?", "a": ["Thermodynamic devices", "Optoelectronic devices", "Electromechanical devices"], "c": 1},
+{"type": "mcq", "q": "Which of the following is NOT a common color of visible light emitted by an LED?", "a": ["Orange", "Violet", "Green"], "c": 1},
+{"type": "mcq", "q": "What is the commonly used invisible light for LED?", "a": ["Ultraviolet light", "Infrared light", "X-rays"], "c": 1},
+{"type": "mcq", "q": "Which exotic semiconductor compound is used to make LEDs?", "a": ["Silicon Carbide", "Gallium Arsenide", "Both Silicon Carbide and Gallium Arsenide"], "c": 2},
+{"type": "mcq", "q": "How can a blue LED be made to produce white light?", "a": ["By adding red light", "Using a phosphor coating", "By increasing the voltage"], "c": 1},
+{"type": "mcq", "q": "What component should be connected in series with an LED to protect it in a circuit?", "a": ["Capacitor", "Current limiting resistor", "Inductor"], "c": 1},
+{"type": "mcq", "q": "What is the approximate response time of an LED?", "a": ["$10 ms$", "$10 \\mu s$", "$10 ns$"], "c": 2},
+{"type": "mcq", "q": "In which mode do photodiodes typically work?", "a": ["Forward biased mode", "Reverse biased mode", "Unbiased mode"], "c": 1},
+{"type": "mcq", "q": "What is generated when a photodiode is illuminated with light of energy $h \\nu$ greater than the energy gap $E_g$?", "a": ["Protons", "Electron-hole pairs", "Neutrons"], "c": 1},
+{"type": "mcq", "q": "What is the small amount of current produced when no light falls on a photodiode called?", "a": ["Photocurrent", "Dark current", "Reverse current"], "c": 1},
+{"type": "mcq", "q": "A light dependent resistor (LDR) is also known as which of the following?", "a": ["Photocell", "Thermistor", "Transistor"], "c": 0},
+{"type": "mcq", "q": "What is the typical dark resistance of an LDR?", "a": ["Few hundred $\\Omega$", "$\sim M \\Omega$", "Exactly $1 \\Omega$"], "c": 1},
+{"type": "mcq", "q": "What happens to the resistance of an LDR as the light level increases?", "a": ["It increases", "It decreases", "It remains constant"], "c": 1},
+{"type": "mcq", "q": "Which special semiconductor crystal is often used to make photo resistors?", "a": ["Cadmium sulfide", "Sodium chloride", "Copper sulfate"], "c": 0},
+{"type": "mcq", "q": "What type of sensor exhibits a large change in resistance proportional to a change in temperature?", "a": ["LDR", "Thermistor", "LED"], "c": 1},
+{"type": "mcq", "q": "In which type of thermistor does resistance decrease as temperature increases?", "a": ["Positive Temperature Coefficient (PTC)", "Negative Temperature Coefficient (NTC)", "Neutral Temperature Coefficient"], "c": 1},
+{"type": "mcq", "q": "Liquid crystals have properties between which two states of matter?", "a": ["Gas and solid", "Conventional liquids and solid crystals", "Plasma and gas"], "c": 1},
+{"type": "mcq", "q": "Which display technology allowed displays to be much thinner than cathode ray tube (CRT) technology?", "a": ["LED", "LCD", "Plasma"], "c": 1},
+{"type": "mcq", "q": "What optical device converts unpolarized light into polarized light by blocking other vibrations?", "a": ["Backlight", "Polarizer", "Reflector"], "c": 1},
+{"type": "mcq", "q": "What is the power consumption of an LED typically?", "a": ["Greater than $1 W$", "Less than $150 mW$", "Exactly $500 mW$"], "c": 1},
+{"type": "mcq", "q": "Which material is most often used to fabricate photodiodes?", "a": ["Silicon", "Aluminum", "Silver"], "c": 0},
+{"type": "mcq", "q": "What is the main application of a zener diode mentioned in the text?", "a": ["Light emission", "Voltage regulation", "Temperature sensing"], "c": 1},
+{"type": "mcq", "q": "How long may it take for an LDR to return to its dark resistance after removal of light?", "a": ["A few milliseconds", "A few seconds", "A few minutes"], "c": 1},
+{"type": "mcq", "q": "What is the field of electronics involving the study of digital signals?", "a": ["Analog electronics", "Digital electronics", "Power electronics"], "c": 1},
+{"type": "mcq", "q": "What is a primary advantage of digital circuits compared to analog circuits?", "a": ["Higher power usage", "Signals can be transmitted without degradation by noise", "Simpler math"], "c": 1},
+{"type": "mcq", "q": "What is a semiconductor wafer on which millions of tiny components are fabricated called?", "a": ["LDR", "IC (integrated circuit)", "Transducer"], "c": 1},
+{"type": "mcq", "q": "Which type of IC has a continuously variable output depending on the input signal level?", "a": ["Digital ICs", "Linear ICs", "Mixed ICs"], "c": 1},
+{"type": "mcq", "q": "Digital ICs operate at defined levels called LOW and HIGH. What is the logic value for LOW?", "a": ["Logic 1", "Logic 0", "Logic 2"], "c": 1},
+{"type": "mcq", "q": "What are the fundamental building blocks of digital ICs?", "a": ["Resistors", "Logic gates", "Capacitors"], "c": 1},
+{"type": "mcq", "q": "What does the abbreviation CMOS stand for in logic IC packaging?", "a": ["Common Metal Oxide Semiconductor", "Complementary Metal Oxide Semiconductor", "Complex Metal Oxide Semiconductor"], "c": 1},
+{"type": "mcq", "q": "Which gate is formed by an AND gate with an inverted output?", "a": ["NOR gate", "NAND gate", "XOR gate"], "c": 1},
+{"type": "mcq", "q": "Which gate is formed by an OR gate with an inverted output?", "a": ["NAND gate", "NOR gate", "XNOR gate"], "c": 1},
+{"type": "mcq", "q": "In which gate is the output HIGH if and only if one of the inputs is HIGH?", "a": ["AND gate", "XOR gate", "OR gate"], "c": 1},
+{"type": "mcq", "q": "What logic value does an XOR gate produce when both inputs match?", "a": ["0", "1", "2"], "c": 0},
+{"type": "mcq", "q": "Which gate is an XOR gate whose output is inverted?", "a": ["NAND gate", "XNOR gate", "NOR gate"], "c": 1},
+{"type": "mcq", "q": "Boolean algebra is also known as which of the following?", "a": ["Binary algebra", "Vector algebra", "Calculus"], "c": 0},
+{"type": "mcq", "q": "What is the commutative law of addition in Boolean algebra?", "a": ["$A \\cdot B = B \\cdot A$", "$A + B = B + A$", "$A + (B + C) = (A + B) + C$"], "c": 1},
+{"type": "mcq", "q": "What is the distributive law in Boolean algebra?", "a": ["$A(B + C) = AB + AC$", "$A + B = B + A$", "$A(BC) = (AB)C$"], "c": 0},
+{"type": "mcq", "q": "In Boolean algebra, what is the result of the rule $A + 1$?", "a": ["$A$", "$0$", "$1$"], "c": 2},
+{"type": "mcq", "q": "In Boolean algebra, what is the result of the rule $A \\cdot 0$?", "a": ["$A$", "$0$", "$1$"], "c": 1},
+{"type": "mcq", "q": "In Boolean algebra, what is the result of the rule $A + A$?", "a": ["$1$", "$A$", "$2A$"], "c": 1},
+{"type": "mcq", "q": "What is the Boolean rule for double inversion?", "a": ["$\\overline{\\overline{A}} = 0$", "$\\overline{\\overline{A}} = 1$", "$\\overline{\\overline{A}} = A$"], "c": 2},
+{"type": "mcq", "q": "De Morgan's first theorem states that the complement of two or more ANDed variables is equivalent to which of the following?", "a": ["The AND of the complements", "The OR of the complements", "The inverse of the variables"], "c": 1},
+{"type": "mcq", "q": "What is the formula for De Morgan's second theorem for two variables?", "a": ["$\\overline{A \\cdot B} = \\overline{A} + \\overline{B}$", "$\\overline{A + B} = \\overline{A} \\cdot \\overline{B}$", "$A + B = B + A$"], "c": 1},
+{"type": "mcq", "q": "In a fire alarm system using logic gates, when will the alarm turn on?", "a": ["Only when smoke is detected", "When either smoke or heat is detected", "Only when both are detected"], "c": 1},
+{"type": "mcq", "q": "In a fire alarm system, when will the fire extinguisher operate?", "a": ["When heat is detected", "When smoke is detected", "If both smoke and heat are detected"], "c": 2},
+{"type": "mcq", "q": "In a street lighting system, which gate gives a 1 output when either or both of its inputs are 1?", "a": ["AND gate", "OR gate", "NOT gate"], "c": 1},
+{"type": "mcq", "q": "Which logic gate is used as an inverted connection (indicated by a bubble)?", "a": ["OR gate", "NOT gate", "AND gate"], "c": 1},
+{"type": "mcq", "q": "What does 'TTL' stand for in logic IC packaging?", "a": ["Transistor-Transistor Logic", "Total-Transistor Logic", "Transfer-Transistor Logic"], "c": 0},
+{"type": "mcq", "q": "Which branch of mathematics uses only two possible values, false and true?", "a": ["Linear Algebra", "Boolean Algebra", "Geometry"], "c": 1},
+{"type": "mcq", "q": "According to Basic Rules of Boolean Algebra, $A \\cdot \\overline{A} =$ ?", "a": ["$A$", "$1$", "$0$"], "c": 2},
+{"type": "mcq", "q": "According to Basic Rules of Boolean Algebra, $A + \\overline{A} =$ ?", "a": ["$A$", "$1$", "$0$"], "c": 1},
+{"type": "mcq", "q": "Which law is expressed as $A(BC) = (AB)C$?", "a": ["Commutative law", "Associative law", "Distributive law"], "c": 1},
+{"type": "mcq", "q": "What is the logic value for HIGH in digital ICs?", "a": ["Logic 0", "Logic 1", "Logic 2"], "c": 1},
+{"type": "mcq", "q": "Which gate is also called an 'Exclusive NOR' gate?", "a": ["XOR", "XNOR", "NOR"], "c": 1},
+{"type": "mcq", "q": "An electronic communication system is composed of transmission, reception, and which other process?", "a": ["Filtering", "Processing", "Storage"], "c": 1},
+{"type": "mcq", "q": "Which of the following is NOT a basic component of an electronic communication system?", "a": ["Transmitter", "Channel", "Capacitor"], "c": 2},
+{"type": "mcq", "q": "What generates information, such as messages or data, to be transmitted?", "a": ["Information source", "Channel", "Receiver"], "c": 0},
+{"type": "mcq", "q": "Which component processes the message signal into an appropriate form for transmission?", "a": ["Receiver", "Channel", "Transmitter"], "c": 2},
+{"type": "mcq", "q": "What is the medium that connects the transmitter and receiver?", "a": ["Noise", "Channel", "Source"], "c": 1},
+{"type": "mcq", "q": "What is the unwanted signal that disturbs or interferes with the transmitted signal?", "a": ["Carrier", "Noise", "Modulation"], "c": 1},
+{"type": "mcq", "q": "How is the measure of noise usually expressed?", "a": ["Voltage ratio", "Signal to noise ratio (SNR)", "Frequency ratio"], "c": 1},
+{"type": "mcq", "q": "Which signals are more immune to noise?", "a": ["Analog signals", "Digital signals", "Continuous signals"], "c": 1},
+{"type": "mcq", "q": "What is the function of the receiver in a communication system?", "a": ["To generate noise", "To reconstruct the transmitted signal", "To block the signal"], "c": 1},
+{"type": "mcq", "q": "What mode of communication involves a link between a single transmitter and a receiver?", "a": ["Broadcast mode", "Point-to-point mode", "Multipoint mode"], "c": 1},
+{"type": "mcq", "q": "In which mode are there a large number of receivers corresponding to a single transmitter?", "a": ["Point-to-point mode", "Broadcast mode", "Line mode"], "c": 1},
+{"type": "mcq", "q": "Radio and television are examples of which communication mode?", "a": ["Point-to-point", "Broadcast", "Duplex"], "c": 1},
+{"type": "mcq", "q": "In which communication type can data be broken into packets as discrete messages?", "a": ["Analog communication", "Digital communication", "Voice communication"], "c": 1},
+{"type": "mcq", "q": "What is the type of communication called when there is a physical connection between source and destination?", "a": ["Wireless communication", "Line communication", "Space communication"], "c": 1},
+{"type": "mcq", "q": "What device converts a non-electrical input into an electrical signal or vice versa?", "a": ["Transmitter", "Transducer", "Modulator"], "c": 1},
+{"type": "mcq", "q": "What is the process of converting energy from one form to another called?", "a": ["Modulation", "Transduction", "Demodulation"], "c": 1},
+{"type": "mcq", "q": "What is the process of changing characteristics of a carrier wave in accordance with the intensity of the signal?", "a": ["Transduction", "Modulation", "Reception"], "c": 1},
+{"type": "mcq", "q": "Which type of modulation only changes the amplitude of the carrier wave?", "a": ["Frequency modulation", "Amplitude modulation", "Phase modulation"], "c": 1},
+{"type": "mcq", "q": "In frequency modulation (FM), what remains the same?", "a": ["Carrier frequency", "Carrier wave amplitude", "Modulating signal"], "c": 1},
+{"type": "mcq", "q": "Which modulation pattern encodes information as variations in the instantaneous phase of a carrier wave?", "a": ["AM", "FM", "Phase modulation"], "c": 2},
+{"type": "mcq", "q": "What is the range of FM radio frequencies?", "a": ["$535$ to $1705 kHz$", "$88$ to $108 MHz$", "$1$ to $10 GHz$"], "c": 1},
+{"type": "mcq", "q": "What is the range of AM radio frequencies?", "a": ["$535$ to $1705 kHz$", "$88$ to $108 MHz$", "$20$ to $20000 Hz$"], "c": 0},
+{"type": "mcq", "q": "The process of recovering the audio signal from the modulated wave is known as what?", "a": ["Modulation", "Demodulation", "Transduction"], "c": 1},
+{"type": "mcq", "q": "Which component in a simple radio receiver selects a particular radio frequency?", "a": ["Antenna", "Tuner", "Speaker"], "c": 1},
+{"type": "mcq", "q": "What is the purpose of the diode detector in a radio receiver?", "a": ["To amplify sound", "To recover the audio signal from the modulated wave", "To tune the frequency"], "c": 1},
+{"type": "mcq", "q": "For effective demodulation, the time constant $RC$ should be what relative to the period of the carrier wave?", "a": ["Smaller", "Greater", "Equal"], "c": 1},
+{"type": "mcq", "q": "What component converts the amplified af signal back into sound?", "a": ["Microphone", "Antenna", "Speaker"], "c": 2},
+{"type": "mcq", "q": "What is an example of point-to-point communication?", "a": ["Radio", "Telephony", "Television"], "c": 1},
+{"type": "mcq", "q": "Which medium is often used for wired (line) communication?", "a": ["Radio waves", "Optical fibre", "Sound waves"], "c": 1},
+{"type": "mcq", "q": "The simplest space communications rely on a transmitter and a what?", "a": ["Transducer", "Receiver", "Filter"], "c": 1},
+{"type": "mcq", "q": "In AM, which property of the carrier wave remains the same?", "a": ["Amplitude", "Frequency", "Phase"], "c": 1},
+{"type": "mcq", "q": "Phase modulation is NOT widely used for transmitting which of the following?", "a": ["Digital signals", "Radio waves", "Waveforms"], "c": 1}
 ]
