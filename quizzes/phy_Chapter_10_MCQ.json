@@ -1,176 +1,97 @@
 [
-  {
-    "type": "mcq",
-    "q": "In terms of E, I and r, the terminal voltage of a battery when discharging is _____",
-    "a": ["V=E-Ir", "V=E", "V=E+Ir"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "In terms of E, I and r, the terminal voltage of a battery V in an open circuit is _____",
-    "a": ["V=E-Ir", "V=E", "V=E+Ir"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "In terms of E, I and r, the terminal voltage of a battery when charging is _____",
-    "a": ["V=E-Ir", "V=E", "V=E+Ir"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The resultant batteries of [12 V, 2 Ω] and [6 V, 1 Ω] in series aiding is _____",
-    "a": ["[18 V, 3 Ω]", "[18 V, 1 Ω]", "[12 V, 2 Ω]"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The resultant batteries of [12 V, 2 Ω] and [9 V, 1 Ω] in series opposing is ______",
-    "a": ["[21 V, 3 Ω]", "[3 V, 1 Ω]", "[3 V, 3 Ω]"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The resultant batteries of two [12 V, 2 Ω] batteries in series aiding is _____",
-    "a": ["[24 V, 4 Ω]", "[24 V, 1 Ω]", "[24 V, 0 Ω]"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The resultant batteries of two [12 V, 2 Ω] batteries in parallel is ______",
-    "a": ["[12 V, 4 Ω]", "[6 V, 1 Ω]", "[12 V, 1 Ω]"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The resultant batteries of three [12 V, 3 Ω] batteries in parallel is ______",
-    "a": ["[12 V, 3 Ω]", "[12 V, 1.5 Ω]", "[12 V, 1 Ω]"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The resultant emf is larger than the individual emfs when the batteries are in ______",
-    "a": ["series aiding", "series opposing", "parallel"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The resultant emf becomes smaller when the batteries are in _____",
-    "a": ["series aiding", "series opposing", "parallel"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The resultant emf is the same as the individual emfs when the batteries are in _____",
-    "a": ["series aiding", "series opposing", "parallel"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The resultant internal resistance becomes smaller when the batteries are in ______",
-    "a": ["series aiding", "series opposing", "parallel"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The total current delivered by the three equivalent batteries in parallel is 3 A. The current passing through each battery is ______",
-    "a": ["3 A", "1.5 A", "1 A"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The total current delivered by the three equivalent batteries in series aiding is 3 A. The current passing through each battery is _____",
-    "a": ["3 A", "1.5 A", "1 A"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The resultant internal resistances are the same for _____",
-    "a": ["series aiding and opposing", "series opposing and parallel", "series aiding and parallel"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "If the voltage across a resistor is doubled, the power consumed by it will be ______ the previous value.",
-    "a": ["2 times", "4 times", "half"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If the current through a resistor is doubled, the power consumed by it will be _____ the previous value.",
-    "a": ["2 times", "4 times", "half"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If the resistance of a resistor connected to a certain voltage source is doubled, the power consumed by it will be ______ the previous value.",
-    "a": ["2 times", "4 times", "half"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "If the voltage across a resistor is doubled, the energy used by it will be _____ the previous value.",
-    "a": ["2 times", "4 times", "half"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If the current through a certain resistor is doubled, the energy used by it will be ______ the previous value.",
-    "a": ["2 times", "4 times", "half"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If the resistance of a resistor connected to a certain voltage source is doubled, the energy used by it will be _____ the previous value.",
-    "a": ["2 times", "4 times", "half"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "A resistor converts most of electrical energy into _____ energy.",
-    "a": ["mechanical", "light", "heat"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "An electric motor transforms electrical energy into _____ energy.",
-    "a": ["mechanical", "light", "heat"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "If the voltage across a resistor is doubled, the heat produced is _____ the previous value.",
-    "a": ["2 times", "4 times", "half of"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If the current through a resistor is doubled, the heat produced is _____ the previous value.",
-    "a": ["2 times", "4 times", "half of"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "When three unequal resistors in parallel are connected to the same voltage source, the working power will be _______",
-    "a": ["the same", "maximum for the lowest resistance", "minimum for the lowest resistance"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "An electric light bulb consisting of ______ filament.",
-    "a": ["a tungsten", "a nichrome", "a copper"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "A small amount of _____ gas is used in place of air in the electric light bulb",
-    "a": ["oxygen", "hydrogen", "argon"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The heating element of the electric iron is _____ wire.",
-    "a": ["a tungsten", "a nichrome", "a copper"],
-    "c": 1
-  }
+{"type": "mcq", "q": "What allows a steady current to flow through a conductor?", "a": ["A steady resistance", "A steady potential difference", "A variable capacitance", "A steady magnetic field"], "c": 1},
+{"type": "mcq", "q": "Which of the following are defined as sources of electromotive force?", "a": ["Resistors and capacitors", "Batteries and generators", "Inductors and insulators", "Fuses and switches"], "c": 1},
+{"type": "mcq", "q": "What type of energy does a battery convert into electrical energy?", "a": ["Mechanical energy", "Thermal energy", "Chemical energy", "Light energy"], "c": 2},
+{"type": "mcq", "q": "What conversion occurs in an electric generator?", "a": ["Electrical to mechanical", "Chemical to electrical", "Mechanical to electrical", "Thermal to electrical"], "c": 2},
+{"type": "mcq", "q": "Within a source of electromotive force, positive charges are sent from which terminal to the other?", "a": ["Positive to negative", "Negative to positive", "Positive to neutral", "Negative to neutral"], "c": 1},
+{"type": "mcq", "q": "What is the abbreviation for electromotive force?", "a": ["eff", "emf", "emp", "emv"], "c": 1},
+{"type": "mcq", "q": "What is the definition of electromotive force ($emf$)?", "a": ["The force applied to move electrons", "Amount of energy provided per unit charge to move round the complete circuit", "The total current flowing in a circuit", "The resistance offered by a battery"], "c": 1},
+{"type": "mcq", "q": "What is the unit of measurement for $emf$?", "a": ["Ampere ($A$)", "Volt ($V$)", "Ohm ($\\Omega$)", "Watt ($W$)"], "c": 1},
+{"type": "mcq", "q": "One volt ($V$) is equivalent to which of the following?", "a": ["$1\\ J\\ s^{-1}$", "$1\\ J\\ C^{-1}$", "$1\\ C\\ s^{-1}$", "$1\\ W\\ A^{-1}$"], "c": 1},
+{"type": "mcq", "q": "Which statement about electromotive force is correct?", "a": ["It is a type of mechanical force", "It is not actually a force", "It is measured in Newtons", "It is independent of energy"], "c": 1},
+{"type": "mcq", "q": "What is the term for the resistance that generally exists within a source of $emf$?", "a": ["External resistance", "Internal resistance", "Variable resistance", "Mutual resistance"], "c": 1},
+{"type": "mcq", "q": "Which factor does the internal resistance of a battery NOT depend on?", "a": ["Size", "Chemical properties", "Color of the casing", "Life time"], "c": 2},
+{"type": "mcq", "q": "In the circuit equation, how is the internal resistance $r$ regarded relative to the battery?", "a": ["Connected in parallel", "Connected in series", "Connected in a bridge", "Disconnected"], "c": 1},
+{"type": "mcq", "q": "What is the name of the equation $I = \\frac{E}{R+r}$?", "a": ["Ohm's Law", "Joule's Law", "Circuit equation", "Power equation"], "c": 2},
+{"type": "mcq", "q": "What is terminal voltage also referred to as?", "a": ["Lost voltage", "Internal voltage", "Available voltage", "Peak voltage"], "c": 2},
+{"type": "mcq", "q": "Which formula gives the potential difference between the terminals of a battery connected to an external circuit?", "a": ["$V = E + Ir$", "$V = E - Ir$", "$V = IR + Ir$", "$V = E/I$"], "c": 1},
+{"type": "mcq", "q": "When a battery with internal resistance is used in a circuit, how does terminal voltage compare to $emf$?", "a": ["It is always greater", "It is always less", "It is always equal", "It is zero"], "c": 1},
+{"type": "mcq", "q": "What type of voltage is electromotive force ($emf$)?", "a": ["Closed-circuit voltage", "Open-circuit voltage", "Short-circuit voltage", "Variable-circuit voltage"], "c": 1},
+{"type": "mcq", "q": "What type of voltage is terminal voltage?", "a": ["Open-circuit voltage", "Closed-circuit voltage", "No-circuit voltage", "Direct-circuit voltage"], "c": 1},
+{"type": "mcq", "q": "What happens during the process of charging a battery?", "a": ["Electrical energy is converted to mechanical energy", "Chemical energy is converted to thermal energy", "Electrical energy from an external source supplies back chemical energy", "Current flows from positive to negative within the source"], "c": 2},
+{"type": "mcq", "q": "When batteries are connected in series, how is the resultant $emf$ determined?", "a": ["Geometric sum", "Algebraic sum", "Inverse sum", "Product of emfs"], "c": 1},
+{"type": "mcq", "q": "In which arrangement are currents leaving the batteries in the same direction?", "a": ["Series opposing", "Series aiding", "Parallel opposing", "Parallel helping"], "c": 1},
+{"type": "mcq", "q": "What is the resultant $emf$ for two batteries in series aiding?", "a": ["$E_1 - E_2$", "$E_1 + E_2$", "$E_1 / E_2$", "$E_1 \\times E_2$"], "c": 1},
+{"type": "mcq", "q": "What is the total internal resistance of two batteries ($r_1, r_2$) in series aiding?", "a": ["$r_1 - r_2$", "$r_1 + r_2$", "$1/r_1 + 1/r_2$", "$r_1 \\times r_2$"], "c": 1},
+{"type": "mcq", "q": "In a series opposing connection, how are the emfs of the batteries arranged?", "a": ["In the same direction", "In opposition", "At right angles", "Independently"], "c": 1},
+{"type": "mcq", "q": "What is the resultant $emf$ of two batteries in series opposing where $E_1 > E_2$?", "a": ["$E_1 + E_2$", "$E_1 - E_2$", "$E_2 - E_1$", "$E_1 \\times E_2$"], "c": 1},
+{"type": "mcq", "q": "What is the total internal resistance of two batteries in a series opposing arrangement?", "a": ["$r_1 - r_2$", "$r_1 + r_2$", "$r_2 - r_1$", "Zero"], "c": 1},
+{"type": "mcq", "q": "When two identical batteries (equal $emf$ and $r$) are in parallel, what is the resultant $emf$?", "a": ["$2E$", "$E$", "$E/2$", "$E^2$"], "c": 1},
+{"type": "mcq", "q": "What must be noticed when connecting batteries in parallel regarding their terminals?", "a": ["Connect positive to negative", "Connect same polarity terminals together", "Connect terminals randomly", "Connect only negative terminals"], "c": 1},
+{"type": "mcq", "q": "What is the resultant internal resistance of two identical batteries ($r$) connected in parallel?", "a": ["$2r$", "$r$", "$r/2$", "$r^2$"], "c": 2},
+{"type": "mcq", "q": "In a parallel combination of two identical batteries, what is the current flowing through each battery?", "a": ["$I$", "$2I$", "$I/2$", "$I/4$"], "c": 2},
+{"type": "mcq", "q": "What may happen if batteries are connected in parallel without matching polarities?", "a": ["The $emf$ doubles", "The batteries may be damaged", "The resistance becomes zero", "The current stops"], "c": 1},
+{"type": "mcq", "q": "What is the total resistance in a circuit with a resistor $R$ and two identical batteries in parallel?", "a": ["$R + r$", "$R + 2r$", "$R + r/2$", "$2R + r$"], "c": 2},
+{"type": "mcq", "q": "A series aiding connection can be regarded as a single battery with what internal resistance?", "a": ["$r_1$", "$r_2$", "$r_1 + r_2$", "$r_1 - r_2$"], "c": 2},
+{"type": "mcq", "q": "A series opposing connection can be regarded as a single battery with what resultant $emf$?", "a": ["Sum of emfs", "Difference between emfs", "Product of emfs", "Ratio of emfs"], "c": 1},
+{"type": "mcq", "q": "With what is electrical energy associated?", "a": ["Static charges", "Flow of charge through any part of circuit", "Magnetic fields alone", "Pressure in a wire"], "c": 1},
+{"type": "mcq", "q": "Which device can generate electrical energy?", "a": ["Resistor", "Photovoltaic cell", "Insulator", "Switch"], "c": 1},
+{"type": "mcq", "q": "In which form can electrical energy be stored for future application?", "a": ["Transformers", "Fuel cells", "Light bulbs", "Heaters"], "c": 1},
+{"type": "mcq", "q": "Which of the following devices can store electrical energy?", "a": ["Resistors and fuses", "Inductors and capacitors", "Dynamos and generators", "Motors and stoves"], "c": 1},
+{"type": "mcq", "q": "What is the formula for work done $W$ in bringing charge $Q$ through potential difference $V$?", "a": ["$W = V/Q$", "$W = QV$", "$W = Q^2V$", "$W = V^2Q$"], "c": 1},
+{"type": "mcq", "q": "Why is electrical energy transformed into heat energy in a resistor?", "a": ["Because protons are lost", "Because electrons collide with atoms", "Because the wire expands", "Because of chemical reactions"], "c": 1},
+{"type": "mcq", "q": "Which formula correctly represents electrical energy $W$ produced by a battery?", "a": ["$W = VIt$", "$W = I^2Rt$", "$W = \\frac{V^2}{R}t$", "All of the above"], "c": 3},
+{"type": "mcq", "q": "Into what form of energy does an electric motor transform electrical energy?", "a": ["Heat energy", "Mechanical energy", "Light energy", "Chemical energy"], "c": 1},
+{"type": "mcq", "q": "What is the practical unit of electrical energy?", "a": ["Joule ($J$)", "Watt ($W$)", "Kilowatt hour ($kWh$)", "Ampere hour ($Ah$)"], "c": 2},
+{"type": "mcq", "q": "One kilowatt hour ($kWh$) is equal to how many Joules ($J$)?", "a": ["$1000\\ J$", "$3.60 \\times 10^3\\ J$", "$3.60 \\times 10^6\\ J$", "$3.60 \\times 10^9\\ J$"], "c": 2},
+{"type": "mcq", "q": "How is electrical power $P$ defined?", "a": ["The total energy stored", "The rate of transfer of electrical energy", "The resistance per unit time", "The voltage per unit charge"], "c": 1},
+{"type": "mcq", "q": "Which formula expresses electrical power $P$?", "a": ["$P = VI$", "$P = I^2R$", "$P = V^2/R$", "All of the above"], "c": 3},
+{"type": "mcq", "q": "What is the SI unit of electrical power?", "a": ["Joule ($J$)", "Watt ($W$)", "Volt ($V$)", "Ohm ($\\Omega$)"], "c": 1},
+{"type": "mcq", "q": "One watt ($W$) is equivalent to which of the following?", "a": ["$1\\ J\\ s$", "$1\\ J\\ s^{-1}$", "$1\\ C\\ V^{-1}$", "$1\\ V\\ A^{-1}\\ s$"], "c": 1},
+{"type": "mcq", "q": "What is defined as one unit of electricity in practical use?", "a": ["$1\\ J$", "$1\\ W$", "$1\\ kWh$", "$1\\ V$"], "c": 2},
+{"type": "mcq", "q": "An electric lamp converts electrical energy into which two forms?", "a": ["Heat and light energy", "Mechanical and light energy", "Chemical and heat energy", "Sound and mechanical energy"], "c": 0},
+{"type": "mcq", "q": "In the relation for kWh, what are the components of $1000\\ W \\times 1\\ h$?", "a": ["$1000 \\times 60 \\times 60$", "$1000 \\times 60$", "$1000 \\times 1$", "$1000 \\times 3600$"], "c": 3},
+{"type": "mcq", "q": "Which device is mentioned as being able to generate electrical energy from mechanical motion?", "a": ["Capacitor", "Dynamo", "Fuel cell", "Inductor"], "c": 1},
+{"type": "mcq", "q": "What determines the rate at which electrical energy is delivered by a current?", "a": ["Energy", "Power", "Voltage", "Resistance"], "c": 1},
+{"type": "mcq", "q": "What is the work done $W$ by a battery taking charge $Q$ from point A to B equivalent to?", "a": ["Thermal energy lost", "Electrical energy supplied", "Mechanical force applied", "Potential difference created"], "c": 1},
+{"type": "mcq", "q": "Why are electrons accelerated when electric current passes through a conductor?", "a": ["Due to high temperature", "Due to electric field", "Due to magnetic field", "Due to gravity"], "c": 1},
+{"type": "mcq", "q": "When electrons lose kinetic energy in a conductor, in what form does it appear?", "a": ["Light energy", "Mechanical energy", "Heat energy", "Chemical energy"], "c": 2},
+{"type": "mcq", "q": "Which physicist experimentally studied the heating effect of electric current in 1841?", "a": ["Isaac Newton", "James Prescott Joule", "Michael Faraday", "Alessandro Volta"], "c": 1},
+{"type": "mcq", "q": "A resistor used to produce heat is often called a what?", "a": ["Cooling coil", "Heating coil", "Variable coil", "Fixed coil"], "c": 1},
+{"type": "mcq", "q": "What is the relationship between electrical energy $W$ and heat $H$?", "a": ["$W = H/J$", "$W = JH$", "$W = J/H$", "$W = J^2H$"], "c": 1},
+{"type": "mcq", "q": "What is the constant $J$ called?", "a": ["Joule's electrical constant", "Joule's mechanical equivalent of heat", "Joule's thermal resistance", "Joule's power factor"], "c": 1},
+{"type": "mcq", "q": "What is the value of Joule's mechanical equivalent of heat ($J$)?", "a": ["$4.2\\ J\\ cal$", "$4.2\\ J\\ cal^{-1}$", "$0.42\\ J\\ cal^{-1}$", "$42\\ J\\ cal^{-1}$"], "c": 1},
+{"type": "mcq", "q": "According to Joule's law, heat produced in a resistor is directly proportional to what property of current?", "a": ["The current $I$", "The square of the current $I^2$", "The cube of the current $I^3$", "The square root of current $\\sqrt{I}$"], "c": 1},
+{"type": "mcq", "q": "According to Joule's law, heat produced in a resistor is directly proportional to which characteristic of the conductor?", "a": ["Length", "Resistance", "Cross-sectional area", "Density"], "c": 1},
+{"type": "mcq", "q": "Heat produced in a resistor is directly proportional to what factor related to the flow of current?", "a": ["Frequency", "Time taken", "Speed of electrons", "Number of electrons"], "c": 1},
+{"type": "mcq", "q": "Which equation represents Joule's law of electricity and heat?", "a": ["$H = I^2Rt$", "$H = \\frac{I^2Rt}{J}$", "$H = VIt$", "$H = \\frac{V^2}{RJ}$"], "c": 1},
+{"type": "mcq", "q": "How else can the amount of heat $H$ produced be written using potential difference $V$?", "a": ["$H = \\frac{VIt}{J}$", "$H = \\frac{V^2t}{RJ}$", "Both $A$ and $B$", "None of the above"], "c": 2},
+{"type": "mcq", "q": "In the equation $W = JH$, what are the units for $W$ and $H$ respectively?", "a": ["Calorie and Joule", "Joule and Calorie", "Watt and Joule", "Joule and Watt"], "c": 1},
+{"type": "mcq", "q": "What happens to atoms in a resistor during electron collisions?", "a": ["They lose energy", "They acquire additional energy", "They become ionized", "They stop vibrating"], "c": 1},
+{"type": "mcq", "q": "The formula $H = \\frac{V^2t}{RJ}$ is derived from which energy equation?", "a": ["$W = VIt$", "$W = I^2Rt$", "$W = \\frac{V^2}{R}t$", "All of the above"], "c": 2},
+{"type": "mcq", "q": "Which of the following is an application of the heating effect of current?", "a": ["Electric motor", "Electric iron", "Radio receiver", "Flashlight"], "c": 1},
+{"type": "mcq", "q": "What material is the filament of an electric light bulb made of?", "a": ["Nichrome", "Tungsten", "Copper", "Aluminum"], "c": 1},
+{"type": "mcq", "q": "What is the approximate melting point of a tungsten filament?", "a": ["$1000\\ ^{\\circ}C$", "$1800\\ ^{\\circ}C$", "$3000\\ ^{\\circ}C$", "$5000\\ ^{\\circ}C$"], "c": 2},
+{"type": "mcq", "q": "Which inert gas is added to a light bulb after air is removed?", "a": ["Oxygen", "Nitrogen", "Argon", "Hydrogen"], "c": 2},
+{"type": "mcq", "q": "At what temperature does a tungsten filament emit white light?", "a": ["$1000\\ ^{\\circ}C$", "$1800\\ ^{\\circ}C$", "$2500\\ ^{\\circ}C$", "$3000\\ ^{\\circ}C$"], "c": 1},
+{"type": "mcq", "q": "What is the purpose of adding an inert gas to a light bulb?", "a": ["To increase light brightness", "To reduce evaporation of the filament", "To cool the filament", "To increase resistance"], "c": 1},
+{"type": "mcq", "q": "Bulbs used for illuminating airfields have what order of electrical power?", "a": ["$60\\ W$", "$100\\ W$", "$5000\\ W$", "$10000\\ W$"], "c": 2},
+{"type": "mcq", "q": "How are the voltage and power of a simple light bulb usually specified?", "a": ["$110\\ V, 100\\ W$", "$220\\ V, 60\\ W$", "$220\\ V, 1000\\ W$", "$12\\ V, 5\\ W$"], "c": 1},
+{"type": "mcq", "q": "What is wound around nichrome wire in an electric iron?", "a": ["Plastic sheet", "Mica sheet", "Copper foil", "Rubber insulation"], "c": 1},
+{"type": "mcq", "q": "Why is mica used in electric irons?", "a": ["It is a good electrical conductor", "It is a good electrical insulator and withstands high temperatures", "It is very flexible", "It helps in cooling"], "c": 1},
+{"type": "mcq", "q": "Which component in an electric iron controls the temperature by switching current on and off?", "a": ["Resistor", "Fuse", "Thermostat", "Transformer"], "c": 2},
+{"type": "mcq", "q": "What is the typical electrical power range of an electric iron?", "a": ["$100-200\\ W$", "$400-600\\ W$", "$750-1000\\ W$", "$1500-2000\\ W$"], "c": 2},
+{"type": "mcq", "q": "What type of wire is used as a heating element in an electric stove?", "a": ["Tungsten wire", "Nichrome wire", "Copper wire", "Lead wire"], "c": 1},
+{"type": "mcq", "q": "What is the electrical power range for an electric stove?", "a": ["$100-500\\ W$", "$600-2000\\ W$", "$3000-5000\\ W$", "$15-45\\ W$"], "c": 1},
+{"type": "mcq", "q": "According to Table 10.1, what is the electrical power of a laptop computer?", "a": ["$15-45\\ W$", "$40-100\\ W$", "$100-250\\ W$", "$750-1000\\ W$"], "c": 0},
+{"type": "mcq", "q": "According to Table 10.1, what is the typical power of a refrigerator?", "a": ["$40-100\\ W$", "$100-250\\ W$", "$~150\\ W$", "$~1200\\ W$"], "c": 1},
+{"type": "mcq", "q": "What material is a fuse typically made of?", "a": ["Pure copper", "Nichrome", "Tin-lead alloy", "Tungsten"], "c": 2},
+{"type": "mcq", "q": "What is the primary function of a fuse in a circuit?", "a": ["To increase voltage", "To prevent damage from excessive current", "To measure current", "To store energy"], "c": 1},
+{"type": "mcq", "q": "Where is a fuse wire commonly fitted?", "a": ["In a vacuum tube", "In a glass tube (cartridge) or on a porcelain block", "Directly onto the filament", "Inside the battery"], "c": 1},
+{"type": "mcq", "q": "What happens to a fuse when a current greater than its rating flows through it?", "a": ["It becomes cold", "It becomes hot enough to melt and break the circuit", "It increases its resistance infinitely without melting", "It glows brighter"], "c": 1},
+{"type": "mcq", "q": "Which fuse rating is appropriate for appliances rated $700\\ W$ or less in a $220\\ V$ circuit?", "a": ["$1\\ A$", "$3\\ A$", "$13\\ A$", "$30\\ A$"], "c": 1},
+{"type": "mcq", "q": "Which fuse rating should be fitted for appliances above $700\\ W$?", "a": ["$3\\ A$", "$5\\ A$", "$13\\ A$", "$20\\ A$"], "c": 2},
+{"type": "mcq", "q": "What determines if an electrical appliance is damaged when a fuse melts?", "a": ["The appliance is damaged instantly", "The current stops flowing, preventing damage", "The appliance works at lower power", "The circuit becomes a parallel circuit"], "c": 1},
+{"type": "mcq", "q": "What is the power rating of a radio and television receiver according to Table 10.1?", "a": ["$15-45\\ W$", "$40-100\\ W$", "$~150\\ W$", "$750-1000\\ W$"], "c": 2},
+{"type": "mcq", "q": "Which form of energy is transformed from electrical energy in an electric kettle?", "a": ["Mechanical energy", "Heat energy", "Light energy", "Sound energy"], "c": 1}
 ]
