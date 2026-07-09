@@ -1,152 +1,111 @@
 [
-  {
-    "type": "mcq",
-    "q": "If the charge of one plate of a capacitor is +10 ÂµC, the charge of the other plate is ____?",
-    "a": ["+10 ÂµC", "-10 ÂµC", "0"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The capacitance of the capacitor can be altered mechanically.",
-    "a": ["film", "ceramic", "variable"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "If the area of each plate of the capacitor is increased, the capacitance ____?",
-    "a": ["increases", "decreases", "remains the same"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The dielectric constant of a vacuum is ____?",
-    "a": ["less than 1", "greater than 1", "1"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The ratio of the charge to the potential difference of the capacitor is ___?",
-    "a": ["energy", "capacitance", "power"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If different capacitors are in series, they have the same ____?",
-    "a": ["charge", "potential difference", "energy"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The equivalent capacitance of three 12 ÂµF capacitors in parallel is ____?",
-    "a": ["1/4 ÂµF", "36 ÂµF", "4 ÂµF"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "When a dielectric is inserted between the plates of a charged ____ air capacitor disconnected from the power source, the potential difference",
-    "a": ["increases", "decreases", "remains the same"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The equivalent capacitance of three 12 ÂµF series in parallel is ____?",
-    "a": ["1/4 ÂµF", "36 ÂµF", "4 ÂµF"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "If the charge of the capacitor is increased, its capacitance ___?",
-    "a": ["increases", "decreases", "remains the same"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The film capacitor uses plastic film as the ____?",
-    "a": ["dielectric", "plates", "electrodes"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "If the charge of a capacitor is doubled, its energy will be ____?",
-    "a": ["twice", "four times", "Â½ time"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The dielectric constant of air is ____?",
-    "a": ["less than 1", "greater than 1", "1"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If different capacitors are in parallel, they have the same ___?",
-    "a": ["charge", "potential difference", "energy"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If the distance between the plates of the capacitor is increased, the capacitance ____?",
-    "a": ["increases", "decreases", "remains the same"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "When a dielectric is inserted between the plates of a charged ____ air capacitor disconnected from the power source.",
-    "a": ["increases", "decreases", "remains the same"],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "If the charge of the capacitor is increased, its potential difference _____?",
-    "a": ["increases", "decreases", "remains the same"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The dielectric constant of glass is ____?",
-    "a": ["less than 1", "greater than 1", "1"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If the charge of one plate of an unpolarized capacitor is +5 ÂµC, the charge of the other is ____?",
-    "a": ["+5 ÂµC", "-5 ÂµC", "0"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If the charge of one plate of a polarized capacitor is +5 ÂµC, the charge of the other is ____?",
-    "a": ["+5 ÂµC", "-5 ÂµC", "0"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The charge of a capacitor is the ____?",
-    "a": ["magnitude of the charge on each plate", "sum of the charges on the two plates", "average charges on the two plates"],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The potential difference of a capacitor is the ___?",
-    "a": ["potential of each plate", "potential difference between its plates", "average potential of its plates"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "When a dielectric is inserted between the plates of a charged _____ air capacitor disconnected from the power source.",
-    "a": ["increases", "decreases", "remains the same"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "Insulating materials have values of dielectric constant ___?",
-    "a": ["less than 1", "greater than 1", "1"],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If the dielectric is inserted between the plates of an air capacitor, the capacitance ___?",
-    "a": ["increases", "decreases", "remains the same"],
-    "c": 0
-  }
+  {"type": "mcq", "q": "A capacitor is an electrical device that stores electrical energy in the form of an _____.", "a": ["electric field", "magnetic field", "electromagnetic wave"], "c": 0},
+  {"type": "mcq", "q": "The capacitor is similar to a rechargeable _____.", "a": ["generator", "battery", "transformer"], "c": 1},
+  {"type": "mcq", "q": "The capacitor was originally known as a _____.", "a": ["resistor", "inductor", "condenser"], "c": 2},
+  {"type": "mcq", "q": "Film capacitors use _____ as the dielectric medium.", "a": ["plastic film", "ceramic", "air"], "c": 0},
+  {"type": "mcq", "q": "_____ capacitors are used in high-frequency circuits such as audio frequency to radio frequency.", "a": ["Electrolytic", "Ceramic", "Film"], "c": 1},
+  {"type": "mcq", "q": "Electrolytic capacitors are the ones that use the _____ layer as the dielectric material.", "a": ["ceramic", "plastic", "oxide"], "c": 2},
+  {"type": "mcq", "q": "The failure of _____ capacitors can be hazardous, resulting in an explosion or fire.", "a": ["electrolytic", "ceramic", "variable"], "c": 0},
+  {"type": "mcq", "q": "Variable capacitors mostly use _____ as the dielectric medium.", "a": ["water", "air", "plastic film"], "c": 1},
+  {"type": "mcq", "q": "_____ are used for regenerative braking and short-term energy storage.", "a": ["Variable capacitors", "Ceramic capacitors", "Supercapacitors"], "c": 2},
+  {"type": "mcq", "q": "Film capacitors and ceramic capacitors are _____ capacitors.", "a": ["non-polarized", "polarized", "variable"], "c": 0},
+  {"type": "mcq", "q": "Capacitors are used for blocking _____ current after getting fully charged.", "a": ["AC", "DC", "high-frequency"], "c": 1},
+  {"type": "mcq", "q": "Capacitors allow the _____ current to pass through it.", "a": ["static", "DC", "AC"], "c": 2},
+  {"type": "mcq", "q": "Capacitors are also used to tune the frequency of _____ receivers.", "a": ["radio", "television", "microwave"], "c": 0},
+  {"type": "mcq", "q": "The magnitude of the charge on each conductor, $Q$, is called the _____ of the capacitor.", "a": ["capacitance", "charge", "potential difference"], "c": 1},
+  {"type": "mcq", "q": "The quantity of charge $Q$ on the capacitor is linearly proportional to the _____ $V$ between the conductors.", "a": ["electric field", "surface charge density", "potential difference"], "c": 2},
+  {"type": "mcq", "q": "In the relationship $Q = CV$, $C$ is called the _____ of the capacitor.", "a": ["capacitance", "conductance", "current"], "c": 0},
+  {"type": "mcq", "q": "In the SI system, the unit of capacitance is _____.", "a": ["coulomb", "farad", "volt"], "c": 1},
+  {"type": "mcq", "q": "$1\\text{ F}$ is equivalent to _____.", "a": ["$1\\text{ V C}^{-1}$", "$1\\text{ C V}$", "$1\\text{ C V}^{-1}$"], "c": 2},
+  {"type": "mcq", "q": "Typical devices have capacitances ranging from microfarad ($\\mu\\text{F}$) to _____.", "a": ["picofarad ($\\text{pF}$)", "nanofarad ($\\text{nF}$)", "millifarad ($\\text{mF}$)"], "c": 0},
+  {"type": "mcq", "q": "$1\\text{ picofarad (pF)}$ is equal to _____ $\\text{F}$.", "a": ["$10^{-9}$", "$10^{-12}$", "$10^{-6}$"], "c": 1},
+  {"type": "mcq", "q": "Although the capacitance of a capacitor does not depend on $Q$ and $V$, it depends on the size and the _____ of the capacitor.", "a": ["mass", "weight", "shape"], "c": 2},
+  {"type": "mcq", "q": "The capacitance also depends on the nature of the _____ between the two conductors.", "a": ["insulator", "metal", "battery"], "c": 0},
+  {"type": "mcq", "q": "The SI unit of electric capacity is also _____.", "a": ["volt", "farad", "coulomb"], "c": 1},
+  {"type": "mcq", "q": "A _____ capacitor is the simplest capacitor.", "a": ["spherical", "cylindrical", "parallel-plate"], "c": 2},
+  {"type": "mcq", "q": "Charging a capacitor means connecting the capacitor to a _____.", "a": ["battery", "resistor", "switch"], "c": 0},
+  {"type": "mcq", "q": "The surface charge density on each plate is $\\sigma$ = _____.", "a": ["$\\frac{A}{Q}$", "$\\frac{Q}{A}$", "$Q \\times A$"], "c": 1},
+  {"type": "mcq", "q": "If the plates are very close together, the electric field between the plates is _____.", "a": ["zero", "non-uniform", "uniform"], "c": 2},
+  {"type": "mcq", "q": "The value of the electric field between the plates can be expressed in terms of surface charge density $\\sigma$ as $E$ = _____.", "a": ["$\\frac{\\sigma}{\\epsilon}$", "$\\sigma \\times \\epsilon$", "$\\frac{\\epsilon}{\\sigma}$"], "c": 0},
+  {"type": "mcq", "q": "The magnitude of the potential difference $V$ between the plates equals _____.", "a": ["$\\frac{E}{d}$", "$E d$", "$\\frac{d}{E}$"], "c": 1},
+  {"type": "mcq", "q": "The capacitance of the parallel plate capacitor is $C$ = _____.", "a": ["$\\frac{d}{\\epsilon A}$", "$\\frac{\\epsilon d}{A}$", "$\\frac{\\epsilon A}{d}$"], "c": 2},
+  {"type": "mcq", "q": "The capacitance of a parallel-plate capacitor is directly proportional to the _____ of its plates.", "a": ["area", "separation", "volume"], "c": 0},
+  {"type": "mcq", "q": "The capacitance of a parallel-plate capacitor is inversely proportional to the _____ of the plates.", "a": ["area", "separation", "thickness"], "c": 1},
+  {"type": "mcq", "q": "The permittivity $\\epsilon$ of an insulating material is related to that of a vacuum $\\epsilon_0$ as $\\epsilon$ = _____.", "a": ["$\\frac{\\kappa}{\\epsilon_0}$", "$\\frac{\\epsilon_0}{\\kappa}$", "$\\kappa \\epsilon_0$"], "c": 2},
+  {"type": "mcq", "q": "Here $\\kappa$ is the dielectric constant or the _____ of the insulating material.", "a": ["relative permittivity", "absolute permittivity", "electric susceptibility"], "c": 0},
+  {"type": "mcq", "q": "The permittivity of vacuum $\\epsilon_0$ is equal to _____ $\\text{C}^2 \\text{ N}^{-1} \\text{ m}^{-2}$.", "a": ["$8.85 \\times 10^{-9}$", "$8.85 \\times 10^{-12}$", "$9.0 \\times 10^9$"], "c": 1},
+  {"type": "mcq", "q": "For a vacuum $\\kappa$ = _____.", "a": ["$0$", "$81$", "$1$"], "c": 2},
+  {"type": "mcq", "q": "From Table 9.1, the dielectric constant of water ($18^\\circ\\text{C}$) is _____.", "a": ["$81$", "$1$", "$3.6$"], "c": 0},
+  {"type": "mcq", "q": "The dielectric constant of an insulating material is the ratio of its permittivity to that of a _____.", "a": ["solid", "vacuum", "liquid"], "c": 1},
+  {"type": "mcq", "q": "If there is a vacuum between its plates, its capacitance $C_0$ is _____.", "a": ["$\\frac{\\epsilon A}{d}$", "$\\frac{\\kappa \\epsilon_0 A}{d}$", "$\\frac{\\epsilon_0 A}{d}$"], "c": 2},
+  {"type": "mcq", "q": "Dielectric constant can be defined as the ratio of two _____.", "a": ["capacitances", "charges", "areas"], "c": 0},
+  {"type": "mcq", "q": "When a charged capacitor is disconnected and air is replaced by an insulating material, the potential difference is found to _____.", "a": ["increase", "decrease", "remain constant"], "c": 1},
+  {"type": "mcq", "q": "When an insulating material is inserted into a disconnected charged capacitor, the _____ of the capacitor does not change.", "a": ["capacitance $C$", "potential difference $V$", "charge $Q$"], "c": 2},
+  {"type": "mcq", "q": "Since the potential difference decreases and charge is constant, it indicates that the capacitance _____.", "a": ["increases", "decreases", "remains zero"], "c": 0},
+  {"type": "mcq", "q": "Dielectric constant can be expressed as the ratio of capacitances as well as the ratio of _____.", "a": ["electric fields", "potential differences", "plate areas"], "c": 1},
+  {"type": "mcq", "q": "Insulating materials have values of dielectric constant $\\kappa$ greater than _____.", "a": ["zero", "infinity", "unity"], "c": 2},
+  {"type": "mcq", "q": "A dielectric provides an increase in _____.", "a": ["capacitance", "resistance", "plate separation"], "c": 0},
+  {"type": "mcq", "q": "A dielectric provides an increase in maximum _____ voltage.", "a": ["minimum", "operating", "reverse"], "c": 1},
+  {"type": "mcq", "q": "A dielectric provides possible _____ support between the plates.", "a": ["thermal", "magnetic", "mechanical"], "c": 2},
+  {"type": "mcq", "q": "Which of the following is NOT a type of capacitor mentioned in the text?", "a": ["Magnetic capacitor", "Film capacitor", "Ceramic capacitor"], "c": 0},
+  {"type": "mcq", "q": "Tantalum and aluminum are types of _____ capacitors.", "a": ["ceramic", "electrolytic", "film"], "c": 1},
+  {"type": "mcq", "q": "Smaller units of supercapacitors are used as power backup for _____ (SRAM).", "a": ["read-only memory", "dynamic random-access memory", "static random-access memory"], "c": 2},
+  {"type": "mcq", "q": "Capacitors are used to eliminate _____ in automobile ignition systems.", "a": ["sparking", "resistance", "fuel flow"], "c": 0},
+  {"type": "mcq", "q": "Any flashing light or regular beeping uses a _____ capacitor.", "a": ["ceramic", "timing", "polarized"], "c": 1},
+  {"type": "mcq", "q": "If one conductor has a charge $+Q$ the other has a charge _____.", "a": ["$+Q$", "$0$", "$-Q$"], "c": 2},
+  {"type": "mcq", "q": "The potential difference between two conductors of the capacitor, $V$, is called the _____ of the capacitor.", "a": ["potential difference", "electric field", "terminal voltage"], "c": 0},
+  {"type": "mcq", "q": "The amount of charge given to a conductor to change its potential by one unit is called the _____ of the conductor.", "a": ["electric field", "electric capacity", "charge density"], "c": 1},
+  {"type": "mcq", "q": "Because the electric field between the plates is uniform, the _____ of the potential difference $V$ between the plates equals $E d$.", "a": ["direction", "vector", "magnitude"], "c": 2},
+  {"type": "mcq", "q": "From Table 9.1, the dielectric constant of Air ($1\\text{ atm}$) is _____.", "a": ["$1.0006$", "$1$", "$2$"], "c": 0},
+  {"type": "mcq", "q": "The unit farad is named in honor of Michael _____.", "a": ["Newton", "Faraday", "Coulomb"], "c": 1},
+  {"type": "mcq", "q": "Film capacitors are available in nearly any value and working voltages up to _____ $\\text{V}$.", "a": ["$500$", "$100$", "$1500$"], "c": 2}
+  {"type": "mcq", "q": "What does a dielectric increase even though the physical size of the capacitor does not change?", "a": ["Maximum operating voltage", "Plates separation distance", "Surface area of plates"], "c": 0},
+  {"type": "mcq", "q": "The dielectric may be able to withstand a larger what between the plates than air?", "a": ["Magnetic field", "Electric field intensity", "Gravitational force"], "c": 1},
+  {"type": "mcq", "q": "What is the standard value of the permittivity of free space $\\varepsilon_0$ used in Example 9.2?", "a": ["$8.85 \\times 10^{-12}\\text{ C}^2\\text{ N}^{-1}\\text{ m}^{-2}$", "$1.2 \\times 10^5\\text{ V m}^{-1}$", "$3.19 \\times 10^{-6}\\text{ C}$"], "c": 0},
+  {"type": "mcq", "q": "When the distance between the two parallel plates of a capacitor is doubled, by what percent does its capacitance change?", "a": ["Increases by 100%", "Decreases by 50%", "Increases by 50%"], "c": 1},
+  {"type": "mcq", "q": "What happens to the capacitance when an insulating material is inserted between the conductors?", "a": ["It decreases", "It remains zero", "It increases"], "c": 2},
+  {"type": "mcq", "q": "A capacitor stores electrical energy in the form of what?", "a": ["An electric field", "A magnetic field", "Chemical energy"], "c": 0},
+  {"type": "mcq", "q": "During the charging process, charge is transferred from a conductor at lower potential to a conductor at:", "a": ["Zero potential", "Higher potential", "Negative potential"], "c": 1},
+  {"type": "mcq", "q": "The energy stored by a capacitor can be analyzed from which specific graph type?", "a": ["Logarithmic graph", "Q-V graph", "I-V graph"], "c": 1},
+  {"type": "mcq", "q": "The work done in charging the capacitor is given by the shaded area under the curve, which forms a:", "a": ["Rectangle", "Triangle", "Circle"], "c": 1},
+  {"type": "mcq", "q": "The work done in charging a capacitor is equal to which mathematical expression?", "a": ["$QV$", "$\\frac{1}{2}QV$", "$CV$"], "c": 1},
+  {"type": "mcq", "q": "Before a capacitor is charged, what is the potential difference between the two conductors?", "a": ["Maximum voltage", "Zero", "Infinite"], "c": 1},
+  {"type": "mcq", "q": "What is the average potential difference of the capacitor before and after it is charged?", "a": ["$V$", "$2V$", "$\\frac{V}{2}$"], "c": 2},
+  {"type": "mcq", "q": "Which formula expresses the electrical energy stored by a capacitor in terms of capacitance and voltage?", "a": ["$\\frac{1}{2}CV^2$", "$\\frac{1}{2}VQ$", "$\\frac{1}{2}\\frac{Q^2}{C}$"], "c": 0},
+  {"type": "mcq", "q": "Which formula expresses the energy of a capacitor in terms of charge and capacitance?", "a": ["$\\frac{1}{2}CV^2$", "$\\frac{1}{2}\\frac{Q^2}{C}$", "$\\frac{1}{2}VQ$"], "c": 1},
+  {"type": "mcq", "q": "What is the operational effect of placing a resistor in a capacitor's charging circuit?", "a": ["It speeds up the process", "It blocks the charge entirely", "It slows down the process"], "c": 2},
+  {"type": "mcq", "q": "Which two circuit properties determine how long it takes to charge a capacitor?", "a": ["Resistance and Capacitance", "Voltage and Charge", "Area and Separation"], "c": 0},
+  {"type": "mcq", "q": "According to which equation does the capacitor voltage rise with time during charging?", "a": ["$V_c = V_0(e^{-t/RC})$", "$V_c = V_0(1 - e^{-t/RC})$", "$V_c = V_0(1 + e^{-t/RC})$"], "c": 1},
+  {"type": "mcq", "q": "The product of the resistance $R$ and the capacitance $C$ is called the:", "a": ["Time constant", "Capacitive constant", "Resistive factor"], "c": 0},
+  {"type": "mcq", "q": "What is the SI unit of measurement for the time constant $\\tau$?", "a": ["Ohm", "Farad", "Second"], "c": 2},
+  {"type": "mcq", "q": "During the discharging process, the capacitor voltage falls off with time according to which equation?", "a": ["$V_c = V_0(1-e^{-t/R_L C})$", "$V_c = V_0(e^{-t/R_L C})$", "$V_c = V_0 e^{t/R_L C}$"], "c": 1},
+  {"type": "mcq", "q": "How many primary types of capacitor combinations are explicitly identified in Section 9.5?", "a": ["Two", "Three", "Four"], "c": 0},
+  {"type": "mcq", "q": "What circuit parameter remains identical across all capacitors connected in parallel?", "a": ["Charge", "Potential difference", "Energy stored"], "c": 1},
+  {"type": "mcq", "q": "Capacitors connected in parallel carry what regarding their charges?", "a": ["Different amounts of charges", "The exact same charge", "No charges"], "c": 0},
+  {"type": "mcq", "q": "What is the total charge $Q$ on three capacitors connected in a parallel configuration?", "a": ["$Q = Q_1 = Q_2 = Q_3$", "$Q = Q_1 + Q_2 + Q_3$", "$\\frac{1}{Q} = \\frac{1}{Q_1} + \\frac{1}{Q_2} + \\frac{1}{Q_3}$"], "c": 1},
+  {"type": "mcq", "q": "The equivalent capacitance of capacitors connected in parallel is equal to the:", "a": ["Sum of the individual capacitances", "Reciprocal sum of the capacitances", "Product of individual capacitances"], "c": 0},
+  {"type": "mcq", "q": "What is the equivalent capacitance $C_p$ of a parallel combination of $n$ identical capacitors?", "a": ["$\\frac{C}{n}$", "$nC$", "$n^2C$"], "c": 1},
+  {"type": "mcq", "q": "When capacitors are connected in series, what parameter remains the same for each capacitor?", "a": ["Potential difference", "Charge", "Capacitance"], "c": 1},
+  {"type": "mcq", "q": "Capacitors connected in a series circuit configuration have different:", "a": ["Charges", "Potential differences", "Current pathways"], "c": 1},
+  {"type": "mcq", "q": "What is the total potential difference $V$ across three capacitors connected in series?", "a": ["$V = V_1 = V_2 = V_3$", "$V = V_1 + V_2 + V_3$", "$V = Q(C_1 + C_2 + C_3)$"], "c": 1},
+  {"type": "mcq", "q": "When capacitors are connected in series, the reciprocal of the equivalent capacitance equals the:", "a": ["Sum of the reciprocals of individual capacitances", "Sum of the individual capacitances", "Product of the reciprocals"], "c": 0},
+  {"type": "mcq", "q": "What is the equivalent capacitance $C_s$ of a series combination of $n$ identical capacitors?", "a": ["$nC$", "$\\frac{C}{n}$", "$\\frac{n}{C}$"], "c": 1},
+  {"type": "mcq", "q": "In which configuration does each individual capacitor hold the exact same charge?", "a": ["Parallel connection", "Series connection", "Perpendicular connection"], "c": 1},
+  {"type": "mcq", "q": "In which configuration is the potential difference across each individual capacitor identical?", "a": ["Parallel connection", "Series connection", "Open connection"], "c": 0},
+  {"type": "mcq", "q": "According to the summary on page 150, what is the simplest type of capacitor?", "a": ["Spherical capacitor", "Parallel-plate capacitor", "Cylindrical capacitor"], "c": 1},
+  {"type": "mcq", "q": "A parallel-plate capacitor consists of two parallel metal plates separated by:", "a": ["A highly conductive copper sheet", "Air or other insulating material", "Direct metallic contact"], "c": 1},
+  {"type": "mcq", "q": "What name is given to the ratio of the insulated capacitance to the vacuum capacitance?", "a": ["Permittivity constant", "Dielectric constant", "Relative resistance"], "c": 1},
+  {"type": "mcq", "q": "If one conductor of a capacitor carries a charge of $+Q$, what is the charge on the other conductor?", "a": ["$+Q$", "$-Q$", "$0$"], "c": 1},
+  {"type": "mcq", "q": "The charge of a capacitor is scientifically defined as the:", "a": ["Sum of charges on both plates", "Magnitude of the charge on each conductor", "Difference of charges between plates"], "c": 1},
+  {"type": "mcq", "q": "The potential difference of a capacitor refers specifically to the potential difference:", "a": ["Between the two conductors of the capacitor", "Of the positive plate only", "Across the charging resistor"], "c": 0},
+  {"type": "mcq", "q": "What is the dielectric constant $\\kappa$ of the material inserted between plates in Example 9.2?", "a": ["1", "3", "120"], "c": 1},
+  {"type": "mcq", "q": "What is the final calculated capacitance in Example 9.2 (i)?", "a": ["$26.55 \\times 10^{-9}\\text{ F}$", "$3.19 \\times 10^{-6}\\text{ F}$", "$1.2 \\times 10^5\\text{ F}$"], "c": 0},
+  {"type": "mcq", "q": "What is the final calculated magnitude of the charge $Q$ in Example 9.2 (ii)?", "a": ["$26.55\\text{ nC}$", "$3.19\\ \\mu\\text{C}$", "$1.2 \\times 10^5\\text{ C}$"], "c": 1},
+  {"type": "mcq", "q": "What is the final calculated electric field intensity $E$ in Example 9.2 (iii)?", "a": ["$120\\text{ V m}^{-1}$", "$26.55 \\times 10^{-9}\\text{ V m}^{-1}$", "$1.2 \\times 10^5\\text{ V m}^{-1}$"], "c": 2},
+  {"type": "mcq", "q": "What is the calculated equivalent capacitance of the series combination in Example 9.5?", "a": ["$16\\ \\mu\\text{F}$", "$3\\ \\mu\\text{F}$", "$48\\ \\mu\\text{F}$"], "c": 1},
+  {"type": "mcq", "q": "What is the calculated potential difference across the $12\\ \\mu\\text{F}$ capacitor in Example 9.5?", "a": ["200 V", "50 V", "150 V"], "c": 1},
+  {"type": "mcq", "q": "In the equation $V_c = V_0(1 - e^{-t/RC})$, what does the term $e$ represent?", "a": ["Electric field intensity", "The base of natural logarithms", "Equivalent capacitance factor"], "c": 1},
+  {"type": "mcq", "q": "What is the equivalent capacitance formula for two capacitors $C_1$ and $C_2$ connected in series?", "a": ["$C_1 + C_2$", "$\\frac{C_1 C_2}{C_1 + C_2}$", "$\\frac{1}{C_1 + C_2}$"], "c": 1},
+  {"type": "mcq", "q": "What happens to the capacitance when the distance between parallel plates is reduced?", "a": ["It increases", "It decreases", "It remains exactly the same"], "c": 0},
+  {"type": "mcq", "q": "The total electrical energy stored by a capacitor is kept strictly in the form of an:", "a": ["Electric field", "Alternating current", "Insulating thermal layer"], "c": 0}
 ]
