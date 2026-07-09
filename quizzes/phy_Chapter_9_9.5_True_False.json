@@ -1,17 +1,17 @@
 [
-    {"type": "tf", "q": "There are two types of capacitor combinations: parallel and series.", "c": true},
-    {"type": "blank", "q": "In a parallel combination, all the capacitors have the same ___.", "c": "potential difference"},
-    {"type": "mcq", "q": "In a parallel combination, do the capacitors carry the same or different amounts of charges?", "a": ["Always the same", "Different amounts", "Zero charge", "Negative charge only"], "c": 1},
-    {"type": "tf", "q": "The equivalent capacitance of capacitors connected in parallel is the sum of the capacitances of the individual capacitors.", "c": true},
-    {"type": "blank", "q": "For $n$ identical capacitors connected in parallel, the equivalent capacitance $C_p$ is ___.", "c": "nC"},
-    {"type": "tf", "q": "In a series combination, the negatively charged plate of one capacitor is connected to the positively charged plate of the other.", "c": true},
-    {"type": "mcq", "q": "Which property is the same for all capacitors connected in series?", "a": ["Potential difference", "Capacitance", "Charge", "Volume"], "c": 2},
-    {"type": "tf", "q": "Capacitors connected in series have different potential differences.", "c": true},
-    {"type": "blank", "q": "The total potential difference of a series combination is $V = V_1 + V_2 + ___$.", "c": "V_3"},
-    {"type": "mcq", "q": "For capacitors in series, the reciprocal of the equivalent capacitance is the ___ of the reciprocals of their individual capacitances.", "a": ["Difference", "Product", "Sum", "Average"], "c": 2},
-    {"type": "tf", "q": "The equivalent capacitance $C_s$ of $n$ identical capacitors in series is $C_s = \\frac{C}{n}$.", "c": true},
-    {"type": "blank", "q": "In series, the magnitude of charge on the equivalent capacitor is ___ when total potential difference $V$ is applied.", "c": "Q"},
-    {"type": "tf", "q": "The equivalent capacitance of a series combination is always greater than any of the individual capacitances.", "c": false},
-    {"type": "mcq", "q": "In which connection of the capacitors is the potential difference of each capacitor the same?", "a": ["Series", "Parallel", "Neither", "Both"], "c": 1},
-    {"type": "tf", "q": "In series connection, each capacitor has the same charge.", "c": true}
-]
+    {"type": "tf", "q": "Capacitors in parallel all have the same potential difference.", "c": true},
+    {"type": "tf", "q": "In a parallel combination, all capacitors carry the same amount of charge.", "c": false},
+    {"type": "tf", "q": "The equivalent capacitance of capacitors connected in parallel is the sum of the individual capacitances.", "c": true},
+    {"type": "tf", "q": "For $n$ identical capacitors in parallel, the equivalent capacitance $C_p$ is $nC$.", "c": true},
+    {"type": "tf", "q": "In a series combination, the negatively charged plate of one capacitor is connected to the positively charged plate of another.", "c": true},
+    {"type": "tf", "q": "Capacitors connected in series each have the same charge.", "c": true},
+    {"type": "tf", "q": "In a series combination, the capacitors have the same potential difference.", "c": false},
+    {"type": "tf", "q": "The reciprocal of the equivalent capacitance in series is the sum of the reciprocals of the individual capacitances.", "c": true},
+    {"type": "tf", "q": "For $n$ identical capacitors in series, the equivalent capacitance is $C_s = \\frac{C}{n}$.", "c": true},
+    {"type": "tf", "q": "The magnitude of charge on the series combination is equal to the sum of the charges on individual capacitors.", "c": false},
+    {"type": "tf", "q": "The total potential difference of a series combination is the sum of the individual potential differences.", "c": true},
+    {"type": "tf", "q": "In parallel combination, the total charge $Q$ is the sum of individual charges $Q_1, Q_2,$ and $Q_3$.", "c": true},
+    {"type": "tf", "q": "Equivalent capacitance is also called the capacitance of a single capacitor that replaces the combination.", "c": true},
+    {"type": "tf", "q": "The equivalent capacitance of a series combination is always larger than any individual capacitance in the series.", "c": false},
+    {"type": "tf", "q": "The equivalent capacitance of a parallel combination is the sum of the individual capacitances.", "c": true}
+  ]
