@@ -1,17 +1,90 @@
-[ {"type": "mcq", "q": "A capacitor stores electrical energy in the form of what?", "a": ["An electric field", "A magnetic field", "Chemical energy"], "c": 0},
-  {"type": "mcq", "q": "During the charging process, charge is transferred from a conductor at lower potential to a conductor at:", "a": ["Zero potential", "Higher potential", "Negative potential"], "c": 1},
-  {"type": "mcq", "q": "The energy stored by a capacitor can be analyzed from which specific graph type?", "a": ["Logarithmic graph", "Q-V graph", "I-V graph"], "c": 1},
-  {"type": "mcq", "q": "The work done in charging the capacitor is given by the shaded area under the curve, which forms a:", "a": ["Rectangle", "Triangle", "Circle"], "c": 1},
-  {"type": "mcq", "q": "The work done in charging a capacitor is equal to which mathematical expression?", "a": ["$QV$", "$\\frac{1}{2}QV$", "$CV$"], "c": 1},
-  {"type": "mcq", "q": "Before a capacitor is charged, what is the potential difference between the two conductors?", "a": ["Maximum voltage", "Zero", "Infinite"], "c": 1},
-  {"type": "mcq", "q": "What is the average potential difference of the capacitor before and after it is charged?", "a": ["$V$", "$2V$", "$\\frac{V}{2}$"], "c": 2},
-  {"type": "mcq", "q": "Which formula expresses the electrical energy stored by a capacitor in terms of capacitance and voltage?", "a": ["$\\frac{1}{2}CV^2$", "$\\frac{1}{2}VQ$", "$\\frac{1}{2}\\frac{Q^2}{C}$"], "c": 0},
-  {"type": "mcq", "q": "Which formula expresses the energy of a capacitor in terms of charge and capacitance?", "a": ["$\\frac{1}{2}CV^2$", "$\\frac{1}{2}\\frac{Q^2}{C}$", "$\\frac{1}{2}VQ$"], "c": 1},
-  {"type": "mcq", "q": "What is the operational effect of placing a resistor in a capacitor's charging circuit?", "a": ["It speeds up the process", "It blocks the charge entirely", "It slows down the process"], "c": 2},
-  {"type": "mcq", "q": "Which two circuit properties determine how long it takes to charge a capacitor?", "a": ["Resistance and Capacitance", "Voltage and Charge", "Area and Separation"], "c": 0},
-  {"type": "mcq", "q": "According to which equation does the capacitor voltage rise with time during charging?", "a": ["$V_c = V_0(e^{-t/RC})$", "$V_c = V_0(1 - e^{-t/RC})$", "$V_c = V_0(1 + e^{-t/RC})$"], "c": 1},
-  {"type": "mcq", "q": "The product of the resistance $R$ and the capacitance $C$ is called the:", "a": ["Time constant", "Capacitive constant", "Resistive factor"], "c": 0},
-  {"type": "mcq", "q": "What is the SI unit of measurement for the time constant $\\tau$?", "a": ["Ohm", "Farad", "Second"], "c": 2},
-  {"type": "mcq", "q": "During the discharging process, the capacitor voltage falls off with time according to which equation?", "a": ["$V_c = V_0(1-e^{-t/R_L C})$", "$V_c = V_0(e^{-t/R_L C})$", "$V_c = V_0 e^{t/R_L C}$"], "c": 1},
-  {"type": "mcq", "q": "How many primary types of capacitor combinations are explicitly identified in Section 9.5?", "a": ["Two", "Three", "Four"], "c": 0},
-  {"type": "mcq", "q": "What circuit parameter remains identical across all capacitors connected in parallel?", "a": ["Charge", "Potential difference", "Energy stored"], "c": 1}]
+[
+    {
+      "type": "mcq",
+      "q": "What constitutes a parallel-plate capacitor?",
+      "a": [
+        "Two concentric spheres",
+        "Two parallel metal plates separated by an insulator",
+        "A single metal plate in a vacuum",
+        "Two crossed wires"
+      ],
+      "c": 1
+    },
+    {
+      "type": "mcq",
+      "q": "What is the definition of surface charge density $\\sigma$ on a plate?",
+      "a": [
+        "Charge per unit volume",
+        "Potential per unit area",
+        "Charge per unit surface area",
+        "Electric field per unit distance"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "The capacitance of a parallel-plate capacitor is directly proportional to which factor?",
+      "a": [
+        "Separation of the plates",
+        "Charge on the plates",
+        "Area of its plates",
+        "Potential difference"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "How is the capacitance of a parallel-plate capacitor affected by the distance $d$ between the plates?",
+      "a": [
+        "Directly proportional",
+        "Inversely proportional",
+        "Independent of distance",
+        "Proportional to the square of distance"
+      ],
+      "c": 1
+    },
+    {
+      "type": "mcq",
+      "q": "What is the value of the dielectric constant $\\kappa$ for a vacuum?",
+      "a": [
+        "0",
+        "1",
+        "1.0006",
+        "Infinity"
+      ],
+      "c": 1
+    },
+    {
+      "type": "mcq",
+      "q": "According to Table 9.1, which material has the highest dielectric constant?",
+      "a": [
+        "Mica",
+        "Glass",
+        "Water ($18\\ ^{\\circ}C$)",
+        "Ammonia (liquid)"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "When a dielectric is inserted into a disconnected charged capacitor, what happens to the potential difference?",
+      "a": [
+        "It increases",
+        "It remains the same",
+        "It decreases",
+        "It becomes zero"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "Which of the following is NOT an advantage of using a dielectric in a capacitor?",
+      "a": [
+        "Increase in capacitance",
+        "Increase in maximum operating voltage",
+        "Decrease in the physical size of the plates",
+        "Mechanical support between the plates"
+      ],
+      "c": 2
+    }
+  ]
