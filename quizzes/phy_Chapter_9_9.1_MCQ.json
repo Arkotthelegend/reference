@@ -1,156 +1,36 @@
 [
-    {
-      "type": "mcq",
-      "q": "What was the original name for a capacitor?",
-      "a": [
-        "Resistor",
-        "Condenser",
-        "Inductor",
-        "Transformer"
-      ],
-      "c": 1
-    },
-    {
-      "type": "mcq",
-      "q": "Which type of capacitor uses plastic film as its dielectric medium?",
-      "a": [
-        "Ceramic Capacitor",
-        "Electrolytic Capacitor",
-        "Film Capacitor",
-        "Variable Capacitor"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "What is the maximum working voltage typically available for film capacitors?",
-      "a": [
-        "500 V",
-        "1000 V",
-        "1500 V",
-        "2000 V"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "In which frequency circuits are ceramic capacitors primarily used?",
-      "a": [
-        "Direct current (dc) only",
-        "Very low frequency only",
-        "High-frequency circuits from $af$ to $rf$",
-        "Industrial power distribution"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "Which capacitor type utilizes an oxide layer as the dielectric material?",
-      "a": [
-        "Variable Capacitor",
-        "Supercapacitor",
-        "Electrolytic Capacitor",
-        "Film Capacitor"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "What is a potential hazard if an electrolytic capacitor fails?",
-      "a": [
-        "Sudden freezing",
-        "Loss of mechanical weight",
-        "Explosion or fire",
-        "Change in color"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "Which medium is commonly used as the dielectric in variable capacitors?",
-      "a": [
-        "Tantalum",
-        "Aluminum",
-        "Air",
-        "Plastic film"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "What is another name for a supercapacitor (SC)?",
-      "a": [
-        "Megacapacitor",
-        "Ultracapacitor",
-        "Hypercapacitor",
-        "Powercapacitor"
-      ],
-      "c": 1
-    },
-    {
-      "type": "mcq",
-      "q": "Compared to electrolytic capacitors, how much more energy can supercapacitors typically store?",
-      "a": [
-        "2 to 5 times",
-        "10 to 100 times",
-        "500 to 1000 times",
-        "Equal energy"
-      ],
-      "c": 1
-    },
-    {
-      "type": "mcq",
-      "q": "Which application uses smaller units of supercapacitors as power backup?",
-      "a": [
-        "Regenerative braking in trains",
-        "Automobile ignition systems",
-        "Static random-access memory (SRAM)",
-        "Humidity sensors"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "Which of the following describes non-polarized capacitors?",
-      "a": [
-        "They have positive and negative terminals",
-        "They can only be used in DC circuits",
-        "They do not have polarities",
-        "They are exclusively electrolytic"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "What function do capacitors perform in power supplies to handle DC current?",
-      "a": [
-        "They amplify DC current",
-        "They block DC current after getting fully charged",
-        "They convert DC current to AC current",
-        "They eliminate the potential difference"
-      ],
-      "c": 1
-    },
-    {
-      "type": "mcq",
-      "q": "Why are capacitors used in automobile ignition systems?",
-      "a": [
-        "To measure mechanical strain",
-        "To increase the weight of the engine",
-        "To eliminate sparking",
-        "To block AC current"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "A flashing light or regular beeping circuit likely uses which type of capacitor?",
-      "a": [
-        "Variable capacitor",
-        "Tantalum capacitor",
-        "Timing capacitor",
-        "Filter capacitor"
-      ],
-      "c": 2
-    }
+    {"type":"mcq","q":"A capacitor is used as an electric circuit component to store what?","a":["electrical energy","mechanical energy","chemical energy","kinetic energy"],"c":0},
+    {"type":"mcq","q":"What was the capacitor originally known as?","a":["condenser","inductor","transistor","resistor"],"c":0},
+    {"type":"mcq","q":"A capacitor is an electrical device that stores electrical energy in the form of an?","a":["electric field","magnetic field","electromagnetic wave","gravitational field"],"c":0},
+    {"type":"mcq","q":"A capacitor consists of two conductors separated by a?","a":["small distance","large distance","vacuum only","superconductor"],"c":0},
+    {"type":"mcq","q":"What is inserted between the conductors of a capacitor?","a":["an insulator","a conductor","a semiconductor","a metal plate"],"c":0},
+    {"type":"mcq","q":"Which type of capacitors use plastic film as the dielectric medium?","a":["Film Capacitors","Ceramic Capacitors","Electrolytic Capacitors","Variable Capacitors"],"c":0},
+    {"type":"mcq","q":"Film capacitors are available with working voltages up to?","a":["$1500\\text{ V}$","$500\\text{ V}$","$100\\text{ V}$","$240\\text{ V}$"],"c":0},
+    {"type":"mcq","q":"What is the tolerance range for film capacitors?","a":["$10\\ \%$ to $0.01\\ \%$","$50\\ \%$ to $1\\ \%$","$5\\ \%$ to $0.5\\ \%$","$20\\ \%$ to $5\\ \%$"],"c":0},
+    {"type":"mcq","q":"Ceramic capacitors use what as the dielectric material?","a":["ceramic","plastic","air","oxide layer"],"c":0},
+    {"type":"mcq","q":"In ceramic capacitors, one can develop both high and low capacitance by altering the thickness of the?","a":["ceramic disc","metal plate","insulator","wire"],"c":0},
+    {"type":"mcq","q":"Ceramic capacitors are mainly used for high stability performances with?","a":["low losses","high heat","high resistance","variable voltage"],"c":0},
+    {"type":"mcq","q":"Which property of ceramic capacitors is stable with respect to applied voltage, frequency, and temperature?","a":["capacitance values","color","weight","length"],"c":0},
+    {"type":"mcq","q":"Electrolytic capacitors use what as the dielectric material?","a":["oxide layer","ceramic","plastic film","paper"],"c":0},
+    {"type":"mcq","q":"What type of tolerance capacity do electrolytic capacitors have?","a":["wide","narrow","zero","fixed"],"c":0},
+    {"type":"mcq","q":"What are the two main types of electrolytic capacitors?","a":["tantalum and aluminum","copper and zinc","gold and silver","iron and lead"],"c":0},
+    {"type":"mcq","q":"The failure of electrolytic capacitors can be hazardous, resulting in an?","a":["explosion or fire","implosion","electric shock only","color change"],"c":0},
+    {"type":"mcq","q":"Which capacitor is used for filtering and smoothing rectified alternating voltage?","a":["Electrolytic Capacitors","Variable Capacitors","Ceramic Capacitors","Film Capacitors"],"c":0},
+    {"type":"mcq","q":"Variable capacitors mostly use what as the dielectric medium?","a":["air","oil","ceramic","plastic"],"c":0},
+    {"type":"mcq","q":"The capacitance of a variable capacitor can be adjusted?","a":["mechanically","chemically","thermally","automatically"],"c":0},
+    {"type":"mcq","q":"Variable capacitors are used to set the resonance frequency in?","a":["tuner devices","power supplies","lighting","heating"],"c":0},
+    {"type":"mcq","q":"A supercapacitor (SC) is also called an?","a":["ultracapacitor","megacapacitor","microcapacitor","nanocapacitor"],"c":0},
+    {"type":"mcq","q":"A supercapacitor typically stores how much more energy than electrolytic capacitors?","a":["$10$ to $100$ times","$2$ to $5$ times","$1000$ times","$500$ times"],"c":0},
+    {"type":"mcq","q":"Supercapacitors tolerate many more charge and discharge cycles than?","a":["rechargeable batteries","primary cells","dry cells","solar cells"],"c":0},
+    {"type":"mcq","q":"In automobiles, supercapacitors are used for?","a":["regenerative braking","engine cooling","tire pressure","fuel injection"],"c":0},
+    {"type":"mcq","q":"Smaller supercapacitor units are used as power backup for?","a":["static random-access memory (SRAM)","hard drives","motherboards","monitors"],"c":0},
+    {"type":"mcq","q":"Which types of capacitors are non-polarized capacitors?","a":["Film and ceramic","Electrolytic and tantalum","Supercapacitor and variable","Aluminum and tantalum"],"c":0},
+    {"type":"mcq","q":"What does 'non-polarized' mean for a capacitor?","a":["They do not have polarities","They have only positive terminals","They have only negative terminals","They use AC only"],"c":0},
+    {"type":"mcq","q":"Capacitors are used for blocking which current after getting fully charged?","a":["DC current","AC current","pulsating current","eddy current"],"c":0},
+    {"type":"mcq","q":"Capacitors are used to eliminate sparking in?","a":["automobile ignition systems","electric motors","light bulbs","transformers"],"c":0},
+    {"type":"mcq","q":"Capacitors can be used as sensors for measuring?","a":["humidity, fuel levels, and mechanical strain","temperature and light","sound and pressure","speed and distance"],"c":0},
+    {"type":"mcq","q":"Any flashing light or regular beeping likely uses a?","a":["timing capacitor","tuning capacitor","filter capacitor","blocking capacitor"],"c":0},
+    {"type":"mcq","q":"Electrolytic capacitors are available with working voltages up to approximately?","a":["$500\\text{ V}$","$1500\\text{ V}$","$1000\\text{ V}$","$250\\text{ V}$"],"c":0},
+    {"type":"mcq","q":"Which capacitor bridges the gap between electrolytic capacitors and rechargeable batteries?","a":["supercapacitor","film capacitor","ceramic capacitor","variable capacitor"],"c":0},
+    {"type":"mcq","q":"Variable capacitors are mostly used in AC circuits especially for?","a":["high frequency, high power and low loss","low frequency and high resistance","DC filtering only","low power applications"],"c":0}
   ]
