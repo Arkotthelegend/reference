@@ -1,68 +1,17 @@
- [
-    {
-      "type": "mcq",
-      "q": "In what form is energy stored in a capacitor?",
-      "a": [
-        "Chemical energy",
-        "Mechanical energy",
-        "Electric field",
-        "Magnetic field"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "Which formula correctly expresses the energy $W$ stored in a capacitor?",
-      "a": [
-        "$W = CV^2$",
-        "$W = \\frac{1}{2} CV^2$",
-        "$W = QV$",
-        "$W = \\frac{1}{2} C^2 V$"
-      ],
-      "c": 1
-    },
-    {
-      "type": "mcq",
-      "q": "What happens when a resistor is placed in a capacitor's charging circuit?",
-      "a": [
-        "It speeds up the charging process",
-        "It slows down the charging process",
-        "It prevents the capacitor from charging",
-        "It decreases the capacitance"
-      ],
-      "c": 1
-    },
-    {
-      "type": "mcq",
-      "q": "What is the product of resistance $R$ and capacitance $C$ called?",
-      "a": [
-        "Voltage constant",
-        "Charge constant",
-        "Time constant",
-        "Energy constant"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "What is the SI unit for the time constant $\\tau$?",
-      "a": [
-        "Volt",
-        "Ohm",
-        "Second",
-        "Farad"
-      ],
-      "c": 2
-    },
-    {
-      "type": "mcq",
-      "q": "During the discharging process, the voltage $V_C$ falls off according to which equation?",
-      "a": [
-        "$V_C = V_0(1 - e^{-t/RC})$",
-        "$V_C = V_0(e^{-t/R_L C})$",
-        "$V_C = V_0(1 + e^{-t/R_L C})$",
-        "$V_C = V_0(e^{t/RC})$"
-      ],
-      "c": 1
-    }
+[
+    {"type":"mcq","q":"A capacitor stores electrical energy in the form of an?","a":["electric field","magnetic field","current","heat"],"c":0},
+    {"type":"mcq","q":"The charging process can be viewed as the apparent transfer of?","a":["charge between two conductors","mass between two conductors","atoms between two conductors","voltage between two conductors"],"c":0},
+    {"type":"mcq","q":"Work is done to transfer charge from a conductor at lower potential to a conductor at?","a":["higher potential","zero potential","negative potential","infinite potential"],"c":0},
+    {"type":"mcq","q":"The energy stored by the capacitor is equal to the?","a":["area under the $Q-V$ curve","slope of the $Q-V$ curve","length of the plates","mass of the dielectric"],"c":0},
+    {"type":"mcq","q":"The work done in charging a capacitor is equal to?","a":["$\\frac{1}{2}QV$","$QV$","$2QV$","$Q/V$"],"c":0},
+    {"type":"mcq","q":"Before a capacitor is charged, the potential difference between two conductors is?","a":["zero","maximum","infinite","$1\\text{ V}$"],"c":0},
+    {"type":"mcq","q":"The average potential difference of the capacitor during charging is?","a":["$V/2$","$V$","$2V$","$0$"],"c":0},
+    {"type":"mcq","q":"The energy of a capacitor can be expressed as $W = \\frac{1}{2}CV^2$ or?","a":["$W = \\frac{1}{2}\\frac{Q^2}{C}$","$W = CV$","$W = Q^2C$","$W = 2CV$"],"c":0},
+    {"type":"mcq","q":"Placing a resistor in the charging circuit?","a":["slows down the charging process","speeds up the charging process","stops the charging process","has no effect"],"c":0},
+    {"type":"mcq","q":"The product of resistance $R$ and capacitance $C$ is called the?","a":["time constant $\\tau$","energy constant","voltage constant","charge constant"],"c":0},
+    {"type":"mcq","q":"The time constant $\\tau$ is measured in?","a":["second","farad","ohm","volt"],"c":0},
+    {"type":"mcq","q":"During the charging process, the capacitor voltage $V_C$?","a":["rises with time","falls with time","remains constant","becomes zero"],"c":0},
+    {"type":"mcq","q":"A capacitor is discharged through a?","a":["load resistor","battery","source of emf","voltmeter only"],"c":0},
+    {"type":"mcq","q":"In the discharging process, the voltage of the capacitor?","a":["falls off with time","rises with time","remains constant","increases linearly"],"c":0},
+    {"type":"mcq","q":"The voltage provided by the power supply in a charging circuit is represented as?","a":["$V_0$","$V_c$","$V_r$","$V_t$"],"c":0}
   ]
