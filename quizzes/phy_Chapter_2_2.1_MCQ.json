@@ -1,34 +1,112 @@
 [
-  { "type": "mcq", "q": "According to Newton's second law, an object that is accelerating must have a ___ force acting on it.", "a": ["net", "centrifugal", "frictional"], "c": 0 },
-  { "type": "mcq", "q": "An object moving in a circle, such as a ball on the end of a string, must therefore have a force applied to it to keep it moving in the circle. This force is known as the ___ force.", "a": ["centrifugal", "centripetal", "reaction"], "c": 1 },
-  { "type": "mcq", "q": "For uniform circular motion (speed $v = \\text{constant}$), the acceleration is centripetal acceleration which is directed towards the ___ of the circle at any moment.", "a": ["tangent", "centre", "circumference"], "c": 1 },
-  { "type": "mcq", "q": "In the absence of this force, the object would not move along a circle but move in a ___ line, according to Newton's first law.", "a": ["straight", "curved", "vertical"], "c": 0 },
-  { "type": "mcq", "q": "Using Newton's second law, $F_{\\text{net}} = ma$, the magnitude of the centripetal force is $F_c = ma_c = ___$.", "a": ["$\\frac{mv^2}{r}$", "$mr\\omega$", "$mg$"], "c": 0 },
-  { "type": "mcq", "q": "Substituting $v = r\\omega$ in Eq. (2.1), $F_c = ___$.", "a": ["$mr^2\\omega$", "$mr\\omega^2$", "$\\frac{mv^2}{r}$"], "c": 1 },
-  { "type": "mcq", "q": "For an object to move in a circle, a force is needed to deviate from its straight line path and accelerate towards the ___ of the circle.", "a": ["centre", "outside", "tangent"], "c": 0 },
-  { "type": "mcq", "q": "The tension in the string provides the required centripetal force for the ball to keep moving in ___ path.", "a": ["straight line", "circular", "vertical"], "c": 1 },
-  { "type": "mcq", "q": "Some examples of the centripetal force are the gravitational force of the earth on the ___ orbiting the earth.", "a": ["sun", "moon", "planets"], "c": 1 },
-  { "type": "mcq", "q": "The gravitational force of the sun on the ___ orbiting the sun provides centripetal force.", "a": ["moons", "electrons", "planets"], "c": 2 },
-  { "type": "mcq", "q": "The electric force acting on an ___ orbiting the nucleus acts as the required centripetal force.", "a": ["electron", "proton", "neutron"], "c": 0 },
-  { "type": "mcq", "q": "When whirling a body attached to a string, a ___ force is originated.", "a": ["frictional", "tension", "gravitational"], "c": 1 },
-  { "type": "mcq", "q": "An attractive force exists between the sun and the earth in a direction ___ to the path of the earth.", "a": ["parallel", "perpendicular", "inclined"], "c": 1 },
-  { "type": "mcq", "q": "The ___ attractive force between the nucleus and the electron acts as the required centripetal force.", "a": ["Coulomb", "gravitational", "fictitious"], "c": 0 },
-  { "type": "mcq", "q": "When a car turns in a circular path or a curve, a ___ force exists between the road and the car tires.", "a": ["normal", "frictional", "tension"], "c": 1 },
-  { "type": "mcq", "q": "When a car moves in a circular path which is inclined to the horizontal, the reaction force of the road acts ___ to the car.", "a": ["normally", "parallel", "horizontally"], "c": 0 },
-  { "type": "mcq", "q": "The ___ component of normal force is the required centripetal force.", "a": ["vertical", "horizontal", "perpendicular"], "c": 1 },
-  { "type": "mcq", "q": "The upward thrust (lifting force) acts normally to an ___ body.", "a": ["aeroplane", "automobile", "automobile tire"], "c": 0 },
-  { "type": "mcq", "q": "When the aeroplane tilts, the horizontal component acts normally to the motion of the aeroplane, causing the aeroplane to turn in a ___.", "a": ["straight line", "circle vertically", "curve"], "c": 2 },
-  { "type": "mcq", "q": "On a flat road (unbanked road), this force is supplied by ___ between the tires and the road.", "a": ["friction", "normal force", "gravity"], "c": 0 },
-  { "type": "mcq", "q": "If the frictional force is not sufficient, such as under wet and slippery conditions, the car will ___ out of the circular path.", "a": ["skid", "accelerate", "stop"], "c": 0 },
-  { "type": "mcq", "q": "Banking of roads is raising the ___ edge of the curved road higher than the inner edge.", "a": ["inner", "outer", "lower"], "c": 1 },
-  { "type": "mcq", "q": "The angle that the inclined track makes with horizontal is called angle of ___.", "a": ["banking", "deviation", "inclination"], "c": 0 },
-  { "type": "mcq", "q": "The normal force $F_N$ exerted by a banked road is ___ to the road.", "a": ["parallel", "perpendicular", "tangential"], "c": 1 },
-  { "type": "mcq", "q": "Since there is no vertical motion, the net force on car in ___ direction is zero.", "a": ["x", "y", "z"], "c": 1 },
-  { "type": "mcq", "q": "According to Eq.(2.5), the banking angle of a road $\\theta$ is chosen so that this condition holds for the ___ speed $v$.", "a": ["limiting", "constant", "minimum"], "c": 0 },
-  { "type": "mcq", "q": "Centripetal force is the force acting towards the centre of the circular path around which the object is moving whereas the ___ force appears to act in a direction pointing away from the centre.", "a": ["frictional", "tension", "centrifugal"], "c": 2 },
-  { "type": "mcq", "q": "According to Newton's third law the ball exerts a ___ force on the hand.", "a": ["centripetal", "reaction", "fictitious"], "c": 1 },
-  { "type": "mcq", "q": "Actually, the centrifugal force is not a real force. It is an apparent or ___ force which is equal and opposite to the centripetal force.", "a": ["actual", "fictitious", "gravitational"], "c": 1 },
-  { "type": "mcq", "q": "A centrifuge is a piece of equipment that puts an object in rotation around a fixed ___.", "a": ["point", "axis", "radius"], "c": 1 }
-]
-
-
+    {
+      "type": "mcq",
+      "q": "Centripetal force is the force acting towards the centre of the circular path around which the object is moving whereas the ___ appears to act in a direction pointing away from the centre.",
+      "a": [
+        "tension force",
+        "frictional force",
+        "centrifugal force",
+        "normal force"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "When the car is moving with constant velocity along a straight road, there is no ___ on the person.",
+      "a": [
+        "gravity",
+        "net force",
+        "weight",
+        "upward force"
+      ],
+      "c": 1
+    },
+    {
+      "type": "mcq",
+      "q": "When the car moves around a curve the person feels an outward force exerted on him. This is the centrifugal force caused by the effect of ___.",
+      "a": [
+        "inertia",
+        "gravity",
+        "friction",
+        "tension"
+      ],
+      "c": 0
+    },
+    {
+      "type": "mcq",
+      "q": "It is an apparent or fictitious force which is equal and opposite to the ___.",
+      "a": [
+        "frictional force",
+        "normal force",
+        "centripetal force",
+        "gravitational force"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "A ___ is a piece of equipment that puts an object in rotation around a fixed axis.",
+      "a": [
+        "washing machine",
+        "centrifuge",
+        "centrifugal pump",
+        "centrifugal governor"
+      ],
+      "c": 1
+    },
+    {
+      "type": "mcq",
+      "q": "In a laboratory centrifuge that uses sample test tubes, the radial acceleration causes denser particles to settle to the bottom of the tube, while ___ substances rise to the top.",
+      "a": [
+        "high density",
+        "volatile",
+        "low density",
+        "medium density"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "Centrifugal pump is a hydraulic machine which converts ___ into hydraulic energy.",
+      "a": [
+        "mechanical energy",
+        "heat energy",
+        "electrical energy",
+        "solar energy"
+      ],
+      "c": 0
+    },
+    {
+      "type": "mcq",
+      "q": "The centrifugal action of a washing machine is used in ___ the clothes.",
+      "a": [
+        "washing",
+        "soaking",
+        "spin drying",
+        "heating"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "The ___ is a device used to measure and regulate the speed of a machine, such as an engine.",
+      "a": [
+        "centrifuge",
+        "centrifugal pump",
+        "centrifugal governor",
+        "washing machine"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "A satellite orbiting a planet is supported by the ___.",
+      "a": [
+        "centrifugal force",
+        "centripetal force",
+        "normal force",
+        "frictional force"
+      ],
+      "c": 1
+    }
+  ]
