@@ -1,22 +1,145 @@
 [
-  { "type": "mcq", "q": "Centrifugal pump is a ___ machine which converts mechanical energy into hydraulic energy.", "a": ["pneumatic", "hydraulic", "thermal"], "c": 1 },
-  { "type": "mcq", "q": "The rotating impeller moves water or other fluids by using ___.", "a": ["centripetal force", "gravitational force", "centrifugal force"], "c": 2 },
-  { "type": "mcq", "q": "The centrifugal action of a washing machine is used in ___ drying the clothes.", "a": ["spin", "heat", "air"], "c": 0 },
-  { "type": "mcq", "q": "The centrifugal governor is a device used to measure and regulate the ___ of a machine.", "a": ["temperature", "speed", "pressure"], "c": 1 },
-  { "type": "mcq", "q": "The centrifugal governors consist of two balls of ___ mass, which are attached to the arms.", "a": ["unequal", "varying", "equal"], "c": 2 },
-  { "type": "mcq", "q": "Centripetal force is the force acting on an object in circular motion which is directed towards the ___.", "a": ["axis of rotation", "outer boundary", "tangential path"], "c": 0 },
-  { "type": "mcq", "q": "Centrifugal force in a circular motion acts radially away from the centre of the circle and results from the effect of ___.", "a": ["friction", "inertia", "gravity"], "c": 1 },
-  { "type": "mcq", "q": "If a car is travelling through a curve on a circular horizontal road, the centripetal force is provided by the force of ___.", "a": ["inertia", "gravity", "friction"], "c": 2 },
-  { "type": "mcq", "q": "When a car in motion takes a sudden turn in a curved path, passengers in the car experience an ___.", "a": ["outward push", "inward pull", "upward lift"], "c": 0 },
-  { "type": "mcq", "q": "A satellite orbiting a planet is supported by the ___.", "a": ["centrifugal force", "centripetal force", "fictitious force"], "c": 1 },
-  { "type": "mcq", "q": "Removing the excess water by spin drying clothes in a washing machine is with the help of ___.", "a": ["centrifugal force", "centripetal force", "gravitational force"], "c": 0 },
-  { "type": "mcq", "q": "In Example 2.3, the athlete weighs ___.", "a": ["$790\\text{ N}$", "$80.61\\text{ kg}$", "$580.4\\text{ N}$"], "c": 0 },
-  { "type": "mcq", "q": "The mass of the athlete calculated in the example is ___.", "a": ["$790\\text{ kg}$", "$80.61\\text{ kg}$", "$580.4\\text{ kg}$"], "c": 1 },
-  { "type": "mcq", "q": "The required centripetal force to run the curve in Example 2.3 is calculated as ___.", "a": ["$790\\text{ N}$", "$80.61\\text{ N}$", "$580.4\\text{ N}$"], "c": 2 },
-  { "type": "mcq", "q": "Frictional force between the feet and the ground provides the ___.", "a": ["centrifugal force", "centripetal force", "fictitious force"], "c": 1 },
-  { "type": "mcq", "q": "If the radius of curvature is smaller, the centripetal force will become ___.", "a": ["greater", "smaller", "zero"], "c": 0 },
-  { "type": "mcq", "q": "If the radius of curvature is smaller, the athlete will slip since the frictional force is ___ than the required centripetal force.", "a": ["greater", "less", "equal"], "c": 1 },
-  { "type": "mcq", "q": "When a skater forms a circle, he has to lean ___.", "a": ["outwards", "inwards", "sideways"], "c": 1 },
-  { "type": "mcq", "q": "Centrifugal force in a circular motion is ___.", "a": ["a real force", "not a real force", "an inward force"], "c": 1 },
-  { "type": "mcq", "q": "The formula used to find the required centripetal force to run a curve is ___.", "a": ["$F_c = \\frac{mv^2}{r}$", "$m = \\frac{w}{g}$", "$v = \\omega r$"], "c": 0 }
-]
+    {
+      "type": "mcq",
+      "q": "According to Newton's second law, an object that is accelerating must have a ___ acting on it.",
+      "a": [
+        "centrifugal force",
+        "net force",
+        "gravitational force",
+        "fictional force"
+      ],
+      "c": 1
+    },
+    {
+      "type": "mcq",
+      "q": "This force is known as the ___.",
+      "a": [
+        "centripetal force",
+        "centrifugal force",
+        "magnetic force",
+        "frictional force"
+      ],
+      "c": 0
+    },
+    {
+      "type": "mcq",
+      "q": "In the absence of this force, the object would not move along a circle but move in a ___, according to Newton's first law.",
+      "a": [
+        "parabolic arc",
+        "spiral path",
+        "straight line",
+        "vertical curve"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "The ___ in the string provides the required centripetal force for the ball to keep moving in circular path.",
+      "a": [
+        "friction",
+        "tension",
+        "weight",
+        "normal force"
+      ],
+      "c": 1
+    },
+    {
+      "type": "mcq",
+      "q": "An attractive force exists between the sun and the earth in a direction ___ to the path of the earth.",
+      "a": [
+        "parallel",
+        "tangential",
+        "perpendicular",
+        "opposite"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "The Coulomb attractive force between the nucleus and the electron acts as the required centripetal force for the electron to move around the ___.",
+      "a": [
+        "proton",
+        "neutron",
+        "nucleus",
+        "atom"
+      ],
+      "c": 2
+    },
+    {
+      "type": "mcq",
+      "q": "When a car turns in a circular path or a curve, a ___ exists between the road and the car tires.",
+      "a": [
+        "tension force",
+        "lifting force",
+        "electric force",
+        "frictional force"
+      ],
+      "c": 3
+    },
+    {
+      "type": "mcq",
+      "q": "The ___ of normal force is the required centripetal force.",
+      "a": [
+        "horizontal component",
+        "vertical component",
+        "parallel component",
+        "tangential component"
+      ],
+      "c": 0
+    },
+    {
+      "type": "mcq",
+      "q": "On a flat road (unbanked road), this force is supplied by ___ between the tires and the road.",
+      "a": [
+        "normal force",
+        "friction",
+        "gravity",
+        "tension"
+      ],
+      "c": 1
+    },
+    {
+      "type": "mcq",
+      "q": "Banking of roads is raising the ___ of the curved road higher than the inner edge.",
+      "a": [
+        "centre",
+        "outer edge",
+        "mass",
+        "tangent"
+      ],
+      "c": 1
+    },
+    {
+      "type": "mcq",
+      "q": "The angle that the inclined track makes with horizontal is called angle of ___.",
+      "a": [
+        "friction",
+        "banking",
+        "rotation",
+        "curvature"
+      ],
+      "c": 1
+    },
+    {
+      "type": "mcq",
+      "q": "The normal force $F_{N}$ exerted by a banked road is ___ to the road.",
+      "a": [
+        "parallel",
+        "perpendicular",
+        "horizontal",
+        "tangent"
+      ],
+      "c": 1
+    },
+    {
+      "type": "mcq",
+      "q": "In this case, the horizontal component of the normal force, $F_{N} \\sin \\theta$, towards the centre of the curve of radius $r$ just equals the centripetal force (___).",
+      "a": [
+        "$m r \\omega^{2}$",
+        "$F_{N} \\cos \\theta$",
+        "$\\frac{m v^{2}}{r}$",
+        "$m g$"
+      ],
+      "c": 2
+    }
+  ]
