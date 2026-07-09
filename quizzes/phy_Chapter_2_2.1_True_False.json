@@ -1,32 +1,102 @@
-[
-  { "type": "tf", "q": "According to Newton's second law, an object that is accelerating must have a net force acting on it.", "c": true },
-  { "type": "tf", "q": "In uniform circular motion, the speed is variable.", "c": false },
-  { "type": "tf", "q": "The centripetal acceleration is directed away from the centre of the circle at any moment.", "c": false },
-  { "type": "tf", "q": "In the absence of a centripetal force, an object in circular motion would move along a straight line.", "c": true },
-  { "type": "tf", "q": "The magnitude of the centripetal force can be written as $F_c = mr\\omega^2$.", "c": true },
-  { "type": "tf", "q": "The string pulls inward on the ball to provide the required centripetal force.", "c": true },
-  { "type": "tf", "q": "The gravitational force of the earth on the moon is an example of a centripetal force.", "c": true },
-  { "type": "tf", "q": "The electric force acting on an electron orbiting the nucleus is directed away from the nucleus.", "c": false },
-  { "type": "tf", "q": "A tension force behaves as a centripetal force when a body attached to a string is whirled.", "c": true },
-  { "type": "tf", "q": "An attractive force exists between the sun and the earth in a direction parallel to the path of the earth.", "c": false },
-  { "type": "tf", "q": "The Coulomb attractive force between the nucleus and the electron acts as the required centrifugal force.", "c": false },
-  { "type": "tf", "q": "When a car turns in a curved path, the frictional force acts normally to the direction of motion of the car.", "c": true },
-  { "type": "tf", "q": "When a car moves on an inclined circular path, the vertical component of the normal force provides the required centripetal force.", "c": false },
-  { "type": "tf", "q": "The upward thrust on an aeroplane body acts normally to the aeroplane body.", "c": true },
-  { "type": "tf", "q": "On an unbanked road, the centripetal force is supplied by the normal force.", "c": false },
-  { "type": "tf", "q": "If the frictional force is not sufficient under wet conditions, the car will skid out of the circular path.", "c": true },
-  { "type": "tf", "q": "Banking of roads is raising the inner edge of the curved road higher than the outer edge.", "c": false },
-  { "type": "tf", "q": "The angle that the inclined track makes with the horizontal is called the angle of friction.", "c": false },
-  { "type": "tf", "q": "The normal force $F_N$ exerted by a banked road is perpendicular to the road.", "c": true },
-  { "type": "tf", "q": "For every banked curve, there is a limiting speed at which the entire centripetal force is supplied by the horizontal component of the normal force.", "c": true },
-  { "type": "tf", "q": "When a car takes a turn at the limiting speed on a banked curve, the frictional force between the tires and the road is not required.", "c": true },
-  { "type": "tf", "q": "The equation for the banking angle without friction is $\\tan \\theta = \\frac{v^2}{rg}$.", "c": true },
-  { "type": "tf", "q": "Since there is no vertical motion for a car on a banked road, the net force in the y direction is zero.", "c": true },
-  { "type": "tf", "q": "Centrifugal force acts towards the centre of the circular path.", "c": false },
-  { "type": "tf", "q": "Except centripetal force, there is another real force acting on a whirled ball along the string.", "c": false },
-  { "type": "tf", "q": "The outward force felt by a person in a car moving around a curve is caused by the effect of inertia.", "c": true },
-  { "type": "tf", "q": "Centrifugal force is a real force.", "c": false },
-  { "type": "tf", "q": "The centrifugal force is equal and opposite to the centripetal force.", "c": true },
-  { "type": "tf", "q": "In a laboratory centrifuge, the radial acceleration causes less dense particles to settle to the bottom of the tube.", "c": false },
-  { "type": "tf", "q": "The sedimentation principle states that low density substances rise to the top in a centrifuge.", "c": true }
-]
+ [
+    {
+      "type": "tf",
+      "q": "According to Newton's second law, an object that is accelerating must have a net force acting on it.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "An object moving in a circle, such as a ball on the end of a string, must therefore have a force applied to it to keep it moving in a straight line.",
+      "c": false
+    },
+    {
+      "type": "tf",
+      "q": "In the absence of this force, the object would not move along a circle but move in a straight line, according to Newton's first law.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "For an object to move in a circle, a force is needed to deviate from its straight line path and accelerate towards the centre of the circle.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "The tension in the string provides the required centrifugal force for the ball to keep moving in circular path.",
+      "c": false
+    },
+    {
+      "type": "tf",
+      "q": "There are different forces which can provide centripetal force depending on the motion of bodies under various conditions.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "When whirling a body attached to a string, a tension force is originated.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "An attractive force exists between the sun and the earth in a direction parallel to the path of the earth.",
+      "c": false
+    },
+    {
+      "type": "tf",
+      "q": "The Coulomb attractive force between the nucleus and the electron acts as the required centripetal force for the electron to move around the nucleus.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "When a car turns in a circular path or a curve, a frictional force exists between the road and the car tires.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "This frictional force acts normally to the direction of motion of the car, causing the car to move in a straight path.",
+      "c": false
+    },
+    {
+      "type": "tf",
+      "q": "When a car moves in a circular path which is inclined to the horizontal, the reaction force of the road acts normally to the car.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "The horizontal component of normal force is the required centrifugal force.",
+      "c": false
+    },
+    {
+      "type": "tf",
+      "q": "The upward thrust (lifting force) acts normally to an aeroplane body.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "On a flat road (unbanked road), this force is supplied by friction between the tires and the road.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "If the frictional force is not sufficient, such as under wet and slippery conditions, the car will skid out of the circular path.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "Banking of roads is raising the inner edge of the curved road higher than the outer edge.",
+      "c": false
+    },
+    {
+      "type": "tf",
+      "q": "The angle that the inclined track makes with horizontal is called angle of banking.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "The normal force $F_{N}$ exerted by a banked road is perpendicular to the road.",
+      "c": true
+    },
+    {
+      "type": "tf",
+      "q": "For every banked curve, there is a limiting speed at which the entire centripetal force is supplied by the horizontal component of the normal force.",
+      "c": true
+    }
+  ]
