@@ -1,0 +1,702 @@
+[
+  {
+    "type": "tf",
+    "q": "Circular motion involves an object just moving in a circle.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Rotational motion is characterized by an object rotating about an axis.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Artificial satellites orbiting the earth at a constant height are an example of rotational motion.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The rotation of the Earth about its own axis is an example of circular motion.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "A rigid body is defined as a body that deforms or changes shape significantly during motion.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The distance between any two particles within a rigid body remains constant, regardless of its motion.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "If a rigid body is in rotational motion, only some particles within it undergo circular motion about a common axis.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "An object's angular velocity changes when it speeds up or slows down, resulting in angular acceleration.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Rotational motion under constant angular acceleration occurs when its angular velocity changes at a non-constant rate.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Angular displacement, angular velocity, and angular acceleration are considered rotational variables.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Kinematic equations for rotational motion with constant angular acceleration can be derived using angular displacement, angular velocity, and angular acceleration.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The initial angular speed of an object at $t=0$ is represented by $\\omega_0$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The relationship $\\alpha = \\frac{\\omega - \\omega_0}{t}$ implies that angular acceleration is the rate of change of angular velocity over time.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The equation $\\omega = \\omega_0 + \\alpha t$ can be used to find the final angular speed given initial angular speed, angular acceleration, and time.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Average angular speed is calculated as $\\bar{\\omega} = \\frac{\\omega + \\omega_0}{2}$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Angular displacement for a time interval $t$ is universally given by $\\theta = \\omega t$, where $\\omega$ is the instantaneous angular speed.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The equation $\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2$ relates angular displacement to initial angular speed, angular acceleration, and time.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The equation $\\omega^2 = \\omega_0^2 + 2 \\alpha \\theta$ relates final angular speed to initial angular speed, angular acceleration, and angular displacement.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The equations of motion for constant angular acceleration are fundamentally different in form from those for linear motion.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "In rotational motion, linear quantities replace angular quantities in kinematic equations to make them analogous to linear motion.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The angular acceleration is constant if the angular velocity of an object changes at a constant rate.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "An object that rotates with a constant angular acceleration will have kinematic equations that involve instantaneous angular displacement.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The magnitude of angular velocity at $t=0$ is denoted by $\\omega_0$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The angular speed $\\omega$ at time $t$ can be derived from constant angular acceleration.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The equation $\\omega = \\omega_0 + \\alpha t$ shows that angular acceleration is inversely proportional to time for a given change in angular velocity.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "If an object is slowing down, its angular velocity is changing, implying angular acceleration.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Angular acceleration is present only when an object speeds up.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The concept of a rigid body is crucial in rotational motion because it implies varying distances between particles.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "All particles of a rigid body in rotational motion undergo circular motion around the same axis.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The learning outcomes for this chapter include differentiating between uniform and nonuniform circular motion.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The learning outcomes for this chapter expect students to deduce relations between angular and linear quantities.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Understanding centripetal acceleration is a learning outcome for this chapter.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Examining rotational motion under constant angular acceleration is a learning outcome for this chapter.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The angular displacement is represented by $\\theta$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The angular acceleration is represented by $\\alpha$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The angular velocity is represented by $\\omega$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "In Grade 11, angular displacement, angular velocity, and angular acceleration were not discussed in relation to circular motion.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Rotational motion concepts are applicable only to non-rigid bodies.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The motion of fan blades is an example of circular motion.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The equations for rotational motion under constant angular acceleration are fundamentally different from linear kinematic equations.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "When an object rotates, if its angular velocity is constant, it still possesses angular acceleration.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "A rigid body is defined by its ability to deform or change shape under motion.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The kinematic equations for rotational motion are expressed in terms of linear displacement, linear velocity, and linear acceleration.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The angular displacement for time interval $t$ is always given by $\\theta = \\omega_0 t$.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The average angular speed is the sum of the initial and final angular speeds divided by two.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "If angular acceleration is constant, the rate of change of angular velocity is also constant.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The concepts and equations for centripetal acceleration will be studied in this chapter.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The concepts and equations for rotational motion under constant angular acceleration will be studied in this chapter.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Differentiating between circular motion and rotational motion is a goal of this chapter.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Rotational motion describes an object moving in a circle without rotating about its own axis.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Circular motion describes an object rotating about its own axis.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The equations of motion for constant angular acceleration are derived assuming a changing angular acceleration.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "If a rigid body is in rotational motion, each particle follows a unique, unrelated path.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The term \"angular speed\" refers to the magnitude of angular velocity.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The formula $\\omega = \\omega_0 + \\alpha t$ is only valid for situations where angular acceleration is not constant.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The formula $\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2$ is a kinematic equation for constant angular acceleration.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The formula $\\omega^2 = \\omega_0^2 + 2 \\alpha \\theta$ connects angular speed, initial angular speed, angular acceleration, and angular displacement.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The analogy between linear and rotational kinematic equations holds true by replacing angular quantities with corresponding linear ones.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "If an object's angular velocity is constant, its angular acceleration is necessarily zero.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The cycle of day and night is a result of the Earth's circular motion around the sun.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The relations between linear and angular quantities were first studied in Grade 12.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "In rotational motion, all particles of an object rotate around an axis of rotation but do not necessarily move in a circular path.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The arc length $s$ and angular displacement $\\theta$ are related by $s = r \\theta$, where $\\theta$ must be measured in radians.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The instantaneous angular velocity $\\omega$ is unique for each particle within a rotating object.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The magnitude of linear velocity $v$ and angular velocity $\\omega$ are related by $v = r \\omega$, where $\\omega$ is measured in radians per second.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Linear velocity is also known as tangential velocity because its direction is tangent to the path.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "A change in the magnitude of a rotating object's angular velocity results in tangential acceleration.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The direction of tangential acceleration is always radial, towards the center of the circular path.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Tangential acceleration $a_t$ is related to angular acceleration $\\alpha$ by $a_t = r \\alpha$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Tangential acceleration measures how fast the linear velocity changes.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The angular velocity vector's direction is parallel to the plane of rotation.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The angular velocity vector points along the axis of rotation.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The right-hand rule is used to determine the direction of linear velocity.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "According to the right-hand rule, if fingers point in the direction of rotation, the thumb points in the direction of the angular velocity vector.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "If angular velocity is increasing, the angular acceleration vector points in the direction opposite to the angular velocity.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "If angular velocity is decreasing, the angular acceleration vector points in the same direction as the angular velocity.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Linear quantities are denoted by $s$, $v$, and $a$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Angular quantities are denoted by $\\theta$, $\\omega$, and $\\alpha$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The relation $v = r \\omega$ applies to the entire rotational object, not just individual particles.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Angular displacement is measured in degrees when using the relation $s = r \\theta$.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Tangential acceleration is a measure of how fast the tangential velocity changes.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The angular velocity vector is perpendicular to the plane of rotation.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The right-hand rule is used to determine the magnitude of angular velocity.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "When the angular velocity is constant, there is no tangential acceleration.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The direction of linear velocity is always perpendicular to the radius for an object in circular motion.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The angular velocity of a rotational object can vary for different particles within the same object.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The relation $a_t = r \\alpha$ connects tangential acceleration, radius, and angular displacement.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The magnitude of linear velocity will only change if the radius of the circular path changes.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The linear distance measured along an arc is denoted by $\\theta$.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The angular displacement is denoted by $s$.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The linear velocity is always directed along the radius of the circular path.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The angular acceleration vector's direction is independent of whether angular velocity is increasing or decreasing.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The relation $s=r\\theta$ is applicable even if $\\theta$ is expressed in degrees.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The tangential acceleration vector is always perpendicular to the direction of the circular path.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The relations between linear and angular quantities are identical for both circular and rotational motion.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The relations between linear and angular quantities (s, v, a and $\\theta$, $\\omega$, $\\alpha$) are introduced for the first time in Grade 12.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The linear velocity $v$ is sometimes referred to as tangential speed.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The angular acceleration $\\alpha$ is measured in radians per second cubed.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "If the magnitude of angular velocity is constant, then the tangential acceleration is non-zero.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "A particle of a rotating object moves in a circular path that is parallel to the axis of rotation.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Uniform circular motion occurs when an object moves in a circle at a constant speed.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "In uniform circular motion, the magnitude of velocity changes continuously.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The continuous change in the direction of velocity in circular motion does not constitute an acceleration.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "An object revolving in a circle at constant speed is still continuously accelerating.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Average acceleration is defined as the change in velocity vector divided by the time interval.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Instantaneous acceleration can be obtained when the time interval $\\Delta t$ approaches zero.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "In uniform circular motion, the change in the velocity vector $\\Delta \\vec{v}$ points away from the center of the circle.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Centripetal acceleration is also known as radial acceleration because it is directed along the radius towards the center.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The centripetal acceleration $a_c$ is directly proportional to the radius $r$ and the square of the linear speed $v$.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The equation $a_c = \\frac{v^2}{r}$ expresses centripetal acceleration in terms of linear speed and radius.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Substituting $v = r \\omega$ into the centripetal acceleration formula yields $a_c = r \\omega^2$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "In uniform circular motion, the centripetal acceleration vector is tangential to the path.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The linear velocity vector in uniform circular motion is perpendicular to the circular path.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Centripetal acceleration and linear velocity are perpendicular to each other at every point in the path.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "Nonuniform circular motion occurs when an object moves in a circular path with a varying speed.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "In nonuniform circular motion, the angular speed of the object remains constant.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Angular acceleration gives rise to tangential acceleration in nonuniform circular motion.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "In nonuniform circular motion, only centripetal acceleration is present.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The resultant acceleration in nonuniform circular motion is the scalar sum of centripetal and tangential accelerations.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The two acceleration vectors, $\\vec{a_c}$ and $\\vec{a_t}$, are always parallel to each other.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The centripetal acceleration vector $\\vec{a_c}$ is in the tangential direction.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The tangential acceleration vector $\\vec{a_t}$ is in the radial direction.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The magnitude of resultant acceleration $a$ is given by $a = \\sqrt{a_c^2 + a_t^2}$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The direction of resultant acceleration $\\vec{a}$ is determined by $\\tan \\phi = \\frac{a_c}{a_t}$.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Centripetal acceleration is present only in nonuniform circular motion.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "Tangential acceleration is present in both uniform and nonuniform circular motion.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "If $\\Delta t$ approaches zero, $\\Delta s$ and $\\Delta \\theta$ also become very small.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "When $\\Delta t$ approaches zero, $\\vec{v_2}$ will be almost perpendicular to $\\vec{v_1}$.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The acceleration vector $\\vec{a}$ points toward the center of the circle in uniform circular motion.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The limit of $\\frac{\\Delta s}{\\Delta t}$ as $\\Delta t \\to 0$ represents the linear speed $v$.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The centripetal acceleration $a_c = r \\omega^2$ is only valid when the angular speed $\\omega$ is constant.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The resultant acceleration in nonuniform circular motion is always directed towards the center of the circle.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The angular acceleration in nonuniform circular motion gives rise to the centripetal acceleration.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "If an object is in nonuniform circular motion, its tangential acceleration will be zero.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The direction of angular velocity can be specified using the right-hand rule.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "The centripetal acceleration acts along the radius and points radially outward from the center of the circle.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The magnitude of the resultant acceleration in nonuniform circular motion can be zero if $a_c$ and $a_t$ cancel each other out.",
+    "c": false
+  },
+  {
+    "type": "tf",
+    "q": "The relation $\\tan \\phi = \\frac{a_t}{a_c}$ provides the angle of the resultant acceleration vector relative to the centripetal acceleration vector.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "In a situation where an object's speed is constant, the only acceleration present is centripetal acceleration.",
+    "c": true
+  },
+  {
+    "type": "tf",
+    "q": "For an object to have tangential acceleration, its angular speed must be changing.",
+    "c": true
+  }
+]
