@@ -1,17 +1,112 @@
 [
-  {"type": "mcq", "q": "The trigonometric form of $z = -1$ with $-\\pi < \\theta \\le \\pi$ is", "a": ["$\\cos \\pi + i \\sin \\pi$", "$\\cos(-\\pi) + i \\sin(-\\pi)$", "$\\cos \\frac{\\pi}{2} + i \\sin \\frac{\\pi}{2}$", "$\\cos 0 + i \\sin 0$"], "c": 0},
-  {"type": "mcq", "q": "If $z_1 = a + 2i$, $z_2 = 1 + i$ and $\\frac{z_1}{z_2} = 3 - i$, then $a$ is", "a": ["$2$", "$3$", "$4$", "$5$"], "c": 2},
-  {"type": "mcq", "q": "What is the value of $x+y$ if $(x+y) + i(y-3) = 5 + 2i$?", "a": ["$2$", "$5$", "$7$", "$8$"], "c": 1},
-  {"type": "mcq", "q": "If $z_1 = 2+i$, $z_2 = -1+bi$ and $z_1 z_2 = -5 + 5i$, then $b$ is", "a": ["$1$", "$2$", "$3$", "$4$"], "c": 2},
-  {"type": "mcq", "q": "If $z_1 = (2, \\frac{\\pi}{2})$ and $z_2 = (4, \\pi)$, then the value of the conjugate of $\\frac{z_2}{z_1}$ is", "a": ["$-2i$", "$2i$", "$-2$", "$2$"], "c": 0},
-  {"type": "mcq", "q": "The given complex number $\\frac{2+3i}{3+i}$ in the form $a+bi$ is", "a": ["$\\frac{7}{10} + \\frac{9}{10}i$", "$\\frac{9}{10} + \\frac{7}{10}i$", "$\\frac{9}{10} - \\frac{7}{10}i$", "$\\frac{3}{10} + \\frac{1}{10}i$"], "c": 1},
-  {"type": "mcq", "q": "If $z_1 = 3-2i$ and $z_2 = -1+4i$, then $z_1 \\overline{z_2}$ is", "a": ["$-11 - 10i$", "$-11 + 10i$", "$5 - 10i$", "$5 + 10i$"], "c": 0},
-  {"type": "mcq", "q": "If $z_1 = 2(\\cos \\frac{\\pi}{3} + i \\sin \\frac{\\pi}{3})$ and $z_2 = 3(\\cos \\frac{\\pi}{6} + i \\sin \\frac{\\pi}{6})$, then $z_1 z_2$ is", "a": ["$6$", "$-6i$", "$-6$", "$6i$"], "c": 3},
-  {"type": "mcq", "q": "If $z = -\\sqrt{3} - i$, then the multiplicative inverse $z^{-1}$ is", "a": ["$\\frac{\\sqrt{3}}{4} - \\frac{1}{4}i$", "$-\\frac{\\sqrt{3}}{4} + \\frac{1}{4}i$", "$-\\frac{1}{4} + \\frac{\\sqrt{3}}{4}i$", "$\\frac{1}{4} - \\frac{\\sqrt{3}}{4}i$"], "c": 1},
-  {"type": "mcq", "q": "If $z_1 = a+bi$, $z_2 = 2-i$ and $\\frac{z_1}{z_2} = 1+i$, then $a+b$ is", "a": ["$2$", "$3$", "$4$", "$5$"], "c": 2},
-  {"type": "mcq", "q": "The trigonometric form of $z = -\\sqrt{3} - i$ with $-\\pi < \\theta \\le \\pi$ is", "a": ["$2(\\cos(-\\frac{5\\pi}{6}) + i \\sin(-\\frac{5\\pi}{6}))$", "$2(\\cos(\\frac{5\\pi}{6}) + i \\sin(\\frac{5\\pi}{6}))$", "$2(\\cos(-\\frac{\\pi}{6}) + i \\sin(-\\frac{\\pi}{6}))$", "$2(\\cos(\\frac{\\pi}{6}) + i \\sin(\\frac{\\pi}{6}))$"], "c": 0},
-  {"type": "mcq", "q": "If $x - 2 + (y+1)i = 3 - 4i$, find the values of $x$ and $y$.", "a": ["$x=1$ and $y=-3$", "$x=5$ and $y=3$", "$x=5$ and $y=-5$", "$x=-5$ and $y=5$"], "c": 2},
-  {"type": "mcq", "q": "The value of the complex number $i^{10} + i^{11}$ is", "a": ["$1 + i$", "$-1 - i$", "$-1 + i$", "$1 - i$"], "c": 1},
-  {"type": "mcq", "q": "The value of the complex number $(1-i)^2$ is", "a": ["$2i$", "$2$", "$-2i$", "$-2$"], "c": 2},
-  {"type": "mcq", "q": "If $z = (3, -4)$, then the absolute value $|z|$ is", "a": ["$1$", "$5$", "$7$", "$25$"], "c": 1}
+  {
+    "type": "mcq",
+    "q": "What is the value of \\( i^{15} \\)?",
+    "a": [
+      "\\( 1 \\)",
+      "\\( -1 \\)",
+      "\\( i \\)",
+      "\\( -i \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( (x - 2, y + 3) = (4, -1) \\), what are the values of \\( x \\) and \\( y \\)?",
+    "a": [
+      "\\( x = 6, y = -4 \\)",
+      "\\( x = 2, y = 4 \\)",
+      "\\( x = -6, y = 4 \\)",
+      "\\( x = 6, y = 4 \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "Let \\( z_1 = (2, -1) \\) and \\( z_2 = (3, 4) \\). What is the product \\( z_1 z_2 \\)?",
+    "a": [
+      "\\( (2, 11) \\)",
+      "\\( (10, 5) \\)",
+      "\\( (2, -11) \\)",
+      "\\( (10, -5) \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "What is the conjugate \\( \\bar{z} \\) of the complex number \\( z = -3 + 5i \\)?",
+    "a": [
+      "\\( 3 - 5i \\)",
+      "\\( -3 - 5i \\)",
+      "\\( 3 + 5i \\)",
+      "\\( 5 - 3i \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "Calculate the quotient \\( \\frac{1 + 2i}{2 - i} \\).",
+    "a": [
+      "\\( -i \\)",
+      "\\( -1 \\)",
+      "\\( i \\)",
+      "\\( 1 \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "What is the absolute value \\( |z| \\) of the complex number \\( z = -4 + 3i \\)?",
+    "a": [
+      "\\( 7 \\)",
+      "\\( 25 \\)",
+      "\\( 5 \\)",
+      "\\( \\sqrt{7} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "What is the trigonometric form of \\( z = 1 - i \\) with \\( -\\pi < \\theta \\le \\pi \\)?",
+    "a": [
+      "\\( \\sqrt{2}(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}) \\)",
+      "\\( \\sqrt{2}(\\cos(-\\frac{\\pi}{4}) + i\\sin(-\\frac{\\pi}{4})) \\)",
+      "\\( 2(\\cos(-\\frac{\\pi}{4}) + i\\sin(-\\frac{\\pi}{4})) \\)",
+      "\\( \\sqrt{2}(\\cos\\frac{3\\pi}{4} + i\\sin\\frac{3\\pi}{4}) \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "Let \\( z_1 = 2(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}) \\) and \\( z_2 = 3(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}) \\). What is the product \\( z_1 z_2 \\) in trigonometric form?",
+    "a": [
+      "\\( 5(\\cos\\frac{\\pi}{2} + i\\sin\\frac{\\pi}{2}) \\)",
+      "\\( 6(\\cos(-\\frac{\\pi}{6}) + i\\sin(-\\frac{\\pi}{6})) \\)",
+      "\\( 6(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}) \\)",
+      "\\( 6(\\cos\\frac{\\pi}{2} + i\\sin\\frac{\\pi}{2}) \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( z = 2(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}) \\), what is \\( z^4 \\) in trigonometric form?",
+    "a": [
+      "\\( 16(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}) \\)",
+      "\\( 16(\\cos\\pi + i\\sin\\pi) \\)",
+      "\\( 2(\\cos 4\\pi + i\\sin 4\\pi) \\)",
+      "\\( 8(\\cos\\pi + i\\sin\\pi) \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "What is the absolute value of each cube root of the complex number \\( z = 8(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}) \\)?",
+    "a": [
+      "\\( \\sqrt{2} \\)",
+      "\\( 8 \\)",
+      "\\( 2 \\)",
+      "\\( 4 \\)"
+    ],
+    "c": 2
+  }
 ]
