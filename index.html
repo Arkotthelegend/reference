@@ -366,6 +366,23 @@
             transform: translateX(-80px) !important; 
         }
 		
+		/* သင်္ချာ အဖြေပြမည့် ဘောက်စ်အတွက် သီးသန့် CSS Class */
+.math-scroll-container {
+    max-width: 100%;       /* ဖုန်း Screen အရွယ်အစားထက် မကျော်စေရန် */
+    overflow-x: auto;      /* အလျားလိုက် ဘေးတိုက် Scroll ဆွဲခွင့်ပေးမည် */
+    overflow-y: hidden;    /* အထက်အောက် မလိုအပ်ဘဲ Scroll မဖြစ်စေရန် */
+    padding-bottom: 10px;  /* Scrollbar ပေါ်လာရင် စာကို မဖုံးသွားအောင် အောက်ခြေ နေရာချန်ထားခြင်း */
+    white-space: nowrap;   /* စာကြောင်းများ အောက်တစ်ကြောင်းသို့ မဆင်းဘဲ ဆက်တိုက်ပြရန် (Equation များအတွက် အသုံးဝင်သည်) */
+}
+
+/* (ရွေးချယ်ရန်) Scrollbar လေးကို သေးသေးသွယ်သွယ်နဲ့ လှသွားအောင် ပြင်ချင်ရင် ထည့်ပါ */
+.math-scroll-container::-webkit-scrollbar {
+    height: 6px; /* Scrollbar အထူ */
+}
+.math-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #b0bec5; /* Scrollbar အရောင် */
+    border-radius: 10px;
+}
 	
 </style>
 </head>
@@ -669,7 +686,6 @@ const subChapterConfig = {
 		'Chapter 3': ['3.1', '3.2','3.3','3.4'],
         'Chapter 4': ['4.1', '4.2','4.3','4.4','4.5'],
 		'Chapter 5': ['5.1','5.2','5.3','5.4','5.5'],
-        'Chapter 6': ['6.1', '6.2','6.3','6.4','6.5'],
 		'Chapter 7': ['7.1','7.2','7.3','7.4','7.5','7.6','7.7'],
         'Chapter 8': ['8.1','8.2','8.3']
     }
