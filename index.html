@@ -375,22 +375,46 @@
     white-space: nowrap;   /* စာကြောင်းများ အောက်တစ်ကြောင်းသို့ မဆင်းဘဲ ဆက်တိုက်ပြရန် (Equation များအတွက် အသုံးဝင်သည်) */
 }
 
+/* ၁။ အဖြေ ရှင်းလင်းချက် ဘောက်စ် အပြင်ဘောင်အတွက် */
 .math-scroll-container {
-    max-width: 100%;       
-    overflow-x: auto;      
-    overflow-y: hidden;    
-    padding-bottom: 10px;  
-    white-space: nowrap;   
-
-    /* 🌟 ဤနေရာမှစ၍ အသစ်ထပ်တိုးပါ 🌟 */
-    line-height: 3; /* စာကြောင်းတစ်ကြောင်းနှင့် တစ်ကြောင်းကြား အကွာအဝေးကို ချဲ့ပေးခြင်း (၁.၅ မှ ၂.၅ ကြား စိတ်ကြိုက်ပြင်နိုင်ပါသည်) */
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-wrap: break-word !important; /* စာသားများ ဘောင်အပြင်မထွက်ဘဲ အောက်ဆင်းရန် */
+    word-wrap: break-word !important;
+    line-height: 2.2 !important; /* 🌟 တစ်ကြောင်းနှင့်တစ်ကြောင်း အကွာအဝေး (မသိသာပါက 2.5 ထိ တင်ကြည့်ပါ) */
+    padding: 15px !important;
+    box-sizing: border-box !important;
+    white-space: normal !important; /* အရင်က nowrap ကို ဖျက်ပြီး normal ပြန်လုပ်ထားသည် */
+    display: block !important;
 }
 
-/* 🌟 အကယ်၍ အဖြေများကို <div>, <p> သို့မဟုတ် MathJax Block များဖြင့် ခွဲရေးထားပါက 🌟 */
-.math-scroll-container div,
-.math-scroll-container p,
-.mjx-container {
-    margin-bottom: 15px !important; /* Equation တစ်ခုနှင့်တစ်ခု (သို့) စာကြောင်းများကြား အောက်ခြေအကွာအဝေး */
+/* ၂။ သင်္ချာ Equation (MathJax) များ ဘောင်အပြင်မထွက်စေရန် */
+.math-scroll-container .mjx-container {
+    max-width: 100% !important;
+    overflow-x: auto !important; /* ရှည်လွန်းသော Equation ကို Scroll ဆွဲခွင့်ပေးရန် */
+    overflow-y: hidden !important;
+    display: inline-block !important; /* စာသားများနှင့် တစ်တန်းတည်း အဆင်ပြေစေရန် */
+    vertical-align: middle !important;
+}
+
+/* ၃။ အလယ်ဗဟိုတွင် သီးသန့်ပေါ်သော Equation အကြီးများအတွက် အပေါ်/အောက် နေရာခြားခြင်း */
+.math-scroll-container mjx-container[display="true"] {
+    display: block !important;
+    margin-top: 20px !important; 
+    margin-bottom: 20px !important;
+    overflow-x: auto !important;
+}
+
+/* ၄။ ဘေးတိုက် Scrollbar ကို သပ်ရပ်စေရန် */
+.math-scroll-container::-webkit-scrollbar,
+.math-scroll-container .mjx-container::-webkit-scrollbar {
+    height: 6px; 
+}
+.math-scroll-container::-webkit-scrollbar-thumb,
+.math-scroll-container .mjx-container::-webkit-scrollbar-thumb {
+    background-color: #334155; 
+    border-radius: 10px;
 }
 	
 </style>
