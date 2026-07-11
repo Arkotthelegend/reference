@@ -375,13 +375,22 @@
     white-space: nowrap;   /* စာကြောင်းများ အောက်တစ်ကြောင်းသို့ မဆင်းဘဲ ဆက်တိုက်ပြရန် (Equation များအတွက် အသုံးဝင်သည်) */
 }
 
-/* (ရွေးချယ်ရန်) Scrollbar လေးကို သေးသေးသွယ်သွယ်နဲ့ လှသွားအောင် ပြင်ချင်ရင် ထည့်ပါ */
-.math-scroll-container::-webkit-scrollbar {
-    height: 6px; /* Scrollbar အထူ */
+.math-scroll-container {
+    max-width: 100%;       
+    overflow-x: auto;      
+    overflow-y: hidden;    
+    padding-bottom: 10px;  
+    white-space: nowrap;   
+
+    /* 🌟 ဤနေရာမှစ၍ အသစ်ထပ်တိုးပါ 🌟 */
+    line-height: 2; /* စာကြောင်းတစ်ကြောင်းနှင့် တစ်ကြောင်းကြား အကွာအဝေးကို ချဲ့ပေးခြင်း (၁.၅ မှ ၂.၅ ကြား စိတ်ကြိုက်ပြင်နိုင်ပါသည်) */
 }
-.math-scroll-container::-webkit-scrollbar-thumb {
-    background-color: #b0bec5; /* Scrollbar အရောင် */
-    border-radius: 10px;
+
+/* 🌟 အကယ်၍ အဖြေများကို <div>, <p> သို့မဟုတ် MathJax Block များဖြင့် ခွဲရေးထားပါက 🌟 */
+.math-scroll-container div,
+.math-scroll-container p,
+.mjx-container {
+    margin-bottom: 15px !important; /* Equation တစ်ခုနှင့်တစ်ခု (သို့) စာကြောင်းများကြား အောက်ခြေအကွာအဝေး */
 }
 	
 </style>
