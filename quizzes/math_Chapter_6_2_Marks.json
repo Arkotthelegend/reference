@@ -73,5 +73,85 @@
     "type": "math_show",
     "q": "Find the standard form of the equation of the parabola with vertex \\( (2, -1) \\) and focus \\( (5, -1) \\).",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since the y-coordinates of the vertex and focus are the same, the axis of symmetry is horizontal. The standard form is \\( (y-k)^2 = 4p(x-h) \\).<br><br>Step 2<br><br>Identify \\( h, k \\) and \\( p \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( h = 2, k = -1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( p = 5 - 2 = 3 \\)</div><br><br>Step 3<br><br>Calculate \\( 4p \\) and substitute:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4p = 12 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (y - (-1))^2 = 12(x - 2) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (y+1)^2 = 12(x-2) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the center and radius of the circle \\( (x-2)^2 + (y+3)^2 = 16 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare the given equation with the standard form \\( (x-h)^2 + (y-k)^2 = r^2 \\).<br><br>Step 2<br><br>Identify the center \\( (h, k) \\) and radius \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( h = 2, k = -3, r^2 = 16 \\)</div><br><br>Step 3<br><br>Calculate the radius:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = \\sqrt{16} = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>Center: \\( (2, -3) \\), Radius: \\( 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the center and radius of the circle \\( x^2 + y^2 - 4x + 6y - 12 = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Complete the square for \\( x \\) and \\( y \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x^2 - 4x + 4) + (y^2 + 6y + 9) = 12 + 4 + 9 \\)</div><br><br>Step 2<br><br>Simplify the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x-2)^2 + (y+3)^2 = 25 \\)</div><br><br>Step 3<br><br>Identify the center and radius:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Center} = (2, -3), r = 5 \\)</div><br><br><strong>Final Answer:</strong><br><br>Center: \\( (2, -3) \\), Radius: \\( 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the standard equation of the circle with center \\( (1, -2) \\) and radius \\( 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The standard form of the equation of a circle is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x-h)^2 + (y-k)^2 = r^2 \\)</div><br><br>Step 2<br><br>Substitute \\( h = 1, k = -2 \\) and \\( r = 5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x-1)^2 + (y - (-2))^2 = 5^2 \\)</div><br><br>Step 3<br><br>Simplify the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x-1)^2 + (y+2)^2 = 25 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (x-1)^2 + (y+2)^2 = 25 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the circle with center \\( (0, 3) \\) that passes through the point \\( (4, 0) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The radius \\( r \\) is the distance between the center \\( (0, 3) \\) and the point \\( (4, 0) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r^2 = (4 - 0)^2 + (0 - 3)^2 = 16 + 9 = 25 \\)</div><br><br>Step 2<br><br>Substitute \\( h = 0, k = 3 \\) and \\( r^2 = 25 \\) into the standard form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x-0)^2 + (y-3)^2 = 25 \\)</div><br><br>Step 3<br><br>Simplify the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + (y-3)^2 = 25 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x^2 + (y-3)^2 = 25 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the circle with center \\( (3, -1) \\) that is tangent to the x-axis.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>If a circle is tangent to the x-axis, its radius is equal to the absolute value of the y-coordinate of its center:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = |k| = |-1| = 1 \\)</div><br><br>Step 2<br><br>Substitute \\( h = 3, k = -1 \\) and \\( r = 1 \\) into the standard form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x-3)^2 + (y - (-1))^2 = 1^2 \\)</div><br><br>Step 3<br><br>Simplify the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x-3)^2 + (y+1)^2 = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (x-3)^2 + (y+1)^2 = 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the circle with diameter endpoints \\( (1, 2) \\) and \\( (5, 6) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The center of the circle is the midpoint of the diameter:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (h, k) = \\left( \\frac{1+5}{2}, \\frac{2+6}{2} \\right) = (3, 4) \\)</div><br><br>Step 2<br><br>The radius squared is the square of the distance from the center to an endpoint:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r^2 = (5-3)^2 + (6-4)^2 = 2^2 + 2^2 = 8 \\)</div><br><br>Step 3<br><br>Substitute into the standard form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x-3)^2 + (y-4)^2 = 8 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (x-3)^2 + (y-4)^2 = 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the vertex, focus, and directrix of the parabola \\( y^2 = 12x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare the given equation with the standard form \\( y^2 = 4px \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4p = 12 \\implies p = 3 \\)</div><br><br>Step 2<br><br>The vertex is at the origin \\( (0, 0) \\). The focus is \\( (p, 0) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Focus} = (3, 0) \\)</div><br><br>Step 3<br><br>The directrix is \\( x = -p \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Directrix: } x = -3 \\)</div><br><br><strong>Final Answer:</strong><br><br>Vertex: \\( (0, 0) \\), Focus: \\( (3, 0) \\), Directrix: \\( x = -3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the vertex, focus, and directrix of the parabola \\( x^2 = -8y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare the given equation with the standard form \\( x^2 = 4py \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4p = -8 \\implies p = -2 \\)</div><br><br>Step 2<br><br>The vertex is at the origin \\( (0, 0) \\). The focus is \\( (0, p) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Focus} = (0, -2) \\)</div><br><br>Step 3<br><br>The directrix is \\( y = -p \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Directrix: } y = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>Vertex: \\( (0, 0) \\), Focus: \\( (0, -2) \\), Directrix: \\( y = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the parabola with vertex \\( (0,0) \\) and focus \\( (0, 4) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since the focus is on the y-axis, the standard form is \\( x^2 = 4py \\).<br><br>The focus is \\( (0, p) \\), so:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( p = 4 \\)</div><br><br>Step 2<br><br>Calculate \\( 4p \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4p = 4(4) = 16 \\)</div><br><br>Step 3<br><br>Substitute into the standard form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 = 16y \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x^2 = 16y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the parabola with vertex \\( (0,0) \\) and directrix \\( x = -3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since the directrix is a vertical line, the standard form is \\( y^2 = 4px \\).<br><br>The directrix is \\( x = -p \\), so:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -p = -3 \\implies p = 3 \\)</div><br><br>Step 2<br><br>Calculate \\( 4p \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4p = 4(3) = 12 \\)</div><br><br>Step 3<br><br>Substitute into the standard form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y^2 = 12x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y^2 = 12x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the vertex, focus, and directrix of the parabola \\( (y-2)^2 = 8(x+1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare with the standard form \\( (y-k)^2 = 4p(x-h) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( h = -1, k = 2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4p = 8 \\implies p = 2 \\)</div><br><br>Step 2<br><br>The vertex is \\( (h, k) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Vertex} = (-1, 2) \\)</div><br><br>The focus is \\( (h+p, k) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Focus} = (-1+2, 2) = (1, 2) \\)</div><br><br>Step 3<br><br>The directrix is \\( x = h-p \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Directrix: } x = -1-2 = -3 \\)</div><br><br><strong>Final Answer:</strong><br><br>Vertex: \\( (-1, 2) \\), Focus: \\( (1, 2) \\), Directrix: \\( x = -3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the vertex, focus, and directrix of the parabola \\( (x+3)^2 = -12(y-1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare with the standard form \\( (x-h)^2 = 4p(y-k) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( h = -3, k = 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4p = -12 \\implies p = -3 \\)</div><br><br>Step 2<br><br>The vertex is \\( (h, k) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Vertex} = (-3, 1) \\)</div><br><br>The focus is \\( (h, k+p) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Focus} = (-3, 1-3) = (-3, -2) \\)</div><br><br>Step 3<br><br>The directrix is \\( y = k-p \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Directrix: } y = 1-(-3) = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>Vertex: \\( (-3, 1) \\), Focus: \\( (-3, -2) \\), Directrix: \\( y = 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the endpoints of the latus rectum of the parabola \\( y^2 = -16x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare with the standard form \\( y^2 = 4px \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4p = -16 \\implies p = -4 \\)</div><br><br>Step 2<br><br>The focus is at \\( (p, 0) = (-4, 0) \\).<br><br>The latus rectum is the line segment through the focus parallel to the y-axis. Its length is \\( |4p| = 16 \\).<br><br>Step 3<br><br>The endpoints are at \\( (p, 2p) \\) and \\( (p, -2p) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (-4, -8) \\text{ and } (-4, 8) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (-4, -8) \\) and \\( (-4, 8) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the general form of the equation of the parabola with vertex \\( (2, 1) \\) and focus \\( (2, 4) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since the x-coordinates of the vertex and focus are the same, the axis of symmetry is vertical. The parabola opens upward.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( h = 2, k = 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( p = 4 - 1 = 3 \\implies 4p = 12 \\)</div><br><br>Step 2<br><br>Substitute into the standard form \\( (x-h)^2 = 4p(y-k) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x-2)^2 = 12(y-1) \\)</div><br><br>Step 3<br><br>Expand to find the general form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 4x + 4 = 12y - 12 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 4x - 12y + 16 = 0 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x^2 - 4x - 12y + 16 = 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the equation \\( x^2 + y^2 + 2x - 4y + 6 = 0 \\) represents a circle, a point, or no graph.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Complete the square for \\( x \\) and \\( y \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x^2 + 2x + 1) + (y^2 - 4y + 4) = -6 + 1 + 4 \\)</div><br><br>Step 2<br><br>Simplify the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x+1)^2 + (y-2)^2 = -1 \\)</div><br><br>Step 3<br><br>Since the right-hand side is negative, the equation has no real solution and consequently no graph.<br><br><strong>Final Answer:</strong><br><br>No graph"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the equation \\( x^2 + y^2 - 6x + 8y - 11 = 0 \\) in standard form. Find its center and radius. Sketch the circle.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rearrange and complete the square:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x^2 - 6x) + (y^2 + 8y) = 11 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x^2 - 6x + 9) + (y^2 + 8y + 16) = 11 + 9 + 16 \\)</div><br><br>Step 2<br><br>Simplify the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x-3)^2 + (y+4)^2 = 36 \\)</div><br><br>Identify the center and radius:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Center} = (3, -4), r = 6 \\)</div><br><br>Step 3<br><br>The sketch is shown below.<br><br><svg viewBox=\"0 0 400 400\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"100%\" height=\"100%\" fill=\"transparent\"/><line x1=\"20\" y1=\"200\" x2=\"380\" y2=\"200\" stroke=\"#FFFFFF\" stroke-width=\"1\"/><line x1=\"200\" y1=\"20\" x2=\"200\" y2=\"380\" stroke=\"#FFFFFF\" stroke-width=\"1\"/><circle cx=\"260\" cy=\"260\" r=\"80\" fill=\"none\" stroke=\"#00EDFF\" stroke-width=\"2\"/><circle cx=\"260\" cy=\"260\" r=\"3\" fill=\"#00EDFF\"/></svg><br><br><strong>Final Answer:</strong><br><br>Standard form: \\( (x-3)^2 + (y+4)^2 = 36 \\)<br>Center: \\( (3, -4) \\), Radius: \\( 6 \\)"
   }
 ]
