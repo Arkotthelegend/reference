@@ -1,0 +1,152 @@
+[
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\sin^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( y = \\sin^{-1}\\left(\\frac{\\sqrt{3}}{2}\\right) \\).<br><br>Step 2<br><br>This means \\( \\sin y = \\frac{\\sqrt{3}}{2} \\) where \\( -\\frac{\\pi}{2} \\le y \\le \\frac{\\pi}{2} \\).<br><br>Step 3<br><br>Since \\( \\sin\\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2} \\) and \\( \\frac{\\pi}{3} \\) is within the restricted range:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{\\pi}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{\\pi}{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the amplitude and period of the function \\( y = 4 \\cos 3x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare the given function with the standard form \\( y = a \\cos bx \\).<br><br>Here, \\( a = 4 \\) and \\( b = 3 \\).<br><br>Step 2<br><br>The amplitude is given by \\( |a| \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Amplitude} = |4| = 4 \\)</div><br><br>Step 3<br><br>The period is given by \\( \\frac{2\\pi}{b} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Period} = \\frac{2\\pi}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>Amplitude: \\( 4 \\), Period: \\( \\frac{2\\pi}{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(3x) \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(\\sin u) = \\cos u \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = 3x \\), so \\( \\frac{du}{dx} = 3 \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\cos(3x) \\cdot 3 \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 3 \\cos(3x) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\cos(3x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\cos(x^2 + 1) \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(\\cos u) = -\\sin u \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = x^2 + 1 \\), so \\( \\frac{du}{dx} = 2x \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = -\\sin(x^2 + 1) \\cdot 2x \\)</div><br><br>Step 3<br><br>Rearrange the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = -2x \\sin(x^2 + 1) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -2x \\sin(x^2 + 1) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain of the function \\( y = \\cos^{-1} x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Recall the definition of the inverse cosine function.<br><br>The function \\( y = \\cos^{-1} x \\) is defined if and only if \\( \\cos y = x \\) has a solution for \\( y \\) in the restricted range \\( [0, \\pi] \\).<br><br>Step 2<br><br>Since the range of the cosine function is \\( [-1, 1] \\), the value of \\( x \\) must satisfy:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -1 \\le x \\le 1 \\)</div><br><br>Step 3<br><br>Therefore, the domain is the closed interval from -1 to 1.<br><br><strong>Final Answer:</strong><br><br>\\( [-1, 1] \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\cos^{-1}\\left(-\\frac{\\sqrt{2}}{2}\\right) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( y = \\cos^{-1}\\left(-\\frac{\\sqrt{2}}{2}\\right) \\).<br><br>This means \\( \\cos y = -\\frac{\\sqrt{2}}{2} \\) where \\( 0 \\le y \\le \\pi \\).<br><br>Step 2<br><br>Since the cosine value is negative, the angle \\( y \\) must be in the second quadrant.<br><br>We know that \\( \\cos\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2} \\).<br><br>Step 3<br><br>The reference angle is \\( \\frac{\\pi}{4} \\), so the angle in the second quadrant is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\pi - \\frac{\\pi}{4} = \\frac{3\\pi}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3\\pi}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = e^x \\cos x \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the product rule: \\( \\frac{d}{dx}(uv) = u \\frac{dv}{dx} + v \\frac{du}{dx} \\).<br><br>Let \\( u = e^x \\) and \\( v = \\cos x \\).<br><br>Then \\( \\frac{du}{dx} = e^x \\) and \\( \\frac{dv}{dx} = -\\sin x \\).<br><br>Step 2<br><br>Substitute into the product rule formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = e^x(-\\sin x) + \\cos x(e^x) \\)</div><br><br>Step 3<br><br>Factor out \\( e^x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = e^x(\\cos x - \\sin x) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( e^x(\\cos x - \\sin x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the midline and amplitude of the function \\( y = -3 \\sin\\left(x - \\pi\\right) + 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare the given function with the standard form \\( y = a \\sin b(x - h) + k \\).<br><br>Here, \\( a = -3 \\) and \\( k = 2 \\).<br><br>Step 2<br><br>The midline is given by the horizontal line \\( y = k \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Midline: } y = 2 \\)</div><br><br>Step 3<br><br>The amplitude is given by \\( |a| \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Amplitude} = |-3| = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>Midline: \\( y = 2 \\), Amplitude: \\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\tan(5x) \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(\\tan u) = \\sec^2 u \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = 5x \\), so \\( \\frac{du}{dx} = 5 \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\sec^2(5x) \\cdot 5 \\)</div><br><br>Step 3<br><br>Rearrange the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 5 \\sec^2(5x) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5 \\sec^2(5x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\sin^{-1}\\left(\\sin \\frac{7\\pi}{6}\\right) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>First, evaluate the inner sine function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin \\frac{7\\pi}{6} = -\\frac{1}{2} \\)</div><br><br>Step 2<br><br>Now, evaluate the inverse sine:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin^{-1}\\left(-\\frac{1}{2}\\right) \\)</div><br><br>We need an angle \\( y \\) in \\( \\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right] \\) such that \\( \\sin y = -\\frac{1}{2} \\).<br><br>Step 3<br><br>The angle in the restricted range is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -\\frac{\\pi}{6} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{\\pi}{6} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sec(2x) \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(\\sec u) = \\sec u \\tan u \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = 2x \\), so \\( \\frac{du}{dx} = 2 \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\sec(2x) \\tan(2x) \\cdot 2 \\)</div><br><br>Step 3<br><br>Rearrange the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 2 \\sec(2x) \\tan(2x) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\sec(2x) \\tan(2x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the period of the function \\( y = \\cot\\left(\\frac{x}{2}\\right) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare the given function with the standard form \\( y = a \\cot bx \\).<br><br>Here, \\( b = \\frac{1}{2} \\).<br><br>Step 2<br><br>The period of the cotangent function is given by \\( \\frac{\\pi}{b} \\).<br><br>Step 3<br><br>Substitute the value of \\( b \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Period} = \\frac{\\pi}{1/2} = 2\\pi \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2\\pi \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = x^2 \\sin x \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the product rule: \\( \\frac{d}{dx}(uv) = u \\frac{dv}{dx} + v \\frac{du}{dx} \\).<br><br>Let \\( u = x^2 \\) and \\( v = \\sin x \\).<br><br>Then \\( \\frac{du}{dx} = 2x \\) and \\( \\frac{dv}{dx} = \\cos x \\).<br><br>Step 2<br><br>Substitute into the product rule formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = x^2(\\cos x) + \\sin x(2x) \\)</div><br><br>Step 3<br><br>Rearrange the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = x^2 \\cos x + 2x \\sin x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x^2 \\cos x + 2x \\sin x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\tan^{-1}(-1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( y = \\tan^{-1}(-1) \\).<br><br>This means \\( \\tan y = -1 \\) where \\( -\\frac{\\pi}{2} < y < \\frac{\\pi}{2} \\).<br><br>Step 2<br><br>Since the tangent value is negative, the angle \\( y \\) must be in the fourth quadrant (negative angle).<br><br>We know that \\( \\tan\\frac{\\pi}{4} = 1 \\).<br><br>Step 3<br><br>The angle in the restricted range is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -\\frac{\\pi}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{\\pi}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\ln(\\sin x) \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(\\ln u) = \\frac{1}{u} \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = \\sin x \\), so \\( \\frac{du}{dx} = \\cos x \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{\\sin x} \\cdot \\cos x \\)</div><br><br>Step 3<br><br>Simplify using the identity \\( \\cot x = \\frac{\\cos x}{\\sin x} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\cot x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\cot x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\cos^{-1}\\left(-\\frac{1}{2}\\right) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( y = \\cos^{-1}\\left(-\\frac{1}{2}\\right) \\). This means \\( \\cos y = -\\frac{1}{2} \\) where \\( 0 \\le y \\le \\pi \\).<br><br>Step 2<br><br>Since the cosine value is negative, the angle must lie in the second quadrant.<br><br>The reference angle for \\( \\cos \\theta = \\frac{1}{2} \\) is \\( \\frac{\\pi}{3} \\).<br><br>Step 3<br><br>The angle in the second quadrant is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\pi - \\frac{\\pi}{3} = \\frac{2\\pi}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2\\pi}{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the amplitude and period of the function \\( y = 5\\sin(4x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare the given function with the standard form \\( y = a\\sin(bx) \\).<br><br>Here, \\( a = 5 \\) and \\( b = 4 \\).<br><br>Step 2<br><br>The amplitude is given by \\( |a| \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Amplitude} = |5| = 5 \\)</div><br><br>Step 3<br><br>The period is given by \\( \\frac{2\\pi}{b} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Period} = \\frac{2\\pi}{4} = \\frac{\\pi}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>Amplitude: \\( 5 \\), Period: \\( \\frac{\\pi}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(2x + 1) \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(\\sin u) = \\cos u \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = 2x + 1 \\), so \\( \\frac{du}{dx} = 2 \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\cos(2x + 1) \\cdot 2 \\)</div><br><br>Step 3<br><br>Rearrange the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 2\\cos(2x + 1) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2\\cos(2x + 1) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain of the function \\( y = \\tan^{-1} x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Recall the definition of the inverse tangent function.<br><br>The function \\( y = \\tan^{-1} x \\) is defined for all real values of \\( x \\) because the range of \\( \\tan y \\) covers all real numbers.<br><br>Step 2<br><br>The restricted range for \\( y \\) is \\( \\left(-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right) \\), but there are no restrictions on the input \\( x \\).<br><br>Step 3<br><br>Therefore, the domain is the set of all real numbers.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Domain} = \\mathbb{R} \\text{ or } (-\\infty, \\infty) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (-\\infty, \\infty) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\sin^{-1}\\left(\\sin \\frac{3\\pi}{4}\\right) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>First, evaluate the inner sine function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin \\frac{3\\pi}{4} = \\frac{\\sqrt{2}}{2} \\)</div><br><br>Step 2<br><br>Now, evaluate the inverse sine:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin^{-1}\\left(\\frac{\\sqrt{2}}{2}\\right) \\)</div><br><br>We need an angle \\( y \\) in \\( \\left[-\\frac{\\pi}{2}, \\frac{\\pi}{2}\\right] \\) such that \\( \\sin y = \\frac{\\sqrt{2}}{2} \\).<br><br>Step 3<br><br>The angle in the restricted range is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{\\pi}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{\\pi}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\cos^2(3x) \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite the function as \\( y = (\\cos(3x))^2 \\).<br><br>Apply the chain rule: \\( \\frac{d}{dx}(u^n) = n u^{n-1} \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = \\cos(3x) \\) and \\( n = 2 \\).<br><br>Step 2<br><br>Differentiate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 2\\cos(3x) \\cdot \\frac{d}{dx}(\\cos(3x)) \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = 2\\cos(3x) \\cdot (-\\sin(3x) \\cdot 3) \\)</div><br><br>Step 3<br><br>Simplify using the identity \\( 2\\sin\\theta\\cos\\theta = \\sin 2\\theta \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = -6\\sin(3x)\\cos(3x) = -3\\sin(6x) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -3\\sin(6x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the midline and phase shift of the function \\( y = -2\\cos(x - \\pi) + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare the given function with the standard form \\( y = a\\cos b(x - h) + k \\).<br><br>Here, \\( h = \\pi \\) and \\( k = 3 \\).<br><br>Step 2<br><br>The midline is given by the horizontal line \\( y = k \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Midline: } y = 3 \\)</div><br><br>Step 3<br><br>The phase shift is given by \\( h \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Phase shift: } \\pi \\text{ units to the right} \\)</div><br><br><strong>Final Answer:</strong><br><br>Midline: \\( y = 3 \\), Phase shift: \\( \\pi \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\tan(5x) \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(\\tan u) = \\sec^2 u \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = 5x \\), so \\( \\frac{du}{dx} = 5 \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\sec^2(5x) \\cdot 5 \\)</div><br><br>Step 3<br><br>Rearrange the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 5\\sec^2(5x) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5\\sec^2(5x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\tan^{-1}(-\\sqrt{3}) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( y = \\tan^{-1}(-\\sqrt{3}) \\).<br><br>This means \\( \\tan y = -\\sqrt{3} \\) where \\( -\\frac{\\pi}{2} < y < \\frac{\\pi}{2} \\).<br><br>Step 2<br><br>Since the tangent value is negative, the angle \\( y \\) must be in the fourth quadrant (negative angle).<br><br>We know that \\( \\tan\\frac{\\pi}{3} = \\sqrt{3} \\).<br><br>Step 3<br><br>The angle in the restricted range is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -\\frac{\\pi}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{\\pi}{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = x\\sin x \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the product rule: \\( \\frac{d}{dx}(uv) = u \\frac{dv}{dx} + v \\frac{du}{dx} \\).<br><br>Let \\( u = x \\) and \\( v = \\sin x \\).<br><br>Then \\( \\frac{du}{dx} = 1 \\) and \\( \\frac{dv}{dx} = \\cos x \\).<br><br>Step 2<br><br>Substitute into the product rule formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = x(\\cos x) + \\sin x(1) \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = x\\cos x + \\sin x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x\\cos x + \\sin x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the period of the function \\( y = \\cot\\left(\\frac{x}{3}\\right) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare the given function with the standard form \\( y = a\\cot(bx) \\).<br><br>Here, \\( b = \\frac{1}{3} \\).<br><br>Step 2<br><br>The period of the cotangent function is given by \\( \\frac{\\pi}{b} \\).<br><br>Step 3<br><br>Substitute the value of \\( b \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Period} = \\frac{\\pi}{1/3} = 3\\pi \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3\\pi \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = e^{\\sin x} \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(e^u) = e^u \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = \\sin x \\), so \\( \\frac{du}{dx} = \\cos x \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = e^{\\sin x} \\cdot \\cos x \\)</div><br><br>Step 3<br><br>Rearrange the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\cos x \\cdot e^{\\sin x} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\cos x \\cdot e^{\\sin x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\cos\\left(\\sin^{-1}\\left(\\frac{3}{5}\\right)\\right) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( \\theta = \\sin^{-1}\\left(\\frac{3}{5}\\right) \\).<br><br>This means \\( \\sin \\theta = \\frac{3}{5} \\) where \\( -\\frac{\\pi}{2} \\le \\theta \\le \\frac{\\pi}{2} \\).<br><br>Since \\( \\sin \\theta > 0 \\), \\( \\theta \\) is in the first quadrant.<br><br>Step 2<br><br>Use the Pythagorean identity \\( \\sin^2 \\theta + \\cos^2 \\theta = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left(\\frac{3}{5}\\right)^2 + \\cos^2 \\theta = 1 \\implies \\cos^2 \\theta = 1 - \\frac{9}{25} = \\frac{16}{25} \\)</div><br><br>Step 3<br><br>Since \\( \\theta \\) is in the first quadrant, \\( \\cos \\theta \\) is positive:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos \\theta = \\frac{4}{5} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\ln(\\cos x) \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(\\ln u) = \\frac{1}{u} \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = \\cos x \\), so \\( \\frac{du}{dx} = -\\sin x \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{\\cos x} \\cdot (-\\sin x) \\)</div><br><br>Step 3<br><br>Simplify using the identity \\( \\tan x = \\frac{\\sin x}{\\cos x} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = -\\tan x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\tan x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the amplitude and vertical shift of the function \\( y = 3\\sin(2x) - 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare the given function with the standard form \\( y = a\\sin(bx) + k \\).<br><br>Here, \\( a = 3 \\) and \\( k = -1 \\).<br><br>Step 2<br><br>The amplitude is given by \\( |a| \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Amplitude} = |3| = 3 \\)</div><br><br>Step 3<br><br>The vertical shift is given by \\( k \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Vertical shift: } 1 \\text{ unit downward} \\)</div><br><br><strong>Final Answer:</strong><br><br>Amplitude: \\( 3 \\), Vertical shift: \\( -1 \\)"
+  }
+]
