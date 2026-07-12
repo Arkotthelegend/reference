@@ -1,0 +1,152 @@
+[
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\frac{7!}{5!} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand the factorial in the numerator:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 7! = 7 \\times 6 \\times 5! \\)</div><br><br>Step 2<br><br>Substitute and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{7!}{5!} = \\frac{7 \\times 6 \\times 5!}{5!} = 7 \\times 6 = 42 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 42 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( n \\): \\( ^nP_3 = 60 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the permutation formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^nP_3 = n(n-1)(n-2) \\)</div><br><br>Step 2<br><br>Set up the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(n-1)(n-2) = 60 \\)</div><br><br>Step 3<br><br>Find the consecutive integers whose product is 60. Since \\( 5 \\times 4 \\times 3 = 60 \\), we have:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n = 5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n = 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( ^8C_3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the combination formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^8C_3 = \\frac{8!}{3!(8-3)!} = \\frac{8!}{3!5!} \\)</div><br><br>Step 2<br><br>Expand and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^8C_3 = \\frac{8 \\times 7 \\times 6 \\times 5!}{3 \\times 2 \\times 1 \\times 5!} = \\frac{8 \\times 7 \\times 6}{6} \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^8C_3 = 8 \\times 7 = 56 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 56 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( ^{10}C_r = ^{10}C_4 \\) and \\( r \\neq 4 \\), find \\( r \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the property of combinations:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^nC_r = ^nC_{n-r} \\)</div><br><br>Step 2<br><br>Apply the property to the given equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = 10 - 4 = 6 \\)</div><br><br>Step 3<br><br>Since \\( r \\neq 4 \\), the value is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( r = 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many subsets does a set with 6 elements have?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Recall the formula for the number of subsets of a set with \\( n \\) elements:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Number of subsets} = 2^n \\)</div><br><br>Step 2<br><br>Substitute \\( n = 6 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^6 = 64 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 64 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A password consists of 3 different digits chosen from 0 to 9. How many passwords are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 10 digits (0 to 9) and we need to choose and arrange 3 of them.<br><br>Step 2<br><br>Use the permutation formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^{10}P_3 = 10 \\times 9 \\times 8 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 10 \\times 9 \\times 8 = 720 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 720 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 4 people be seated in a row of 6 chairs?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>We need to arrange 4 people in 6 available chairs.<br><br>Step 2<br><br>Use the permutation formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^6P_4 = 6 \\times 5 \\times 4 \\times 3 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6 \\times 5 \\times 4 \\times 3 = 360 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 360 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of permutations of the letters of the word 'BOOK'.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The word 'BOOK' has 4 letters, with 'O' repeated 2 times.<br><br>Step 2<br><br>Use the formula for permutations with repetitions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{4!}{2!} = \\frac{4 \\times 3 \\times 2 \\times 1}{2 \\times 1} \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{24}{2} = 12 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is to be chosen from 5 men and 3 women. How many ways if it must be 1 man and 1 woman?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Choose 1 man from 5 men:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^5C_1 = 5 \\)</div><br><br>Step 2<br><br>Choose 1 woman from 3 women:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^3C_1 = 3 \\)</div><br><br>Step 3<br><br>Multiply the choices:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5 \\times 3 = 15 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 15 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many 3-digit numbers can be formed using 1, 2, 3, 4, 5 without repetition?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>We need to arrange 3 digits out of 5 available digits.<br><br>Step 2<br><br>Use the permutation formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^5P_3 = 5 \\times 4 \\times 3 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5 \\times 4 \\times 3 = 60 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 60 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\frac{5! + 4!}{3!} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor out \\( 4! \\) from the numerator:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5! + 4! = 5 \\times 4! + 4! = 4!(5 + 1) = 6 \\times 4! \\)</div><br><br>Step 2<br><br>Substitute into the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{6 \\times 4!}{3!} = \\frac{6 \\times 4 \\times 3!}{3!} \\)</div><br><br>Step 3<br><br>Simplify and calculate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6 \\times 4 = 24 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 24 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many diagonals can be drawn in a hexagon (6 vertices)?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of line segments connecting any 2 vertices is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^6C_2 = \\frac{6 \\times 5}{2} = 15 \\)</div><br><br>Step 2<br><br>Subtract the 6 sides of the hexagon to find the diagonals:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 15 - 6 = 9 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 3 fruits be chosen from 6 different fruits?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since the order does not matter, use the combination formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^6C_3 = \\frac{6!}{3!3!} \\)</div><br><br>Step 2<br><br>Expand and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^6C_3 = \\frac{6 \\times 5 \\times 4}{3 \\times 2 \\times 1} = 20 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express \\( \\frac{12 \\times 11 \\times 10}{3 \\times 2 \\times 1} \\) in factorial notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply the numerator and denominator by \\( 9! \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{12 \\times 11 \\times 10 \\times 9!}{3! \\times 9!} \\)</div><br><br>Step 2<br><br>Combine the numerator into a single factorial:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{12!}{3!9!} \\)</div><br><br>Step 3<br><br>Recognize this as the combination formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^{12}C_3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( ^{12}C_3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many 4-digit codes can be formed using digits 1, 2, 3, 4 if repetition is allowed?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Each of the 4 positions in the code can be filled by any of the 4 digits.<br><br>Step 2<br><br>Use the multiplication principle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4 \\times 4 \\times 4 \\times 4 = 4^4 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4^4 = 256 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 256 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\frac{8!}{6! \\times 2!} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand the factorial in the numerator:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 8! = 8 \\times 7 \\times 6! \\)</div><br><br>Step 2<br><br>Substitute and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{8!}{6! \\times 2!} = \\frac{8 \\times 7 \\times 6!}{6! \\times 2} = \\frac{56}{2} \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{56}{2} = 28 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 28 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( n \\): \\( ^nP_2 = 72 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the permutation formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^nP_2 = n(n-1) \\)</div><br><br>Step 2<br><br>Set up the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(n-1) = 72 \\)</div><br><br>Step 3<br><br>Find the consecutive integers whose product is 72. Since \\( 9 \\times 8 = 72 \\), we have:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n = 9 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n = 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A student has 5 shirts and 3 pants. How many different outfits can he wear if he chooses one shirt and one pant?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the number of choices for each item:<br>Number of shirts = 5<br>Number of pants = 3<br><br>Step 2<br><br>Apply the multiplication principle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Total outfits} = 5 \\times 3 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5 \\times 3 = 15 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 15 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( ^9C_4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the combination formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^9C_4 = \\frac{9!}{4!(9-4)!} = \\frac{9!}{4!5!} \\)</div><br><br>Step 2<br><br>Expand and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^9C_4 = \\frac{9 \\times 8 \\times 7 \\times 6 \\times 5!}{4 \\times 3 \\times 2 \\times 1 \\times 5!} = \\frac{9 \\times 8 \\times 7 \\times 6}{24} \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{3024}{24} = 126 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 126 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( ^{10}C_r = ^{10}C_4 \\) and \\( r \\neq 4 \\), find \\( r \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the property of combinations:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^nC_r = ^nC_{n-r} \\)</div><br><br>Step 2<br><br>Apply the property to the given equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = 10 - 4 = 6 \\)</div><br><br>Step 3<br><br>Since \\( r \\neq 4 \\), the value is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( r = 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many subsets of a set with 7 elements contain exactly 3 elements?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Choosing 3 elements from a set of 7 is a combination problem.<br><br>Step 2<br><br>Use the combination formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^7C_3 = \\frac{7!}{3!4!} \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^7C_3 = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = 35 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 35 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of distinct permutations of the letters of the word 'MISS'.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The word 'MISS' has 4 letters, with 'S' repeated 2 times and 'I', 'M' appearing once.<br><br>Step 2<br><br>Use the formula for permutations with repetitions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{4!}{2!} = \\frac{4 \\times 3 \\times 2 \\times 1}{2 \\times 1} \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{24}{2} = 12 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 3 people be seated in a row of 5 empty chairs?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>We need to arrange 3 people in 5 available chairs.<br><br>Step 2<br><br>Use the permutation formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^5P_3 = 5 \\times 4 \\times 3 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5 \\times 4 \\times 3 = 60 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 60 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( ^6C_0 + ^6C_1 + ^6C_2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate each combination individually:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^6C_0 = 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^6C_1 = 6 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^6C_2 = \\frac{6 \\times 5}{2 \\times 1} = 15 \\)</div><br><br>Step 2<br><br>Add the values together:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 + 6 + 15 = 22 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 22 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many 3-digit numbers can be formed using the digits 1, 2, 3, 4, 5 without repetition?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>We need to arrange 3 digits out of 5 available digits.<br><br>Step 2<br><br>Use the permutation formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^5P_3 = 5 \\times 4 \\times 3 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5 \\times 4 \\times 3 = 60 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 60 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a committee of 2 men and 2 women be formed from 5 men and 4 women?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Choose 2 men from 5 men:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^5C_2 = \\frac{5 \\times 4}{2 \\times 1} = 10 \\)</div><br><br>Step 2<br><br>Choose 2 women from 4 women:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^4C_2 = \\frac{4 \\times 3}{2 \\times 1} = 6 \\)</div><br><br>Step 3<br><br>Multiply the choices:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 10 \\times 6 = 60 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 60 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many diagonals can be drawn in a convex polygon with 8 vertices?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of line segments connecting any 2 vertices is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^8C_2 = \\frac{8 \\times 7}{2} = 28 \\)</div><br><br>Step 2<br><br>Subtract the 8 sides of the polygon to find the diagonals:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 28 - 8 = 20 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( n \\): \\( ^nC_2 = 45 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the combination formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{n(n-1)}{2} = 45 \\)</div><br><br>Step 2<br><br>Multiply both sides by 2:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(n-1) = 90 \\)</div><br><br>Step 3<br><br>Find the consecutive integers whose product is 90. Since \\( 10 \\times 9 = 90 \\), we have:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n = 10 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n = 10 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many 4-letter codes can be formed using the letters A, B, C, D, E if repetition of letters is allowed?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Each of the 4 positions in the code can be filled by any of the 5 letters.<br><br>Step 2<br><br>Use the multiplication principle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5 \\times 5 \\times 5 \\times 5 = 5^4 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5^4 = 625 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 625 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the value of \\( n \\) if \\( ^nP_3 = 6 \\times ^nP_2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand the permutations:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(n-1)(n-2) = 6n(n-1) \\)</div><br><br>Step 2<br><br>Since \\( n \\ge 3 \\), divide both sides by \\( n(n-1) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n - 2 = 6 \\)</div><br><br>Step 3<br><br>Solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n = 8 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n = 8 \\)"
+  }
+]
