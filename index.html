@@ -645,6 +645,13 @@ mjx-mtr, mjx-mlabeledtr {
     </div>
 </div>
 
+<!-- Grammar Note Screen -->
+<div id="grammar-note-screen" class="screen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background: var(--bg); z-index: 1000; padding: 20px; overflow-y: auto;">
+    <h3 id="grammar-note-title" style="text-align: center; color: var(--accent);">Grammar Note</h3>
+    <div id="grammar-note-content" style="background: #162235; padding: 20px; border-radius: 12px; border: 1px solid #00D5FF; margin-bottom: 20px; min-height: 200px; color: #fff; line-height: 1.8;"></div>
+    <button class="btn back-btn" onclick="showScreen('activity')">နောက်သို့</button>
+</div>
+
 <div id="poem-screen" class="screen">
     <h2 id="poem-title" style="text-align: center; color: var(--accent);"></h2>
     <div id="poem-body" class="poem-content"></div>
@@ -914,7 +921,7 @@ function showOldMMQuizOptions(typeName) {
     document.getElementById('selected-sub-title').innerText = typeName;
     document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
 
-    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
+    ['အပြော', 'စကားပြေ' , 'ကဗျာ' ,'ရေသည်', 'အရေး'].forEach(cat => {
         createOldBtn(cat, list, () => {
             if (cat === 'အပြော' || cat === 'အရေး') {
                 // "အပြော" နှင့် "အရေး" အတွက် အခန်းခွဲများရွေးရန် သွားမည်
@@ -1217,9 +1224,51 @@ function openSubjectMenu(sub) {
     ];
 
     // ခလုတ်များ အလိုအလျောက် တည်ဆောက်ပြီး openFlashcard သို့ ချိတ်ဆက်ပေးခြင်း
-    grammarTopics.forEach(topic => {
-        createBtn(topic.title, content, () => initFlashcards(topic.id, topic.title));
+        grammarTopics.forEach(topic => {
+        createBtn(topic.title, content, () => showGrammarMenu(topic.id, topic.title));
     });
+}
+
+function showGrammarMenu(topicId, topicTitle) {
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = topicTitle;
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    
+    // နောက်သို့ = Grammar ခေါင်းစဉ်ရွေးစရာကို ပြန်သွား
+    document.getElementById('activity-back-btn').onclick = () => showENGrammarOptions();
+
+    // Grammar Note ခလုတ်
+    createBtn("📖 Grammar Note", content, () => {
+        loadGrammarNote(topicId, topicTitle);
+    });
+
+    // လေ့ကျင့်ရန် ခလုတ်
+    createBtn("✏️ လေ့ကျင့်ရန်", content, () => {
+        initFlashcards(topicId, topicTitle);
+        // Flashcard ထွက်ရင် Grammar Menu ကို ပြန်သွား
+        const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
+        flashExitBtn.onclick = () => {
+            showScreen('activity');
+            showGrammarMenu(topicId, topicTitle);
+        };
+    });
+}
+
+async function loadGrammarNote(topicId, topicTitle) {
+    try {
+        const res = await fetch(`./notes/grammar_${topicId}.json`);
+        if (!res.ok) throw new Error();
+        const noteData = await res.json();
+        
+        showScreen('grammar-note');
+        document.getElementById('grammar-note-title').innerText = topicTitle + " - Grammar Note";
+        document.getElementById('grammar-note-content').innerHTML = noteData.content;
+        
+        if (window.MathJax) MathJax.typesetPromise();
+    } catch (e) {
+        tg.showAlert("Grammar Note ဖိုင်မတွေ့သေးပါ - " + topicId);
+    }
 }
 
 
@@ -1384,7 +1433,7 @@ function showMMQuizOptions(typeName) {
     // Back button နှိပ်ပါက Subject Menu သို့ ပြန်သွားရန်
     document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
     
-    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး', 'ရေသည်'].forEach(cat => {
+    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'ရေသည်', 'အရေး',].forEach(cat => {
         createBtn(cat, content, () => {
             if (cat === 'စကားပြေ') {
                 // စကားပြေကို ရွေးချယ်ပါက စကားပြေ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
