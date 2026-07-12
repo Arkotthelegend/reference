@@ -1,0 +1,152 @@
+[
+  {
+    "type": "math_show",
+    "q": "How many permutations of the letters of the word 'MATHEMATICS' can be formed?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The word 'MATHEMATICS' has 11 letters. The repetitions are: M (2 times), A (2 times), T (2 times).<br><br>Step 2<br><br>Use the formula for permutations with repetitions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{11!}{2!2!2!} \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{11!}{8} = 4989600 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4989600 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 5 boys and 3 girls be arranged in a row if the 3 girls must always sit together?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Treat the 3 girls as a single unit. Now we have 5 boys + 1 unit = 6 units to arrange.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6! = 720 \\)</div><br><br>Step 2<br><br>The 3 girls within their unit can be arranged among themselves:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3! = 6 \\)</div><br><br>Step 3<br><br>Multiply the arrangements:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 720 \\times 6 = 4320 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4320 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 5 members is to be formed from 6 men and 4 women. In how many ways can this be done if the committee must contain at least 2 women?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the possible cases for 'at least 2 women':<br>Case 1: 2 women and 3 men.<br>Case 2: 3 women and 2 men.<br>Case 3: 4 women and 1 man.<br><br>Step 2<br><br>Calculate the combinations for each case:<br>Case 1: \\( ^4C_2 \\times ^6C_3 = 6 \\times 20 = 120 \\)<br>Case 2: \\( ^4C_3 \\times ^6C_2 = 4 \\times 15 = 60 \\)<br>Case 3: \\( ^4C_4 \\times ^6C_1 = 1 \\times 6 = 6 \\)<br><br>Step 3<br><br>Add the cases together:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 120 + 60 + 6 = 186 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 186 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many 4-digit even numbers greater than 3000 can be formed using the digits 1, 2, 3, 4, 5 without repetition?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The number must be greater than 3000, so the first digit must be 3, 4, or 5. It must be even, so the last digit must be 2 or 4.<br><br>Step 2<br><br>Case 1: First digit is 3 or 5 (2 choices). Last digit is 2 or 4 (2 choices). Middle two digits from remaining 3: \\( ^3P_2 = 6 \\).<br>Total = \\( 2 \\times 2 \\times 6 = 24 \\).<br><br>Step 3<br><br>Case 2: First digit is 4 (1 choice). Last digit must be 2 (1 choice, since 4 is used). Middle two digits from remaining 3: \\( ^3P_2 = 6 \\).<br>Total = \\( 1 \\times 1 \\times 6 = 6 \\).<br><br>Final total = \\( 24 + 6 = 30 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 30 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of permutations of all the letters of the word 'SUCCESS' such that there are exactly 2 letters between the two C's.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The word 'SUCCESS' has 7 letters: S, U, C, C, E, S, S. The two C's must have exactly 2 letters between them. The possible forms are:<br>C _ _ C _ _ _, _ C _ _ C _ _, _ _ C _ _ C _<br>There are 4 such forms.<br><br>Step 2<br><br>The remaining 5 letters are S, U, E, S, S. The number of ways to arrange them in the 5 blank spaces is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{5!}{3!} = \\frac{120}{6} = 20 \\)</div><br><br>Step 3<br><br>Multiply the number of forms by the arrangements:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4 \\times 20 = 80 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 80 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A bag contains 5 red balls and 4 blue balls. In how many ways can 3 balls be selected such that at least one is red?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the exclusion principle. Total ways to select 3 balls from 9:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^9C_3 = \\frac{9 \\times 8 \\times 7}{3 \\times 2 \\times 1} = 84 \\)</div><br><br>Step 2<br><br>Calculate the number of ways to select 3 balls with NO red balls (i.e., all 3 are blue):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^4C_3 = 4 \\)</div><br><br>Step 3<br><br>Subtract the unwanted cases from the total:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 84 - 4 = 80 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 80 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many different signals can be made by hoisting 4 flags of different colors one above the other, if 7 flags of different colors are available?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>We need to choose and arrange 4 flags out of 7 available flags.<br><br>Step 2<br><br>Use the permutation formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^7P_4 = 7 \\times 6 \\times 5 \\times 4 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 7 \\times 6 \\times 5 \\times 4 = 840 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 840 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 4 mathematics books, 3 physics books, and 2 chemistry books be arranged on a shelf if the books of the same subject must be kept together?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Treat each subject group as a single unit. There are 3 units (Math, Physics, Chemistry). They can be arranged in:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3! = 6 \\)</div><br><br>Step 2<br><br>Arrange the books within each subject:<br>Math: \\( 4! = 24 \\)<br>Physics: \\( 3! = 6 \\)<br>Chemistry: \\( 2! = 2 \\)<br><br>Step 3<br><br>Multiply all arrangements:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6 \\times 24 \\times 6 \\times 2 = 1728 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1728 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A set A contains 8 distinct elements. How many subsets of A contain at least 2 elements?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Total number of subsets of a set with 8 elements:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^8 = 256 \\)</div><br><br>Step 2<br><br>Calculate subsets with fewer than 2 elements (0 or 1 element):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^8C_0 + ^8C_1 = 1 + 8 = 9 \\)</div><br><br>Step 3<br><br>Subtract from the total:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 256 - 9 = 247 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 247 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many 5-digit numbers can be formed using the digits 0, 1, 2, 3, 4 without repetition?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first digit cannot be 0. So, there are 4 choices (1, 2, 3, 4) for the first digit.<br><br>Step 2<br><br>The remaining 4 digits can be arranged in the remaining 4 positions in:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4! = 24 \\)</div><br><br>Step 3<br><br>Multiply the choices:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4 \\times 24 = 96 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 96 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( n \\): \\( ^{n+2}P_4 = 12 \\times ^nP_2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand the permutations:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (n+2)(n+1)n(n-1) = 12n(n-1) \\)</div><br><br>Step 2<br><br>Since \\( n \\ge 2 \\), divide both sides by \\( n(n-1) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (n+2)(n+1) = 12 \\)</div><br><br>Step 3<br><br>Solve the quadratic equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n^2 + 3n + 2 = 12 \\implies n^2 + 3n - 10 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (n+5)(n-2) = 0 \\implies n = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a team of 5 players be selected from 8 boys and 6 girls if the team must contain exactly 3 boys and 2 girls?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Choose 3 boys from 8 boys:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^8C_3 = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56 \\)</div><br><br>Step 2<br><br>Choose 2 girls from 6 girls:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^6C_2 = \\frac{6 \\times 5}{2 \\times 1} = 15 \\)</div><br><br>Step 3<br><br>Multiply the combinations:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 56 \\times 15 = 840 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 840 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many permutations of the letters of the word 'EQUATION' can be formed if all the vowels must be together?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The word 'EQUATION' has 8 letters: 5 vowels (E, U, A, I, O) and 3 consonants (Q, T, N). Treat the 5 vowels as a single unit.<br><br>Step 2<br><br>Arrange the 3 consonants + 1 vowel unit = 4 units:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4! = 24 \\)</div><br><br>Step 3<br><br>Arrange the 5 vowels within their unit:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5! = 120 \\)</div><br><br>Total permutations = \\( 24 \\times 120 = 2880 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 2880 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A password consists of 4 letters followed by 2 digits. How many passwords are possible if the letters are chosen from A-Z and digits from 0-9, with no repetitions allowed?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Choose and arrange 4 letters from 26 letters:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^{26}P_4 = 26 \\times 25 \\times 24 \\times 23 = 358800 \\)</div><br><br>Step 2<br><br>Choose and arrange 2 digits from 10 digits:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^{10}P_2 = 10 \\times 9 = 90 \\)</div><br><br>Step 3<br><br>Multiply the possibilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 358800 \\times 90 = 32292000 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 32292000 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 4 is to be chosen from 5 men and 6 women. How many ways can this be done if the committee must contain at most 2 women?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the possible cases for 'at most 2 women':<br>Case 1: 0 women and 4 men.<br>Case 2: 1 woman and 3 men.<br>Case 3: 2 women and 2 men.<br><br>Step 2<br><br>Calculate the combinations for each case:<br>Case 1: \\( ^6C_0 \\times ^5C_4 = 1 \\times 5 = 5 \\)<br>Case 2: \\( ^6C_1 \\times ^5C_3 = 6 \\times 10 = 60 \\)<br>Case 3: \\( ^6C_2 \\times ^5C_2 = 15 \\times 10 = 150 \\)<br><br>Step 3<br><br>Add the cases together:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5 + 60 + 150 = 215 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 215 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of permutations of the letters of the word 'APPLE' such that the vowels are always together.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The word 'APPLE' has 5 letters. The vowels are A and E. Treat the vowels (AE) as a single unit.<br><br>Now we have 4 units to arrange: P, P, L, (AE).<br><br>Step 2<br><br>Arrange the 4 units (with P repeated twice):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{4!}{2!} = \\frac{24}{2} = 12 \\)</div><br><br>Step 3<br><br>Arrange the 2 vowels within their unit:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2! = 2 \\)</div><br><br>Total permutations = \\( 12 \\times 2 = 24 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 24 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of permutations of the letters of the word 'BANANA' such that the word begins with B.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The word 'BANANA' has 6 letters: 3 A's, 2 N's, and 1 B.<br><br>Fix B at the first position. The remaining 5 letters are 3 A's and 2 N's.<br><br>Step 2<br><br>Arrange the remaining 5 letters with repetitions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{5!}{3!2!} \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{120}{6 \\times 2} = \\frac{120}{12} = 10 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 5 members is to be formed from 6 men and 4 women. In how many ways can this be done if the committee must contain exactly 3 men and 2 women?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Choose 3 men from 6 men:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^6C_3 = \\frac{6 \\times 5 \\times 4}{3 \\times 2 \\times 1} = 20 \\)</div><br><br>Step 2<br><br>Choose 2 women from 4 women:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^4C_2 = \\frac{4 \\times 3}{2 \\times 1} = 6 \\)</div><br><br>Step 3<br><br>Multiply the combinations:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 20 \\times 6 = 120 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 120 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 4 members is to be chosen from 7 boys and 5 girls. In how many ways can this be done if the committee must contain at least 1 girl?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the exclusion principle. Total ways to choose 4 members from 12 people:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^{12}C_4 = \\frac{12 \\times 11 \\times 10 \\times 9}{4 \\times 3 \\times 2 \\times 1} = 495 \\)</div><br><br>Step 2<br><br>Calculate the number of ways to choose 4 members with NO girls (i.e., all 4 are boys):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^7C_4 = ^7C_3 = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = 35 \\)</div><br><br>Step 3<br><br>Subtract the unwanted cases from the total:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 495 - 35 = 460 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 460 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many 4-digit even numbers greater than 3000 can be formed using the digits 1, 2, 3, 4, 5 without repetition?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The number must be greater than 3000, so the first digit must be 3, 4, or 5. It must be even, so the last digit must be 2 or 4.<br><br>Step 2<br><br>Case 1: First digit is 3 or 5 (2 choices). Last digit is 2 or 4 (2 choices). Middle two digits from remaining 3: \\( ^3P_2 = 6 \\).<br>Total = \\( 2 \\times 2 \\times 6 = 24 \\).<br><br>Step 3<br><br>Case 2: First digit is 4 (1 choice). Last digit must be 2 (1 choice, since 4 is used). Middle two digits from remaining 3: \\( ^3P_2 = 6 \\).<br>Total = \\( 1 \\times 1 \\times 6 = 6 \\).<br><br>Final total = \\( 24 + 6 = 30 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 30 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 5 boys and 3 girls be arranged in a row if the 3 girls must always sit together?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Treat the 3 girls as a single unit. Now we have 5 boys + 1 unit = 6 units to arrange.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6! = 720 \\)</div><br><br>Step 2<br><br>The 3 girls within their unit can be arranged among themselves:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3! = 6 \\)</div><br><br>Step 3<br><br>Multiply the arrangements:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 720 \\times 6 = 4320 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4320 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many 5-digit numbers can be formed using the digits 0, 1, 2, 3, 4 without repetition?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first digit cannot be 0. So, there are 4 choices (1, 2, 3, 4) for the first digit.<br><br>Step 2<br><br>The remaining 4 digits can be arranged in the remaining 4 positions in:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4! = 24 \\)</div><br><br>Step 3<br><br>Multiply the choices:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4 \\times 24 = 96 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 96 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of permutations of the letters of the word 'SUCCESS' such that the word ends with S.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The word 'SUCCESS' has 7 letters: 3 S's, 2 C's, 1 U, 1 E.<br><br>Fix S at the last position. The remaining 6 letters are 2 S's, 2 C's, 1 U, 1 E.<br><br>Step 2<br><br>Arrange the remaining 6 letters with repetitions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{6!}{2!2!} \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{720}{2 \\times 2} = \\frac{720}{4} = 180 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 180 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A bag contains 6 red balls and 4 blue balls. In how many ways can 3 balls be selected such that at least 2 are red?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the possible cases for 'at least 2 red':<br>Case 1: 2 red and 1 blue.<br>Case 2: 3 red and 0 blue.<br><br>Step 2<br><br>Calculate the combinations for each case:<br>Case 1: \\( ^6C_2 \\times ^4C_1 = 15 \\times 4 = 60 \\)<br>Case 2: \\( ^6C_3 \\times ^4C_0 = 20 \\times 1 = 20 \\)<br><br>Step 3<br><br>Add the cases together:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 60 + 20 = 80 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 80 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 4 mathematics books, 3 physics books, and 2 chemistry books be arranged on a shelf if the books of the same subject must be kept together?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Treat each subject group as a single unit. There are 3 units (Math, Physics, Chemistry). They can be arranged in:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3! = 6 \\)</div><br><br>Step 2<br><br>Arrange the books within each subject:<br>Math: \\( 4! = 24 \\)<br>Physics: \\( 3! = 6 \\)<br>Chemistry: \\( 2! = 2 \\)<br><br>Step 3<br><br>Multiply all arrangements:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6 \\times 24 \\times 6 \\times 2 = 1728 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1728 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many triangles can be formed by joining 10 points, no three of which are collinear?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>To form a triangle, we need to choose 3 points out of the 10 available points.<br><br>Step 2<br><br>Use the combination formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^{10}C_3 = \\frac{10!}{3!7!} \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^{10}C_3 = \\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 120 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A password consists of 3 different letters followed by 2 different digits. How many such passwords are possible if the letters are chosen from A-Z and digits from 0-9?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Choose and arrange 3 letters from 26 letters:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^{26}P_3 = 26 \\times 25 \\times 24 = 15600 \\)</div><br><br>Step 2<br><br>Choose and arrange 2 digits from 10 digits:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^{10}P_2 = 10 \\times 9 = 90 \\)</div><br><br>Step 3<br><br>Multiply the possibilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 15600 \\times 90 = 1404000 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1404000 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of permutations of the letters of the word 'EQUATION' such that the word starts with a vowel and ends with a consonant.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The word 'EQUATION' has 8 letters: 5 vowels (E, U, A, I, O) and 3 consonants (Q, T, N).<br><br>Step 2<br><br>Choose the first letter (vowel): 5 choices.<br>Choose the last letter (consonant): 3 choices.<br><br>Step 3<br><br>Arrange the remaining 6 letters in the 6 middle positions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6! = 720 \\)</div><br><br>Total permutations = \\( 5 \\times 3 \\times 720 = 10800 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 10800 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A set A contains 8 distinct elements. How many subsets of A contain at least 2 elements?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Total number of subsets of a set with 8 elements:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^8 = 256 \\)</div><br><br>Step 2<br><br>Calculate subsets with fewer than 2 elements (0 or 1 element):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ^8C_0 + ^8C_1 = 1 + 8 = 9 \\)</div><br><br>Step 3<br><br>Subtract from the total:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 256 - 9 = 247 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 247 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of permutations of the letters of the word 'PARALLEL' such that P and L are at the two ends.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The word 'PARALLEL' has 8 letters: 3 L's, 2 A's, 1 P, 1 R, 1 E.<br><br>Case 1: P at the start, L at the end. Remaining 6 letters: 2 L's, 2 A's, 1 R, 1 E.<br><br>Step 2<br><br>Arrange the remaining 6 letters for Case 1:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{6!}{2!2!} = \\frac{720}{4} = 180 \\)</div><br><br>Case 2: L at the start, P at the end. Remaining 6 letters: 2 L's, 2 A's, 1 R, 1 E.<br><br>Step 3<br><br>Arrange the remaining 6 letters for Case 2:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{6!}{2!2!} = 180 \\)</div><br><br>Total permutations = \\( 180 + 180 = 360 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 360 \\)"
+  }
+]
