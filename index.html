@@ -919,7 +919,15 @@ function showOldMMQuizOptions(typeName) {
             if (cat === 'အပြော' || cat === 'အရေး') {
                 // "အပြော" နှင့် "အရေး" အတွက် အခန်းခွဲများရွေးရန် သွားမည်
                 showOldMMChapters(typeName, cat);
-            } else {
+            }else if (cat === 'ရေသည်') {
+                const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                initFlashcards(fileName);
+                const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
+                flashExitBtn.onclick = () => {
+                    showScreen('scroll');
+                    showOldMMQuizOptions(typeName);
+                };
+            } else{
                 // "စကားပြေ" နှင့် "ကဗျာ" အတွက် တိုက်ရိုက် မေးခွန်းစမည်
                 initQuiz(`old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
                 document.getElementById('quiz-back-btn').onclick = () => {
@@ -1376,7 +1384,7 @@ function showMMQuizOptions(typeName) {
     // Back button နှိပ်ပါက Subject Menu သို့ ပြန်သွားရန်
     document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
     
-    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
+    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး', 'ရေသည်'].forEach(cat => {
         createBtn(cat, content, () => {
             if (cat === 'စကားပြေ') {
                 // စကားပြေကို ရွေးချယ်ပါက စကားပြေ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
@@ -1384,6 +1392,14 @@ function showMMQuizOptions(typeName) {
             } else if (cat === 'ကဗျာ') {
                 // ကဗျာကို ရွေးချယ်ပါက ကဗျာ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
                 showSubMenu(typeName, cat, poetryTitles);
+            } else if (cat === 'ရေသည်') {
+                const fileName = `mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                initFlashcards(fileName);
+                const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
+                flashExitBtn.onclick = () => {
+                    showScreen('activity');
+                    showMMQuizOptions(typeName);
+                };
             } else {
                 // အပြော နှင့် အရေး အတွက် မူလအတိုင်း ဆက်သွားရန်
                 { showMMChapters(typeName, cat) };
@@ -1760,6 +1776,13 @@ function updateFlashUI() {
     nextBtn.style.display = 'none';
     nextBtn.className = 'btn'; // Reset to default class first
 
+ const markCountDiv = document.getElementById('markcount');
+    if (currentSubject && currentSubject.id === 'math') {
+        markCountDiv.style.display = 'none';
+    } else {
+        markCountDiv.style.display = 'block';
+    }
+	
     const q = currentQuestions[currentIdx];
     
     // Progress နှင့် မေးခွန်းပြသခြင်း
@@ -1785,6 +1808,9 @@ function updateFlashUI() {
             showScreen('math-solution');
             document.getElementById('math-solution-content').innerHTML = q.c;
             if (window.MathJax) MathJax.typesetPromise();
+			            // အပေါ်ဆုံးသို့ scroll လုပ်ရန်
+            document.getElementById('math-solution-screen').scrollTop = 0;
+            window.scrollTo(0, 0);
 
             // နောက်သို့ (မေးခွန်း ပြန်ကြည့်ရန်)
             document.getElementById('math-prev-btn').onclick = () => {
