@@ -8,7 +8,7 @@
 	<script>
         window.MathJax = {
 		options: {
-            enableMenu: false // ဤနေရာတွင် Menu ကို ပိတ်လိုက်ပါသည်
+            enableMenu: false // ဤနေရာတွင်� Menu ကို ပိတ်လိုက်ပါသည်
         },
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -150,7 +150,7 @@
     .flash-container { 
         width: 100%; max-width: 350px; /* ဖုန်းအကြီး/အသေး အားလုံးနှင့် အချိုးကျစေရန် */
         height: 280px; /* တိကျသော အချိုးအစား သတ်မှတ်ခြင်း */
-        margin: auto 0; /* အလယ်ဗဟို၌ နေရာယူစေရန် */
+        margin: auto 0; /* အလယ်ဗဟိုတွင် နေရာယူစေရန် */
         cursor: pointer; perspective: 1000px; 
     }
     .flash-card { 
@@ -257,7 +257,7 @@
             gap: 12px !important; /* Card တစ်ခုနဲ့တစ်ခုကြား အကွာအဝေး */
         }
 
-        /* နေရာကျဉ်းသွားသည့်အတွက် Card များကို အံဝင်ခွင်ကျဖြစ်အောင် ပြန်ချိန်ခြင်း */
+        /* နေရာကျဉ်းသွားသည့်အတွက် Card များကို အံဝင်ခွင်ကျဖွစ်‌အောင် ပြန်ချိန်ခြင်း */
         .subject-card {
             margin-bottom: 0 !important; /* Grid တွင် Gap သုံးထားသဖြင့် Margin ကို ပယ်ဖျက်မည် */
             padding: 16px 12px !important; /* ဘေးတိုက်နေရာဆန့်အောင် Padding အနည်းငယ် လျှော့မည် */
@@ -265,7 +265,7 @@
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
-            height: 100% !important; /* Card များ အမြင့်ညီစေရန် */
+            height: 100% !important; /* Card များ အမြင့်ညီစေရန် */
         }
 
         /* ညာဘက်ထောင့်က မြား (➔) သို့မဟုတ် သော့ (🔒) ကို နေရာချရန် */
@@ -393,7 +393,7 @@
 
 /* ၃။ အကယ်၍ Equation တွေကို တစ်ဆက်တည်း (Multiple lines) ရေးထားပါက ၎င်းတို့ကြား အကွာအဝေးကို ချဲ့ရန် */
 mjx-mtr, mjx-mlabeledtr {
-    height: 3em !important; /* Equation အကြောင်းများကြားထဲ နေရာပိုခြားပေးမည် (မလောက်ပါက 3.5em စသဖြင့် တိုးနိုင်သည်) */
+    height: 3em !important; /* Equation အကြောင်းများကြားထဲ နေရာပိုခွါပေးမည် (မလောက်ပါက 3.5em စသဖြင့် တိုးနိုင်သည်) */
 }
 
 /* (ရွေးချယ်ရန်) Equation Scrollbar လေးကို သေးသေးသွယ်သွယ်နဲ့ လှသွားအောင် ပြင်ခြင်း */
@@ -474,7 +474,7 @@ mjx-mtr, mjx-mlabeledtr {
             <span style="font-size: 1.5rem;">💡</span>
             <h4 style="color: var(--accent); margin: 10px 0 5px 0;">Daily Motivation</h4>
             <p id="daily-quote" style="font-style: italic; font-size: 0.95rem; color: #CBD5E1; line-height: 1.5;">
-                "ရင်းနှီးမြုပ်နှံမှုတွေထဲမှာအကောင်းဆုံးက ပညာရေးမှာရင်းနှီးမြုပ်နှံခြင်းပါပဲ""
+                "ရင်းနှီးမြှုပ်နှံမှုတွေထဲမှာအကောင်းဆုံးက ပညာရေးမှာရင်းနှီးမြှုပ်နှံခြင်းပါပဲ""
             </p>
         </div>
 		
@@ -552,7 +552,7 @@ mjx-mtr, mjx-mlabeledtr {
                 </div>
 
                 <div class="profile-info-card">
-                    <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
+                    <b style="color: var(--accent);">ဝယ်ယူပြီးသော� ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
                     <a href="https://t.me/minaphayarkot" target="_blank" class="btn buy-btn">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</a>
 					<div style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
@@ -619,7 +619,7 @@ mjx-mtr, mjx-mlabeledtr {
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
     <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5;"></div>
     <div id="quiz-options"></div>
-    <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
+    <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ┚</button>
     
     <!-- Timer ကို ထွက်မည် ခလုတ်အပေါ် ရွှေ့လိုက်ပါပြီ -->
     <div class="timer-wrapper" id="timer-wrapper">
@@ -792,7 +792,7 @@ const oldENGrammarTopics = [
     // လိုအပ်သလို ထပ်ဖြည့်နိုင်ပါသည်
 ];
 
-// App စတင်သည်နှင့် Old Subjects များကို အသင့်တည်ဆောက်ထားရန်
+// App စတင်သည်နှင့်အတူ Old Subjects များကို အသင့်တည်ဆောက်ထားရန်
 function initOldSubjects() {
     const list = document.getElementById('old-subject-list');
     if (!list) return; // Check for safety
@@ -833,7 +833,7 @@ function initOldSubjects() {
     });
 }
 
-// မေးခွန်းဟောင်းအတွက် သီးသန့် Button ဖန်တီးပေးသည့် Function
+// မေးခွန်းဟောင်းအတွက် သီးသန့်� Button ဖန်တီးပေးသည့် Function
 function createOldBtn(txt, parent, act) {
     const b = document.createElement('button');
     b.className = 'btn';
@@ -914,13 +914,19 @@ function showOldMMQuizOptions(typeName) {
     document.getElementById('selected-sub-title').innerText = typeName;
     document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
 
-    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
+    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး', 'ရေသည်'].forEach(cat => {
         createOldBtn(cat, list, () => {
             if (cat === 'အပြော' || cat === 'အရေး') {
-                // "အပြော" နှင့် "အရေး" အတွက် အခန်းခွဲများရွေးရန် သွားမည်
                 showOldMMChapters(typeName, cat);
+            } else if (cat === 'ရေသည်') {
+                const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                initFlashcards(fileName);
+                const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
+                flashExitBtn.onclick = () => {
+                    showScreen('scroll');
+                    showOldMMQuizOptions(typeName);
+                };
             } else {
-                // "စကားပြေ" နှင့် "ကဗျာ" အတွက် တိုက်ရိုက် မေးခွန်းစမည်
                 initQuiz(`old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
                 document.getElementById('quiz-back-btn').onclick = () => {
                     showScreen('scroll');
@@ -999,7 +1005,7 @@ function backToOldSubjects() {
     document.getElementById('old-subjects-screen').style.display = 'block';
 }
 
-// App စတက်တာနဲ့ Old Subjects တွေကို အဆင်သင့်လုပ်ထားရန် ခေါ်ပေးခြင်း
+// App စဖွင့်တာနဲ့ Old Subjects တွေကို အဆင်သင့်လုပ်ထားရန် ခေါ်ပေးခြင်း
 setTimeout(() => {
     initOldSubjects();
 }, 500);
@@ -1064,7 +1070,7 @@ function unlockCard(div, sub) {
         div.className = `subject-card ${isPaid ? '' : 'locked'} ${isSpecial && isPaid ? 'premium-card' : ''}`;
         div.innerHTML = `<span>${sub.name} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
         
-        div.onclick = () => isPaid ? openSubjectMenu(sub) : tg.showAlert("ဘာသာရပ်၀ယ်ယူထားသူများသာ အသုံးပြုနိုင်ပါသည်။");
+        div.onclick = () => isPaid ? openSubjectMenu(sub) : tg.showAlert("ဘာသာရပ်ဝယ်ယူထားသူများသာ အသုံးပြုနိုင်ပါသည်။");
         list.appendChild(div);
     });
 }
@@ -1081,7 +1087,7 @@ function openSubjectMenu(sub) {
 
     // အကယ်၍ ဝယ်မထားဘဲ Menu ထဲရောက်နေလျှင် ပြန်ထုတ်ရန်
     if (!canAccess) {
-        tg.showAlert("တစ်ဘာသာလုံးကို‌လေ့ကျင့်ဖို့ ဒီဘာသာရပ်ကိုဝယ်ယူလိုက်ပါ");
+        tg.showAlert("တစ်ဘာသာလုံးကိုလေ့ကျင့်ဖို့ ဒီဘာသာရပ်ကိုဝယ်ယူလိုက်ပါ");
         showScreen('home');
         return;
     }
@@ -1102,10 +1108,8 @@ function openSubjectMenu(sub) {
         });
     } else if (sub.id === 'mm') {
         ['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး', 'ခက်ဆစ်', 'အလင်္ကာ'].forEach(m => {
-            createBtn(m, content, () => {
-                if (['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး'].includes(m)) showMMQuizOptions(m);
-                else showMMFlashcardOptions(m);
-            });
+            if (['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး'].includes(m)) showMMQuizOptions(m);
+            else showMMFlashcardOptions(m);
         });
     } else if (sub.id === 'phy' || sub.id === 'chem') {
         for(let i=1; i<=sub.chapters; i++) {
@@ -1369,7 +1373,7 @@ But there’s wonderment within it,
 
         // စကားပြေနှင့် ကဗျာ ခေါင်းစဉ် (၈) မျိုးစီကို Array အဖြစ် ကြိုတင်သတ်မှတ်ထားခြင်း
 const proseTitles = ['ညောင်ရမ်းကြီးသမီး', 'သစ္စာနှင့်ပညာ', 'ခေတ်', 'မလုပ်မစား', 'စာဘူးတောင်း', 'ဦးဖေမောင်တင်', 'အဖြူနှင့်အနက်', 'စိတ်ဓာတ်ရင့်ကျက်တည်ငြိမ်ခြင်း'];
-const poetryTitles = ['ပေါ်နွေလလျှင်', 'ငါ့ကိုလွယ်အမယ်ကြီးနှင့်', 'ဩဝါဒထူးပျို့', 'ပေါင်းရှစ်ယောက်ကောက်စိုက်သူ', 'အညာမင်္ဂလာဆောင်', 'ကမ္ဗောဇသို့', 'လက်ဖက်ရည်ကြမ်းဝိုင်း', 'ပဒေသာလက်ရာ'];
+const poetryTitles = ['ပေါ်နွေလလျှင်', 'ငါ့ကိုလွယ်အမယ်ကြီးနှင့်', 'ဩဝါဒထူးပျို့', 'ပေါင်းရှစ်ယောက် ကောက်စိုက်သူ', 'အညာမင်္ဂလာဆောင်', 'ကမ္ဗောဇသို့', 'လက်ဖက်ရည်ကြမ်းဝိုင်း', 'ပဒေသာလက်ရာ'];
 
 function showMMQuizOptions(typeName) {
     showScreen('activity');
@@ -1380,16 +1384,21 @@ function showMMQuizOptions(typeName) {
     // Back button နှိပ်ပါက Subject Menu သို့ ပြန်သွားရန်
     document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
     
-    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး'].forEach(cat => {
+    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'အရေး', 'ရေသည်'].forEach(cat => {
         createBtn(cat, content, () => {
             if (cat === 'စကားပြေ') {
-                // စကားပြေကို ရွေးချယ်ပါက စကားပြေ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
                 showSubMenu(typeName, cat, proseTitles);
             } else if (cat === 'ကဗျာ') {
-                // ကဗျာကို ရွေးချယ်ပါက ကဗျာ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
                 showSubMenu(typeName, cat, poetryTitles);
+            } else if (cat === 'ရေသည်') {
+                const fileName = `mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                initFlashcards(fileName);
+                const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
+                flashExitBtn.onclick = () => {
+                    showScreen('activity');
+                    showMMQuizOptions(typeName);
+                };
             } else {
-                // အပြော နှင့် အရေး အတွက် မူလအတိုင်း ဆက်သွားရန်
                 { showMMChapters(typeName, cat) };
                 document.getElementById('quiz-back-btn').onclick = () => showMMQuizOptions(typeName);
             }
@@ -1397,7 +1406,7 @@ function showMMQuizOptions(typeName) {
     });
 }
 
-// အပြော နှင့် အရေး အတွက် အခန်းခွဲများကို ပြသမည့် Function အသစ်
+// အပြော နှင့် အရေး အတွက် အခန်းခွဲများ ပြပေးမည့် Function အသစ်
         function showMMChapters(typeName, cat) {
             showScreen('activity');
             // ဥပမာ - "အပြော (အမှန်ရွေး)" ဟု ခေါင်းစဉ်တပ်ရန်
@@ -1405,40 +1414,40 @@ function showMMQuizOptions(typeName) {
             const content = document.getElementById('activity-content');
             content.innerHTML = '';
             
-            // "နောက်သို့" ခလုတ်နှိပ်ပါက မူလရွေးချယ်ရမည့်နေရာသို့ ပြန်သွားရန်
+            // "နောက်သို့" ခလုတ်နှိပ်ပါက မူလ (အပြော, စကားပြေ, ကဗျာ, အရေး) ရွေးချယ်သည့်နေရာသို့ ပြန်သွားရန်
             document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
 
             // အခန်း (၃) ခန်း ဖန်တီးခြင်း (လိုအပ်ပါက ဤနေရာတွင် အခန်းများ ထပ်တိုးနိုင်ပါသည်)
             ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
                 createBtn(chapter, content, () => {
-                    // ဖိုင်နာမည်ကို mm_အပြော_အခန်း_၁_အမှန်ရွေး.json ပုံစံဖြင့် ဖွဲ့စည်းမည်
+                    // ဖိုင်နာမည်ကို mm_အပြော_အခန်း_၁_အမှန်_ရွေး.json ပုံစံပွါဖွဲ့စည်းမည်
                     const fileName = `mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
                     initQuiz(fileName);
                     
-                    // Quiz ပြီး၍ "ထွက်မည်" ကိုနှိပ်ပါက ယခု အခန်းရွေးသည့် စာမျက်နှာသို့ ပြန်လာရန်
+                    // Quiz အတွင်း "ထွက်မည်" ကိုနှိပ်ပါက ယခု အခန်းရွေးသည့် စာမျက်နှာသို့ ပြန်လာရန်
                     document.getElementById('quiz-back-btn').onclick = () => showMMChapters(typeName, cat);
                 });
             });
         }
 
 // ခေါင်းစဉ်ခွဲ (Sub Menu) များကို ပြသပေးမည့် Function အသစ်
-function showSubMenu(typeName, cat, titles) {
+function showSubMenu(typeName, category, titles) {
     showScreen('activity');
-    document.getElementById('activity-title').innerText = cat; 
+    document.getElementById('activity-title').innerText = category; 
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
     
-    // ခေါင်းစဉ်ခွဲများမှ Back button နှိပ်ပါက မူလ (အပြော, စကားပြေ, ကဗျာ, အရေး) ရွေးချယ်သည့် နေရာသို့ ပြန်သွားရန်
+    // ခေါင်းစဉ်ခွဲများ Back button နှိပ်ပါက မူလ (အပြော, စကားပြေ, ကဗျာ, အရေး) ရွေးချယ်သည့် နေရာသို့ ပြန်သွားရန်
     document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
     
-    titles.forEach(title => {
-        createBtn(title, content, () => {
+    titles.forEach(t => {
+        createBtn(t, content, () => {
             // Quiz ကို စတင်ရန် (ဥပမာ - mm_စကားပြေ_ခေတ်_ရွေးချယ် စသဖြင့် ဖြစ်လာပါမည်)
-            // သင့်ရဲ့ ဒေတာဘေ့စ် သို့မဟုတ် မေးခွန်း Format ပေါ်မူတည်ပြီး string ကို လိုအပ်သလို ပြင်ဆင်နိုင်ပါသည်။
-            initQuiz(`mm_${cat}_${title}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
+            // သင့်၏ ဒေတာဘေ့စ် သို့မဟုတ် မေးခွန်း� Format ပေါ်မူတည်၍ string ကို လိုအပ်သလို ပြင်ဆင်နိုင်ပါသည်။
+            initQuiz(`mm_${category}_${typeName}_${t}`.replace(/ /g, "_"));
             
             // Quiz အတွင်းမှ Back နှိပ်ပါက ခေါင်းစဉ်ခွဲ (၈) မျိုး ပြသသည့် မျက်နှာပြင်ဆီသို့ ပြန်သွားရန်
-            document.getElementById('quiz-back-btn').onclick = () => showSubMenu(typeName, cat, titles);
+            document.getElementById('quiz-back-btn').onclick = () => showSubMenu(typeName, category, titles);
         });
     });
 }
@@ -1455,14 +1464,14 @@ function showSubMenu(typeName, cat, titles) {
         createBtn("ဥပမာအလင်္ကာ", content, () => initFlashcards("mm_ဥပမာအလင်္ကာ"));
         createBtn("ရူပကအလင်္ကာ", content, () => initFlashcards("mm_ရူပကအလင်္ကာ"));
         createBtn("ဝင်္ကဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_ဝင်္ကဝုတ္တိအလင်္ကာ"));
-        createBtn("အတိယဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_အတိသယဝုတ္တိအလင်္ကာ"));
+        createBtn("အတိသယဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_အတိသယဝုတ္တိအလင်္ကာ"));
         createBtn("မြည်သံစွဲအလင်္ကာ", content, () => initFlashcards("mm_မြည်သံစွဲအလင်္ကာ"));
 
     } else {
-        // ကျန်တဲ့ စကားပြေ၊ ကဗျာ၊ ရေသည် များအတွက် မူလအတိုင်း
+        // ကျန်တဲ့ စကားပြေ၊ ကဗျာ၊ ရေသည် များ အတွက် မူလအတိုင်း
         createBtn("စကားပြေ", content, () => showMMSubTopics(typeName, "စကားပြေ"));
         createBtn("ကဗျာ", content, () => showMMSubTopics(typeName, "ကဗျာ"));
-        createBtn("ရေသည်", content, () => initFlashcards("mm_ရေသည်_ခက်ဆစ်"));
+        createBtn("ရေသည်", content, () => initFlashcards("mm_ရေသည်_ခက်ဆစ်_ရေသည်"));
     }
 }
 
@@ -1494,7 +1503,7 @@ function showSubChaptersMenu(subId, chapterName) {
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
     
-    // နောက်သို့နှိပ်လျှင် ဘာသာရပ်ရွေးသည့် Menu (သို့) Trial Menu သို့ ပြန်သွားရန်
+    // နောက်သို့နှိပ်လျှင် သက်ဆိုင်ရာ နေရာများသို့ ပြန်သွားရန်
     document.getElementById('activity-back-btn').onclick = () => {
         const userId = tg.initDataUnsafe?.user?.id || 0;
         const isSpecial = specialUsers.includes(userId);
@@ -1511,10 +1520,10 @@ function showSubChaptersMenu(subId, chapterName) {
     fullBtn.className = 'btn';
     fullBtn.innerText = "တစ်ခန်းလုံးကိုလေ့ကျင့်မယ်";
     
-    // Grid ၂ ကွက်စလုံးကို ဖြတ်ပြီး တစ်ကြောင်းတည်း အပြည့်နေရာယူစေရန်
+    // Grid ၂ ကွက်စလုံးကို ဖြုတ်ပြီး တစ်ကြောင်းတည်း အပြည့်နေရာယူစေရန်
     fullBtn.style.gridColumn = "1 / -1"; 
     
-    // စိမ်းပြာရောင် (Teal/Cyan) ဒီဇိုင်း
+    // စိမ်းပြာရောင် (Teal/Cyan) ဒီဇိုင်
     fullBtn.style.background = "#00FF80"; 
     fullBtn.style.color = "#000000"; 
     fullBtn.style.border = "none";
@@ -1679,7 +1688,7 @@ function updateFlashUI() {
        function showGeneralActivities(subId, partName, parentChapter = null) {
     showScreen('activity');
     
-    // အခန်းခွဲ ဖြစ်နေလျှင် ဖြတ်ထုတ်ပြသရန်
+    // အခန်းခွဲ ဖြစ်နေလျှင် ဖြုတ်ထုတ်ပြသရန်
     let displayTitle = partName.includes('_') ? partName.split('_')[1] : partName;
     document.getElementById('activity-title').innerText = displayTitle;
     
@@ -1749,7 +1758,7 @@ function updateFlashUI() {
         if (isRandom) {
             currentQuestions = shuffleArray(data); 
         } else {
-            currentQuestions = [...data]; // မူရင်း အစဉ်လိုက်အတိုင်းထားမည်
+            currentQuestions = [...data]; // မူလ အစဉ်လိုက်အတိုင်းထားမည်
         }
         
         currentIdx = 0; 
@@ -1763,6 +1772,14 @@ function updateFlashUI() {
     const nextBtn = document.getElementById('next-btn');
     nextBtn.style.display = 'none';
     nextBtn.className = 'btn'; // Reset to default class first
+
+    // သင်္ချာအတွက် ရမှတ်ကို ဖျောက်ထားရန်
+    const markCountDiv = document.getElementById('markcount');
+    if (currentSubject && currentSubject.id === 'math') {
+        markCountDiv.style.display = 'none';
+    } else {
+        markCountDiv.style.display = 'block';
+    }
 
     const q = currentQuestions[currentIdx];
     
@@ -1790,6 +1807,10 @@ function updateFlashUI() {
             document.getElementById('math-solution-content').innerHTML = q.c;
             if (window.MathJax) MathJax.typesetPromise();
 
+            // အပေါ်ဆုံးသို့ scroll လုပ်ရန်
+            document.getElementById('math-solution-screen').scrollTop = 0;
+            window.scrollTo(0, 0);
+            
             // နောက်သို့ (မေးခွန်း ပြန်ကြည့်ရန်)
             document.getElementById('math-prev-btn').onclick = () => {
                 showScreen('quiz');
@@ -1816,7 +1837,7 @@ function updateFlashUI() {
 
         optDiv.appendChild(showBtn);
     } 
-    // --- ၂။ အခြားပုံမှန် မေးခွန်းများ (MCQ, True/False) ---
+    // --- ၂။ အခြားပုံစွန် မေးခွန်းများ (MCQ, True/False) ---
     else if (q.type === 'mcq' || q.type === 'tf') {
         let opts = [];
         let correctIdx = 0;
@@ -1938,7 +1959,7 @@ function selectOption(index) {
         options[index].classList.add('wrong-answer');
     }
     
-    // ကျန်တဲ့ အဖြေမှားတွေကိုပါ အနီရောင်ပြရန်
+    // ကျန်တဲ့ အဖြေများတွေကိုပါ အနီရောင်ပြရန်
     options.forEach((btn, i) => {
         if (i !== q.answer) {
             btn.classList.add('wrong-answer');
@@ -2132,7 +2153,7 @@ function loadGoals() {
         }
     }
 
-    // ၃။ Motivation Quote ပြောင်းလဲခြင်း (၁၅ ခုအနက်မှ တစ်ရက်တစ်ခု)
+    // ၃။ Motivation Quote ပြောင်းလဲခြင်း (၁၅ ခုအနေမှ တစ်ရက်တစ်ခု)
     const quotes = [
         "အောင်မြင်မှုဆီသို့ သွားရာလမ်းသည် ကြိုးစားအားထုတ်မှုဖြင့် စတင်သည်။",
         "မနက်ဖြန်အတွက် အကောင်းဆုံး ပြင်ဆင်မှုက ဒီနေ့မှာ အကောင်းဆုံး ကြိုးစားခြင်းပဲ။",
@@ -2148,7 +2169,7 @@ function loadGoals() {
         "ပန်းတိုင်ကို ရောက်ဖို့ ဖြတ်လမ်းမရှိဘူး၊ ကြိုးစားမှုပဲ ရှိတယ်။",
         "အကောင်းဆုံးဖြစ်အောင် လုပ်ပါ၊ ကျန်တာကို ကံကြမ္မာအပေါ် ပုံချမထားပါနဲ့။",
         "သူများထက် ပိုသိချင်ရင် သူများထက် ပိုကြိုးစားရမယ်။",
-        "ရင်းနှီးမြုပ်နှံမှုတွေထဲမှာအကောင်းဆုံးက ပညာရေးမှာရင်းနှီးမြုပ်နှံခြင်းပါပဲ"
+        "ရင်းနှီးမြှုပ်နှံမှုတွေထဲမှာအကောင်းဆုံးက ပညာရေးမှာရင်းနှီးမြှုပ်နှံခြင်းပါပဲ"
     ];
 
     const d = new Date();
@@ -2236,7 +2257,7 @@ function displayDailyQuote() {
 // Developer ကို ဆက်သွယ်ရန် (Telegram သို့ တိုက်ရိုက်ပို့ပေးမည်)
 function contactDeveloper() {
     const devUsername = "minaphayarkot"; // သင့် Telegram Username ပြောင်းပါ
-    const message = encodeURIComponent("မေးခွန်းမှားနေတာလေးပြောချင်လို့ပါ");
+    const message = encodeURIComponent("မေးခွန်းများနေတာလေးပြောချင်လို့ပါ");
     window.open(`https://t.me/${devUsername}?text=${message}`, '_blank');
 }
 
@@ -2269,7 +2290,7 @@ function updateStreak() {
 }
       
 	  // ၁။ Daily Quiz အတွက် မေးခွန်းများ စုစည်းထားမည့် နေရာ
-// သင့်ရဲ့ မူရင်း JSON ပုံစံအတိုင်း (q, type, a, c) အတိအကျ သုံးထားပါတယ်
+// သင့်၏ မူလ JSON ပုံစံအတိုင်း (q, type, a, c) အတိအကျ သုံးထားပါတယ်
 const dailyQuizDB = {
     'mm': [
         { q: "မြန်မာစာ မေးခွန်း ၁", type: "mcq", a: ["က", "ခ", "ဂ", "ဃ"], c: 0 },
@@ -2506,7 +2527,7 @@ function resetTimer() {
     startBtn.style.cursor = "pointer";
     startBtn.style.pointerEvents = "auto";
 
-    // 🎯 ရမှတ်ကို ၀ ပြန်ပြောင်းပြီး Screen ပေါ်မှာ ပြန်ပြင်ပေးရန်
+    // 🎯 ရမှတ်ကို ၀ ပြန်ပြောင်းပြီး Screen ပေါ်မှာ ပြန်ပြပေးရန်
     score = 0;
     document.getElementById('score-display').innerText = "ရမှတ်: 0";
 }
