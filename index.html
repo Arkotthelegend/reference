@@ -366,21 +366,38 @@
             transform: translateX(-80px) !important; 
         }
 		
-		/* သင်္ချာ အဖြေပြမည့် ဘောက်စ်အတွက် သီးသန့် CSS Class */
-.math-scroll-container {
-    max-width: 100%;       /* ဖုန်း Screen အရွယ်အစားထက် မကျော်စေရန် */
-    overflow-x: auto;      /* အလျားလိုက် ဘေးတိုက် Scroll ဆွဲခွင့်ပေးမည် */
-    overflow-y: hidden;    /* အထက်အောက် မလိုအပ်ဘဲ Scroll မဖြစ်စေရန် */
-    padding-bottom: 10px;  /* Scrollbar ပေါ်လာရင် စာကို မဖုံးသွားအောင် အောက်ခြေ နေရာချန်ထားခြင်း */
-    white-space: nowrap;   /* စာကြောင်းများ အောက်တစ်ကြောင်းသို့ မဆင်းဘဲ ဆက်တိုက်ပြရန် (Equation များအတွက် အသုံးဝင်သည်) */
+		.math-scroll-container {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 12px 15px;
+    margin: 10px 0;
+    background: #0B0F19;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    white-space: nowrap;
 }
 
-.math-scroll-container {
-    max-width: 100%;       /* ဖုန်း Screen အရွယ်အစားထက် မကျော်စေရန် */
-    overflow-x: hidden;    /* box ကိုယ်တိုင်က ဘေးတိုက်ကျော်မသွားစေရန် */
-    overflow-y: hidden;    /* အထက်အောက် မလိုအပ်ဘဲ Scroll မဖြစ်စေရန် */
-    padding-bottom: 10px;  /* Scrollbar ပေါ်လာရင် စာကို မဖုံးသွားအောင် အောက်ခြေ နေရာချန်ထားခြင်း */
+.math-scroll-container::-webkit-scrollbar {
+    height: 6px;
 }
+
+.math-scroll-container::-webkit-scrollbar-track {
+    background: #1E293B;
+    border-radius: 3px;
+}
+
+.math-scroll-container::-webkit-scrollbar-thumb {
+    background: #00D5FF;
+    border-radius: 3px;
+}
+
+.math-scroll-container p {
+    margin: 0;
+    display: inline-block;
+    white-space: nowrap;
+}
+
 /* ၂။ သင်္ချာ Equation တွေ ရှည်သွားရင် ဘေးတိုက် Scroll ဆွဲလို့ရအောင် သီးသန့်လုပ်ပေးခြင်း */
 .mjx-container {
     max-width: 100% !important;
