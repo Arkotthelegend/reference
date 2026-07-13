@@ -568,6 +568,7 @@ body[data-theme] .contact-btn { color: var(--t-accent) !important; border-color:
     <div style="padding: 20px; padding-bottom: 100px;">
         
         <div style="margin-bottom: 25px; text-align: center; padding: 20px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 20px;">
+		<div id="motivation-box" style="margin-bottom: 25px; text-align: center; padding: 20px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 20px;">
             <span style="font-size: 1.5rem;">💡</span>
             <h4 style="color: var(--accent); margin: 10px 0 5px 0;">Daily Motivation</h4>
             <p id="daily-quote" style="font-style: italic; font-size: 0.95rem; color: #CBD5E1; line-height: 1.5;">
@@ -2244,12 +2245,11 @@ function renderProfileData() {
     streakBadge.innerHTML = `🔥 ${currentStreak} Day${currentStreak > 1 ? 's' : ''}`;
 
     // Dynamic Area ထဲကို UI တွေ ထည့်မယ်
-    const dynamicArea = document.getElementById('dynamic-content-area');
-    dynamicArea.innerHTML = `
+   dynamicArea.innerHTML = `
     <button onclick="openThemeShop()" style="width: 100%; background: linear-gradient(135deg, #8B5CF6, #EC4899); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
         🎨 Theme Shop
     </button>
-    <button onclick="contactDeveloper()" style="width: 100%; background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 15px; border-radius: 14px; margin-top: 10px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
+    <button class="contact-btn" onclick="contactDeveloper()" style="width: 100%; background: #1E293B; padding: 15px; border-radius: 14px; margin-top: 10px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
         🛠 အမှားများတိုင်ကြားရန်
     </button>
 `;
