@@ -1,57 +1,18 @@
 [
-  {
-    "type": "tf",
-    "q": "An ideal fluid must exhibit turbulent flow and significant viscosity.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The density of an ideal fluid is assumed to be variable.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "In a pipe with varying cross-sectional areas, the mass flowing in section 1 can be different from the mass flowing in section 2.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "For an ideal fluid flowing through a pipe, the volume flow rate is the same throughout the pipe.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "The equation $A_1 v_1 = A_2 v_2$ is known as Bernoulli's equation.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The equation of continuity implies that the liquid entering one end of a pipe leaves from the other end with a variable volume flow rate.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "If the area of a pipe increases, the speed of the fluid must also increase to maintain a constant volume flow rate.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Making the hose area smaller increases the speed of water spraying from it.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "The equation of continuity for fluid flow applies to situations where the density of the fluid is not constant.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The volume flow rate is always constant in a pipe, regardless of whether the fluid is ideal or not.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The concept of 'no viscosity' is essential for the equation of continuity to be strictly applicable.",
-    "c": true
-  }
-]
+    {"type": "tf", "q": "Consider an ideal fluid there must be laminar flow and no viscosity.", "c": true},
+    {"type": "tf", "q": "For an ideal fluid, the density of the fluid is variable throughout the pipe.", "c": false},
+    {"type": "tf", "q": "The equation of continuity for fluid flow states $A_{1} v_{1} = A_{2} v_{2}$.", "c": true},
+    {"type": "tf", "q": "The mass flowing in section 1 must be half the mass flowing in section 2 in a constant volume flow rate system.", "c": false},
+    {"type": "tf", "q": "The larger the area of the pipe, the slower is the speed.", "c": true},
+    {"type": "tf", "q": "The speed of water spraying from a hose increases by making the hose area larger.", "c": false},
+    {"type": "tf", "q": "Volume flow rate $\\frac{V}{t}$ is the same throughout the pipe in an ideal fluid flow.", "c": true},
+    {"type": "tf", "q": "The equation $A_{1} v_{1} = A_{2} v_{2}$ is known as Bernoulli's equation for fluid flow.", "c": false},
+    {"type": "tf", "q": "The equation of continuity states that the liquid entering one end of the pipe leaves from the other end with a constant volume flow rate.", "c": true},
+    {"type": "tf", "q": "In the equation of continuity, $v_{1}$ and $v_{2}$ represent the density of liquid at section 1 and section 2 respectively.", "c": false},
+    {"type": "tf", "q": "The smaller the area of the pipe, the faster is the speed of the fluid.", "c": true},
+    {"type": "tf", "q": "Equation of continuity is valid for turbulent flow with high internal friction.", "c": false},
+    {"type": "tf", "q": "All the liquid that flow through section 1 (larger cross sectional area $A_{1}$) flow through section 2 (smaller cross sectional area $A_{2}$).", "c": true},
+    {"type": "tf", "q": "According to the equation of continuity, area and speed are directly proportional to each other.", "c": false},
+    {"type": "tf", "q": "Constant volume flow rate is maintained in a system where $A_{1} v_{1} = A_{2} v_{2}$.", "c": true},
+    {"type": "tf", "q": "The density of liquid is constant for any pressure provided the volume is kept constant.", "c": false}
+  ]
