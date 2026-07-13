@@ -73,5 +73,80 @@
     "type": "math_show",
     "q": "Find the distance between the points representing \\( z_1 = 3+4i \\) and \\( z_2 = 1-2i \\) in the complex plane.",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The distance between two complex numbers is given by \\( |z_1 - z_2| \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z_1 - z_2 = (3+4i) - (1-2i) = 2 + 6i \\)</div><br><br>Step 2<br><br>Find the absolute value of the result:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |2 + 6i| = \\sqrt{2^2 + 6^2} = \\sqrt{4 + 36} = \\sqrt{40} \\)</div><br><br>Step 3<br><br>Simplify the radical:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{40} = 2\\sqrt{10} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2\\sqrt{10} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Compute \\( (3, -2) + (1, 4) - (2, -1) \\) in the form \\( (x, y) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Add the first two complex numbers:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (3, -2) + (1, 4) = (3 + 1, -2 + 4) = (4, 2) \\)</div><br><br>Step 2<br><br>Subtract the third complex number:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (4, 2) - (2, -1) = (4 - 2, 2 - (-1)) = (2, 3) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (2, 3) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Compute \\( (2, 1) \\times (3, -2) \\) in the form \\( (x, y) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the product formula for complex numbers in ordered pair form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x_1, y_1)(x_2, y_2) = (x_1 x_2 - y_1 y_2, x_1 y_2 + y_1 x_2) \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2, 1)(3, -2) = (2(3) - 1(-2), 2(-2) + 1(3)) \\)</div><br><br>Step 3<br><br>Calculate the components:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = (6 + 2, -4 + 3) = (8, -1) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (8, -1) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express \\( (1+2i) - (3-4i) + 2i \\) in the form \\( a+bi \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Group the real and imaginary parts:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 - 3) + (2i - (-4i) + 2i) \\)</div><br><br>Step 2<br><br>Simplify the real part:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 - 3 = -2 \\)</div><br><br>Step 3<br><br>Simplify the imaginary part:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2i + 4i + 2i = 8i \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -2 + 8i \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the conjugate \\( \\bar{z} \\) of the complex number \\( z = (2+3i)(1-i) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>First, simplify \\( z \\) by expanding the product:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z = 2 - 2i + 3i - 3i^2 = 2 + i - 3(-1) = 5 + i \\)</div><br><br>Step 2<br><br>The conjugate \\( \\bar{z} \\) is found by changing the sign of the imaginary part:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\bar{z} = 5 - i \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5 - i \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the multiplicative inverse \\( z^{-1} \\) of \\( z = 3 + 4i \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The multiplicative inverse is given by:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z^{-1} = \\frac{1}{3 + 4i} \\)</div><br><br>Step 2<br><br>Multiply the numerator and denominator by the conjugate \\( 3 - 4i \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z^{-1} = \\frac{1(3 - 4i)}{(3 + 4i)(3 - 4i)} = \\frac{3 - 4i}{3^2 + 4^2} \\)</div><br><br>Step 3<br><br>Simplify the denominator:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z^{-1} = \\frac{3 - 4i}{25} = \\frac{3}{25} - \\frac{4}{25}i \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{25} - \\frac{4}{25}i \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express \\( \\frac{2-i}{1+2i} \\) in the form \\( a+bi \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply the numerator and denominator by the conjugate of the denominator, \\( 1 - 2i \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{2-i}{1+2i} = \\frac{(2-i)(1-2i)}{(1+2i)(1-2i)} \\)</div><br><br>Step 2<br><br>Expand the numerator and denominator:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\frac{2 - 4i - i + 2i^2}{1^2 + 2^2} = \\frac{2 - 5i - 2}{5} \\)</div><br><br>Step 3<br><br>Simplify the fraction:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\frac{-5i}{5} = -i \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 0 - 1i \\) (or simply \\( -i \\))"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the absolute value \\( |z| \\) of the complex number \\( z = (1+i)(2-i) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the property \\( |z_1 z_2| = |z_1| |z_2| \\).<br><br>Find \\( |1+i| \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |1+i| = \\sqrt{1^2 + 1^2} = \\sqrt{2} \\)</div><br><br>Step 2<br><br>Find \\( |2-i| \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |2-i| = \\sqrt{2^2 + (-1)^2} = \\sqrt{5} \\)</div><br><br>Step 3<br><br>Multiply the absolute values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |z| = \\sqrt{2} \\cdot \\sqrt{5} = \\sqrt{10} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\sqrt{10} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express \\( z = 1 - i \\) in trigonometric form with \\( -\\pi < \\theta \\le \\pi \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the absolute value \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = \\sqrt{1^2 + (-1)^2} = \\sqrt{2} \\)</div><br><br>Step 2<br><br>Find the argument \\( \\theta \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos\\theta = \\frac{1}{\\sqrt{2}}, \\sin\\theta = -\\frac{1}{\\sqrt{2}} \\)</div><br><br>Since cosine is positive and sine is negative, \\( \\theta \\) is in the fourth quadrant:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\theta = -\\frac{\\pi}{4} \\)</div><br><br>Step 3<br><br>Write in trigonometric form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z = \\sqrt{2}\\left(\\cos\\left(-\\frac{\\pi}{4}\\right) + i\\sin\\left(-\\frac{\\pi}{4}\\right)\\right) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\sqrt{2}\\left(\\cos\\left(-\\frac{\\pi}{4}\\right) + i\\sin\\left(-\\frac{\\pi}{4}\\right)\\right) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express \\( z = -\\sqrt{3} + i \\) in trigonometric form with \\( -\\pi < \\theta \\le \\pi \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the absolute value \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = \\sqrt{(-\\sqrt{3})^2 + 1^2} = \\sqrt{3 + 1} = 2 \\)</div><br><br>Step 2<br><br>Find the argument \\( \\theta \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos\\theta = -\\frac{\\sqrt{3}}{2}, \\sin\\theta = \\frac{1}{2} \\)</div><br><br>Since cosine is negative and sine is positive, \\( \\theta \\) is in the second quadrant:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\theta = \\frac{5\\pi}{6} \\)</div><br><br>Step 3<br><br>Write in trigonometric form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z = 2\\left(\\cos\\frac{5\\pi}{6} + i\\sin\\frac{5\\pi}{6}\\right) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2\\left(\\cos\\frac{5\\pi}{6} + i\\sin\\frac{5\\pi}{6}\\right) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the product of \\( z_1 = 2\\left(\\cos\\frac{\\pi}{4} + i\\sin\\frac{\\pi}{4}\\right) \\) and \\( z_2 = 3\\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right) \\) in trigonometric form.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the product formula for trigonometric forms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z_1 z_2 = r_1 r_2 \\left( \\cos(\\theta_1 + \\theta_2) + i\\sin(\\theta_1 + \\theta_2) \\right) \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z_1 z_2 = (2)(3) \\left( \\cos\\left(\\frac{\\pi}{4} + \\frac{\\pi}{3}\\right) + i\\sin\\left(\\frac{\\pi}{4} + \\frac{\\pi}{3}\\right) \\right) \\)</div><br><br>Step 3<br><br>Simplify the angle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{\\pi}{4} + \\frac{\\pi}{3} = \\frac{7\\pi}{12} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z_1 z_2 = 6\\left(\\cos\\frac{7\\pi}{12} + i\\sin\\frac{7\\pi}{12}\\right) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 6\\left(\\cos\\frac{7\\pi}{12} + i\\sin\\frac{7\\pi}{12}\\right) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the quotient \\( \\frac{z_1}{z_2} \\) where \\( z_1 = 4\\left(\\cos\\frac{\\pi}{2} + i\\sin\\frac{\\pi}{2}\\right) \\) and \\( z_2 = 2\\left(\\cos\\frac{\\pi}{6} + i\\sin\\frac{\\pi}{6}\\right) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the division formula for trigonometric forms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{z_1}{z_2} = \\frac{r_1}{r_2} \\left( \\cos(\\theta_1 - \\theta_2) + i\\sin(\\theta_1 - \\theta_2) \\right) \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{z_1}{z_2} = \\frac{4}{2} \\left( \\cos\\left(\\frac{\\pi}{2} - \\frac{\\pi}{6}\\right) + i\\sin\\left(\\frac{\\pi}{2} - \\frac{\\pi}{6}\\right) \\right) \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{z_1}{z_2} = 2\\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2\\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( i^{100} + i^{101} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Recall the powers of \\( i \\): \\( i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1 \\).<br><br>Find \\( i^{100} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( i^{100} = (i^4)^{25} = 1^{25} = 1 \\)</div><br><br>Step 2<br><br>Find \\( i^{101} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( i^{101} = i^{100} \\cdot i = 1 \\cdot i = i \\)</div><br><br>Step 3<br><br>Add the results:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( i^{100} + i^{101} = 1 + i \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 + i \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( z = \\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3} \\), find \\( z^3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply De Moivre's Theorem:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z^n = \\cos(n\\theta) + i\\sin(n\\theta) \\)</div><br><br>Step 2<br><br>Substitute \\( n = 3 \\) and \\( \\theta = \\frac{\\pi}{3} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z^3 = \\cos\\left(3 \\times \\frac{\\pi}{3}\\right) + i\\sin\\left(3 \\times \\frac{\\pi}{3}\\right) \\)</div><br><br>Step 3<br><br>Simplify the angle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z^3 = \\cos\\pi + i\\sin\\pi = -1 + 0i = -1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the real and imaginary parts of \\( \\frac{1}{1-i} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply the numerator and denominator by the conjugate of the denominator, \\( 1 + i \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{1-i} = \\frac{1(1+i)}{(1-i)(1+i)} = \\frac{1+i}{1^2 + 1^2} \\)</div><br><br>Step 2<br><br>Simplify the fraction:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\frac{1+i}{2} = \\frac{1}{2} + \\frac{1}{2}i \\)</div><br><br>Step 3<br><br>Identify the real and imaginary parts:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Real part} = \\frac{1}{2}, \\quad \\text{Imaginary part} = \\frac{1}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>Real part: \\( \\frac{1}{2} \\), Imaginary part: \\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the distance between the points representing \\( z_1 = 3+4i \\) and \\( z_2 = 1-2i \\) in the complex plane.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The distance between two complex numbers is given by \\( |z_1 - z_2| \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( z_1 - z_2 = (3+4i) - (1-2i) = 2 + 6i \\)</div><br><br>Step 2<br><br>Find the absolute value of the result:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |2 + 6i| = \\sqrt{2^2 + 6^2} = \\sqrt{4 + 36} = \\sqrt{40} \\)</div><br><br>Step 3<br><br>Simplify the radical:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{40} = 2\\sqrt{10} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2\\sqrt{10} \\)"
   }
 ]
