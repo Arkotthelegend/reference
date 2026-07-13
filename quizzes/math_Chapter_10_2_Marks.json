@@ -73,5 +73,80 @@
     "type": "math_show",
     "q": "Evaluate \\( \\int \\frac{1}{\\sqrt{4-3x}} dx \\).",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite the integrand as a power:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int (4-3x)^{-1/2} dx \\)</div><br><br>Step 2<br><br>Use the formula \\( \\int (ax+b)^n dx = \\frac{1}{a(n+1)}(ax+b)^{n+1} + C \\).<br><br>Here, \\( a = -3 \\) and \\( n = -\\frac{1}{2} \\).<br><br>Step 3<br><br>Substitute and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{-3(1/2)}(4-3x)^{1/2} + C = -\\frac{2}{3}\\sqrt{4-3x} + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{2}{3}\\sqrt{4-3x} + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (3x^2 - 4x + 1) dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the power rule of integration to each term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int 3x^2 dx - \\int 4x dx + \\int 1 dx \\)</div><br><br>Step 2<br><br>Integrate each term individually:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3\\left(\\frac{x^3}{3}\\right) - 4\\left(\\frac{x^2}{2}\\right) + x + C \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^3 - 2x^2 + x + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x^3 - 2x^2 + x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (2\\sin 3x + e^{2x}) dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Separate the integral into two parts:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int 2\\sin 3x dx + \\int e^{2x} dx \\)</div><br><br>Step 2<br><br>Integrate each part using the rules for trigonometric and exponential functions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2\\left(-\\frac{1}{3}\\cos 3x\\right) + \\frac{1}{2}e^{2x} + C \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -\\frac{2}{3}\\cos 3x + \\frac{1}{2}e^{2x} + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{2}{3}\\cos 3x + \\frac{1}{2}e^{2x} + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (5x-2)^4 dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the formula for integrating \\( (ax+b)^n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int (ax+b)^n dx = \\frac{1}{a(n+1)}(ax+b)^{n+1} + C \\)</div><br><br>Step 2<br><br>Here, \\( a = 5 \\), \\( b = -2 \\), and \\( n = 4 \\). Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int (5x-2)^4 dx = \\frac{1}{5(5)}(5x-2)^5 + C \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{25}(5x-2)^5 + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{25}(5x-2)^5 + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\cos(4x+1) dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the formula for integrating \\( \\cos(ax+b) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\cos(ax+b) dx = \\frac{1}{a}\\sin(ax+b) + C \\)</div><br><br>Step 2<br><br>Here, \\( a = 4 \\) and \\( b = 1 \\). Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\cos(4x+1) dx = \\frac{1}{4}\\sin(4x+1) + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{4}\\sin(4x+1) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x\\sqrt{x^2+1} dx \\) using substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = x^2 + 1 \\). Then \\( du = 2x dx \\), which means \\( x dx = \\frac{1}{2} du \\).<br><br>Step 2<br><br>Substitute into the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\sqrt{u} \\left(\\frac{1}{2} du\\right) = \\frac{1}{2} \\int u^{1/2} du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = x^2 + 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{2} \\left(\\frac{u^{3/2}}{3/2}\\right) + C = \\frac{1}{3}(x^2+1)^{3/2} + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{3}(x^2+1)^{3/2} + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{2x}{x^2+3} dx \\) using substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = x^2 + 3 \\). Then \\( du = 2x dx \\).<br><br>Step 2<br><br>Substitute into the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{1}{u} du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = x^2 + 3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\ln|u| + C = \\ln|x^2+3| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\ln(x^2+3) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\sin^2 x \\cos x dx \\) using substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = \\sin x \\). Then \\( du = \\cos x dx \\).<br><br>Step 2<br><br>Substitute into the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int u^2 du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = \\sin x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{3}u^3 + C = \\frac{1}{3}\\sin^3 x + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{3}\\sin^3 x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x e^{2x} dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = x \\) and \\( dv = e^{2x} dx \\).<br><br>Then \\( du = dx \\) and \\( v = \\frac{1}{2}e^{2x} \\).<br><br>Step 2<br><br>Apply the integration by parts formula \\( \\int u dv = uv - \\int v du \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int x e^{2x} dx = x\\left(\\frac{1}{2}e^{2x}\\right) - \\int \\frac{1}{2}e^{2x} dx \\)</div><br><br>Step 3<br><br>Evaluate the remaining integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{2}xe^{2x} - \\frac{1}{4}e^{2x} + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2}xe^{2x} - \\frac{1}{4}e^{2x} + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x \\sin 2x dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = x \\) and \\( dv = \\sin 2x dx \\).<br><br>Then \\( du = dx \\) and \\( v = -\\frac{1}{2}\\cos 2x \\).<br><br>Step 2<br><br>Apply the integration by parts formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int x \\sin 2x dx = x\\left(-\\frac{1}{2}\\cos 2x\\right) - \\int \\left(-\\frac{1}{2}\\cos 2x\\right) dx \\)</div><br><br>Step 3<br><br>Evaluate the remaining integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -\\frac{1}{2}x\\cos 2x + \\frac{1}{4}\\sin 2x + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{1}{2}x\\cos 2x + \\frac{1}{4}\\sin 2x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{1}{x^2-5x+6} dx \\) using partial fractions.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor the denominator and set up partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{(x-2)(x-3)} = \\frac{A}{x-2} + \\frac{B}{x-3} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 = A(x-3) + B(x-2) \\)</div><br><br>Step 2<br><br>Find \\( A \\) and \\( B \\):<br><br>Let \\( x = 2 \\): \\( 1 = A(-1) \\implies A = -1 \\).<br>Let \\( x = 3 \\): \\( 1 = B(1) \\implies B = 1 \\).<br><br>Step 3<br><br>Integrate the partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\left(-\\frac{1}{x-2} + \\frac{1}{x-3}\\right) dx = -\\ln|x-2| + \\ln|x-3| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\ln|x-3| - \\ln|x-2| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{2x+1}{(x-1)^2} dx \\) using partial fractions.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up partial fractions for the repeated root:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{2x+1}{(x-1)^2} = \\frac{A}{x-1} + \\frac{B}{(x-1)^2} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x+1 = A(x-1) + B \\)</div><br><br>Step 2<br><br>Find \\( A \\) and \\( B \\):<br><br>Let \\( x = 1 \\): \\( 3 = B \\).<br>Equating coefficients of \\( x \\): \\( 2 = A \\).<br><br>Step 3<br><br>Integrate the partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\left(\\frac{2}{x-1} + \\frac{3}{(x-1)^2}\\right) dx = 2\\ln|x-1| - \\frac{3}{x-1} + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2\\ln|x-1| - \\frac{3}{x-1} + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{x^2+1}{x+1} dx \\) using algebraic manipulation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Perform polynomial long division or algebraic manipulation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{x^2+1}{x+1} = \\frac{x^2-1+2}{x+1} = \\frac{(x-1)(x+1) + 2}{x+1} = x - 1 + \\frac{2}{x+1} \\)</div><br><br>Step 2<br><br>Integrate each term separately:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\left(x - 1 + \\frac{2}{x+1}\\right) dx \\)</div><br><br>Step 3<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{2}x^2 - x + 2\\ln|x+1| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2}x^2 - x + 2\\ln|x+1| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the function \\( f(x) \\) given that \\( f'(x) = 2x+1 \\) and \\( f(1) = 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate \\( f'(x) \\) to find \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = \\int (2x + 1) dx = x^2 + x + C \\)</div><br><br>Step 2<br><br>Use the initial condition \\( f(1) = 3 \\) to find \\( C \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(1) = 1^2 + 1 + C = 3 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2 + C = 3 \\implies C = 1 \\)</div><br><br>Step 3<br><br>Write the final function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = x^2 + x + 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( f(x) = x^2 + x + 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the function \\( f(x) \\) given that \\( f''(x) = 6x \\), \\( f'(0) = 2 \\), and \\( f(0) = 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate \\( f''(x) \\) to find \\( f'(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = \\int 6x dx = 3x^2 + C_1 \\)</div><br><br>Use \\( f'(0) = 2 \\): \\( 0 + C_1 = 2 \\implies C_1 = 2 \\).<br><br>So, \\( f'(x) = 3x^2 + 2 \\).<br><br>Step 2<br><br>Integrate \\( f'(x) \\) to find \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = \\int (3x^2 + 2) dx = x^3 + 2x + C_2 \\)</div><br><br>Step 3<br><br>Use \\( f(0) = 1 \\) to find \\( C_2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 0 + 0 + C_2 = 1 \\implies C_2 = 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = x^3 + 2x + 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( f(x) = x^3 + 2x + 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{e^x}{1+e^x} dx \\) using substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = 1 + e^x \\). Then \\( du = e^x dx \\).<br><br>Step 2<br><br>Substitute into the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{1}{u} du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = 1 + e^x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\ln|u| + C = \\ln(1+e^x) + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\ln(1+e^x) + C \\)"
   }
 ]
