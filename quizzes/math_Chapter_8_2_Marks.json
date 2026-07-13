@@ -1,0 +1,77 @@
+[
+  {
+    "type": "math_show",
+    "q": "Find the domain of the function \\( y = \\log_3(x - 4) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of the logarithmic function must be positive:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 4 > 0 \\)</div><br><br>Step 2<br><br>Solve the inequality for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x > 4 \\)</div><br><br>Step 3<br><br>Express the domain in interval notation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (4, \\infty) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (4, \\infty) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the limit \\( \\lim_{t \\to 0} (1+2t)^{1/t} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite the expression to match the standard limit \\( \\lim_{t \\to 0} (1+t)^{1/t} = e \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{t \\to 0} (1+2t)^{1/t} = \\lim_{t \\to 0} \\left[ (1+2t)^{1/(2t)} \\right]^2 \\)</div><br><br>Step 2<br><br>As \\( t \\to 0 \\), \\( 2t \\to 0 \\), so the inner limit is \\( e \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( e^2 \\)</div><br><br>Step 3<br><br>The value of the limit is \\( e^2 \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(5x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(\\ln u) = \\frac{1}{u} \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = 5x \\), so \\( \\frac{du}{dx} = 5 \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{5x} \\cdot 5 \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{x} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = e^{4x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(e^u) = e^u \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = 4x \\), so \\( \\frac{du}{dx} = 4 \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = e^{4x} \\cdot 4 \\)</div><br><br>Step 3<br><br>Rearrange the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 4e^{4x} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4e^{4x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the horizontal asymptote of the graph of \\( y = 3^x + 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The horizontal asymptote of the basic exponential function \\( y = b^x \\) is \\( y = 0 \\).<br><br>Step 2<br><br>For \\( y = 3^x + 2 \\), the graph is shifted vertically upward by 2 units.<br><br>Step 3<br><br>The horizontal asymptote is also shifted by 2 units:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\log_2 x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the formula for the derivative of a logarithmic function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{d}{dx}(\\log_b x) = \\frac{1}{x} \\log_b e \\)</div><br><br>Step 2<br><br>Substitute \\( b = 2 \\) into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{x} \\log_2 e \\)</div><br><br>Step 3<br><br>The derivative is \\( \\frac{\\log_2 e}{x} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{\\log_2 e}{x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = x \\ln x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the product rule: \\( \\frac{d}{dx}(uv) = u \\frac{dv}{dx} + v \\frac{du}{dx} \\).<br><br>Let \\( u = x \\) and \\( v = \\ln x \\).<br><br>Then \\( \\frac{du}{dx} = 1 \\) and \\( \\frac{dv}{dx} = \\frac{1}{x} \\).<br><br>Step 2<br><br>Substitute into the product rule formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = x \\cdot \\frac{1}{x} + \\ln x \\cdot 1 \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 1 + \\ln x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 + \\ln x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(\\cos x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(\\ln u) = \\frac{1}{u} \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = \\cos x \\), so \\( \\frac{du}{dx} = -\\sin x \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{\\cos x} \\cdot (-\\sin x) \\)</div><br><br>Step 3<br><br>Simplify using the identity \\( \\tan x = \\frac{\\sin x}{\\cos x} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = -\\tan x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\tan x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = e^{-x^2} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(e^u) = e^u \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = -x^2 \\), so \\( \\frac{du}{dx} = -2x \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = e^{-x^2} \\cdot (-2x) \\)</div><br><br>Step 3<br><br>Rearrange the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = -2x e^{-x^2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -2x e^{-x^2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the domain of the function \\( y = \\ln(x^2 - 9) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of the logarithmic function must be positive:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 9 > 0 \\)</div><br><br>Step 2<br><br>Factor the inequality:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x - 3)(x + 3) > 0 \\)</div><br><br>Step 3<br><br>Solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x < -3 \\text{ or } x > 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (-\\infty, -3) \\cup (3, \\infty) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = 5^x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the formula for the derivative of an exponential function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{d}{dx}(b^x) = b^x \\ln b \\)</div><br><br>Step 2<br><br>Substitute \\( b = 5 \\) into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 5^x \\ln 5 \\)</div><br><br>Step 3<br><br>The derivative is \\( 5^x \\ln 5 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 5^x \\ln 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\log_{10}(x^2 + 1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule: \\( \\frac{d}{dx}(\\log_b u) = \\frac{1}{u} \\log_b e \\cdot \\frac{du}{dx} \\).<br><br>Here, \\( u = x^2 + 1 \\), so \\( \\frac{du}{dx} = 2x \\).<br><br>Step 2<br><br>Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{x^2 + 1} \\log_{10} e \\cdot 2x \\)</div><br><br>Step 3<br><br>Rearrange the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{2x \\log_{10} e}{x^2 + 1} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x \\log_{10} e}{x^2 + 1} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = e^x \\sin x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the product rule: \\( \\frac{d}{dx}(uv) = u \\frac{dv}{dx} + v \\frac{du}{dx} \\).<br><br>Let \\( u = e^x \\) and \\( v = \\sin x \\).<br><br>Then \\( \\frac{du}{dx} = e^x \\) and \\( \\frac{dv}{dx} = \\cos x \\).<br><br>Step 2<br><br>Substitute into the product rule formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = e^x \\sin x + e^x \\cos x \\)</div><br><br>Step 3<br><br>Factor out \\( e^x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = e^x(\\sin x + \\cos x) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( e^x(\\sin x + \\cos x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\frac{\\ln x}{x^2} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the quotient rule: \\( \\frac{d}{dx}\\left(\\frac{u}{v}\\right) = \\frac{v \\frac{du}{dx} - u \\frac{dv}{dx}}{v^2} \\).<br><br>Let \\( u = \\ln x \\) and \\( v = x^2 \\).<br><br>Then \\( \\frac{du}{dx} = \\frac{1}{x} \\) and \\( \\frac{dv}{dx} = 2x \\).<br><br>Step 2<br><br>Substitute into the quotient rule formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{x^2(1/x) - \\ln x(2x)}{(x^2)^2} = \\frac{x - 2x \\ln x}{x^4} \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1 - 2\\ln x}{x^3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1 - 2\\ln x}{x^3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(\\sqrt{2x+1}) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite using logarithm properties:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\ln((2x+1)^{1/2}) = \\frac{1}{2} \\ln(2x+1) \\)</div><br><br>Step 2<br><br>Apply the chain rule:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{2} \\cdot \\frac{1}{2x+1} \\cdot 2 \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{2x+1} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2x+1} \\)"
+  }
+]
