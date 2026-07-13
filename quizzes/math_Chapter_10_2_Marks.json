@@ -1,0 +1,77 @@
+[
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (4x^3 - \\frac{3}{x} + 2e^x) dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the rules of integration to each term separately:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int 4x^3 dx - \\int \\frac{3}{x} dx + \\int 2e^x dx \\)</div><br><br>Step 2<br><br>Integrate each term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4\\left(\\frac{x^4}{4}\\right) - 3\\ln|x| + 2e^x + C \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^4 - 3\\ln|x| + 2e^x + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x^4 - 3\\ln|x| + 2e^x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\sin(3x+2) dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the formula for integrating \\( \\sin(ax+b) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\sin(ax+b) dx = -\\frac{1}{a}\\cos(ax+b) + C \\)</div><br><br>Step 2<br><br>Here, \\( a = 3 \\) and \\( b = 2 \\). Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\sin(3x+2) dx = -\\frac{1}{3}\\cos(3x+2) + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{1}{3}\\cos(3x+2) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x(x^2+1)^4 dx \\) using substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = x^2 + 1 \\). Then \\( du = 2x dx \\), which means \\( x dx = \\frac{1}{2} du \\).<br><br>Step 2<br><br>Substitute into the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int u^4 \\left(\\frac{1}{2} du\\right) = \\frac{1}{2} \\int u^4 du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = x^2 + 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{2} \\left(\\frac{u^5}{5}\\right) + C = \\frac{1}{10}(x^2+1)^5 + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{10}(x^2+1)^5 + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{4x}{2x^2+3} dx \\) using substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = 2x^2 + 3 \\). Then \\( du = 4x dx \\).<br><br>Step 2<br><br>Substitute into the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{1}{u} du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = 2x^2 + 3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\ln|u| + C = \\ln|2x^2+3| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\ln|2x^2+3| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x e^{3x} dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = x \\) and \\( dv = e^{3x} dx \\).<br><br>Then \\( du = dx \\) and \\( v = \\frac{1}{3}e^{3x} \\).<br><br>Step 2<br><br>Apply the integration by parts formula \\( \\int u dv = uv - \\int v du \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int x e^{3x} dx = x\\left(\\frac{1}{3}e^{3x}\\right) - \\int \\frac{1}{3}e^{3x} dx \\)</div><br><br>Step 3<br><br>Evaluate the remaining integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{3}xe^{3x} - \\frac{1}{9}e^{3x} + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{3}xe^{3x} - \\frac{1}{9}e^{3x} + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\ln x dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = \\ln x \\) and \\( dv = dx \\).<br><br>Then \\( du = \\frac{1}{x} dx \\) and \\( v = x \\).<br><br>Step 2<br><br>Apply the integration by parts formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\ln x dx = x\\ln x - \\int x\\left(\\frac{1}{x}\\right) dx \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = x\\ln x - \\int 1 dx \\)</div><br><br>Step 3<br><br>Evaluate the remaining integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x\\ln x - x + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x\\ln x - x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{3}{(x-1)(x+2)} dx \\) using partial fractions.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{3}{(x-1)(x+2)} = \\frac{A}{x-1} + \\frac{B}{x+2} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3 = A(x+2) + B(x-1) \\)</div><br><br>Step 2<br><br>Find \\( A \\) and \\( B \\):<br><br>Let \\( x = 1 \\): \\( 3 = 3A \\implies A = 1 \\).<br>Let \\( x = -2 \\): \\( 3 = -3B \\implies B = -1 \\).<br><br>Step 3<br><br>Integrate the partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\left(\\frac{1}{x-1} - \\frac{1}{x+2}\\right) dx = \\ln|x-1| - \\ln|x+2| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\ln|x-1| - \\ln|x+2| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{2x+1}{x^2+x+1} dx \\) using substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = x^2 + x + 1 \\). Then \\( du = (2x + 1) dx \\).<br><br>Step 2<br><br>Substitute into the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{1}{u} du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = x^2 + x + 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\ln|u| + C = \\ln|x^2+x+1| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\ln|x^2+x+1| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the function \\( f(x) \\) given that \\( f'(x) = 3x^2 - 2x \\) and \\( f(1) = 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate \\( f'(x) \\) to find \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = \\int (3x^2 - 2x) dx = x^3 - x^2 + C \\)</div><br><br>Step 2<br><br>Use the initial condition \\( f(1) = 4 \\) to find \\( C \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(1) = 1^3 - 1^2 + C = 4 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 0 + C = 4 \\implies C = 4 \\)</div><br><br>Step 3<br><br>Write the final function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = x^3 - x^2 + 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( f(x) = x^3 - x^2 + 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\tan(2x) dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite \\( \\tan(2x) \\) in terms of sine and cosine:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{\\sin(2x)}{\\cos(2x)} dx \\)</div><br><br>Step 2<br><br>Let \\( u = \\cos(2x) \\). Then \\( du = -2\\sin(2x) dx \\), so \\( \\sin(2x) dx = -\\frac{1}{2} du \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{1}{u} \\left(-\\frac{1}{2} du\\right) = -\\frac{1}{2} \\ln|u| + C \\)</div><br><br>Step 3<br><br>Substitute back \\( u = \\cos(2x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -\\frac{1}{2} \\ln|\\cos(2x)| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{1}{2} \\ln|\\cos(2x)| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{1}{x\\sqrt{\\ln x}} dx \\) using substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = \\ln x \\). Then \\( du = \\frac{1}{x} dx \\).<br><br>Step 2<br><br>Substitute into the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{1}{\\sqrt{u}} du = \\int u^{-1/2} du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = \\ln x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{u^{1/2}}{1/2} + C = 2\\sqrt{\\ln x} + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2\\sqrt{\\ln x} + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\cos^2 x \\sin x dx \\) using substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = \\cos x \\). Then \\( du = -\\sin x dx \\), so \\( \\sin x dx = -du \\).<br><br>Step 2<br><br>Substitute into the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int u^2 (-du) = -\\int u^2 du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = \\cos x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -\\frac{1}{3}u^3 + C = -\\frac{1}{3}\\cos^3 x + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{1}{3}\\cos^3 x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{2x-3}{x^2-3x+2} dx \\) using substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = x^2 - 3x + 2 \\). Then \\( du = (2x - 3) dx \\).<br><br>Step 2<br><br>Substitute into the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{1}{u} du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = x^2 - 3x + 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\ln|u| + C = \\ln|x^2-3x+2| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\ln|x^2-3x+2| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (2x+3)^5 dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the formula for integrating \\( (ax+b)^n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int (ax+b)^n dx = \\frac{1}{a(n+1)}(ax+b)^{n+1} + C \\)</div><br><br>Step 2<br><br>Here, \\( a = 2 \\), \\( b = 3 \\), and \\( n = 5 \\). Substitute into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int (2x+3)^5 dx = \\frac{1}{2(6)}(2x+3)^6 + C \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{12}(2x+3)^6 + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{12}(2x+3)^6 + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{1}{\\sqrt{4-3x}} dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite the integrand as a power:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int (4-3x)^{-1/2} dx \\)</div><br><br>Step 2<br><br>Use the formula \\( \\int (ax+b)^n dx = \\frac{1}{a(n+1)}(ax+b)^{n+1} + C \\).<br><br>Here, \\( a = -3 \\) and \\( n = -\\frac{1}{2} \\).<br><br>Step 3<br><br>Substitute and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{-3(1/2)}(4-3x)^{1/2} + C = -\\frac{2}{3}\\sqrt{4-3x} + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{2}{3}\\sqrt{4-3x} + C \\)"
+  }
+]
