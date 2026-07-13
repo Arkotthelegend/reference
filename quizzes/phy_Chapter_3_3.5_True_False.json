@@ -1,157 +1,22 @@
 [
-  {
-    "type": "tf",
-    "q": "Most fluids are considered ideal and offer no resistance to motion.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Viscosity is the external friction between a fluid and a solid surface.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Viscosity measures the resistance to flow caused by relative motion between fluid layers.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "A fluid's thickness or stickiness can be described by its viscosity.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "Fluids with strong intermolecular forces tend to have low viscosity.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Fluids with low viscosity flow easily because their molecular makeup results in high friction.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Gases exhibit viscosity, but it is typically more noticeable than in liquids under ordinary circumstances.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The viscosity of liquids generally increases rapidly with an increase in temperature.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The viscosity of gases decreases with an increase in temperature.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Upon heating, liquids flow more slowly, while gases flow more easily.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Viscosity is an extensive property, meaning it depends on the amount of matter.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The SI unit of viscosity is the poiseuille (Pl).",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Newton second per metre squared (N s m$^{-2}$) is an equivalent unit to the pascal second.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "Dynamic viscosity measures a fluid's resistance to flow under its own weight.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Kinematic viscosity is generally less useful than dynamic viscosity.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Kinematic viscosity measures the resistive flow of a fluid under the weight of gravity.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "Newton's law of viscosity states that shear stress is inversely proportional to the velocity gradient.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The symbol $\\tau$ represents the velocity gradient in Newton's law of viscosity.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The coefficient of viscosity is represented by $\\eta$.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "Shear stress is defined as the force per unit volume.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The velocity gradient $\\frac{dv}{dy}$ refers to the change in velocity over time.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Viscosity is defined as the ratio of velocity gradient to shearing stress.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Stokes' law describes the drag force on large, irregularly shaped objects.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Stokes' law was formulated by Sir Isaac Newton in the 17th century.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The drag force in Stokes' law acts upward, resisting the fall of an object.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "The formula for drag force in a viscous liquid is given by $F = 6\\pi \\eta r v$.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "In Stokes' law, $v$ represents the initial velocity of the sphere.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Terminal velocity is a constant velocity of fall.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "A simple method to measure viscosity involves dropping a large cube through the fluid.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The upward thrust on a falling sphere is due to the density of the sphere itself.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "At terminal velocity, the weight of the sphere is equal to the drag force minus the upward thrust.",
-    "c": false
-  }
-]
+    {"type": "tf", "q": "Most of the fluids are not ideal ones and offer some resistance to motion.", "c": true},
+    {"type": "tf", "q": "Internal resistance to fluid motion is called friction analogous to viscosity when a solid move on a surface.", "c": false},
+    {"type": "tf", "q": "Viscosity measures resistance to flow arising due to the internal friction between the fluid layers as they slip past one another when fluid flows.", "c": true},
+    {"type": "tf", "q": "A fluid with low viscosity resists motion because its strong intermolecular forces give it a lot of internal friction.", "c": false},
+    {"type": "tf", "q": "The viscosity of liquids decreases rapidly with an increase in temperature.", "c": true},
+    {"type": "tf", "q": "The viscosity of gases decreases with an increase in temperature.", "c": false},
+    {"type": "tf", "q": "Viscosity is an intensive property because it does not change as the amount of matter changes.", "c": true},
+    {"type": "tf", "q": "The SI unit of viscosity is Newton second per metre ($N \\cdot s \\cdot m^{-1}$).", "c": false},
+    {"type": "tf", "q": "One way to measure fluid's viscosity is to measure resistance to flow when an external force is applied, which is known as dynamic viscosity.", "c": true},
+    {"type": "tf", "q": "Kinematic viscosity is less useful than dynamic (absolute) viscosity for measuring the resistive flow of a fluid under gravity.", "c": false},
+    {"type": "tf", "q": "Newton's law of viscosity states that the shear stress between the two adjacent layers of fluid is directly proportional to the negative value of the velocity gradient.", "c": true},
+    {"type": "tf", "q": "Shear stress is defined as the shearing force per unit volume.", "c": false},
+    {"type": "tf", "q": "Viscosity is defined as the ratio of shearing stress to the velocity gradient.", "c": true},
+    {"type": "tf", "q": "Stokes' law states that the drag force acting upward in resistance to the fall of a small spherical object in a viscous liquid is $F = 6 \\pi \\eta r^{2} v$.", "c": false},
+    {"type": "tf", "q": "Terminal velocity is the constant velocity of fall for small spherical objects through a fluid medium under the influence of gravity.", "c": true},
+    {"type": "tf", "q": "Drag force $F$ acts downward in resistance to the fall of a spherical object in a viscous liquid.", "c": false},
+    {"type": "tf", "q": "At a constant velocity of fall (terminal velocity), the upward and downward forces are in balance.", "c": true},
+    {"type": "tf", "q": "Dynamic viscosity is also referred to as absolute viscosity or kinematic viscosity interchangeably.", "c": false},
+    {"type": "tf", "q": "Gases exhibit viscosity, but it is harder to notice in ordinary circumstances compared to liquids.", "c": true},
+    {"type": "tf", "q": "Shear stress is represented by the symbol $\\eta$ in Newton's law of viscosity.", "c": false}
+  ]
