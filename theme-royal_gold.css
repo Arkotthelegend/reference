@@ -1,0 +1,88 @@
+/* theme-royal_gold.css - 🏫 School Exclusive (Premium Effects) */
+body[data-theme="royal_gold"] {
+  --t-bg: #0a0800;
+  --t-card: #1c1400;
+  --t-accent: #fbbf24;
+  --t-accent2: #d97706;
+  --t-success: #10b981;
+  --t-border-home: #fbbf24;
+  --t-border-old: #f59e0b;
+  --t-border-daily: #d97706;
+}
+
+/* ===== PREMIUM ANIMATED BACKGROUND ===== */
+body[data-theme="royal_gold"] {
+  background: linear-gradient(-45deg, #0a0800, #1c1400, #2d1f00, #0a0800) !important;
+  background-size: 400% 400% !important;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== PULSING GOLD GLOW ON CARDS ===== */
+body[data-theme="royal_gold"] .subject-card {
+  animation: goldPulse 3s ease-in-out infinite;
+}
+
+@keyframes goldPulse {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(251, 191, 36, 0.2); 
+    border-color: #fbbf24; 
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.6), 0 0 40px rgba(251, 191, 36, 0.2); 
+    border-color: #f59e0b; 
+  }
+}
+
+/* ===== NAVIGATION BAR PREMIUM STYLING ===== */
+body[data-theme="royal_gold"] .nav {
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.15);
+}
+
+/* ===== GRADIENT BORDER FOR PROFILE CARDS ===== */
+body[data-theme="royal_gold"] .profile-info-card,
+body[data-theme="royal_gold"] #exam-countdown {
+  border-image: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706) 1 !important;
+}
+
+/* ===== CORE THEME OVERRIDES ===== */
+body[data-theme="royal_gold"] { background-color: var(--t-bg) !important; }
+body[data-theme="royal_gold"] #math-solution-screen, body[data-theme="royal_gold"] #grammar-note-screen { background: var(--t-bg) !important; }
+body[data-theme="royal_gold"] .subject-card { background: var(--t-card) !important; }
+body[data-theme="royal_gold"] #subject-list .subject-card { border: 2px solid var(--t-border-home) !important; }
+body[data-theme="royal_gold"] #subject-list .subject-card span:last-child { color: var(--t-border-home) !important; }
+body[data-theme="royal_gold"] #old-subject-list .subject-card { border: 2px solid var(--t-border-old) !important; }
+body[data-theme="royal_gold"] #old-subject-list .subject-card span:last-child { color: var(--t-border-old) !important; }
+body[data-theme="royal_gold"] #daily-screen .subject-card { border: 2px solid var(--t-border-daily) !important; }
+body[data-theme="royal_gold"] #daily-screen .subject-card span:last-child { color: var(--t-border-daily) !important; }
+body[data-theme="royal_gold"] .btn { background: var(--t-accent) !important; color: #000 !important; border: none !important; }
+body[data-theme="royal_gold"] .back-btn { background: #1E293B !important; border: 1px solid #334155 !important; color: #fff !important; }
+body[data-theme="royal_gold"] .next-btn-styled, body[data-theme="royal_gold"] .next-btn { background: var(--t-success) !important; color: #fff !important; }
+body[data-theme="royal_gold"] .option-btn { background: var(--t-card) !important; border: 1px solid #334155 !important; color: #fff !important; }
+body[data-theme="royal_gold"] .correct-answer { background: #065F46 !important; border: 2px solid var(--t-success) !important; color: #fff !important; }
+body[data-theme="royal_gold"] .wrong-answer { background: #991B1B !important; border: 2px solid #EF4444 !important; color: #fff !important; }
+body[data-theme="royal_gold"] .flash-front { border: 2px solid var(--t-accent) !important; }
+body[data-theme="royal_gold"] .flash-back { border: 2px solid #EF4444 !important; }
+body[data-theme="royal_gold"] .profile-info-card { background: linear-gradient(145deg, var(--t-bg), var(--t-card)) !important; border: 1px solid var(--t-accent) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important; }
+body[data-theme="royal_gold"] #exam-countdown { border-color: var(--t-accent2) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important; }
+body[data-theme="royal_gold"] .countdown-value { color: var(--t-accent) !important; }
+body[data-theme="royal_gold"] .bought-badge { color: var(--t-accent) !important; border-color: var(--t-accent) !important; }
+body[data-theme="royal_gold"] .buy-btn { background: transparent !important; color: var(--t-success) !important; border: 1px solid var(--t-success) !important; }
+body[data-theme="royal_gold"] .gender-container input:checked + .slider { background-color: var(--t-accent) !important; }
+body[data-theme="royal_gold"] .quiz-input:focus { border-color: var(--t-accent) !important; }
+body[data-theme="royal_gold"] .quiz-card { border-left: 4px solid var(--t-accent) !important; }
+body[data-theme="royal_gold"] #grammar-note-content, body[data-theme="royal_gold"] #math-solution-content { border: 1px solid var(--t-accent) !important; }
+body[data-theme="royal_gold"] .mjx-container::-webkit-scrollbar-thumb, body[data-theme="royal_gold"] .math-scroll-container::-webkit-scrollbar-thumb { background: var(--t-accent) !important; }
+body[data-theme="royal_gold"] #checklist-container input[type="checkbox"] { accent-color: var(--t-accent) !important; }
+body[data-theme="royal_gold"] .timer-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
+body[data-theme="royal_gold"] .shuffle-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
+body[data-theme="royal_gold"] .shuffle-active { background: var(--t-accent) !important; color: #000 !important; }
+body[data-theme="royal_gold"] #middle-screen > div > div:first-child, body[data-theme="royal_gold"] #motivation-box { background: rgba(0,0,0,0.15) !important; border: 1px solid var(--t-accent) !important; box-shadow: none !important; }
+body[data-theme="royal_gold"] .contact-btn { color: var(--t-accent) !important; border-color: var(--t-accent) !important; box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important; }
+body[data-theme="royal_gold"] #quiz-mode-box { border-color: var(--t-accent) !important; box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important; }
