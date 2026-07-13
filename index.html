@@ -491,6 +491,17 @@ body[data-theme] .timer-btn { background: #1E293B !important; color: var(--t-acc
 body[data-theme] .shuffle-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
 body[data-theme] .shuffle-active { background: var(--t-accent) !important; color: #000 !important; }
 
+/* ===== THEME FIXES FOR MOTIVATION & CONTACT BUTTON ===== */
+
+/* Default Mode (Blue/Cyan) */
+#motivation-box h4 { color: #00D5FF; }
+.contact-btn { color: #00D5FF; border: 1px solid #00D5FF; }
+
+/* Theme Mode (Uses Theme Accent Color) */
+body[data-theme] #motivation-box { background: rgba(0,0,0,0.15) !important; border-color: var(--t-accent) !important; }
+body[data-theme] #motivation-box h4 { color: var(--t-accent) !important; }
+body[data-theme] .contact-btn { color: var(--t-accent) !important; border-color: var(--t-accent) !important; box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important; }
+
 </style>
 </head>
 <body>
