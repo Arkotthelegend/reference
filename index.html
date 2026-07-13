@@ -943,15 +943,11 @@ function showOldMMQuizOptions(typeName) {
             if (cat === 'အပြော' || cat === 'အရေး') {
                 // "အပြော" နှင့် "အရေး" အတွက် အခန်းခွဲများရွေးရန် သွားမည်
                 showOldMMChapters(typeName, cat);
-            }else if (cat === 'ရေသည်') {
-                const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-                initFlashcards(fileName);
-                const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-                flashExitBtn.onclick = () => {
-                    showScreen('scroll');
-                    showOldMMQuizOptions(typeName);
-                };
-            } else{
+            }        } else if (cat === 'ရေသည်') {
+            const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+            initQuiz(fileName);  // ✅ initFlashcards ကို initQuiz အစားထိုး
+            document.getElementById('quiz-back-btn').onclick = () => { showScreen('scroll'); showOldMMQuizOptions(typeName); };
+        } else{
                 // "စကားပြေ" နှင့် "ကဗျာ" အတွက် တိုက်ရိုက် မေးခွန်းစမည်
                 initQuiz(`old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
                 document.getElementById('quiz-back-btn').onclick = () => {
@@ -1458,15 +1454,11 @@ function showMMQuizOptions(typeName) {
             } else if (cat === 'ကဗျာ') {
                 // ကဗျာကို ရွေးချယ်ပါက ကဗျာ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
                 showSubMenu(typeName, cat, poetryTitles);
-            } else if (cat === 'ရေသည်') {
-                const fileName = `mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-                 initQuiz(fileName);
-                const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-                flashExitBtn.onclick = () => {
-                    showScreen('activity');
-                    showMMQuizOptions(typeName);
-                };
-            } else {
+            }         else if (cat === 'ရေသည်') {
+            const fileName = `mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+            initQuiz(fileName);  // ✅ initFlashcards ကို initQuiz အစားထိုး
+            document.getElementById('quiz-back-btn').onclick = () => { showScreen('activity'); showMMQuizOptions(typeName); };
+        } else {
                 // အပြော နှင့် အရေး အတွက် မူလအတိုင်း ဆက်သွားရန်
                 { showMMChapters(typeName, cat) };
                 document.getElementById('quiz-back-btn').onclick = () => showMMQuizOptions(typeName);
