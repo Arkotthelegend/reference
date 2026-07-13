@@ -508,6 +508,11 @@ body[data-theme] .contact-btn {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important; 
 }
 
+/* မေးခွန်းဖြေဆိုမှု ပုံစံ Box ဘောင် — Theme အရောင်လိုက်ပြောင်း */
+body[data-theme] #quiz-mode-box { border-color: var(--t-accent) !important; box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important; }
+
+/* Default (Ocean Dark) မှာ Exam Countdown ဘောင် — အပြာရောင် အတည်ထား */
+body[data-theme="default"] #exam-countdown { border-color: #00D5FF !important; box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important; }
 </style>
 </head>
 <body>
@@ -659,7 +664,7 @@ body[data-theme] .contact-btn {
                     <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
                     <a href="https://t.me/minaphayarkot" target="_blank" class="btn buy-btn">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</a>
-					<div style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
+					<div id="quiz-mode-box" style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
         <span style="font-size: 1.2rem;">⚙️</span>
         <b style="color: var(--accent); font-size: 1.1rem;">မေးခွန်းဖြေဆိုမှု ပုံစံ</b>
