@@ -943,7 +943,7 @@ function showOldMMQuizOptions(typeName) {
             if (cat === 'အပြော' || cat === 'အရေး') {
                 // "အပြော" နှင့် "အရေး" အတွက် အခန်းခွဲများရွေးရန် သွားမည်
                 showOldMMChapters(typeName, cat);
-            }        } else if (cat === 'ရေသည်') {
+            }         else if (cat === 'ရေသည်') {
             const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
             initQuiz(fileName);  // ✅ initFlashcards ကို initQuiz အစားထိုး
             document.getElementById('quiz-back-btn').onclick = () => { showScreen('scroll'); showOldMMQuizOptions(typeName); };
