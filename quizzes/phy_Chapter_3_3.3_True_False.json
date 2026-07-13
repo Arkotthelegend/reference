@@ -1,62 +1,18 @@
 [
-  {
-    "type": "tf",
-    "q": "Bernoulli's equation is a fundamental principle in fluid statics.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Bernoulli's equation relates pressure, flow speed, and height for any type of fluid flow.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "An ideal fluid for Bernoulli's equation must have significant internal friction.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The internal friction of fluid flow is often referred to as viscosity.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "Daniel Bernoulli derived his famous equation in the 19th century.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Bernoulli's equation can be derived directly from Newton's second law of motion.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The sum of pressure energy, kinetic energy, and potential energy per unit volume remains constant for any fluid flow according to Bernoulli's theorem.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "Bernoulli's theorem applies to fluids with high viscosity.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "For Bernoulli's equation to hold, the fluid flow must be turbulent.",
-    "c": false
-  },
-  {
-    "type": "tf",
-    "q": "The term 'pressure energy per unit volume' is part of Bernoulli's theorem.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "'Kinetic energy per unit volume' is one of the components whose sum remains constant in Bernoulli's theorem.",
-    "c": true
-  },
-  {
-    "type": "tf",
-    "q": "'Potential energy per unit volume' is a component that varies significantly in Bernoulli's theorem, while others remain constant.",
-    "c": false
-  }
-]
+    {"type": "tf", "q": "Bernoulli's equation relates the pressure, flow speed, and height for the steady (laminar) flow of an ideal incompressible fluid.", "c": true},
+    {"type": "tf", "q": "Bernoulli's equation was first derived in 1738 by the Swedish mathematician Daniel Bernoulli.", "c": false},
+    {"type": "tf", "q": "Internal friction of the fluid flow is negligible for the application of Bernoulli's equation.", "c": true},
+    {"type": "tf", "q": "Bernoulli's equation can be derived using the principle of conservation of momentum.", "c": false},
+    {"type": "tf", "q": "According to work-energy principle, the work done on a section of fluid must equal the change in total mechanical energy.", "c": true},
+    {"type": "tf", "q": "Total mechanical energy in fluid dynamics is defined as the sum of kinetic energy and thermal energy.", "c": false},
+    {"type": "tf", "q": "Change in kinetic energy is given by $\\Delta KE = \\frac{1}{2} \\rho \\Delta V (v_{2}^{2} - v_{1}^{2})$.", "c": true},
+    {"type": "tf", "q": "Bernoulli's theorem states that the sum of pressure energy, kinetic energy and potential energy per unit volume remains zero.", "c": false},
+    {"type": "tf", "q": "$p + \\frac{1}{2} \\rho v^{2} + \\rho g h = \\text{constant}$ is known as Bernoulli's equation.", "c": true},
+    {"type": "tf", "q": "The second term in the work done equation $\\Delta W = F_{1} \\Delta x_{1} - F_{2} \\Delta x_{2}$ has a negative sign because the force at $c$ supports the force at $a$.", "c": false},
+    {"type": "tf", "q": "The change in potential energy is given by $\\Delta PE = \\rho \\Delta V g (h_{2} - h_{1})$.", "c": true},
+    {"type": "tf", "q": "Bernoulli's theorem applies to compressible, viscous fluids in a turbulent flow.", "c": false},
+    {"type": "tf", "q": "The work done on the fluid in the case of Bernoulli's derivation is due to the pressure of the fluid.", "c": true},
+    {"type": "tf", "q": "In the equation $p + \\frac{1}{2} \\rho v^{2} + \\rho g h$, $\\rho$ represents the pressure of the fluid.", "c": false},
+    {"type": "tf", "q": "Total mechanical energy consists of kinetic energy and potential energy.", "c": true},
+    {"type": "tf", "q": "The Swiss mathematician Daniel Bernoulli lived from 1800 to 1882.", "c": false}
+  ]
