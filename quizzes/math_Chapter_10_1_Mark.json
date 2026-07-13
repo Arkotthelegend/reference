@@ -1,0 +1,332 @@
+[
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int x^4 dx \\).",
+    "a": [
+      "\\( x^5 + C \\)",
+      "\\( \\frac{x^5}{5} + C \\)",
+      "\\( 5x^4 + C \\)",
+      "\\( \\frac{x^4}{4} + C \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\frac{1}{x} dx \\).",
+    "a": [
+      "\\( \\frac{1}{x^2} + C \\)",
+      "\\( \\ln x + C \\)",
+      "\\( \\ln|x| + C \\)",
+      "\\( e^x + C \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int e^x dx \\).",
+    "a": [
+      "\\( e^x + C \\)",
+      "\\( x e^x + C \\)",
+      "\\( \\frac{e^x}{x} + C \\)",
+      "\\( e^{x+1} + C \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int 2^x dx \\).",
+    "a": [
+      "\\( x 2^{x-1} + C \\)",
+      "\\( 2^x \\ln 2 + C \\)",
+      "\\( \\frac{2^x}{x} + C \\)",
+      "\\( \\frac{2^x}{\\ln 2} + C \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\sin x dx \\).",
+    "a": [
+      "\\( \\cos x + C \\)",
+      "\\( -\\cos x + C \\)",
+      "\\( -\\sin x + C \\)",
+      "\\( \\tan x + C \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\cos x dx \\).",
+    "a": [
+      "\\( -\\sin x + C \\)",
+      "\\( \\tan x + C \\)",
+      "\\( \\sin x + C \\)",
+      "\\( -\\cos x + C \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\sec^2 x dx \\).",
+    "a": [
+      "\\( \\tan x + C \\)",
+      "\\( \\sec x \\tan x + C \\)",
+      "\\( -\\csc^2 x + C \\)",
+      "\\( \\cot x + C \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int (3x+2)^5 dx \\).",
+    "a": [
+      "\\( 5(3x+2)^4 + C \\)",
+      "\\( \\frac{(3x+2)^6}{6} + C \\)",
+      "\\( 15(3x+2)^4 + C \\)",
+      "\\( \\frac{(3x+2)^6}{18} + C \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\cos(4x) dx \\).",
+    "a": [
+      "\\( 4\\sin(4x) + C \\)",
+      "\\( \\frac{1}{4}\\sin(4x) + C \\)",
+      "\\( -4\\sin(4x) + C \\)",
+      "\\( -\\frac{1}{4}\\sin(4x) + C \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int e^{3x} dx \\).",
+    "a": [
+      "\\( 3e^{3x} + C \\)",
+      "\\( e^{3x} + C \\)",
+      "\\( \\frac{1}{3}e^{3x} + C \\)",
+      "\\( \\frac{e^{3x}}{x} + C \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\tan x dx \\).",
+    "a": [
+      "\\( -\\ln|\\cos x| + C \\)",
+      "\\( \\ln|\\cos x| + C \\)",
+      "\\( \\sec^2 x + C \\)",
+      "\\( -\\cot x + C \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\sec x dx \\).",
+    "a": [
+      "\\( \\ln|\\sec x| + C \\)",
+      "\\( \\sec x \\tan x + C \\)",
+      "\\( -\\ln|\\csc x + \\cot x| + C \\)",
+      "\\( \\ln|\\sec x + \\tan x| + C \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\csc x dx \\).",
+    "a": [
+      "\\( \\ln|\\csc x + \\cot x| + C \\)",
+      "\\( -\\ln|\\csc x + \\cot x| + C \\)",
+      "\\( \\ln|\\csc x| + C \\)",
+      "\\( -\\csc x \\cot x + C \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\cot x dx \\).",
+    "a": [
+      "\\( -\\ln|\\sin x| + C \\)",
+      "\\( \\csc^2 x + C \\)",
+      "\\( \\ln|\\sin x| + C \\)",
+      "\\( \\ln|\\cos x| + C \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "Which of the following is the correct formula for integration by parts?",
+    "a": [
+      "\\( uv - \\int v du \\)",
+      "\\( uv + \\int v du \\)",
+      "\\( \\int u dv - uv \\)",
+      "\\( u \\int v dx \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\ln x dx \\).",
+    "a": [
+      "\\( \\frac{1}{x} + C \\)",
+      "\\( x \\ln x - x + C \\)",
+      "\\( x \\ln x + x + C \\)",
+      "\\( \\frac{(\\ln x)^2}{2} + C \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( f'(x) = 3x^2 \\) and \\( f(1) = 2 \\), find \\( f(x) \\).",
+    "a": [
+      "\\( x^3 - 1 \\)",
+      "\\( x^3 + 3 \\)",
+      "\\( x^3 + 2 \\)",
+      "\\( x^3 + 1 \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int x e^x dx \\).",
+    "a": [
+      "\\( x e^x + e^x + C \\)",
+      "\\( \\frac{x^2}{2} e^x + C \\)",
+      "\\( x e^x - e^x + C \\)",
+      "\\( e^x - x e^x + C \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int x \\cos x dx \\).",
+    "a": [
+      "\\( x \\sin x + \\cos x + C \\)",
+      "\\( x \\sin x - \\cos x + C \\)",
+      "\\( x \\cos x + \\sin x + C \\)",
+      "\\( -x \\sin x + \\cos x + C \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "When decomposing \\( \\frac{5}{(x-1)(x+4)} = \\frac{A}{x-1} + \\frac{B}{x+4} \\), what is the value of \\( A \\)?",
+    "a": [
+      "\\( \\frac{5}{4} \\)",
+      "\\( -1 \\)",
+      "\\( 1 \\)",
+      "\\( 4 \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\frac{1}{x-1} dx \\).",
+    "a": [
+      "\\( -\\frac{1}{(x-1)^2} + C \\)",
+      "\\( \\ln|x-1| + C \\)",
+      "\\( \\frac{1}{x} + C \\)",
+      "\\( \\ln(x-1)^2 + C \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\frac{2}{x} dx \\).",
+    "a": [
+      "\\( \\ln|2x| + C \\)",
+      "\\( 2x + C \\)",
+      "\\( \\frac{2}{x^2} + C \\)",
+      "\\( 2\\ln|x| + C \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int (x^2 + 1) dx \\).",
+    "a": [
+      "\\( \\frac{x^3}{3} + x + C \\)",
+      "\\( 2x + C \\)",
+      "\\( \\frac{x^3}{3} + 1 + C \\)",
+      "\\( x^3 + x + C \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int 5 dx \\).",
+    "a": [
+      "\\( 0 \\)",
+      "\\( 5x + C \\)",
+      "\\( 5 + C \\)",
+      "\\( \\frac{5x^2}{2} + C \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int x^{-1/2} dx \\).",
+    "a": [
+      "\\( -\\frac{1}{2}x^{-3/2} + C \\)",
+      "\\( \\ln(x^{-1/2}) + C \\)",
+      "\\( 2x^{1/2} + C \\)",
+      "\\( \\frac{1}{2}x^{1/2} + C \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\sin(2x) dx \\).",
+    "a": [
+      "\\( 2\\cos(2x) + C \\)",
+      "\\( -2\\cos(2x) + C \\)",
+      "\\( \\frac{1}{2}\\cos(2x) + C \\)",
+      "\\( -\\frac{1}{2}\\cos(2x) + C \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int e^{-x} dx \\).",
+    "a": [
+      "\\( -e^{-x} + C \\)",
+      "\\( e^{-x} + C \\)",
+      "\\( -x e^{-x} + C \\)",
+      "\\( \\frac{e^{-x+1}}{-1} + C \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int 3^{2x} dx \\).",
+    "a": [
+      "\\( 3^{2x} \\ln 3 + C \\)",
+      "\\( \\frac{3^{2x}}{2\\ln 3} + C \\)",
+      "\\( \\frac{3^{2x}}{\\ln 3} + C \\)",
+      "\\( 2 \\cdot 3^{2x} + C \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int \\sqrt{x} dx \\).",
+    "a": [
+      "\\( \\frac{1}{2\\sqrt{x}} + C \\)",
+      "\\( \\frac{1}{2}x^{3/2} + C \\)",
+      "\\( \\frac{2}{3}x^{3/2} + C \\)",
+      "\\( \\sqrt{x} + C \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "Evaluate \\( \\int (2\\cos x - 3\\sin x) dx \\).",
+    "a": [
+      "\\( -2\\sin x + 3\\cos x + C \\)",
+      "\\( 2\\sin x - 3\\cos x + C \\)",
+      "\\( -2\\sin x - 3\\cos x + C \\)",
+      "\\( 2\\sin x + 3\\cos x + C \\)"
+    ],
+    "c": 3
+  }
+]
