@@ -1,0 +1,77 @@
+[
+  {
+    "type": "math_show",
+    "q": "Find the gradient of the tangent to the curve \\( y = x^2 + 3x \\) at \\( x = 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the derivative of \\( y \\) with respect to \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 2x + 3 \\)</div><br><br>Step 2<br><br>Substitute \\( x = 2 \\) into the derivative to find the gradient:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( m = 2(2) + 3 = 7 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the tangent to the curve \\( y = \\ln x \\) at \\( x = 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the y-coordinate when \\( x = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\ln 1 = 0 \\)</div><br><br>Step 2<br><br>Find the derivative and evaluate at \\( x = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{x} \\implies m = \\frac{1}{1} = 1 \\)</div><br><br>Step 3<br><br>Use the point-slope form \\( y - y_1 = m(x - x_1) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y - 0 = 1(x - 1) \\implies y = x - 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = x - 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the normal to the curve \\( y = x^3 \\) at the point \\( (1, 1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the gradient of the tangent at \\( x = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 3x^2 \\implies m_t = 3(1)^2 = 3 \\)</div><br><br>Step 2<br><br>Find the gradient of the normal:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( m_n = -\\frac{1}{m_t} = -\\frac{1}{3} \\)</div><br><br>Step 3<br><br>Use the point-slope form for the normal line:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y - 1 = -\\frac{1}{3}(x - 1) \\implies y = -\\frac{1}{3}x + \\frac{4}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -\\frac{1}{3}x + \\frac{4}{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of the function \\( f(x) = x^2 - 6x + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the first derivative of \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = 2x - 6 \\)</div><br><br>Step 2<br><br>Set the derivative equal to zero to find critical points:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x - 6 = 0 \\implies x = 3 \\)</div><br><br>Step 3<br><br>Find the corresponding y-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(3) = 3^2 - 6(3) + 5 = -4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (3, -4) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine the open interval on which the function \\( f(x) = x^2 - 4x \\) is decreasing.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the first derivative of \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = 2x - 4 \\)</div><br><br>Step 2<br><br>Set the derivative less than zero for decreasing intervals:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x - 4 < 0 \\implies 2x < 4 \\implies x < 2 \\)</div><br><br>Step 3<br><br>Express the interval:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (-\\infty, 2) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (-\\infty, 2) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine the open interval on which the function \\( f(x) = x^3 - 3x \\) is increasing for \\( x > 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the first derivative of \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = 3x^2 - 3 \\)</div><br><br>Step 2<br><br>Set the derivative greater than zero:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x^2 - 3 > 0 \\implies x^2 > 1 \\implies x > 1 \\text{ or } x < -1 \\)</div><br><br>Step 3<br><br>Considering the condition \\( x > 1 \\), the interval is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1, \\infty) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (1, \\infty) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the local minimum value of the function \\( f(x) = x^2 - 4x + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the critical point by setting \\( f'(x) = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = 2x - 4 = 0 \\implies x = 2 \\)</div><br><br>Step 2<br><br>Use the Second Derivative Test:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f''(x) = 2 > 0 \\)</div><br><br>Since \\( f''(2) > 0 \\), there is a local minimum at \\( x = 2 \\).<br><br>Step 3<br><br>Calculate the minimum value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(2) = 2^2 - 4(2) + 3 = -1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the global maximum value of the function \\( f(x) = x^2 \\) on the closed interval \\( [-2, 3] \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the critical points in the interval:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = 2x = 0 \\implies x = 0 \\)</div><br><br>Step 2<br><br>Evaluate \\( f(x) \\) at the critical point and endpoints:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-2) = 4, \\quad f(0) = 0, \\quad f(3) = 9 \\)</div><br><br>Step 3<br><br>Identify the largest value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Global maximum} = 9 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine the concavity of the graph of the function \\( f(x) = x^2 \\) for all real numbers.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the first derivative:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = 2x \\)</div><br><br>Step 2<br><br>Find the second derivative:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f''(x) = 2 \\)</div><br><br>Step 3<br><br>Since \\( f''(x) = 2 > 0 \\) for all real numbers, the graph is concave up everywhere.<br><br><strong>Final Answer:</strong><br><br>Concave up"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the point of inflection of the function \\( f(x) = x^3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the second derivative:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = 3x^2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f''(x) = 6x \\)</div><br><br>Step 2<br><br>Set the second derivative to zero:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6x = 0 \\implies x = 0 \\)</div><br><br>Step 3<br><br>Find the y-coordinate and check sign change:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(0) = 0 \\)</div><br><br>The concavity changes at \\( x = 0 \\).<br><br><strong>Final Answer:</strong><br><br>\\( (0, 0) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the linearization \\( L(x) \\) of the function \\( f(x) = x^2 \\) at \\( x = 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Evaluate the function at \\( x = 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(2) = 2^2 = 4 \\)</div><br><br>Step 2<br><br>Find the derivative and evaluate at \\( x = 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = 2x \\implies f'(2) = 4 \\)</div><br><br>Step 3<br><br>Use the linearization formula \\( L(x) = f(a) + f'(a)(x - a) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( L(x) = 4 + 4(x - 2) = 4x - 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( L(x) = 4x - 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the slope of the tangent to the curve \\( y = e^x \\) at \\( x = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the derivative of \\( y \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = e^x \\)</div><br><br>Step 2<br><br>Evaluate the derivative at \\( x = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( m = e^0 = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the tangent to the curve \\( y = \\sin x \\) at \\( x = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the y-coordinate when \\( x = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\sin 0 = 0 \\)</div><br><br>Step 2<br><br>Find the derivative and evaluate at \\( x = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\cos x \\implies m = \\cos 0 = 1 \\)</div><br><br>Step 3<br><br>Use the point-slope form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y - 0 = 1(x - 0) \\implies y = x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of the function \\( f(x) = x^3 - 12x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the first derivative:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = 3x^2 - 12 \\)</div><br><br>Step 2<br><br>Set the derivative to zero:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x^2 - 12 = 0 \\implies x^2 = 4 \\implies x = \\pm 2 \\)</div><br><br>Step 3<br><br>Find the corresponding y-coordinates:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(2) = 8 - 24 = -16 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-2) = -8 + 24 = 16 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (2, -16) \\) and \\( (-2, 16) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the linearization of the function \\( f(x) = \\sqrt{x} \\) at \\( x = 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Evaluate the function at \\( x = 4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(4) = \\sqrt{4} = 2 \\)</div><br><br>Step 2<br><br>Find the derivative and evaluate at \\( x = 4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = \\frac{1}{2\\sqrt{x}} \\implies f'(4) = \\frac{1}{4} \\)</div><br><br>Step 3<br><br>Use the linearization formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( L(x) = 2 + \\frac{1}{4}(x - 4) = \\frac{1}{4}x + 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( L(x) = \\frac{1}{4}x + 1 \\)"
+  }
+]
