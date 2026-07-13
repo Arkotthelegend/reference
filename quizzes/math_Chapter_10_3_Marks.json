@@ -58,5 +58,75 @@
     "type": "math_show",
     "q": "Evaluate \\( \\int \\frac{1}{x^2-3x+2} dx \\) using partial fractions.",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor the denominator and set up partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{(x-1)(x-2)} = \\frac{A}{x-1} + \\frac{B}{x-2} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 = A(x-2) + B(x-1) \\)</div><br><br>Step 2<br><br>Find \\( A \\) and \\( B \\):<br><br>Let \\( x = 1 \\): \\( 1 = A(-1) \\implies A = -1 \\).<br>Let \\( x = 2 \\): \\( 1 = B(1) \\implies B = 1 \\).<br><br>Step 3<br><br>Integrate the partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\left(-\\frac{1}{x-1} + \\frac{1}{x-2}\\right) dx = -\\ln|x-1| + \\ln|x-2| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\ln|x-2| - \\ln|x-1| + C \\)"
+  },
+    {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{x}{\\sqrt{x+1}} dx \\) using substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = x + 1 \\). Then \\( du = dx \\) and \\( x = u - 1 \\).<br><br>Step 2<br><br>Substitute into the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{u-1}{\\sqrt{u}} du = \\int (u^{1/2} - u^{-1/2}) du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = x + 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{2}{3}u^{3/2} - 2u^{1/2} + C = \\frac{2}{3}(x+1)^{3/2} - 2\\sqrt{x+1} + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{3}(x+1)^{3/2} - 2\\sqrt{x+1} + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\sin^3 x dx \\) using substitution and trigonometric identities.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite \\( \\sin^3 x \\) using the identity \\( \\sin^2 x = 1 - \\cos^2 x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\sin^2 x \\sin x dx = \\int (1 - \\cos^2 x) \\sin x dx \\)</div><br><br>Step 2<br><br>Let \\( u = \\cos x \\). Then \\( du = -\\sin x dx \\), so \\( \\sin x dx = -du \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int (1 - u^2)(-du) = \\int (u^2 - 1) du \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = \\cos x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{3}u^3 - u + C = \\frac{1}{3}\\cos^3 x - \\cos x + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{3}\\cos^3 x - \\cos x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int e^x \\sin 2x dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( I = \\int e^x \\sin 2x dx \\).<br><br>Let \\( u = e^x \\) and \\( dv = \\sin 2x dx \\).<br><br>Then \\( du = e^x dx \\) and \\( v = -\\frac{1}{2}\\cos 2x \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( I = -\\frac{1}{2}e^x \\cos 2x + \\frac{1}{2} \\int e^x \\cos 2x dx \\)  (1)</div><br><br>Step 2<br><br>Apply integration by parts to \\( \\int e^x \\cos 2x dx \\):<br><br>Let \\( u = e^x \\) and \\( dv = \\cos 2x dx \\).<br><br>Then \\( du = e^x dx \\) and \\( v = \\frac{1}{2}\\sin 2x \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int e^x \\cos 2x dx = \\frac{1}{2}e^x \\sin 2x - \\frac{1}{2} \\int e^x \\sin 2x dx = \\frac{1}{2}e^x \\sin 2x - \\frac{1}{2}I \\)  (2)</div><br><br>Step 3<br><br>Substitute (2) into (1) and solve for \\( I \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( I = -\\frac{1}{2}e^x \\cos 2x + \\frac{1}{4}e^x \\sin 2x - \\frac{1}{4}I \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{5}{4}I = \\frac{1}{4}e^x(\\sin 2x - 2\\cos 2x) \\implies I = \\frac{1}{5}e^x(\\sin 2x - 2\\cos 2x) + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{5}e^x(\\sin 2x - 2\\cos 2x) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (2x+1) \\ln x dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = \\ln x \\) and \\( dv = (2x+1) dx \\).<br><br>Then \\( du = \\frac{1}{x} dx \\) and \\( v = x^2 + x \\).<br><br>Step 2<br><br>Apply the integration by parts formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int (2x+1) \\ln x dx = (x^2+x)\\ln x - \\int (x^2+x)\\left(\\frac{1}{x}\\right) dx \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = (x^2+x)\\ln x - \\int (x+1) dx \\)</div><br><br>Step 3<br><br>Evaluate the remaining integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x^2+x)\\ln x - \\frac{1}{2}x^2 - x + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (x^2+x)\\ln x - \\frac{1}{2}x^2 - x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{2x^2+3x+1}{(x-1)(x+2)^2} dx \\) using partial fractions.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{2x^2+3x+1}{(x-1)(x+2)^2} = \\frac{A}{x-1} + \\frac{B}{x+2} + \\frac{C}{(x+2)^2} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x^2+3x+1 = A(x+2)^2 + B(x-1)(x+2) + C(x-1) \\)</div><br><br>Step 2<br><br>Find \\( A, B, C \\):<br><br>Let \\( x = 1 \\): \\( 6 = 9A \\implies A = \\frac{2}{3} \\).<br>Let \\( x = -2 \\): \\( 3 = -3C \\implies C = -1 \\).<br>Coeff of \\( x^2 \\): \\( 2 = A + B \\implies B = \\frac{4}{3} \\).<br><br>Step 3<br><br>Integrate the partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\left(\\frac{2/3}{x-1} + \\frac{4/3}{x+2} - \\frac{1}{(x+2)^2}\\right) dx = \\frac{2}{3}\\ln|x-1| + \\frac{4}{3}\\ln|x+2| + \\frac{1}{x+2} + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{3}\\ln|x-1| + \\frac{4}{3}\\ln|x+2| + \\frac{1}{x+2} + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the function \\( f(x) \\) given that \\( f''(x) = e^x + \\sin x \\), \\( f'(0) = 2 \\), and \\( f(0) = 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate \\( f''(x) \\) to find \\( f'(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = \\int (e^x + \\sin x) dx = e^x - \\cos x + C_1 \\)</div><br><br>Use \\( f'(0) = 2 \\): \\( 1 - 1 + C_1 = 2 \\implies C_1 = 2 \\).<br><br>So, \\( f'(x) = e^x - \\cos x + 2 \\).<br><br>Step 2<br><br>Integrate \\( f'(x) \\) to find \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = \\int (e^x - \\cos x + 2) dx = e^x - \\sin x + 2x + C_2 \\)</div><br><br>Step 3<br><br>Use \\( f(0) = 1 \\) to find \\( C_2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 - 0 + 0 + C_2 = 1 \\implies C_2 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = e^x - \\sin x + 2x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( f(x) = e^x - \\sin x + 2x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{e^x}{e^{2x} - 1} dx \\) using substitution and partial fractions.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = e^x \\). Then \\( du = e^x dx \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{1}{u^2 - 1} du = \\int \\frac{1}{(u-1)(u+1)} du \\)</div><br><br>Step 2<br><br>Set up partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{(u-1)(u+1)} = \\frac{A}{u-1} + \\frac{B}{u+1} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 = A(u+1) + B(u-1) \\)</div><br><br>Let \\( u = 1 \\): \\( A = \\frac{1}{2} \\). Let \\( u = -1 \\): \\( B = -\\frac{1}{2} \\).<br><br>Step 3<br><br>Integrate and substitute back \\( u = e^x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{2}\\ln|u-1| - \\frac{1}{2}\\ln|u+1| + C = \\frac{1}{2}\\ln\\left|\\frac{e^x-1}{e^x+1}\\right| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2}\\ln\\left|\\frac{e^x-1}{e^x+1}\\right| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x^2 e^{3x} dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = x^2 \\) and \\( dv = e^{3x} dx \\).<br><br>Then \\( du = 2x dx \\) and \\( v = \\frac{1}{3}e^{3x} \\).<br><br>Apply integration by parts:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int x^2 e^{3x} dx = \\frac{1}{3}x^2 e^{3x} - \\frac{2}{3} \\int x e^{3x} dx \\)</div><br><br>Step 2<br><br>Apply integration by parts again to \\( \\int x e^{3x} dx \\):<br><br>Let \\( u = x \\) and \\( dv = e^{3x} dx \\).<br><br>Then \\( du = dx \\) and \\( v = \\frac{1}{3}e^{3x} \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int x e^{3x} dx = \\frac{1}{3}x e^{3x} - \\frac{1}{9}e^{3x} \\)</div><br><br>Step 3<br><br>Combine the results:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{3}x^2 e^{3x} - \\frac{2}{3}\\left(\\frac{1}{3}x e^{3x} - \\frac{1}{9}e^{3x}\\right) + C = e^{3x}\\left(\\frac{1}{3}x^2 - \\frac{2}{9}x + \\frac{2}{27}\\right) + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{1}{3}x^2 - \\frac{2}{9}x + \\frac{2}{27}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{\\sin x}{\\cos^2 x + \\cos x} dx \\) using substitution and partial fractions.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = \\cos x \\). Then \\( du = -\\sin x dx \\), so \\( \\sin x dx = -du \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{-du}{u^2+u} = -\\int \\frac{1}{u(u+1)} du \\)</div><br><br>Step 2<br><br>Set up partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{u(u+1)} = \\frac{1}{u} - \\frac{1}{u+1} \\)</div><br><br>Step 3<br><br>Integrate and substitute back \\( u = \\cos x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -\\left(\\ln|u| - \\ln|u+1|\\right) + C = \\ln\\left|\\frac{\\cos x + 1}{\\cos x}\\right| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\ln\\left|\\frac{\\cos x + 1}{\\cos x}\\right| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{4x^2+3x+1}{(x+1)^3} dx \\) using partial fractions.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{4x^2+3x+1}{(x+1)^3} = \\frac{A}{x+1} + \\frac{B}{(x+1)^2} + \\frac{C}{(x+1)^3} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4x^2+3x+1 = A(x+1)^2 + B(x+1) + C \\)</div><br><br>Step 2<br><br>Find \\( A, B, C \\):<br><br>Let \\( x = -1 \\): \\( 2 = C \\).<br>Expand and equate coefficients:<br>\\( 4x^2+3x+1 = Ax^2 + (2A+B)x + (A+B+C) \\).<br>\\( A = 4 \\), \\( 2A+B = 3 \\implies B = -5 \\).<br><br>Step 3<br><br>Integrate the partial fractions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\left(\\frac{4}{x+1} - \\frac{5}{(x+1)^2} + \\frac{2}{(x+1)^3}\\right) dx = 4\\ln|x+1| + \\frac{5}{x+1} - \\frac{1}{(x+1)^2} + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4\\ln|x+1| + \\frac{5}{x+1} - \\frac{1}{(x+1)^2} + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\frac{1}{1+e^{-x}} dx \\) using algebraic manipulation and substitution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply the numerator and denominator by \\( e^x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{e^x}{e^x+1} dx \\)</div><br><br>Step 2<br><br>Let \\( u = e^x + 1 \\). Then \\( du = e^x dx \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{1}{u} du = \\ln|u| + C \\)</div><br><br>Step 3<br><br>Substitute back \\( u = e^x + 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\ln(e^x+1) + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\ln(e^x+1) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x \\sec^2 x dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = x \\) and \\( dv = \\sec^2 x dx \\).<br><br>Then \\( du = dx \\) and \\( v = \\tan x \\).<br><br>Step 2<br><br>Apply the integration by parts formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int x \\sec^2 x dx = x \\tan x - \\int \\tan x dx \\)</div><br><br>Step 3<br><br>Evaluate the remaining integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x \\tan x - \\ln|\\sec x| + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x \\tan x - \\ln|\\sec x| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\left(x^2 + \\frac{1}{x^2} + e^x + \\sin x\\right) dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Separate the integral into four parts:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int x^2 dx + \\int x^{-2} dx + \\int e^x dx + \\int \\sin x dx \\)</div><br><br>Step 2<br><br>Integrate each part using the standard rules:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{x^3}{3} + \\frac{x^{-1}}{-1} + e^x - \\cos x + C \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{3}x^3 - \\frac{1}{x} + e^x - \\cos x + C \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{3}x^3 - \\frac{1}{x} + e^x - \\cos x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the function \\( f(x) \\) given that \\( f''(x) = \\cos 2x - e^{-x} \\), \\( f'(0) = 1 \\), and \\( f(0) = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate \\( f''(x) \\) to find \\( f'(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = \\int (\\cos 2x - e^{-x}) dx = \\frac{1}{2}\\sin 2x + e^{-x} + C_1 \\)</div><br><br>Use \\( f'(0) = 1 \\): \\( 0 + 1 + C_1 = 1 \\implies C_1 = 0 \\).<br><br>So, \\( f'(x) = \\frac{1}{2}\\sin 2x + e^{-x} \\).<br><br>Step 2<br><br>Integrate \\( f'(x) \\) to find \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = \\int \\left(\\frac{1}{2}\\sin 2x + e^{-x}\\right) dx = -\\frac{1}{4}\\cos 2x - e^{-x} + C_2 \\)</div><br><br>Step 3<br><br>Use \\( f(0) = 0 \\) to find \\( C_2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -\\frac{1}{4} - 1 + C_2 = 0 \\implies C_2 = \\frac{5}{4} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = -\\frac{1}{4}\\cos 2x - e^{-x} + \\frac{5}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{1}{4}\\cos 2x - e^{-x} + \\frac{5}{4} \\)"
   }
 ]
