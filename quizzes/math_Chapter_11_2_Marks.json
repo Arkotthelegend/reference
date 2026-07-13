@@ -93,5 +93,80 @@
     "type": "math_show",
     "q": "The area under the curve \\( y = kx \\) from \\( x = 0 \\) to \\( x = 4 \\) is \\( 16 \\) unit². Find the value of \\( k \\).",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\int_{0}^{4} kx \\, dx = \\left[ \\frac{kx^2}{2} \\right]_{0}^{4} = 8k \\)</div><br><br>Step 2<br><br>By the problem, \\( 8k = 16 \\).<br><br>Step 3<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( k = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the definite integral \\( \\int_0^2 (3x^2 - 2x) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the antiderivative of the integrand:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int (3x^2 - 2x) \\, dx = x^3 - x^2 \\)</div><br><br>Step 2<br><br>Apply the limits of integration from \\( 0 \\) to \\( 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left[ x^3 - x^2 \\right]_0^2 = (2^3 - 2^2) - (0^3 - 0^2) \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (8 - 4) - 0 = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the definite integral \\( \\int_1^e \\frac{1}{x} \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the antiderivative of the integrand:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\frac{1}{x} \\, dx = \\ln|x| \\)</div><br><br>Step 2<br><br>Apply the limits of integration from \\( 1 \\) to \\( e \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left[ \\ln|x| \\right]_1^e = \\ln(e) - \\ln(1) \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 - 0 = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the definite integral \\( \\int_0^{\\frac{\\pi}{2}} \\sin x \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the antiderivative of the integrand:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\int \\sin x \\, dx = -\\cos x \\)</div><br><br>Step 2<br><br>Apply the limits of integration from \\( 0 \\) to \\( \\frac{\\pi}{2} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left[ -\\cos x \\right]_0^{\\frac{\\pi}{2}} = -\\cos\\left(\\frac{\\pi}{2}\\right) - (-\\cos(0)) \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -0 - (-1) = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the area enclosed between the graph of \\( f(x) = x^2 \\) and the x-axis over the interval \\( [0, 2] \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since \\( f(x) \\ge 0 \\) on \\( [0, 2] \\), the area is given by the definite integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\int_0^2 x^2 \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left[ \\frac{x^3}{3} \\right]_0^2 = \\frac{2^3}{3} - \\frac{0^3}{3} \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{8}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{8}{3} \\) unit²"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the area enclosed between the graph of \\( f(x) = \\cos x \\) and the x-axis over the interval \\( [0, \\frac{\\pi}{2}] \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since \\( f(x) \\ge 0 \\) on \\( [0, \\frac{\\pi}{2}] \\), the area is given by the definite integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\int_0^{\\frac{\\pi}{2}} \\cos x \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left[ \\sin x \\right]_0^{\\frac{\\pi}{2}} = \\sin\\left(\\frac{\\pi}{2}\\right) - \\sin(0) \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 - 0 = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 \\) unit²"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the area enclosed between the graph of \\( f(x) = e^x \\) and the x-axis over the interval \\( [0, 1] \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since \\( f(x) \\ge 0 \\) on \\( [0, 1] \\), the area is given by the definite integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\int_0^1 e^x \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left[ e^x \\right]_0^1 = e^1 - e^0 \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( e - 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( e - 1 \\) unit²"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the area between the curves \\( y = x^2 \\) and \\( y = x \\) over the interval \\( [0, 1] \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>On the interval \\( [0, 1] \\), \\( x \\ge x^2 \\). The area is given by:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\int_0^1 (x - x^2) \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left[ \\frac{x^2}{2} - \\frac{x^3}{3} \\right]_0^1 = \\left( \\frac{1}{2} - \\frac{1}{3} \\right) - 0 \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{6} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{6} \\) unit²"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the area between the curves \\( y = x^2 \\) and \\( y = 4 \\) over the interval \\( [0, 2] \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>On the interval \\( [0, 2] \\), \\( 4 \\ge x^2 \\). The area is given by:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\int_0^2 (4 - x^2) \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left[ 4x - \\frac{x^3}{3} \\right]_0^2 = \\left( 8 - \\frac{8}{3} \\right) - 0 \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{16}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{16}{3} \\) unit²"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the area between the curves \\( y = \\sin x \\) and \\( y = \\cos x \\) over the interval \\( [0, \\frac{\\pi}{4}] \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>On the interval \\( [0, \\frac{\\pi}{4}] \\), \\( \\cos x \\ge \\sin x \\). The area is given by:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\int_0^{\\frac{\\pi}{4}} (\\cos x - \\sin x) \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left[ \\sin x + \\cos x \\right]_0^{\\frac{\\pi}{4}} = \\left( \\frac{\\sqrt{2}}{2} + \\frac{\\sqrt{2}}{2} \\right) - (0 + 1) \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{2} - 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\sqrt{2} - 1 \\) unit²"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the volume of revolution formed when the curve \\( y = x \\) for \\( 0 \\le x \\le 2 \\) is rotated through \\( 360^\\circ \\) about the x-axis.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the disc method formula \\( V = \\pi \\int_a^b [f(x)]^2 \\, dx \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( V = \\pi \\int_0^2 x^2 \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( V = \\pi \\left[ \\frac{x^3}{3} \\right]_0^2 = \\pi \\left( \\frac{8}{3} - 0 \\right) \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{8\\pi}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{8\\pi}{3} \\) unit³"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the volume of revolution formed when the curve \\( y = \\sqrt{x} \\) for \\( 0 \\le x \\le 4 \\) is rotated through \\( 360^\\circ \\) about the x-axis.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the disc method formula \\( V = \\pi \\int_a^b [f(x)]^2 \\, dx \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( V = \\pi \\int_0^4 (\\sqrt{x})^2 \\, dx = \\pi \\int_0^4 x \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( V = \\pi \\left[ \\frac{x^2}{2} \\right]_0^4 = \\pi \\left( \\frac{16}{2} - 0 \\right) \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 8\\pi \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 8\\pi \\) unit³"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the volume of revolution formed when the curve \\( y = x^2 \\) for \\( 0 \\le x \\le 1 \\) is rotated through \\( 360^\\circ \\) about the x-axis.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the disc method formula \\( V = \\pi \\int_a^b [f(x)]^2 \\, dx \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( V = \\pi \\int_0^1 (x^2)^2 \\, dx = \\pi \\int_0^1 x^4 \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( V = \\pi \\left[ \\frac{x^5}{5} \\right]_0^1 = \\pi \\left( \\frac{1}{5} - 0 \\right) \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{\\pi}{5} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{\\pi}{5} \\) unit³"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the volume of revolution formed when the curve \\( y = e^x \\) for \\( 0 \\le x \\le 1 \\) is rotated through \\( 360^\\circ \\) about the x-axis.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the disc method formula \\( V = \\pi \\int_a^b [f(x)]^2 \\, dx \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( V = \\pi \\int_0^1 (e^x)^2 \\, dx = \\pi \\int_0^1 e^{2x} \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( V = \\pi \\left[ \\frac{e^{2x}}{2} \\right]_0^1 = \\pi \\left( \\frac{e^2}{2} - \\frac{1}{2} \\right) \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{\\pi(e^2 - 1)}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{\\pi(e^2 - 1)}{2} \\) unit³"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the area between the curves \\( y = x^2 + 1 \\) and \\( y = 3 \\) over the interval \\( [-1, 1] \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>On the interval \\( [-1, 1] \\), \\( 3 \\ge x^2 + 1 \\). The area is given by:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\int_{-1}^1 (3 - (x^2 + 1)) \\, dx = \\int_{-1}^1 (2 - x^2) \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left[ 2x - \\frac{x^3}{3} \\right]_{-1}^1 = \\left( 2 - \\frac{1}{3} \\right) - \\left( -2 + \\frac{1}{3} \\right) \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{5}{3} - \\left(-\\frac{5}{3}\\right) = \\frac{10}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{10}{3} \\) unit²"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the volume of revolution formed when the curve \\( y = \\sin x \\) for \\( 0 \\le x \\le \\frac{\\pi}{2} \\) is rotated through \\( 360^\\circ \\) about the x-axis.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the disc method formula \\( V = \\pi \\int_a^b [f(x)]^2 \\, dx \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( V = \\pi \\int_0^{\\frac{\\pi}{2}} \\sin^2 x \\, dx = \\pi \\int_0^{\\frac{\\pi}{2}} \\frac{1 - \\cos 2x}{2} \\, dx \\)</div><br><br>Step 2<br><br>Evaluate the integral:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( V = \\frac{\\pi}{2} \\left[ x - \\frac{\\sin 2x}{2} \\right]_0^{\\frac{\\pi}{2}} = \\frac{\\pi}{2} \\left( \\left(\\frac{\\pi}{2} - 0\\right) - (0 - 0) \\right) \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{\\pi^2}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{\\pi^2}{4} \\) unit³"
   }
 ]
