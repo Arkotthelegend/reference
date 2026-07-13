@@ -421,7 +421,17 @@ mjx-mtr, mjx-mlabeledtr {
     background-color: #00D5FF; 
     border-radius: 10px;
 }
-	
+	        .shop-item-card { background: #162235; border: 1px solid #334155; border-radius: 14px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+        .shop-item-info { flex: 1; }
+        .shop-item-name { font-weight: 700; color: #fff; margin-bottom: 2px; }
+        .shop-item-desc { font-size: 0.75rem; color: #94A3B8; }
+        .shop-btn { margin: 0 !important; font-size: 0.8rem !important; padding: 8px 12px !important; white-space: nowrap !important; width: auto !important; }
+        .stats-bar { background: #0B0F19; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 5px; }
+        .stats-fill { height: 100%; background: linear-gradient(90deg, #10B981, #00D5FF); }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; text-align: center; margin-bottom: 15px; }
+        .stats-grid-value { font-size: 1.2rem; font-weight: 800; }
+        .stats-grid-label { font-size: 0.7rem; color: #94A3B8; }
+        .xp-badge { display: inline-block; background: #F59E0B; color: #000; padding: 4px 10px; border-radius: 12px; font-weight: 800; font-size: 0.85rem; }
 </style>
 </head>
 <body>
@@ -558,6 +568,16 @@ mjx-mtr, mjx-mlabeledtr {
                 </svg>
                 <h2 id="user-name" style="margin: 10px 0 5px;">Scholar</h2>
                 <p id="user-id-text" style="color: #94A3B8; margin-bottom: 10px;"></p>
+				                <!-- XP Display Card -->
+                <div class="profile-info-card" style="margin-top: 15px; border-color: #F59E0B; box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);">
+                    <div style="font-size: 2rem; margin-bottom: 5px;">⭐</div>
+                    <div id="profile-xp-display" style="font-size: 1.5rem; font-weight: 800; color: #F59E0B; margin-bottom: 5px;">0 XP</div>
+                    <div style="font-size: 0.85rem; color: #94A3B8; margin-bottom: 15px;">လက်ရှိ XP ပွိုင့်များ</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <button class="btn" style="background: #1E293B; border: 1px solid #00D5FF; color: #00D5FF; margin: 0; font-size: 0.9rem;" onclick="showStatsScreen()">📊 အချက်အလက်</button>
+                        <button class="btn" style="background: #1E293B; border: 1px solid #F59E0B; color: #F59E0B; margin: 0; font-size: 0.9rem;" onclick="showShopScreen()">🛒 XP Shop</button>
+                    </div>
+                </div>
                 
                 <div class="gender-container">
                     <span>ကျား</span>
@@ -674,7 +694,24 @@ mjx-mtr, mjx-mlabeledtr {
     <div id="poem-body" class="poem-content"></div>
     <button class="btn back-btn" onclick="showENPoemOptions()">နောက်သို့</button>
 </div>
+        <!-- Stats Screen -->
+        <div id="stats-screen" class="screen">
+            <h2 style="text-align: center; color: var(--accent);">📊 လေ့ကျင့်မှတ်တမ်း</h2>
+            <div style="display: flex; gap: 10px; margin-bottom: 20px; padding: 0 15px;">
+                <button class="btn" style="margin: 0; background: #162235; border: 1px solid #00D5FF; color: #00D5FF;" id="btn-daily" onclick="renderStats('daily')">ရက်အလိုက်</button>
+                <button class="btn" style="margin: 0; background: #1E293B; border: 1px solid #334155; color: #94A3B8;" id="btn-monthly" onclick="renderStats('monthly')">လအလိုက်</button>
+            </div>
+            <div id="stats-content" style="padding: 0 15px; padding-bottom: 100px;"></div>
+            <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
+        </div>
 
+        <!-- Shop Screen -->
+        <div id="shop-screen" class="screen">
+            <h2 style="text-align: center; color: #F59E0B;">🛒 XP ဈေး</h2>
+            <div id="shop-content" style="padding: 15px; padding-bottom: 100px;"></div>
+            <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
+        </div>
+		
     <div class="nav">
         <div class="nav-item nav-active" onclick="changeTab('home', this)">🏠</div>
 		<div class="nav-item" onclick="changeTab('scroll', this)">📜</div>
@@ -748,6 +785,96 @@ const subChapterConfig = {
         const tg = window.Telegram.WebApp;
         tg.ready(); tg.expand();
 
+            // ==================== XP & STATS ENGINE ====================
+            const STATS_KEY = 'scholar_stats_v2';
+            const INV_KEY = 'scholar_inventory_v2';
+            const SUBJECT_NAMES = {
+                mm: 'မြန်မာစာ', en: 'အင်္ဂလိပ်စာ', math: 'သင်္ချာ',
+                phy: 'ရူပဗေဒ', chem: 'ဓာတုဗေဒ', bio: 'ဇီဝဗေဒ', eco: 'ဘောဂဗေဒ'
+            };
+            const SHOP_ITEMS = [
+                { id: 'theme_ocean', name: 'Ocean Blue', cost: 200, type: 'theme', icon: '🌊', desc: 'App အရောင်ကို ပြောင်းလဲမည်' },
+                { id: 'theme_sunset', name: 'Sunset Orange', cost: 300, type: 'theme', icon: '🌅', desc: 'နေဝင်ချိန်အရောင်' },
+                { id: 'border_gold', name: 'Gold Avatar', cost: 500, type: 'border', icon: '✨', desc: 'Profile ပုံကို ရွှေဘောင်ဝင်' },
+                { id: 'badge_fire', name: 'Fire Streak', cost: 150, type: 'badge', icon: '🔥', desc: 'Streak Badge အထူး' },
+                { id: 'streak_shield', name: 'Streak Shield', cost: 800, type: 'consumable', icon: '🛡️', desc: 'Streak ကွက်ရာကို ကာကွယ်မည်' }
+            ];
+
+            function getStats() {
+                const defaults = {
+                    xp: 0, lifetime: { attempted: 0, correct: 0, xp: 0 },
+                    subjects: {}, daily: {}, monthly: {}
+                };
+                Object.keys(SUBJECT_NAMES).forEach(id => { defaults.subjects[id] = { attempted: 0, correct: 0, xp: 0 }; });
+                try {
+                    const saved = localStorage.getItem(STATS_KEY);
+                    if (saved) {
+                        const parsed = JSON.parse(saved);
+                        Object.keys(defaults.subjects).forEach(k => { if (!parsed.subjects[k]) parsed.subjects[k] = { attempted: 0, correct: 0, xp: 0 }; });
+                        return { ...defaults, ...parsed, subjects: { ...defaults.subjects, ...parsed.subjects } };
+                    }
+                } catch(e) {}
+                return defaults;
+            }
+            function saveStats(data) { localStorage.setItem(STATS_KEY, JSON.stringify(data)); }
+            function getInventory() {
+                try { const saved = localStorage.getItem(INV_KEY); if (saved) return JSON.parse(saved); } catch(e) {}
+                return { items: [], equipped: { theme: 'default', border: 'none', badge: 'none' }, streakShields: 0 };
+            }
+            function saveInventory(data) { localStorage.setItem(INV_KEY, JSON.stringify(data)); }
+
+            function addXP(amount, subjectId, reason) {
+                const stats = getStats();
+                const today = new Date().toISOString().split('T')[0];
+                const month = today.slice(0, 7);
+                stats.xp += amount;
+                stats.lifetime.xp = (stats.lifetime.xp || 0) + amount;
+                if (subjectId && stats.subjects[subjectId]) stats.subjects[subjectId].xp += amount;
+                if (!stats.daily[today]) stats.daily[today] = { attempted: 0, correct: 0, xp: 0, subjects: {} };
+                stats.daily[today].xp += amount;
+                if (!stats.monthly[month]) stats.monthly[month] = { attempted: 0, correct: 0, xp: 0 };
+                stats.monthly[month].xp += amount;
+                saveStats(stats);
+                updateXPUI();
+            }
+            function trackAttempt(subjectId, isCorrect) {
+                const stats = getStats();
+                const today = new Date().toISOString().split('T')[0];
+                const month = today.slice(0, 7);
+                stats.lifetime.attempted++; if (isCorrect) stats.lifetime.correct++;
+                if (stats.subjects[subjectId]) { stats.subjects[subjectId].attempted++; if (isCorrect) stats.subjects[subjectId].correct++; }
+                if (!stats.daily[today]) stats.daily[today] = { attempted: 0, correct: 0, xp: 0, subjects: {} };
+                stats.daily[today].attempted++; if (isCorrect) stats.daily[today].correct++;
+                if (!stats.daily[today].subjects[subjectId]) stats.daily[today].subjects[subjectId] = { attempted: 0, correct: 0 };
+                stats.daily[today].subjects[subjectId].attempted++; if (isCorrect) stats.daily[today].subjects[subjectId].correct++;
+                if (!stats.monthly[month]) stats.monthly[month] = { attempted: 0, correct: 0, xp: 0 };
+                stats.monthly[month].attempted++; if (isCorrect) stats.monthly[month].correct++;
+                saveStats(stats);
+            }
+            function shouldTrackQuiz(fileName) {
+                if (!fileName) return false;
+                if (fileName.includes('_2_Marks') || fileName.includes('_3_Marks')) return true;
+                if (fileName.startsWith('daily_') || window.isDailyQuiz) return true;
+                return localStorage.getItem('randomQuizSetting') !== 'false';
+            }
+            function updateXPUI() {
+                const el = document.getElementById('profile-xp-display');
+                if (el) el.innerText = `⭐ ${getStats().xp.toLocaleString()} XP`;
+            }
+            function applyEquippedItems() {
+                const inv = getInventory();
+                const avatar = document.getElementById('profile-avatar');
+                if (avatar) {
+                    const wrapper = avatar.parentElement;
+                    wrapper.style.display = 'inline-block'; wrapper.style.borderRadius = '50%'; wrapper.style.overflow = 'hidden';
+                    wrapper.style.border = inv.equipped.border === 'border_gold' ? '3px solid #F59E0B' : 'none';
+                    wrapper.style.padding = inv.equipped.border === 'border_gold' ? '2px' : '0';
+                }
+                if (inv.equipped.theme === 'theme_ocean') document.documentElement.style.setProperty('--accent', '#00D5FF');
+                else if (inv.equipped.theme === 'theme_sunset') document.documentElement.style.setProperty('--accent', '#F97316');
+            }
+            // ==================== END XP ENGINE ====================
+			
       let paidUsers = {}; 
         let userBought = {}; // const အစား let ပြောင်းပေးရမည်
 
@@ -1744,6 +1871,15 @@ function updateFlashUI() {
 
         function flipCard() {
             document.getElementById('flash-card').classList.toggle('is-flipped');
+			                // ===== XP: Viewed Answer =====
+                if (!wasFlipped && window.currentFlashMeta) {
+                    const cardKey = 'flash_' + flashIdx;
+                    if (!window.currentFlashMeta.awarded.has(cardKey)) {
+                        addXP(1, window.currentFlashMeta.subject, 'flashcard');
+                        window.currentFlashMeta.awarded.add(cardKey);
+                    }
+                }
+                // =============================
         }
 
         function nextFlash() {
@@ -1831,6 +1967,16 @@ function updateFlashUI() {
         }
         
         currentIdx = 0; 
+		                // ===== TRACKING SETUP =====
+                window.isDailyQuiz = false;
+                window.currentQuizMeta = {
+                    track: shouldTrackQuiz(fileName),
+                    subject: currentSubject ? currentSubject.id : 'general',
+                    type: (fileName.includes('_2_Marks') || fileName.includes('_3_Marks')) ? 'math_special' : 'standard',
+                    fileName: fileName,
+                    awarded: new Set()
+                };
+                // ==========================
         showScreen('quiz'); 
         loadQuestion();
     } catch (e) { tg.showAlert("မေးခွန်းဖိုင်မတွေ့သေးပါ- " + fileName); }
@@ -1872,6 +2018,15 @@ function updateFlashUI() {
         showBtn.onclick = function() {
             // Screen အသစ်ကို ပြောင်းမည်
             showScreen('math-solution');
+			                            // ===== XP FOR MATH 2/3 MARKS =====
+                            if (window.currentQuizMeta && window.currentQuizMeta.track && window.currentQuizMeta.type === 'math_special') {
+                                const qKey = 'math_' + currentIdx;
+                                if (!window.currentQuizMeta.awarded.has(qKey)) {
+                                    addXP(1, window.currentQuizMeta.subject, 'math_solution');
+                                    window.currentQuizMeta.awarded.add(qKey);
+                                }
+                            }
+                            // ===================================
             document.getElementById('math-solution-content').innerHTML = q.c;
             if (window.MathJax) MathJax.typesetPromise();
 			            // အပေါ်ဆုံးသို့ scroll လုပ်ရန်
@@ -1941,6 +2096,17 @@ function updateFlashUI() {
                 isAnswered = true;
 
                 const options = document.querySelectorAll('.option-btn');
+				                                // ===== TRACKING & XP (MCQ/TF) =====
+                                if (window.currentQuizMeta && window.currentQuizMeta.track && ['standard','daily'].includes(window.currentQuizMeta.type)) {
+                                    const qKey = 'q_' + currentIdx;
+                                    if (!window.currentQuizMeta.awarded.has(qKey)) {
+                                        const xpGain = (i === correctIdx) ? 4 : 1;
+                                        addXP(xpGain, window.currentQuizMeta.subject, (i === correctIdx) ? 'correct' : 'wrong');
+                                        trackAttempt(window.currentQuizMeta.subject, (i === correctIdx));
+                                        window.currentQuizMeta.awarded.add(qKey);
+                                    }
+                                }
+                                // ====================================
 
                 // အဖြေမှန်/မှား စစ်ဆေးခြင်း
                 if (i === correctIdx) {
@@ -1983,6 +2149,20 @@ function updateFlashUI() {
         sBtn.onclick = () => {
             if(isAnswered) return; 
             isAnswered = true;
+			                        const userAns = input.value.trim().toLowerCase();
+                        const correctAns = q.c.toString().toLowerCase();
+                        const isCorrect = userAns === correctAns;
+                        
+                        // ===== TRACKING & XP (BLANK) =====
+                        if (window.currentQuizMeta && window.currentQuizMeta.track && ['standard','daily'].includes(window.currentQuizMeta.type)) {
+                            const qKey = 'q_' + currentIdx;
+                            if (!window.currentQuizMeta.awarded.has(qKey)) {
+                                const xpGain = isCorrect ? 4 : 1;
+                                addXP(xpGain, window.currentQuizMeta.subject, isCorrect ? 'correct' : 'wrong');
+                                trackAttempt(window.currentQuizMeta.subject, isCorrect);
+                                window.currentQuizMeta.awarded.add(qKey);
+                            }
+                        }
             
             if(input.value.trim().toLowerCase() === q.c.toString().toLowerCase()) {
                 tg.showAlert("မှန်ကန်ပါသည်။ ✅");
@@ -2170,7 +2350,8 @@ function renderProfileData() {
         <button onclick="contactDeveloper()" style="width: 100%; background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
             🛠 အမှားများတိုင်ကြားရန်
         </button>
-    `;
+    
+	`;
 }
 
         // --- Init ---
@@ -2300,6 +2481,8 @@ window.onload = () => {
     updateCountdown(); 
     updateStreak();
     loadPaidUsers();
+	                updateXPUI();
+                applyEquippedItems();
     
     // Random Switch ကို Local Storage ထဲက data နဲ့ ပြန်ချိန်ပေးခြင်း
     const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false'; // Default true
@@ -2347,8 +2530,11 @@ function updateStreak() {
         // မနေ့က ဝင်ခဲ့လျှင် Streak ၁ တိုးမယ်
         streak += 1;
     } else {
-        // တစ်ရက်ထက်ကျော်ပြီး ပျက်ကွက်သွားလျှင် ၁ ကနေ ပြန်စမယ်
-        streak = 1;
+                            const inv = getInventory();
+                    if (inv.streakShields > 0) {
+                        inv.streakShields--; saveInventory(inv);
+                        tg.showAlert("🛡️ Streak Shield က ကာကွယ်ပေးလိုက်ပါပြီ!");
+                    } else streak = 1;
     }
 
     localStorage.setItem('last_login_date', todayDate);
@@ -2475,6 +2661,15 @@ async function startDailyQuiz(subId) {
         }
 
         currentQuestions = shuffled.slice(0, 3);
+		                    // ===== DAILY QUIZ TRACKING =====
+                    window.isDailyQuiz = true;
+                    window.currentQuizMeta = {
+                        track: true,
+                        subject: subId,
+                        type: 'daily',
+                        awarded: new Set()
+                    };
+                    // ===============================
         currentIdx = 0;
         
         backBtn.innerText = "ထွက်မည်";
@@ -2518,6 +2713,12 @@ async function initFlashcards(fileName, markTitle = "Flashcard") {
         }
         
         flashIdx = 0;
+		                    // ===== FLASHCARD TRACKING =====
+                    window.currentFlashMeta = {
+                        subject: currentSubject ? currentSubject.id : 'general',
+                        awarded: new Set()
+                    };
+                    // ==============================
         showScreen('flashcard');
         updateFlashUI();
     } catch (e) { 
@@ -2598,6 +2799,124 @@ function resetTimer() {
     score = 0;
     document.getElementById('score-display').innerText = "ရမှတ်: 0";
 }
+
+            // ==================== STATS VIEWER ====================
+            function showStatsScreen() {
+                showScreen('stats');
+                renderStats('daily');
+            }
+
+            function renderStats(mode) {
+                const stats = getStats();
+                const content = document.getElementById('stats-content');
+                content.innerHTML = '';
+                document.getElementById('btn-daily').style.cssText = mode === 'daily' ? 'margin:0;background:#162235;border:1px solid #00D5FF;color:#00D5FF;' : 'margin:0;background:#1E293B;border:1px solid #334155;color:#94A3B8;';
+                document.getElementById('btn-monthly').style.cssText = mode === 'monthly' ? 'margin:0;background:#162235;border:1px solid #00D5FF;color:#00D5FF;' : 'margin:0;background:#1E293B;border:1px solid #334155;color:#94A3B8;';
+                const acc = stats.lifetime.attempted > 0 ? Math.round((stats.lifetime.correct / stats.lifetime.attempted) * 100) : 0;
+                const summary = document.createElement('div');
+                summary.style.cssText = 'background:#162235;border:1px solid #334155;border-radius:14px;padding:15px;margin-bottom:15px;';
+                summary.innerHTML = `
+                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;text-align:center;margin-bottom:15px;">
+                        <div><div style="font-size:1.2rem;font-weight:800;color:#00D5FF;">${stats.lifetime.attempted}</div><div style="font-size:0.7rem;color:#94A3B8;">ဖြေဆိုခဲ့</div></div>
+                        <div><div style="font-size:1.2rem;font-weight:800;color:#10B981;">${stats.lifetime.correct}</div><div style="font-size:0.7rem;color:#94A3B8;">မှန်ခဲ့</div></div>
+                        <div><div style="font-size:1.2rem;font-weight:800;color:#F59E0B;">${acc}%</div><div style="font-size:0.7rem;color:#94A3B8;">မှန်နှုန်း</div></div>
+                    </div>
+                    <div style="background:#0B0F19;height:8px;border-radius:4px;overflow:hidden;">
+                        <div style="width:${acc}%;background:linear-gradient(90deg,#10B981,#00D5FF);height:100%;"></div>
+                    </div>
+                `;
+                content.appendChild(summary);
+                const subCard = document.createElement('div');
+                subCard.style.cssText = 'background:#162235;border:1px solid #334155;border-radius:14px;padding:15px;margin-bottom:15px;';
+                let subHtml = '<div style="font-weight:700;color:#fff;margin-bottom:10px;">ဘာသာရပ်အလိုက်</div>';
+                Object.keys(SUBJECT_NAMES).forEach(subId => {
+                    const s = stats.subjects[subId];
+                    if (s.attempted > 0) {
+                        const sAcc = Math.round((s.correct / s.attempted) * 100);
+                        const color = sAcc >= 70 ? '#10B981' : sAcc >= 40 ? '#F59E0B' : '#EF4444';
+                        subHtml += `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #1E293B;">
+                            <div style="font-size:0.9rem;color:#CBD5E1;">${SUBJECT_NAMES[subId]}</div>
+                            <div style="font-size:0.85rem;color:#94A3B8;">${s.correct}/${s.attempted} <span style="color:${color}">(${sAcc}%)</span> <span style="color:#F59E0B;margin-left:4px;">+${s.xp}XP</span></div>
+                        </div>`;
+                    }
+                });
+                subCard.innerHTML = subHtml;
+                content.appendChild(subCard);
+                const data = mode === 'daily' ? stats.daily : stats.monthly;
+                const keys = Object.keys(data).sort().reverse().slice(0, 7);
+                if (keys.length === 0) { content.innerHTML += '<div style="text-align:center;padding:30px;color:#94A3B8;">မှတ်တမ်းမရှိသေးပါ</div>'; return; }
+                const timeCard = document.createElement('div');
+                timeCard.style.cssText = 'background:#162235;border:1px solid #334155;border-radius:14px;padding:15px;';
+                let timeHtml = `<div style="font-weight:700;color:#fff;margin-bottom:10px;">${mode === 'daily' ? 'ရက်အလိုက် (၇ ရက်)' : 'လအလိုက်'}</div>`;
+                const maxBar = Math.max(...keys.map(k => data[k].attempted || 1), 1);
+                keys.forEach(key => {
+                    const d = data[key];
+                    const barWidth = ((d.attempted || 0) / maxBar) * 100;
+                    timeHtml += `<div style="margin-bottom:12px;">
+                        <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:4px;">
+                            <span style="color:#CBD5E1;">${key}</span>
+                            <span style="color:#94A3B8;">${d.correct || 0}/${d.attempted || 0} <span style="color:#F59E0B;">+${d.xp || 0}XP</span></span>
+                        </div>
+                        <div style="background:#0B0F19;height:6px;border-radius:3px;overflow:hidden;">
+                            <div style="width:${barWidth}%;background:#00D5FF;height:100%;"></div>
+                        </div>
+                    </div>`;
+                });
+                timeCard.innerHTML = timeHtml;
+                content.appendChild(timeCard);
+            }
+
+            // ==================== SHOP ====================
+            function showShopScreen() {
+                showScreen('shop');
+                const content = document.getElementById('shop-content');
+                content.innerHTML = '';
+                const inv = getInventory();
+                const stats = getStats();
+                const xpHeader = document.createElement('div');
+                xpHeader.style.cssText = 'text-align:center;margin-bottom:20px;padding:15px;background:#162235;border-radius:12px;border:1px solid #F59E0B;';
+                xpHeader.innerHTML = `<div style="font-size:1.3rem;font-weight:800;color:#F59E0B;">⭐ ${stats.xp} XP</div><div style="font-size:0.8rem;color:#94A3B8;">ဝယ်ယူရန် XP လိုအပ်သည်</div>`;
+                content.appendChild(xpHeader);
+                SHOP_ITEMS.forEach(item => {
+                    const owned = inv.items.includes(item.id);
+                    const equipped = inv.equipped[item.type] === item.id;
+                    const div = document.createElement('div');
+                    div.className = 'shop-item-card';
+                    let btnHtml = '';
+                    if (owned) {
+                        btnHtml = equipped ? `<button class="btn shop-btn" style="background:#065F46;border:1px solid #10B981;color:#fff;" disabled>✓ အသုံးပြုနေသည်</button>`
+                            : `<button class="btn shop-btn" style="background:#1E293B;border:1px solid #00D5FF;color:#00D5FF;" onclick="equipItem('${item.id}','${item.type}')">အသုံးပြုရန်</button>`;
+                    } else {
+                        const canAfford = stats.xp >= item.cost;
+                        btnHtml = `<button class="btn shop-btn" style="background:${canAfford ? '#F59E0B' : '#1E293B'};border:1px solid ${canAfford ? '#F59E0B' : '#334155'};color:${canAfford ? '#000' : '#64748B'};" ${!canAfford ? 'disabled' : ''} onclick="buyItem('${item.id}',${item.cost})">${item.cost} XP</button>`;
+                    }
+                    div.innerHTML = `<div style="font-size:2rem;">${item.icon}</div><div class="shop-item-info"><div class="shop-item-name">${item.name}</div><div class="shop-item-desc">${item.desc}</div></div><div>${btnHtml}</div>`;
+                    content.appendChild(div);
+                });
+            }
+
+            function buyItem(itemId, cost) {
+                const stats = getStats(); const inv = getInventory();
+                if (stats.xp < cost) { tg.showAlert("XP မလုံလောက်ပါ!"); return; }
+                if (inv.items.includes(itemId)) { tg.showAlert("ဝယ်ပြီးသားဖြစ်ပါသည်!"); return; }
+                stats.xp -= cost; inv.items.push(itemId);
+                const item = SHOP_ITEMS.find(i => i.id === itemId);
+                if (item && item.type !== 'consumable' && !inv.equipped[item.type]) inv.equipped[item.type] = itemId;
+                if (item && item.type === 'consumable') inv.streakShields = (inv.streakShields || 0) + 1;
+                saveStats(stats); saveInventory(inv);
+                tg.showAlert("အောင်မြင်စွာ ဝယ်ယူပြီးပါပြီ! 🎉");
+                showShopScreen(); updateXPUI(); applyEquippedItems();
+            }
+
+            function equipItem(itemId, type) {
+                const inv = getInventory();
+                inv.equipped[type] = itemId;
+                saveInventory(inv);
+                applyEquippedItems();
+                tg.showAlert("အသုံးပြုပြီးပါပြီ!");
+                showShopScreen();
+            }
+			
     </script>
 </body>
 </html>
