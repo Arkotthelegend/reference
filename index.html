@@ -493,14 +493,20 @@ body[data-theme] .shuffle-active { background: var(--t-accent) !important; color
 
 /* ===== THEME FIXES FOR MOTIVATION & CONTACT BUTTON ===== */
 
-/* Default Mode (Blue/Cyan) */
-#motivation-box h4 { color: #00D5FF; }
-.contact-btn { color: #00D5FF; border: 1px solid #00D5FF; }
+/* ===== THEME FIXES (MOTIVATION BOX & CONTACT BUTTON) ===== */
 
-/* Theme Mode (Uses Theme Accent Color) */
-body[data-theme] #motivation-box { background: rgba(0,0,0,0.15) !important; border-color: var(--t-accent) !important; }
-body[data-theme] #motivation-box h4 { color: var(--t-accent) !important; }
-body[data-theme] .contact-btn { color: var(--t-accent) !important; border-color: var(--t-accent) !important; box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important; }
+/* ၁။ Daily Motivation Box — ဘောင်နဲ့ Background ပြောင်း၊ စာသားမပြောင်း */
+body[data-theme] #motivation-box { 
+    background: rgba(0,0,0,0.15) !important; 
+    border-color: var(--t-accent) !important; 
+}
+
+/* ၂။ Contact Button — အရောင်လိုက်ပြောင်း */
+body[data-theme] .contact-btn { 
+    color: var(--t-accent) !important; 
+    border-color: var(--t-accent) !important; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important; 
+}
 
 </style>
 </head>
