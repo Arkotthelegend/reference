@@ -873,10 +873,11 @@ const subChapterConfig = {
     const sheetURL = "https://script.google.com/macros/s/AKfycbx3-A1khjc924DyrdmTjKHdxbo9h7fEDhbSVtURyUa9y3oGoTzMFGjc3X1rKUDU7x41/exec";
     
     const cachedData = localStorage.getItem('cached_paid_users');
-    if (cachedData) {
+        if (cachedData) {
         paidUsers = JSON.parse(cachedData);
         userBought = paidUsers[userId] || [];
         renderSubjects();
+        initOldSubjects();   // <<<<<< ဒါထည့်ပါ
     }
 
     try {
@@ -885,9 +886,10 @@ const subChapterConfig = {
         
         localStorage.setItem('cached_paid_users', JSON.stringify(newData));
         
-        paidUsers = newData;
+                paidUsers = newData;
         userBought = paidUsers[userId] || [];
         renderSubjects();
+        initOldSubjects();   // <<<<<< ဒါထည့်ပါ
         
         // Theme re-apply after data loads
         const savedTheme = localStorage.getItem('activeTheme') || 'default';
@@ -1143,7 +1145,6 @@ function backToOldSubjects() {
     document.getElementById('old-subjects-screen').style.display = 'block';
 }
 
-initOldSubjects();
 
 function checkAccess(subId) {
     // ၁။ ဒီနေ့ ရက်စွဲကို အချိန် (Time) မပါဘဲ ယူမည်
@@ -2403,14 +2404,13 @@ function resetGoals() {
     saveGoals();
 }
 
-// App စဖွင့်ချိန်မှာ function တွေကို ခေါ်ခြင်း
 window.onload = () => {
     loadGoals(); 
     updateCountdown(); 
     updateStreak();
     loadPaidUsers();
+    initOldSubjects();   // <<<<<< ဒါထည့်ပါ
     
-    // Theme Init
     const savedTheme = localStorage.getItem('activeTheme') || 'default';
     document.body.setAttribute('data-theme', savedTheme);
     
