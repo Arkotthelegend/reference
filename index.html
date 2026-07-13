@@ -422,6 +422,75 @@ mjx-mtr, mjx-mlabeledtr {
     border-radius: 10px;
 }
 	
+	/* ===== THEME SYSTEM (Add at the very end of <style>) ===== */
+body[data-theme="default"] {
+  --t-bg: #0B0F19; --t-card: #162235; --t-accent: #00D5FF;
+  --t-accent2: #A855F7; --t-success: #22C55E; --t-border-home: #00D5FF;
+  --t-border-old: #A855F7; --t-border-daily: #22C55E;
+}
+body[data-theme="purple"] {
+  --t-bg: #0F0718; --t-card: #1E1035; --t-accent: #C084FC;
+  --t-accent2: #8B5CF6; --t-success: #34D399; --t-border-home: #C084FC;
+  --t-border-old: #F472B6; --t-border-daily: #A78BFA;
+}
+body[data-theme="green"] {
+  --t-bg: #05140A; --t-card: #0F291E; --t-accent: #4ADE80;
+  --t-accent2: #22C55E; --t-success: #34D399; --t-border-home: #4ADE80;
+  --t-border-old: #86EFAC; --t-border-daily: #22C55E;
+}
+body[data-theme="red"] {
+  --t-bg: #1A0505; --t-card: #2D1111; --t-accent: #F87171;
+  --t-accent2: #EF4444; --t-success: #FB923C; --t-border-home: #F87171;
+  --t-border-old: #FCA5A5; --t-border-daily: #EF4444;
+}
+
+/* Core Overrides (Higher specificity to beat existing !important) */
+body[data-theme] { background-color: var(--t-bg) !important; }
+body[data-theme] #math-solution-screen,
+body[data-theme] #grammar-note-screen { background: var(--t-bg) !important; }
+
+body[data-theme] .subject-card { background: var(--t-card) !important; }
+
+body[data-theme] #subject-list .subject-card { border: 2px solid var(--t-border-home) !important; }
+body[data-theme] #subject-list .subject-card span:last-child { color: var(--t-border-home) !important; }
+
+body[data-theme] #old-subject-list .subject-card { border: 2px solid var(--t-border-old) !important; }
+body[data-theme] #old-subject-list .subject-card span:last-child { color: var(--t-border-old) !important; }
+
+body[data-theme] #daily-screen .subject-card { border: 2px solid var(--t-border-daily) !important; }
+body[data-theme] #daily-screen .subject-card span:last-child { color: var(--t-border-daily) !important; }
+
+body[data-theme] .btn { background: var(--t-accent) !important; color: #000 !important; border: none !important; }
+body[data-theme] .back-btn { background: #1E293B !important; border: 1px solid #334155 !important; color: #fff !important; }
+body[data-theme] .next-btn-styled, body[data-theme] .next-btn { background: var(--t-success) !important; color: #fff !important; }
+body[data-theme] .option-btn { background: var(--t-card) !important; border: 1px solid #334155 !important; color: #fff !important; }
+body[data-theme] .correct-answer { background: #065F46 !important; border: 2px solid var(--t-success) !important; color: #fff !important; }
+body[data-theme] .wrong-answer { background: #991B1B !important; border: 2px solid #EF4444 !important; color: #fff !important; }
+
+body[data-theme] .flash-front { border: 2px solid var(--t-accent) !important; }
+body[data-theme] .flash-back { border: 2px solid #EF4444 !important; }
+
+body[data-theme] .profile-info-card { background: linear-gradient(145deg, var(--t-bg), var(--t-card)) !important; border: 1px solid var(--t-accent) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important; }
+body[data-theme] #exam-countdown { border-color: var(--t-accent2) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important; }
+body[data-theme] .countdown-value { color: var(--t-accent) !important; }
+
+body[data-theme] .bought-badge { color: var(--t-accent) !important; border-color: var(--t-accent) !important; }
+body[data-theme] .buy-btn { background: transparent !important; color: var(--t-success) !important; border: 1px solid var(--t-success) !important; }
+
+body[data-theme] .gender-container input:checked + .slider { background-color: var(--t-accent) !important; }
+body[data-theme] .quiz-input:focus { border-color: var(--t-accent) !important; }
+body[data-theme] .quiz-card { border-left: 4px solid var(--t-accent) !important; }
+body[data-theme] #grammar-note-content, body[data-theme] #math-solution-content { border: 1px solid var(--t-accent) !important; }
+
+body[data-theme] .mjx-container::-webkit-scrollbar-thumb,
+body[data-theme] .math-scroll-container::-webkit-scrollbar-thumb { background: var(--t-accent) !important; }
+
+body[data-theme] #checklist-container input[type="checkbox"] { accent-color: var(--t-accent) !important; }
+
+body[data-theme] .timer-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
+body[data-theme] .shuffle-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
+body[data-theme] .shuffle-active { background: var(--t-accent) !important; color: #000 !important; }
+
 </style>
 </head>
 <body>
@@ -592,6 +661,13 @@ mjx-mtr, mjx-mlabeledtr {
             </div> 
 			<div id="dynamic-content-area"></div>
         </div>
+		
+		<div id="theme-shop-screen" class="screen">
+    <h2 style="text-align: center; color: var(--accent);">🎨 Theme Shop</h2>
+    <p style="text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top:-10px; margin-bottom: 20px;">သင့်အကြိုက်ဆုံး အရောင်ကို ရွေးချယ်ပါ</p>
+    <div id="theme-list" style="padding: 0 10px;"></div>
+    <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
+</div>
 
         <div id="menu-screen" class="screen">
             <h2 id="menu-title" style="text-align: center; color: var(--accent);"></h2>
@@ -2159,10 +2235,13 @@ function renderProfileData() {
     // Dynamic Area ထဲကို UI တွေ ထည့်မယ်
     const dynamicArea = document.getElementById('dynamic-content-area');
     dynamicArea.innerHTML = `
-        <button onclick="contactDeveloper()" style="width: 100%; background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
-            🛠 အမှားများတိုင်ကြားရန်
-        </button>
-    `;
+    <button onclick="openThemeShop()" style="width: 100%; background: linear-gradient(135deg, #8B5CF6, #EC4899); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
+        🎨 Theme Shop
+    </button>
+    <button onclick="contactDeveloper()" style="width: 100%; background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 15px; border-radius: 14px; margin-top: 10px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
+        🛠 အမှားများတိုင်ကြားရန်
+    </button>
+`;
 }
 
         // --- Init ---
@@ -2293,8 +2372,11 @@ window.onload = () => {
     updateStreak();
     loadPaidUsers();
     
-    // Random Switch ကို Local Storage ထဲက data နဲ့ ပြန်ချိန်ပေးခြင်း
-    const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false'; // Default true
+    // Theme Init
+    const savedTheme = localStorage.getItem('activeTheme') || 'default';
+    document.body.setAttribute('data-theme', savedTheme);
+    
+    const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false';
     const randomSwitch = document.getElementById('random-switch');
     if (randomSwitch) {
         randomSwitch.checked = savedRandomSetting;
@@ -2589,6 +2671,64 @@ function resetTimer() {
     // 🎯 ရမှတ်ကို ၀ ပြန်ပြောင်းပြီး Screen ပေါ်မှာ ပြန်ပြင်ပေးရန်
     score = 0;
     document.getElementById('score-display').innerText = "ရမှတ်: 0";
+}
+// --- Theme Shop System ---
+const themes = [
+    { id: 'default', name: 'Ocean Dark', price: 0, color: '#00D5FF', preview: 'linear-gradient(135deg, #0B0F19, #162235)' },
+    { id: 'purple', name: 'Midnight Purple', price: 2000, color: '#C084FC', preview: 'linear-gradient(135deg, #0F0718, #1E1035)' },
+    { id: 'green', name: 'Forest Green', price: 2000, color: '#4ADE80', preview: 'linear-gradient(135deg, #05140A, #0F291E)' },
+    { id: 'red', name: 'Ember Red', price: 2000, color: '#F87171', preview: 'linear-gradient(135deg, #1A0505, #2D1111)' }
+];
+
+function checkThemeAccess(themeId) {
+    if (themeId === 'default') return true;
+    return checkAccess('theme_' + themeId);
+}
+
+function setTheme(themeId) {
+    document.body.setAttribute('data-theme', themeId);
+    localStorage.setItem('activeTheme', themeId);
+    tg.showAlert(themes.find(t => t.id === themeId).name + " theme သုံးပါပြီ ✅");
+}
+
+function openThemeShop() {
+    showScreen('theme-shop');
+    const list = document.getElementById('theme-list');
+    list.innerHTML = '';
+    
+    themes.forEach(t => {
+        const isOwned = checkThemeAccess(t.id);
+        const isActive = (document.body.getAttribute('data-theme') || 'default') === t.id;
+        
+        const div = document.createElement('div');
+        div.style.cssText = `background: #162235; border: 2px solid ${t.color}; border-radius: 16px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;`;
+        
+        let btnHtml = '';
+        if (isActive) {
+            btnHtml = `<span style="color: #10B981; font-weight: bold; font-size: 0.9rem;">✓ သုံးနေသည်</span>`;
+        } else if (isOwned) {
+            btnHtml = `<button class="btn" style="width: auto; padding: 8px 16px; margin: 0; background: ${t.color}; color: #000; border: none; border-radius: 10px; font-weight: bold;" onclick="setTheme('${t.id}')">သုံးမည်</button>`;
+        } else {
+            btnHtml = `<button class="btn" style="width: auto; padding: 8px 16px; margin: 0; background: transparent; border: 1px solid ${t.color}; color: ${t.color}; border-radius: 10px; font-weight: bold;" onclick="buyThemePrompt('${t.id}')">၂၀၀၀ ကျပ်</button>`;
+        }
+        
+        div.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 44px; height: 44px; border-radius: 12px; background: ${t.preview}; border: 2px solid ${t.color}; flex-shrink: 0;"></div>
+                <div>
+                    <div style="font-weight: bold; color: #fff; font-size: 1rem;">${t.name}</div>
+                    <div style="font-size: 0.8rem; color: #94A3B8; margin-top: 2px;">${t.price === 0 ? 'Free' : '၂၀၀၀ ကျပ် / လ'}</div>
+                </div>
+            </div>
+            <div style="flex-shrink: 0; margin-left: 8px;">${btnHtml}</div>
+        `;
+        list.appendChild(div);
+    });
+}
+
+function buyThemePrompt(themeId) {
+    const t = themes.find(x => x.id === themeId);
+    tg.showAlert("🎨 " + t.name + " ဝယ်ယူရန် @minaphayarkot ကို ဆက်သွယ်ပါ။\n\nသင့် ID: " + userId + "\n(Theme: " + themeId + ")");
 }
     </script>
 </body>
