@@ -1,0 +1,46 @@
+/* theme-purple.css - Midnight Purple */
+body[data-theme="purple"] {
+  --t-bg: #0F0718;
+  --t-card: #1E1035;
+  --t-accent: #C084FC;
+  --t-accent2: #8B5CF6;
+  --t-success: #34D399;
+  --t-border-home: #C084FC;
+  --t-border-old: #F472B6;
+  --t-border-daily: #A78BFA;
+}
+
+body[data-theme="purple"] { background-color: var(--t-bg) !important; }
+body[data-theme="purple"] #math-solution-screen, body[data-theme="purple"] #grammar-note-screen { background: var(--t-bg) !important; }
+body[data-theme="purple"] .subject-card { background: var(--t-card) !important; }
+body[data-theme="purple"] #subject-list .subject-card { border: 2px solid var(--t-border-home) !important; }
+body[data-theme="purple"] #subject-list .subject-card span:last-child { color: var(--t-border-home) !important; }
+body[data-theme="purple"] #old-subject-list .subject-card { border: 2px solid var(--t-border-old) !important; }
+body[data-theme="purple"] #old-subject-list .subject-card span:last-child { color: var(--t-border-old) !important; }
+body[data-theme="purple"] #daily-screen .subject-card { border: 2px solid var(--t-border-daily) !important; }
+body[data-theme="purple"] #daily-screen .subject-card span:last-child { color: var(--t-border-daily) !important; }
+body[data-theme="purple"] .btn { background: var(--t-accent) !important; color: #000 !important; border: none !important; }
+body[data-theme="purple"] .back-btn { background: #1E293B !important; border: 1px solid #334155 !important; color: #fff !important; }
+body[data-theme="purple"] .next-btn-styled, body[data-theme="purple"] .next-btn { background: var(--t-success) !important; color: #fff !important; }
+body[data-theme="purple"] .option-btn { background: var(--t-card) !important; border: 1px solid #334155 !important; color: #fff !important; }
+body[data-theme="purple"] .correct-answer { background: #065F46 !important; border: 2px solid var(--t-success) !important; color: #fff !important; }
+body[data-theme="purple"] .wrong-answer { background: #991B1B !important; border: 2px solid #EF4444 !important; color: #fff !important; }
+body[data-theme="purple"] .flash-front { border: 2px solid var(--t-accent) !important; }
+body[data-theme="purple"] .flash-back { border: 2px solid #EF4444 !important; }
+body[data-theme="purple"] .profile-info-card { background: linear-gradient(145deg, var(--t-bg), var(--t-card)) !important; border: 1px solid var(--t-accent) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important; }
+body[data-theme="purple"] #exam-countdown { border-color: var(--t-accent2) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important; }
+body[data-theme="purple"] .countdown-value { color: var(--t-accent) !important; }
+body[data-theme="purple"] .bought-badge { color: var(--t-accent) !important; border-color: var(--t-accent) !important; }
+body[data-theme="purple"] .buy-btn { background: transparent !important; color: var(--t-success) !important; border: 1px solid var(--t-success) !important; }
+body[data-theme="purple"] .gender-container input:checked + .slider { background-color: var(--t-accent) !important; }
+body[data-theme="purple"] .quiz-input:focus { border-color: var(--t-accent) !important; }
+body[data-theme="purple"] .quiz-card { border-left: 4px solid var(--t-accent) !important; }
+body[data-theme="purple"] #grammar-note-content, body[data-theme="purple"] #math-solution-content { border: 1px solid var(--t-accent) !important; }
+body[data-theme="purple"] .mjx-container::-webkit-scrollbar-thumb, body[data-theme="purple"] .math-scroll-container::-webkit-scrollbar-thumb { background: var(--t-accent) !important; }
+body[data-theme="purple"] #checklist-container input[type="checkbox"] { accent-color: var(--t-accent) !important; }
+body[data-theme="purple"] .timer-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
+body[data-theme="purple"] .shuffle-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
+body[data-theme="purple"] .shuffle-active { background: var(--t-accent) !important; color: #000 !important; }
+body[data-theme="purple"] #middle-screen > div > div:first-child, body[data-theme="purple"] #motivation-box { background: rgba(0,0,0,0.15) !important; border: 1px solid var(--t-accent) !important; box-shadow: none !important; }
+body[data-theme="purple"] .contact-btn { color: var(--t-accent) !important; border-color: var(--t-accent) !important; box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important; }
+body[data-theme="purple"] #quiz-mode-box { border-color: var(--t-accent) !important; box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important; }
