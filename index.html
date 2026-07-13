@@ -491,14 +491,12 @@ body[data-theme] .timer-btn { background: #1E293B !important; color: var(--t-acc
 body[data-theme] .shuffle-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
 body[data-theme] .shuffle-active { background: var(--t-accent) !important; color: #000 !important; }
 
-/* ===== THEME FIXES FOR MOTIVATION & CONTACT BUTTON ===== */
-
-/* ===== THEME FIXES (MOTIVATION BOX & CONTACT BUTTON) ===== */
-
-/* ၁။ Daily Motivation Box — ဘောင်နဲ့ Background ပြောင်း၊ စာသားမပြောင်း */
-body[data-theme] #motivation-box { 
-    background: rgba(0,0,0,0.15) !important; 
-    border-color: var(--t-accent) !important; 
+/* ===== DAILY MOTIVATION THEME FIX ===== */
+body[data-theme] #middle-screen > div > div:first-child,
+body[data-theme] #motivation-box {
+    background: rgba(0,0,0,0.15) !important;
+    border: 1px solid var(--t-accent) !important;
+    box-shadow: none !important;
 }
 
 /* ၂။ Contact Button — အရောင်လိုက်ပြောင်း */
@@ -514,10 +512,6 @@ body[data-theme] #quiz-mode-box { border-color: var(--t-accent) !important; box-
 /* Default (Ocean Dark) မှာ Exam Countdown ဘောင် — အပြာရောင် အတည်ထား */
 body[data-theme="default"] #exam-countdown { border-color: #00D5FF !important; box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important; }
 
-/* ===== DAILY MOTIVATION BORDER FIX ===== */
-body[data-theme] #motivation-box {
-    border-color: var(--t-accent) !important;
-}
 
 /* ===== SMOOTH THEME TRANSITION ===== */
 body {
@@ -1149,10 +1143,7 @@ function backToOldSubjects() {
     document.getElementById('old-subjects-screen').style.display = 'block';
 }
 
-// App စတက်တာနဲ့ Old Subjects တွေကို အဆင်သင့်လုပ်ထားရန် ခေါ်ပေးခြင်း
-setTimeout(() => {
-    initOldSubjects();
-}, 500);
+initOldSubjects();
 
 function checkAccess(subId) {
     // ၁။ ဒီနေ့ ရက်စွဲကို အချိန် (Time) မပါဘဲ ယူမည်
@@ -2330,12 +2321,13 @@ function loadGoals() {
     }
 
     // ၂။ Checkbox အခြေအနေများကို UI တွင် ပြန်လည်ပြသခြင်း
-    for (let i = 1; i <= 9; i++) {
-        const checkbox = document.getElementById(`goal${i}`);
-        if (checkbox) {
-            checkbox.checked = savedData.values[`goal${i}`] || false;
-        }
+   for (let i = 1; i <= 9; i++) {
+    const checkbox = document.getElementById(`goal${i}`);
+    // values ရှိမရှိ စစ်ပြီးမှ သုံးပါ
+    if (checkbox && savedData && savedData.values) {
+        checkbox.checked = savedData.values[`goal${i}`] || false;
     }
+}
 
     // ၃။ Motivation Quote ပြောင်းလဲခြင်း (၁၅ ခုအနက်မှ တစ်ရက်တစ်ခု)
     const quotes = [
