@@ -876,34 +876,34 @@ const subChapterConfig = {
         const userId = tg.initDataUnsafe?.user?.id?.toString() || "Guest";
 
         async function loadPaidUsers() {
-            const sheetURL = "https://script.google.com/macros/s/AKfycbx3-A1khjc924DyrdmTjKHdxbo9h7fEDhbSVtURyUa9y3oGoTzMFGjc3X1rKUDU7x41/exec";
-            
-            // ၁။ ဖုန်းထဲမှာ အရင်က သိမ်းထားဖူးတဲ့ စာရင်းရှိလား အရင်စစ်မယ်
-            const cachedData = localStorage.getItem('cached_paid_users');
-            if (cachedData) {
-                paidUsers = JSON.parse(cachedData);
-                userBought = paidUsers[userId] || [];
-                renderSubjects(); // သိမ်းထားတာ ရှိရင် ချက်ချင်း လော့ဖွင့်ပေးလိုက်မယ်
-            }
+    const sheetURL = "https://script.google.com/macros/s/AKfycbx3-A1khjc924DyrdmTjKHdxbo9h7fEDhbSVtURyUa9y3oGoTzMFGjc3X1rKUDU7x41/exec";
+    
+    const cachedData = localStorage.getItem('cached_paid_users');
+    if (cachedData) {
+        paidUsers = JSON.parse(cachedData);
+        userBought = paidUsers[userId] || [];
+        renderSubjects();
+    }
 
-            try {
-                // ၂။ Background မှာ Google Sheet ဆီကနေ နောက်ဆုံးရ ဒေတာကို လှမ်းယူမယ်
-                const response = await fetch(sheetURL);
-                const newData = await response.json();
-                
-                // ၃။ ဒေတာအသစ်ကို ဖုန်းထဲမှာ ပြန်သိမ်းမယ်
-                localStorage.setItem('cached_paid_users', JSON.stringify(newData));
-                
-                // ၄။ အကယ်၍ ဒေတာအသစ်က အရင်ဟာနဲ့ မတူရင် (ဥပမာ- အခုမှ ဝယ်ထားတာဆိုရင်) UI ကို Update လုပ်မယ်
-                paidUsers = newData;
-                userBought = paidUsers[userId] || [];
-                renderSubjects();
-                
-                console.log("Database updated in background");
-            } catch (e) {
-                console.error("Database error:", e);
-            }
-        }
+    try {
+        const response = await fetch(sheetURL);
+        const newData = await response.json();
+        
+        localStorage.setItem('cached_paid_users', JSON.stringify(newData));
+        
+        paidUsers = newData;
+        userBought = paidUsers[userId] || [];
+        renderSubjects();
+        
+        // Theme re-apply after data loads
+        const savedTheme = localStorage.getItem('activeTheme') || 'default';
+        document.body.setAttribute('data-theme', savedTheme);
+        
+        console.log("Database updated in background");
+    } catch (e) {
+        console.error("Database error:", e);
+    }
+}
 
         const subjects = [
     { id: 'mm', name: 'မြန်မာစာ' },
