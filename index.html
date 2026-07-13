@@ -851,24 +851,29 @@ const subChapterConfig = {
                 stats.monthly[month].attempted++; if (isCorrect) stats.monthly[month].correct++;
                 saveStats(stats);
             }
-            function shouldTrackQuiz(fileName) {
+                        function shouldTrackQuiz(fileName) {
                 if (!fileName) return false;
+                // Math 2/3 Marks - အမြဲ track
                 if (fileName.includes('_2_Marks') || fileName.includes('_3_Marks')) return true;
+                // Daily Quiz - အမြဲ track
                 if (fileName.startsWith('daily_') || window.isDailyQuiz) return true;
+                // Free Trial - အမြဲ track
+                if (fileName.startsWith('trial_') || window.isTrialQuiz) return true;
+                // ကျပန်း Mode (Random) ဖြစ်ရင် ပုံမှန်ဘာသာရပ်နဲ့ မေးခွန်းဟောင်းအားလုံး track
                 return localStorage.getItem('randomQuizSetting') !== 'false';
             }
             function updateXPUI() {
                 const el = document.getElementById('profile-xp-display');
                 if (el) el.innerText = `⭐ ${getStats().xp.toLocaleString()} XP`;
             }
-            function applyEquippedItems() {
+                        function applyEquippedItems() {
                 const inv = getInventory();
                 const avatar = document.getElementById('profile-avatar');
                 if (avatar) {
-                    const wrapper = avatar.parentElement;
-                    wrapper.style.display = 'inline-block'; wrapper.style.borderRadius = '50%'; wrapper.style.overflow = 'hidden';
-                    wrapper.style.border = inv.equipped.border === 'border_gold' ? '3px solid #F59E0B' : 'none';
-                    wrapper.style.padding = inv.equipped.border === 'border_gold' ? '2px' : '0';
+                    // အဝိုင်းကြီးမဖြစ်အောင် - wrapper မဟုတ်ဘဲ avatar ကိုပဲ border ထည့်
+                    avatar.style.border = inv.equipped.border === 'border_gold' ? '3px solid #F59E0B' : 'none';
+                    avatar.style.borderRadius = '50%';
+                    avatar.style.padding = inv.equipped.border === 'border_gold' ? '2px' : '0';
                 }
                 if (inv.equipped.theme === 'theme_ocean') document.documentElement.style.setProperty('--accent', '#00D5FF');
                 else if (inv.equipped.theme === 'theme_sunset') document.documentElement.style.setProperty('--accent', '#F97316');
@@ -1968,7 +1973,8 @@ function updateFlashUI() {
         
         currentIdx = 0; 
 		                // ===== TRACKING SETUP =====
-                window.isDailyQuiz = false;
+                                window.isDailyQuiz = false;
+                window.isTrialQuiz = false;  // ဒါထပ်ထည့်
                 window.currentQuizMeta = {
                     track: shouldTrackQuiz(fileName),
                     subject: currentSubject ? currentSubject.id : 'general',
