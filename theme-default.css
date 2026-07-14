@@ -1,51 +1,64 @@
 /* theme-default.css - Ocean Dark (Free Default) */
 body[data-theme="default"] {
-  /* Main Colors */
-  --t-bg: #0B0F19;
-  --t-card: #162235;
+  --t-bg: #050608;          /* Almost Black */
+  --t-card: #111418;        /* Dark Graphite */
   --t-accent: #00D5FF;
   --t-accent2: #A855F7;
   --t-success: #22C55E;
-  
-  /* Borders */
+
   --t-border-home: #00D5FF;
   --t-border-old: #A855F7;
   --t-border-daily: #22C55E;
-
-  /* Added Sub-Variables */
-  --t-text-light: #fff;
-  --t-text-dark: #000;
-  --t-btn-dark-bg: #1E293B;
-  --t-btn-dark-border: #334155;
-  --t-correct-bg: #065F46;
-  --t-wrong-bg: #991B1B;
-  --t-wrong-border: #EF4444;
-  --t-overlay: rgba(0,0,0,0.15);
 }
 
-/* Backgrounds & Cards */
-body[data-theme="default"] { background-color: var(--t-bg); }
+body[data-theme="default"]{
+    background:
+        radial-gradient(circle at top,
+            rgba(0,213,255,.04),
+            transparent 40%),
+        linear-gradient(
+            180deg,
+            #050608 0%,
+            #090B0F 100%);
+}
+
+
+body[data-theme="default"] .subject-card{
+    background:#111418 !important;
+    border-radius:16px;
+    box-shadow:0 8px 24px rgba(0,0,0,.28);
+}
+
 body[data-theme="default"] #math-solution-screen,
-body[data-theme="default"] #grammar-note-screen { background: var(--t-bg); }
-body[data-theme="default"] .subject-card { background: var(--t-card); }
-
-/* Subject List Borders & Colors */
-body[data-theme="default"] #subject-list .subject-card { border: 2px solid var(--t-border-home); }
-body[data-theme="default"] #subject-list .subject-card span:last-child { color: var(--t-border-home); }
-body[data-theme="default"] #old-subject-list .subject-card { border: 2px solid var(--t-border-old); }
-body[data-theme="default"] #old-subject-list .subject-card span:last-child { color: var(--t-border-old); }
-body[data-theme="default"] #daily-screen .subject-card { border: 2px solid var(--t-border-daily); }
-body[data-theme="default"] #daily-screen .subject-card span:last-child { color: var(--t-border-daily); }
-
-/* Buttons */
-body[data-theme="default"] .btn { background: var(--t-accent); color: var(--t-text-dark); border: none; }
-body[data-theme="default"] .back-btn { background: var(--t-btn-dark-bg); border: 1px solid var(--t-btn-dark-border); color: var(--t-text-light); }
-body[data-theme="default"] .next-btn-styled, 
-body[data-theme="default"] .next-btn { background: var(--t-success); color: var(--t-text-light); }
-body[data-theme="default"] .option-btn { background: var(--t-card); border: 1px solid var(--t-btn-dark-border); color: var(--t-text-light); }
-
-/* Quiz & Flashcards */
-body[data-theme="default"] .correct-answer { background: var(--t-correct-bg); border: 2px solid var(--t-success); color: var(--t-text-light); }
-body[data-theme="default"] .wrong-answer { background: var(--t-wrong-bg); border: 2px solid var(--t-wrong-border); color: var(--t-text-light); }
-body[data-theme="default"] .flash-front { border: 2px solid var(--t-accent); }
-body[data-theme="default"] .flash-back { border: 2px solid var(--t-wrong-border); }
+body[data-theme="default"] #grammar-note-screen { background: var(--t-bg) !important; }
+body[data-theme="default"] #subject-list .subject-card { border: 2px solid var(--t-border-home) !important; }
+body[data-theme="default"] #subject-list .subject-card span:last-child { color: var(--t-border-home) !important; }
+body[data-theme="default"] #old-subject-list .subject-card { border: 2px solid var(--t-border-old) !important; }
+body[data-theme="default"] #old-subject-list .subject-card span:last-child { color: var(--t-border-old) !important; }
+body[data-theme="default"] #daily-screen .subject-card { border: 2px solid var(--t-border-daily) !important; }
+body[data-theme="default"] #daily-screen .subject-card span:last-child { color: var(--t-border-daily) !important; }
+body[data-theme="default"] .btn { background: var(--t-accent) !important; color: #000 !important; border: none !important; }
+body[data-theme="default"] .back-btn { background: #1E293B !important; border: 1px solid #334155 !important; color: #fff !important; }
+body[data-theme="default"] .next-btn-styled, body[data-theme="default"] .next-btn { background: var(--t-success) !important; color: #fff !important; }
+body[data-theme="default"] .option-btn { background: var(--t-card) !important; border: 1px solid #334155 !important; color: #fff !important; }
+body[data-theme="default"] .profile-info-card { background:linear-gradient(180deg,#14181d,#0d1014) !important;box-shadow:0 10px 30px rgba(0,0,0,.35) !important; border: 1px solid var(--t-accent) !important;}
+body[data-theme="default"] .correct-answer { background: #065F46 !important; border: 2px solid var(--t-success) !important; color: #fff !important; }
+body[data-theme="default"] .wrong-answer { background: #991B1B !important; border: 2px solid #EF4444 !important; color: #fff !important; }
+body[data-theme="default"] .flash-front { border: 2px solid var(--t-accent) !important; }
+body[data-theme="default"] .flash-back { border: 2px solid #EF4444 !important; }
+body[data-theme="default"] #exam-countdown { border-color: #00D5FF !important; box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important; }
+body[data-theme="default"] .countdown-value { color: var(--t-accent) !important; }
+body[data-theme="default"] .bought-badge { color: var(--t-accent) !important; border-color: var(--t-accent) !important; }
+body[data-theme="default"] .buy-btn { background: transparent !important; color: var(--t-success) !important; border: 1px solid var(--t-success) !important; }
+body[data-theme="default"] .gender-container input:checked + .slider { background-color: var(--t-accent) !important; }
+body[data-theme="default"] .quiz-input:focus { border-color: var(--t-accent) !important; }
+body[data-theme="default"] .quiz-card { border-left: 4px solid var(--t-accent) !important; }
+body[data-theme="default"] #grammar-note-content, body[data-theme="default"] #math-solution-content { border: 1px solid var(--t-accent) !important; }
+body[data-theme="default"] .mjx-container::-webkit-scrollbar-thumb, body[data-theme="default"] .math-scroll-container::-webkit-scrollbar-thumb { background: var(--t-accent) !important; }
+body[data-theme="default"] #checklist-container input[type="checkbox"] { accent-color: var(--t-accent) !important; }
+body[data-theme="default"] .timer-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
+body[data-theme="default"] .shuffle-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
+body[data-theme="default"] .shuffle-active { background: var(--t-accent) !important; color: #000 !important; }
+body[data-theme="default"] #middle-screen > div > div:first-child, body[data-theme="default"] #motivation-box { background: rgba(0,0,0,0.15) !important; border: 1px solid var(--t-accent) !important; box-shadow: none !important; }
+body[data-theme="default"] .contact-btn { color: var(--t-accent) !important; border-color: var(--t-accent) !important; box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important; }
+body[data-theme="default"] #quiz-mode-box { border-color: var(--t-accent) !important; box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important; }
