@@ -1,32 +1,32 @@
-/* theme-default.css - Deep Navy (Performance & Eye-friendly) */
+/* theme-default.css - Pure Black OLED (Performance & Eye-friendly) */
 body[data-theme="default"] {
-  /* Base Colors - Deep Blue/Navy tones */
-  --t-bg: #0B1120;          /* Deep Navy Background */
-  --t-card: #151F32;        /* Dark Blue-Gray Card */
-  
+  /* Base Colors - Pure Black / OLED Dark tones */
+  --t-bg: #000000;          /* Pure Black Background */
+  --t-card: #0A0A0F;        /* Near-Black Card with subtle blue tint */
+
   /* Muted Accents - No Neon */
   --t-accent: #3B82F6;      /* Soft Ocean Blue */
   --t-accent2: #6366F1;     /* Calm Indigo */
   --t-success: #10B981;     /* Emerald Green */
   --t-danger:  #E11D48;     /* Soft Rose/Red */
-  
+
   --t-border-home: #3B82F6;
   --t-border-old: #6366F1;
   --t-border-daily: #10B981;
-  
-  --t-border-subtle: #1E293B; /* Subtle border for clean UI */
+
+  --t-border-subtle: #1A1A2E; /* Subtle border for clean UI - adjusted for black bg */
 }
 
 body[data-theme="default"] {
-    /* Performance-friendly soft dark blue gradient */
-    background: linear-gradient(180deg, #0B1120 0%, #060A13 100%);
+    /* OLED-friendly pure black gradient */
+    background: linear-gradient(180deg, #000000 0%, #0A0A0F 100%);
     background-attachment: fixed;
 }
 
 body[data-theme="default"] .subject-card {
     background: var(--t-card) !important;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Slightly deeper shadow for contrast */
 }
 
 body[data-theme="default"] #math-solution-screen,
@@ -48,8 +48,8 @@ body[data-theme="default"] .next-btn { background: var(--t-success) !important; 
 body[data-theme="default"] .option-btn { background: var(--t-card) !important; border: 1px solid var(--t-border-subtle) !important; color: #F8FAFC !important; }
 
 body[data-theme="default"] .profile-info-card { 
-    background: linear-gradient(180deg, #1E293B, #0F172A) !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important; 
+    background: linear-gradient(180deg, #111118, #0A0A0F) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important; 
     border: 1px solid var(--t-border-subtle) !important;
 }
 
@@ -82,7 +82,55 @@ body[data-theme="default"] .shuffle-btn { background: var(--t-card) !important; 
 body[data-theme="default"] .shuffle-active { background: var(--t-accent) !important; color: #FFFFFF !important; }
 
 body[data-theme="default"] #middle-screen > div > div:first-child, 
-body[data-theme="default"] #motivation-box { background: rgba(15, 23, 42, 0.5) !important; border: 1px solid var(--t-border-subtle) !important; box-shadow: none !important; }
+body[data-theme="default"] #motivation-box { background: rgba(10, 10, 15, 0.6) !important; border: 1px solid var(--t-border-subtle) !important; box-shadow: none !important; }
 
-body[data-theme="default"] .contact-btn { color: var(--t-accent) !important; border-color: var(--t-accent) !important; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important; }
-body[data-theme="default"] #quiz-mode-box { border-color: var(--t-border-subtle) !important; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important; }
+body[data-theme="default"] .contact-btn { color: var(--t-accent) !important; border-color: var(--t-accent) !important; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important; }
+body[data-theme="default"] #quiz-mode-box { border-color: var(--t-border-subtle) !important; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important; }
+
+/* === ADDITIONAL ENHANCEMENTS FOR PURE BLACK THEME === */
+
+/* Scrollbar styling for dark theme consistency */
+body[data-theme="default"] ::-webkit-scrollbar { width: 8px; }
+body[data-theme="default"] ::-webkit-scrollbar-track { background: #000000; }
+body[data-theme="default"] ::-webkit-scrollbar-thumb { background: #1A1A2E; border-radius: 4px; }
+body[data-theme="default"] ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
+
+/* Input fields on pure black background */
+body[data-theme="default"] input,
+body[data-theme="default"] textarea,
+body[data-theme="default"] select {
+    background: #0A0A0F !important;
+    border: 1px solid #1A1A2E !important;
+    color: #F8FAFC !important;
+}
+
+body[data-theme="default"] input:focus,
+body[data-theme="default"] textarea:focus,
+body[data-theme="default"] select:focus {
+    border-color: var(--t-accent) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15) !important;
+}
+
+/* Modal / overlay backgrounds */
+body[data-theme="default"] .modal-overlay,
+body[data-theme="default"] .overlay {
+    background: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(4px);
+}
+
+/* Divider lines */
+body[data-theme="default"] hr,
+body[data-theme="default"] .divider {
+    border-color: #1A1A2E !important;
+}
+
+/* Text colors for hierarchy on pure black */
+body[data-theme="default"] .text-muted,
+body[data-theme="default"] .text-secondary {
+    color: #94A3B8 !important;
+}
+
+body[data-theme="default"] .text-primary {
+    color: #F8FAFC !important;
+}
