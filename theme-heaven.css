@@ -1,0 +1,340 @@
+/* theme-heaven.css - Heaven (Light, Clean, Gender-Neutral, Battery-Friendly) */
+body[data-theme="heaven"] {
+  /* === BASE COLORS - Soft Cloud White === */
+  --t-bg: #F8FAFC;           /* Soft cloud white - easy on eyes */
+  --t-card: #FFFFFF;         /* Pure white cards */
+
+  /* === ACCENTS - Sky Blue + Soft Coral + Mint === */
+  --t-accent: #0EA5E9;       /* Sky Blue - calm, universal */
+  --t-accent2: #64748B;      /* Slate Gray - secondary, neutral */
+  --t-success: #10B981;      /* Mint Green - correct answers */
+  --t-danger: #EF4444;       /* Soft Red - wrong answers */
+
+  /* === BORDERS - Soft & Subtle === */
+  --t-border-home: #0EA5E9;   /* Sky Blue */
+  --t-border-old: #F97316;    /* Warm Orange - friendly contrast */
+  --t-border-daily: #8B5CF6;  /* Soft Violet - daily special */
+
+  --t-border-subtle: #E2E8F0; /* Light gray border */
+}
+
+/* === BACKGROUND - Soft Cloud Gradient === */
+body[data-theme="heaven"] {
+    background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);
+    background-attachment: fixed;
+}
+
+/* === SCREENS === */
+body[data-theme="heaven"] #math-solution-screen,
+body[data-theme="heaven"] #grammar-note-screen { 
+    background: var(--t-bg) !important; 
+}
+
+/* === CARDS - Clean White with Soft Shadow === */
+body[data-theme="heaven"] .subject-card { 
+    background: #FFFFFF !important;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(148, 163, 184, 0.12), 0 1px 3px rgba(148, 163, 184, 0.08);
+    transition: all 0.25s ease;
+    border: 1px solid #E2E8F0 !important;
+}
+
+body[data-theme="heaven"] .subject-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(148, 163, 184, 0.15), 0 2px 6px rgba(148, 163, 184, 0.1);
+    border-color: #CBD5E1 !important;
+}
+
+/* === SUBJECT LIST BORDERS - Soft Color Accents === */
+body[data-theme="heaven"] #subject-list .subject-card { 
+    border: 2px solid var(--t-border-home) !important; 
+    box-shadow: 0 2px 12px rgba(14, 165, 233, 0.08), 0 1px 3px rgba(148, 163, 184, 0.08);
+}
+body[data-theme="heaven"] #subject-list .subject-card span:last-child { 
+    color: var(--t-border-home) !important; 
+    font-weight: 700;
+}
+
+body[data-theme="heaven"] #old-subject-list .subject-card { 
+    border: 2px solid var(--t-border-old) !important; 
+    box-shadow: 0 2px 12px rgba(249, 115, 22, 0.08), 0 1px 3px rgba(148, 163, 184, 0.08);
+}
+body[data-theme="heaven"] #old-subject-list .subject-card span:last-child { 
+    color: var(--t-border-old) !important; 
+    font-weight: 700;
+}
+
+body[data-theme="heaven"] #daily-screen .subject-card { 
+    border: 2px solid var(--t-border-daily) !important; 
+    box-shadow: 0 2px 12px rgba(139, 92, 246, 0.08), 0 1px 3px rgba(148, 163, 184, 0.08);
+}
+body[data-theme="heaven"] #daily-screen .subject-card span:last-child { 
+    color: var(--t-border-daily) !important; 
+    font-weight: 700;
+}
+
+/* === BUTTONS - Soft Rounded, Clean === */
+
+/* Primary: Sky Blue */
+body[data-theme="heaven"] .btn { 
+    background: linear-gradient(135deg, #0284C7, #0EA5E9) !important; 
+    color: #FFFFFF !important; 
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.25), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    border-radius: 12px;
+}
+
+/* Back Button: Soft Gray */
+body[data-theme="heaven"] .back-btn { 
+    background: #F1F5F9 !important; 
+    border: 1px solid #E2E8F0 !important; 
+    color: #475569 !important; 
+    box-shadow: 0 2px 8px rgba(148, 163, 184, 0.1);
+    border-radius: 12px;
+}
+
+/* Next: Mint Green */
+body[data-theme="heaven"] .next-btn-styled, 
+body[data-theme="heaven"] .next-btn { 
+    background: linear-gradient(135deg, #059669, #10B981) !important; 
+    color: #FFFFFF !important; 
+    font-weight: 600;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px;
+}
+
+/* Option Buttons: White with soft border */
+body[data-theme="heaven"] .option-btn { 
+    background: #FFFFFF !important; 
+    border: 1px solid #E2E8F0 !important; 
+    color: #334155 !important;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 4px rgba(148, 163, 184, 0.08);
+    border-radius: 12px;
+}
+
+body[data-theme="heaven"] .option-btn:hover {
+    border-color: #0EA5E9 !important;
+    background: #F0F9FF !important;
+    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.1);
+}
+
+/* === ANSWER STATES - Soft & Clear === */
+body[data-theme="heaven"] .correct-answer { 
+    background: #ECFDF5 !important; 
+    border: 2px solid var(--t-success) !important; 
+    color: #065F46 !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+}
+
+body[data-theme="heaven"] .wrong-answer { 
+    background: #FEF2F2 !important; 
+    border: 2px solid var(--t-danger) !important; 
+    color: #991B1B !important;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);
+}
+
+/* === FLASHCARDS - Soft & Clean === */
+body[data-theme="heaven"] .flash-front { 
+    border: 2px solid var(--t-accent) !important; 
+    box-shadow: 0 2px 12px rgba(14, 165, 233, 0.08);
+    background: #FFFFFF !important;
+}
+
+body[data-theme="heaven"] .flash-back { 
+    border: 2px solid var(--t-danger) !important; 
+    box-shadow: 0 2px 12px rgba(239, 68, 68, 0.08);
+    background: #FFFFFF !important;
+}
+
+/* === PROFILE CARD - Clean Card === */
+body[data-theme="heaven"] .profile-info-card { 
+    background: #FFFFFF !important; 
+    border: 1px solid #E2E8F0 !important; 
+    box-shadow: 0 4px 20px rgba(148, 163, 184, 0.12), 0 1px 4px rgba(148, 163, 184, 0.08) !important; 
+    border-radius: 16px;
+}
+
+/* === EXAM COUNTDOWN - Clean Timer === */
+body[data-theme="heaven"] #exam-countdown { 
+    border: 2px solid var(--t-accent) !important; 
+    box-shadow: 0 4px 16px rgba(14, 165, 233, 0.1), 0 1px 4px rgba(148, 163, 184, 0.08) !important; 
+    background: #FFFFFF !important;
+    border-radius: 16px;
+}
+
+body[data-theme="heaven"] .countdown-value { 
+    color: var(--t-accent) !important;
+    font-weight: 800;
+    font-size: 1.1em;
+}
+
+/* === BADGES & BUY === */
+body[data-theme="heaven"] .bought-badge { 
+    color: var(--t-accent) !important; 
+    border: 1px solid var(--t-accent) !important; 
+    background: #F0F9FF !important;
+    border-radius: 8px;
+    padding: 2px 8px;
+}
+
+body[data-theme="heaven"] .buy-btn { 
+    background: transparent !important; 
+    color: var(--t-success) !important; 
+    border: 1px solid var(--t-success) !important; 
+    border-radius: 12px;
+}
+
+/* === FORM ELEMENTS - Clean Focus === */
+body[data-theme="heaven"] .gender-container input:checked + .slider { 
+    background-color: var(--t-accent) !important; 
+}
+
+body[data-theme="heaven"] .quiz-input:focus { 
+    border-color: var(--t-accent) !important; 
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1) !important;
+    outline: none;
+}
+
+body[data-theme="heaven"] .quiz-card { 
+    border-left: 4px solid var(--t-accent) !important; 
+    background: #FFFFFF !important;
+    box-shadow: 0 2px 8px rgba(148, 163, 184, 0.1);
+}
+
+/* === CONTENT BOXES === */
+body[data-theme="heaven"] #grammar-note-content, 
+body[data-theme="heaven"] #math-solution-content { 
+    border: 1px solid #E2E8F0 !important; 
+    background: #FFFFFF !important;
+    box-shadow: 0 2px 8px rgba(148, 163, 184, 0.08);
+    border-radius: 12px;
+}
+
+/* === SCROLLBAR - Clean Light === */
+body[data-theme="heaven"] .mjx-container::-webkit-scrollbar-thumb, 
+body[data-theme="heaven"] .math-scroll-container::-webkit-scrollbar-thumb { 
+    background: #CBD5E1 !important; 
+    border-radius: 4px;
+}
+
+body[data-theme="heaven"] ::-webkit-scrollbar { width: 8px; }
+body[data-theme="heaven"] ::-webkit-scrollbar-track { background: #F1F5F9; border-radius: 4px; }
+body[data-theme="heaven"] ::-webkit-scrollbar-thumb { 
+    background: #CBD5E1; 
+    border-radius: 4px; 
+}
+body[data-theme="heaven"] ::-webkit-scrollbar-thumb:hover { 
+    background: #94A3B8; 
+}
+
+/* === CHECKLIST === */
+body[data-theme="heaven"] #checklist-container input[type="checkbox"] { 
+    accent-color: var(--t-accent) !important; 
+}
+
+/* === TIMER & SHUFFLE - Clean Light === */
+body[data-theme="heaven"] .timer-btn { 
+    background: #FFFFFF !important; 
+    color: var(--t-accent) !important; 
+    border: 1px solid #E2E8F0 !important; 
+    box-shadow: 0 1px 4px rgba(148, 163, 184, 0.08);
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+body[data-theme="heaven"] .shuffle-btn { 
+    background: #FFFFFF !important; 
+    color: var(--t-accent) !important; 
+    border: 1px solid #E2E8F0 !important; 
+    box-shadow: 0 1px 4px rgba(148, 163, 184, 0.08);
+    border-radius: 12px;
+}
+
+body[data-theme="heaven"] .shuffle-active { 
+    background: linear-gradient(135deg, #0284C7, #0EA5E9) !important; 
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.25);
+    border: none !important;
+}
+
+/* === MIDDLE SCREEN & MOTIVATION - Soft Glass === */
+body[data-theme="heaven"] #middle-screen > div > div:first-child, 
+body[data-theme="heaven"] #motivation-box { 
+    background: rgba(255, 255, 255, 0.85) !important; 
+    border: 1px solid #E2E8F0 !important; 
+    box-shadow: 0 4px 20px rgba(148, 163, 184, 0.1) !important; 
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+}
+
+/* === CONTACT & QUIZ MODE === */
+body[data-theme="heaven"] .contact-btn { 
+    color: var(--t-accent) !important; 
+    border: 1px solid #E2E8F0 !important; 
+    box-shadow: 0 1px 4px rgba(148, 163, 184, 0.08) !important; 
+    transition: all 0.2s ease;
+    background: #FFFFFF !important;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+body[data-theme="heaven"] .contact-btn:hover {
+    border-color: var(--t-accent) !important;
+    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.1) !important;
+    background: #F0F9FF !important;
+}
+
+body[data-theme="heaven"] #quiz-mode-box { 
+    border: 1px solid #E2E8F0 !important; 
+    box-shadow: 0 2px 8px rgba(148, 163, 184, 0.08) !important; 
+    background: #FFFFFF !important;
+    border-radius: 16px;
+}
+
+/* === INPUTS & TEXTAREAS - Clean Light === */
+body[data-theme="heaven"] input,
+body[data-theme="heaven"] textarea,
+body[data-theme="heaven"] select {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #334155 !important;
+    box-shadow: inset 0 1px 3px rgba(148, 163, 184, 0.08);
+    border-radius: 12px;
+}
+
+body[data-theme="heaven"] input:focus,
+body[data-theme="heaven"] textarea:focus,
+body[data-theme="heaven"] select:focus {
+    border-color: var(--t-accent) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1), inset 0 1px 3px rgba(148, 163, 184, 0.08) !important;
+}
+
+/* === MODAL OVERLAY - Soft Light === */
+body[data-theme="heaven"] .modal-overlay,
+body[data-theme="heaven"] .overlay {
+    background: rgba(248, 250, 252, 0.92) !important;
+    backdrop-filter: blur(12px);
+}
+
+/* === DIVIDERS === */
+body[data-theme="heaven"] hr,
+body[data-theme="heaven"] .divider {
+    border: none !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent 0%, #CBD5E1 20%, #E2E8F0 50%, #CBD5E1 80%, transparent 100%) !important;
+}
+
+/* === TEXT HIERARCHY - Clean & Readable === */
+body[data-theme="heaven"] .text-muted,
+body[data-theme="heaven"] .text-secondary {
+    color: #64748B !important;
+}
+
+body[data-theme="heaven"] .text-primary {
+    color: #1E293B !important;
+}
