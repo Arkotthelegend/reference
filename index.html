@@ -2675,9 +2675,14 @@ function resetTimer() {
 const themes = [
     { id: 'default', name: 'Ocean Dark', price: 0, color: '#00D5FF', preview: 'linear-gradient(135deg, #0B0F19, #162235)' },
     { id: 'purple', name: 'Midnight Purple', price: 500, color: '#C084FC', preview: 'linear-gradient(135deg, #0F0718, #1E1035)' },
-    { id: 'green', name: 'Forest Green', price: 500, color: '#4ADE80', preview: 'linear-gradient(135deg, #05140A, #0F291E)' },
+    { id: 'green', name: 'Venom', price: 500, color: '#4ADE80', preview: 'linear-gradient(135deg, #05140A, #0F291E)' },
     { id: 'red', name: 'Ember Red', price: 500, color: '#F87171', preview: 'linear-gradient(135deg, #1A0505, #2D1111)' },
-	{ id: 'mmpn', name: 'Myint Myat Pyin Nyar', price: 0, color: '#F59E0B', preview: 'linear-gradient(135deg, #1a1000, #3d2800)', exclusive: true, schoolName: "MMPN" }
+    { id: 'mmpn', name: 'Royal Gold', price: -1, color: '#F59E0B', preview: 'linear-gradient(135deg, #1a1000, #3d2800)', exclusive: true, schoolName: "MMPN" },
+    
+    // ဥပမာ - VIP Theme (free လည်းမဟုတ်၊ ပိုက်ဆံနဲ့လည်းဝယ်လို့မရ)
+    { id: 'vip', name: 'VIP Diamond', price: -1, color: '#00FFFF', preview: 'linear-gradient(135deg, #001a1a, #004d4d)', lockedText: 'VIP Only' },
+    
+    { id: 'event', name: 'Event Special', price: -1, color: '#FF5733', preview: 'linear-gradient(135deg, #2a0a00, #4d1a00)', lockedText: 'Event Locked' }
 ];
 
 function checkThemeAccess(themeId) {
@@ -2736,20 +2741,28 @@ function openThemeShop() {
         } else if (isOwned) {
             btnHtml = `<button class="btn" style="width: auto; padding: 8px 16px; margin: 0; background: ${t.color}; color: #000; border: none; border-radius: 10px; font-weight: bold;" onclick="setTheme('${t.id}')">သုံးမည်</button>`;
                 } else {
-            // 🏫 Exclusive Theme ဆိုရင် ဈေးမပြဘဲ School Badge ပြမယ်
-            if (t.exclusive) {
-                btnHtml = `<span style="color: #F59E0B; font-size: 0.8rem; font-weight: bold; border: 1px solid #F59E0B; padding: 4px 10px; border-radius: 8px;">🏫 ${t.schoolName}</span>`;
-            } else {
-                btnHtml = `<button class="btn" style="width: auto; padding: 8px 16px; margin: 0; background: transparent; border: 1px solid ${t.color}; color: ${t.color}; border-radius: 10px; font-weight: bold;" onclick="buyThemePrompt('${t.id}')">${t.price === 0 ? 'Free' : t.price + ' ကျပ်'}</button>`;
-            }
-        }
+    // 🏫 Exclusive Theme (School)
+    if (t.exclusive) {
+        btnHtml = `<span style="color: #F59E0B; font-size: 0.8rem; font-weight: bold; border: 1px solid #F59E0B; padding: 4px 10px; border-radius: 8px;">🏫 ${t.schoolName}</span>`;
+    } 
+    // 🔒 ဝယ်လို့မရတဲ့ Theme (VIP, Event, etc...)
+    else if (t.lockedText) {
+        btnHtml = `<span style="color: ${t.color}; font-size: 0.8rem; font-weight: bold; border: 1px solid ${t.color}; padding: 4px 10px; border-radius: 8px;">${t.lockedText}</span>`;
+    } 
+    // 💰 ဝယ်လို့ရတဲ့ Theme (အခမဲ့မဟုတ်၊ ဝယ်မည်ခလုတ်ပဲထားမယ်)
+    else {
+        btnHtml = `<button class="btn" style="width: auto; padding: 8px 16px; margin: 0; background: transparent; border: 1px solid ${t.color}; color: ${t.color}; border-radius: 10px; font-weight: bold;" onclick="buyThemePrompt('${t.id}')">ဝယ်မည်</button>`;
+    }
+}
         
         div.innerHTML = `
             <div style="display: flex; align-items: center; gap: 12px;">
                 <div style="width: 44px; height: 44px; border-radius: 12px; background: ${t.preview}; border: 2px solid ${t.color}; flex-shrink: 0;"></div>
                 <div>
                     <div style="font-weight: bold; color: #fff; font-size: 1rem;">${t.name}</div>
-                    <div style="font-size: 0.8rem; color: #94A3B8; margin-top: 2px;">${t.price === 0 ? 'Free' : t.price + ' ကျပ် / လ'}</div>
+                    <div style="font-size: 0.8rem; color: #94A3B8; margin-top: 2px;">
+    ${t.price === 0 ? 'Free' : (t.price > 0 ? 'Premium' : (t.lockedText || 'Locked'))}
+</div>
                 </div>
             </div>
             <div style="flex-shrink: 0; margin-left: 8px;">${btnHtml}</div>
