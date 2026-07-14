@@ -439,10 +439,10 @@ body {
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ===== BACKGROUND FIX: Only theme-specific areas change ===== */
-body[data-theme] { 
-    background-color: var(--t-bg) !important; 
+body[data-theme] {
+    background-color: var(--t-bg, #0B0F19) !important;
 }
+
 /* Container background stays consistent */
 body[data-theme] .container {
     background: transparent !important;
@@ -2357,6 +2357,7 @@ function loadThemeCSS(themeId) {
     
     document.head.appendChild(link);
 }
+
 window.onload = () => {
     loadGoals(); 
     updateCountdown(); 
