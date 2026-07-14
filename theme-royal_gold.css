@@ -1,88 +1,533 @@
-/* theme-royal_gold.css - 🏫 School Exclusive (Premium Effects) */
+/* ===========================================================
+   ROYAL GOLD v2 - Luxury Edition
+   Palette:
+   Obsidian Black + Royal Gold + Burgundy + Emerald
+   =========================================================== */
+
+/* ===========================
+   THEME VARIABLES
+   =========================== */
 body[data-theme="royal_gold"] {
-  --t-bg: #0a0800;
-  --t-card: #1c1400;
-  --t-accent: #fbbf24;
-  --t-accent2: #d97706;
-  --t-success: #10b981;
-  --t-border-home: #fbbf24;
-  --t-border-old: #f59e0b;
-  --t-border-daily: #d97706;
+
+  /* Main Colors */
+  --t-bg: #0B0A08;
+  --t-card: #171410;
+
+  /* Accent */
+  --t-accent: #D4AF37;
+  --t-accent2: #6E1F2A;
+  --t-success: #059669;
+
+  /* Borders */
+  --t-border-home: #D4AF37;
+  --t-border-old: #B87333;
+  --t-border-daily: #059669;
+
+  /* Text */
+  --text-main: #F8F5ED;
+  --text-secondary: #C7BFAE;
+
+  color: var(--text-main);
+
+  /* Luxury Animated Background */
+  background:
+      radial-gradient(circle at top,
+      rgba(212,175,55,.05),
+      transparent 35%),
+
+      linear-gradient(
+          135deg,
+          #0B0A08 0%,
+          #15100D 35%,
+          #221512 65%,
+          #0B0A08 100%) !important;
+
+  background-size:300% 300%;
+  animation:royalGradient 18s ease infinite;
 }
 
-/* ===== PREMIUM ANIMATED BACKGROUND ===== */
-body[data-theme="royal_gold"] {
-  background: linear-gradient(-45deg, #0a0800, #1c1400, #2d1f00, #0a0800) !important;
-  background-size: 400% 400% !important;
-  animation: gradientShift 15s ease infinite;
+/* ===========================
+   LUXURY BACKGROUND ANIMATION
+   =========================== */
+
+@keyframes royalGradient{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* ===========================
+   GLOBAL TRANSITIONS
+   =========================== */
+
+body[data-theme="royal_gold"] *,
+body[data-theme="royal_gold"] *::before,
+body[data-theme="royal_gold"] *::after{
+
+    transition:
+        background-color .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        box-shadow .25s ease,
+        transform .20s ease;
+
 }
 
-/* ===== PULSING GOLD GLOW ON CARDS ===== */
-body[data-theme="royal_gold"] .subject-card {
-  animation: goldPulse 3s ease-in-out infinite;
-}
+/* ===========================
+   COMMON CARD STYLE
+   =========================== */
 
-@keyframes goldPulse {
-  0%, 100% { 
-    box-shadow: 0 0 5px rgba(251, 191, 36, 0.2); 
-    border-color: #fbbf24; 
-  }
-  50% { 
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.6), 0 0 40px rgba(251, 191, 36, 0.2); 
-    border-color: #f59e0b; 
-  }
-}
-
-/* ===== NAVIGATION BAR PREMIUM STYLING ===== */
-body[data-theme="royal_gold"] .nav {
-  border: 1px solid rgba(251, 191, 36, 0.3);
-  box-shadow: 0 0 15px rgba(251, 191, 36, 0.15);
-}
-
-/* ===== GRADIENT BORDER FOR PROFILE CARDS ===== */
+body[data-theme="royal_gold"] .subject-card,
 body[data-theme="royal_gold"] .profile-info-card,
-body[data-theme="royal_gold"] #exam-countdown {
-  border-image: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706) 1 !important;
+body[data-theme="royal_gold"] #exam-countdown{
+
+    background:var(--t-card);
+
+    border:1px solid rgba(212,175,55,.28);
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.35);
+
 }
 
-/* ===== CORE THEME OVERRIDES ===== */
-body[data-theme="royal_gold"] { background-color: var(--t-bg) !important; }
-body[data-theme="royal_gold"] #math-solution-screen, body[data-theme="royal_gold"] #grammar-note-screen { background: var(--t-bg) !important; }
-body[data-theme="royal_gold"] .subject-card { background: var(--t-card) !important; }
-body[data-theme="royal_gold"] #subject-list .subject-card { border: 2px solid var(--t-border-home) !important; }
-body[data-theme="royal_gold"] #subject-list .subject-card span:last-child { color: var(--t-border-home) !important; }
-body[data-theme="royal_gold"] #old-subject-list .subject-card { border: 2px solid var(--t-border-old) !important; }
-body[data-theme="royal_gold"] #old-subject-list .subject-card span:last-child { color: var(--t-border-old) !important; }
-body[data-theme="royal_gold"] #daily-screen .subject-card { border: 2px solid var(--t-border-daily) !important; }
-body[data-theme="royal_gold"] #daily-screen .subject-card span:last-child { color: var(--t-border-daily) !important; }
-body[data-theme="royal_gold"] .btn { background: var(--t-accent) !important; color: #000 !important; border: none !important; }
-body[data-theme="royal_gold"] .back-btn { background: #1E293B !important; border: 1px solid #334155 !important; color: #fff !important; }
-body[data-theme="royal_gold"] .next-btn-styled, body[data-theme="royal_gold"] .next-btn { background: var(--t-success) !important; color: #fff !important; }
-body[data-theme="royal_gold"] .option-btn { background: var(--t-card) !important; border: 1px solid #334155 !important; color: #fff !important; }
-body[data-theme="royal_gold"] .correct-answer { background: #065F46 !important; border: 2px solid var(--t-success) !important; color: #fff !important; }
-body[data-theme="royal_gold"] .wrong-answer { background: #991B1B !important; border: 2px solid #EF4444 !important; color: #fff !important; }
-body[data-theme="royal_gold"] .flash-front { border: 2px solid var(--t-accent) !important; }
-body[data-theme="royal_gold"] .flash-back { border: 2px solid #EF4444 !important; }
-body[data-theme="royal_gold"] .profile-info-card { background: linear-gradient(145deg, var(--t-bg), var(--t-card)) !important; border: 1px solid var(--t-accent) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important; }
-body[data-theme="royal_gold"] #exam-countdown { border-color: var(--t-accent2) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important; }
-body[data-theme="royal_gold"] .countdown-value { color: var(--t-accent) !important; }
-body[data-theme="royal_gold"] .bought-badge { color: var(--t-accent) !important; border-color: var(--t-accent) !important; }
-body[data-theme="royal_gold"] .buy-btn { background: transparent !important; color: var(--t-success) !important; border: 1px solid var(--t-success) !important; }
-body[data-theme="royal_gold"] .gender-container input:checked + .slider { background-color: var(--t-accent) !important; }
-body[data-theme="royal_gold"] .quiz-input:focus { border-color: var(--t-accent) !important; }
-body[data-theme="royal_gold"] .quiz-card { border-left: 4px solid var(--t-accent) !important; }
-body[data-theme="royal_gold"] #grammar-note-content, body[data-theme="royal_gold"] #math-solution-content { border: 1px solid var(--t-accent) !important; }
-body[data-theme="royal_gold"] .mjx-container::-webkit-scrollbar-thumb, body[data-theme="royal_gold"] .math-scroll-container::-webkit-scrollbar-thumb { background: var(--t-accent) !important; }
-body[data-theme="royal_gold"] #checklist-container input[type="checkbox"] { accent-color: var(--t-accent) !important; }
-body[data-theme="royal_gold"] .timer-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
-body[data-theme="royal_gold"] .shuffle-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
-body[data-theme="royal_gold"] .shuffle-active { background: var(--t-accent) !important; color: #000 !important; }
-body[data-theme="royal_gold"] #middle-screen > div > div:first-child, body[data-theme="royal_gold"] #motivation-box { background: rgba(0,0,0,0.15) !important; border: 1px solid var(--t-accent) !important; box-shadow: none !important; }
-body[data-theme="royal_gold"] .contact-btn { color: var(--t-accent) !important; border-color: var(--t-accent) !important; box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important; }
-body[data-theme="royal_gold"] #quiz-mode-box { border-color: var(--t-accent) !important; box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important; }
+/* Elegant Hover */
+
+body[data-theme="royal_gold"] .subject-card:hover{
+
+    transform:translateY(-3px);
+
+    border-color:rgba(212,175,55,.55);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.45),
+        0 0 10px rgba(212,175,55,.08);
+
+}
+
+/* ===========================
+   NAVIGATION BAR
+   =========================== */
+
+body[data-theme="royal_gold"] .nav{
+
+    background:rgba(18,16,14,.88);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(212,175,55,.22);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.30);
+
+}
+
+/* ===========================================================
+   BUTTON SYSTEM
+   =========================================================== */
+
+/* ---------- Primary Button ---------- */
+
+body[data-theme="royal_gold"] .btn{
+
+    background:linear-gradient(
+        180deg,
+        #E8C85A,
+        #D4AF37
+    ) !important;
+
+    color:#16120D !important;
+
+    border:none !important;
+
+    box-shadow:
+        0 8px 18px rgba(212,175,55,.22);
+
+    font-weight:600;
+
+}
+
+body[data-theme="royal_gold"] .btn:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.06);
+
+    box-shadow:
+        0 12px 24px rgba(212,175,55,.30);
+
+}
+
+/* ---------- Next Button ---------- */
+
+body[data-theme="royal_gold"] .next-btn,
+body[data-theme="royal_gold"] .next-btn-styled{
+
+    background:linear-gradient(
+        180deg,
+        #8A2635,
+        #6E1F2A
+    ) !important;
+
+    color:#FFF !important;
+
+    border:none !important;
+
+    box-shadow:
+        0 8px 18px rgba(110,31,42,.28);
+
+}
+
+body[data-theme="royal_gold"] .next-btn:hover,
+body[data-theme="royal_gold"] .next-btn-styled:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.08);
+
+}
+
+/* ---------- Back Button ---------- */
+
+body[data-theme="royal_gold"] .back-btn{
+
+    background:#22201D !important;
+
+    color:var(--text-main) !important;
+
+    border:1px solid rgba(212,175,55,.35) !important;
+
+}
+
+body[data-theme="royal_gold"] .back-btn:hover{
+
+    background:#2B2723 !important;
+
+    border-color:rgba(212,175,55,.55) !important;
+
+}
+
+/* ---------- Buy Button ---------- */
+
+body[data-theme="royal_gold"] .buy-btn{
+
+    background:transparent !important;
+
+    color:var(--t-accent) !important;
+
+    border:1px solid rgba(212,175,55,.45) !important;
+
+}
+
+body[data-theme="royal_gold"] .buy-btn:hover{
+
+    background:rgba(212,175,55,.08) !important;
+
+    border-color:var(--t-accent) !important;
+
+}
+
+/* ---------- Timer ---------- */
+
+body[data-theme="royal_gold"] .timer-btn{
+
+    background:#1D1A18 !important;
+
+    color:var(--t-accent) !important;
+
+    border:1px solid rgba(212,175,55,.35) !important;
+
+}
+
+body[data-theme="royal_gold"] .timer-btn:hover{
+
+    background:#26221E !important;
+
+}
+
+/* ---------- Shuffle ---------- */
+
+body[data-theme="royal_gold"] .shuffle-btn{
+
+    background:#1D1A18 !important;
+
+    color:var(--t-accent) !important;
+
+    border:1px solid rgba(212,175,55,.35) !important;
+
+}
+
+body[data-theme="royal_gold"] .shuffle-btn:hover{
+
+    background:#26221E !important;
+
+}
+
+body[data-theme="royal_gold"] .shuffle-active{
+
+    background:linear-gradient(
+        180deg,
+        #E8C85A,
+        #D4AF37
+    ) !important;
+
+    color:#16120D !important;
+
+    border:none !important;
+
+}
+
+/* ---------- Contact ---------- */
+
+body[data-theme="royal_gold"] .contact-btn{
+
+    background:transparent;
+
+    color:var(--t-accent) !important;
+
+    border:1px solid rgba(212,175,55,.40) !important;
+
+    box-shadow:none !important;
+
+}
+
+body[data-theme="royal_gold"] .contact-btn:hover{
+
+    background:rgba(212,175,55,.08);
+
+    transform:translateY(-2px);
+
+    border-color:var(--t-accent);
+
+}
+
+/* ===========================================================
+   PROFILE CARD
+   =========================================================== */
+
+body[data-theme="royal_gold"] .profile-info-card{
+
+    background:
+        linear-gradient(
+            145deg,
+            #1A1713,
+            #100E0C
+        ) !important;
+
+    border:1px solid rgba(212,175,55,.35) !important;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.40);
+
+}
+
+/* ===========================================================
+   EXAM COUNTDOWN
+   =========================================================== */
+
+body[data-theme="royal_gold"] #exam-countdown{
+
+    background:
+        linear-gradient(
+            180deg,
+            #191511,
+            #100E0C
+        ) !important;
+
+    border:1px solid rgba(212,175,55,.35) !important;
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.35);
+
+}
+
+body[data-theme="royal_gold"] .countdown-value{
+
+    color:var(--t-accent) !important;
+
+    text-shadow:
+        0 0 8px rgba(212,175,55,.20);
+
+}
+
+/* ===========================================================
+   QUIZ OPTIONS
+   =========================================================== */
+
+body[data-theme="royal_gold"] .option-btn{
+
+    background:#1B1815 !important;
+
+    color:var(--text-main) !important;
+
+    border:1px solid rgba(212,175,55,.20) !important;
+
+}
+
+body[data-theme="royal_gold"] .option-btn:hover{
+
+    background:#24201C !important;
+
+    border-color:rgba(212,175,55,.45) !important;
+
+    transform:translateY(-2px);
+
+}
+
+/* ===========================================================
+   CORRECT / WRONG
+   =========================================================== */
+
+body[data-theme="royal_gold"] .correct-answer{
+
+    background:#0B3D2E !important;
+
+    border:1px solid #10B981 !important;
+
+    color:#fff !important;
+
+}
+
+body[data-theme="royal_gold"] .wrong-answer{
+
+    background:#4A1518 !important;
+
+    border:1px solid #DC2626 !important;
+
+    color:#fff !important;
+
+}
+
+/* ===========================================================
+   FLASHCARD
+   =========================================================== */
+
+body[data-theme="royal_gold"] .flash-front{
+
+    border:1px solid rgba(212,175,55,.40) !important;
+
+}
+
+body[data-theme="royal_gold"] .flash-back{
+
+    border:1px solid rgba(110,31,42,.55) !important;
+
+}
+
+/* ===========================================================
+   QUIZ CARD
+   =========================================================== */
+
+body[data-theme="royal_gold"] .quiz-card{
+
+    border-left:4px solid var(--t-accent);
+
+    background:#181512;
+
+}
+
+/* ===========================================================
+   INPUT
+   =========================================================== */
+
+body[data-theme="royal_gold"] .quiz-input:focus{
+
+    border-color:var(--t-accent);
+
+    box-shadow:
+        0 0 0 3px rgba(212,175,55,.15);
+
+}
+
+/* ===========================================================
+   BADGE
+   =========================================================== */
+
+body[data-theme="royal_gold"] .bought-badge{
+
+    color:var(--t-accent);
+
+    border-color:rgba(212,175,55,.45);
+
+    background:rgba(212,175,55,.06);
+
+}
+
+/* ===========================================================
+   CONTENT BOX
+   =========================================================== */
+
+body[data-theme="royal_gold"] #grammar-note-content,
+body[data-theme="royal_gold"] #math-solution-content{
+
+    background:#171410;
+
+    border:1px solid rgba(212,175,55,.28);
+
+}
+
+/* ===========================================================
+   MOTIVATION BOX
+   =========================================================== */
+
+body[data-theme="royal_gold"] #motivation-box,
+body[data-theme="royal_gold"] #middle-screen>div>div:first-child{
+
+    background:rgba(255,255,255,.02);
+
+    border:1px solid rgba(212,175,55,.18);
+
+    box-shadow:none;
+
+}
+
+/* ===========================================================
+   QUIZ MODE BOX
+   =========================================================== */
+
+body[data-theme="royal_gold"] #quiz-mode-box{
+
+    border:1px solid rgba(212,175,55,.25);
+
+    box-shadow:none;
+
+}
+
+/* ===========================================================
+   SCROLLBAR
+   =========================================================== */
+
+body[data-theme="royal_gold"] ::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+body[data-theme="royal_gold"] ::-webkit-scrollbar-track{
+
+    background:#100E0C;
+
+}
+
+body[data-theme="royal_gold"] ::-webkit-scrollbar-thumb{
+
+    background:#8A6A1A;
+
+    border-radius:20px;
+
+}
+
+body[data-theme="royal_gold"] ::-webkit-scrollbar-thumb:hover{
+
+    background:#D4AF37;
+
+}
