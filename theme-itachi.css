@@ -1,0 +1,298 @@
+/* theme-itachi.css - Itachi Uchiha (Akatsuki Sharingan) */
+body[data-theme="itachi"] {
+  /* === BASE COLORS - Akatsuki Cloak === */
+  --t-bg: #08080C;           /* Deep void black - Akatsuki cloak darkness */
+  --t-card: #12121A;         /* Dark charcoal with cold undertone */
+
+  /* === ACCENTS - Sharingan & Akatsuki === */
+  --t-accent: #DC2626;       /* Sharingan Red - intense, used sparingly */
+  --t-accent2: #7F1D1D;      /* Deep Blood Red - secondary, darker */
+  --t-success: #059669;      /* Muted Emerald - correct answers (not bright) */
+  --t-danger: #B91C1C;       /* Crimson - wrong answers */
+
+  /* === BORDERS - Akatsuki Cloud Lines === */
+  --t-border-home: #DC2626;   /* Sharingan Red - sharp */
+  --t-border-old: #991B1B;    /* Dried Blood - muted red */
+  --t-border-daily: #4C1D95;  /* Deep Indigo - Itachi's Susanoo / mystery */
+
+  --t-border-subtle: #1A1A24; /* Cold dark border for general use */
+}
+
+/* === BACKGROUND - Akatsuki Void === */
+body[data-theme="itachi"] {
+    background: linear-gradient(180deg, #08080C 0%, #0C0C14 50%, #08080C 100%);
+    background-attachment: fixed;
+}
+
+/* === SCREENS === */
+body[data-theme="itachi"] #math-solution-screen,
+body[data-theme="itachi"] #grammar-note-screen { 
+    background: var(--t-bg) !important; 
+}
+
+/* === CARDS - Akatsuki Cloak Fabric === */
+body[data-theme="itachi"] .subject-card { 
+    background: var(--t-card) !important;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    border: 1px solid #1A1A24 !important;
+}
+
+body[data-theme="itachi"] .subject-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(220, 38, 38, 0.06);
+    border-color: #2A2A35 !important;
+}
+
+/* === SUBJECT LIST BORDERS - Sharingan Rings === */
+body[data-theme="itachi"] #subject-list .subject-card { 
+    border: 1px solid var(--t-border-home) !important; 
+    box-shadow: 0 0 16px rgba(220, 38, 38, 0.05);
+}
+body[data-theme="itachi"] #subject-list .subject-card span:last-child { 
+    color: var(--t-border-home) !important; 
+}
+
+body[data-theme="itachi"] #old-subject-list .subject-card { 
+    border: 1px solid var(--t-border-old) !important; 
+    box-shadow: 0 0 16px rgba(153, 27, 27, 0.05);
+}
+body[data-theme="itachi"] #old-subject-list .subject-card span:last-child { 
+    color: var(--t-border-old) !important; 
+}
+
+body[data-theme="itachi"] #daily-screen .subject-card { 
+    border: 1px solid var(--t-border-daily) !important; 
+    box-shadow: 0 0 16px rgba(76, 29, 149, 0.05);
+}
+body[data-theme="itachi"] #daily-screen .subject-card span:last-child { 
+    color: var(--t-border-daily) !important; 
+}
+
+/* === BUTTONS - Mangekyou Glow === */
+body[data-theme="itachi"] .btn { 
+    background: linear-gradient(135deg, #7F1D1D, #991B1B) !important; 
+    color: #FFFFFF !important; 
+    border: 1px solid #DC2626 !important;
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.12) !important;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+
+body[data-theme="itachi"] .back-btn { 
+    background: #0F0F16 !important; 
+    border: 1px solid #2A2A35 !important; 
+    color: #D4D4D8 !important; 
+}
+
+body[data-theme="itachi"] .next-btn-styled, 
+body[data-theme="itachi"] .next-btn { 
+    background: linear-gradient(135deg, #065F46, #047857) !important; 
+    color: #FFFFFF !important; 
+    font-weight: 600;
+}
+
+body[data-theme="itachi"] .option-btn { 
+    background: var(--t-card) !important; 
+    border: 1px solid #1A1A24 !important; 
+    color: #D4D4D8 !important;
+    transition: all 0.25s ease;
+}
+
+body[data-theme="itachi"] .option-btn:hover {
+    border-color: #DC2626 !important;
+    background: #1A1A28 !important;
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.05);
+}
+
+/* === ANSWER STATES - Tsukuyomi vs Reality === */
+body[data-theme="itachi"] .correct-answer { 
+    background: #022C22 !important; 
+    border: 1px solid var(--t-success) !important; 
+    color: #fff !important;
+    box-shadow: 0 0 16px rgba(5, 150, 105, 0.08);
+}
+
+body[data-theme="itachi"] .wrong-answer { 
+    background: #2A0A0A !important; 
+    border: 1px solid var(--t-danger) !important; 
+    color: #fff !important;
+    box-shadow: 0 0 16px rgba(185, 28, 28, 0.1);
+}
+
+/* === FLASHCARDS - Sharingan Tomoe === */
+body[data-theme="itachi"] .flash-front { 
+    border: 1px solid var(--t-accent) !important; 
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.06);
+}
+
+body[data-theme="itachi"] .flash-back { 
+    border: 1px solid var(--t-danger) !important; 
+    box-shadow: 0 0 20px rgba(185, 28, 28, 0.06);
+}
+
+/* === PROFILE CARD - Uchiha Clan === */
+body[data-theme="itachi"] .profile-info-card { 
+    background: linear-gradient(145deg, #0C0C14, #12121A) !important; 
+    border: 1px solid #2A2A35 !important; 
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(220, 38, 38, 0.03) !important; 
+}
+
+/* === EXAM COUNTDOWN - Tsukuyomi Timer === */
+body[data-theme="itachi"] #exam-countdown { 
+    border-color: var(--t-accent) !important; 
+    box-shadow: 0 0 24px rgba(220, 38, 38, 0.08) !important; 
+}
+
+body[data-theme="itachi"] .countdown-value { 
+    color: var(--t-accent) !important;
+    text-shadow: 0 0 10px rgba(220, 38, 38, 0.25);
+    font-weight: 700;
+}
+
+/* === BADGES & BUY === */
+body[data-theme="itachi"] .bought-badge { 
+    color: var(--t-accent) !important; 
+    border-color: var(--t-accent) !important; 
+    box-shadow: 0 0 8px rgba(220, 38, 38, 0.08);
+}
+
+body[data-theme="itachi"] .buy-btn { 
+    background: transparent !important; 
+    color: var(--t-success) !important; 
+    border: 1px solid var(--t-success) !important; 
+}
+
+/* === FORM ELEMENTS - Sharingan Focus === */
+body[data-theme="itachi"] .gender-container input:checked + .slider { 
+    background-color: var(--t-accent) !important; 
+    box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+}
+
+body[data-theme="itachi"] .quiz-input:focus { 
+    border-color: var(--t-accent) !important; 
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08) !important;
+}
+
+body[data-theme="itachi"] .quiz-card { 
+    border-left: 3px solid var(--t-accent) !important; 
+}
+
+/* === CONTENT BOXES === */
+body[data-theme="itachi"] #grammar-note-content, 
+body[data-theme="itachi"] #math-solution-content { 
+    border: 1px solid #1A1A24 !important; 
+}
+
+/* === SCROLLBAR - Sharingan Ring === */
+body[data-theme="itachi"] .mjx-container::-webkit-scrollbar-thumb, 
+body[data-theme="itachi"] .math-scroll-container::-webkit-scrollbar-thumb { 
+    background: var(--t-accent2) !important; 
+    border-radius: 4px;
+}
+
+body[data-theme="itachi"] ::-webkit-scrollbar { 
+    width: 6px; 
+}
+body[data-theme="itachi"] ::-webkit-scrollbar-track { 
+    background: var(--t-bg); 
+}
+body[data-theme="itachi"] ::-webkit-scrollbar-thumb { 
+    background: #1A1A24; 
+    border-radius: 3px; 
+}
+body[data-theme="itachi"] ::-webkit-scrollbar-thumb:hover { 
+    background: var(--t-accent); 
+}
+
+/* === CHECKLIST === */
+body[data-theme="itachi"] #checklist-container input[type="checkbox"] { 
+    accent-color: var(--t-accent) !important; 
+}
+
+/* === TIMER & SHUFFLE - Anbu Interface === */
+body[data-theme="itachi"] .timer-btn { 
+    background: var(--t-card) !important; 
+    color: var(--t-accent) !important; 
+    border: 1px solid #1A1A24 !important; 
+}
+
+body[data-theme="itachi"] .shuffle-btn { 
+    background: var(--t-card) !important; 
+    color: var(--t-accent) !important; 
+    border: 1px solid #1A1A24 !important; 
+}
+
+body[data-theme="itachi"] .shuffle-active { 
+    background: var(--t-accent2) !important; 
+    color: #FFFFFF !important;
+    box-shadow: 0 0 12px rgba(127, 29, 29, 0.2);
+}
+
+/* === MIDDLE SCREEN & MOTIVATION - Crow's Lair === */
+body[data-theme="itachi"] #middle-screen > div > div:first-child, 
+body[data-theme="itachi"] #motivation-box { 
+    background: rgba(12, 12, 20, 0.85) !important; 
+    border: 1px solid #2A2A35 !important; 
+    box-shadow: none !important; 
+    backdrop-filter: blur(10px);
+}
+
+/* === CONTACT & QUIZ MODE === */
+body[data-theme="itachi"] .contact-btn { 
+    color: var(--t-accent) !important; 
+    border-color: #1A1A24 !important; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important; 
+    transition: all 0.25s ease;
+}
+
+body[data-theme="itachi"] .contact-btn:hover {
+    border-color: var(--t-accent) !important;
+    box-shadow: 0 0 16px rgba(220, 38, 38, 0.08) !important;
+}
+
+body[data-theme="itachi"] #quiz-mode-box { 
+    border-color: #1A1A24 !important; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important; 
+}
+
+/* === INPUTS & TEXTAREAS - Anbu Console === */
+body[data-theme="itachi"] input,
+body[data-theme="itachi"] textarea,
+body[data-theme="itachi"] select {
+    background: #0F0F16 !important;
+    border: 1px solid #1A1A24 !important;
+    color: #E4E4E7 !important;
+}
+
+body[data-theme="itachi"] input:focus,
+body[data-theme="itachi"] textarea:focus,
+body[data-theme="itachi"] select:focus {
+    border-color: var(--t-accent) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.06) !important;
+}
+
+/* === MODAL OVERLAY - Genjutsu === */
+body[data-theme="itachi"] .modal-overlay,
+body[data-theme="itachi"] .overlay {
+    background: rgba(8, 8, 12, 0.92) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* === DIVIDERS === */
+body[data-theme="itachi"] hr,
+body[data-theme="itachi"] .divider {
+    border-color: #1A1A24 !important;
+}
+
+/* === TEXT HIERARCHY - Cold & Tragic === */
+body[data-theme="itachi"] .text-muted,
+body[data-theme="itachi"] .text-secondary {
+    color: #71717A !important;
+}
+
+body[data-theme="itachi"] .text-primary {
+    color: #F4F4F5 !important;
+}
