@@ -1,46 +1,295 @@
-/* theme-green.css - Forest Green */
+/* theme-green.css - Venom (Toxic Dark) */
 body[data-theme="green"] {
-  --t-bg: #05140A;
-  --t-card: #0F291E;
-  --t-accent: #4ADE80;
-  --t-accent2: #22C55E;
-  --t-success: #34D399;
-  --t-border-home: #4ADE80;
-  --t-border-old: #86EFAC;
-  --t-border-daily: #22C55E;
+  /* === BASE COLORS - Overwhelmingly Black === */
+  --t-bg: #030303;           /* Pure black, barely any tint */
+  --t-card: #0A0C0A;         /* Very dark charcoal, hint of green */
+
+  /* === ACCENTS - Toxic Green, Used Sparingly === */
+  --t-accent: #00D26A;       /* Toxic Acid Green (Venom "vein" color) */
+  --t-accent2: #059669;      /* Deep Emerald - for secondary elements */
+  --t-success: #10B981;      /* Emerald - correct answers */
+  --t-danger: #DC2626;       /* Blood Red - wrong answers / flash-back */
+
+  /* === BORDERS - Color-coded by section, sharp & thin === */
+  --t-border-home: #00D26A;   /* Toxic Green - sharp */
+  --t-border-old: #34D399;  /* Light Emerald - contrast */
+  --t-border-daily: #059669; /* Deep Green - muted */
+
+  --t-border-subtle: #1A1A1A; /* Near-black border for general use */
 }
 
-body[data-theme="green"] { background-color: var(--t-bg) !important; }
-body[data-theme="green"] #math-solution-screen, body[data-theme="green"] #grammar-note-screen { background: var(--t-bg) !important; }
-body[data-theme="green"] .subject-card { background: var(--t-card) !important; }
-body[data-theme="green"] #subject-list .subject-card { border: 2px solid var(--t-border-home) !important; }
-body[data-theme="green"] #subject-list .subject-card span:last-child { color: var(--t-border-home) !important; }
-body[data-theme="green"] #old-subject-list .subject-card { border: 2px solid var(--t-border-old) !important; }
-body[data-theme="green"] #old-subject-list .subject-card span:last-child { color: var(--t-border-old) !important; }
-body[data-theme="green"] #daily-screen .subject-card { border: 2px solid var(--t-border-daily) !important; }
-body[data-theme="green"] #daily-screen .subject-card span:last-child { color: var(--t-border-daily) !important; }
-body[data-theme="green"] .btn { background: var(--t-accent) !important; color: #000 !important; border: none !important; }
-body[data-theme="green"] .back-btn { background: #1E293B !important; border: 1px solid #334155 !important; color: #fff !important; }
-body[data-theme="green"] .next-btn-styled, body[data-theme="green"] .next-btn { background: var(--t-success) !important; color: #fff !important; }
-body[data-theme="green"] .option-btn { background: var(--t-card) !important; border: 1px solid #334155 !important; color: #fff !important; }
-body[data-theme="green"] .correct-answer { background: #065F46 !important; border: 2px solid var(--t-success) !important; color: #fff !important; }
-body[data-theme="green"] .wrong-answer { background: #991B1B !important; border: 2px solid #EF4444 !important; color: #fff !important; }
-body[data-theme="green"] .flash-front { border: 2px solid var(--t-accent) !important; }
-body[data-theme="green"] .flash-back { border: 2px solid #EF4444 !important; }
-body[data-theme="green"] .profile-info-card { background: linear-gradient(145deg, var(--t-bg), var(--t-card)) !important; border: 1px solid var(--t-accent) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important; }
-body[data-theme="green"] #exam-countdown { border-color: var(--t-accent2) !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important; }
-body[data-theme="green"] .countdown-value { color: var(--t-accent) !important; }
-body[data-theme="green"] .bought-badge { color: var(--t-accent) !important; border-color: var(--t-accent) !important; }
-body[data-theme="green"] .buy-btn { background: transparent !important; color: var(--t-success) !important; border: 1px solid var(--t-success) !important; }
-body[data-theme="green"] .gender-container input:checked + .slider { background-color: var(--t-accent) !important; }
-body[data-theme="green"] .quiz-input:focus { border-color: var(--t-accent) !important; }
-body[data-theme="green"] .quiz-card { border-left: 4px solid var(--t-accent) !important; }
-body[data-theme="green"] #grammar-note-content, body[data-theme="green"] #math-solution-content { border: 1px solid var(--t-accent) !important; }
-body[data-theme="green"] .mjx-container::-webkit-scrollbar-thumb, body[data-theme="green"] .math-scroll-container::-webkit-scrollbar-thumb { background: var(--t-accent) !important; }
-body[data-theme="green"] #checklist-container input[type="checkbox"] { accent-color: var(--t-accent) !important; }
-body[data-theme="green"] .timer-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
-body[data-theme="green"] .shuffle-btn { background: #1E293B !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
-body[data-theme="green"] .shuffle-active { background: var(--t-accent) !important; color: #000 !important; }
-body[data-theme="green"] #middle-screen > div > div:first-child, body[data-theme="green"] #motivation-box { background: rgba(0,0,0,0.15) !important; border: 1px solid var(--t-accent) !important; box-shadow: none !important; }
-body[data-theme="green"] .contact-btn { color: var(--t-accent) !important; border-color: var(--t-accent) !important; box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important; }
-body[data-theme="green"] #quiz-mode-box { border-color: var(--t-accent) !important; box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important; }
+/* === BACKGROUND - Pure Black, Venom Symbiote === */
+body[data-theme="green"] {
+    background: linear-gradient(180deg, #030303 0%, #050805 50%, #030303 100%);
+    background-attachment: fixed;
+}
+
+/* === SCREENS === */
+body[data-theme="green"] #math-solution-screen,
+body[data-theme="green"] #grammar-note-screen { 
+    background: var(--t-bg) !important; 
+}
+
+/* === CARDS - Dark, Sharp, with subtle green glow on hover === */
+body[data-theme="green"] .subject-card { 
+    background: var(--t-card) !important;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.25s ease;
+    border: 1px solid #111111 !important;
+}
+
+body[data-theme="green"] .subject-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 210, 106, 0.06);
+    border-color: #1a1a1a !important;
+}
+
+/* === SUBJECT LIST BORDERS - Sharp, thin, color-coded === */
+body[data-theme="green"] #subject-list .subject-card { 
+    border: 1px solid var(--t-border-home) !important; 
+    box-shadow: 0 0 12px rgba(0, 210, 106, 0.04);
+}
+body[data-theme="green"] #subject-list .subject-card span:last-child { 
+    color: var(--t-border-home) !important; 
+}
+
+body[data-theme="green"] #old-subject-list .subject-card { 
+    border: 1px solid var(--t-border-old) !important; 
+    box-shadow: 0 0 12px rgba(52, 211, 153, 0.04);
+}
+body[data-theme="green"] #old-subject-list .subject-card span:last-child { 
+    color: var(--t-border-old) !important; 
+}
+
+body[data-theme="green"] #daily-screen .subject-card { 
+    border: 1px solid var(--t-border-daily) !important; 
+    box-shadow: 0 0 12px rgba(5, 150, 105, 0.04);
+}
+body[data-theme="green"] #daily-screen .subject-card span:last-child { 
+    color: var(--t-border-daily) !important; 
+}
+
+/* === BUTTONS - Dark with toxic green glow === */
+body[data-theme="green"] .btn { 
+    background: linear-gradient(135deg, #064E3B, #065F46) !important; 
+    color: #FFFFFF !important; 
+    border: 1px solid var(--t-accent) !important;
+    box-shadow: 0 0 16px rgba(0, 210, 106, 0.15) !important;
+    text-shadow: 0 0 8px rgba(0, 210, 106, 0.3);
+}
+
+body[data-theme="green"] .back-btn { 
+    background: #0A0A0A !important; 
+    border: 1px solid #222222 !important; 
+    color: #E5E5E5 !important; 
+}
+
+body[data-theme="green"] .next-btn-styled, 
+body[data-theme="green"] .next-btn { 
+    background: var(--t-success) !important; 
+    color: #000000 !important; 
+    font-weight: 600;
+}
+
+body[data-theme="green"] .option-btn { 
+    background: var(--t-card) !important; 
+    border: 1px solid #1A1A1A !important; 
+    color: #D1D5DB !important;
+    transition: all 0.2s ease;
+}
+
+body[data-theme="green"] .option-btn:hover {
+    border-color: var(--t-accent2) !important;
+    background: #0F1410 !important;
+    box-shadow: 0 0 12px rgba(5, 150, 105, 0.05);
+}
+
+/* === ANSWER STATES - Venom Blood vs Symbiote === */
+body[data-theme="green"] .correct-answer { 
+    background: #022C22 !important; 
+    border: 1px solid var(--t-success) !important; 
+    color: #fff !important;
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.1);
+}
+
+body[data-theme="green"] .wrong-answer { 
+    background: #2A0A0A !important; 
+    border: 1px solid var(--t-danger) !important; 
+    color: #fff !important;
+    box-shadow: 0 0 16px rgba(220, 38, 38, 0.1);
+}
+
+/* === FLASHCARDS - Venom Eyes === */
+body[data-theme="green"] .flash-front { 
+    border: 1px solid var(--t-accent) !important; 
+    box-shadow: 0 0 20px rgba(0, 210, 106, 0.06);
+}
+
+body[data-theme="green"] .flash-back { 
+    border: 1px solid var(--t-danger) !important; 
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.06);
+}
+
+/* === PROFILE CARD - Symbiote Shell === */
+body[data-theme="green"] .profile-info-card { 
+    background: linear-gradient(145deg, #080A08, #0D100D) !important; 
+    border: 1px solid #1A1A1A !important; 
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important; 
+}
+
+/* === EXAM COUNTDOWN - Toxic Timer === */
+body[data-theme="green"] #exam-countdown { 
+    border-color: var(--t-accent2) !important; 
+    box-shadow: 0 0 20px rgba(5, 150, 105, 0.08) !important; 
+}
+
+body[data-theme="green"] .countdown-value { 
+    color: var(--t-accent) !important;
+    text-shadow: 0 0 10px rgba(0, 210, 106, 0.3);
+}
+
+/* === BADGES & BUY === */
+body[data-theme="green"] .bought-badge { 
+    color: var(--t-accent) !important; 
+    border-color: var(--t-accent) !important; 
+}
+
+body[data-theme="green"] .buy-btn { 
+    background: transparent !important; 
+    color: var(--t-success) !important; 
+    border: 1px solid var(--t-success) !important; 
+}
+
+/* === FORM ELEMENTS - Symbiote Interface === */
+body[data-theme="green"] .gender-container input:checked + .slider { 
+    background-color: var(--t-accent) !important; 
+    box-shadow: 0 0 10px rgba(0, 210, 106, 0.3);
+}
+
+body[data-theme="green"] .quiz-input:focus { 
+    border-color: var(--t-accent) !important; 
+    box-shadow: 0 0 0 3px rgba(0, 210, 106, 0.08) !important;
+}
+
+body[data-theme="green"] .quiz-card { 
+    border-left: 3px solid var(--t-accent) !important; 
+}
+
+/* === CONTENT BOXES === */
+body[data-theme="green"] #grammar-note-content, 
+body[data-theme="green"] #math-solution-content { 
+    border: 1px solid #1A1A1A !important; 
+}
+
+/* === SCROLLBAR - Venom Spine === */
+body[data-theme="green"] .mjx-container::-webkit-scrollbar-thumb, 
+body[data-theme="green"] .math-scroll-container::-webkit-scrollbar-thumb { 
+    background: var(--t-accent2) !important; 
+    border-radius: 4px;
+}
+
+body[data-theme="green"] ::-webkit-scrollbar { 
+    width: 6px; 
+}
+body[data-theme="green"] ::-webkit-scrollbar-track { 
+    background: var(--t-bg); 
+}
+body[data-theme="green"] ::-webkit-scrollbar-thumb { 
+    background: #1A1A1A; 
+    border-radius: 3px; 
+}
+body[data-theme="green"] ::-webkit-scrollbar-thumb:hover { 
+    background: var(--t-accent); 
+}
+
+/* === CHECKLIST === */
+body[data-theme="green"] #checklist-container input[type="checkbox"] { 
+    accent-color: var(--t-accent) !important; 
+}
+
+/* === TIMER & SHUFFLE - Dark Interface === */
+body[data-theme="green"] .timer-btn { 
+    background: var(--t-card) !important; 
+    color: var(--t-accent) !important; 
+    border: 1px solid #1A1A1A !important; 
+}
+
+body[data-theme="green"] .shuffle-btn { 
+    background: var(--t-card) !important; 
+    color: var(--t-accent) !important; 
+    border: 1px solid #1A1A1A !important; 
+}
+
+body[data-theme="green"] .shuffle-active { 
+    background: var(--t-accent2) !important; 
+    color: #FFFFFF !important;
+    box-shadow: 0 0 12px rgba(5, 150, 105, 0.2);
+}
+
+/* === MIDDLE SCREEN & MOTIVATION - Symbiote Veins === */
+body[data-theme="green"] #middle-screen > div > div:first-child, 
+body[data-theme="green"] #motivation-box { 
+    background: rgba(8, 10, 8, 0.8) !important; 
+    border: 1px solid #1A1A1A !important; 
+    box-shadow: none !important; 
+    backdrop-filter: blur(8px);
+}
+
+/* === CONTACT & QUIZ MODE === */
+body[data-theme="green"] .contact-btn { 
+    color: var(--t-accent) !important; 
+    border-color: #1A1A1A !important; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important; 
+    transition: all 0.2s ease;
+}
+
+body[data-theme="green"] .contact-btn:hover {
+    border-color: var(--t-accent) !important;
+    box-shadow: 0 0 16px rgba(0, 210, 106, 0.08) !important;
+}
+
+body[data-theme="green"] #quiz-mode-box { 
+    border-color: #1A1A1A !important; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important; 
+}
+
+/* === INPUTS & TEXTAREAS - Dark Console === */
+body[data-theme="green"] input,
+body[data-theme="green"] textarea,
+body[data-theme="green"] select {
+    background: #0A0A0A !important;
+    border: 1px solid #1A1A1A !important;
+    color: #E5E5E5 !important;
+}
+
+body[data-theme="green"] input:focus,
+body[data-theme="green"] textarea:focus,
+body[data-theme="green"] select:focus {
+    border-color: var(--t-accent) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(0, 210, 106, 0.06) !important;
+}
+
+/* === MODAL OVERLAY - Void === */
+body[data-theme="green"] .modal-overlay,
+body[data-theme="green"] .overlay {
+    background: rgba(3, 3, 3, 0.92) !important;
+    backdrop-filter: blur(8px);
+}
+
+/* === DIVIDERS === */
+body[data-theme="green"] hr,
+body[data-theme="green"] .divider {
+    border-color: #1A1A1A !important;
+}
+
+/* === TEXT HIERARCHY - Cold & Sharp === */
+body[data-theme="green"] .text-muted,
+body[data-theme="green"] .text-secondary {
+    color: #6B7280 !important;
+}
+
+body[data-theme="green"] .text-primary {
+    color: #F3F4F6 !important;
+}
