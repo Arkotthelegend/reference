@@ -1,103 +1,113 @@
-/* theme-mmpn.css - Myint Myat Pyin Nyar (Energetic Dark) */
+/* theme-mmpn.css - Myint Myat Pyin Nyar (V2 - Ultra Unique Glassmorphism) */
 body[data-theme="mmpn"] {
-  /* Core Brand Colors from Logo */
-  --t-bg: #0B0814;          /* Deep Violet Black */
-  --t-card: #151124;        /* Dark Violet Card */
-  
-  /* Energetic Accents */
-  --t-accent: #10B981;      /* Vibrant Green from Logo */
-  --t-accent2: #8B5CF6;     /* Bright Purple from Logo Text */
-  --t-success: #22C55E;     
-  --t-danger:  #F43F5E;     
-  
-  /* Feature Borders */
-  --t-border-home: #10B981; /* Green */
-  --t-border-old: #8B5CF6;  /* Purple */
-  --t-border-daily: #3B82F6;/* Blue for daily contrast */
-  
-  --t-border-subtle: #2D2447; /* Subtle Violet Border */
+  /* High Energy Brand Colors */
+  --t-brand-green: #00D26A; /* Neon-ish Vibrant Green */
+  --t-brand-purple: #7C3AED; /* Vibrant Purple */
+  --t-bg-dark: #05030A;     /* Extreme Dark Violet-Black */
 }
 
+/* 1. Dynamic Glowing Background */
 body[data-theme="mmpn"] {
-    background: linear-gradient(135deg, #0B0814 0%, #100C1D 100%);
+    background: 
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.15), transparent 50%),
+        radial-gradient(circle at bottom left, rgba(0, 210, 106, 0.15), transparent 50%),
+        var(--t-bg-dark);
     background-attachment: fixed;
-    color: #F8FAFC;
+    color: #FFFFFF;
 }
 
-/* Rounded, friendly, and energetic cards */
-body[data-theme="mmpn"] .subject-card {
-    background: var(--t-card) !important;
-    border-radius: 20px; 
-    border: 1px solid var(--t-border-subtle) !important;
-    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.08); /* Soft purple glow */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* 2. Glassmorphism Cards (Very distinct from default) */
+body[data-theme="mmpn"] .subject-card,
+body[data-theme="mmpn"] .profile-info-card,
+body[data-theme="mmpn"] #motivation-box,
+body[data-theme="mmpn"] #middle-screen > div > div:first-child {
+    background: rgba(255, 255, 255, 0.03) !important; /* Super transparent */
+    backdrop-filter: blur(16px) !important;           /* Glass Blur Effect */
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 24px !important;                   /* Extra rounded */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
 }
 
-body[data-theme="mmpn"] #math-solution-screen,
-body[data-theme="mmpn"] #grammar-note-screen { background: var(--t-bg) !important; }
+/* Specific List Item Borders - Thicker and Glowing */
+body[data-theme="mmpn"] #subject-list .subject-card { border-left: 6px solid var(--t-brand-green) !important; }
+body[data-theme="mmpn"] #subject-list .subject-card span:last-child { color: var(--t-brand-green) !important; }
 
-/* Dynamic Borders for lists */
-body[data-theme="mmpn"] #subject-list .subject-card { border-left: 4px solid var(--t-border-home) !important; }
-body[data-theme="mmpn"] #subject-list .subject-card span:last-child { color: var(--t-border-home) !important; }
+body[data-theme="mmpn"] #old-subject-list .subject-card { border-left: 6px solid var(--t-brand-purple) !important; }
+body[data-theme="mmpn"] #old-subject-list .subject-card span:last-child { color: var(--t-brand-purple) !important; }
 
-body[data-theme="mmpn"] #old-subject-list .subject-card { border-left: 4px solid var(--t-border-old) !important; }
-body[data-theme="mmpn"] #old-subject-list .subject-card span:last-child { color: var(--t-border-old) !important; }
+body[data-theme="mmpn"] #daily-screen .subject-card { border-left: 6px solid #38BDF8 !important; }
+body[data-theme="mmpn"] #daily-screen .subject-card span:last-child { color: #38BDF8 !important; }
 
-body[data-theme="mmpn"] #daily-screen .subject-card { border-left: 4px solid var(--t-border-daily) !important; }
-body[data-theme="mmpn"] #daily-screen .subject-card span:last-child { color: var(--t-border-daily) !important; }
-
-/* Energetic Buttons */
-body[data-theme="mmpn"] .btn { 
-    background: linear-gradient(90deg, #10B981, #059669) !important; 
-    color: #FFFFFF !important; 
-    border: none !important; 
-    border-radius: 12px !important;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25) !important;
-}
-body[data-theme="mmpn"] .back-btn { background: var(--t-card) !important; border: 1px solid var(--t-border-subtle) !important; color: #FFFFFF !important; }
+/* 3. Pill-Shaped Energetic Buttons */
+body[data-theme="mmpn"] .btn,
 body[data-theme="mmpn"] .next-btn-styled, 
-body[data-theme="mmpn"] .next-btn { background: var(--t-success) !important; color: #FFFFFF !important; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25) !important; }
-body[data-theme="mmpn"] .option-btn { background: var(--t-card) !important; border: 2px solid var(--t-border-subtle) !important; color: #F8FAFC !important; border-radius: 12px !important;}
-
-/* Profile with subtle purple gradient */
-body[data-theme="mmpn"] .profile-info-card { 
-    background: linear-gradient(180deg, #1A1432, #100C1D) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important; 
-    border: 1px solid var(--t-accent2) !important;
-    border-radius: 20px !important;
+body[data-theme="mmpn"] .next-btn { 
+    background: linear-gradient(135deg, var(--t-brand-green), #049650) !important; 
+    color: #000000 !important; /* Black text for high contrast */
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    border: none !important; 
+    border-radius: 50px !important; /* Full pill shape */
+    box-shadow: 0 6px 20px rgba(0, 210, 106, 0.3) !important;
+    text-transform: uppercase !important;
 }
 
-body[data-theme="mmpn"] .correct-answer { background: #064E3B !important; border: 2px solid var(--t-success) !important; color: #FFFFFF !important; }
-body[data-theme="mmpn"] .wrong-answer { background: #7F1D1D !important; border: 2px solid var(--t-danger) !important; color: #FFFFFF !important; }
+/* Secondary Buttons */
+body[data-theme="mmpn"] .back-btn,
+body[data-theme="mmpn"] .option-btn { 
+    background: rgba(255, 255, 255, 0.05) !important; 
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important; 
+    color: #FFFFFF !important; 
+    border-radius: 50px !important; 
+}
 
-body[data-theme="mmpn"] .flash-front { border: 2px solid var(--t-accent2) !important; border-radius: 16px !important; }
-body[data-theme="mmpn"] .flash-back { border: 2px solid var(--t-accent) !important; border-radius: 16px !important; }
+/* Interactive Elements */
+body[data-theme="mmpn"] .correct-answer { background: rgba(0, 210, 106, 0.2) !important; border: 2px solid var(--t-brand-green) !important; color: #FFFFFF !important; }
+body[data-theme="mmpn"] .wrong-answer { background: rgba(239, 68, 68, 0.2) !important; border: 2px solid #EF4444 !important; color: #FFFFFF !important; }
 
-/* Glowing Countdown */
-body[data-theme="mmpn"] #exam-countdown { border-color: var(--t-accent2) !important; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2) !important; border-radius: 16px !important;}
-body[data-theme="mmpn"] .countdown-value { color: var(--t-accent) !important; font-weight: bold !important; }
+/* Flashcards - Floating Effect */
+body[data-theme="mmpn"] .flash-front,
+body[data-theme="mmpn"] .flash-back { 
+    background: #110C1E !important;
+    border: 2px solid var(--t-brand-purple) !important; 
+    border-radius: 20px !important; 
+    box-shadow: inset 0 0 20px rgba(124, 58, 237, 0.1) !important;
+}
 
-body[data-theme="mmpn"] .bought-badge { color: var(--t-accent2) !important; border-color: var(--t-accent2) !important; }
-body[data-theme="mmpn"] .buy-btn { background: transparent !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
+/* Emphasized Exam Countdown */
+body[data-theme="mmpn"] #exam-countdown { 
+    background: rgba(124, 58, 237, 0.1) !important;
+    border: 1px solid var(--t-brand-purple) !important; 
+    border-radius: 50px !important; /* Pill shape for countdown too */
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.3) !important; 
+}
+body[data-theme="mmpn"] .countdown-value { color: #FFFFFF !important; text-shadow: 0 0 10px var(--t-brand-purple) !important; }
 
-body[data-theme="mmpn"] .gender-container input:checked + .slider { background-color: var(--t-accent2) !important; }
-body[data-theme="mmpn"] .quiz-input:focus { border-color: var(--t-accent) !important; box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2) !important; }
-body[data-theme="mmpn"] .quiz-card { border-left: 4px solid var(--t-accent) !important; border-radius: 12px !important; }
+/* Badges & Sliders */
+body[data-theme="mmpn"] .bought-badge { background: rgba(124, 58, 237, 0.2) !important; color: #C4B5FD !important; border: 1px solid var(--t-brand-purple) !important; border-radius: 20px !important; padding: 4px 12px !important;}
+body[data-theme="mmpn"] .buy-btn { background: transparent !important; color: var(--t-brand-green) !important; border: 2px solid var(--t-brand-green) !important; border-radius: 50px !important;}
+
+body[data-theme="mmpn"] .gender-container input:checked + .slider { background-color: var(--t-brand-purple) !important; }
+body[data-theme="mmpn"] .quiz-input:focus { border-color: var(--t-brand-green) !important; background: rgba(255, 255, 255, 0.05) !important;}
+body[data-theme="mmpn"] .quiz-card { border-left: 6px solid var(--t-brand-purple) !important; border-radius: 16px !important; background: rgba(255,255,255,0.02) !important;}
 
 body[data-theme="mmpn"] #grammar-note-content, 
-body[data-theme="mmpn"] #math-solution-content { border: 1px solid var(--t-border-subtle) !important; border-radius: 12px !important;}
+body[data-theme="mmpn"] #math-solution-content { 
+    background: rgba(0,0,0,0.3) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important; 
+    border-radius: 16px !important;
+}
 
 body[data-theme="mmpn"] .mjx-container::-webkit-scrollbar-thumb, 
-body[data-theme="mmpn"] .math-scroll-container::-webkit-scrollbar-thumb { background: var(--t-accent2) !important; }
+body[data-theme="mmpn"] .math-scroll-container::-webkit-scrollbar-thumb { background: var(--t-brand-purple) !important; border-radius: 10px !important;}
 
-body[data-theme="mmpn"] #checklist-container input[type="checkbox"] { accent-color: var(--t-accent) !important; }
+body[data-theme="mmpn"] #checklist-container input[type="checkbox"] { accent-color: var(--t-brand-green) !important; width: 20px; height: 20px;}
 
-body[data-theme="mmpn"] .timer-btn { background: var(--t-card) !important; color: var(--t-accent2) !important; border: 1px solid var(--t-accent2) !important; }
-body[data-theme="mmpn"] .shuffle-btn { background: var(--t-card) !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
-body[data-theme="mmpn"] .shuffle-active { background: var(--t-accent) !important; color: #FFFFFF !important; }
+body[data-theme="mmpn"] .timer-btn,
+body[data-theme="mmpn"] .shuffle-btn { background: rgba(255,255,255,0.05) !important; color: #FFFFFF !important; border: 1px solid rgba(255,255,255,0.2) !important; border-radius: 50px !important; }
+body[data-theme="mmpn"] .shuffle-active { background: var(--t-brand-purple) !important; color: #FFFFFF !important; border: none !important;}
 
-body[data-theme="mmpn"] #middle-screen > div > div:first-child, 
-body[data-theme="mmpn"] #motivation-box { background: rgba(139, 92, 246, 0.05) !important; border: 1px solid var(--t-border-subtle) !important; box-shadow: none !important; border-radius: 16px !important;}
-
-body[data-theme="mmpn"] .contact-btn { color: var(--t-accent) !important; border-color: var(--t-accent) !important; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.15) !important; }
-body[data-theme="mmpn"] #quiz-mode-box { border-color: var(--t-accent2) !important; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15) !important; border-radius: 16px !important;}
+body[data-theme="mmpn"] .contact-btn { background: rgba(0, 210, 106, 0.1) !important; color: var(--t-brand-green) !important; border: 1px solid var(--t-brand-green) !important; border-radius: 50px !important;}
+body[data-theme="mmpn"] #quiz-mode-box { background: rgba(255,255,255,0.03) !important; backdrop-filter: blur(10px) !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 24px !important;}
