@@ -2685,12 +2685,11 @@ const themes = [
 function checkThemeAccess(themeId) {
     if (themeId === 'default') return true;
     
-    // 🏫 Exclusive Theme စစ်ဆေးခြင်း
-    const theme = themes.find(t => t.id === themeId);
-    if (theme && theme.exclusive) {
-        return checkExclusiveAccess(themeId);
-    }
+    // 🆕 ၁။ Hardcoded List (VIP, School, Special) ထဲမှာ ရှိရင် အရင်ခွင့်ပြု
+    // ဒါက theme ဘယ်လိုအမျိုးအစားဖြစ်ဖြစ် စစ်ပေးမယ်
+    if (checkExclusiveAccess(themeId)) return true;
     
+    // ၂။ Google Sheet (Paid) မှ ဝယ်ထားရင် ခွင့်ပြု
     return checkAccess('theme_' + themeId);
 }
 
@@ -2752,9 +2751,9 @@ function openThemeShop() {
         btnHtml = `<span style="color: ${t.color}; font-size: 0.8rem; font-weight: bold; border: 1px solid ${t.color}; padding: 4px 10px; border-radius: 8px;">${t.lockedText}</span>`;
     } 
     // 💰 ဝယ်လို့ရတဲ့ Theme (အခမဲ့မဟုတ်၊ ဝယ်မည်ခလုတ်ပဲထားမယ်)
-    else {
-        btnHtml = `<button class="btn" style="width: auto; padding: 8px 16px; margin: 0; background: transparent; border: 1px solid ${t.color}; color: ${t.color}; border-radius: 10px; font-weight: bold;" onclick="buyThemePrompt('${t.id}')">ဝယ်မည်</button>`;
-    }
+    else if (t.price > 0) {
+    btnHtml = `<button class="btn" style="width: auto; padding: 8px 16px; margin: 0; background: transparent; border: 1px solid ${t.color}; color: ${t.color}; border-radius: 10px; font-weight: bold;" onclick="buyThemePrompt('${t.id}')">ဝယ်မည်</button>`;
+}
 }
         
         div.innerHTML = `
@@ -2763,7 +2762,15 @@ function openThemeShop() {
                 <div>
                     <div style="font-weight: bold; color: #fff; font-size: 1rem;">${t.name}</div>
                     <div style="font-size: 0.8rem; color: #94A3B8; margin-top: 2px;">
-    ${t.price === 0 ? 'Free' : (t.price > 0 ? 'Premium' : (t.lockedText || 'Locked'))}
+    ${isActive 
+        ? '✓ သုံးနေသည်' 
+        : (isOwned 
+            ? 'သုံးရန်' 
+            : (t.price === 0 
+                ? 'Free' 
+                : (t.price > 0 
+                    ? 'Premium' 
+                    : (t.lockedText || 'Locked'))))}
 </div>
                 </div>
             </div>
