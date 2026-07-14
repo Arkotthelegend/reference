@@ -1,0 +1,303 @@
+/* theme-joker.css - The Joker (Chaotic Clown) */
+body[data-theme="joker"] {
+  /* === BASE COLORS - Dark & Unhinged === */
+  --t-bg: #0A0014;           /* Deep void purple-black */
+  --t-card: #150030;         /* Dark purple card - Joker's suit */
+
+  /* === ACCENTS - Neon & Chaotic === */
+  --t-accent: #39FF14;       /* Toxic Neon Green - Joker's hair */
+  --t-accent2: #BF00FF;      /* Electric Purple - Joker's suit pop */
+  --t-success: #00FF88;       /* Acid Green - correct answers */
+  --t-danger: #FF003C;        /* Blood Red - Joker's smile / wrong answers */
+
+  /* === BORDERS - Color-coded by section, glowing === */
+  --t-border-home: #39FF14;   /* Neon Green */
+  --t-border-old: #FF003C;    /* Blood Red - chaotic contrast */
+  --t-border-daily: #BF00FF; /* Electric Purple */
+
+  --t-border-subtle: #2A0044; /* Dark purple border for general use */
+}
+
+/* === BACKGROUND - Deep Void with subtle purple haze === */
+body[data-theme="joker"] {
+    background: linear-gradient(180deg, #0A0014 0%, #0F0020 40%, #0A0014 100%);
+    background-attachment: fixed;
+}
+
+/* === SCREENS === */
+body[data-theme="joker"] #math-solution-screen,
+body[data-theme="joker"] #grammar-note-screen { 
+    background: var(--t-bg) !important; 
+}
+
+/* === CARDS - Dark Purple, Neon Glow on Hover === */
+body[data-theme="joker"] .subject-card { 
+    background: var(--t-card) !important;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    border: 1px solid #1A0035 !important;
+}
+
+body[data-theme="joker"] .subject-card:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 32px rgba(57, 255, 20, 0.08), 0 0 16px rgba(191, 0, 255, 0.04);
+    border-color: #2A0044 !important;
+}
+
+/* === SUBJECT LIST BORDERS - Glowing Neon === */
+body[data-theme="joker"] #subject-list .subject-card { 
+    border: 1px solid var(--t-border-home) !important; 
+    box-shadow: 0 0 16px rgba(57, 255, 20, 0.06);
+}
+body[data-theme="joker"] #subject-list .subject-card span:last-child { 
+    color: var(--t-border-home) !important; 
+}
+
+body[data-theme="joker"] #old-subject-list .subject-card { 
+    border: 1px solid var(--t-border-old) !important; 
+    box-shadow: 0 0 16px rgba(255, 0, 60, 0.06);
+}
+body[data-theme="joker"] #old-subject-list .subject-card span:last-child { 
+    color: var(--t-border-old) !important; 
+}
+
+body[data-theme="joker"] #daily-screen .subject-card { 
+    border: 1px solid var(--t-border-daily) !important; 
+    box-shadow: 0 0 16px rgba(191, 0, 255, 0.06);
+}
+body[data-theme="joker"] #daily-screen .subject-card span:last-child { 
+    color: var(--t-border-daily) !important; 
+}
+
+/* === BUTTONS - Neon Gradient, Chaotic Glow === */
+body[data-theme="joker"] .btn { 
+    background: linear-gradient(135deg, #BF00FF, #7B00CC) !important; 
+    color: #FFFFFF !important; 
+    border: 1px solid #39FF14 !important;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.15), 0 0 40px rgba(191, 0, 255, 0.08) !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+}
+
+body[data-theme="joker"] .back-btn { 
+    background: #0F0020 !important; 
+    border: 1px solid #2A0044 !important; 
+    color: #E0E0E0 !important; 
+}
+
+body[data-theme="joker"] .next-btn-styled, 
+body[data-theme="joker"] .next-btn { 
+    background: linear-gradient(135deg, #00FF88, #00CC6A) !important; 
+    color: #000000 !important; 
+    font-weight: 700;
+    box-shadow: 0 0 16px rgba(0, 255, 136, 0.2) !important;
+}
+
+body[data-theme="joker"] .option-btn { 
+    background: var(--t-card) !important; 
+    border: 1px solid #1A0035 !important; 
+    color: #E0E0E0 !important;
+    transition: all 0.25s ease;
+}
+
+body[data-theme="joker"] .option-btn:hover {
+    border-color: #39FF14 !important;
+    background: #1A0035 !important;
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.08);
+}
+
+/* === ANSWER STATES - Joker's Smile vs Acid === */
+body[data-theme="joker"] .correct-answer { 
+    background: #00331A !important; 
+    border: 1px solid var(--t-success) !important; 
+    color: #fff !important;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.12);
+}
+
+body[data-theme="joker"] .wrong-answer { 
+    background: #33000D !important; 
+    border: 1px solid var(--t-danger) !important; 
+    color: #fff !important;
+    box-shadow: 0 0 20px rgba(255, 0, 60, 0.12);
+}
+
+/* === FLASHCARDS - Smile vs Hair === */
+body[data-theme="joker"] .flash-front { 
+    border: 1px solid var(--t-accent) !important; 
+    box-shadow: 0 0 24px rgba(57, 255, 20, 0.08);
+}
+
+body[data-theme="joker"] .flash-back { 
+    border: 1px solid var(--t-danger) !important; 
+    box-shadow: 0 0 24px rgba(255, 0, 60, 0.08);
+}
+
+/* === PROFILE CARD - Joker's Face === */
+body[data-theme="joker"] .profile-info-card { 
+    background: linear-gradient(145deg, #0D001A, #150030) !important; 
+    border: 1px solid #2A0044 !important; 
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(191, 0, 255, 0.05) !important; 
+}
+
+/* === EXAM COUNTDOWN - Ticking Bomb === */
+body[data-theme="joker"] #exam-countdown { 
+    border-color: var(--t-danger) !important; 
+    box-shadow: 0 0 24px rgba(255, 0, 60, 0.1) !important; 
+}
+
+body[data-theme="joker"] .countdown-value { 
+    color: var(--t-accent) !important;
+    text-shadow: 0 0 12px rgba(57, 255, 20, 0.4);
+    font-weight: 700;
+}
+
+/* === BADGES & BUY === */
+body[data-theme="joker"] .bought-badge { 
+    color: var(--t-accent) !important; 
+    border-color: var(--t-accent) !important; 
+    box-shadow: 0 0 8px rgba(57, 255, 20, 0.1);
+}
+
+body[data-theme="joker"] .buy-btn { 
+    background: transparent !important; 
+    color: var(--t-success) !important; 
+    border: 1px solid var(--t-success) !important; 
+}
+
+/* === FORM ELEMENTS - Joker's Touch === */
+body[data-theme="joker"] .gender-container input:checked + .slider { 
+    background-color: var(--t-accent) !important; 
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.4);
+}
+
+body[data-theme="joker"] .quiz-input:focus { 
+    border-color: var(--t-accent) !important; 
+    box-shadow: 0 0 0 3px rgba(57, 255, 20, 0.1), 0 0 16px rgba(57, 255, 20, 0.05) !important;
+}
+
+body[data-theme="joker"] .quiz-card { 
+    border-left: 3px solid var(--t-accent) !important; 
+}
+
+/* === CONTENT BOXES === */
+body[data-theme="joker"] #grammar-note-content, 
+body[data-theme="joker"] #math-solution-content { 
+    border: 1px solid #1A0035 !important; 
+}
+
+/* === SCROLLBAR - Neon Track === */
+body[data-theme="joker"] .mjx-container::-webkit-scrollbar-thumb, 
+body[data-theme="joker"] .math-scroll-container::-webkit-scrollbar-thumb { 
+    background: var(--t-accent2) !important; 
+    border-radius: 4px;
+}
+
+body[data-theme="joker"] ::-webkit-scrollbar { 
+    width: 6px; 
+}
+body[data-theme="joker"] ::-webkit-scrollbar-track { 
+    background: var(--t-bg); 
+}
+body[data-theme="joker"] ::-webkit-scrollbar-thumb { 
+    background: #1A0035; 
+    border-radius: 3px; 
+}
+body[data-theme="joker"] ::-webkit-scrollbar-thumb:hover { 
+    background: var(--t-accent); 
+}
+
+/* === CHECKLIST === */
+body[data-theme="joker"] #checklist-container input[type="checkbox"] { 
+    accent-color: var(--t-accent) !important; 
+}
+
+/* === TIMER & SHUFFLE - Dark Circus === */
+body[data-theme="joker"] .timer-btn { 
+    background: var(--t-card) !important; 
+    color: var(--t-accent) !important; 
+    border: 1px solid #1A0035 !important; 
+    text-shadow: 0 0 6px rgba(57, 255, 20, 0.3);
+}
+
+body[data-theme="joker"] .shuffle-btn { 
+    background: var(--t-card) !important; 
+    color: var(--t-accent) !important; 
+    border: 1px solid #1A0035 !important; 
+    text-shadow: 0 0 6px rgba(57, 255, 20, 0.3);
+}
+
+body[data-theme="joker"] .shuffle-active { 
+    background: var(--t-accent2) !important; 
+    color: #FFFFFF !important;
+    box-shadow: 0 0 16px rgba(191, 0, 255, 0.25);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* === MIDDLE SCREEN & MOTIVATION - Joker's Lair === */
+body[data-theme="joker"] #middle-screen > div > div:first-child, 
+body[data-theme="joker"] #motivation-box { 
+    background: rgba(15, 0, 32, 0.85) !important; 
+    border: 1px solid #2A0044 !important; 
+    box-shadow: none !important; 
+    backdrop-filter: blur(10px);
+}
+
+/* === CONTACT & QUIZ MODE === */
+body[data-theme="joker"] .contact-btn { 
+    color: var(--t-accent) !important; 
+    border-color: #1A0035 !important; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important; 
+    transition: all 0.25s ease;
+    text-shadow: 0 0 6px rgba(57, 255, 20, 0.2);
+}
+
+body[data-theme="joker"] .contact-btn:hover {
+    border-color: var(--t-accent) !important;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.1) !important;
+}
+
+body[data-theme="joker"] #quiz-mode-box { 
+    border-color: #1A0035 !important; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important; 
+}
+
+/* === INPUTS & TEXTAREAS - Pale Face === */
+body[data-theme="joker"] input,
+body[data-theme="joker"] textarea,
+body[data-theme="joker"] select {
+    background: #0F0020 !important;
+    border: 1px solid #1A0035 !important;
+    color: #F0F0F0 !important;
+}
+
+body[data-theme="joker"] input:focus,
+body[data-theme="joker"] textarea:focus,
+body[data-theme="joker"] select:focus {
+    border-color: var(--t-accent) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(57, 255, 20, 0.08), 0 0 16px rgba(57, 255, 20, 0.04) !important;
+}
+
+/* === MODAL OVERLAY - Gotham Night === */
+body[data-theme="joker"] .modal-overlay,
+body[data-theme="joker"] .overlay {
+    background: rgba(10, 0, 20, 0.92) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* === DIVIDERS === */
+body[data-theme="joker"] hr,
+body[data-theme="joker"] .divider {
+    border-color: #1A0035 !important;
+}
+
+/* === TEXT HIERARCHY - Pale & Haunted === */
+body[data-theme="joker"] .text-muted,
+body[data-theme="joker"] .text-secondary {
+    color: #8B6FA8 !important;
+}
+
+body[data-theme="joker"] .text-primary {
+    color: #F0F0F0 !important;
+}
