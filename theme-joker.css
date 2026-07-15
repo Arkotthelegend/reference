@@ -1,329 +1,172 @@
-/* theme-joker.css - The Joker v3 (Clean: No Glitch Textures) */
+/* ============================================================
+   🃏 JOKER THEME - Chaotic Green & Purple
+   ============================================================ */
+
+:root {
+    --t-bg: #0a0a0a;
+    --t-card: #141414;
+    --t-text: #ffffff;
+    --t-muted: #888888;
+    --t-accent: #39ff14;        /* Toxic Green */
+    --t-accent2: #bf00ff;       /* Joker Purple */
+    --t-border: #2a2a2a;
+    --t-success: #39ff14;
+    --t-error: #ff0055;
+    
+    /* 🆕 Nav Bar - Joker Style */
+    --nav-bg: linear-gradient(135deg, #0f0f0f 0%, #1a0a1a 50%, #0a1a0a 100%);
+    --nav-border: #39ff14;
+    --nav-icon-inactive: #555555;
+    --nav-icon-active: #39ff14;
+    --nav-glow: 0 0 15px rgba(57, 255, 20, 0.6), 0 0 30px rgba(191, 0, 255, 0.3);
+}
+
+/* Body Background */
 body[data-theme="joker"] {
-  --t-bg: #0A0014;
-  --t-card: #1E1035;
-  --t-accent: #39FF14;
-  --t-accent2: #BF00FF;
-  --t-success: #00FF88;
-  --t-danger: #FF003C;
-  --t-border-home: #39FF14;
-  --t-border-old: #FF003C;
-  --t-border-daily: #BF00FF;
-  --t-border-subtle: #2A0044;
+    background-color: var(--t-bg) !important;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(191, 0, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(57, 255, 20, 0.08) 0%, transparent 50%);
 }
 
-body[data-theme="joker"] {
-    background: 
-        radial-gradient(ellipse 70% 40% at 50% -5%, rgba(191, 0, 255, 0.04) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 30% at 80% 100%, rgba(57, 255, 20, 0.02) 0%, transparent 50%),
-        linear-gradient(180deg, #0A0014 0%, #0F0020 40%, #0A0014 100%);
-    background-attachment: fixed;
-}
-
-body[data-theme="joker"] #math-solution-screen,
-body[data-theme="joker"] #grammar-note-screen { 
-    background: var(--t-bg) !important; 
-}
-
-/* === CARDS - Clean gradient, NO texture === */
-body[data-theme="joker"] .subject-card { 
-    background: linear-gradient(145deg, #1E1035 0%, #150030 50%, #1E1035 100%) !important;
-    border-radius: 14px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-    border: 2px solid #2A0044 !important;
-}
-
-body[data-theme="joker"] .subject-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(57, 255, 20, 0.06);
-    border-color: #3A0066 !important;
-}
-
-/* === SUBJECT LIST - BOLD 2px borders === */
-body[data-theme="joker"] #subject-list .subject-card { 
-    border: 2px solid var(--t-border-home) !important; 
-    box-shadow: 0 0 20px rgba(57, 255, 20, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4);
-}
-body[data-theme="joker"] #subject-list .subject-card span:last-child { 
-    color: var(--t-border-home) !important; 
-    text-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
-    font-weight: 700;
-}
-
-body[data-theme="joker"] #old-subject-list .subject-card { 
-    border: 2px solid var(--t-border-old) !important; 
-    box-shadow: 0 0 20px rgba(255, 0, 60, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4);
-}
-body[data-theme="joker"] #old-subject-list .subject-card span:last-child { 
-    color: var(--t-border-old) !important; 
-    text-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
-    font-weight: 700;
-}
-
-body[data-theme="joker"] #daily-screen .subject-card { 
-    border: 2px solid var(--t-border-daily) !important; 
-    box-shadow: 0 0 20px rgba(191, 0, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4);
-}
-body[data-theme="joker"] #daily-screen .subject-card span:last-child { 
-    color: var(--t-border-daily) !important; 
-    text-shadow: 0 0 10px rgba(191, 0, 255, 0.3);
-    font-weight: 700;
-}
-
-/* === BUTTONS - CLEAN: No texture, just smooth gradients + glow === */
-
-/* Primary: Purple fill, Green border */
-body[data-theme="joker"] .btn { 
-    background: linear-gradient(135deg, #4C1D95, #6D28D9) !important; 
-    color: #FFFFFF !important; 
-    border: 2px solid #39FF14 !important;
+/* Nav Bar - Joker Crazy Style */
+[data-theme="joker"] .nav {
+    background: var(--nav-bg);
+    border: 2px solid transparent;
+    border-image: linear-gradient(90deg, #39ff14, #bf00ff, #39ff14) 1;
+    border-radius: 20px;
     box-shadow: 
-        0 0 24px rgba(57, 255, 20, 0.15),
-        0 4px 12px rgba(0, 0, 0, 0.3) !important;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-    font-weight: 700;
-    letter-spacing: 0.3px;
+        0 4px 20px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(57, 255, 20, 0.1);
+    animation: jokerBorderPulse 3s ease-in-out infinite;
 }
 
-/* Back Button */
-body[data-theme="joker"] .back-btn { 
-    background: linear-gradient(145deg, #1E1035, #150030) !important; 
-    border: 2px solid #3A0066 !important; 
-    color: #E0E0E0 !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+/* Border Animation */
+@keyframes jokerBorderPulse {
+    0%, 100% { border-image-source: linear-gradient(90deg, #39ff14, #bf00ff, #39ff14); }
+    50% { border-image-source: linear-gradient(90deg, #bf00ff, #39ff14, #bf00ff); }
 }
 
-/* Next: Green fill, Purple border */
-body[data-theme="joker"] .next-btn-styled, 
-body[data-theme="joker"] .next-btn { 
-    background: linear-gradient(135deg, #064E3B, #065F46) !important; 
-    color: #FFFFFF !important; 
-    font-weight: 700;
-    border: 2px solid #BF00FF !important;
-    box-shadow: 0 0 20px rgba(191, 0, 255, 0.12), 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+[data-theme="joker"] .nav-item {
+    color: var(--nav-icon-inactive);
+    transition: all 0.3s ease;
 }
 
-/* Option Buttons */
-body[data-theme="joker"] .option-btn { 
-    background: linear-gradient(145deg, #1E1035, #150030) !important; 
-    border: 2px solid #2A0044 !important; 
-    color: #E0E0E0 !important;
-    transition: all 0.25s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+[data-theme="joker"] .nav-item.nav-active {
+    color: var(--nav-icon-active) !important;
+    filter: grayscale(0%) !important;
+    opacity: 1 !important;
+    transform: scale(1.2) translateY(-8px) !important;
+    text-shadow: var(--nav-glow) !important;
+    animation: jokerIconFlicker 2s ease-in-out infinite;
 }
 
-body[data-theme="joker"] .option-btn:hover {
-    border-color: #39FF14 !important;
-    background: linear-gradient(145deg, #2A0A4A, #1E1035) !important;
-    box-shadow: 0 0 16px rgba(57, 255, 20, 0.08), 0 2px 8px rgba(0, 0, 0, 0.3);
+@keyframes jokerIconFlicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+    75% { opacity: 1; }
+    85% { opacity: 0.6; }
+    90% { opacity: 1; }
 }
 
-/* === ANSWER STATES === */
-body[data-theme="joker"] .correct-answer { 
-    background: linear-gradient(145deg, #00331A, #004D26) !important; 
-    border: 2px solid var(--t-success) !important; 
+/* Subject Cards - Joker Style */
+[data-theme="joker"] .subject-card {
+    background: linear-gradient(145deg, #141414, #1a1a1a) !important;
+    border: 2px solid transparent !important;
+    border-image: linear-gradient(135deg, #39ff14, #bf00ff) 1 !important;
+    color: #ffffff !important;
+}
+
+[data-theme="joker"] #subject-list .subject-card { border-image: linear-gradient(135deg, #39ff14, #00ff88) 1 !important; }
+[data-theme="joker"] #subject-list .subject-card span:last-child { color: #39ff14 !important; }
+
+[data-theme="joker"] #old-subject-list .subject-card { border-image: linear-gradient(135deg, #bf00ff, #ff00ff) 1 !important; }
+[data-theme="joker"] #old-subject-list .subject-card span:last-child { color: #bf00ff !important; }
+
+[data-theme="joker"] #daily-screen .subject-card { border-image: linear-gradient(135deg, #ff0055, #ff5500) 1 !important; }
+[data-theme="joker"] #daily-screen .subject-card span:last-child { color: #ff0055 !important; }
+
+/* Buttons */
+[data-theme="joker"] .btn {
+    background: linear-gradient(135deg, #39ff14, #00cc11) !important;
+    color: #000000 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 15px rgba(57, 255, 20, 0.3) !important;
+}
+
+[data-theme="joker"] .back-btn {
+    background: #1a1a1a !important;
+    border: 2px solid #bf00ff !important;
+    color: #bf00ff !important;
+}
+
+/* Flashcard */
+[data-theme="joker"] .flash-front { 
+    background: linear-gradient(145deg, #141414, #1a0a1a) !important; 
+    border: 2px solid #39ff14 !important; 
+    color: #39ff14 !important;
+}
+[data-theme="joker"] .flash-back { 
+    background: linear-gradient(145deg, #141414, #1a0a1a) !important; 
+    border: 2px solid #bf00ff !important; 
+    color: #bf00ff !important;
+}
+
+/* Quiz Options */
+[data-theme="joker"] .option-btn { 
+    background: #1a1a1a !important; 
+    border: 1px solid #333 !important; 
+    color: #fff !important; 
+}
+[data-theme="joker"] .correct-answer { 
+    background: linear-gradient(135deg, #065F46, #0a8f6a) !important; 
+    border: 2px solid #39ff14 !important; 
+}
+[data-theme="joker"] .wrong-answer { 
+    background: linear-gradient(135deg, #7f1d1d, #991b1b) !important; 
+    border: 2px solid #ff0055 !important; 
+}
+
+/* Profile & Cards */
+[data-theme="joker"] .profile-info-card,
+[data-theme="joker"] #exam-countdown,
+[data-theme="joker"] #motivation-box {
+    background: linear-gradient(145deg, #0f0f0f, #1a0a1a) !important;
+    border: 2px solid transparent !important;
+    border-image: linear-gradient(135deg, #39ff14, #bf00ff) 1 !important;
+}
+
+[data-theme="joker"] .bought-badge {
+    background: #1a1a1a !important;
+    color: #39ff14 !important;
+    border: 1px solid #39ff14 !important;
+}
+
+/* Timer */
+[data-theme="joker"] .timer-btn {
+    background: #1a1a1a !important;
+    color: #bf00ff !important;
+    border: 1px solid #bf00ff !important;
+}
+
+/* Countdown */
+[data-theme="joker"] .countdown-value { color: #39ff14 !important; }
+[data-theme="joker"] .countdown-label { color: #888 !important; }
+
+/* Input */
+[data-theme="joker"] .quiz-input {
+    background: #141414 !important;
+    border: 2px solid #333 !important;
     color: #fff !important;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.12), 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+[data-theme="joker"] .quiz-input:focus { border-color: #39ff14 !important; }
 
-body[data-theme="joker"] .wrong-answer { 
-    background: linear-gradient(145deg, #33000D, #4A0014) !important; 
-    border: 2px solid var(--t-danger) !important; 
-    color: #fff !important;
-    box-shadow: 0 0 20px rgba(255, 0, 60, 0.12), 0 4px 12px rgba(0, 0, 0, 0.3);
-}
+/* Scrollbar */
+[data-theme="joker"] ::-webkit-scrollbar-thumb { background: #39ff14 !important; }
+[data-theme="joker"] ::-webkit-scrollbar-track { background: #1a1a1a !important; }
 
-/* === FLASHCARDS === */
-body[data-theme="joker"] .flash-front { 
-    border: 2px solid var(--t-accent) !important; 
-    box-shadow: 0 0 24px rgba(57, 255, 20, 0.08), 0 4px 16px rgba(0, 0, 0, 0.3);
-}
-
-body[data-theme="joker"] .flash-back { 
-    border: 2px solid var(--t-danger) !important; 
-    box-shadow: 0 0 24px rgba(255, 0, 60, 0.08), 0 4px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* === PROFILE CARD === */
-body[data-theme="joker"] .profile-info-card { 
-    background: linear-gradient(145deg, #150030, #1E1035) !important; 
-    border: 2px solid #3A0066 !important; 
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 24px rgba(191, 0, 255, 0.05) !important; 
-}
-
-/* === EXAM COUNTDOWN === */
-body[data-theme="joker"] #exam-countdown { 
-    border: 2px solid var(--t-danger) !important; 
-    box-shadow: 0 0 30px rgba(255, 0, 60, 0.1), 0 4px 16px rgba(0, 0, 0, 0.3) !important; 
-    background: linear-gradient(145deg, #150030, #1E1035) !important;
-}
-
-body[data-theme="joker"] .countdown-value { 
-    color: var(--t-accent) !important;
-    text-shadow: 0 0 16px rgba(57, 255, 20, 0.4);
-    font-weight: 800;
-    font-size: 1.1em;
-}
-
-/* === BADGES & BUY === */
-body[data-theme="joker"] .bought-badge { 
-    color: var(--t-accent) !important; 
-    border: 1px solid var(--t-accent) !important; 
-    box-shadow: 0 0 12px rgba(57, 255, 20, 0.1);
-    background: rgba(57, 255, 20, 0.05) !important;
-}
-
-body[data-theme="joker"] .buy-btn { 
-    background: transparent !important; 
-    color: var(--t-success) !important; 
-    border: 1px solid var(--t-success) !important; 
-    box-shadow: 0 0 8px rgba(0, 255, 136, 0.08);
-}
-
-/* === FORM ELEMENTS === */
-body[data-theme="joker"] .gender-container input:checked + .slider { 
-    background-color: var(--t-accent) !important; 
-    box-shadow: 0 0 16px rgba(57, 255, 20, 0.4);
-}
-
-body[data-theme="joker"] .quiz-input:focus { 
-    border-color: var(--t-accent) !important; 
-    box-shadow: 0 0 0 3px rgba(57, 255, 20, 0.1), 0 0 16px rgba(57, 255, 20, 0.06) !important;
-}
-
-body[data-theme="joker"] .quiz-card { 
-    border-left: 4px solid var(--t-accent) !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* === CONTENT BOXES === */
-body[data-theme="joker"] #grammar-note-content, 
-body[data-theme="joker"] #math-solution-content { 
-    border: 1px solid #2A0044 !important; 
-    background: linear-gradient(145deg, #150030, #1E1035) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* === SCROLLBAR === */
-body[data-theme="joker"] .mjx-container::-webkit-scrollbar-thumb, 
-body[data-theme="joker"] .math-scroll-container::-webkit-scrollbar-thumb { 
-    background: linear-gradient(180deg, #BF00FF, #4C1D95) !important; 
-    border-radius: 4px;
-}
-
-body[data-theme="joker"] ::-webkit-scrollbar { width: 8px; }
-body[data-theme="joker"] ::-webkit-scrollbar-track { background: var(--t-bg); border-radius: 4px; }
-body[data-theme="joker"] ::-webkit-scrollbar-thumb { 
-    background: linear-gradient(180deg, #2A0044, #1E1035); 
-    border-radius: 4px; 
-    border: 1px solid #0A0014;
-}
-body[data-theme="joker"] ::-webkit-scrollbar-thumb:hover { 
-    background: linear-gradient(180deg, #39FF14, #00D26A); 
-}
-
-/* === CHECKLIST === */
-body[data-theme="joker"] #checklist-container input[type="checkbox"] { 
-    accent-color: var(--t-accent) !important; 
-}
-
-/* === TIMER & SHUFFLE === */
-body[data-theme="joker"] .timer-btn { 
-    background: linear-gradient(145deg, #1E1035, #150030) !important; 
-    color: var(--t-accent) !important; 
-    border: 2px solid #2A0044 !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    text-shadow: 0 0 6px rgba(57, 255, 20, 0.3);
-    font-weight: 600;
-}
-
-body[data-theme="joker"] .shuffle-btn { 
-    background: linear-gradient(145deg, #1E1035, #150030) !important; 
-    color: var(--t-accent) !important; 
-    border: 2px solid #2A0044 !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    text-shadow: 0 0 6px rgba(57, 255, 20, 0.3);
-}
-
-body[data-theme="joker"] .shuffle-active { 
-    background: linear-gradient(135deg, #4C1D95, #6D28D9) !important; 
-    color: #FFFFFF !important;
-    box-shadow: 0 0 20px rgba(191, 0, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid #39FF14 !important;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-}
-
-/* === MIDDLE SCREEN & MOTIVATION === */
-body[data-theme="joker"] #middle-screen > div > div:first-child, 
-body[data-theme="joker"] #motivation-box { 
-    background: linear-gradient(145deg, rgba(15, 0, 32, 0.9), rgba(21, 0, 48, 0.9)) !important; 
-    border: 1px solid #2A0044 !important; 
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important; 
-    backdrop-filter: blur(12px);
-}
-
-/* === CONTACT & QUIZ MODE === */
-body[data-theme="joker"] .contact-btn { 
-    color: var(--t-accent) !important; 
-    border: 2px solid #2A0044 !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important; 
-    transition: all 0.25s ease;
-    background: linear-gradient(145deg, #1E1035, #150030) !important;
-    text-shadow: 0 0 6px rgba(57, 255, 20, 0.2);
-}
-
-body[data-theme="joker"] .contact-btn:hover {
-    border-color: var(--t-accent) !important;
-    box-shadow: 0 0 20px rgba(57, 255, 20, 0.1) !important;
-}
-
-body[data-theme="joker"] #quiz-mode-box { 
-    border: 1px solid #2A0044 !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important; 
-    background: linear-gradient(145deg, #150030, #1E1035) !important;
-}
-
-/* === INPUTS === */
-body[data-theme="joker"] input,
-body[data-theme="joker"] textarea,
-body[data-theme="joker"] select {
-    background: linear-gradient(145deg, #1E1035, #150030) !important;
-    border: 1px solid #2A0044 !important;
-    color: #F0F0F0 !important;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-body[data-theme="joker"] input:focus,
-body[data-theme="joker"] textarea:focus,
-body[data-theme="joker"] select:focus {
-    border-color: var(--t-accent) !important;
-    outline: none !important;
-    box-shadow: 0 0 0 3px rgba(57, 255, 20, 0.08), 0 0 16px rgba(57, 255, 20, 0.06), inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* === MODAL OVERLAY === */
-body[data-theme="joker"] .modal-overlay,
-body[data-theme="joker"] .overlay {
-    background: rgba(10, 0, 20, 0.93) !important;
-    backdrop-filter: blur(12px);
-}
-
-/* === DIVIDERS === */
-body[data-theme="joker"] hr,
-body[data-theme="joker"] .divider {
-    border: none !important;
-    height: 1px !important;
-    background: linear-gradient(90deg, transparent 0%, #39FF14 25%, #BF00FF 50%, #FF003C 75%, transparent 100%) !important;
-    opacity: 0.5;
-}
-
-/* === TEXT === */
-body[data-theme="joker"] .text-muted,
-body[data-theme="joker"] .text-secondary {
-    color: #8B6FA8 !important;
-}
-
-body[data-theme="joker"] .text-primary {
-    color: #F0F0F0 !important;
+/* Math Container */
+[data-theme="joker"] .math-scroll-container {
+    background: #141414 !important;
+    border: 1px solid #333 !important;
 }
