@@ -60,6 +60,23 @@
     --nav-border: #1F2937;
     --nav-icon-inactive: #64748B;  /* မရွေးရသေးတဲ့ icon အရောင် */
     --nav-icon-active: #00D5FF;    /* ရွေးထားတဲ့ icon အရောင် */
+	
+	 --switch-bg-off: #1E293B;
+    --switch-border-off: #334155;
+    --switch-bg-on: #00D5FF;
+    --switch-knob-off: #FFFFFF;
+    --switch-knob-on: #0B0F19;
+    
+    /* 📋 Study Tracker Variables */
+    --tracker-bg: #0B0F19;
+    --tracker-border: #334155;
+    --tracker-text: #CBD5E1;
+    --tracker-check-accent: #00D5FF;
+    
+    /* ⚙️ Quiz Mode Toggle Box */
+    --toggle-inner-bg: #0F172A;
+    --toggle-inner-border: #334155;
+    --toggle-label-color: #CBD5E1;
 }
 
     body { 
@@ -203,15 +220,56 @@
     .gender-container { margin: 20px 0; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; color: var(--text-muted); }
     .switch { position: relative; display: inline-block; width: 60px; height: 34px; }
     .switch input { opacity: 0; width: 0; height: 0; }
-    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #1E293B; border: 1px solid #334155; transition: .3s; border-radius: 34px; }
-    .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 3px; bottom: 3px; background-color: var(--white); transition: .3s; border-radius: 50%; }
-    input:checked + .slider { background-color: #00D5FF; }
-    input:checked + .slider:before { transform: translateX(26px); background-color: #0B0F19; }
+    .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--switch-bg-off);
+    border: 1px solid var(--switch-border-off);
+    transition: .3s;
+    border-radius: 34px;
+}
 
-    /* Study Tracker */
-    #checklist-container div { padding: 8px 12px !important; margin-bottom: 6px !important; background: #0B0F19 !important; border: 1px solid #334155 !important; border-radius: 10px !important; display: flex; align-items: center; }
-    #checklist-container label { font-size: 0.9rem !important; color: #CBD5E1 !important; }
-    #checklist-container input[type="checkbox"] { transform: scale(1) !important; width: 16px; height: 16px; margin-right: 5px; accent-color: #00D5FF; }
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px; width: 26px;
+    left: 3px; bottom: 3px;
+    background-color: var(--switch-knob-off);
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--switch-bg-on);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    background-color: var(--switch-knob-on);
+}
+
+#checklist-container div {
+    padding: 8px 12px !important;
+    margin-bottom: 6px !important;
+    background: var(--tracker-bg) !important;
+    border: 1px solid var(--tracker-border) !important;
+    border-radius: 10px !important;
+    display: flex;
+    align-items: center;
+}
+
+#checklist-container label {
+    font-size: 0.9rem !important;
+    color: var(--tracker-text) !important;
+}
+
+#checklist-container input[type="checkbox"] {
+    transform: scale(1) !important;
+    width: 16px; height: 16px;
+    margin-right: 5px;
+    accent-color: var(--tracker-check-accent);
+}
 
     /* --- 6. Inputs & Quizzes --- */
     .quiz-input { 
@@ -476,6 +534,23 @@ body[data-theme] {
 body[data-theme] .container {
     background: transparent !important;
 }
+
+.quiz-mode-toggle-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-weight: bold;
+    background: var(--toggle-inner-bg);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--toggle-inner-border);
+}
+
+.toggle-label {
+    font-size: 0.95rem;
+    color: var(--toggle-label-color);
+}
 </style>
 </head>
 <body>
@@ -634,14 +709,14 @@ body[data-theme] .container {
     </div>
     <p style="color: #94A3B8; font-size: 0.85rem; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">မေးခွန်းများကို အစဉ်လိုက်ဖြေဆိုမည်လား၊ ကျပန်း (Random) ဖြေဆိုမည်လား ရွေးချယ်ပါ။</p>
     
-    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; background: #0F172A; padding: 10px; border-radius: 12px; border: 1px solid #334155;">
-        <span style="font-size: 0.95rem; color: #cbd5e1;">အစဉ်လိုက်</span>
-        <label class="switch">
-            <input type="checkbox" id="random-switch" onchange="updateRandomizeSetting()">
-            <span class="slider"></span>
-        </label>
-        <span style="font-size: 0.95rem; color: #cbd5e1;">ကျပန်း</span>
-					 </div>
+    <div class="quiz-mode-toggle-inner">
+    <span class="toggle-label">အစဉ်လိုက်</span>
+    <label class="switch">
+        <input type="checkbox" id="random-switch" onchange="updateRandomizeSetting()">
+        <span class="slider"></span>
+    </label>
+    <span class="toggle-label">ကျပန်း</span>
+</div>
 					 </div>
 					 </div>
 					 
