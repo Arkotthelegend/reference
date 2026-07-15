@@ -406,3 +406,24 @@ body[data-theme="heaven"] .screen-title,
 body[data-theme="heaven"] .page-title {
     color: #111827 !important;
 }
+
+body[data-theme="light"] {
+    /* Switch - Light Mode */
+    --switch-bg-off: #E2E8F0;
+    --switch-border-off: #CBD5E1;
+    --switch-bg-on: #00D5FF;
+    --switch-knob-off: #FFFFFF;
+    --switch-knob-on: #0F172A;
+    
+    /* Study Tracker - Light Mode */
+    --tracker-bg: #F8FAFC;
+    --tracker-border: #E2E8F0;
+    --tracker-text: #334155;
+    --tracker-check-accent: #0EA5E9;
+    
+    /* Quiz Toggle Box - Light Mode */
+    --toggle-inner-bg: #F1F5F9;
+    --toggle-inner-border: #E2E8F0;
+    --toggle-label-color: #475569;
+}
+
