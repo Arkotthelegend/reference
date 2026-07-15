@@ -46,42 +46,15 @@
         user-select: auto !important;
     }
     
-    :root {
-    --bg: #0B0F19;
-    --card-bg: #162235;
-    --white: #FFFFFF;
-    --text-muted: #64748B;
-    --lock: #1E293B;
-    --success: #10B981;
-    --error: #EF4444;
-    
-    /* 🆕 Nav Bar Variables (Default/Dark Theme) */
-    --nav-bg: #111827;
-    --nav-border: #1F2937;
-    --nav-icon-inactive: #64748B;  /* မရွေးရသေးတဲ့ icon အရောင် */
-    --nav-icon-active: #00D5FF;    /* ရွေးထားတဲ့ icon အရောင် */
-	
-	 --switch-bg-off: #1E293B;
-    --switch-border-off: #334155;
-    --switch-bg-on: #00D5FF;
-    --switch-knob-off: #FFFFFF;
-    --switch-knob-on: #0B0F19;
-    
-    /* 📋 Study Tracker Variables */
-    --tracker-bg: #0B0F19;
-    --tracker-border: #334155;
-    --tracker-text: #CBD5E1;
-    --tracker-check-accent: #00D5FF;
-    
-    /* ⚙️ Quiz Mode Toggle Box */
-    --toggle-inner-bg: #0F172A;
-    --toggle-inner-border: #334155;
-    --toggle-label-color: #CBD5E1;
-	
-	--score-bg: #065F46;
-    --score-border: #10B981;
-    --score-text: #10B981;
-}
+    :root { 
+        --bg: #0B0F19; /* Solid Deep Dark */
+        --card-bg: #162235; /* Solid Card Background */
+        --white: #FFFFFF; 
+        --text-muted: #64748B;
+        --lock: #1E293B; 
+        --success: #10B981; 
+        --error: #EF4444; 
+    }
 
     body { 
         background-color: var(--bg); 
@@ -224,56 +197,15 @@
     .gender-container { margin: 20px 0; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; color: var(--text-muted); }
     .switch { position: relative; display: inline-block; width: 60px; height: 34px; }
     .switch input { opacity: 0; width: 0; height: 0; }
-    .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: var(--switch-bg-off);
-    border: 1px solid var(--switch-border-off);
-    transition: .3s;
-    border-radius: 34px;
-}
+    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #1E293B; border: 1px solid #334155; transition: .3s; border-radius: 34px; }
+    .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 3px; bottom: 3px; background-color: var(--white); transition: .3s; border-radius: 50%; }
+    input:checked + .slider { background-color: #00D5FF; }
+    input:checked + .slider:before { transform: translateX(26px); background-color: #0B0F19; }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px; width: 26px;
-    left: 3px; bottom: 3px;
-    background-color: var(--switch-knob-off);
-    transition: .3s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: var(--switch-bg-on);
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-    background-color: var(--switch-knob-on);
-}
-
-#checklist-container div {
-    padding: 8px 12px !important;
-    margin-bottom: 6px !important;
-    background: var(--tracker-bg) !important;
-    border: 1px solid var(--tracker-border) !important;
-    border-radius: 10px !important;
-    display: flex;
-    align-items: center;
-}
-
-#checklist-container label {
-    font-size: 0.9rem !important;
-    color: var(--tracker-text) !important;
-}
-
-#checklist-container input[type="checkbox"] {
-    transform: scale(1) !important;
-    width: 16px; height: 16px;
-    margin-right: 5px;
-    accent-color: var(--tracker-check-accent);
-}
+    /* Study Tracker */
+    #checklist-container div { padding: 8px 12px !important; margin-bottom: 6px !important; background: #0B0F19 !important; border: 1px solid #334155 !important; border-radius: 10px !important; display: flex; align-items: center; }
+    #checklist-container label { font-size: 0.9rem !important; color: #CBD5E1 !important; }
+    #checklist-container input[type="checkbox"] { transform: scale(1) !important; width: 16px; height: 16px; margin-right: 5px; accent-color: #00D5FF; }
 
     /* --- 6. Inputs & Quizzes --- */
     .quiz-input { 
@@ -297,57 +229,21 @@ input:checked + .slider:before {
     .timer-wrapper { display: flex; align-items: center; justify-content: center; margin-top: 20px; gap: 10px; }
     .timer-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 8px 16px; border-radius: 10px; font-size: 0.9rem; }
     .timer-display { font-size: 1.1rem; color: var(--white); font-family: monospace; font-weight: 700; background: #000; padding: 6px 12px; border-radius: 8px; border: 1px solid #334155; display: none; }
-	
     .markcount { position: absolute; top: 5px; right: 15px; margin: 0; z-index: 50; }
-	
-    #score-display {
-    display: inline-block;
-    background: var(--score-bg, #065F46);
-    border: 1px solid var(--score-border, #10B981);
-    color: var(--score-text, #10B981);
-    padding: 6px 15px;
-    border-radius: 12px;
-    font-family: monospace;
-    font-size: 1rem;
-    font-weight: 700;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
+    #score-display { display: inline-block; background: #065F46; border: 1px solid #10B981; color: #10B981; padding: 6px 15px; border-radius: 12px; font-family: monospace; font-size: 1rem; font-weight: 700; }
     
     .shuffle-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; }
     .shuffle-active { background: #00D5FF; color: #000; }
 
+    /* --- 7. Floating Nav --- */
+    .nav { 
+        position: fixed; bottom: 20px; left: 5%; width: 90%; height: 70px; background: #111827; 
+        display: flex; justify-content: space-around; align-items: center; 
+        border-radius: 20px; border: 1px solid #1F2937; z-index: 100; 
+    }
+    .nav-item { font-size: 1.5rem; filter: grayscale(100%); opacity: 0.4; cursor: pointer; transition: transform 0.2s ease, opacity 0.2s ease; }
+    .nav-active { filter: grayscale(0%) !important; opacity: 1 !important; transform: scale(1.2) translateY(-8px) !important; }
 	
-	/* --- 7. Floating Nav --- */
-.nav { 
-    position: fixed; 
-    bottom: 20px; 
-    left: 5%; 
-    width: 90%; 
-    height: 70px; 
-    background: var(--nav-bg);        /* 🆕 Variable သုံးလိုက်တယ် */
-    display: flex; 
-    justify-content: space-around; 
-    align-items: center; 
-    border-radius: 20px; 
-    border: 1px solid var(--nav-border);  /* 🆕 Variable သုံးလိုက်တယ် */
-    z-index: 100; 
-}
-
-.nav-item { 
-    font-size: 1.5rem; 
-    filter: grayscale(100%); 
-    opacity: 0.4; 
-    cursor: pointer; 
-    transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
-    color: var(--nav-icon-inactive);  /* 🆕 Inactive icon အရောင် */
-}
-
-.nav-active { 
-    filter: grayscale(0%) !important; 
-    opacity: 1 !important; 
-    transform: scale(1.2) translateY(-8px) !important;
-    color: var(--nav-icon-active) !important;  /* 🆕 Active icon အရောင် */
-}
 	/* ============================================================
            📱 GRID LAYOUT FIX (ဘာသာရပ်များကို ၂ ကော်လံ ခွဲပြသရန်)
            ============================================================ */
@@ -526,111 +422,6 @@ mjx-mtr, mjx-mlabeledtr {
     border-radius: 10px;
 }
 	
-
-/* ၂။ Contact Button — အရောင်လိုက်ပြောင်း */
-body[data-theme] .contact-btn { 
-    color: var(--t-accent) !important; 
-    border-color: var(--t-accent) !important; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important; 
-}
-
-
-/* ===== SMOOTH THEME TRANSITION ===== */
-body {
-    transition: background-color 0.4s ease, color 0.4s ease;
-}
-.subject-card, .btn, .option-btn, .flash-face, .profile-info-card, #exam-countdown, #motivation-box, #quiz-mode-box {
-    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-body[data-theme] {
-    background-color: var(--t-bg, #0B0F19) !important;
-}
-
-/* Container background stays consistent */
-body[data-theme] .container {
-    background: transparent !important;
-}
-
-.quiz-mode-toggle-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    font-weight: bold;
-    background: var(--toggle-inner-bg);
-    padding: 10px;
-    border-radius: 12px;
-    border: 1px solid var(--toggle-inner-border);
-}
-
-.toggle-label {
-    font-size: 0.95rem;
-    color: var(--toggle-label-color);
-}
-
-/* Theme Shop Card - Default (Dark) */
-.theme-shop-card {
-    background: var(--t-card, #162235);
-    transition: background 0.3s ease, border-color 0.3s ease;
-}
-
-/* Theme Shop Preview Box (အလေးချိန်အသေးလေး) */
-.theme-shop-card .preview-box {
-    background: var(--t-bg, #0B0F19);
-    border: 2px solid var(--t-accent, #00D5FF);
-}
-
-/* Theme Shop Text */
-.theme-shop-card .theme-name {
-    color: var(--t-text, #FFFFFF);
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.theme-shop-card .theme-price {
-    color: var(--t-muted, #94A3B8);
-    font-size: 0.8rem;
-}
-
-/* Button Styles inside Theme Shop */
-.theme-shop-card .theme-btn {
-    width: auto;
-    padding: 8px 16px;
-    margin: 0;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.theme-shop-card .theme-btn-buy {
-    background: transparent;
-    border: 1px solid var(--t-accent, #00D5FF);
-    color: var(--t-accent, #00D5FF);
-}
-
-.theme-shop-card .theme-btn-use {
-    background: var(--t-accent, #00D5FF);
-    color: var(--t-bg, #000000);
-    border: none;
-}
-
-.theme-shop-card .theme-btn-active {
-    color: var(--t-success, #10B981);
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-.theme-shop-card .theme-badge-exclusive {
-    color: var(--t-accent2, #F59E0B);
-    font-size: 0.8rem;
-    font-weight: bold;
-    border: 1px solid var(--t-accent2, #F59E0B);
-    padding: 4px 10px;
-    border-radius: 8px;
-}
 </style>
 </head>
 <body>
@@ -696,8 +487,7 @@ body[data-theme] .container {
     <div id="middle-screen" class="screen">
     <div style="padding: 20px; padding-bottom: 100px;">
         
-        <div id="motivation-box" style="margin-bottom: 25px; text-align: center; padding: 20px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent); border-radius: 20px;">
-		
+        <div style="margin-bottom: 25px; text-align: center; padding: 20px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 20px;">
             <span style="font-size: 1.5rem;">💡</span>
             <h4 style="color: var(--accent); margin: 10px 0 5px 0;">Daily Motivation</h4>
             <p id="daily-quote" style="font-style: italic; font-size: 0.95rem; color: #CBD5E1; line-height: 1.5;">
@@ -782,34 +572,26 @@ body[data-theme] .container {
                     <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
                     <a href="https://t.me/minaphayarkot" target="_blank" class="btn buy-btn">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</a>
-					<div id="quiz-mode-box" style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
+					<div style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
         <span style="font-size: 1.2rem;">⚙️</span>
         <b style="color: var(--accent); font-size: 1.1rem;">မေးခွန်းဖြေဆိုမှု ပုံစံ</b>
     </div>
     <p style="color: #94A3B8; font-size: 0.85rem; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">မေးခွန်းများကို အစဉ်လိုက်ဖြေဆိုမည်လား၊ ကျပန်း (Random) ဖြေဆိုမည်လား ရွေးချယ်ပါ။</p>
     
-    <div class="quiz-mode-toggle-inner">
-    <span class="toggle-label">အစဉ်လိုက်</span>
-    <label class="switch">
-        <input type="checkbox" id="random-switch" onchange="updateRandomizeSetting()">
-        <span class="slider"></span>
-    </label>
-    <span class="toggle-label">ကျပန်း</span>
-</div>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; background: #0F172A; padding: 10px; border-radius: 12px; border: 1px solid #334155;">
+        <span style="font-size: 0.95rem; color: #cbd5e1;">အစဉ်လိုက်</span>
+        <label class="switch">
+            <input type="checkbox" id="random-switch" onchange="updateRandomizeSetting()">
+            <span class="slider"></span>
+        </label>
+        <span style="font-size: 0.95rem; color: #cbd5e1;">ကျပန်း</span>
 					 </div>
 					 </div>
-					 
+					 </div>
             </div> 
 			<div id="dynamic-content-area"></div>
         </div>
-		
-		<div id="theme-shop-screen" class="screen">
-    <h2 style="text-align: center; color: var(--accent);">🎨 Theme Shop</h2>
-    <p style="text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top:-10px; margin-bottom: 20px;">သင့်အကြိုက်ဆုံး အရောင်ကို ရွေးချယ်ပါ</p>
-    <div id="theme-list" style="padding: 0 10px;"></div>
-    <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
-</div>
 
         <div id="menu-screen" class="screen">
             <h2 id="menu-title" style="text-align: center; color: var(--accent);"></h2>
@@ -905,15 +687,6 @@ body[data-theme] .container {
 		
 		const ADMIN_ID = 8432363664;
 const specialUsers = [5593040432,6889096884,1709037573];
-// --- School Exclusive Themes (ဈေးမရောင်းဘဲ အထူးပေးသုံး) ---
-const exclusiveThemeUsers = {
-'mmpn': [8432363664, 987654321, 5593040432], // ဒီကျောင်းသား Telegram ID များ
-'vip_diamond': [8432363664, 123456789, 9876543210],
-'joker':[8432363664],
-'itachi':[8432363664],
-'heaven':[8432363664],
-'infinity':[8432363664]
-};
 
 // --- Sub-Chapter Configuration ---
 // အခန်းခွဲများကို မိမိစိတ်ကြိုက် ဤနေရာတွင် ပြင်ဆင်/ထပ်ထည့်နိုင်ပါသည်။
@@ -981,36 +754,34 @@ const subChapterConfig = {
         const userId = tg.initDataUnsafe?.user?.id?.toString() || "Guest";
 
         async function loadPaidUsers() {
-    const sheetURL = "https://script.google.com/macros/s/AKfycbx3-A1khjc924DyrdmTjKHdxbo9h7fEDhbSVtURyUa9y3oGoTzMFGjc3X1rKUDU7x41/exec";
-    
-    const cachedData = localStorage.getItem('cached_paid_users');
-        if (cachedData) {
-        paidUsers = JSON.parse(cachedData);
-        userBought = paidUsers[userId] || [];
-        renderSubjects();
-        initOldSubjects();   // <<<<<< ဒါထည့်ပါ
-    }
+            const sheetURL = "https://script.google.com/macros/s/AKfycbywFT-elmwvQOLoHS0RYZUdYl5WbdgB1q5pSjoJ5Krf_WvZLtyPRXhyPdSEr8vQEPFL/exec";
+            
+            // ၁။ ဖုန်းထဲမှာ အရင်က သိမ်းထားဖူးတဲ့ စာရင်းရှိလား အရင်စစ်မယ်
+            const cachedData = localStorage.getItem('cached_paid_users');
+            if (cachedData) {
+                paidUsers = JSON.parse(cachedData);
+                userBought = paidUsers[userId] || [];
+                renderSubjects(); // သိမ်းထားတာ ရှိရင် ချက်ချင်း လော့ဖွင့်ပေးလိုက်မယ်
+            }
 
-    try {
-        const response = await fetch(sheetURL);
-        const newData = await response.json();
-        
-        localStorage.setItem('cached_paid_users', JSON.stringify(newData));
-        
+            try {
+                // ၂။ Background မှာ Google Sheet ဆီကနေ နောက်ဆုံးရ ဒေတာကို လှမ်းယူမယ်
+                const response = await fetch(sheetURL);
+                const newData = await response.json();
+                
+                // ၃။ ဒေတာအသစ်ကို ဖုန်းထဲမှာ ပြန်သိမ်းမယ်
+                localStorage.setItem('cached_paid_users', JSON.stringify(newData));
+                
+                // ၄။ အကယ်၍ ဒေတာအသစ်က အရင်ဟာနဲ့ မတူရင် (ဥပမာ- အခုမှ ဝယ်ထားတာဆိုရင်) UI ကို Update လုပ်မယ်
                 paidUsers = newData;
-        userBought = paidUsers[userId] || [];
-        renderSubjects();
-        initOldSubjects();   // <<<<<< ဒါထည့်ပါ
-        
-        // Theme re-apply after data loads
-        const savedTheme = localStorage.getItem('activeTheme') || 'default';
-        document.body.setAttribute('data-theme', savedTheme);
-        
-        console.log("Database updated in background");
-    } catch (e) {
-        console.error("Database error:", e);
-    }
-}
+                userBought = paidUsers[userId] || [];
+                renderSubjects();
+                
+                console.log("Database updated in background");
+            } catch (e) {
+                console.error("Database error:", e);
+            }
+        }
 
         const subjects = [
     { id: 'mm', name: 'မြန်မာစာ' },
@@ -1036,12 +807,37 @@ const subChapterConfig = {
 
 // Grammar ခေါင်းစဉ်များကို နှစ်အလိုက်မခွဲတော့ဘဲ တစ်ခုတည်းအဖြစ် ပေါင်းထားပါသည်
 const oldENGrammarTopics = [
-    { title: "Past Simple", id: "past_simple" },
-    { title: "Present Simple", id: "present_simple" },
-    { title: "Present Continuous", id: "present_continuous" },
-    { title: "Zero Conditional", id: "zero_conditional" },
-    { title: "First Conditional", id: "first_conditional" },
-    { title: "Active Voice To Passive Voice", id: "active_passive_voice" }
+    { title: "Direct Indirect", id: "din" },
+    { title: "Both And", id: "botha" },
+    { title: "Too to", id: "toot" },
+    { title: "Omission of Relative Pronoun", id: "omispro" },
+    { title: "Relative Pronoun & Adverbs", id: "relativepro" },
+    { title: "Active Voice To Passive Voice", id: "passive" },
+	{ title: "Linking Word", id: "linkinw" },
+    { title: "Second Conditional", id: "seccon" },
+    { title: "Third Conditional", id: "thirdcon" },
+	{ title: "No matter", id: "nomat" },
+    { title: "Not only but also", id: "notonly" },
+    { title: "It is/ It was", id: "itisitwas" },
+	{ title: "So as to", id: "soas" },
+    { title: "Introductory phases", id: "introduct" },
+    { title: "Owning to", id: "owning" },
+	{ title: "Tenses", id: "tense" },
+    { title: "Without Ving", id: "without" },
+    { title: "Enough to", id: "enough" },
+	{ title: "Although", id: "although" },
+    { title: "Even Though", id: "even" },
+    { title: "Either or", id: "eitheror" },
+	{ title: "Neither nor", id: "neither" },
+    { title: "Before", id: "before" },
+    { title: "After", id: "after" },
+	{ title: "So that such that", id: "sothat" },
+    { title: "As soon as / No sooner", id: "assoon" },
+    { title: "Nouns in apposition", id: "nounin" },
+	{ title: "As if / As though", id: "asif" },
+    { title: "The more the less", id: "the more" },
+    { title: "Such that / In order to", id: "inorder" },
+	{ title: "Participal phrases", id: "participal" }
     // လိုအပ်သလို ထပ်ဖြည့်နိုင်ပါသည်
 ];
 
@@ -1172,11 +968,15 @@ function showOldMMQuizOptions(typeName) {
             if (cat === 'အပြော' || cat === 'အရေး') {
                 // "အပြော" နှင့် "အရေး" အတွက် အခန်းခွဲများရွေးရန် သွားမည်
                 showOldMMChapters(typeName, cat);
-            }         else if (cat === 'ရေသည်') {
-            const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-            initQuiz(fileName);  // ✅ initFlashcards ကို initQuiz အစားထိုး
-            document.getElementById('quiz-back-btn').onclick = () => { showScreen('scroll'); showOldMMQuizOptions(typeName); };
-        } else{
+            }else if (cat === 'ရေသည်') {
+                const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                initFlashcards(fileName);
+                const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
+                flashExitBtn.onclick = () => {
+                    showScreen('scroll');
+                    showOldMMQuizOptions(typeName);
+                };
+            } else{
                 // "စကားပြေ" နှင့် "ကဗျာ" အတွက် တိုက်ရိုက် မေးခွန်းစမည်
                 initQuiz(`old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
                 document.getElementById('quiz-back-btn').onclick = () => {
@@ -1256,6 +1056,10 @@ function backToOldSubjects() {
     document.getElementById('old-subjects-screen').style.display = 'block';
 }
 
+// App စတက်တာနဲ့ Old Subjects တွေကို အဆင်သင့်လုပ်ထားရန် ခေါ်ပေးခြင်း
+setTimeout(() => {
+    initOldSubjects();
+}, 500);
 
 function checkAccess(subId) {
     // ၁။ ဒီနေ့ ရက်စွဲကို အချိန် (Time) မပါဘဲ ယူမည်
@@ -1679,11 +1483,15 @@ function showMMQuizOptions(typeName) {
             } else if (cat === 'ကဗျာ') {
                 // ကဗျာကို ရွေးချယ်ပါက ကဗျာ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
                 showSubMenu(typeName, cat, poetryTitles);
-            }         else if (cat === 'ရေသည်') {
-            const fileName = `mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-            initQuiz(fileName);  // ✅ initFlashcards ကို initQuiz အစားထိုး
-            document.getElementById('quiz-back-btn').onclick = () => { showScreen('activity'); showMMQuizOptions(typeName); };
-        } else {
+            } else if (cat === 'ရေသည်') {
+                const fileName = `mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                initFlashcards(fileName);
+                const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
+                flashExitBtn.onclick = () => {
+                    showScreen('activity');
+                    showMMQuizOptions(typeName);
+                };
+            } else {
                 // အပြော နှင့် အရေး အတွက် မူလအတိုင်း ဆက်သွားရန်
                 { showMMChapters(typeName, cat) };
                 document.getElementById('quiz-back-btn').onclick = () => showMMQuizOptions(typeName);
@@ -1723,7 +1531,7 @@ function showSubMenu(typeName, cat, titles) {
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
     
-    // ခေါင်းစဉ်ခွဲများမှ Back button နှိပ်ပါက မူလ (အပြော, စကားပြေ, ကဗျာ, ရေသည်, အရေး) ရွေးချယ်သည့် နေရာသို့ ပြန်သွားရန်
+    // ခေါင်းစဉ်ခွဲများမှ Back button နှိပ်ပါက မူလ (အပြော, စကားပြေ, ကဗျာ, အရေး) ရွေးချယ်သည့် နေရာသို့ ပြန်သွားရန်
     document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
     
     titles.forEach(title => {
@@ -2384,13 +2192,10 @@ function renderProfileData() {
     // Dynamic Area ထဲကို UI တွေ ထည့်မယ်
     const dynamicArea = document.getElementById('dynamic-content-area');
     dynamicArea.innerHTML = `
-    <button onclick="openThemeShop()" style="width: 100%; background: linear-gradient(135deg, #8B5CF6, #EC4899); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
-        🎨 Theme Shop
-    </button>
-    <button class="contact-btn" onclick="contactDeveloper()" style="width: 100%; background: #1E293B; padding: 15px; border-radius: 14px; margin-top: 10px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
-        🛠 အမှားများတိုင်ကြားရန်
-    </button>
-`;
+        <button onclick="contactDeveloper()" style="width: 100%; background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
+            🛠 အမှားများတိုင်ကြားရန်
+        </button>
+    `;
 }
 
         // --- Init ---
@@ -2433,13 +2238,12 @@ function loadGoals() {
     }
 
     // ၂။ Checkbox အခြေအနေများကို UI တွင် ပြန်လည်ပြသခြင်း
-   for (let i = 1; i <= 9; i++) {
-    const checkbox = document.getElementById(`goal${i}`);
-    // values ရှိမရှိ စစ်ပြီးမှ သုံးပါ
-    if (checkbox && savedData && savedData.values) {
-        checkbox.checked = savedData.values[`goal${i}`] || false;
+    for (let i = 1; i <= 9; i++) {
+        const checkbox = document.getElementById(`goal${i}`);
+        if (checkbox) {
+            checkbox.checked = savedData.values[`goal${i}`] || false;
+        }
     }
-}
 
     // ၃။ Motivation Quote ပြောင်းလဲခြင်း (၁၅ ခုအနက်မှ တစ်ရက်တစ်ခု)
     const quotes = [
@@ -2514,56 +2318,16 @@ function resetGoals() {
     }
     saveGoals();
 }
-// --- Theme CSS Loader ---
-const loadedThemeCSS = new Set(); // ဘယ် file တွေ load ပြီးလဲ သိမ်းထားမယ်
 
-function loadThemeCSS(themeId) {
-    // default ဆိုရင် file မလိုဘူး (index.html ထဲမှာပဲ base ရှိတယ်)
-    if (themeId === 'default') return;
-    
-    const fileName = `theme-${themeId}.css`;
-    
-    // ရှေ့က load ထားရင် ပြန်မလုပ်ဘူး
-    if (loadedThemeCSS.has(fileName)) return;
-    
-    // HTML head ထဲမှာ CSS link အသစ် ထည့်မယ်
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = `./${fileName}`;  // 📁 index.html နဲ့ တူညီတဲ့ folder ထဲမှာ theme-xxx.css ရှိရမယ်
-    link.type = 'text/css';
-    
-    // load ပြီးရင် Set ထဲထည့်
-    link.onload = () => {
-        loadedThemeCSS.add(fileName);
-        console.log(`Theme CSS loaded: ${fileName}`);
-    };
-    
-    // load မရရင် console မှာ error ပြမယ်
-    link.onerror = () => {
-        console.error(`Failed to load theme CSS: ${fileName}`);
-    };
-    
-    document.head.appendChild(link);
-}
-
+// App စဖွင့်ချိန်မှာ function တွေကို ခေါ်ခြင်း
 window.onload = () => {
     loadGoals(); 
     updateCountdown(); 
     updateStreak();
     loadPaidUsers();
-    initOldSubjects();
     
-    // Theme Init
-    const savedTheme = localStorage.getItem('activeTheme') || 'default';
-    
-    // 🆕 savedTheme မဟုတ်ဘူးဆိုရင် file load မယ်
-    if (savedTheme !== 'default') {
-        loadThemeCSS(savedTheme);
-    }
-    
-    document.body.setAttribute('data-theme', savedTheme);
-    
-    const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false';
+    // Random Switch ကို Local Storage ထဲက data နဲ့ ပြန်ချိန်ပေးခြင်း
+    const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false'; // Default true
     const randomSwitch = document.getElementById('random-switch');
     if (randomSwitch) {
         randomSwitch.checked = savedRandomSetting;
@@ -2858,120 +2622,6 @@ function resetTimer() {
     // 🎯 ရမှတ်ကို ၀ ပြန်ပြောင်းပြီး Screen ပေါ်မှာ ပြန်ပြင်ပေးရန်
     score = 0;
     document.getElementById('score-display').innerText = "ရမှတ်: 0";
-}
-// --- Theme Shop System ---
-const themes = [
-    { id: 'default', name: 'Ocean Dark Theme', price: 0, color: '#00D5FF', preview: 'linear-gradient(135deg, #0B0F19, #162235)' },
-    { id: 'joker', name: 'Jocker Theme', price: -1, color: '#BF00FF', preview: 'linear-gradient(135deg, #0F0718, #1E1035)' , lockedText: 'Locked'},
-	{ id: 'heaven', name: 'Heaven Theme', price: -1, color: '#FFFFFF', preview: 'linear-gradient(135deg, FFFFFF, #CCCCCC)' , lockedText: 'Locked'},
-	{ id: 'itachi', name: 'Itachi Theme', price: -1, color: '#DC2626', preview: 'linear-gradient(135deg, #140303, #351010)' , lockedText: 'Locked'},
-	{ id: 'infinity', name: 'Infinity Theme', price: -1, color: '#00FFB7', preview: 'linear-gradient(135deg, #0077FF, #008205)' , lockedText: 'Locked'}
-];
-
-// --- { id: 'mmpn', name: 'MMPN', price: -1, color: '#F59E0B', preview: 'linear-gradient(135deg, #1a1000, #3d2800)', exclusive: true, schoolName: "MMPN students onnly" } ---
-
-function checkThemeAccess(themeId) {
-    if (themeId === 'default') return true;
-    
-    // 🆕 ၁။ Hardcoded List (VIP, School, Special) ထဲမှာ ရှိရင် အရင်ခွင့်ပြု
-    // ဒါက theme ဘယ်လိုအမျိုးအစားဖြစ်ဖြစ် စစ်ပေးမယ်
-    if (checkExclusiveAccess(themeId)) return true;
-    
-    // ၂။ Google Sheet (Paid) မှ ဝယ်ထားရင် ခွင့်ပြု
-    return checkAccess('theme_' + themeId);
-}
-
-function checkExclusiveAccess(themeId) {
-    // ၁။ Hardcoded List ထဲမှာလား စစ်မယ်
-    const uid = tg.initDataUnsafe?.user?.id?.toString();
-    const allowed = exclusiveThemeUsers[themeId] || [];
-    if (allowed.map(String).includes(uid)) return true;
-    
-    // ၂။ Google Sheet ကနေ ယူထားတဲ့ Theme List ထဲမှာလား စစ်မယ်
-    if (window.userThemes && window.userThemes.includes(themeId)) return true;
-    
-    return false;
-}
-
-
-function setTheme(themeId) {
-    // 🆕 CSS file load မယ် (ရှေ့က load ထားရင် auto skip လုပ်မယ်)
-    loadThemeCSS(themeId);
-    
-    document.body.setAttribute('data-theme', themeId);
-    localStorage.setItem('activeTheme', themeId);
-    tg.showAlert(themes.find(t => t.id === themeId).name + " theme သုံးပါပြီ ✅");
-    
-    // Theme Shop ကို refresh
-    if (document.getElementById('theme-shop-screen').classList.contains('active-screen')) {
-        openThemeShop();
-    }
-}
-
-function openThemeShop() {
-    showScreen('theme-shop');
-    const list = document.getElementById('theme-list');
-    list.innerHTML = '';
-    
-    // Make sure body has the current theme attribute
-    const currentTheme = localStorage.getItem('activeTheme') || 'default';
-    document.body.setAttribute('data-theme', currentTheme);
-    
-    themes.forEach(t => {
-        const isOwned = checkThemeAccess(t.id);
-        const isActive = currentTheme === t.id;
-        
-        const div = document.createElement('div');
-div.className = 'theme-shop-card';
-div.style.cssText = `border: 2px solid ${t.color}; border-radius: 16px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;`;
-        
-        let btnHtml = '';
-        if (isActive) {
-            btnHtml = `<span class="theme-btn-active">✓ သုံးနေသည်</span>`;
-        } else if (isOwned) {
-            btnHtml = `<button class="btn theme-btn theme-btn-use" onclick="setTheme('${t.id}')">သုံးမည်</button>`;
-                } else {
-    // 🏫 Exclusive Theme (School)
-    if (t.exclusive) {
-        btnHtml = `<span class="theme-badge-exclusive">🏫 ${t.schoolName}</span>`;
-    } 
-    // 🔒 ဝယ်လို့မရတဲ့ Theme (VIP, Event, etc...)
-    else if (t.lockedText) {
-        btnHtml = `<span class="theme-btn-buy" style="border: 1px solid ${t.color}; color: ${t.color}; padding: 4px 10px; border-radius: 8px; font-size: 0.8rem;">${t.lockedText}</span>`;
-    } 
-    // 💰 ဝယ်လို့ရတဲ့ Theme (အခမဲ့မဟုတ်၊ ဝယ်မည်ခလုတ်ပဲထားမယ်)
-    else if (t.price > 0) {
-    btnHtml = `<button class="btn theme-btn theme-btn-buy" onclick="buyThemePrompt('${t.id}')">ဝယ်မည်</button>`;
-}
-}
-        
-        div.innerHTML = `
-    <div style="display: flex; align-items: center; gap: 12px;">
-        <div class="theme-preview-box" style="width: 44px; height: 44px; border-radius: 12px; background: ${t.preview}; border: 2px solid ${t.color}; flex-shrink: 0;"></div>
-        <div>
-            <div class="theme-card-name">${t.name}</div>
-            <div class="theme-card-price">
-                ${isActive 
-                    ? '✓ သုံးနေသည်' 
-                    : (isOwned 
-                        ? 'သုံးရန်' 
-                        : (t.price === 0 
-                            ? 'Free' 
-                            : (t.price > 0 
-                                ? 'Premium' 
-                                : (t.lockedText || 'Locked'))))}
-            </div>
-        </div>
-    </div>
-    <div style="flex-shrink: 0; margin-left: 8px;">${btnHtml}</div>
-`;
-        list.appendChild(div);
-    });
-}
-
-function buyThemePrompt(themeId) {
-    const t = themes.find(x => x.id === themeId);
-    tg.showAlert("🎨 " + t.name + " ဝယ်ယူရန် @minaphayarkot ကို ဆက်သွယ်ပါ။\n\nသင့် ID: " + userId + "\n(Theme: " + themeId + ")");
 }
     </script>
 </body>
