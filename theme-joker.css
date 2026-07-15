@@ -410,3 +410,10 @@ body[data-theme="itachi"] .theme-shop-card .theme-name {
 body[data-theme="itachi"] .theme-shop-card .theme-price {
     color: var(--t-muted, #8b0000);
 }
+
+/* Joker Theme - Score Display */
+body[data-theme="joker"] {
+    --score-bg: #0a1a0a;
+    --score-border: #39ff14;
+    --score-text: #39ff14;
+}
