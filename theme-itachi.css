@@ -433,3 +433,21 @@ body[data-theme="itachi"] #daily-screen .subject-card span:last-child {
     text-shadow: 0 0 8px currentColor;
     font-weight: 700;
 }
+
+/* Itachi Theme - Switch & Tracker */
+body[data-theme="itachi"] {
+    --switch-bg-off: #1a0a0a;
+    --switch-border-off: #8b0000;
+    --switch-bg-on: #ff0000;
+    --switch-knob-off: #ff0000;
+    --switch-knob-on: #0d0d0d;
+    
+    --tracker-bg: #140505;
+    --tracker-border: #8b0000;
+    --tracker-text: #ffcccc;
+    --tracker-check-accent: #ff0000;
+    
+    --toggle-inner-bg: #1a0a0a;
+    --toggle-inner-border: #8b0000;
+    --toggle-label-color: #ffcccc;
+}
