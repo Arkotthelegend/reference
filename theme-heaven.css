@@ -1,26 +1,63 @@
-/* theme-heaven.css - Heaven (Light, Clean, Gender-Neutral, Battery-Friendly) */
+/* theme-heaven.css - Heaven Theme (Light, Cloud, Gold + Soft Purple) */
 body[data-theme="heaven"] {
-  /* === BASE COLORS - Soft Cloud White === */
-  --t-bg: #F8FAFC;           /* Soft cloud white - easy on eyes */
+  /* === BASE COLORS — Warm Light Sky === */
+  --t-bg: #F8F6FF;           /* Soft lavender-white */
   --t-card: #FFFFFF;         /* Pure white cards */
 
-  /* === ACCENTS - Sky Blue + Soft Coral + Mint === */
-  --t-accent: #0EA5E9;       /* Sky Blue - calm, universal */
-  --t-accent2: #64748B;      /* Slate Gray - secondary, neutral */
-  --t-success: #10B981;      /* Mint Green - correct answers */
-  --t-danger: #EF4444;       /* Soft Red - wrong answers */
+  /* === ACCENTS — Soft Purple + Warm Gold + Sky Blue === */
+  --t-accent: #7C3AED;       /* Soft violet purple */
+  --t-accent2: #D4AF37;      /* Warm heaven gold */
+  --t-success: #10B981;      /* Fresh mint green */
+  --t-danger: #EF4444;       /* Soft red */
 
-  /* === BORDERS - Soft & Subtle === */
-  --t-border-home: #0EA5E9;   /* Sky Blue */
-  --t-border-old: #F97316;    /* Warm Orange - friendly contrast */
-  --t-border-daily: #8B5CF6;  /* Soft Violet - daily special */
+  /* === BORDERS — Clean & Elegant === */
+  --t-border-home: #7C3AED;   /* Purple */
+  --t-border-old: #D4AF37;    /* Gold */
+  --t-border-daily: #60A5FA;  /* Sky blue */
 
-  --t-border-subtle: #E2E8F0; /* Light gray border */
+  --t-border-subtle: #E5E7EB; /* Light grey */
 }
 
-/* === BACKGROUND - Soft Cloud Gradient === */
+/* === NAV BAR — Heavenly Gate === */
+body[data-theme="heaven"] .nav {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F3FF 100%) !important;
+    border-top: 1px solid #E9D5FF !important;
+    box-shadow: 0 -2px 16px rgba(124, 58, 237, 0.06) !important;
+}
+
+body[data-theme="heaven"] .nav-item {
+    color: #A78BFA !important;
+    transition: all 0.25s ease;
+    text-shadow: none;
+}
+
+body[data-theme="heaven"] .nav-item:hover {
+    color: #7C3AED !important;
+}
+
+body[data-theme="heaven"] .nav-item.active {
+    color: #D4AF37 !important;
+}
+
+body[data-theme="heaven"] .nav-item.active::before {
+    background: linear-gradient(90deg, transparent, #7C3AED, #D4AF37, transparent) !important;
+    height: 2px !important;
+}
+
+body[data-theme="heaven"] .nav-icon {
+    filter: none;
+}
+
+body[data-theme="heaven"] .nav-item.active .nav-icon {
+    filter: none;
+}
+
+/* === BACKGROUND — Cloudy Sky === */
 body[data-theme="heaven"] {
-    background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);
+    background: 
+        radial-gradient(ellipse 70% 50% at 20% 10%, rgba(124, 58, 237, 0.04) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 90%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+        linear-gradient(180deg, #F0F4FF 0%, #F8F6FF 30%, #FFFDF5 70%, #F8F6FF 100%);
     background-attachment: fixed;
 }
 
@@ -30,145 +67,167 @@ body[data-theme="heaven"] #grammar-note-screen {
     background: var(--t-bg) !important; 
 }
 
-/* === CARDS - Clean White with Soft Shadow === */
+/* === CARDS — Soft Cloud White === */
 body[data-theme="heaven"] .subject-card { 
     background: #FFFFFF !important;
     border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(148, 163, 184, 0.12), 0 1px 3px rgba(148, 163, 184, 0.08);
-    transition: all 0.25s ease;
-    border: 1px solid #E2E8F0 !important;
+    box-shadow: 
+        0 2px 12px rgba(124, 58, 237, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    border: 1px solid #F3E8FF !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle top accent line on cards */
+body[data-theme="heaven"] .subject-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(124, 58, 237, 0.12) 50%, transparent 100%);
+    pointer-events: none;
 }
 
 body[data-theme="heaven"] .subject-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(148, 163, 184, 0.15), 0 2px 6px rgba(148, 163, 184, 0.1);
-    border-color: #CBD5E1 !important;
+    box-shadow: 
+        0 8px 24px rgba(124, 58, 237, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04);
+    border-color: #E9D5FF !important;
 }
 
-/* === SUBJECT LIST BORDERS - Soft Color Accents === */
+/* === SUBJECT LIST BORDERS — Clean & Soft === */
 body[data-theme="heaven"] #subject-list .subject-card { 
     border: 2px solid var(--t-border-home) !important; 
-    box-shadow: 0 2px 12px rgba(14, 165, 233, 0.08), 0 1px 3px rgba(148, 163, 184, 0.08);
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 body[data-theme="heaven"] #subject-list .subject-card span:last-child { 
     color: var(--t-border-home) !important; 
-    font-weight: 700;
 }
 
 body[data-theme="heaven"] #old-subject-list .subject-card { 
     border: 2px solid var(--t-border-old) !important; 
-    box-shadow: 0 2px 12px rgba(249, 115, 22, 0.08), 0 1px 3px rgba(148, 163, 184, 0.08);
+    box-shadow: 0 2px 12px rgba(212, 175, 55, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 body[data-theme="heaven"] #old-subject-list .subject-card span:last-child { 
     color: var(--t-border-old) !important; 
-    font-weight: 700;
 }
 
 body[data-theme="heaven"] #daily-screen .subject-card { 
     border: 2px solid var(--t-border-daily) !important; 
-    box-shadow: 0 2px 12px rgba(139, 92, 246, 0.08), 0 1px 3px rgba(148, 163, 184, 0.08);
+    box-shadow: 0 2px 12px rgba(96, 165, 250, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 body[data-theme="heaven"] #daily-screen .subject-card span:last-child { 
     color: var(--t-border-daily) !important; 
-    font-weight: 700;
 }
 
-/* === BUTTONS - Soft Rounded, Clean === */
-
-/* Primary: Sky Blue */
+/* === BUTTONS — Soft Gold & Purple === */
 body[data-theme="heaven"] .btn { 
-    background: linear-gradient(135deg, #0284C7, #0EA5E9) !important; 
+    background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #7C3AED 100%) !important; 
     color: #FFFFFF !important; 
-    border: none !important;
-    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.25), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid #A78BFA !important;
+    box-shadow: 
+        0 2px 8px rgba(124, 58, 237, 0.15),
+        0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    text-shadow: none;
     font-weight: 600;
-    letter-spacing: 0.2px;
-    border-radius: 12px;
+    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Back Button: Soft Gray */
 body[data-theme="heaven"] .back-btn { 
-    background: #F1F5F9 !important; 
-    border: 1px solid #E2E8F0 !important; 
-    color: #475569 !important; 
-    box-shadow: 0 2px 8px rgba(148, 163, 184, 0.1);
-    border-radius: 12px;
+    background: linear-gradient(145deg, #FFFFFF, #F5F3FF) !important; 
+    border: 1px solid #E9D5FF !important; 
+    color: #6B7280 !important; 
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
-/* Next: Mint Green */
 body[data-theme="heaven"] .next-btn-styled, 
 body[data-theme="heaven"] .next-btn { 
-    background: linear-gradient(135deg, #059669, #10B981) !important; 
+    background: linear-gradient(135deg, #B8860B, #D4AF37) !important; 
     color: #FFFFFF !important; 
     font-weight: 600;
-    border: none !important;
-    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
-    border-radius: 12px;
+    border: 1px solid #FCD34D !important;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Option Buttons: White with soft border */
 body[data-theme="heaven"] .option-btn { 
-    background: #FFFFFF !important; 
-    border: 1px solid #E2E8F0 !important; 
-    color: #334155 !important;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 4px rgba(148, 163, 184, 0.08);
-    border-radius: 12px;
+    background: linear-gradient(145deg, #FFFFFF, #FAFAFF) !important; 
+    border: 1px solid #E9D5FF !important; 
+    color: #4B5563 !important;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
 }
 
 body[data-theme="heaven"] .option-btn:hover {
-    border-color: #0EA5E9 !important;
-    background: #F0F9FF !important;
-    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.1);
+    border-color: #C4B5FD !important;
+    background: #FAF5FF !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.06);
 }
 
-/* === ANSWER STATES - Soft & Clear === */
+/* === ANSWER STATES — Soft & Clean === */
 body[data-theme="heaven"] .correct-answer { 
-    background: #ECFDF5 !important; 
-    border: 2px solid var(--t-success) !important; 
+    background: linear-gradient(145deg, #ECFDF5, #D1FAE5) !important; 
+    border: 2px solid #10B981 !important; 
     color: #065F46 !important;
-    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
 }
 
 body[data-theme="heaven"] .wrong-answer { 
-    background: #FEF2F2 !important; 
-    border: 2px solid var(--t-danger) !important; 
+    background: linear-gradient(145deg, #FEF2F2, #FEE2E2) !important; 
+    border: 2px solid #EF4444 !important; 
     color: #991B1B !important;
-    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.08);
 }
 
-/* === FLASHCARDS - Soft & Clean === */
+/* === FLASHCARDS === */
 body[data-theme="heaven"] .flash-front { 
     border: 2px solid var(--t-accent) !important; 
-    box-shadow: 0 2px 12px rgba(14, 165, 233, 0.08);
-    background: #FFFFFF !important;
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 body[data-theme="heaven"] .flash-back { 
     border: 2px solid var(--t-danger) !important; 
-    box-shadow: 0 2px 12px rgba(239, 68, 68, 0.08);
-    background: #FFFFFF !important;
+    box-shadow: 0 2px 12px rgba(239, 68, 68, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-/* === PROFILE CARD - Clean Card === */
+/* === PROFILE CARD — Heavenly Halo === */
 body[data-theme="heaven"] .profile-info-card { 
     background: #FFFFFF !important; 
-    border: 1px solid #E2E8F0 !important; 
-    box-shadow: 0 4px 20px rgba(148, 163, 184, 0.12), 0 1px 4px rgba(148, 163, 184, 0.08) !important; 
-    border-radius: 16px;
+    border: 1px solid #E9D5FF !important; 
+    box-shadow: 
+        0 2px 12px rgba(124, 58, 237, 0.05), 
+        0 1px 3px rgba(0, 0, 0, 0.04) !important; 
+    position: relative;
+    overflow: hidden;
 }
 
-/* === EXAM COUNTDOWN - Clean Timer === */
+body[data-theme="heaven"] .profile-info-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #7C3AED 30%, #D4AF37 50%, #7C3AED 70%, transparent 100%);
+    pointer-events: none;
+}
+
+/* === EXAM COUNTDOWN === */
 body[data-theme="heaven"] #exam-countdown { 
     border: 2px solid var(--t-accent) !important; 
-    box-shadow: 0 4px 16px rgba(14, 165, 233, 0.1), 0 1px 4px rgba(148, 163, 184, 0.08) !important; 
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04) !important; 
     background: #FFFFFF !important;
-    border-radius: 16px;
 }
 
 body[data-theme="heaven"] .countdown-value { 
     color: var(--t-accent) !important;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.1em;
 }
 
@@ -176,59 +235,59 @@ body[data-theme="heaven"] .countdown-value {
 body[data-theme="heaven"] .bought-badge { 
     color: var(--t-accent) !important; 
     border: 1px solid var(--t-accent) !important; 
-    background: #F0F9FF !important;
-    border-radius: 8px;
-    padding: 2px 8px;
+    background: rgba(124, 58, 237, 0.04) !important;
 }
 
 body[data-theme="heaven"] .buy-btn { 
     background: transparent !important; 
-    color: var(--t-success) !important; 
-    border: 1px solid var(--t-success) !important; 
-    border-radius: 12px;
+    color: var(--t-accent2) !important; 
+    border: 1px solid var(--t-accent2) !important; 
 }
 
-/* === FORM ELEMENTS - Clean Focus === */
+/* === FORM ELEMENTS === */
 body[data-theme="heaven"] .gender-container input:checked + .slider { 
     background-color: var(--t-accent) !important; 
 }
 
 body[data-theme="heaven"] .quiz-input:focus { 
     border-color: var(--t-accent) !important; 
-    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1) !important;
-    outline: none;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.08) !important;
 }
 
 body[data-theme="heaven"] .quiz-card { 
     border-left: 4px solid var(--t-accent) !important; 
-    background: #FFFFFF !important;
-    box-shadow: 0 2px 8px rgba(148, 163, 184, 0.1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 /* === CONTENT BOXES === */
 body[data-theme="heaven"] #grammar-note-content, 
 body[data-theme="heaven"] #math-solution-content { 
-    border: 1px solid #E2E8F0 !important; 
+    border: 1px solid #E9D5FF !important; 
     background: #FFFFFF !important;
-    box-shadow: 0 2px 8px rgba(148, 163, 184, 0.08);
-    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
 }
 
-/* === SCROLLBAR - Clean Light === */
+/* === SCROLLBAR — Soft Purple === */
 body[data-theme="heaven"] .mjx-container::-webkit-scrollbar-thumb, 
 body[data-theme="heaven"] .math-scroll-container::-webkit-scrollbar-thumb { 
-    background: #CBD5E1 !important; 
+    background: linear-gradient(180deg, #C4B5FD, #A78BFA) !important; 
     border-radius: 4px;
 }
 
-body[data-theme="heaven"] ::-webkit-scrollbar { width: 8px; }
-body[data-theme="heaven"] ::-webkit-scrollbar-track { background: #F1F5F9; border-radius: 4px; }
+body[data-theme="heaven"] ::-webkit-scrollbar { 
+    width: 8px; 
+}
+body[data-theme="heaven"] ::-webkit-scrollbar-track { 
+    background: #F5F3FF; 
+    border-radius: 4px;
+}
 body[data-theme="heaven"] ::-webkit-scrollbar-thumb { 
-    background: #CBD5E1; 
+    background: linear-gradient(180deg, #E9D5FF, #DDD6FE); 
     border-radius: 4px; 
+    border: 1px solid #F5F3FF;
 }
 body[data-theme="heaven"] ::-webkit-scrollbar-thumb:hover { 
-    background: #94A3B8; 
+    background: linear-gradient(180deg, #C4B5FD, #A78BFA); 
 }
 
 /* === CHECKLIST === */
@@ -236,74 +295,67 @@ body[data-theme="heaven"] #checklist-container input[type="checkbox"] {
     accent-color: var(--t-accent) !important; 
 }
 
-/* === TIMER & SHUFFLE - Clean Light === */
+/* === TIMER & SHUFFLE === */
 body[data-theme="heaven"] .timer-btn { 
     background: #FFFFFF !important; 
     color: var(--t-accent) !important; 
-    border: 1px solid #E2E8F0 !important; 
-    box-shadow: 0 1px 4px rgba(148, 163, 184, 0.08);
-    border-radius: 12px;
+    border: 1px solid #E9D5FF !important; 
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
     font-weight: 600;
 }
 
 body[data-theme="heaven"] .shuffle-btn { 
     background: #FFFFFF !important; 
     color: var(--t-accent) !important; 
-    border: 1px solid #E2E8F0 !important; 
-    box-shadow: 0 1px 4px rgba(148, 163, 184, 0.08);
-    border-radius: 12px;
+    border: 1px solid #E9D5FF !important; 
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 body[data-theme="heaven"] .shuffle-active { 
-    background: linear-gradient(135deg, #0284C7, #0EA5E9) !important; 
+    background: linear-gradient(135deg, #7C3AED, #8B5CF6) !important; 
     color: #FFFFFF !important;
-    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.25);
-    border: none !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.12);
+    border: 1px solid #A78BFA !important;
 }
 
-/* === MIDDLE SCREEN & MOTIVATION - Soft Glass === */
+/* === MIDDLE SCREEN & MOTIVATION === */
 body[data-theme="heaven"] #middle-screen > div > div:first-child, 
 body[data-theme="heaven"] #motivation-box { 
-    background: rgba(255, 255, 255, 0.85) !important; 
-    border: 1px solid #E2E8F0 !important; 
-    box-shadow: 0 4px 20px rgba(148, 163, 184, 0.1) !important; 
+    background: rgba(255, 255, 255, 0.95) !important; 
+    border: 1px solid #E9D5FF !important; 
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.05) !important; 
     backdrop-filter: blur(12px);
-    border-radius: 16px;
 }
 
 /* === CONTACT & QUIZ MODE === */
 body[data-theme="heaven"] .contact-btn { 
     color: var(--t-accent) !important; 
-    border: 1px solid #E2E8F0 !important; 
-    box-shadow: 0 1px 4px rgba(148, 163, 184, 0.08) !important; 
-    transition: all 0.2s ease;
+    border: 1px solid #E9D5FF !important; 
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03) !important; 
+    transition: all 0.25s ease;
     background: #FFFFFF !important;
-    border-radius: 12px;
-    font-weight: 600;
 }
 
 body[data-theme="heaven"] .contact-btn:hover {
-    border-color: var(--t-accent) !important;
-    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.1) !important;
-    background: #F0F9FF !important;
+    border-color: #C4B5FD !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.06) !important;
+    color: #6D28D9 !important;
 }
 
 body[data-theme="heaven"] #quiz-mode-box { 
-    border: 1px solid #E2E8F0 !important; 
-    box-shadow: 0 2px 8px rgba(148, 163, 184, 0.08) !important; 
+    border: 1px solid #E9D5FF !important; 
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03) !important; 
     background: #FFFFFF !important;
-    border-radius: 16px;
 }
 
-/* === INPUTS & TEXTAREAS - Clean Light === */
+/* === INPUTS & TEXTAREAS — Clean Light === */
 body[data-theme="heaven"] input,
 body[data-theme="heaven"] textarea,
 body[data-theme="heaven"] select {
     background: #FFFFFF !important;
-    border: 1px solid #E2E8F0 !important;
-    color: #334155 !important;
-    box-shadow: inset 0 1px 3px rgba(148, 163, 184, 0.08);
-    border-radius: 12px;
+    border: 1px solid #E9D5FF !important;
+    color: #374151 !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 body[data-theme="heaven"] input:focus,
@@ -311,13 +363,13 @@ body[data-theme="heaven"] textarea:focus,
 body[data-theme="heaven"] select:focus {
     border-color: var(--t-accent) !important;
     outline: none !important;
-    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1), inset 0 1px 3px rgba(148, 163, 184, 0.08) !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.06), inset 0 1px 2px rgba(0, 0, 0, 0.03) !important;
 }
 
-/* === MODAL OVERLAY - Soft Light === */
+/* === MODAL OVERLAY — Soft Mist === */
 body[data-theme="heaven"] .modal-overlay,
 body[data-theme="heaven"] .overlay {
-    background: rgba(248, 250, 252, 0.92) !important;
+    background: rgba(248, 246, 255, 0.92) !important;
     backdrop-filter: blur(12px);
 }
 
@@ -326,15 +378,23 @@ body[data-theme="heaven"] hr,
 body[data-theme="heaven"] .divider {
     border: none !important;
     height: 1px !important;
-    background: linear-gradient(90deg, transparent 0%, #CBD5E1 20%, #E2E8F0 50%, #CBD5E1 80%, transparent 100%) !important;
+    background: linear-gradient(90deg, transparent 0%, #E9D5FF 20%, #D4AF37 50%, #E9D5FF 80%, transparent 100%) !important;
+    opacity: 0.5;
 }
 
-/* === TEXT HIERARCHY - Clean & Readable === */
+/* === TEXT HIERARCHY — Soft & Readable === */
 body[data-theme="heaven"] .text-muted,
 body[data-theme="heaven"] .text-secondary {
-    color: #64748B !important;
+    color: #9CA3AF !important;
 }
 
 body[data-theme="heaven"] .text-primary {
-    color: #1E293B !important;
+    color: #1F2937 !important;
+}
+
+/* === SPECIAL: Subject Card Icons/Arrows === */
+body[data-theme="heaven"] #subject-list .subject-card span:last-child,
+body[data-theme="heaven"] #old-subject-list .subject-card span:last-child,
+body[data-theme="heaven"] #daily-screen .subject-card span:last-child {
+    font-weight: 700;
 }
