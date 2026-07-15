@@ -397,23 +397,9 @@ body[data-theme="joker"] .theme-shop-card .theme-price {
     color: var(--t-accent2, #bf00ff);
 }
 
-/* Itachi Theme - Theme Shop */
-body[data-theme="itachi"] .theme-shop-card {
-    background: var(--t-card, #1a0a0a);
-    border-color: var(--t-accent, #ff0000) !important;
-}
-
-body[data-theme="itachi"] .theme-shop-card .theme-name {
-    color: var(--t-text, #ffcccc);
-}
-
-body[data-theme="itachi"] .theme-shop-card .theme-price {
-    color: var(--t-muted, #8b0000);
-}
-
 /* Joker Theme - Score Display */
 body[data-theme="joker"] {
-    --score-bg: #0a1a0a;
+    --score-bg: #141414;
     --score-border: #39ff14;
     --score-text: #39ff14;
 }
