@@ -486,71 +486,66 @@ body[data-theme="light"] {
 }
 
 /* =========================================
-   OVERRIDE: GENDER & SHUFFLE BUTTONS
-   (ဖိုင်ရဲ့ အဆုံးသတ်မှာ ကူးထည့်ပါ)
+   OVERRIDE: TOGGLE SWITCH (Gender & Random)
    ========================================= */
 
-/* 1. ကျား/မ ရွေးတဲ့ခလုပ် (Gender Buttons) */
-body[data-theme="heaven"] .gender-container label,
-body[data-theme="heaven"] .gender-container button,
-body[data-theme="heaven"] .gender-btn,
-body[data-theme="heaven"] .gender-option {
-    background: #FFFFFF !important;
-    border: 2px solid #E5E7EB !important;
-    color: #4B5563 !important;
-    padding: 8px 16px !important;
-    border-radius: 8px !important;
-    cursor: pointer !important;
-    font-weight: 600 !important;
-    transition: all 0.2s ease !important;
+/* 1. Switch Track (Background) - OFF State */
+body[data-theme="heaven"] .switch .slider {
+    background-color: #E5E7EB !important;
+    border: 1px solid #D1D5DB !important;
 }
 
-/* ရွေးလိုက်တဲ့အခါ (Checked / Active) */
-body[data-theme="heaven"] .gender-container input[type="radio"]:checked + label,
-body[data-theme="heaven"] .gender-container input[type="checkbox"]:checked + label,
-body[data-theme="heaven"] .gender-container label.active,
-body[data-theme="heaven"] .gender-container button.active,
-body[data-theme="heaven"] .gender-btn.active,
-body[data-theme="heaven"] .gender-btn.selected {
-    background: #6D28D9 !important;
-    color: #FFFFFF !important;
+/* 2. Switch Knob (Circle) - OFF State */
+body[data-theme="heaven"] .switch .slider:before {
+    background-color: #FFFFFF !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 3. Switch Track - ON State (Checked) */
+body[data-theme="heaven"] .switch input:checked + .slider {
+    background-color: #6D28D9 !important;  /* Purple */
     border-color: #6D28D9 !important;
-    box-shadow: 0 2px 8px rgba(109, 40, 217, 0.3) !important;
 }
 
-/* 2. အစဉ်လိုက် / ကျပန်း ခလုပ် (Shuffle / Random / Sequential) */
-body[data-theme="heaven"] .shuffle-btn,
-body[data-theme="heaven"] .random-btn,
-body[data-theme="heaven"] .seq-btn,
-body[data-theme="heaven"] .order-btn {
-    background: #FFFFFF !important;
-    color: #B45309 !important; 
-    border: 2px solid #B45309 !important;
+/* 4. Switch Knob - ON State */
+body[data-theme="heaven"] .switch input:checked + .slider:before {
+    background-color: #FFFFFF !important;
+    transform: translateX(26px) !important;
+}
+
+/* 5. Gender/Random Labels (Text) */
+body[data-theme="heaven"] .gender-container span,
+body[data-theme="heaven"] .quiz-mode-toggle-inner span,
+body[data-theme="heaven"] .toggle-label {
+    color: #1F2937 !important;
     font-weight: 600 !important;
-    transition: all 0.2s ease !important;
-    border-radius: 8px !important;
 }
 
-body[data-theme="heaven"] .shuffle-btn:hover,
-body[data-theme="heaven"] .random-btn:hover {
-    background: #FFFBEB !important; 
+/* 6. Quiz Mode Box Background (အစဉ်လိုက်/ကျပန်း Box) */
+body[data-theme="heaven"] .quiz-mode-toggle-inner,
+body[data-theme="heaven"] #quiz-mode-box > div:last-child,
+body[data-theme="heaven"] div[style*="background: #0F172A"] {
+    background: #F1F5F9 !important;
+    border: 1px solid #E5E7EB !important;
+    border-radius: 12px !important;
 }
 
-/* Active / Selected အနေအထား */
-body[data-theme="heaven"] .shuffle-active,
-body[data-theme="heaven"] .random-active,
-body[data-theme="heaven"] .seq-active,
-body[data-theme="heaven"] .order-active,
-body[data-theme="heaven"] .shuffle-btn.active,
-body[data-theme="heaven"] .random-btn.active,
-body[data-theme="heaven"] .shuffle-btn.selected,
-body[data-theme="heaven"] .random-btn.selected {
-    background: #B45309 !important;
-    color: #FFFFFF !important;
-    border-color: #B45309 !important;
-    box-shadow: 0 2px 8px rgba(180, 83, 9, 0.3) !important;
+/* 7. Profile Screen Gender Toggle (အသေးစား) */
+body[data-theme="heaven"] .gender-container .switch {
+    width: 34px !important;
+    height: 20px !important;
 }
 
+body[data-theme="heaven"] .gender-container .slider:before {
+    height: 14px !important;
+    width: 14px !important;
+    left: 3px !important;
+    bottom: 2px !important;
+}
+
+body[data-theme="heaven"] .gender-container input:checked + .slider:before {
+    transform: translateX(14px) !important;
+}
 /* Light Theme - Score Display */
 body[data-theme="light"] {
     --score-bg: #D1FAE5;
