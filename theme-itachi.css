@@ -18,6 +18,43 @@ body[data-theme="itachi"] {
   --t-border-subtle: #27272F; /* Visible steel border for general use */
 }
 
+/* === NAV BAR — Anbu's Shadow === */
+body[data-theme="itachi"] .nav {
+    background: linear-gradient(145deg, #08080F, #0E0E14, #08080F) !important;
+    border-top: 2px solid #1F1F2A !important;
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(220, 38, 38, 0.04) !important;
+}
+
+body[data-theme="itachi"] .nav-item {
+    color: #6B6B7B !important;
+    transition: all 0.25s ease;
+    text-shadow: none;
+}
+
+body[data-theme="joker"] .nav-item:hover {
+    color: #DC2626 !important;
+    text-shadow: 0 0 12px rgba(220, 38, 38, 0.4);
+}
+
+body[data-theme="itachi"] .nav-item.active {
+    color: #F59E0B !important;
+    text-shadow: 0 0 16px rgba(245, 158, 11, 0.4);
+}
+
+body[data-theme="itachi"] .nav-item.active::before {
+    background: linear-gradient(90deg, transparent, #DC2626, #F59E0B, transparent) !important;
+    height: 2px !important;
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.2);
+}
+
+body[data-theme="itachi"] .nav-icon {
+    filter: drop-shadow(0 0 4px rgba(220, 38, 38, 0.1));
+}
+
+body[data-theme="itachi"] .nav-item.active .nav-icon {
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.3));
+}
+
 /* === BACKGROUND - Void with Moonlight Texture === */
 body[data-theme="itachi"] {
     /* Deep void with subtle moonlight haze texture */
