@@ -46,15 +46,21 @@
         user-select: auto !important;
     }
     
-    :root { 
-        --bg: #0B0F19; /* Solid Deep Dark */
-        --card-bg: #162235; /* Solid Card Background */
-        --white: #FFFFFF; 
-        --text-muted: #64748B;
-        --lock: #1E293B; 
-        --success: #10B981; 
-        --error: #EF4444; 
-    }
+    :root {
+    --bg: #0B0F19;
+    --card-bg: #162235;
+    --white: #FFFFFF;
+    --text-muted: #64748B;
+    --lock: #1E293B;
+    --success: #10B981;
+    --error: #EF4444;
+    
+    /* 🆕 Nav Bar Variables (Default/Dark Theme) */
+    --nav-bg: #111827;
+    --nav-border: #1F2937;
+    --nav-icon-inactive: #64748B;  /* မရွေးရသေးတဲ့ icon အရောင် */
+    --nav-icon-active: #00D5FF;    /* ရွေးထားတဲ့ icon အရောင် */
+}
 
     body { 
         background-color: var(--bg); 
@@ -236,14 +242,39 @@
     .shuffle-active { background: #00D5FF; color: #000; }
 
     /* --- 7. Floating Nav --- */
-    .nav { 
-        position: fixed; bottom: 20px; left: 5%; width: 90%; height: 70px; background: #111827; 
-        display: flex; justify-content: space-around; align-items: center; 
-        border-radius: 20px; border: 1px solid #1F2937; z-index: 100; 
-    }
-    .nav-item { font-size: 1.5rem; filter: grayscale(100%); opacity: 0.4; cursor: pointer; transition: transform 0.2s ease, opacity 0.2s ease; }
-    .nav-active { filter: grayscale(0%) !important; opacity: 1 !important; transform: scale(1.2) translateY(-8px) !important; }
-	
+   /* --- 7. Floating Nav --- */
+.nav { 
+    position: fixed; 
+    bottom: 20px; 
+    left: 5%; 
+    width: 90%; 
+    height: 70px; 
+    background: var(--nav-bg);        /* 🆕 Variable သုံးလိုက်တယ် */
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    border-radius: 20px; 
+    border: 1px solid var(--nav-border);  /* 🆕 Variable သုံးလိုက်တယ် */
+    z-index: 100; 
+}
+
+.nav-item { 
+    font-size: 1.5rem; 
+    filter: grayscale(100%); 
+    opacity: 0.4; 
+    cursor: pointer; 
+    transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
+    color: var(--nav-icon-inactive);  /* 🆕 Inactive icon အရောင် */
+}
+
+.nav-active { 
+    filter: grayscale(0%) !important; 
+    opacity: 1 !important; 
+    transform: scale(1.2) translateY(-8px) !important;
+    color: var(--nav-icon-active) !important;  /* 🆕 Active icon အရောင် */
+    text-shadow: 0 0 10px var(--nav-icon-active), 0 0 20px var(--nav-icon-active) !important;  /* 🆕 Glow effect */
+}
+
 	/* ============================================================
            📱 GRID LAYOUT FIX (ဘာသာရပ်များကို ၂ ကော်လံ ခွဲပြသရန်)
            ============================================================ */
