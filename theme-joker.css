@@ -364,3 +364,21 @@ body[data-theme="joker"] .text-secondary {
 body[data-theme="joker"] .text-primary {
     color: #F0F0F0 !important;
 }
+
+/* Joker Theme - Switch & Tracker */
+body[data-theme="joker"] {
+    --switch-bg-off: #141414;
+    --switch-border-off: #39ff14;
+    --switch-bg-on: #bf00ff;
+    --switch-knob-off: #39ff14;
+    --switch-knob-on: #0a0a0a;
+    
+    --tracker-bg: #0f0f0f;
+    --tracker-border: #39ff14;
+    --tracker-text: #39ff14;
+    --tracker-check-accent: #bf00ff;
+    
+    --toggle-inner-bg: #0f0f0f;
+    --toggle-inner-border: #bf00ff;
+    --toggle-label-color: #39ff14;
+}
