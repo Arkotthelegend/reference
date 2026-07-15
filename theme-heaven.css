@@ -484,3 +484,76 @@ body[data-theme="light"] {
     --toggle-inner-border: #E2E8F0;
     --toggle-label-color: #475569;
 }
+
+/* =========================================
+   OVERRIDE: GENDER & SHUFFLE BUTTONS
+   (ဖိုင်ရဲ့ အဆုံးသတ်မှာ ကူးထည့်ပါ)
+   ========================================= */
+
+/* 1. ကျား/မ ရွေးတဲ့ခလုပ် (Gender Buttons) */
+body[data-theme="heaven"] .gender-container label,
+body[data-theme="heaven"] .gender-container button,
+body[data-theme="heaven"] .gender-btn,
+body[data-theme="heaven"] .gender-option {
+    background: #FFFFFF !important;
+    border: 2px solid #E5E7EB !important;
+    color: #4B5563 !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+/* ရွေးလိုက်တဲ့အခါ (Checked / Active) */
+body[data-theme="heaven"] .gender-container input[type="radio"]:checked + label,
+body[data-theme="heaven"] .gender-container input[type="checkbox"]:checked + label,
+body[data-theme="heaven"] .gender-container label.active,
+body[data-theme="heaven"] .gender-container button.active,
+body[data-theme="heaven"] .gender-btn.active,
+body[data-theme="heaven"] .gender-btn.selected {
+    background: #6D28D9 !important;
+    color: #FFFFFF !important;
+    border-color: #6D28D9 !important;
+    box-shadow: 0 2px 8px rgba(109, 40, 217, 0.3) !important;
+}
+
+/* 2. အစဉ်လိုက် / ကျပန်း ခလုပ် (Shuffle / Random / Sequential) */
+body[data-theme="heaven"] .shuffle-btn,
+body[data-theme="heaven"] .random-btn,
+body[data-theme="heaven"] .seq-btn,
+body[data-theme="heaven"] .order-btn {
+    background: #FFFFFF !important;
+    color: #B45309 !important; 
+    border: 2px solid #B45309 !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+    border-radius: 8px !important;
+}
+
+body[data-theme="heaven"] .shuffle-btn:hover,
+body[data-theme="heaven"] .random-btn:hover {
+    background: #FFFBEB !important; 
+}
+
+/* Active / Selected အနေအထား */
+body[data-theme="heaven"] .shuffle-active,
+body[data-theme="heaven"] .random-active,
+body[data-theme="heaven"] .seq-active,
+body[data-theme="heaven"] .order-active,
+body[data-theme="heaven"] .shuffle-btn.active,
+body[data-theme="heaven"] .random-btn.active,
+body[data-theme="heaven"] .shuffle-btn.selected,
+body[data-theme="heaven"] .random-btn.selected {
+    background: #B45309 !important;
+    color: #FFFFFF !important;
+    border-color: #B45309 !important;
+    box-shadow: 0 2px 8px rgba(180, 83, 9, 0.3) !important;
+}
+
+/* Light Theme - Score Display */
+body[data-theme="light"] {
+    --score-bg: #D1FAE5;
+    --score-border: #10B981;
+    --score-text: #047857;
+}
