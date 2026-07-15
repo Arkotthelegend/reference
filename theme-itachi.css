@@ -451,3 +451,31 @@ body[data-theme="itachi"] {
     --toggle-inner-border: #8b0000;
     --toggle-label-color: #ffcccc;
 }
+
+/* Joker Theme - Theme Shop */
+body[data-theme="joker"] .theme-shop-card {
+    background: var(--t-card, #141414);
+    border-color: var(--t-accent, #39ff14) !important;
+}
+
+body[data-theme="joker"] .theme-shop-card .theme-name {
+    color: var(--t-accent, #39ff14);
+}
+
+body[data-theme="joker"] .theme-shop-card .theme-price {
+    color: var(--t-accent2, #bf00ff);
+}
+
+/* Itachi Theme - Theme Shop */
+body[data-theme="itachi"] .theme-shop-card {
+    background: var(--t-card, #1a0a0a);
+    border-color: var(--t-accent, #ff0000) !important;
+}
+
+body[data-theme="itachi"] .theme-shop-card .theme-name {
+    color: var(--t-text, #ffcccc);
+}
+
+body[data-theme="itachi"] .theme-shop-card .theme-price {
+    color: var(--t-muted, #8b0000);
+}
