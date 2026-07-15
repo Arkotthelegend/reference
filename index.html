@@ -77,6 +77,10 @@
     --toggle-inner-bg: #0F172A;
     --toggle-inner-border: #334155;
     --toggle-label-color: #CBD5E1;
+	
+	--score-bg: #065F46;
+    --score-border: #10B981;
+    --score-text: #10B981;
 }
 
     body { 
@@ -293,8 +297,21 @@ input:checked + .slider:before {
     .timer-wrapper { display: flex; align-items: center; justify-content: center; margin-top: 20px; gap: 10px; }
     .timer-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 8px 16px; border-radius: 10px; font-size: 0.9rem; }
     .timer-display { font-size: 1.1rem; color: var(--white); font-family: monospace; font-weight: 700; background: #000; padding: 6px 12px; border-radius: 8px; border: 1px solid #334155; display: none; }
+	
     .markcount { position: absolute; top: 5px; right: 15px; margin: 0; z-index: 50; }
-    #score-display { display: inline-block; background: #065F46; border: 1px solid #10B981; color: #10B981; padding: 6px 15px; border-radius: 12px; font-family: monospace; font-size: 1rem; font-weight: 700; }
+	
+    #score-display {
+    display: inline-block;
+    background: var(--score-bg, #065F46);
+    border: 1px solid var(--score-border, #10B981);
+    color: var(--score-text, #10B981);
+    padding: 6px 15px;
+    border-radius: 12px;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
     
     .shuffle-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; }
     .shuffle-active { background: #00D5FF; color: #000; }
