@@ -551,6 +551,69 @@ body[data-theme] .container {
     font-size: 0.95rem;
     color: var(--toggle-label-color);
 }
+
+/* Theme Shop Card - Default (Dark) */
+.theme-shop-card {
+    background: var(--t-card, #162235);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Theme Shop Preview Box (အလေးချိန်အသေးလေး) */
+.theme-shop-card .preview-box {
+    background: var(--t-bg, #0B0F19);
+    border: 2px solid var(--t-accent, #00D5FF);
+}
+
+/* Theme Shop Text */
+.theme-shop-card .theme-name {
+    color: var(--t-text, #FFFFFF);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.theme-shop-card .theme-price {
+    color: var(--t-muted, #94A3B8);
+    font-size: 0.8rem;
+}
+
+/* Button Styles inside Theme Shop */
+.theme-shop-card .theme-btn {
+    width: auto;
+    padding: 8px 16px;
+    margin: 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.theme-shop-card .theme-btn-buy {
+    background: transparent;
+    border: 1px solid var(--t-accent, #00D5FF);
+    color: var(--t-accent, #00D5FF);
+}
+
+.theme-shop-card .theme-btn-use {
+    background: var(--t-accent, #00D5FF);
+    color: var(--t-bg, #000000);
+    border: none;
+}
+
+.theme-shop-card .theme-btn-active {
+    color: var(--t-success, #10B981);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.theme-shop-card .theme-badge-exclusive {
+    color: var(--t-accent2, #F59E0B);
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid var(--t-accent2, #F59E0B);
+    padding: 4px 10px;
+    border-radius: 8px;
+}
 </style>
 </head>
 <body>
@@ -2840,48 +2903,49 @@ function openThemeShop() {
         const isActive = currentTheme === t.id;
         
         const div = document.createElement('div');
-        div.style.cssText = `background: #162235; border: 2px solid ${t.color}; border-radius: 16px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;`;
+div.className = 'theme-shop-card';
+div.style.cssText = `border: 2px solid ${t.color}; border-radius: 16px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;`;
         
         let btnHtml = '';
         if (isActive) {
-            btnHtml = `<span style="color: #10B981; font-weight: bold; font-size: 0.9rem;">✓ သုံးနေသည်</span>`;
+            btnHtml = `<span class="theme-btn-active">✓ သုံးနေသည်</span>`;
         } else if (isOwned) {
-            btnHtml = `<button class="btn" style="width: auto; padding: 8px 16px; margin: 0; background: ${t.color}; color: #000; border: none; border-radius: 10px; font-weight: bold;" onclick="setTheme('${t.id}')">သုံးမည်</button>`;
+            btnHtml = `<button class="btn theme-btn theme-btn-use" onclick="setTheme('${t.id}')">သုံးမည်</button>`;
                 } else {
     // 🏫 Exclusive Theme (School)
     if (t.exclusive) {
-        btnHtml = `<span style="color: #F59E0B; font-size: 0.8rem; font-weight: bold; border: 1px solid #F59E0B; padding: 4px 10px; border-radius: 8px;">🏫 ${t.schoolName}</span>`;
+        btnHtml = `<span class="theme-badge-exclusive">🏫 ${t.schoolName}</span>`;
     } 
     // 🔒 ဝယ်လို့မရတဲ့ Theme (VIP, Event, etc...)
     else if (t.lockedText) {
-        btnHtml = `<span style="color: ${t.color}; font-size: 0.8rem; font-weight: bold; border: 1px solid ${t.color}; padding: 4px 10px; border-radius: 8px;">${t.lockedText}</span>`;
+        btnHtml = `<span class="theme-btn-buy" style="border: 1px solid ${t.color}; color: ${t.color}; padding: 4px 10px; border-radius: 8px; font-size: 0.8rem;">${t.lockedText}</span>`;
     } 
     // 💰 ဝယ်လို့ရတဲ့ Theme (အခမဲ့မဟုတ်၊ ဝယ်မည်ခလုတ်ပဲထားမယ်)
     else if (t.price > 0) {
-    btnHtml = `<button class="btn" style="width: auto; padding: 8px 16px; margin: 0; background: transparent; border: 1px solid ${t.color}; color: ${t.color}; border-radius: 10px; font-weight: bold;" onclick="buyThemePrompt('${t.id}')">ဝယ်မည်</button>`;
+    btnHtml = `<button class="btn theme-btn theme-btn-buy" onclick="buyThemePrompt('${t.id}')">ဝယ်မည်</button>`;
 }
 }
         
         div.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 44px; height: 44px; border-radius: 12px; background: ${t.preview}; border: 2px solid ${t.color}; flex-shrink: 0;"></div>
-                <div>
-                    <div style="font-weight: bold; color: #fff; font-size: 1rem;">${t.name}</div>
-                    <div style="font-size: 0.8rem; color: #94A3B8; margin-top: 2px;">
-    ${isActive 
-        ? '✓ သုံးနေသည်' 
-        : (isOwned 
-            ? 'သုံးရန်' 
-            : (t.price === 0 
-                ? 'Free' 
-                : (t.price > 0 
-                    ? 'Premium' 
-                    : (t.lockedText || 'Locked'))))}
-</div>
-                </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="theme-preview-box" style="width: 44px; height: 44px; border-radius: 12px; background: ${t.preview}; border: 2px solid ${t.color}; flex-shrink: 0;"></div>
+        <div>
+            <div class="theme-card-name">${t.name}</div>
+            <div class="theme-card-price">
+                ${isActive 
+                    ? '✓ သုံးနေသည်' 
+                    : (isOwned 
+                        ? 'သုံးရန်' 
+                        : (t.price === 0 
+                            ? 'Free' 
+                            : (t.price > 0 
+                                ? 'Premium' 
+                                : (t.lockedText || 'Locked'))))}
             </div>
-            <div style="flex-shrink: 0; margin-left: 8px;">${btnHtml}</div>
-        `;
+        </div>
+    </div>
+    <div style="flex-shrink: 0; margin-left: 8px;">${btnHtml}</div>
+`;
         list.appendChild(div);
     });
 }
