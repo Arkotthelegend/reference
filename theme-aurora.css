@@ -1,0 +1,428 @@
+/* =========================================
+   AURORA GLASS THEME (Premium, Ethereal, Performance-Optimized)
+   Vibe: iOS 17 / Apple Vision Pro inspired, Clean, Faux-Glass
+   Note: No heavy blurs or glows to prevent phone lag.
+   ========================================= */
+
+body[data-theme="aurora"] {
+    /* === BASE COLORS — Soft Aurora === */
+    --t-bg: #F4F7FA;             /* Very soft, cool off-white */
+    --t-card: #FFFFFF;           /* Crisp white for performance */
+    
+    /* === ACCENTS — Iridescent Violet & Cyan === */
+    --t-accent: #7C3AED;         /* Aurora Violet */
+    --t-accent2: #06B6D4;        /* Aurora Cyan */
+    --t-success: #10B981;        /* Soft Emerald */
+    --t-danger: #F43F5E;         /* Soft Rose */
+    
+    /* === TEXT HIERARCHY === */
+    --t-text-primary: #1E293B;   /* Slate 800 (High contrast) */
+    --t-text-secondary: #64748B; /* Slate 500 */
+    
+    /* === BORDERS (Faux Glass Edges) === */
+    --t-border-glass: rgba(255, 255, 255, 0.9);
+    --t-border-subtle: #E2E8F0;  /* Slate 200 */
+    --t-border-home: #7C3AED;
+    --t-border-old: #06B6D4;
+    --t-border-daily: #8B5CF6;
+}
+
+/* === BACKGROUND — Clean & Light === */
+body[data-theme="aurora"] {
+    background: var(--t-bg);
+    color: var(--t-text-primary);
+}
+
+/* === NAV BAR — Clean Bottom Bar === */
+body[data-theme="aurora"] .nav {
+    background: #FFFFFF !important;
+    border-top: 1px solid var(--t-border-subtle) !important;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03) !important;
+}
+body[data-theme="aurora"] .nav-item {
+    color: #94A3B8 !important;
+    transition: color 0.2s ease;
+}
+body[data-theme="aurora"] .nav-item:hover {
+    color: var(--t-accent) !important;
+}
+body[data-theme="aurora"] .nav-item.active {
+    color: var(--t-accent) !important;
+}
+body[data-theme="aurora"] .nav-item.active::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--t-accent), var(--t-accent2)) !important;
+    border-radius: 3px;
+}
+
+/* === SCREENS === */
+body[data-theme="aurora"] #math-solution-screen,
+body[data-theme="aurora"] #grammar-note-screen {
+    background: var(--t-bg) !important;
+}
+
+/* === CARDS — Faux Glass (No blur for performance) === */
+body[data-theme="aurora"] .subject-card,
+body[data-theme="aurora"] .profile-info-card,
+body[data-theme="aurora"] #quiz-mode-box,
+body[data-theme="aurora"] #middle-screen > div > div:first-child,
+body[data-theme="aurora"] #motivation-box {
+    background: var(--t-card) !important;
+    border: 1px solid var(--t-border-subtle) !important;
+    border-radius: 16px;
+    /* Crisp, subtle shadow instead of heavy glow */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+body[data-theme="aurora"] .subject-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* === SCORE DISPLAY — Premium Pill Design === */
+body[data-theme="aurora"] .score-display,
+body[data-theme="aurora"] #score,
+body[data-theme="aurora"] .score-container,
+body[data-theme="aurora"] .quiz-score,
+body[data-theme="aurora"] .score-box {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%) !important;
+    border: 1.5px solid #E2E8F0 !important;
+    border-radius: 999px !important; /* Pill shape */
+    padding: 8px 20px !important;
+    box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.08) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+body[data-theme="aurora"] .score-value,
+body[data-theme="aurora"] .score-text {
+    color: var(--t-accent) !important;
+    font-weight: 800 !important;
+    font-size: 1.1em !important;
+    letter-spacing: 0.5px;
+}
+
+/* === SUBJECT LIST BORDERS === */
+body[data-theme="aurora"] #subject-list .subject-card {
+    border: 1.5px solid rgba(124, 58, 237, 0.2) !important;
+}
+body[data-theme="aurora"] #subject-list .subject-card span:last-child {
+    color: var(--t-accent) !important;
+    font-weight: 700;
+}
+body[data-theme="aurora"] #old-subject-list .subject-card {
+    border: 1.5px solid rgba(6, 182, 212, 0.2) !important;
+}
+body[data-theme="aurora"] #old-subject-list .subject-card span:last-child {
+    color: var(--t-accent2) !important;
+    font-weight: 700;
+}
+body[data-theme="aurora"] #daily-screen .subject-card {
+    border: 1.5px solid rgba(139, 92, 246, 0.2) !important;
+}
+body[data-theme="aurora"] #daily-screen .subject-card span:last-child {
+    color: #8B5CF6 !important;
+    font-weight: 700;
+}
+
+/* === BUTTONS — Clean & Tactile === */
+body[data-theme="aurora"] .btn {
+    background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.2) !important;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+body[data-theme="aurora"] .btn:active {
+    transform: scale(0.97);
+}
+body[data-theme="aurora"] .back-btn {
+    background: #F1F5F9 !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #64748B !important;
+}
+body[data-theme="aurora"] .next-btn-styled,
+body[data-theme="aurora"] .next-btn {
+    background: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%) !important;
+    color: #FFFFFF !important;
+    font-weight: 600;
+    border: none !important;
+    box-shadow: 0 4px 6px -1px rgba(6, 182, 212, 0.2) !important;
+}
+body[data-theme="aurora"] .option-btn {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E2E8F0 !important;
+    color: var(--t-text-primary) !important;
+    transition: all 0.2s ease;
+}
+body[data-theme="aurora"] .option-btn:hover {
+    border-color: #C4B5FD !important;
+    background: #FAF5FF !important;
+}
+
+/* === ANSWER STATES === */
+body[data-theme="aurora"] .correct-answer {
+    background: #ECFDF5 !important;
+    border: 2px solid var(--t-success) !important;
+    color: #065F46 !important;
+}
+body[data-theme="aurora"] .wrong-answer {
+    background: #FFF1F2 !important;
+    border: 2px solid var(--t-danger) !important;
+    color: #9F1239 !important;
+}
+
+/* === FLASHCARDS === */
+body[data-theme="aurora"] .flash-front {
+    border: 1.5px solid rgba(124, 58, 237, 0.2) !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+body[data-theme="aurora"] .flash-back {
+    border: 1.5px solid rgba(244, 63, 94, 0.2) !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* === EXAM COUNTDOWN === */
+body[data-theme="aurora"] #exam-countdown {
+    border: 1.5px solid #E2E8F0 !important;
+    background: #FFFFFF !important;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+body[data-theme="aurora"] .countdown-value {
+    color: var(--t-accent) !important;
+    font-weight: 800;
+}
+
+/* === BADGES & BUY === */
+body[data-theme="aurora"] .bought-badge {
+    color: var(--t-accent) !important;
+    border: 1px solid rgba(124, 58, 237, 0.3) !important;
+    background: #F5F3FF !important;
+}
+body[data-theme="aurora"] .buy-btn {
+    background: transparent !important;
+    color: var(--t-accent2) !important;
+    border: 1.5px solid var(--t-accent2) !important;
+}
+
+/* === GENDER SELECTION (Premium Pills) === */
+body[data-theme="aurora"] .gender-container {
+    display: flex;
+    gap: 10px;
+}
+body[data-theme="aurora"] .gender-container label,
+body[data-theme="aurora"] .gender-container button,
+body[data-theme="aurora"] .gender-btn,
+body[data-theme="aurora"] .gender-option {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E2E8F0 !important;
+    color: #64748B !important;
+    padding: 10px 24px !important;
+    border-radius: 999px !important; /* Pill shape */
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+body[data-theme="aurora"] .gender-container input[type="radio"]:checked + label,
+body[data-theme="aurora"] .gender-container label.active,
+body[data-theme="aurora"] .gender-btn.active,
+body[data-theme="aurora"] .gender-btn.selected {
+    background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%) !important;
+    color: #FFFFFF !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* === SHUFFLE / RANDOMIZE (Cyan Accent) === */
+body[data-theme="aurora"] .shuffle-btn,
+body[data-theme="aurora"] .random-btn,
+body[data-theme="aurora"] .seq-btn {
+    background: #FFFFFF !important;
+    color: var(--t-accent2) !important; 
+    border: 1.5px solid var(--t-accent2) !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+    border-radius: 999px !important;
+}
+body[data-theme="aurora"] .shuffle-btn:hover,
+body[data-theme="aurora"] .random-btn:hover {
+    background: #ECFEFF !important; 
+}
+body[data-theme="aurora"] .shuffle-active,
+body[data-theme="aurora"] .shuffle-btn.active,
+body[data-theme="aurora"] .random-btn.selected {
+    background: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%) !important;
+    color: #FFFFFF !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 6px -1px rgba(6, 182, 212, 0.3) !important;
+}
+
+/* === STUDY TRACKER === */
+body[data-theme="aurora"] {
+    --tracker-bg: #FFFFFF;
+    --tracker-border: #E2E8F0;
+    --tracker-text: #1E293B;
+    --tracker-check-accent: #7C3AED;
+}
+body[data-theme="aurora"] .study-tracker-card,
+body[data-theme="aurora"] #study-tracker,
+body[data-theme="aurora"] .tracker-container {
+    background: var(--tracker-bg) !important;
+    border: 1px solid var(--tracker-border) !important;
+    color: var(--tracker-text) !important;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03) !important;
+}
+body[data-theme="aurora"] .study-tracker-card input[type="checkbox"],
+body[data-theme="aurora"] #study-tracker input[type="checkbox"] {
+    accent-color: var(--tracker-check-accent) !important;
+    transform: scale(1.15); 
+}
+
+/* === FORM ELEMENTS & INPUTS === */
+body[data-theme="aurora"] input,
+body[data-theme="aurora"] textarea,
+body[data-theme="aurora"] select {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E2E8F0 !important;
+    color: var(--t-text-primary) !important;
+    border-radius: 12px;
+    transition: border-color 0.2s ease;
+}
+body[data-theme="aurora"] input:focus,
+body[data-theme="aurora"] textarea:focus,
+body[data-theme="aurora"] select:focus {
+    border-color: var(--t-accent) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1) !important;
+}
+body[data-theme="aurora"] .quiz-input:focus {
+    border-color: var(--t-accent) !important;
+}
+body[data-theme="aurora"] .quiz-card {
+    border-left: 4px solid var(--t-accent) !important;
+    background: #FFFFFF !important;
+}
+
+/* === SCROLLBAR === */
+body[data-theme="aurora"] ::-webkit-scrollbar {
+    width: 6px;
+}
+body[data-theme="aurora"] ::-webkit-scrollbar-track {
+    background: #F1F5F9;
+}
+body[data-theme="aurora"] ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+}
+body[data-theme="aurora"] ::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+/* === MODAL OVERLAY === */
+body[data-theme="aurora"] .modal-overlay,
+body[data-theme="aurora"] .overlay {
+    background: rgba(241, 245, 249, 0.9) !important;
+}
+
+/* === DIVIDERS === */
+body[data-theme="aurora"] hr,
+body[data-theme="aurora"] .divider {
+    border: none !important;
+    height: 1px !important;
+    background: #E2E8F0 !important;
+}
+
+/* === TEXT HIERARCHY === */
+body[data-theme="aurora"] .text-muted,
+body[data-theme="aurora"] .text-secondary {
+    color: var(--t-text-secondary) !important;
+}
+body[data-theme="aurora"] .text-primary {
+    color: var(--t-text-primary) !important;
+}
+
+/* Force dark text for all elements */
+body[data-theme="aurora"] h1,
+body[data-theme="aurora"] h2,
+body[data-theme="aurora"] h3,
+body[data-theme="aurora"] h4,
+body[data-theme="aurora"] h5,
+body[data-theme="aurora"] h6,
+body[data-theme="aurora"] p,
+body[data-theme="aurora"] span,
+body[data-theme="aurora"] div,
+body[data-theme="aurora"] label,
+body[data-theme="aurora"] .screen-title,
+body[data-theme="aurora"] .page-title,
+body[data-theme="aurora"] .card-title,
+body[data-theme="aurora"] .section-title {
+    color: var(--t-text-primary) !important;
+}
+
+body[data-theme="aurora"] .accent-text,
+body[data-theme="aurora"] .text-accent {
+    color: var(--t-accent) !important;
+}
+body[data-theme="aurora"] .gold-text,
+body[data-theme="aurora"] .text-gold {
+    color: var(--t-accent2) !important;
+}
+
+/* === THEME SHOP (Exclusive Aurora Vibe) === */
+body[data-theme="aurora"] .theme-shop-btn,
+body[data-theme="aurora"] .btn.theme-shop {
+    background: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%) !important; /* Aurora Gradient */
+    color: #FFFFFF !important;
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.15) !important;
+    font-weight: 700;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+}
+body[data-theme="aurora"] .theme-shop-card,
+body[data-theme="aurora"] .shop-item {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+body[data-theme="aurora"] .theme-shop-title,
+body[data-theme="aurora"] .shop-title {
+    color: var(--t-text-primary) !important;
+    font-weight: 700;
+}
+body[data-theme="aurora"] .theme-shop-price,
+body[data-theme="aurora"] .shop-price {
+    color: var(--t-accent) !important;
+    font-weight: 700;
+}
+
+/* === STREAK BADGE === */
+body[data-theme="aurora"] .streak-badge,
+body[data-theme="aurora"] .days-badge {
+    background: #F5F3FF !important;
+    color: var(--t-accent) !important;
+    border: 1px solid rgba(124, 58, 237, 0.2) !important;
+}
+
+/* === TOGGLE SWITCH === */
+body[data-theme="aurora"] .toggle-switch,
+body[data-theme="aurora"] .switch-track {
+    background: #E2E8F0 !important;
+}
+body[data-theme="aurora"] .toggle-switch.active,
+body[data-theme="aurora"] .switch-track.active {
+    background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%) !important;
+}
