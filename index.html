@@ -1526,6 +1526,7 @@ async function loadGrammarNote(topicId, topicTitle) {
         showScreen('grammar-note');
         document.getElementById('grammar-note-title').innerText = topicTitle + " - Grammar Note";
         document.getElementById('grammar-note-content').innerHTML = noteData.content;
+		document.getElementById('grammar-note-screen').scrollTop = 0;
         
         if (window.MathJax) MathJax.typesetPromise();
     } catch (e) {
