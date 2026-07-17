@@ -1,22 +1,22 @@
-/* theme-itachi.css - Itachi Uchiha v3 (Optimized, Dropbox Sharingan, Breathing Animation) */
+/* theme-itachi.css - Itachi Uchiha v4 (Ultimate Vibe, Glowing Edges, Fixed Background) */
 
-/* === ANIMATIONS (ဖုန်းမလေးသော အလန်းစား Effects များ) === */
-@keyframes sharinganBreath {
-    0% { opacity: 0.8; text-shadow: 0 0 4px rgba(220, 38, 38, 0.4); }
-    50% { opacity: 1; text-shadow: 0 0 12px rgba(220, 38, 38, 0.8); }
-    100% { opacity: 0.8; text-shadow: 0 0 4px rgba(220, 38, 38, 0.4); }
+/* === ANIMATIONS === */
+@keyframes amaterasuGlow {
+    0% { box-shadow: 0 0 8px rgba(220, 38, 38, 0.3); }
+    50% { box-shadow: 0 0 18px rgba(220, 38, 38, 0.7); }
+    100% { box-shadow: 0 0 8px rgba(220, 38, 38, 0.3); }
 }
 
-@keyframes borderGlow {
-    0% { border-color: #991B1B; }
-    50% { border-color: #DC2626; }
-    100% { border-color: #991B1B; }
+@keyframes breathingRed {
+    0% { color: #DC2626; text-shadow: 0 0 5px rgba(220, 38, 38, 0.4); }
+    50% { color: #FF4444; text-shadow: 0 0 15px rgba(255, 68, 68, 0.8); }
+    100% { color: #DC2626; text-shadow: 0 0 5px rgba(220, 38, 38, 0.4); }
 }
 
 body[data-theme="itachi"] {
-  /* === BASE COLORS === */
-  --t-bg: #030305;           
-  --t-card: #0E0E14;         
+  /* === BASE COLORS - Deep Red/Black Void === */
+  --t-bg: #050202;           
+  --t-card: #100505;         
   --t-accent: #DC2626;       
   --t-accent2: #F59E0B;      
   --t-success: #D97706;      
@@ -24,332 +24,156 @@ body[data-theme="itachi"] {
   --t-border-home: #DC2626;   
   --t-border-old: #EA580C;    
   --t-border-daily: #F59E0B;  
-  --t-border-subtle: #27272F; 
+  --t-border-subtle: #331111; 
 
-  /* === BACKGROUND - DROPBOX IMAGE INTEGRATION === */
-  /* ပုံပေါ်မှာ အမည်းရောင် 92% အုပ်ထားလို့ စာဖတ်ရလွယ်ပြီး ဖုန်းလုံးဝမလေးစေပါ */
+  /* === BACKGROUND - SHARINGAN IMAGE === */
+  /* အမည်းရောင် 80% သာအုပ်ထားသဖြင့် နောက်ခံပုံ သေချာပေါက်ပေါ်ပါမည် */
   background: 
-      linear-gradient(rgba(3, 3, 5, 0.92), rgba(3, 3, 5, 0.92)), 
-      url('https://www.dropbox.com/scl/fi/cfi73uphtiegpp8xbidq5/Great_Sharingan_of_Itachi_png-removebg-preview.png?rlkey=48oznmowap7bj734i2rp4did7&st=nowsomuu&dl=0?raw=1') !important;
+      linear-gradient(rgba(5, 2, 2, 0.85), rgba(5, 2, 2, 0.90)), 
+      url('https://www.dropbox.com/scl/fi/cfi73uphtiegpp8xbidq5/Great_Sharingan_of_Itachi_png-removebg-preview.png?rlkey=48oznmowap7bj734i2rp4did7&st=nowsomuu&raw=1') !important;
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
 }
 
-/* === NAV BAR — Solid Colors (Shadow ဖြုတ်ထားသည်) === */
+/* === NAV BAR === */
 body[data-theme="itachi"] .nav {
-    background: #08080F !important;
-    border-top: 2px solid #1F1F2A !important;
+    background: linear-gradient(0deg, #050101, #0a0303) !important;
+    border-top: 1px solid #330000 !important;
+    box-shadow: 0 -4px 15px rgba(220, 38, 38, 0.1) !important;
 }
 
 body[data-theme="itachi"] .nav-item {
-    color: #6B6B7B !important;
-    transition: color 0.2s ease;
+    color: #553333 !important;
+    transition: all 0.3s ease;
 }
 
-body[data-theme="itachi"] .nav-item:hover {
-    color: var(--t-accent) !important;
-}
-
-/* Active ဖြစ်နေချိန် မျက်လုံးအသက်ရှူသလို လင်းလာမည် */
 body[data-theme="itachi"] .nav-item.active {
-    color: var(--t-accent) !important; 
-    animation: sharinganBreath 2.5s infinite ease-in-out;
+    animation: breathingRed 2s infinite ease-in-out;
 }
 
 body[data-theme="itachi"] .nav-item.active::before {
-    background: var(--t-accent) !important;
-    height: 2px !important;
+    background: #DC2626 !important;
+    height: 3px !important;
+    box-shadow: 0 0 10px #DC2626;
 }
 
-body[data-theme="itachi"] .nav-icon {
-    filter: none;
-}
-
-/* === SCREENS === */
-body[data-theme="itachi"] #math-solution-screen,
-body[data-theme="itachi"] #grammar-note-screen { 
-    background: var(--t-bg) !important; 
-}
-
-/* === CARDS - Clean Solid Border (Shadow နှင့် Texture ဖြုတ်ထားသည်) === */
+/* === CARDS - Amaterasu Glowing Vibe === */
 body[data-theme="itachi"] .subject-card { 
-    background: var(--t-card) !important;
+    background: linear-gradient(145deg, #110404, #080202) !important;
     border-radius: 12px;
-    border: 1px solid var(--t-border-subtle) !important;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    border: 1px solid #441111 !important;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 body[data-theme="itachi"] .subject-card:hover {
     transform: translateY(-2px);
-    border-color: var(--t-accent) !important;
 }
 
-/* === SUBJECT LIST BORDERS === */
+/* === SUBJECT LIST BORDERS & GLOWS (ပုံထဲကအတိုင်း အရောင်ခွဲထားသည်) === */
 body[data-theme="itachi"] #subject-list .subject-card { 
-    border: 2px solid var(--t-border-home) !important; 
+    border: 1.5px solid var(--t-border-home) !important; 
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.2) !important;
 }
-body[data-theme="itachi"] #subject-list .subject-card span:last-child { 
-    color: var(--t-border-home) !important; 
+body[data-theme="itachi"] #subject-list .subject-card:hover {
+    animation: amaterasuGlow 1.5s infinite alternate;
 }
 
 body[data-theme="itachi"] #old-subject-list .subject-card { 
-    border: 2px solid var(--t-border-old) !important; 
-}
-body[data-theme="itachi"] #old-subject-list .subject-card span:last-child { 
-    color: var(--t-border-old) !important; 
+    border: 1.5px solid var(--t-border-old) !important; 
+    box-shadow: 0 0 12px rgba(234, 88, 12, 0.15) !important;
 }
 
 body[data-theme="itachi"] #daily-screen .subject-card { 
-    border: 2px solid var(--t-border-daily) !important; 
-}
-body[data-theme="itachi"] #daily-screen .subject-card span:last-child { 
-    color: var(--t-border-daily) !important; 
+    border: 1.5px solid var(--t-border-daily) !important; 
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.15) !important;
 }
 
-/* === BUTTONS - Flat & Fast === */
-body[data-theme="itachi"] .btn { 
-    background: var(--t-danger) !important; 
+/* === FIXING THEME SHOP & PURPLE BUTTONS === */
+/* ပန်းရောင်/ခရမ်းရောင် ဖြစ်နေသော Button များအားလုံးကို အနီရောင်ပြောင်းမည် */
+body[data-theme="itachi"] .btn,
+body[data-theme="itachi"] button[style*="background"],
+body[data-theme="itachi"] [class*="theme-shop"] { 
+    background: linear-gradient(135deg, #7F1D1D, #450A0A) !important; 
     color: #FFFFFF !important; 
-    border: 1px solid var(--t-accent) !important;
-    font-weight: 700;
+    border: 1px solid #DC2626 !important;
+    box-shadow: 0 0 10px rgba(220, 38, 38, 0.2) !important;
+    font-weight: bold;
 }
 
-body[data-theme="itachi"] .back-btn { 
-    background: #12121C !important; 
-    border: 1px solid var(--t-border-subtle) !important; 
-    color: #D4D4D8 !important; 
-}
-
-body[data-theme="itachi"] .next-btn-styled, 
-body[data-theme="itachi"] .next-btn { 
-    background: var(--t-success) !important; 
-    color: #FFFFFF !important; 
-    font-weight: 700;
-    border: 1px solid var(--t-accent2) !important;
-}
-
+body[data-theme="itachi"] .back-btn, 
 body[data-theme="itachi"] .option-btn { 
-    background: #12121C !important; 
-    border: 1px solid var(--t-border-subtle) !important; 
-    color: #D4D4D8 !important;
+    background: #0A0303 !important; 
+    border: 1px solid #441111 !important; 
+    color: #D4D4D8 !important; 
+    box-shadow: none !important;
 }
 
 body[data-theme="itachi"] .option-btn:hover {
-    border-color: var(--t-accent) !important;
-    background: #1A1A28 !important;
+    border-color: #DC2626 !important;
+    background: #1A0505 !important;
+    box-shadow: 0 0 8px rgba(220, 38, 38, 0.3) !important;
 }
 
 /* === ANSWER STATES === */
 body[data-theme="itachi"] .correct-answer { 
     background: #451A03 !important; 
-    border: 2px solid var(--t-success) !important; 
-    color: #fff !important;
+    border: 1.5px solid var(--t-success) !important; 
+    box-shadow: 0 0 15px rgba(217, 119, 6, 0.3) !important;
 }
 
 body[data-theme="itachi"] .wrong-answer { 
     background: #450A0A !important; 
-    border: 2px solid var(--t-accent) !important; 
-    color: #fff !important;
-}
-
-/* === FLASHCARDS === */
-body[data-theme="itachi"] .flash-front { 
-    border: 2px solid var(--t-accent) !important; 
-    background: var(--t-card) !important;
-}
-
-body[data-theme="itachi"] .flash-back { 
-    border: 2px solid var(--t-danger) !important; 
-    background: #120505 !important;
+    border: 1.5px solid var(--t-accent) !important; 
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.4) !important;
 }
 
 /* === PROFILE CARD === */
 body[data-theme="itachi"] .profile-info-card { 
-    background: var(--t-card) !important; 
-    border: 1px solid var(--t-accent) !important; 
+    background: #0A0303 !important; 
+    border: 1px solid #DC2626 !important; 
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.15) !important;
 }
 
-/* === EXAM COUNTDOWN - Active Glowing === */
+/* === EXAM COUNTDOWN === */
 body[data-theme="itachi"] #exam-countdown { 
-    border: 2px solid var(--t-accent) !important; 
-    background: #0C0C14 !important;
-    animation: borderGlow 2s infinite ease-in-out;
+    border: 1.5px solid #DC2626 !important; 
+    background: #0A0303 !important;
+    animation: amaterasuGlow 2s infinite ease-in-out;
 }
 
 body[data-theme="itachi"] .countdown-value { 
-    color: var(--t-accent) !important;
-    font-weight: 800;
-    font-size: 1.1em;
+    color: #FF4444 !important;
+    text-shadow: 0 0 10px rgba(220, 38, 38, 0.6);
 }
 
-/* === BADGES & BUY === */
-body[data-theme="itachi"] .bought-badge { 
-    color: var(--t-accent) !important; 
-    border: 1px solid var(--t-accent) !important; 
-    background: transparent !important;
+/* === FORM ELEMENTS & TOGGLES (Profile Page) === */
+body[data-theme="itachi"] {
+    --switch-bg-off: #1a0505;
+    --switch-border-off: #441111;
+    --switch-bg-on: #DC2626;
+    --switch-knob-off: #882222;
+    --switch-knob-on: #000000;
 }
 
-body[data-theme="itachi"] .buy-btn { 
-    background: transparent !important; 
-    color: var(--t-accent2) !important; 
-    border: 1px solid var(--t-accent2) !important; 
-}
-
-/* === FORM ELEMENTS === */
-body[data-theme="itachi"] .gender-container input:checked + .slider { 
-    background-color: var(--t-accent) !important; 
-}
-
-body[data-theme="itachi"] .quiz-input:focus { 
-    border-color: var(--t-accent) !important; 
-    outline: none !important;
-}
-
-body[data-theme="itachi"] .quiz-card { 
-    border-left: 4px solid var(--t-accent) !important; 
-}
-
-/* === CONTENT BOXES === */
-body[data-theme="itachi"] #grammar-note-content, 
-body[data-theme="itachi"] #math-solution-content { 
-    border: 1px solid var(--t-border-subtle) !important; 
-    background: #0E0E14 !important;
-}
-
-/* === SCROLLBAR === */
-body[data-theme="itachi"] .mjx-container::-webkit-scrollbar-thumb, 
-body[data-theme="itachi"] .math-scroll-container::-webkit-scrollbar-thumb { 
-    background: var(--t-accent) !important; 
-    border-radius: 4px;
-}
-
-body[data-theme="itachi"] ::-webkit-scrollbar { width: 6px; }
-body[data-theme="itachi"] ::-webkit-scrollbar-track { background: var(--t-bg); }
-body[data-theme="itachi"] ::-webkit-scrollbar-thumb { background: #27272F; border-radius: 4px; }
-body[data-theme="itachi"] ::-webkit-scrollbar-thumb:hover { background: var(--t-accent); }
-
-/* === CHECKLIST === */
-body[data-theme="itachi"] #checklist-container input[type="checkbox"] { 
-    accent-color: var(--t-accent) !important; 
-}
-
-/* === TIMER & SHUFFLE === */
-body[data-theme="itachi"] .timer-btn,
-body[data-theme="itachi"] .shuffle-btn { 
-    background: #12121C !important; 
-    color: var(--t-accent) !important; 
-    border: 1px solid var(--t-border-subtle) !important; 
-    font-weight: 600;
-}
-
-body[data-theme="itachi"] .shuffle-active { 
-    background: var(--t-danger) !important; 
-    color: #FFFFFF !important;
-    border: 1px solid var(--t-accent) !important;
-}
-
-/* === MIDDLE SCREEN & MOTIVATION (Blur ဖြုတ်ထားသည်) === */
-body[data-theme="itachi"] #middle-screen > div > div:first-child, 
-body[data-theme="itachi"] #motivation-box { 
-    background: rgba(10, 10, 15, 0.98) !important; 
-    border: 1px solid var(--t-border-subtle) !important; 
-}
-
-/* === CONTACT & QUIZ MODE === */
-body[data-theme="itachi"] .contact-btn { 
-    color: var(--t-accent) !important; 
-    border: 1px solid var(--t-border-subtle) !important; 
-    background: #12121C !important;
-}
-
-body[data-theme="itachi"] .contact-btn:hover {
-    border-color: var(--t-accent) !important;
-}
-
-body[data-theme="itachi"] #quiz-mode-box { 
-    border: 1px solid var(--t-border-subtle) !important; 
-    background: #0E0E14 !important;
-}
-
-/* === INPUTS & TEXTAREAS === */
-body[data-theme="itachi"] input,
-body[data-theme="itachi"] textarea,
-body[data-theme="itachi"] select {
-    background: #12121C !important;
-    border: 1px solid var(--t-border-subtle) !important;
-    color: #E4E4E7 !important;
-}
-
-body[data-theme="itachi"] input:focus,
-body[data-theme="itachi"] textarea:focus,
-body[data-theme="itachi"] select:focus {
-    border-color: var(--t-accent) !important;
-}
-
-/* === MODAL OVERLAY (Blur ဖြုတ်ထားသည်) === */
-body[data-theme="itachi"] .modal-overlay,
-body[data-theme="itachi"] .overlay {
-    background: rgba(3, 3, 5, 0.98) !important;
-}
-
-/* === DIVIDERS === */
+/* === TEXT & DIVIDERS === */
 body[data-theme="itachi"] hr,
 body[data-theme="itachi"] .divider {
-    border: none !important;
+    background: linear-gradient(90deg, transparent, #DC2626, transparent) !important;
     height: 1px !important;
-    background: var(--t-border-subtle) !important;
+    border: none !important;
+    opacity: 0.5;
 }
 
-/* === TEXT HIERARCHY === */
-body[data-theme="itachi"] .text-muted,
-body[data-theme="itachi"] .text-secondary {
-    color: #6B6B7B !important;
-}
-body[data-theme="itachi"] .text-primary {
-    color: #F0F0F5 !important;
-}
+body[data-theme="itachi"] .text-muted { color: #885555 !important; }
+body[data-theme="itachi"] .text-primary { color: #FFDDDD !important; }
 
-/* === SPECIAL === */
+/* === ARROWS & ICONS GLOW === */
 body[data-theme="itachi"] #subject-list .subject-card span:last-child,
 body[data-theme="itachi"] #old-subject-list .subject-card span:last-child,
 body[data-theme="itachi"] #daily-screen .subject-card span:last-child {
-    font-weight: 700;
-}
-
-/* === SWITCH & TRACKER === */
-body[data-theme="itachi"] {
-    --switch-bg-off: #1a0a0a;
-    --switch-border-off: #8b0000;
-    --switch-bg-on: #DC2626;
-    --switch-knob-off: #DC2626;
-    --switch-knob-on: #030305;
-    
-    --tracker-bg: #0E0E14;
-    --tracker-border: #27272F;
-    --tracker-text: #D4D4D8;
-    --tracker-check-accent: #DC2626;
-    
-    --toggle-inner-bg: #1a0a0a;
-    --toggle-inner-border: #8b0000;
-    --toggle-label-color: #D4D4D8;
-}
-
-/* === THEME SHOP === */
-body[data-theme="itachi"] .theme-shop-card {
-    background: var(--t-card);
-    border: 1px solid var(--t-accent) !important;
-}
-body[data-theme="itachi"] .theme-shop-card .theme-name {
-    color: #F0F0F5;
-}
-body[data-theme="itachi"] .theme-shop-card .theme-price {
-    color: var(--t-danger);
-}
-
-/* === SCORE DISPLAY === */
-body[data-theme="itachi"] {
-    --score-bg: #0E0E14;
-    --score-border: #DC2626;
-    --score-text: #DC2626;
+    text-shadow: 0 0 8px currentColor;
+    font-weight: 800;
 }
