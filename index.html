@@ -1035,6 +1035,7 @@ const subChapterConfig = {
         let flashIdx = 0;
         let flashCards = [];
         let isAnswered = false;
+		let currentQuizFile = '';
         // မူလရှိနေသော const userId နှင့် const userBought နေရာများကို အပေါ်သို့ ရွှေ့လိုက်ပါပြီ။
 
 
@@ -1257,7 +1258,9 @@ function showOldGeneralActivities(subId, partName) {
         if (partName === 'Chapter 2') {
             marksArray = ['3_Marks']; 
         }
-        
+         if (partName === 'Chapter 7') {
+        marksArray = ['1_Mark', '2_Marks'];
+    }
         marksArray.forEach(mark => {
             createOldBtn(mark.replace('_', ' '), list, () => {
                 const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
@@ -2065,6 +2068,7 @@ function updateFlashUI() {
 }
         // --- Quiz Engine ---
       async function initQuiz(fileName) {
+	  currentQuizFile = fileName;
     try {
         const res = await fetch(`./quizzes/${fileName}.json`);
         if(!res.ok) throw new Error();
@@ -2092,12 +2096,22 @@ function updateFlashUI() {
     nextBtn.style.display = 'none';
     nextBtn.className = 'btn'; // Reset to default class first
 
- const markCountDiv = document.getElementById('markcount');
-    if (currentSubject && currentSubject.id === 'math') {
-        markCountDiv.style.display = 'none';
-    } else {
-        markCountDiv.style.display = 'block';
-    }
+const isMath2Or3Mark = currentQuizFile && (currentQuizFile.includes('2_Marks') || currentQuizFile.includes('3_Marks'));
+
+const markCountDiv = document.getElementById('markcount');
+if (isMath2Or3Mark) {
+    markCountDiv.style.display = 'none';
+} else {
+    markCountDiv.style.display = 'block';
+}
+
+const timerWrapper = document.getElementById('timer-wrapper');
+if (isMath2Or3Mark) {
+    timerWrapper.style.display = 'none';
+    if (isTimerRunning) resetTimer();
+} else {
+    timerWrapper.style.display = 'flex';
+}
 	
     const q = currentQuestions[currentIdx];
     
@@ -2712,6 +2726,7 @@ function getFileNamesForSubject(subId) {
     return fileNames;
 }
 async function startDailyQuiz(subId) {
+currentQuizFile = '';
     const backBtn = document.getElementById('quiz-back-btn');
     backBtn.innerText = "ခဏစောင့်ပါ...";
     backBtn.disabled = true;
