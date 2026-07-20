@@ -470,27 +470,26 @@ input:checked + .slider:before {
             transform: translateX(-80px) !important; 
         }
 		
-		.math-scroll-container {
+		/* ၁။ Math Scroll Container ကို ပြင်ဆင်ခြင်း */
+.math-scroll-container {
     max-width: 100%;
     overflow-x: auto;
-    overflow-y: hidden;
-    padding: 12px 15px;
+    overflow-y: visible !important; /* အရင်က hidden ဖြစ်နေလို့ Vector တွေ အပေါ်အောက် ပြတ်ပြီး ကားသွားတာပါ */
+    padding: 15px 15px !important;
     margin: 10px 0;
     background: #0B0F19;
     border: 1px solid #334155;
     border-radius: 10px;
-    white-space: nowrap;
+    line-height: normal !important;
 }
 
 .math-scroll-container::-webkit-scrollbar {
     height: 6px;
 }
-
 .math-scroll-container::-webkit-scrollbar-track {
     background: #1E293B;
     border-radius: 3px;
 }
-
 .math-scroll-container::-webkit-scrollbar-thumb {
     background: #00D5FF;
     border-radius: 3px;
@@ -499,23 +498,29 @@ input:checked + .slider:before {
 .math-scroll-container p {
     margin: 0;
     display: inline-block;
-    white-space: nowrap;
 }
 
-/* ၂။ သင်္ချာ Equation တွေ ရှည်သွားရင် ဘေးတိုက် Scroll ဆွဲလို့ရအောင် သီးသန့်လုပ်ပေးခြင်း */
+/* ၂။ သင်္ချာ Equation တွေအတွက် နေရာ လုံလုံလောက်လောက် ပေးခြင်း */
 .mjx-container {
     max-width: 100% !important;
-    overflow-x: auto !important; /* Equation အရှည်ကြီးဖြစ်ပါက ဘေးတိုက်ပွတ်ဆွဲနိုင်မည် */
-    overflow-y: hidden !important;
-    margin-top: 15px !important;    /* Equation အပေါ် အကွာအဝေး */
-    margin-bottom: 20px !important; /* Equation အောက် အကွာအဝေး (တစ်ခုနှင့် တစ်ခု ပူးမနေစေရန်) */
-    padding-bottom: 10px !important; 
+    overflow-x: auto !important; 
+    overflow-y: visible !important; /* MathJax များကို block မဖြစ်စေရန် visible ပေးရပါမည် */
+    margin-top: 15px !important;    
+    margin-bottom: 20px !important; 
+    padding-top: 10px !important;   /* Vector ကွင်း အပေါ်ပိုင်း မပြတ်စေရန် */
+    padding-bottom: 10px !important; /* Vector ကွင်း အောက်ပိုင်း မပြတ်စေရန် */
+    line-height: normal !important;
 }
 
-/* ၃။ အကယ်၍ Equation တွေကို တစ်ဆက်တည်း (Multiple lines) ရေးထားပါက ၎င်းတို့ကြား အကွာအဝေးကို ချဲ့ရန် */
+/* ၃။ Matrix နဲ့ Vector (အပေါ်အောက် ဂဏန်းများ) အတွက် အမြင့်ကို ရှင်းထုတ်ခြင်း */
 mjx-mtr, mjx-mlabeledtr {
-    height: 3em !important; /* Equation အကြောင်းများကြားထဲ နေရာပိုခြားပေးမည် (မလောက်ပါက 3.5em စသဖြင့် တိုးနိုင်သည်) */
+    height: auto !important; /* အရင်က 3em လို့ ပုံသေကန့်သတ်ထားလို့ Vector ကွင်းတွေ ပုံပျက်သွားတာပါ */
 }
+
+mjx-mtable {
+    margin: 5px 0 !important; /* Vector ဂဏန်းများ တစ်ခုနှင့်တစ်ခု မကပ်နေစေရန် */
+}
+
 
 /* (ရွေးချယ်ရန်) Equation Scrollbar လေးကို သေးသေးသွယ်သွယ်နဲ့ လှသွားအောင် ပြင်ခြင်း */
 .mjx-container::-webkit-scrollbar {
