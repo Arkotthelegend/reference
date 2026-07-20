@@ -500,16 +500,22 @@ input:checked + .slider:before {
     display: inline-block;
 }
 
-/* သင်္ချာညီမျှခြင်းများ ဘောင်မကျော်စေရန် Safe Guard */
 .mjx-container {
     max-width: 100% !important;
-    overflow-x: auto !important;  /* ဘောင်ကျော်ရင် ဘေးတိုက် Scroll ဆွဲကြည့်လို့ရမည် */
-    overflow-y: visible !important;
-    display: block !important;    /* MathJax ကို block ထားမှ overflow-x အလုပ်လုပ်မည် */
-    margin-top: 15px !important;    
-    margin-bottom: 20px !important; 
-    padding: 10px 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    display: block !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    padding: 5px 0 !important;
     line-height: normal !important;
+    font-size: 0.95rem !important;
+}
+
+mjx-mtable {
+    margin: 5px 0 !important;
+    max-width: 100% !important;
+    display: inline-table !important;
 }
 
 /* ၃။ Matrix နဲ့ Vector (အပေါ်အောက် ဂဏန်းများ) အတွက် အမြင့်ကို ရှင်းထုတ်ခြင်း */
@@ -517,9 +523,6 @@ mjx-mtr, mjx-mlabeledtr {
     height: auto !important; /* အရင်က 3em လို့ ပုံသေကန့်သတ်ထားလို့ Vector ကွင်းတွေ ပုံပျက်သွားတာပါ */
 }
 
-mjx-mtable {
-    margin: 5px 0 !important; /* Vector ဂဏန်းများ တစ်ခုနှင့်တစ်ခု မကပ်နေစေရန် */
-}
 
 
 /* (ရွေးချယ်ရန်) Equation Scrollbar လေးကို သေးသေးသွယ်သွယ်နဲ့ လှသွားအောင် ပြင်ခြင်း */
@@ -857,7 +860,7 @@ body[data-theme] .container {
     </div>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
-    <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5;"></div>
+    <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5; overflow-x: auto; max-width: 100%; box-sizing: border-box; padding: 10px;"></div>
     <div id="quiz-options"></div>
     <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
     
@@ -877,7 +880,7 @@ body[data-theme] .container {
     <h3 style="text-align: center; color: var(--accent);">အဖြေနှင့် တွက်နည်း</h3>
     
     <!-- ဤနေရာက အဖြေ Box ဖြစ်သည် -->
-    <div id="math-solution-content" style="background: #162235; padding: 20px; border-radius: 12px; border: 1px solid #00D5FF; margin-bottom: 20px; min-height: 200px; color: #fff;"></div>
+   <div id="math-solution-content" style="background: #162235; padding: 20px; border-radius: 12px; border: 1px solid #00D5FF; margin-bottom: 20px; min-height: 200px; color: #fff; overflow-x: auto; max-width: 100%; box-sizing: border-box;"></div>
     
     <div style="display: flex; gap: 10px; flex-direction: column;">
         <button class="btn" id="math-prev-btn">⬅️ မေးခွန်းသို့ ပြန်သွားရန်</button>
