@@ -500,15 +500,15 @@ input:checked + .slider:before {
     display: inline-block;
 }
 
-/* ၂။ သင်္ချာ Equation တွေအတွက် နေရာ လုံလုံလောက်လောက် ပေးခြင်း */
+/* သင်္ချာညီမျှခြင်းများ ဘောင်မကျော်စေရန် Safe Guard */
 .mjx-container {
     max-width: 100% !important;
-    overflow-x: auto !important; 
-    overflow-y: visible !important; /* MathJax များကို block မဖြစ်စေရန် visible ပေးရပါမည် */
+    overflow-x: auto !important;  /* ဘောင်ကျော်ရင် ဘေးတိုက် Scroll ဆွဲကြည့်လို့ရမည် */
+    overflow-y: visible !important;
+    display: block !important;    /* MathJax ကို block ထားမှ overflow-x အလုပ်လုပ်မည် */
     margin-top: 15px !important;    
     margin-bottom: 20px !important; 
-    padding-top: 10px !important;   /* Vector ကွင်း အပေါ်ပိုင်း မပြတ်စေရန် */
-    padding-bottom: 10px !important; /* Vector ကွင်း အောက်ပိုင်း မပြတ်စေရန် */
+    padding: 10px 0 !important;
     line-height: normal !important;
 }
 
