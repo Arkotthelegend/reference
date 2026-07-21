@@ -987,38 +987,49 @@ const subChapterConfig = {
 
         const userId = tg.initDataUnsafe?.user?.id?.toString() || "Guest";
 
-        async function loadPaidUsers() {
+        function loadFromCache() {
+    try {
+        const cached = localStorage.getItem('cached_paid_users');
+        if (cached) {
+            paidUsers = JSON.parse(cached);
+            userBought = paidUsers[userId] || {};
+            renderSubjects();
+            initOldSubjects();
+            return true; // Cache ရှိတယ်
+        }
+    } catch (e) {
+        console.error("Cache error:", e);
+    }
+    return false; // Cache မရှိဘူး
+}
+
+async function fetchPaidUsers() {
     const sheetURL = "https://script.google.com/macros/s/AKfycbyFdqz2eAR7gr8ZKyMph-9sxYzXJ48fjfC42GNhsWug9YO0p6U-X6I3Rx8WJ4dtSMXQ/exec";
     
-    // 🆕 ယခင် cache ကို ရှင်းလိုက် (format မှားနေလို့)
-    localStorage.removeItem('cached_paid_users');
-
     try {
-        // 🆕 action=getUsers ထည့်လိုက်
         const response = await fetch(sheetURL + "?action=getUsers");
         const newData = await response.json();
         
-        // Error check
         if (newData.success === false) {
             console.error("GAS Error:", newData.message);
             return;
         }
         
-        // newData က အခု { '8432...': { 'mm': '...' }, ... } ပုံစံ ဖြစ်သွားပြီ
-        localStorage.setItem('cached_paid_users', JSON.stringify(newData));
+        const cachedStr = localStorage.getItem('cached_paid_users');
+        const newStr = JSON.stringify(newData);
         
-        paidUsers = newData;
-        userBought = paidUsers[userId] || {};
-        renderSubjects();
-        initOldSubjects();
-        
-        const savedTheme = localStorage.getItem('activeTheme') || 'default';
-        document.body.setAttribute('data-theme', savedTheme);
-        
-        console.log("✅ Database loaded:", Object.keys(paidUsers).length, "users");
-        
+        // ဒေတာ တကယ်ပြောင်းမှ ပြန်သိမ်းပြီး Re-render လုပ်မယ်
+        if (cachedStr !== newStr) {
+            localStorage.setItem('cached_paid_users', newStr);
+            paidUsers = newData;
+            userBought = paidUsers[userId] || {};
+            renderSubjects();
+            initOldSubjects();
+            console.log("✅ Data synced from server");
+        }
     } catch (e) {
-        console.error("❌ Database error:", e);
+        console.error("❌ Background sync failed:", e);
+        // Fail ရင် Cache ကို အရင်အတိုင်းထားခဲ့မယ် (User ကို မကြောက်စရာလိုဘူး)
     }
 }
 
@@ -2600,8 +2611,8 @@ window.onload = () => {
     loadGoals(); 
     updateCountdown(); 
     updateStreak();
-    loadPaidUsers();
-    initOldSubjects();
+    loadFromCache();    // ① Cache ရှိရင် ချက်ချင်း သော့ပွင့်ပြမယ် (စောင့်စရာမလို)
+    fetchPaidUsers();
     
     // Theme Init
     const savedTheme = localStorage.getItem('activeTheme') || 'default';
