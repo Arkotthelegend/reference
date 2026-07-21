@@ -988,34 +988,54 @@ const subChapterConfig = {
         const userId = tg.initDataUnsafe?.user?.id?.toString() || "Guest";
 
         async function loadPaidUsers() {
-    const sheetURL = "https://script.google.com/macros/s/AKfycbyRWNc4vL3uYwfxz8O4T9rTyLegcBV_f4EZQ92l7uasFcdWbyY9lXI6t8J2jOC-sMRs/exec";
+    const sheetURL = "https://script.google.com/macros/s/AKfycbx3-A1khjc924DyrdmTjKHdxbo9h7fEDhbSVtURyUa9y3oGoTzMFGjc3X1rKUDU7x41/exec";
     
-    const cachedData = localStorage.getItem('cached_paid_users');
-        if (cachedData) {
-        paidUsers = JSON.parse(cachedData);
-        userBought = paidUsers[userId] || [];
-        renderSubjects();
-        initOldSubjects();   // <<<<<< ဒါထည့်ပါ
-    }
+    // ရှေ့က cache မှားနေလို့ ရှင်းလင်းပါ
+    localStorage.removeItem('cached_paid_users');
 
     try {
-        const response = await fetch(sheetURL);
-        const newData = await response.json();
+        // 🆕 action=getUsers ထည့်ပေးရန်
+        const response = await fetch(sheetURL + "?action=getUsers");
+        const result = await response.json();
         
-        localStorage.setItem('cached_paid_users', JSON.stringify(newData));
-        
-                paidUsers = newData;
-        userBought = paidUsers[userId] || [];
-        renderSubjects();
-        initOldSubjects();   // <<<<<< ဒါထည့်ပါ
-        
-        // Theme re-apply after data loads
-        const savedTheme = localStorage.getItem('activeTheme') || 'default';
-        document.body.setAttribute('data-theme', savedTheme);
-        
-        console.log("Database updated in background");
+        if (result.success && Array.isArray(result.data)) {
+            const rows = result.data;
+            const headers = rows[0]; // ပထမဆုံး row = header
+            
+            paidUsers = {};
+            
+            // ဒုတိယ row �부터 user data
+            for (let i = 1; i < rows.length; i++) {
+                const row = rows[i];
+                const uid = String(row[0]).trim();
+                if (!uid || uid === 'telegram_id') continue;
+                
+                paidUsers[uid] = {};
+                for (let j = 1; j < headers.length; j++) {
+                    const key = String(headers[j]).trim();
+                    const val = row[j];
+                    if (val !== null && val !== undefined && String(val).trim() !== '') {
+                        paidUsers[uid][key] = String(val).trim();
+                    }
+                }
+            }
+            
+            // Cache ထဲသိမ်းမယ် (အခုအကြိမ်က format မှန်ပြီ)
+            localStorage.setItem('cached_paid_users', JSON.stringify(paidUsers));
+            
+            userBought = paidUsers[userId] || {};
+            renderSubjects();
+            initOldSubjects();
+            
+            const savedTheme = localStorage.getItem('activeTheme') || 'default';
+            document.body.setAttribute('data-theme', savedTheme);
+            
+            console.log("✅ Database loaded:", Object.keys(paidUsers).length, "users");
+        } else {
+            console.error("❌ Server error:", result.message || "Unknown");
+        }
     } catch (e) {
-        console.error("Database error:", e);
+        console.error("❌ Fetch error:", e);
     }
 }
 
