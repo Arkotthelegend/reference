@@ -909,20 +909,6 @@ body[data-theme] .container {
     <button class="btn back-btn" onclick="showENPoemOptions()">နောက်သို့</button>
 </div>
 
-		<!-- Definition / Key Term Detail Screen -->
-<div id="definition-detail-screen" class="screen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background: var(--bg); z-index: 1000; padding: 20px; overflow-y: auto;">
-    <h3 id="definition-detail-title" style="text-align: center; color: var(--accent); margin-top: 10px;"></h3>
-    <div id="definition-detail-content" style="background: #162235; padding: 20px; border-radius: 12px; border: 1px solid #00D5FF; margin-bottom: 20px; color: #fff; line-height: 1.8; font-size: 1.05rem;"></div>
-    <button class="btn back-btn" id="definition-detail-back-btn">နောက်သို့</button>
-</div>
-
-<!-- Formula Screen -->
-<div id="formula-screen" class="screen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background: var(--bg); z-index: 1000; padding: 20px; overflow-y: auto;">
-    <h3 id="formula-title" style="text-align: center; color: var(--accent); margin-top: 10px;"></h3>
-    <div id="formula-content" style="padding-bottom: 20px;"></div>
-    <button class="btn back-btn" id="formula-back-btn">နောက်သို့</button>
-</div>
-		
     <div class="nav">
         <div class="nav-item nav-active" onclick="changeTab('home', this)">🏠</div>
 		<div class="nav-item" onclick="changeTab('scroll', this)">📜</div>
@@ -1430,33 +1416,22 @@ function openSubjectMenu(sub) {
                 else showMMFlashcardOptions(m);
             });
         });
-    } else if (sub.id === 'phy') {
-    createBtn('Definition', content, () => showDefinitionChapterMenu('phy'));
-    createBtn('Formula', content, () => showFormulaChapterMenu('phy'));
-    for(let i=1; i<=sub.chapters; i++) {
-        createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
+    } else if (sub.id === 'phy' || sub.id === 'chem') {
+        for(let i=1; i<=sub.chapters; i++) {
+            createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
+        }
+    } else {
+        for(let i=1; i<=sub.chapters; i++) {
+            if (sub.id === 'eco' && i === 6) continue;
+            
+            if (sub.id === 'math') {
+                createBtn(`Chapter ${i}`, content, () => showGeneralActivities(sub.id, `Chapter ${i}`));
+            } else {
+                createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
+            }
+        }
     }
-} else if (sub.id === 'chem') {
-    createBtn('Key Terms', content, () => showDefinitionChapterMenu('chem'));
-    for(let i=1; i<=sub.chapters; i++) {
-        createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
-    }
-} else if (sub.id === 'eco') {
-    createBtn('Definition', content, () => showDefinitionChapterMenu('eco'));
-    createBtn('Formula', content, () => showFormulaChapterMenu('eco'));
-    for(let i=1; i<=sub.chapters; i++) {
-        if (i === 6) continue;
-        createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
-    }
-} else if (sub.id === 'math') {
-    for(let i=1; i<=sub.chapters; i++) {
-        createBtn(`Chapter ${i}`, content, () => showGeneralActivities(sub.id, `Chapter ${i}`));
-    }
-} else {
-    for(let i=1; i<=sub.chapters; i++) {
-        createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
-    }
-}
+	}
 
 
         
@@ -1911,17 +1886,19 @@ function showSubChaptersMenu(subId, chapterName) {
 
     // ၂။ Config ထဲတွင် ရေးထားသော အခန်းခွဲများ (Sub-chapters) ကို ခလုတ်အဖြစ် ထုတ်ပေးရန်
     const subChapters = (subChapterConfig[subId] && subChapterConfig[subId][chapterName]) || [];
-    subChapters.forEach(subChap => {
-        createBtn(subChap, content, () => {
-            // ဖိုင်နာမည် မှတ်သားရန် e.g., "Chapter 1_1.1"
-            const activityPartName = `${chapterName}_${subChap}`;
-            if (subId === 'phy' || subId === 'chem') {
-                showPhyChemActivities(subId, activityPartName, chapterName);
-            } else {
-                showGeneralActivities(subId, activityPartName, chapterName);
-            }
-        });
-    });
+        // --- NEW: Definition / Formula / Key Terms Buttons ---
+    if (subId === 'phy') {
+        createBtn("📖 Definition", content, () => loadTitleList(subId, chapterName, 'Definition'));
+        createBtn("🧪 Formula", content, () => loadFormulaPage(subId, chapterName));
+    } else if (subId === 'chem') {
+        createBtn("🔑 Key Terms", content, () => loadTitleList(subId, chapterName, 'KeyTerms'));
+    } else if (subId === 'eco') {
+        createBtn("📖 Definition", content, () => loadTitleList(subId, chapterName, 'Definition'));
+        const chNum = parseInt(chapterName.replace('Chapter ', ''));
+        if ([1, 2, 3, 7].includes(chNum)) {
+            createBtn("🧮 Formula", content, () => loadFormulaPage(subId, chapterName));
+        }
+    }
 }
         function showPhyChemActivities(subId, partName, parentChapter = null) {
     showScreen('activity');
@@ -3069,103 +3046,67 @@ function buyThemePrompt(themeId) {
     tg.showAlert("🎨 " + t.name + " ဝယ်ယူရန် @minaphayarkot ကို ဆက်သွယ်ပါ။\n\nသင့် ID: " + userId + "\n(Theme: " + themeId + ")");
 }
 
-		// ==================== DEFINITION & KEY TERMS SYSTEM ====================
-
-function showDefinitionChapterMenu(subId) {
-    showScreen('activity');
-    const titleText = (subId === 'chem') ? 'Key Terms' : 'Definitions';
-    document.getElementById('activity-title').innerText = titleText;
-    const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-    document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-    
-    const sub = subjects.find(s => s.id === subId);
-    for(let i=1; i<=sub.chapters; i++) {
-        if (subId === 'eco' && i === 6) continue;
-        createBtn(`Chapter ${i}`, content, () => showDefinitionTitles(subId, i));
-    }
-}
-
-async function showDefinitionTitles(subId, chapter) {
-    showScreen('activity');
-    document.getElementById('activity-title').innerText = `Chapter ${chapter}`;
-    const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-    document.getElementById('activity-back-btn').onclick = () => showDefinitionChapterMenu(subId);
-    
-    const fileName = (subId === 'chem') 
-        ? `chem_ch${chapter}_keyterms` 
-        : `${subId}_ch${chapter}_definitions`;
-    
+		async function loadTitleList(subId, chapterName, type) {
+    const fileName = `${subId}_${chapterName}_${type}`.replace(/ /g, "_");
     try {
         const res = await fetch(`./quizzes/${fileName}.json`);
-        if(!res.ok) throw new Error();
+        if (!res.ok) throw new Error();
         const data = await res.json();
-        
+
+        showScreen('activity');
+        document.getElementById('activity-title').innerText = (type === 'KeyTerms') ? 'Key Terms' : 'Definitions';
+        const content = document.getElementById('activity-content');
+        content.innerHTML = '';
+
+        // Back button returns to Chapter menu
+        document.getElementById('activity-back-btn').onclick = () => showSubChaptersMenu(subId, chapterName);
+
         data.forEach(item => {
-            createBtn(item.title, content, () => showDefinitionDetail(item.title, item.content, subId, chapter));
+            createBtn(item.title, content, () => {
+                showScreen('grammar-note');
+                document.getElementById('grammar-note-title').innerText = item.title;
+                document.getElementById('grammar-note-content').innerHTML = item.content;
+                
+                // Back button returns to this title list
+                const backBtn = document.querySelector('#grammar-note-screen .back-btn');
+                backBtn.onclick = () => loadTitleList(subId, chapterName, type);
+            });
         });
-    } catch (e) { 
-        tg.showAlert("ဖိုင်မတွေ့သေးပါ - " + fileName); 
+    } catch (e) {
+        tg.showAlert("ဖိုင်မတွေ့သေးပါ - " + fileName);
     }
 }
 
-function showDefinitionDetail(title, content, subId, chapter) {
-    showScreen('definition-detail');
-    document.getElementById('definition-detail-title').innerText = title;
-    document.getElementById('definition-detail-content').innerHTML = content;
-    document.getElementById('definition-detail-back-btn').onclick = () => showDefinitionTitles(subId, chapter);
-}
-
-
-// ==================== FORMULA SYSTEM ====================
-
-function showFormulaChapterMenu(subId) {
-    showScreen('activity');
-    document.getElementById('activity-title').innerText = 'Formulas';
-    const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-    document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-    
-    const sub = subjects.find(s => s.id === subId);
-    for(let i=1; i<=sub.chapters; i++) {
-        if (subId === 'eco' && i === 6) continue;
-        if (subId === 'eco' && ![1,2,3,7].includes(i)) continue;
-        createBtn(`Chapter ${i}`, content, () => showFormulaPage(subId, i));
-    }
-}
-
-async function showFormulaPage(subId, chapter) {
-    showScreen('formula');
-    document.getElementById('formula-title').innerText = `Chapter ${chapter} Formulas`;
-    const content = document.getElementById('formula-content');
-    content.innerHTML = '';
-    document.getElementById('formula-back-btn').onclick = () => showFormulaChapterMenu(subId);
-    
-    const fileName = `${subId}_ch${chapter}_formulas`;
-    
+		async function loadFormulaPage(subId, chapterName) {
+    const fileName = `${subId}_${chapterName}_Formula`.replace(/ /g, "_");
     try {
         const res = await fetch(`./quizzes/${fileName}.json`);
-        if(!res.ok) throw new Error();
+        if (!res.ok) throw new Error();
         const data = await res.json();
-        
+
+        showScreen('grammar-note');
+        document.getElementById('grammar-note-title').innerText = chapterName + " - Formulas";
+
+        let html = '';
         data.forEach(item => {
-            const card = document.createElement('div');
-            card.style.cssText = 'background: #162235; border: 1px solid #334155; border-radius: 12px; padding: 15px; margin-bottom: 12px;';
-            card.innerHTML = `
-                <div style="color: #00D5FF; font-weight: bold; font-size: 1.05rem; margin-bottom: 8px;">${item.name}</div>
-                <div style="background: #0B0F19; padding: 12px; border-radius: 8px; font-family: monospace; font-size: 1.1rem; color: #fff; margin-bottom: 8px; text-align: center;">${item.formula}</div>
-                <div style="color: #94A3B8; font-size: 0.9rem; line-height: 1.5;">${item.description || ''}</div>
+            html += `
+                <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #334155;">
+                    <h4 style="color: #00D5FF; margin-bottom: 8px;">${item.name}</h4>
+                    <div style="background: #0B0F19; padding: 12px; border-radius: 8px; font-size: 1.1rem; margin-bottom: 8px;">${item.formula}</div>
+                    <p style="color: #94A3B8; font-size: 0.9rem; line-height: 1.5;">${item.description || ''}</p>
+                </div>
             `;
-            content.appendChild(card);
         });
-        
-        if (window.MathJax) MathJax.typesetPromise();
-    } catch (e) { 
-        tg.showAlert("ဖိုင်မတွေ့သေးပါ - " + fileName); 
+
+        document.getElementById('grammar-note-content').innerHTML = html;
+
+        // Back button returns to Chapter menu
+        const backBtn = document.querySelector('#grammar-note-screen .back-btn');
+        backBtn.onclick = () => showSubChaptersMenu(subId, chapterName);
+    } catch (e) {
+        tg.showAlert("ဖိုင်မတွေ့သေးပါ - " + fileName);
     }
 }
-	
     </script>
 </body>
 </html>
