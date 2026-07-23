@@ -175,23 +175,31 @@
     #flashcard-screen > div:first-child { width: 100%; } /* Title Area */
     
     .flash-container { 
-        width: 100%; max-width: 350px; /* ဖုန်းအကြီး/အသေး အားလုံးနှင့် အချိုးကျစေရန် */
-        height: 280px; /* တိကျသော အချိုးအစား သတ်မှတ်ခြင်း */
-        margin: auto 0; /* အလယ်ဗဟို၌ နေရာယူစေရန် */
-        cursor: pointer; perspective: 1000px; 
-    }
+    width: 100%; 
+    max-width: 600px; /* 💻 Laptop မှာ ပိုကြီးပြန်ရန် */
+    height: 400px; /* 💻 Laptop မှာ ပိုမြင့်ပြန်ရန် */
+    margin: 20px auto; /* ⬅️ အလယ်ဗဟိုကို အလျားလိုက်လည်းရောက်၊ အပေါ်အောက်လည်း အကွာအဝေးရှိ */
+    cursor: pointer; 
+    perspective: 1000px; 
+}
+	   
     .flash-card { 
         width: 100%; height: 100%; position: relative; border-radius: 20px; 
         transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); transform-style: preserve-3d; 
     }
     .flash-face { 
-        position: absolute; width: 100%; height: 100%; 
-        display: flex !important; align-items: center !important; justify-content: center !important; 
-        font-size: 1.15rem !important; border-radius: 20px; padding: 20px !important; text-align: center; 
-        backface-visibility: hidden; -webkit-backface-visibility: hidden; /* 3D လှည့်ရာတွင် အနောက်ဘက်မမြင်ရအောင် ကာကွယ်ခြင်း */
-        transform: translate3d(0,0,0);
-        overflow: hidden !important; /* စာသားများလျှင် ရုပ်ဆိုးမသွားစေရန် */
-    }
+    position: absolute; width: 100%; height: 100%; 
+    display: flex !important; align-items: center !important; justify-content: center !important; 
+    font-size: clamp(1.15rem, 2.5vw, 1.8rem) !important; /* 📱 Phone = 1.15rem, 💻 Laptop = 1.8rem */
+    border-radius: 20px; 
+    padding: clamp(20px, 4vw, 40px) !important; /* 💻 Laptop မှာ padding ပိုကြီးရန် */
+    text-align: center; 
+    backface-visibility: hidden; 
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0,0,0);
+    overflow: hidden !important;
+}
+	   
     .flash-front { background: #1E293B; border: 2px solid #00D5FF; color: #fff; }
     .flash-back { background: #1E293B; border: 2px solid #EF4444; color: #fff; transform: rotateY(180deg); }
     .is-flipped { transform: rotateY(180deg); }
@@ -901,6 +909,20 @@ body[data-theme] .container {
     <button class="btn back-btn" onclick="showENPoemOptions()">နောက်သို့</button>
 </div>
 
+		<!-- Definition / Key Term Detail Screen -->
+<div id="definition-detail-screen" class="screen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background: var(--bg); z-index: 1000; padding: 20px; overflow-y: auto;">
+    <h3 id="definition-detail-title" style="text-align: center; color: var(--accent); margin-top: 10px;"></h3>
+    <div id="definition-detail-content" style="background: #162235; padding: 20px; border-radius: 12px; border: 1px solid #00D5FF; margin-bottom: 20px; color: #fff; line-height: 1.8; font-size: 1.05rem;"></div>
+    <button class="btn back-btn" id="definition-detail-back-btn">နောက်သို့</button>
+</div>
+
+<!-- Formula Screen -->
+<div id="formula-screen" class="screen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background: var(--bg); z-index: 1000; padding: 20px; overflow-y: auto;">
+    <h3 id="formula-title" style="text-align: center; color: var(--accent); margin-top: 10px;"></h3>
+    <div id="formula-content" style="padding-bottom: 20px;"></div>
+    <button class="btn back-btn" id="formula-back-btn">နောက်သို့</button>
+</div>
+		
     <div class="nav">
         <div class="nav-item nav-active" onclick="changeTab('home', this)">🏠</div>
 		<div class="nav-item" onclick="changeTab('scroll', this)">📜</div>
@@ -981,11 +1003,6 @@ const subChapterConfig = {
 		
         const tg = window.Telegram.WebApp;
         tg.ready(); tg.expand();
-		const clickSound = new Audio('click.mp3');     // ခလုပ်နှိပ်သံ
-const correctSound = new Audio('correct.mp3'); // မှန်တဲ့အသံ
-
-clickSound.volume = 0.2;    // မတိုးမကျယ်အောင် 20%
-correctSound.volume = 0.25; // မတိုးမကျယ်အောင် 25%
 
       let paidUsers = {}; 
         let userBought = {}; // const အစား let ပြောင်းပေးရမည်
@@ -1413,22 +1430,33 @@ function openSubjectMenu(sub) {
                 else showMMFlashcardOptions(m);
             });
         });
-    } else if (sub.id === 'phy' || sub.id === 'chem') {
-        for(let i=1; i<=sub.chapters; i++) {
-            createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
-        }
-    } else {
-        for(let i=1; i<=sub.chapters; i++) {
-            if (sub.id === 'eco' && i === 6) continue;
-            
-            if (sub.id === 'math') {
-                createBtn(`Chapter ${i}`, content, () => showGeneralActivities(sub.id, `Chapter ${i}`));
-            } else {
-                createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
-            }
-        }
+    } else if (sub.id === 'phy') {
+    createBtn('Definition', content, () => showDefinitionChapterMenu('phy'));
+    createBtn('Formula', content, () => showFormulaChapterMenu('phy'));
+    for(let i=1; i<=sub.chapters; i++) {
+        createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
     }
-	}
+} else if (sub.id === 'chem') {
+    createBtn('Key Terms', content, () => showDefinitionChapterMenu('chem'));
+    for(let i=1; i<=sub.chapters; i++) {
+        createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
+    }
+} else if (sub.id === 'eco') {
+    createBtn('Definition', content, () => showDefinitionChapterMenu('eco'));
+    createBtn('Formula', content, () => showFormulaChapterMenu('eco'));
+    for(let i=1; i<=sub.chapters; i++) {
+        if (i === 6) continue;
+        createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
+    }
+} else if (sub.id === 'math') {
+    for(let i=1; i<=sub.chapters; i++) {
+        createBtn(`Chapter ${i}`, content, () => showGeneralActivities(sub.id, `Chapter ${i}`));
+    }
+} else {
+    for(let i=1; i<=sub.chapters; i++) {
+        createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
+    }
+}
 
 
         
@@ -2232,8 +2260,6 @@ if (isMath2Or3Mark) {
                     if (typeof score !== 'undefined') {
                         score++;
                         document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
-						correctSound.currentTime = 0;
-    correctSound.play().catch(() => {})
                     }
                 } else {
                     options.forEach((b, idx) => {
@@ -2275,8 +2301,6 @@ if (isMath2Or3Mark) {
                 if (typeof score !== 'undefined') {
                     score++;
                     document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
-					correctSound.currentTime = 0;
-    correctSound.play().catch(() => {});
                 }
             } else {
                 tg.showAlert("အဖြေမှန်မှာ: " + q.c + "\nအခြားသောအဖြေမှန်များလည်းရှိနိုင်ပါသည်");
@@ -2307,8 +2331,6 @@ function selectOption(index) {
         options[index].classList.add('correct-answer');
 		score++;
     document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
-	 correctSound.currentTime = 0;
-    correctSound.play().catch(() => {});
     }
     // ရွေးလိုက်တဲ့အဖြေက မှားနေရင် အနီရောင်ပြပါ
     if (index !== q.answer) {
@@ -2622,25 +2644,24 @@ window.onload = () => {
     loadGoals(); 
     updateCountdown(); 
     updateStreak();
-    loadFromCache();
+    loadFromCache();    // ① Cache ရှိရင် ချက်ချင်း သော့ပွင့်ပြမယ် (စောင့်စရာမလို)
     fetchPaidUsers();
     
+    // Theme Init
     const savedTheme = localStorage.getItem('activeTheme') || 'default';
-    if (savedTheme !== 'default') loadThemeCSS(savedTheme);
+    
+    // 🆕 savedTheme မဟုတ်ဘူးဆိုရင် file load မယ်
+    if (savedTheme !== 'default') {
+        loadThemeCSS(savedTheme);
+    }
+    
     document.body.setAttribute('data-theme', savedTheme);
     
     const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false';
     const randomSwitch = document.getElementById('random-switch');
-    if (randomSwitch) randomSwitch.checked = savedRandomSetting;
-    
-    // ✅ ဒီမှာဘဲ listener ဘဲ ထားပါ
-    document.addEventListener('click', (e) => {
-        const btn = e.target.closest('button, .subject-card, .nav-item, .option-btn');
-        if (btn) {
-            clickSound.currentTime = 0;
-            clickSound.play().catch(() => {});
-        }
-    });
+    if (randomSwitch) {
+        randomSwitch.checked = savedRandomSetting;
+    }
 };
        
 		// နေ့စဉ် Quote ပြောင်းလဲရန် Logic
@@ -3047,6 +3068,104 @@ function buyThemePrompt(themeId) {
     const t = themes.find(x => x.id === themeId);
     tg.showAlert("🎨 " + t.name + " ဝယ်ယူရန် @minaphayarkot ကို ဆက်သွယ်ပါ။\n\nသင့် ID: " + userId + "\n(Theme: " + themeId + ")");
 }
+
+		// ==================== DEFINITION & KEY TERMS SYSTEM ====================
+
+function showDefinitionChapterMenu(subId) {
+    showScreen('activity');
+    const titleText = (subId === 'chem') ? 'Key Terms' : 'Definitions';
+    document.getElementById('activity-title').innerText = titleText;
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
+    
+    const sub = subjects.find(s => s.id === subId);
+    for(let i=1; i<=sub.chapters; i++) {
+        if (subId === 'eco' && i === 6) continue;
+        createBtn(`Chapter ${i}`, content, () => showDefinitionTitles(subId, i));
+    }
+}
+
+async function showDefinitionTitles(subId, chapter) {
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = `Chapter ${chapter}`;
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    document.getElementById('activity-back-btn').onclick = () => showDefinitionChapterMenu(subId);
+    
+    const fileName = (subId === 'chem') 
+        ? `chem_ch${chapter}_keyterms` 
+        : `${subId}_ch${chapter}_definitions`;
+    
+    try {
+        const res = await fetch(`./quizzes/${fileName}.json`);
+        if(!res.ok) throw new Error();
+        const data = await res.json();
+        
+        data.forEach(item => {
+            createBtn(item.title, content, () => showDefinitionDetail(item.title, item.content, subId, chapter));
+        });
+    } catch (e) { 
+        tg.showAlert("ဖိုင်မတွေ့သေးပါ - " + fileName); 
+    }
+}
+
+function showDefinitionDetail(title, content, subId, chapter) {
+    showScreen('definition-detail');
+    document.getElementById('definition-detail-title').innerText = title;
+    document.getElementById('definition-detail-content').innerHTML = content;
+    document.getElementById('definition-detail-back-btn').onclick = () => showDefinitionTitles(subId, chapter);
+}
+
+
+// ==================== FORMULA SYSTEM ====================
+
+function showFormulaChapterMenu(subId) {
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = 'Formulas';
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
+    
+    const sub = subjects.find(s => s.id === subId);
+    for(let i=1; i<=sub.chapters; i++) {
+        if (subId === 'eco' && i === 6) continue;
+        if (subId === 'eco' && ![1,2,3,7].includes(i)) continue;
+        createBtn(`Chapter ${i}`, content, () => showFormulaPage(subId, i));
+    }
+}
+
+async function showFormulaPage(subId, chapter) {
+    showScreen('formula');
+    document.getElementById('formula-title').innerText = `Chapter ${chapter} Formulas`;
+    const content = document.getElementById('formula-content');
+    content.innerHTML = '';
+    document.getElementById('formula-back-btn').onclick = () => showFormulaChapterMenu(subId);
+    
+    const fileName = `${subId}_ch${chapter}_formulas`;
+    
+    try {
+        const res = await fetch(`./quizzes/${fileName}.json`);
+        if(!res.ok) throw new Error();
+        const data = await res.json();
+        
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.style.cssText = 'background: #162235; border: 1px solid #334155; border-radius: 12px; padding: 15px; margin-bottom: 12px;';
+            card.innerHTML = `
+                <div style="color: #00D5FF; font-weight: bold; font-size: 1.05rem; margin-bottom: 8px;">${item.name}</div>
+                <div style="background: #0B0F19; padding: 12px; border-radius: 8px; font-family: monospace; font-size: 1.1rem; color: #fff; margin-bottom: 8px; text-align: center;">${item.formula}</div>
+                <div style="color: #94A3B8; font-size: 0.9rem; line-height: 1.5;">${item.description || ''}</div>
+            `;
+            content.appendChild(card);
+        });
+        
+        if (window.MathJax) MathJax.typesetPromise();
+    } catch (e) { 
+        tg.showAlert("ဖိုင်မတွေ့သေးပါ - " + fileName); 
+    }
+}
+	
     </script>
 </body>
 </html>
