@@ -1886,19 +1886,17 @@ function showSubChaptersMenu(subId, chapterName) {
 
     // ၂။ Config ထဲတွင် ရေးထားသော အခန်းခွဲများ (Sub-chapters) ကို ခလုတ်အဖြစ် ထုတ်ပေးရန်
     const subChapters = (subChapterConfig[subId] && subChapterConfig[subId][chapterName]) || [];
-        // --- NEW: Definition / Formula / Key Terms Buttons ---
-    if (subId === 'phy') {
-        createBtn("📖 Definition", content, () => loadTitleList(subId, chapterName, 'Definition'));
-        createBtn("🧪 Formula", content, () => loadFormulaPage(subId, chapterName));
-    } else if (subId === 'chem') {
-        createBtn("🔑 Key Terms", content, () => loadTitleList(subId, chapterName, 'KeyTerms'));
-    } else if (subId === 'eco') {
-        createBtn("📖 Definition", content, () => loadTitleList(subId, chapterName, 'Definition'));
-        const chNum = parseInt(chapterName.replace('Chapter ', ''));
-        if ([1, 2, 3, 7].includes(chNum)) {
-            createBtn("🧮 Formula", content, () => loadFormulaPage(subId, chapterName));
-        }
-    }
+    subChapters.forEach(subChap => {
+        createBtn(subChap, content, () => {
+            // ဖိုင်နာမည် မှတ်သားရန် e.g., "Chapter 1_1.1"
+            const activityPartName = `${chapterName}_${subChap}`;
+            if (subId === 'phy' || subId === 'chem') {
+                showPhyChemActivities(subId, activityPartName, chapterName);
+            } else {
+                showGeneralActivities(subId, activityPartName, chapterName);
+            }
+        });
+    });
 }
         function showPhyChemActivities(subId, partName, parentChapter = null) {
     showScreen('activity');
@@ -3044,68 +3042,6 @@ div.style.cssText = `border: 2px solid ${t.color}; border-radius: 16px; padding:
 function buyThemePrompt(themeId) {
     const t = themes.find(x => x.id === themeId);
     tg.showAlert("🎨 " + t.name + " ဝယ်ယူရန် @minaphayarkot ကို ဆက်သွယ်ပါ။\n\nသင့် ID: " + userId + "\n(Theme: " + themeId + ")");
-}
-
-		async function loadTitleList(subId, chapterName, type) {
-    const fileName = `${subId}_${chapterName}_${type}`.replace(/ /g, "_");
-    try {
-        const res = await fetch(`./quizzes/${fileName}.json`);
-        if (!res.ok) throw new Error();
-        const data = await res.json();
-
-        showScreen('activity');
-        document.getElementById('activity-title').innerText = (type === 'KeyTerms') ? 'Key Terms' : 'Definitions';
-        const content = document.getElementById('activity-content');
-        content.innerHTML = '';
-
-        // Back button returns to Chapter menu
-        document.getElementById('activity-back-btn').onclick = () => showSubChaptersMenu(subId, chapterName);
-
-        data.forEach(item => {
-            createBtn(item.title, content, () => {
-                showScreen('grammar-note');
-                document.getElementById('grammar-note-title').innerText = item.title;
-                document.getElementById('grammar-note-content').innerHTML = item.content;
-                
-                // Back button returns to this title list
-                const backBtn = document.querySelector('#grammar-note-screen .back-btn');
-                backBtn.onclick = () => loadTitleList(subId, chapterName, type);
-            });
-        });
-    } catch (e) {
-        tg.showAlert("ဖိုင်မတွေ့သေးပါ - " + fileName);
-    }
-}
-
-		async function loadFormulaPage(subId, chapterName) {
-    const fileName = `${subId}_${chapterName}_Formula`.replace(/ /g, "_");
-    try {
-        const res = await fetch(`./quizzes/${fileName}.json`);
-        if (!res.ok) throw new Error();
-        const data = await res.json();
-
-        showScreen('grammar-note');
-        document.getElementById('grammar-note-title').innerText = chapterName + " - Formulas";
-
-        let html = '';
-        data.forEach(item => {
-            html += `
-                <div style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #334155;">
-                    <h4 style="color: #00D5FF; margin-bottom: 8px;">${item.name}</h4>
-                    <div style="background: #0B0F19; padding: 12px; border-radius: 8px; font-size: 1.1rem; margin-bottom: 8px;">${item.formula}</div>
-                    <p style="color: #94A3B8; font-size: 0.9rem; line-height: 1.5;">${item.description || ''}</p>
-                </div>
-            `;
-        });
-
-        document.getElementById('grammar-note-content').innerHTML = html;
-
-        // Back button returns to Chapter menu
-        const backBtn = document.querySelector('#grammar-note-screen .back-btn');
-        backBtn.onclick = () => showSubChaptersMenu(subId, chapterName);
-    } catch (e) {
-        tg.showAlert("ဖိုင်မတွေ့သေးပါ - " + fileName);
-    }
 }
     </script>
 </body>
