@@ -1847,7 +1847,6 @@ function showSubChaptersMenu(subId, chapterName) {
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
     
-    // နောက်သို့နှိပ်လျှင် ဘာသာရပ်ရွေးသည့် Menu (သို့) Trial Menu သို့ ပြန်သွားရန်
     document.getElementById('activity-back-btn').onclick = () => {
         const userId = tg.initDataUnsafe?.user?.id || 0;
         const isSpecial = specialUsers.includes(userId);
@@ -1860,44 +1859,172 @@ function showSubChaptersMenu(subId, chapterName) {
         }
     };
 
+    // 1) Quiz types
+    ['True_False', 'Fill_Blank', 'MCQ'].forEach(type => {
+        createBtn(type.replace('_', ' '), content, () => {
+            showQuizSubChapters(subId, chapterName, type);
+        });
+    });
+
+    // 2) Definition (Physics & Economy only)
+    if (subId === 'phy' || subId === 'eco') {
+        createBtn("Definition", content, () => {
+            loadDefinitions(subId, chapterName);
+        });
+    }
+
+    // 3) Formula (Physics all chapters, Economy only ch 1,2,3,7)
+    if (subId === 'phy' || (subId === 'eco' && isFormulaChapter(chapterName))) {
+        createBtn("Formula", content, () => {
+            loadFormulas(subId, chapterName);
+        });
+    }
+
+    // 4) Key terms (Chemistry only)
+    if (subId === 'chem') {
+        createBtn("Key terms", content, () => {
+            loadKeyTerms(subId, chapterName);
+        });
+    }
+}
+
+		function isFormulaChapter(chapterName) {
+    const num = parseInt(chapterName.replace(/\D/g, ''));
+    return [1, 2, 3, 7].includes(num);
+}
+
+function showQuizSubChapters(subId, chapterName, quizType) {
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = `${chapterName} - ${quizType.replace('_', ' ')}`;
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    
+    document.getElementById('activity-back-btn').onclick = () => showSubChaptersMenu(subId, chapterName);
+
     const fullBtn = document.createElement('button');
     fullBtn.className = 'btn';
-    fullBtn.innerText = "တစ်ခန်းလုံးကိုလေ့ကျင့်မယ်";
-    
-    // Grid ၂ ကွက်စလုံးကို ဖြတ်ပြီး တစ်ကြောင်းတည်း အပြည့်နေရာယူစေရန်
+    fullBtn.innerText = "တစ်ခန်းလုံးလေ့ကျင့်ရန်";
     fullBtn.style.gridColumn = "1 / -1"; 
-    
-    // စိမ်းပြာရောင် (Teal/Cyan) ဒီဇိုင်း
     fullBtn.style.background = "#00FF80"; 
     fullBtn.style.color = "#000000"; 
     fullBtn.style.border = "none";
     fullBtn.style.boxShadow = "0 4px 15px rgba(0, 213, 255, 0.3)";
-    fullBtn.style.marginBottom = "5px"; // အောက်က အခန်းခွဲခလုတ်တွေနဲ့ အနည်းငယ်ခွာရန်
+    fullBtn.style.marginBottom = "5px"; 
     fullBtn.style.fontWeight = "bold";
-
     fullBtn.onclick = () => {
-        if (subId === 'phy' || subId === 'chem') {
-            showPhyChemActivities(subId, chapterName, chapterName);
-        } else {
-            showGeneralActivities(subId, chapterName, chapterName);
-        }
+        const fileName = `${subId}_${chapterName}_${quizType}`.replace(/ /g, "_");
+        initQuiz(fileName);
+        document.getElementById('quiz-back-btn').onclick = () => showQuizSubChapters(subId, chapterName, quizType);
     };
     content.appendChild(fullBtn);
 
-    // ၂။ Config ထဲတွင် ရေးထားသော အခန်းခွဲများ (Sub-chapters) ကို ခလုတ်အဖြစ် ထုတ်ပေးရန်
     const subChapters = (subChapterConfig[subId] && subChapterConfig[subId][chapterName]) || [];
     subChapters.forEach(subChap => {
         createBtn(subChap, content, () => {
-            // ဖိုင်နာမည် မှတ်သားရန် e.g., "Chapter 1_1.1"
             const activityPartName = `${chapterName}_${subChap}`;
-            if (subId === 'phy' || subId === 'chem') {
-                showPhyChemActivities(subId, activityPartName, chapterName);
-            } else {
-                showGeneralActivities(subId, activityPartName, chapterName);
-            }
+            const fileName = `${subId}_${activityPartName}_${quizType}`.replace(/ /g, "_");
+            initQuiz(fileName);
+            document.getElementById('quiz-back-btn').onclick = () => showQuizSubChapters(subId, chapterName, quizType);
         });
     });
 }
+
+async function loadDefinitions(subId, chapterName) {
+    try {
+        const fileName = `${subId}_${chapterName}_definition`.replace(/ /g, "_");
+        const res = await fetch(`./quizzes/${fileName}.json`);
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        
+        showScreen('activity');
+        document.getElementById('activity-title').innerText = `${chapterName} - Definitions`;
+        const content = document.getElementById('activity-content');
+        content.innerHTML = '';
+        document.getElementById('activity-back-btn').onclick = () => showSubChaptersMenu(subId, chapterName);
+        
+        data.forEach((item, index) => {
+            createBtn(item.title, content, () => {
+                showDefinitionDetail(subId, chapterName, data, index);
+            });
+        });
+    } catch (e) {
+        tg.showAlert("Definition file not found for " + chapterName);
+    }
+}
+
+function showDefinitionDetail(subId, chapterName, data, index) {
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = data[index].title;
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    document.getElementById('activity-back-btn').onclick = () => loadDefinitions(subId, chapterName);
+    
+    const div = document.createElement('div');
+    div.style.cssText = 'background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1rem;';
+    div.innerText = data[index].content;
+    content.appendChild(div);
+}
+
+async function loadKeyTerms(subId, chapterName) {
+    try {
+        const fileName = `${subId}_${chapterName}_keyterms`.replace(/ /g, "_");
+        const res = await fetch(`./quizzes/${fileName}.json`);
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        
+        showScreen('activity');
+        document.getElementById('activity-title').innerText = `${chapterName} - Key Terms`;
+        const content = document.getElementById('activity-content');
+        content.innerHTML = '';
+        document.getElementById('activity-back-btn').onclick = () => showSubChaptersMenu(subId, chapterName);
+        
+        data.forEach((item, index) => {
+            createBtn(item.title, content, () => {
+                showKeyTermDetail(subId, chapterName, data, index);
+            });
+        });
+    } catch (e) {
+        tg.showAlert("Key terms file not found for " + chapterName);
+    }
+}
+
+function showKeyTermDetail(subId, chapterName, data, index) {
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = data[index].title;
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    document.getElementById('activity-back-btn').onclick = () => loadKeyTerms(subId, chapterName);
+    
+    const div = document.createElement('div');
+    div.style.cssText = 'background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1rem;';
+    div.innerText = data[index].content;
+    content.appendChild(div);
+}
+
+async function loadFormulas(subId, chapterName) {
+    try {
+        const fileName = `${subId}_${chapterName}_formula`.replace(/ /g, "_");
+        const res = await fetch(`./quizzes/${fileName}.json`);
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        
+        showScreen('activity');
+        document.getElementById('activity-title').innerText = `${chapterName} - Formulas`;
+        const content = document.getElementById('activity-content');
+        content.innerHTML = '';
+        document.getElementById('activity-back-btn').onclick = () => showSubChaptersMenu(subId, chapterName);
+        
+        data.forEach(item => {
+            const card = document.createElement('div');
+            card.style.cssText = 'background: var(--card-bg); padding: 15px; border-radius: 12px; margin-bottom: 12px; border: 1px solid #00D5FF;';
+            card.innerHTML = `<div style="color: #00D5FF; font-weight: bold; margin-bottom: 8px; font-size: 1.05rem;">${item.name}</div><div style="color: #CBD5E1; line-height: 1.6; white-space: pre-wrap;">${item.content}</div>`;
+            content.appendChild(card);
+        });
+    } catch (e) {
+        tg.showAlert("Formula file not found for " + chapterName);
+    }
+}
+		
         function showPhyChemActivities(subId, partName, parentChapter = null) {
     showScreen('activity');
     
