@@ -981,6 +981,11 @@ const subChapterConfig = {
 		
         const tg = window.Telegram.WebApp;
         tg.ready(); tg.expand();
+		const clickSound = new Audio('click.mp3');     // ခလုပ်နှိပ်သံ
+const correctSound = new Audio('correct.mp3'); // မှန်တဲ့အသံ
+
+clickSound.volume = 0.2;    // မတိုးမကျယ်အောင် 20%
+correctSound.volume = 0.25; // မတိုးမကျယ်အောင် 25%
 
       let paidUsers = {}; 
         let userBought = {}; // const အစား let ပြောင်းပေးရမည်
@@ -2629,6 +2634,13 @@ window.onload = () => {
     if (randomSwitch) {
         randomSwitch.checked = savedRandomSetting;
     }
+	document.addEventListener('click', (e) => {
+    const btn = e.target.closest('button, .subject-card, .nav-item, .option-btn');
+    if (btn) {
+        clickSound.currentTime = 0;
+        clickSound.play().catch(() => {});
+    }
+});
 };
        
 		// နေ့စဉ် Quote ပြောင်းလဲရန် Logic
