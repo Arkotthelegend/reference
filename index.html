@@ -1960,7 +1960,7 @@ function showDefinitionDetail(subId, chapterName, data, index) {
     document.getElementById('activity-back-btn').onclick = () => loadDefinitions(subId, chapterName);
     
     const div = document.createElement('div');
-    div.style.cssText = 'background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1rem;';
+    div.style.cssText = 'background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1.05rem; width: 100%; max-width: 100%; margin: 0 auto; text-align: center; box-sizing: border-box;';
     div.innerText = data[index].content;
     content.appendChild(div);
 }
@@ -1996,11 +1996,10 @@ function showKeyTermDetail(subId, chapterName, data, index) {
     document.getElementById('activity-back-btn').onclick = () => loadKeyTerms(subId, chapterName);
     
     const div = document.createElement('div');
-    div.style.cssText = 'background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1rem;';
+    div.style.cssText = 'background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1.05rem; width: 100%; max-width: 100%; margin: 0 auto; text-align: center; box-sizing: border-box;';
     div.innerText = data[index].content;
     content.appendChild(div);
 }
-
 async function loadFormulas(subId, chapterName) {
     try {
         const fileName = `${subId}_${chapterName}_formula`.replace(/ /g, "_");
@@ -2016,8 +2015,11 @@ async function loadFormulas(subId, chapterName) {
         
         data.forEach(item => {
             const card = document.createElement('div');
-            card.style.cssText = 'background: var(--card-bg); padding: 15px; border-radius: 12px; margin-bottom: 12px; border: 1px solid #00D5FF;';
-            card.innerHTML = `<div style="color: #00D5FF; font-weight: bold; margin-bottom: 8px; font-size: 1.05rem;">${item.name}</div><div style="color: #CBD5E1; line-height: 1.6; white-space: pre-wrap;">${item.content}</div>`;
+            card.style.cssText = 'background: var(--card-bg); padding: 20px; border-radius: 16px; margin-bottom: 15px; border: 1px solid #00D5FF; width: 100%; max-width: 100%; margin-left: auto; margin-right: auto; text-align: center; box-sizing: border-box;';
+            card.innerHTML = `
+                <div style="color: #00D5FF; font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; text-align: center;">${item.name}</div>
+                <div style="color: #CBD5E1; line-height: 1.6; white-space: pre-wrap; text-align: center;">${item.content}</div>
+            `;
             content.appendChild(card);
         });
     } catch (e) {
