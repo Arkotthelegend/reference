@@ -1960,7 +1960,7 @@ function showDefinitionDetail(subId, chapterName, data, index) {
     document.getElementById('activity-back-btn').onclick = () => loadDefinitions(subId, chapterName);
     
     const div = document.createElement('div');
-    div.style.cssText = 'background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1.05rem; width: 100%; max-width: 100%; margin: 0 auto; text-align: center; box-sizing: border-box;';
+    div.style.cssText = 'grid-column: 1 / -1; background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1.05rem; text-align: center; box-sizing: border-box; width: 100%;';
     div.innerText = data[index].content;
     content.appendChild(div);
 }
@@ -1996,7 +1996,7 @@ function showKeyTermDetail(subId, chapterName, data, index) {
     document.getElementById('activity-back-btn').onclick = () => loadKeyTerms(subId, chapterName);
     
     const div = document.createElement('div');
-    div.style.cssText = 'background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1.05rem; width: 100%; max-width: 100%; margin: 0 auto; text-align: center; box-sizing: border-box;';
+    div.style.cssText = 'grid-column: 1 / -1; background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1.05rem; text-align: center; box-sizing: border-box; width: 100%;';
     div.innerText = data[index].content;
     content.appendChild(div);
 }
