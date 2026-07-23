@@ -2232,6 +2232,8 @@ if (isMath2Or3Mark) {
                     if (typeof score !== 'undefined') {
                         score++;
                         document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
+						correctSound.currentTime = 0;
+    correctSound.play().catch(() => {})
                     }
                 } else {
                     options.forEach((b, idx) => {
@@ -2273,6 +2275,8 @@ if (isMath2Or3Mark) {
                 if (typeof score !== 'undefined') {
                     score++;
                     document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
+					correctSound.currentTime = 0;
+    correctSound.play().catch(() => {});
                 }
             } else {
                 tg.showAlert("အဖြေမှန်မှာ: " + q.c + "\nအခြားသောအဖြေမှန်များလည်းရှိနိုင်ပါသည်");
@@ -2303,6 +2307,8 @@ function selectOption(index) {
         options[index].classList.add('correct-answer');
 		score++;
     document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
+	 correctSound.currentTime = 0;
+    correctSound.play().catch(() => {});
     }
     // ရွေးလိုက်တဲ့အဖြေက မှားနေရင် အနီရောင်ပြပါ
     if (index !== q.answer) {
@@ -2616,31 +2622,25 @@ window.onload = () => {
     loadGoals(); 
     updateCountdown(); 
     updateStreak();
-    loadFromCache();    // ① Cache ရှိရင် ချက်ချင်း သော့ပွင့်ပြမယ် (စောင့်စရာမလို)
+    loadFromCache();
     fetchPaidUsers();
     
-    // Theme Init
     const savedTheme = localStorage.getItem('activeTheme') || 'default';
-    
-    // 🆕 savedTheme မဟုတ်ဘူးဆိုရင် file load မယ်
-    if (savedTheme !== 'default') {
-        loadThemeCSS(savedTheme);
-    }
-    
+    if (savedTheme !== 'default') loadThemeCSS(savedTheme);
     document.body.setAttribute('data-theme', savedTheme);
     
     const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false';
     const randomSwitch = document.getElementById('random-switch');
-    if (randomSwitch) {
-        randomSwitch.checked = savedRandomSetting;
-    }
-	document.addEventListener('click', (e) => {
-    const btn = e.target.closest('button, .subject-card, .nav-item, .option-btn');
-    if (btn) {
-        clickSound.currentTime = 0;
-        clickSound.play().catch(() => {});
-    }
-});
+    if (randomSwitch) randomSwitch.checked = savedRandomSetting;
+    
+    // ✅ ဒီမှာဘဲ listener ဘဲ ထားပါ
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('button, .subject-card, .nav-item, .option-btn');
+        if (btn) {
+            clickSound.currentTime = 0;
+            clickSound.play().catch(() => {});
+        }
+    });
 };
        
 		// နေ့စဉ် Quote ပြောင်းလဲရန် Logic
