@@ -218,7 +218,7 @@
         border: 1px solid #00D5FF !important; box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important; 
     }
     #exam-countdown { border-color: #A855F7 !important; box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1) !important; display: flex; justify-content: center; gap: 15px; padding: 12px; margin-bottom: 25px; }
-
+    
     .bought-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
     .bought-badge { background: #1E293B; color: #00D5FF; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #00D5FF; font-weight: 700; }
     
@@ -726,6 +726,7 @@ body[data-theme] .container {
 </div>
 <div id="exam-countdown"></div>
 
+
         <h3 style="color: var(--accent); text-align: center; margin-bottom: 15px;">Daily Study Tracker</h3>
         <div class="profile-info-card" style="text-align: left; padding: 15px; margin-bottom: 25px;">
             <div id="checklist-container">
@@ -797,16 +798,6 @@ body[data-theme] .container {
                     <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
                     <a href="https://t.me/minaphayarkot" target="_blank" class="btn buy-btn">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</a>
-					                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #334155;">
-                        <b style="color: #F59E0B; display: block; margin-bottom: 8px;">🎯 သင့်ရဲ့ Referral Code</b>
-                        <div style="background: #0B0F19; padding: 10px; border-radius: 8px; border: 1px dashed #00D5FF; display: flex; justify-content: space-between; align-items: center;">
-                            <span id="referral-code-display" style="font-family: monospace; color: #00D5FF; font-weight: bold; font-size: 0.9rem;">...</span>
-                            <button onclick="copyReferral()" style="background: transparent; border: none; color: #00D5FF; cursor: pointer; font-size: 0.8rem; font-weight: bold;">📋 Copy</button>
-                        </div>
-                        <p style="font-size: 0.75rem; color: #64748B; margin-top: 8px; line-height: 1.4;">
-                            ဒီ Code ကို TikTok မှာ Share လုပ်ပါ။ သူငယ်ချင်းတစ်ယောက်ဝယ်ယူသွားရင် 20% Revenue Share ရမည်။
-                        </p>
-                    </div>
 					<div id="quiz-mode-box" style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
         <span style="font-size: 1.2rem;">⚙️</span>
@@ -827,66 +818,6 @@ body[data-theme] .container {
 					 
             </div> 
 			<div id="dynamic-content-area"></div>
-        </div>
-
-		        <div id="leaderboard-screen" class="screen">
-            <h2 style="text-align: center; color: var(--accent);">🔥 STEAM War</h2>
-            <p style="text-align: center; color: #94A3B8; font-size: 0.85rem; margin-top:-10px; margin-bottom: 20px;">ဘယ်အသင်းက ဒီအပတ်မှာ ပိုလေ့ကျင့်ထားလဲ?</p>
-            
-            <div style="background: var(--card-bg); padding: 20px; border-radius: 16px; margin-bottom: 20px; border: 1px solid #334155;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <div style="text-align: center; flex: 1;">
-                        <div style="font-size: 2rem;">🧬</div>
-                        <div style="color: #00D5FF; font-weight: bold; font-size: 1.1rem;">STEAM 1</div>
-                        <div style="color: #94A3B8; font-size: 0.75rem;">(Bio)</div>
-                    </div>
-                    <div style="font-size: 1.3rem; font-weight: bold; color: var(--white); padding: 0 10px;">VS</div>
-                    <div style="text-align: center; flex: 1;">
-                        <div style="font-size: 2rem;">📊</div>
-                        <div style="color: #A855F7; font-weight: bold; font-size: 1.1rem;">STEAM 2</div>
-                        <div style="color: #94A3B8; font-size: 0.75rem;">(Eco)</div>
-                    </div>
-                </div>
-                
-                <div style="background: #0B0F19; border-radius: 12px; height: 32px; overflow: hidden; position: relative; margin-bottom: 12px; border: 1px solid #334155;">
-                    <div id="steam-bar" style="background: linear-gradient(90deg, #00D5FF, #A855F7); height: 100%; width: 50%; transition: width 1s ease; border-radius: 0 4px 4px 0;"></div>
-                </div>
-                
-                <div style="display: flex; justify-content: space-between; font-size: 1rem; font-weight: bold;">
-                    <span id="steam1-score" style="color: #00D5FF;">0 pts</span>
-                    <span id="steam2-score" style="color: #A855F7;">0 pts</span>
-                </div>
-            </div>
-
-            <div id="steam-action-box" style="background: rgba(245, 158, 11, 0.1); border: 1px solid #F59E0B; border-radius: 12px; padding: 15px; margin-bottom: 20px; text-align: center;">
-                <p style="color: #F59E0B; font-size: 0.85rem; margin: 0 0 12px 0;">⚡ ဒီနေ့ သင့်အသင်းအတွက် ပွိုင့်ရယူရန် အောက်က ခလုတ်တစ်ခုကို နှိပ်ပါ</p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                    <button class="btn" onclick="submitSteam(1)" style="background: #00D5FF; color: #000; font-weight: bold; margin: 0;">🧬 Bio +10</button>
-                    <button class="btn" onclick="submitSteam(2)" style="background: #A855F7; color: #fff; font-weight: bold; margin: 0;">📊 Eco +10</button>
-                </div>
-            </div>
-
-            <div id="leaderboard-msg" style="text-align: center; color: #94A3B8; font-size: 0.85rem; margin-bottom: 20px; min-height: 20px;"></div>
-
-            <h3 style="color: var(--accent); text-align: center; margin-bottom: 15px;">📥 Free Trap Cheatsheets</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
-                <div class="subject-card" onclick="tg.openLink('https://t.me/your_channel')" style="border-color: #F59E0B !important; background: #1E293B !important;">
-                    <span style="font-size: 0.85rem;">🧪 Chem Traps</span>
-                    <span style="color: #F59E0B !important;">⬇️</span>
-                </div>
-                <div class="subject-card" onclick="tg.openLink('https://t.me/your_channel')" style="border-color: #F59E0B !important; background: #1E293B !important;">
-                    <span style="font-size: 0.85rem;">⚡ Physics Traps</span>
-                    <span style="color: #F59E0B !important;">⬇️</span>
-                </div>
-                <div class="subject-card" onclick="tg.openLink('https://t.me/your_channel')" style="border-color: #F59E0B !important; background: #1E293B !important;">
-                    <span style="font-size: 0.85rem;">🧬 Bio Traps</span>
-                    <span style="color: #F59E0B !important;">⬇️</span>
-                </div>
-                <div class="subject-card" onclick="tg.openLink('https://t.me/your_channel')" style="border-color: #F59E0B !important; background: #1E293B !important;">
-                    <span style="font-size: 0.85rem;">📐 Math Traps</span>
-                    <span style="color: #F59E0B !important;">⬇️</span>
-                </div>
-            </div>
         </div>
 		
 		<div id="theme-shop-screen" class="screen">
@@ -978,11 +909,10 @@ body[data-theme] .container {
     <button class="btn back-btn" onclick="showENPoemOptions()">နောက်သို့</button>
 </div>
 
-        <div class="nav">
+    <div class="nav">
         <div class="nav-item nav-active" onclick="changeTab('home', this)">🏠</div>
-        <div class="nav-item" onclick="changeTab('scroll', this)">📜</div>
-        <div class="nav-item" onclick="changeTab('daily', this)">📝</div>
-        <div class="nav-item" onclick="changeTab('leaderboard', this)">🏆</div>
+		<div class="nav-item" onclick="changeTab('scroll', this)">📜</div>
+		<div class="nav-item" onclick="changeTab('daily', this)">📝</div>
         <div class="nav-item" onclick="changeTab('middle', this)">⏳</div>
         <div class="nav-item" onclick="changeTab('profile', this)">👤</div>
     </div>
@@ -2582,7 +2512,6 @@ function nextQuestion() {
     }
             if(id === 'home') renderSubjects();
             if(id === 'profile') renderProfileData();
-			            if(id === 'leaderboard') loadLeaderboard();
         }
 // Special Users ID များစာရင်း (ဒီမှာ ID ထည့်ရုံနဲ့ Premium ဖြစ်ပြီး ၆ ဘာသာပွင့်ပါမယ်)
 
@@ -2596,8 +2525,6 @@ function renderProfileData() {
     
     // UI Elements များကို သတ်မှတ်ခြင်း
     document.getElementById('user-name').innerText = userName;
-	    const refDisplay = document.getElementById('referral-code-display');
-    if(refDisplay) refDisplay.innerText = userId;
     
     // --- 📋 ID ကို နှိပ်လိုက်လျှင် Copy ကူးမည့် စနစ် ---
     const idTextElement = document.getElementById('user-id-text');
@@ -3245,84 +3172,6 @@ function buyThemePrompt(themeId) {
     const t = themes.find(x => x.id === themeId);
     tg.showAlert("🎨 " + t.name + " ဝယ်ယူရန် @minaphayarkot ကို ဆက်သွယ်ပါ။\n\nသင့် ID: " + userId + "\n(Theme: " + themeId + ")");
 }
-		// ==================== STEAM WAR & REFERRAL SYSTEM ====================
-
-function loadLeaderboard() {
-    const sheetURL = "https://script.google.com/macros/s/AKfycbyFdqz2eAR7gr8ZKyMph-9sxYzXJ48fjfC42GNhsWug9YO0p6U-X6I3Rx8WJ4dtSMXQ/exec";
-    
-    fetch(sheetURL + "?action=getLeaderboard")
-        .then(res => res.json())
-        .then(data => {
-            const s1 = Number(data.steam1) || 0;
-            const s2 = Number(data.steam2) || 0;
-            const total = s1 + s2;
-            
-            document.getElementById('steam1-score').innerText = s1 + " pts";
-            document.getElementById('steam2-score').innerText = s2 + " pts";
-            
-            if (total > 0) {
-                const pct = (s1 / total) * 100;
-                document.getElementById('steam-bar').style.width = pct + "%";
-            } else {
-                document.getElementById('steam-bar').style.width = "50%";
-            }
-            document.getElementById('leaderboard-msg').innerText = "";
-        })
-        .catch(() => {
-            document.getElementById('leaderboard-msg').innerText = "အင်တာနက်ကို စစ်ဆေးပြီး ပြန်လည်ဝင်ရောက်ပါ";
-        });
-        
-    const today = new Date().toLocaleDateString();
-    const lastSubmit = localStorage.getItem('steam_submit_date');
-    if (lastSubmit === today) {
-        document.getElementById('steam-action-box').innerHTML = '<p style="color: #10B981; margin: 0; font-weight: bold;">✅ ဒီနေ့ ပွိုင့်ပို့ပြီးပါပြီ</p>';
-    }
-}
-
-function submitSteam(steamType) {
-    const uid = tg.initDataUnsafe?.user?.id;
-    if (!uid) {
-        tg.showAlert("Telegram မှသာ အသုံးပြုနိုင်ပါသည်");
-        return;
-    }
-    
-    const today = new Date().toLocaleDateString();
-    const lastSubmit = localStorage.getItem('steam_submit_date');
-    if (lastSubmit === today) {
-        tg.showAlert("ဒီနေ့ ပွိုင့်ပို့ပြီးပါပြီ။ နက်ဖြန်ပြန်လာပါ ⚡");
-        return;
-    }
-    
-    const sheetURL = "https://script.google.com/macros/s/AKfycbyFdqz2eAR7gr8ZKyMph-9sxYzXJ48fjfC42GNhsWug9YO0p6U-X6I3Rx8WJ4dtSMXQ/exec";
-    
-    document.getElementById('leaderboard-msg').innerText = "ပို့နေပါသည်...";
-    
-    fetch(sheetURL + "?action=submitSteam&userId=" + uid + "&steam=" + steamType + "&points=10")
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                localStorage.setItem('steam_submit_date', today);
-                tg.showAlert("ပွိုင့် ၁၀ မှတ် ပို့ပြီးပါပြီ! 🔥");
-                loadLeaderboard();
-                document.getElementById('steam-action-box').innerHTML = '<p style="color: #10B981; margin: 0; font-weight: bold;">✅ ဒီနေ့ ပွိုင့်ပို့ပြီးပါပြီ</p>';
-            } else {
-                tg.showAlert(data.message || "ဒီနေ့ ပို့ပြီးပါပြီ");
-            }
-        })
-        .catch(() => {
-            document.getElementById('leaderboard-msg').innerText = "အင်တာနက်ပြဿနာရှိနေသည်";
-        });
-}
-
-function copyReferral() {
-    const uid = tg.initDataUnsafe?.user?.id || "Guest";
-    navigator.clipboard.writeText(uid.toString()).then(() => {
-        tg.showAlert("Referral Code ကို Copy ကူးပြီးပါပြီ: " + uid);
-    }).catch(() => {
-        tg.showAlert("သင့် ID: " + uid + " (ကူးယူပေးပါ)");
-    });
-}
-		
     </script>
 </body>
 </html>
