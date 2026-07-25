@@ -889,7 +889,7 @@ body[data-theme] .container {
     <h3 style="text-align: center; color: var(--accent);">အဖြေနှင့် တွက်နည်း</h3>
     
     <!-- ဤနေရာက အဖြေ Box ဖြစ်သည် -->
-   <div id="math-solution-content" style="background: #162235; padding: 20px; border-radius: 12px; border: 1px solid #00D5FF; margin-bottom: 20px; min-height: 200px; color: #fff; overflow-x: auto; max-width: 100%; box-sizing: border-box;"></div>
+   <div id="math-solution-content" style="background: var(--detail-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--detail-border); margin-bottom: 20px; min-height: 200px; color: var(--detail-text); overflow-x: auto; max-width: 100%; box-sizing: border-box;"></div>
     
     <div style="display: flex; gap: 10px; flex-direction: column;">
         <button class="btn" id="math-prev-btn">⬅️ မေးခွန်းသို့ ပြန်သွားရန်</button>
@@ -900,7 +900,7 @@ body[data-theme] .container {
 <!-- Grammar Note Screen -->
 <div id="grammar-note-screen" class="screen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background: var(--bg); z-index: 1000; padding: 20px; overflow-y: auto;">
     <h3 id="grammar-note-title" style="text-align: center; color: var(--accent);">Grammar Note</h3>
-    <div id="grammar-note-content" style="background: #162235; padding: 20px; border-radius: 12px; border: 1px solid #00D5FF; margin-bottom: 20px; min-height: 200px; color: #fff; line-height: 1.8;"></div>
+    <div id="grammar-note-content" style="background: var(--detail-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--detail-border); margin-bottom: 20px; min-height: 200px; color: var(--detail-text); line-height: 1.8;"></div>
     <button class="btn back-btn" onclick="showScreen('activity')">နောက်သို့</button>
 </div>
 
@@ -1013,7 +1013,7 @@ const subChapterConfig = {
 }
 
 async function fetchPaidUsers() {
-    const sheetURL = "https://script.google.com/macros/s/AKfycbx5LowT_lxYdcFOmSEkTYcJYwMin_adfuJIb3ASUIZTm-tEUCicvsJkjChXWO2-jN766g/exec";
+    const sheetURL = "https://script.google.com/macros/s/AKfycbyFdqz2eAR7gr8ZKyMph-9sxYzXJ48fjfC42GNhsWug9YO0p6U-X6I3Rx8WJ4dtSMXQ/exec";
     
     try {
         const response = await fetch(sheetURL + "?action=getUsers");
@@ -1961,7 +1961,7 @@ function showDefinitionDetail(subId, chapterName, data, index) {
     document.getElementById('activity-back-btn').onclick = () => loadDefinitions(subId, chapterName);
     
     const div = document.createElement('div');
-    div.style.cssText = 'grid-column: 1 / -1; background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1.05rem; text-align: center; box-sizing: border-box; width: 100%;';
+    div.style.cssText = 'grid-column: 1 / -1; background: var(--detail-bg); padding: 25px; border-radius: 16px; border: 1px solid var(--detail-border); line-height: 1.8; color: var(--detail-text); white-space: pre-wrap; font-size: 1.05rem; text-align: center; box-sizing: border-box; width: 100%;';
     div.innerText = data[index].content;
     content.appendChild(div);
 }
@@ -1997,7 +1997,7 @@ function showKeyTermDetail(subId, chapterName, data, index) {
     document.getElementById('activity-back-btn').onclick = () => loadKeyTerms(subId, chapterName);
     
     const div = document.createElement('div');
-    div.style.cssText = 'grid-column: 1 / -1; background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #00D5FF; line-height: 1.8; color: #fff; white-space: pre-wrap; font-size: 1.05rem; text-align: center; box-sizing: border-box; width: 100%;';
+    div.style.cssText = 'grid-column: 1 / -1; background: var(--detail-bg); padding: 25px; border-radius: 16px; border: 1px solid var(--detail-border); line-height: 1.8; color: var(--detail-text); white-space: pre-wrap; font-size: 1.05rem; text-align: center; box-sizing: border-box; width: 100%;';
     div.innerText = data[index].content;
     content.appendChild(div);
 }
@@ -2016,10 +2016,10 @@ async function loadFormulas(subId, chapterName) {
         
         data.forEach(item => {
             const card = document.createElement('div');
-            card.style.cssText = 'background: var(--card-bg); padding: 20px; border-radius: 16px; margin-bottom: 15px; border: 1px solid #00D5FF; width: 100%; max-width: 100%; margin-left: auto; margin-right: auto; text-align: center; box-sizing: border-box;';
+            card.style.cssText = 'background: var(--detail-bg); padding: 20px; border-radius: 16px; margin-bottom: 15px; border: 1px solid var(--detail-border); width: 100%; max-width: 100%; margin-left: auto; margin-right: auto; text-align: center; box-sizing: border-box;';
             card.innerHTML = `
-                <div style="color: #00D5FF; font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; text-align: center;">${item.name}</div>
-                <div style="color: #CBD5E1; line-height: 1.6; white-space: pre-wrap; text-align: center;">${item.content}</div>
+                <div style="color: var(--detail-accent-text); font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; text-align: center;">${item.name}</div>
+                <div style="color: var(--detail-secondary-text); line-height: 1.6; white-space: pre-wrap; text-align: center;">${item.content}</div>
             `;
             content.appendChild(card);
         });
