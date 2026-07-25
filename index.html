@@ -647,6 +647,23 @@ body[data-theme] .container {
     padding: 4px 10px;
     border-radius: 8px;
 }
+
+	   body[data-theme="default"] {
+    --t-bg: #0B0F19;
+    --t-card: #162235;
+    --t-text: #FFFFFF;
+    --t-muted: #94A3B8;
+    --t-accent: #00D5FF;
+    --t-success: #10B981;
+    --t-error: #EF4444;
+    
+    /* Detail/Definition/Formula screen variables */
+    --detail-bg: #162235;
+    --detail-border: #00D5FF;
+    --detail-text: #fff;
+    --detail-secondary-text: #CBD5E1;
+    --detail-accent-text: #00D5FF;
+}
 </style>
 <base target="_blank">
 </head>
@@ -3098,15 +3115,16 @@ function setTheme(themeId) {
     // 🆕 CSS file load မယ် (ရှေ့က load ထားရင် auto skip လုပ်မယ်)
     loadThemeCSS(themeId);
     
-    document.body.setAttribute('data-theme', themeId);
-    localStorage.setItem('activeTheme', themeId);
-    tg.showAlert(themes.find(t => t.id === themeId).name + " theme သုံးပါပြီ ✅");
-    
-    // Theme Shop ကို refresh
-    if (document.getElementById('theme-shop-screen').classList.contains('active-screen')) {
-        openThemeShop();
+    // 🆕 Default theme သို့ ပြန်သွားရင် ရှေ့က load ထားသော theme CSS files အားလုံး ဖယ်ရှားမယ်
+    if (themeId === 'default') {
+        document.querySelectorAll('link[rel="stylesheet"][href^="./theme-"]').forEach(link => {
+            link.remove();
+            const fileName = link.getAttribute('href').replace('./', '');
+            loadedThemeCSS.delete(fileName);
+        });
     }
-}
+    
+    document.body.setAttribute('data-theme', themeId);
 
 function openThemeShop() {
     showScreen('theme-shop');
