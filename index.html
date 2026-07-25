@@ -3125,6 +3125,16 @@ function setTheme(themeId) {
     }
     
     document.body.setAttribute('data-theme', themeId);
+    localStorage.setItem('activeTheme', themeId);
+    tg.showAlert(themes.find(t => t.id === themeId).name + " theme သုံးပါပြီ ✅");
+    
+    // Theme Shop ကို refresh
+    if (document.getElementById('theme-shop-screen').classList.contains('active-screen')) {
+        openThemeShop();
+    }
+}
+    
+    document.body.setAttribute('data-theme', themeId);
 
 function openThemeShop() {
     showScreen('theme-shop');
