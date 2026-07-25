@@ -647,38 +647,8 @@ body[data-theme] .container {
     padding: 4px 10px;
     border-radius: 8px;
 }
-
-	   /* ============================================
-   🏆 LEADERBOARD STYLES
-   ============================================ */
-#lb-table tbody tr {
-    transition: background 0.2s;
-}
-#lb-table tbody tr:nth-child(even) {
-    background: rgba(30, 41, 59, 0.5);
-}
-#lb-table tbody tr:hover {
-    background: rgba(0, 213, 255, 0.1);
-}
-#lb-table td {
-    padding: 10px 8px;
-    border-bottom: 1px solid #334155;
-    color: #CBD5E1;
-}
-.lb-rank-1 { color: #FFD700; font-weight: 800; font-size: 1.1rem; }
-.lb-rank-2 { color: #C0C0C0; font-weight: 700; }
-.lb-rank-3 { color: #CD7F32; font-weight: 700; }
-.lb-rank-other { color: #94A3B8; }
-.lb-score { color: #00D5FF; font-weight: 700; font-family: monospace; }
-.lb-time { color: #10B981; font-family: monospace; font-size: 0.85rem; }
-
-#leaderboard-screen select option {
-    background: #1E293B;
-    color: #fff;
-}
-
-	   
 </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -852,68 +822,6 @@ body[data-theme] .container {
         </div>
 		
 		<div id="theme-shop-screen" class="screen">
-			<!-- ============================================
-     🏆 LEADERBOARD SCREEN
-     ============================================ -->
-<div id="leaderboard-screen" class="screen">
-    <h2 style="text-align: center; color: var(--accent);">🏆 Leaderboard</h2>
-    <p style="text-align: center; color: #94A3B8; font-size: 0.85rem; margin-top:-10px; margin-bottom: 15px;">Timer + Random Mode Only</p>
-    
-    <!-- Filters -->
-    <div style="padding: 0 15px; margin-bottom: 15px;">
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px;">
-            <select id="lb-filter-subject" onchange="loadLeaderboard()" style="background: #1E293B; color: #fff; border: 1px solid #334155; padding: 8px; border-radius: 8px; font-size: 0.85rem;">
-                <option value="all">All Subjects</option>
-                <option value="Myanmar">Myanmar</option>
-                <option value="English">English</option>
-                <option value="Mathematics">Mathematics</option>
-                <option value="Physics">Physics</option>
-                <option value="Chemistry">Chemistry</option>
-                <option value="Biology">Biology</option>
-                <option value="Economics">Economics</option>
-            </select>
-            <select id="lb-filter-chapter" onchange="loadLeaderboard()" style="background: #1E293B; color: #fff; border: 1px solid #334155; padding: 8px; border-radius: 8px; font-size: 0.85rem;">
-                <option value="all">All Chapters</option>
-            </select>
-            <select id="lb-filter-type" onchange="loadLeaderboard()" style="background: #1E293B; color: #fff; border: 1px solid #334155; padding: 8px; border-radius: 8px; font-size: 0.85rem;">
-                <option value="all">All Types</option>
-                <option value="MCQ">MCQ</option>
-                <option value="TF">True/False</option>
-                <option value="Blank">Fill Blank</option>
-            </select>
-        </div>
-    </div>
-    
-    <!-- Loading State -->
-    <div id="lb-loading" style="text-align: center; padding: 30px; color: #94A3B8; display: none;">
-        <div style="font-size: 2rem; margin-bottom: 10px;">⏳</div>
-        <div>Loading leaderboard...</div>
-    </div>
-    
-    <!-- Leaderboard Table -->
-    <div id="lb-table-container" style="padding: 0 15px; max-height: 55vh; overflow-y: auto;">
-        <table id="lb-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
-            <thead>
-                <tr style="background: #1E293B; color: #00D5FF;">
-                    <th style="padding: 10px 8px; text-align: center; border-bottom: 2px solid #334155;">#</th>
-                    <th style="padding: 10px 8px; text-align: left; border-bottom: 2px solid #334155;">Player</th>
-                    <th style="padding: 10px 8px; text-align: center; border-bottom: 2px solid #334155;">Score</th>
-                    <th style="padding: 10px 8px; text-align: center; border-bottom: 2px solid #334155;">Time</th>
-                </tr>
-            </thead>
-            <tbody id="lb-tbody">
-                <!-- Dynamic rows -->
-            </tbody>
-        </table>
-        <div id="lb-empty" style="text-align: center; padding: 30px; color: #64748B; display: none;">
-            No records yet. Be the first! 🎯
-        </div>
-    </div>
-    
-    <div style="padding: 15px;">
-        <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
-    </div>
-</div>
     <h2 style="text-align: center; color: var(--accent);">🎨 Theme Shop</h2>
     <p style="text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top:-10px; margin-bottom: 20px;">သင့်အကြိုက်ဆုံး အရောင်ကို ရွေးချယ်ပါ</p>
     <div id="theme-list" style="padding: 0 10px;"></div>
@@ -1013,8 +921,6 @@ body[data-theme] .container {
     <script>
 		
 		const ADMIN_ID = 8432363664;
-		const TOTAL_QUIZ_TIME_SECONDS = 600; // 10 minutes default total time per quiz
-		
 const specialUsers = [5593040432,1709037573,5186599374];
 // --- School Exclusive Themes (ဈေးမရောင်းဘဲ အထူးပေးသုံး) ---
 const exclusiveThemeUsers = {
@@ -1106,13 +1012,9 @@ const subChapterConfig = {
     return false; // Cache မရှိဘူး
 }
 
-// ============================================
-// 🌐 GLOBAL API URL - Used by ALL functions
-// ============================================
-const sheetURL = "https://script.google.com/macros/s/AKfycbzrc_Zd7PSamP7yzbrgmZoXZY2ieJBPuSOOGHfUpw-u28qJXhDWbkqrXln3W1NoE0giPQ/exec";
-
 async function fetchPaidUsers() {
-    // sheetURL is now global, no need to declare it here
+    const sheetURL = "https://script.google.com/macros/s/AKfycbx5LowT_lxYdcFOmSEkTYcJYwMin_adfuJIb3ASUIZTm-tEUCicvsJkjChXWO2-jN766g/exec";
+    
     try {
         const response = await fetch(sheetURL + "?action=getUsers");
         const newData = await response.json();
@@ -2339,25 +2241,9 @@ function updateFlashUI() {
         loadQuestion();
     } catch (e) { tg.showAlert("မေးခွန်းဖိုင်မတွေ့သေးပါ- " + fileName); }
 }
-       function detectQuestionType() {
-    if (!currentQuestions || currentQuestions.length === 0) return 'MCQ';
-    const q = currentQuestions[0];
-    if (q.type === 'tf') return 'TF';
-    if (q.type === 'blank') return 'Blank';
-    return 'MCQ';
-}
-		
+       
 	   function loadQuestion() {
-    // Start quiz session tracking on first question
-    if (currentIdx === 0 && quizSessionData.startTime === null) {
-        startQuizSession(
-            currentSubject ? currentSubject.name : 'Unknown',
-            currentQuizFile || 'Unknown',
-            detectQuestionType()
-        );
-    }
-    
-    isAnswered = false;  
+    isAnswered = false; 
     const nextBtn = document.getElementById('next-btn');
     nextBtn.style.display = 'none';
     nextBtn.className = 'btn'; // Reset to default class first
@@ -2546,10 +2432,9 @@ function selectOption(index) {
     // အဖြေမှန်ကို အစိမ်းရောင်ပြပါ
     options[q.answer].classList.add('correct-answer');
 
-  if (index == q.answer) {
+ if (index == q.answer) {
         options[index].classList.add('correct-answer');
 		score++;
-        incrementCorrectAnswer(); // 🏆 Track for leaderboard
     document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
     }
     // ရွေးလိုက်တဲ့အဖြေက မှားနေရင် အနီရောင်ပြပါ
@@ -2577,7 +2462,7 @@ function nextQuestion() {
     if (currentIdx < currentQuestions.length - 1) {
         currentIdx++;
         loadQuestion();
-       } else { 
+    } else { 
         tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
         
         // နောက်ထပ်နှိပ်စရာ မေးခွန်းမရှိတော့တဲ့အတွက် "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို ဖျောက်ထားလိုက်ပါမည်
@@ -2593,33 +2478,6 @@ function nextQuestion() {
             startBtn.disabled = true; 
             startBtn.style.opacity = "0.5"; // ပိတ်ထားကြောင်း သိသာစေရန် မှိန်ထားမည်
         }
-        
-        // 🏆 SUBMIT TO LEADERBOARD
-        const finalScore = finishQuizSession();
-        console.log("Final Score Data:", finalScore);
-        
-        // Show score breakdown to user
-        setTimeout(() => {
-            tg.showAlert(
-                "🏆 Score Breakdown:\n\n" +
-                "Base Score: " + finalScore.baseScore + "\n" +
-                "Time Bonus: " + finalScore.timeBonus + "\n" +
-                "Total Score: " + finalScore.totalScore + "\n\n" +
-                (finalScore.isTimerMode && finalScore.isRandomMode 
-                    ? "✅ Eligible for Leaderboard!" 
-                    : "ℹ️ Practice mode - Not sent to leaderboard")
-            );
-            
-            // Auto-submit if eligible
-            if (finalScore.isTimerMode && finalScore.isRandomMode) {
-                submitToLeaderboard(finalScore).then(result => {
-                    if (result.status === "success") {
-                        const msg = result.leaderboard ? result.leaderboard.message : "Score recorded!";
-                        console.log("Leaderboard:", msg);
-                    }
-                });
-            }
-        }, 500);
     }
 }
 
@@ -2725,9 +2583,6 @@ function renderProfileData() {
     // Dynamic Area ထဲကို UI တွေ ထည့်မယ်
     const dynamicArea = document.getElementById('dynamic-content-area');
     dynamicArea.innerHTML = `
-	    <button onclick="openLeaderboard()" style="width: 100%; background: linear-gradient(135deg, #F59E0B, #D97706); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);">
-        🏆 Leaderboard
-    </button>
     <button onclick="openThemeShop()" style="width: 100%; background: linear-gradient(135deg, #8B5CF6, #EC4899); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
         🎨 Theme Shop
     </button>
@@ -3181,234 +3036,7 @@ function toggleTimer() {
     }
 }
 
-// ============================================
-// 🏆 SCORING ALGORITHM
-// ============================================
 
-// Track quiz session data for scoring
-let quizSessionData = {
-    correctCount: 0,
-    totalQuestions: 0,
-    startTime: null,
-    endTime: null,
-    subject: "",
-    chapter: "",
-    questionType: "",
-    isTimerMode: false,
-    isRandomMode: false
-};
-
-function startQuizSession(subject, chapter, questionType) {
-    quizSessionData = {
-        correctCount: 0,
-        totalQuestions: currentQuestions.length,
-        startTime: Date.now(),
-        endTime: null,
-        subject: subject || "Unknown",
-        chapter: chapter || "Unknown",
-        questionType: questionType || "MCQ",
-        isTimerMode: isTimerRunning,
-        isRandomMode: localStorage.getItem('randomQuizSetting') !== 'false'
-    };
-}
-
-function incrementCorrectAnswer() {
-    quizSessionData.correctCount++;
-}
-
-function finishQuizSession() {
-    quizSessionData.endTime = Date.now();
-    const timeTakenSeconds = Math.floor((quizSessionData.endTime - quizSessionData.startTime) / 1000);
-    const timeRemaining = Math.max(0, TOTAL_QUIZ_TIME_SECONDS - timeTakenSeconds);
-    
-    const scoreData = calculateScore(
-        quizSessionData.correctCount,
-        quizSessionData.totalQuestions,
-        timeRemaining,
-        TOTAL_QUIZ_TIME_SECONDS
-    );
-    
-    return {
-        ...scoreData,
-        timeTakenFormatted: formatTimeMMSS(timeTakenSeconds),
-        subject: quizSessionData.subject,
-        chapter: quizSessionData.chapter,
-        questionType: quizSessionData.questionType,
-        isTimerMode: quizSessionData.isTimerMode,
-        isRandomMode: quizSessionData.isRandomMode
-    };
-}
-
-function calculateScore(correctAnswers, totalQuestions, timeRemainingSeconds, totalTimeSeconds) {
-    // Base Score: (Correct / Total) * 1000
-    const baseScore = (correctAnswers / Math.max(totalQuestions, 1)) * 1000;
-    
-    // Time Bonus: (Time Remaining / Total Time) * (Correct * 10)
-    const timeBonus = (timeRemainingSeconds / Math.max(totalTimeSeconds, 1)) * (correctAnswers * 10);
-    
-    const totalScore = Math.round(baseScore + timeBonus);
-    
-    return {
-        baseScore: Math.round(baseScore),
-        timeBonus: Math.round(timeBonus),
-        totalScore: totalScore,
-        correctAnswers: correctAnswers,
-        totalQuestions: totalQuestions
-    };
-}
-
-function formatTimeMMSS(totalSeconds) {
-    const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
-    const s = (totalSeconds % 60).toString().padStart(2, '0');
-    return m + ":" + s;
-}
-
-async function submitToLeaderboard(scoreData) {
-    // Anti-cheat: Only submit if Timer Mode AND Random Mode
-    if (!scoreData.isTimerMode || !scoreData.isRandomMode) {
-        console.log("Leaderboard skipped: Not in Timer+Random mode");
-        return { status: "skipped", reason: "Timer and Random mode required" };
-    }
-    
-    const userId = tg.initDataUnsafe?.user?.id?.toString() || "Guest";
-    const username = tg.initDataUnsafe?.user?.username || 
-                     tg.initDataUnsafe?.user?.first_name || 
-                     "Anonymous";
-    
-    const payload = {
-        action: "leaderboard_record",
-        telegram_user_id: userId,
-        username: username,
-        subject: scoreData.subject,
-        chapter: scoreData.chapter,
-        question_type: scoreData.questionType,
-        score: scoreData.totalScore,
-        time_taken: scoreData.timeTakenFormatted,
-        date_recorded: new Date().toISOString()
-    };
-    
-    try {
-        const response = await fetch(sheetURL, {
-            method: "POST",
-            body: JSON.stringify(payload),
-            headers: {
-                "Content-Type": "text/plain;charset=utf-8"
-            }
-        });
-        
-        const result = await response.json();
-        console.log("Leaderboard response:", result);
-        return result;
-    } catch (e) {
-        console.error("Leaderboard submit error:", e);
-        return { status: "error", message: e.message };
-    }
-}
-
-async function loadLeaderboard() {
-    const subject = document.getElementById('lb-filter-subject').value;
-    const chapter = document.getElementById('lb-filter-chapter').value;
-    const questionType = document.getElementById('lb-filter-type').value;
-    
-    document.getElementById('lb-loading').style.display = 'block';
-    document.getElementById('lb-table').style.display = 'none';
-    document.getElementById('lb-empty').style.display = 'none';
-    
-    try {
-        const url = sheetURL + 
-            "?action=getLeaderboard" +
-            "&subject=" + encodeURIComponent(subject) +
-            "&chapter=" + encodeURIComponent(chapter) +
-            "&question_type=" + encodeURIComponent(questionType);
-        
-        const response = await fetch(url);
-        const data = await response.json();
-        
-        document.getElementById('lb-loading').style.display = 'none';
-        
-        if (data.status === "success" && data.leaderboard.length > 0) {
-            renderLeaderboardTable(data.leaderboard);
-            document.getElementById('lb-table').style.display = 'table';
-            document.getElementById('lb-empty').style.display = 'none';
-        } else {
-            document.getElementById('lb-table').style.display = 'none';
-            document.getElementById('lb-empty').style.display = 'block';
-        }
-    } catch (e) {
-        document.getElementById('lb-loading').style.display = 'none';
-        document.getElementById('lb-empty').innerText = "Error loading leaderboard. Please try again.";
-        document.getElementById('lb-empty').style.display = 'block';
-        console.error("Leaderboard fetch error:", e);
-    }
-}
-function renderLeaderboardTable(entries) {
-    const tbody = document.getElementById('lb-tbody');
-    tbody.innerHTML = '';
-    
-    entries.forEach((entry, index) => {
-        const rank = index + 1;
-        let rankClass = 'lb-rank-other';
-        let rankIcon = '';
-        
-        if (rank === 1) { rankClass = 'lb-rank-1'; rankIcon = '🥇 '; }
-        else if (rank === 2) { rankClass = 'lb-rank-2'; rankIcon = '🥈 '; }
-        else if (rank === 3) { rankClass = 'lb-rank-3'; rankIcon = '🥉 '; }
-        
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td style="text-align: center; font-weight: bold;">
-                <span class="${rankClass}">${rankIcon}${rank}</span>
-            </td>
-            <td style="text-align: left;">
-                <div style="font-weight: 600; color: #fff;">${escapeHtml(entry.username)}</div>
-                <div style="font-size: 0.75rem; color: #64748B;">${entry.subject} · ${entry.chapter}</div>
-            </td>
-            <td style="text-align: center;">
-                <span class="lb-score">${entry.score}</span>
-            </td>
-            <td style="text-align: center;">
-                <span class="lb-time">${entry.time_taken}</span>
-            </td>
-        `;
-        tbody.appendChild(row);
-    });
-}
-
-function escapeHtml(text) {
-    if (!text) return 'Anonymous';
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-function openLeaderboard() {
-    try {
-        showScreen('leaderboard');
-        populateChapterFilter();
-        loadLeaderboard();
-    } catch (e) {
-        console.error("Error opening leaderboard:", e);
-        tg.showAlert("Error opening leaderboard. Please try again.");
-    }
-}
-
-function populateChapterFilter() {
-    const select = document.getElementById('lb-filter-chapter');
-    select.innerHTML = '<option value="all">All Chapters</option>';
-    
-    // Add chapters 1-13
-    for (let i = 1; i <= 13; i++) {
-        const opt = document.createElement('option');
-        opt.value = 'Chapter ' + i;
-        opt.innerText = 'Chapter ' + i;
-        select.appendChild(opt);
-    }
-    // Add special options
-    const units = document.createElement('option');
-    units.value = 'Unit 1-12';
-    units.innerText = 'Units 1-12';
-    select.appendChild(units);
-}
 // ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
 function resetTimer() {
     clearInterval(quizTimerInterval);
@@ -3430,19 +3058,6 @@ function resetTimer() {
     // 🎯 ရမှတ်ကို ၀ ပြန်ပြောင်းပြီး Screen ပေါ်မှာ ပြန်ပြင်ပေးရန်
     score = 0;
     document.getElementById('score-display').innerText = "ရမှတ်: 0";
-    
-    // 🏆 Reset quiz session data
-    quizSessionData = {
-        correctCount: 0,
-        totalQuestions: 0,
-        startTime: null,
-        endTime: null,
-        subject: "",
-        chapter: "",
-        questionType: "",
-        isTimerMode: false,
-        isRandomMode: false
-    };
 }
 // --- Theme Shop System ---
 const themes = [
