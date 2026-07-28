@@ -320,25 +320,6 @@ input:checked + .slider:before {
     font-weight: 700;
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
-
-.report-btn {
-    display: inline-block;
-    background: transparent;
-    border: 1px solid #EF4444;
-    color: #EF4444;
-    padding: 4px 10px;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    cursor: pointer;
-    margin-left: 8px;
-    transition: all 0.2s ease;
-    vertical-align: middle;
-    font-weight: 700;
-}
-.report-btn:active {
-    transform: scale(0.95);
-    background: rgba(239, 68, 68, 0.1);
-}
     
     .shuffle-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; }
     .shuffle-active { background: #00D5FF; color: #000; }
@@ -683,6 +664,9 @@ body[data-theme] .container {
     --detail-secondary-text: #CBD5E1;
     --detail-accent-text: #00D5FF;
 }
+	   #report-btn { transition: transform 0.1s ease; }
+#report-btn:active { transform: scale(0.95); }
+	   
 </style>
 <base target="_blank">
 <base target="_blank">
@@ -901,9 +885,9 @@ body[data-theme] .container {
         <div id="quiz-screen" class="screen" style="position: relative; padding-top: 35px;">
     
     <!-- ရမှတ်ကို absolute ဖြင့် အပေါ်ထောင့်ပို့ရန် div အစီအစဉ် -->
-    <div class="markcount" id="markcount">
+        <div class="markcount" id="markcount">
         <span id="score-display"> ရမှတ်: 0</span>
-        <button id="report-btn" class="report-btn" onclick="reportQuestion()" title="အမှားတိုင်ကြားရန်">🚩 Report</button>
+        <button id="report-btn" onclick="reportQuestion()" style="display:none; margin-left:8px; background:#EF4444; color:#fff; border:none; padding:4px 10px; border-radius:8px; font-size:0.8rem; cursor:pointer; font-weight:bold;">🚩 Report</button>
     </div>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
@@ -2290,18 +2274,12 @@ const isMath2Or3Mark = currentQuizFile && (currentQuizFile.includes('2_Marks') |
 
 const scoreDisplay = document.getElementById('score-display');
 const reportBtn = document.getElementById('report-btn');
-
 if (isMath2Or3Mark) {
     scoreDisplay.style.display = 'none';
-} else {
-    scoreDisplay.style.display = 'inline-block';
-}
-
-// Show report button only when there's a quiz file context (not in flashcards/definitions/formulas)
-if (currentQuizFile || (currentQuestions[currentIdx] && currentQuestions[currentIdx].sourceFile)) {
     reportBtn.style.display = 'inline-block';
 } else {
-    reportBtn.style.display = 'none';
+    scoreDisplay.style.display = 'inline-block';
+    reportBtn.style.display = 'inline-block';
 }
 
 const timerWrapper = document.getElementById('timer-wrapper');
@@ -2829,36 +2807,6 @@ function displayDailyQuote() {
 
 
 // Developer ကို ဆက်သွယ်ရန် (Telegram သို့ တိုက်ရိုက်ပို့ပေးမည်)
-function reportQuestion() {
-    const devUsername = "minaphayarkot"; 
-    let fileName = currentQuizFile;
-
-    // If currentQuizFile is empty (e.g., daily quiz), try to get from question's sourceFile
-    if (!fileName && currentQuestions[currentIdx] && currentQuestions[currentIdx].sourceFile) {
-        fileName = currentQuestions[currentIdx].sourceFile;
-    }
-
-    fileName = fileName || "Unknown";
-    fileName = fileName.replace(/\.json$/i, '');
-
-    const q = currentQuestions[currentIdx];
-    let qText = "";
-    if (q && q.q) {
-        // Strip HTML tags for cleaner text
-        qText = q.q.replace(/<[^>]*>/g, '').substring(0, 60);
-        if (q.q.length > 60) qText += "...";
-    }
-
-    const message = encodeURIComponent(
-        `🚩 မေးခွန်းတစ်ခုမှားနေပါသည်။\n\n` +
-        `📁 ဖိုင်နာမည်: ${fileName}\n` +
-        `❓ မေးခွန်းအမှတ်: ${currentIdx + 1}\n` +
-        `📝 မေးခွန်း: ${qText}\n\n` +
-        `✏️ အမှားအချက်အလက် - `
-    );
-    window.open(`https://t.me/${devUsername}?text=${message}`, '_blank');
-}
-
 function contactDeveloper() {
     const devUsername = "minaphayarkot"; // သင့် Telegram Username ပြောင်းပါ
     const message = encodeURIComponent("မေးခွန်းမှားနေတာလေးပြောချင်လို့ပါ");
@@ -2955,7 +2903,7 @@ function getFileNamesForSubject(subId) {
     return fileNames;
 }
 async function startDailyQuiz(subId) {
-currentQuizFile = '';
+currentQuizFile = 'daily_' + subId;
     const backBtn = document.getElementById('quiz-back-btn');
     backBtn.innerText = "ခဏစောင့်ပါ...";
     backBtn.disabled = true;
@@ -2982,7 +2930,7 @@ currentQuizFile = '';
 
         const chaptersData = await Promise.all(fetchPromises);
         
-        chaptersData.forEach((chapterQuestions, fileIndex) => {
+        chaptersData.forEach((chapterQuestions) => {
             if (Array.isArray(chapterQuestions)) {
                 const validQuestions = chapterQuestions.filter(item => {
                     return item.q && item.a && Array.isArray(item.a);
@@ -2990,8 +2938,6 @@ currentQuizFile = '';
                     if (!item.type) {
                         item.type = 'mcq';
                     }
-                    // Track which JSON file this question came from for reporting
-                    item.sourceFile = filesToFetch[fileIndex];
                     return item;
                 });
                 
@@ -3114,7 +3060,18 @@ function toggleTimer() {
         }, 1000);
     }
 }
-
+		
+function reportQuestion() {
+    const devUsername = "minaphayarkot";
+    // Use the current quiz file name; if empty, fall back to subject id
+    let fileName = currentQuizFile;
+    if (!fileName && currentSubject) {
+        fileName = currentSubject.id + '_daily_quiz';
+    }
+    if (!fileName) fileName = 'unknown_quiz';
+    const message = encodeURIComponent('မေးခွန်းအမှားတင်ပြခြင်း - ဖိုင်နာမည်: ' + fileName);
+    window.open('https://t.me/' + devUsername + '?text=' + message, '_blank');
+}
 
 // ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
 function resetTimer() {
