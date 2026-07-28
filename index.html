@@ -884,10 +884,10 @@ body[data-theme] .container {
     <h2 style="text-align: center; color: var(--accent);">📊 My Statistics</h2>
     
     <!-- Tab Buttons -->
-    <div style="display: flex; gap: 8px; padding: 0 15px; margin-bottom: 15px;">
+       <div style="display: flex; gap: 8px; padding: 0 15px; margin-bottom: 15px;">
         <button class="btn" id="tab-summary" onclick="switchStatsTab('summary')" style="flex: 1; background: var(--accent); color: #000; font-size: 0.9rem; padding: 10px;">📈 Summary</button>
         <button class="btn" id="tab-best" onclick="switchStatsTab('best')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.9rem; padding: 10px;">🏆 Best</button>
-        <button class="btn" id="tab-recent" onclick="switchStatsTab('recent')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.9rem; padding: 10px;">🕐 Recent</button>
+        <button class="btn" id="tab-old" onclick="switchStatsTab('old')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.9rem; padding: 10px;">📜 Old</button>
     </div>
     
     <div id="stats-content" style="padding: 15px;">
@@ -913,10 +913,10 @@ body[data-theme] .container {
             <div id="stat-best-scores"></div>
         </div>
         
-        <!-- Recent Tab -->
-        <div id="stats-tab-recent" style="display: none;">
-            <h4 style="color: var(--accent); margin-bottom: 10px;">🕐 လတ်တလာ လေ့ကျင့်မှုများ</h4>
-            <div id="stat-recent"></div>
+                <!-- Old Questions Tab -->
+        <div id="stats-tab-old" style="display: none;">
+            <h4 style="color: var(--accent); margin-bottom: 10px;">📜 မေးခွန်းဟောင်းများ အကောင်းဆုံး ရမှတ်များ</h4>
+            <div id="stat-old-scores"></div>
         </div>
         
     </div>
@@ -1170,6 +1170,7 @@ async function submitScore(timeTaken = 0) {
     const userId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
     const userName = tg.initDataUnsafe?.user?.first_name || 'unknown';
     const meta = parseQuizFile(currentQuizFile);
+	    const isSubChapter = /_\d+\.\d+_/.test(currentQuizFile);
     
     let finalScore = score || 0;
     let finalTotal = currentQuestions.length || 0;
@@ -1201,7 +1202,7 @@ async function submitScore(timeTaken = 0) {
     if (localStats.history.length > 100) localStats.history = localStats.history.slice(0, 100);
     
     // Update local best if improved
-    if (isNewBest) {
+        if (isNewBest) {
         localStats.bestScores[currentQuizFile] = {
             score: finalScore,
             total: finalTotal,
@@ -1209,15 +1210,16 @@ async function submitScore(timeTaken = 0) {
             date: now,
             subject: meta.subject,
             chapter: meta.chapter,
-            type: meta.type
+            type: meta.type,
+            isOld: meta.isOld
         };
     }
     
     saveLocalStats(localStats);
     
-    // Only send to Google Sheet if it's a new best score
-    if (!isNewBest) {
-        console.log("Score not sent to sheet: not a new best");
+        // Only send to Google Sheet if it's a new best score AND not a sub-chapter
+    if (!isNewBest || isSubChapter) {
+        console.log("Score not sent to sheet: not a new best or is sub-chapter");
         resetTimer();
         return;
     }
@@ -1254,14 +1256,14 @@ async function submitScore(timeTaken = 0) {
 function switchStatsTab(tabName) {
     document.getElementById('stats-tab-summary').style.display = 'none';
     document.getElementById('stats-tab-best').style.display = 'none';
-    document.getElementById('stats-tab-recent').style.display = 'none';
+    document.getElementById('stats-tab-old').style.display = 'none';
     
     document.getElementById('tab-summary').style.background = 'var(--card-bg)';
     document.getElementById('tab-summary').style.color = 'var(--white)';
     document.getElementById('tab-best').style.background = 'var(--card-bg)';
     document.getElementById('tab-best').style.color = 'var(--white)';
-    document.getElementById('tab-recent').style.background = 'var(--card-bg)';
-    document.getElementById('tab-recent').style.color = 'var(--white)';
+    document.getElementById('tab-old').style.background = 'var(--card-bg)';
+    document.getElementById('tab-old').style.color = 'var(--white)';
     
     document.getElementById('stats-tab-' + tabName).style.display = 'block';
     const activeBtn = document.getElementById('tab-' + tabName);
@@ -1269,68 +1271,61 @@ function switchStatsTab(tabName) {
     activeBtn.style.color = '#000';
 }
 
-// ─── Render Helpers ───
-function renderBestScores(bestScoresObj) {
-    const container = document.getElementById('stat-best-scores');
+function renderBestScores(bestScoresObj, containerId, filterOld) {
+    const container = document.getElementById(containerId);
     container.innerHTML = '';
     
-    const keys = Object.keys(bestScoresObj);
+    let keys = Object.keys(bestScoresObj);
+    
+    // Keep only old questions OR only new questions based on the tab
+    keys = keys.filter(key => {
+        const item = bestScoresObj[key];
+        const isOld = item.isOld || key.startsWith('old_');
+        return filterOld ? isOld : !isOld;
+    });
+    
     if (keys.length === 0) {
         container.innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
         return;
     }
     
+    // Group by subject
+    const bySubject = {};
     keys.forEach(key => {
         const b = bestScoresObj[key];
-        const div = document.createElement('div');
-        div.style.cssText = 'background:var(--card-bg);padding:12px 15px;border-radius:12px;margin-bottom:8px;border-left:4px solid #F59E0B;';
-        
-        const timeStr = b.timeTaken ? formatTime(b.timeTaken) : '-';
-        const percent = b.total > 0 ? Math.round((b.score / b.total) * 100) : 0;
-        const dateStr = b.date ? new Date(b.date).toLocaleDateString() : '';
-        
-        div.innerHTML = `
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                <span style="font-weight:600;color:var(--accent);">${getSubjectName(b.subject || 'unknown')}</span>
-                <span style="font-family:monospace;font-weight:bold;color:#F59E0B;">${b.score}/${b.total} (${percent}%)</span>
-            </div>
-            <div style="color:#94A3B8;font-size:0.8rem;margin-bottom:4px;">${b.chapter || ''} · ${b.type || ''}</div>
-            <div style="display:flex;justify-content:space-between;color:#64748B;font-size:0.75rem;">
-                <span>⏱ ${timeStr}</span>
-                <span>${dateStr}</span>
-            </div>
-        `;
-        container.appendChild(div);
+        const sub = b.subject || 'unknown';
+        if (!bySubject[sub]) bySubject[sub] = [];
+        bySubject[sub].push(b);
     });
-}
-
-function renderRecentStats(history) {
-    const container = document.getElementById('stat-recent');
-    container.innerHTML = '';
     
-    if (history.length === 0) {
-        container.innerHTML = '<div style="text-align:center;color:#64748B;padding:10px;">ဒေတာမရှိသေးပါ</div>';
-        return;
-    }
-    
-    history.slice(0, 20).forEach(r => {
-        const div = document.createElement('div');
-        div.style.cssText = 'background:var(--card-bg);padding:10px 12px;border-radius:10px;margin-bottom:6px;font-size:0.85rem;color:#CBD5E1;';
-        const dateStr = r.date ? new Date(r.date).toLocaleDateString() : '';
-        const label = r.total > 0 ? `${r.score}/${r.total}` : 'Viewed';
-        const timeStr = r.timeTaken ? formatTime(r.timeTaken) : '-';
-        div.innerHTML = `
-            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
-                <span style="color:var(--accent);font-weight:600;">${getSubjectName(r.subject || 'unknown')}</span>
-                <span style="font-family:monospace;">${label}</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;color:#64748B;font-size:0.75rem;">
-                <span>${r.chapter || ''} · ${r.type || ''}</span>
-                <span>⏱ ${timeStr}</span>
-            </div>
-            <div style="color:#64748B;font-size:0.7rem;margin-top:2px;">${dateStr}</div>
-        `;
-        container.appendChild(div);
+    // Show each subject group
+    Object.keys(bySubject).forEach(sub => {
+        const header = document.createElement('div');
+        header.style.cssText = 'color: var(--accent); font-weight: 700; font-size: 1.05rem; margin: 15px 0 8px 0; padding-bottom: 4px; border-bottom: 1px solid #334155;';
+        header.innerText = getSubjectName(sub);
+        container.appendChild(header);
+        
+        bySubject[sub].forEach(b => {
+            const div = document.createElement('div');
+            div.style.cssText = 'background: var(--card-bg); padding: 12px 15px; border-radius: 12px; margin-bottom: 8px; border-left: 4px solid #F59E0B;';
+            
+            const timeStr = b.timeTaken ? formatTime(b.timeTaken) : '-';
+            const percent = b.total > 0 ? Math.round((b.score / b.total) * 100) : 0;
+            const dateStr = b.date ? new Date(b.date).toLocaleDateString() : '';
+            
+            div.innerHTML = `
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                    <span style="font-weight:600;color:var(--white);font-size:0.9rem;">${b.chapter || ''}</span>
+                    <span style="font-family:monospace;font-weight:bold;color:#F59E0B;">${b.score}/${b.total} (${percent}%)</span>
+                </div>
+                <div style="color:#94A3B8;font-size:0.8rem;">${b.type || ''}</div>
+                <div style="display:flex;justify-content:space-between;color:#64748B;font-size:0.75rem;margin-top:4px;">
+                    <span>⏱ ${timeStr}</span>
+                    <span>${dateStr}</span>
+                </div>
+            `;
+            container.appendChild(div);
+        });
     });
 }
 
@@ -1342,10 +1337,10 @@ async function loadUserStats() {
         return;
     }
     
-    // Load local stats immediately for offline display
+        // Load local stats immediately for offline display
     const localStats = getLocalStats();
-    renderRecentStats(localStats.history);
-    renderBestScores(localStats.bestScores);
+    renderBestScores(localStats.bestScores, 'stat-best-scores', false);
+    renderBestScores(localStats.bestScores, 'stat-old-scores', true);
     
     // Fetch from Google Sheet for official summary
     const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}`;
@@ -1396,13 +1391,14 @@ async function loadUserStats() {
             });
         }
         
-        // Use server best scores if available (they are the official ones)
+               // Use server best scores if available (they are the official ones)
         if (data.bestScores && data.bestScores.length > 0) {
             const serverBest = {};
             data.bestScores.forEach(b => {
                 serverBest[b.quizFile] = b;
             });
-            renderBestScores(serverBest);
+            renderBestScores(serverBest, 'stat-best-scores', false);
+            renderBestScores(serverBest, 'stat-old-scores', true);
         }
         
         document.getElementById('stats-loading').style.display = 'none';
@@ -1421,7 +1417,7 @@ function showStatsScreen() {
     document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
     document.getElementById('stats-tab-summary').style.display = 'none';
     document.getElementById('stats-tab-best').style.display = 'none';
-    document.getElementById('stats-tab-recent').style.display = 'none';
+        document.getElementById('stats-tab-old').style.display = 'none';
     loadUserStats();
 }
 
