@@ -1123,8 +1123,12 @@ async function submitScore(finalTime = quizSeconds) {
         console.log("Stats skipped: Random mode not enabled");
         return;
     }
-    if (!timerWasStarted) {
+        if (!timerWasStarted) {
         console.log("Stats skipped: Timer was not started");
+        return;
+    }
+    if (!timerNeverStopped) {
+        console.log("Stats skipped: Timer was paused midway");
         return;
     }
     
@@ -1154,7 +1158,8 @@ async function submitScore(finalTime = quizSeconds) {
         isOld: meta.isOld ? 'true' : 'false',
         timeTaken: String(finalTime || 0),
         randomMode: 'true',
-        timerStarted: 'true'
+                timerStarted: 'true',
+        timerNeverStopped: String(timerNeverStopped)
     });
     
     const url = `${STATS_GAS_URL}?${params.toString()}`;
@@ -1359,6 +1364,7 @@ async function fetchPaidUsers() {
         let isAnswered = false;
 		let currentQuizFile = '';
 let timerWasStarted = false;
+let timerNeverStopped = true;   // ⛔ becomes false if user clicks Pause midway
 		
         // မူလရှိနေသော const userId နှင့် const userBought နေရာများကို အပေါ်သို့ ရွှေ့လိုက်ပါပြီ။
 
@@ -2522,6 +2528,9 @@ function updateFlashUI() {
         // --- Quiz Engine ---
       async function initQuiz(fileName) {
 	  currentQuizFile = fileName;
+    score = 0;
+    timerWasStarted = false;
+    timerNeverStopped = true;
     try {
         const res = await fetch(`./quizzes/${fileName}.json`);
         if(!res.ok) throw new Error();
@@ -3333,10 +3342,11 @@ let score = 0; // 🎯 ရမှတ်သိမ်းဆည်းရန် Varia
 
 // Timer အဖွင့်/အပိတ် လုပ်မည့် Function
 function toggleTimer() {
-    if (isTimerRunning) {
+        if (isTimerRunning) {
         // အချိန် ခဏရပ်မည်
         clearInterval(quizTimerInterval);
         isTimerRunning = false;
+        timerNeverStopped = false;  // ⛔ Midway stop = stats blocked for this quiz
         document.getElementById('timer-start-btn').innerText = "▶ ဆက်မှတ်မည်";
     } else {
         // အချိန် စမှတ်မည်
@@ -3370,8 +3380,9 @@ function reportQuestion() {
 // ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
 function resetTimer() {
         clearInterval(quizTimerInterval);
-    isTimerRunning = false;
+        isTimerRunning = false;
     timerWasStarted = false;
+    timerNeverStopped = true;
     quizSeconds = 0;
     
     document.getElementById('timer-display').innerText = "00:00";
