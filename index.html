@@ -309,10 +309,11 @@ input:checked + .slider:before {
     .markcount { 
     position: absolute; 
     top: 5px; 
-    right: 15px; 
+    left: 15px; 
+    right: auto;
     margin: 0; 
     z-index: 50; 
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 	
     #score-display {
@@ -674,10 +675,13 @@ body[data-theme] .container {
     --detail-accent-text: #00D5FF;
 }
 	   #report-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 50;
     display: inline-block !important;
     width: auto !important;
     white-space: nowrap !important;
-    vertical-align: middle;
     background: #EF4444;
     color: #fff;
     border: 1px solid #EF4444;
@@ -688,7 +692,6 @@ body[data-theme] .container {
     font-weight: 700;
     cursor: pointer;
     transition: transform 0.1s ease;
-    margin-left: 8px;
 }
 #report-btn:active { transform: scale(0.95); }
 	   
@@ -910,10 +913,10 @@ body[data-theme] .container {
         <div id="quiz-screen" class="screen" style="position: relative; padding-top: 35px;">
     
     <!-- ရမှတ်ကို absolute ဖြင့် အပေါ်ထောင့်ပို့ရန် div အစီအစဉ် -->
-            <div class="markcount" id="markcount">
+                <div class="markcount" id="markcount">
         <span id="score-display"> ရမှတ်: 0</span>
-        <button id="report-btn" onclick="reportQuestion()" style="display:none;">🚩 Report</button>
     </div>
+    <button id="report-btn" onclick="reportQuestion()" style="display:none;">🚩 Report</button>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
     <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5; overflow-x: auto; max-width: 100%; box-sizing: border-box; padding: 10px;"></div>
