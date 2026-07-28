@@ -879,13 +879,22 @@ body[data-theme] .container {
 </div>
 
 		<!-- Statistics Screen -->
+<!-- Statistics Screen -->
 <div id="stats-screen" class="screen">
     <h2 style="text-align: center; color: var(--accent);">📊 My Statistics</h2>
+    
+    <!-- Tab Buttons -->
+    <div style="display: flex; gap: 8px; padding: 0 15px; margin-bottom: 15px;">
+        <button class="btn" id="tab-summary" onclick="switchStatsTab('summary')" style="flex: 1; background: var(--accent); color: #000; font-size: 0.9rem; padding: 10px;">📈 Summary</button>
+        <button class="btn" id="tab-best" onclick="switchStatsTab('best')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.9rem; padding: 10px;">🏆 Best</button>
+        <button class="btn" id="tab-recent" onclick="switchStatsTab('recent')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.9rem; padding: 10px;">🕐 Recent</button>
+    </div>
+    
     <div id="stats-content" style="padding: 15px;">
         <div id="stats-loading" style="text-align: center; color: #94A3B8; padding: 40px;">ဆွဲယူနေသည်...</div>
-        <div id="stats-body" style="display: none;">
-            
-            <!-- Overall Card -->
+        
+        <!-- Summary Tab -->
+        <div id="stats-tab-summary" style="display: none;">
             <div class="profile-info-card" style="margin-bottom: 15px;">
                 <div style="font-size: 2rem; font-weight: 800; color: var(--accent);" id="stat-overall-acc">0%</div>
                 <div style="color: #94A3B8; font-size: 0.9rem;">စုစုပေါင်း အဖြေမှန်နှုန်း</div>
@@ -894,16 +903,22 @@ body[data-theme] .container {
                     <div><b id="stat-total-c">0</b><br><span style="font-size: 0.75rem; color: #64748B;">မှန်သောအဖြေ</span></div>
                 </div>
             </div>
-            
-            <!-- By Subject -->
             <h4 style="color: var(--accent); margin-bottom: 10px;">ဘာသာရပ်အလိုက်</h4>
             <div id="stat-subjects" style="margin-bottom: 20px;"></div>
-            
-            <!-- Recent Activity -->
-            <h4 style="color: var(--accent); margin-bottom: 10px;">လတ်တလာ လေ့ကျင့်မှုများ</h4>
-            <div id="stat-recent"></div>
-            
         </div>
+        
+        <!-- Best Scores Tab -->
+        <div id="stats-tab-best" style="display: none;">
+            <h4 style="color: var(--accent); margin-bottom: 10px;">🏆 အကောင်းဆုံး ရမှတ်များ</h4>
+            <div id="stat-best-scores"></div>
+        </div>
+        
+        <!-- Recent Tab -->
+        <div id="stats-tab-recent" style="display: none;">
+            <h4 style="color: var(--accent); margin-bottom: 10px;">🕐 လတ်တလာ လေ့ကျင့်မှုများ</h4>
+            <div id="stat-recent"></div>
+        </div>
+        
     </div>
     <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
 </div>
@@ -1113,13 +1128,32 @@ function parseQuizFile(fileName) {
 }
 
 // ─── Submit Score ───
+// ─── Local Stats Helpers ───
+function getLocalStats() {
+    try {
+        return JSON.parse(localStorage.getItem('local_quiz_stats')) || { history: [], bestScores: {} };
+    } catch (e) {
+        return { history: [], bestScores: {} };
+    }
+}
+
+function saveLocalStats(stats) {
+    localStorage.setItem('local_quiz_stats', JSON.stringify(stats));
+}
+
+function formatTime(seconds) {
+    const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+    const s = (seconds % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+}
+
+// ─── Submit Score (only sends to Sheet if new best) ───
 async function submitScore(timeTaken = 0) {
     if (!currentQuizFile || !currentQuestions || currentQuestions.length === 0) {
         console.warn("submitScore skipped: no quiz data");
         return;
     }
     
-    // NEW: Only save stats if Random Mode is ON
     const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
     if (!isRandom) {
         console.log("Stats not saved: Random mode is OFF");
@@ -1127,7 +1161,6 @@ async function submitScore(timeTaken = 0) {
         return;
     }
     
-    // NEW: Only save stats if Timer is currently running
     if (!isTimerRunning) {
         console.log("Stats not saved: Timer not running or was stopped");
         resetTimer();
@@ -1147,7 +1180,49 @@ async function submitScore(timeTaken = 0) {
         finalTotal = 0;
     }
     
-        const params = new URLSearchParams({
+    // Get current local stats
+    const localStats = getLocalStats();
+    const previousBest = localStats.bestScores[currentQuizFile];
+    const isNewBest = !previousBest || finalScore > previousBest.score;
+    
+    // Always add to local history (sub-chapters and retries all go here)
+    const now = new Date().toISOString();
+    localStats.history.unshift({
+        quizFile: currentQuizFile,
+        subject: meta.subject,
+        chapter: meta.chapter,
+        type: meta.type,
+        score: finalScore,
+        total: finalTotal,
+        timeTaken: timeTaken,
+        date: now,
+        isOld: meta.isOld
+    });
+    if (localStats.history.length > 100) localStats.history = localStats.history.slice(0, 100);
+    
+    // Update local best if improved
+    if (isNewBest) {
+        localStats.bestScores[currentQuizFile] = {
+            score: finalScore,
+            total: finalTotal,
+            timeTaken: timeTaken,
+            date: now,
+            subject: meta.subject,
+            chapter: meta.chapter,
+            type: meta.type
+        };
+    }
+    
+    saveLocalStats(localStats);
+    
+    // Only send to Google Sheet if it's a new best score
+    if (!isNewBest) {
+        console.log("Score not sent to sheet: not a new best");
+        resetTimer();
+        return;
+    }
+    
+    const params = new URLSearchParams({
         action: 'saveScore',
         userId: userId,
         userName: userName,
@@ -1162,7 +1237,7 @@ async function submitScore(timeTaken = 0) {
     });
     
     const url = `${STATS_GAS_URL}?${params.toString()}`;
-    console.log("Submitting score to:", url);
+    console.log("Submitting new best score to:", url);
     
     try {
         const res = await fetch(url);
@@ -1171,6 +1246,92 @@ async function submitScore(timeTaken = 0) {
     } catch (e) {
         console.error("SaveScore failed:", e);
     }
+    
+    resetTimer();
+}
+
+// ─── Tab Switcher ───
+function switchStatsTab(tabName) {
+    document.getElementById('stats-tab-summary').style.display = 'none';
+    document.getElementById('stats-tab-best').style.display = 'none';
+    document.getElementById('stats-tab-recent').style.display = 'none';
+    
+    document.getElementById('tab-summary').style.background = 'var(--card-bg)';
+    document.getElementById('tab-summary').style.color = 'var(--white)';
+    document.getElementById('tab-best').style.background = 'var(--card-bg)';
+    document.getElementById('tab-best').style.color = 'var(--white)';
+    document.getElementById('tab-recent').style.background = 'var(--card-bg)';
+    document.getElementById('tab-recent').style.color = 'var(--white)';
+    
+    document.getElementById('stats-tab-' + tabName).style.display = 'block';
+    const activeBtn = document.getElementById('tab-' + tabName);
+    activeBtn.style.background = 'var(--accent)';
+    activeBtn.style.color = '#000';
+}
+
+// ─── Render Helpers ───
+function renderBestScores(bestScoresObj) {
+    const container = document.getElementById('stat-best-scores');
+    container.innerHTML = '';
+    
+    const keys = Object.keys(bestScoresObj);
+    if (keys.length === 0) {
+        container.innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
+        return;
+    }
+    
+    keys.forEach(key => {
+        const b = bestScoresObj[key];
+        const div = document.createElement('div');
+        div.style.cssText = 'background:var(--card-bg);padding:12px 15px;border-radius:12px;margin-bottom:8px;border-left:4px solid #F59E0B;';
+        
+        const timeStr = b.timeTaken ? formatTime(b.timeTaken) : '-';
+        const percent = b.total > 0 ? Math.round((b.score / b.total) * 100) : 0;
+        const dateStr = b.date ? new Date(b.date).toLocaleDateString() : '';
+        
+        div.innerHTML = `
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                <span style="font-weight:600;color:var(--accent);">${getSubjectName(b.subject || 'unknown')}</span>
+                <span style="font-family:monospace;font-weight:bold;color:#F59E0B;">${b.score}/${b.total} (${percent}%)</span>
+            </div>
+            <div style="color:#94A3B8;font-size:0.8rem;margin-bottom:4px;">${b.chapter || ''} · ${b.type || ''}</div>
+            <div style="display:flex;justify-content:space-between;color:#64748B;font-size:0.75rem;">
+                <span>⏱ ${timeStr}</span>
+                <span>${dateStr}</span>
+            </div>
+        `;
+        container.appendChild(div);
+    });
+}
+
+function renderRecentStats(history) {
+    const container = document.getElementById('stat-recent');
+    container.innerHTML = '';
+    
+    if (history.length === 0) {
+        container.innerHTML = '<div style="text-align:center;color:#64748B;padding:10px;">ဒေတာမရှိသေးပါ</div>';
+        return;
+    }
+    
+    history.slice(0, 20).forEach(r => {
+        const div = document.createElement('div');
+        div.style.cssText = 'background:var(--card-bg);padding:10px 12px;border-radius:10px;margin-bottom:6px;font-size:0.85rem;color:#CBD5E1;';
+        const dateStr = r.date ? new Date(r.date).toLocaleDateString() : '';
+        const label = r.total > 0 ? `${r.score}/${r.total}` : 'Viewed';
+        const timeStr = r.timeTaken ? formatTime(r.timeTaken) : '-';
+        div.innerHTML = `
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span style="color:var(--accent);font-weight:600;">${getSubjectName(r.subject || 'unknown')}</span>
+                <span style="font-family:monospace;">${label}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;color:#64748B;font-size:0.75rem;">
+                <span>${r.chapter || ''} · ${r.type || ''}</span>
+                <span>⏱ ${timeStr}</span>
+            </div>
+            <div style="color:#64748B;font-size:0.7rem;margin-top:2px;">${dateStr}</div>
+        `;
+        container.appendChild(div);
+    });
 }
 
 // ─── Load Statistics ───
@@ -1181,6 +1342,12 @@ async function loadUserStats() {
         return;
     }
     
+    // Load local stats immediately for offline display
+    const localStats = getLocalStats();
+    renderRecentStats(localStats.history);
+    renderBestScores(localStats.bestScores);
+    
+    // Fetch from Google Sheet for official summary
     const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}`;
     console.log("Fetching stats for userId:", userId);
     
@@ -1193,18 +1360,20 @@ async function loadUserStats() {
         try {
             data = JSON.parse(text);
         } catch (parseErr) {
-            console.error("JSON parse failed. Response was HTML?", text.substring(0, 200));
-            document.getElementById('stats-loading').innerText = 'ဆာဗာမှ တုံ့ပြန်ချက် မှားနေသည် (URL ကို စစ်ပါ)။';
+            console.error("JSON parse failed:", text.substring(0, 200));
+            document.getElementById('stats-loading').style.display = 'none';
+            switchStatsTab('best');
             return;
         }
         
         if (data.status !== 'ok') {
             console.error("GAS returned error:", data.message);
-            document.getElementById('stats-loading').innerText = 'အမှား: ' + (data.message || 'Unknown');
+            document.getElementById('stats-loading').style.display = 'none';
+            switchStatsTab('best');
             return;
         }
         
-        // Render Overall
+        // Render Overall Summary
         const overall = data.overall || { accuracy: 0, answered: 0, correct: 0 };
         document.getElementById('stat-overall-acc').innerText = overall.accuracy + '%';
         document.getElementById('stat-total-q').innerText = overall.answered;
@@ -1227,36 +1396,22 @@ async function loadUserStats() {
             });
         }
         
-        // Render Recent
-        const recentContainer = document.getElementById('stat-recent');
-        recentContainer.innerHTML = '';
-        const recent = data.recent || [];
-        
-        if (recent.length === 0) {
-            recentContainer.innerHTML = '<div style="text-align:center;color:#64748B;padding:10px;">ဒေတာမရှိသေးပါ</div>';
-        } else {
-            recent.forEach(r => {
-                const div = document.createElement('div');
-                div.style.cssText = 'background:var(--card-bg);padding:10px 12px;border-radius:10px;margin-bottom:6px;font-size:0.85rem;color:#CBD5E1;';
-                const dateStr = r.date ? new Date(r.date).toLocaleDateString() : '';
-                const label = r.total > 0 ? `${r.score}/${r.total}` : 'Viewed';
-                div.innerHTML = `
-                    <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
-                        <span style="color:var(--accent);font-weight:600;">${getSubjectName(r.subject)}</span>
-                        <span style="font-family:monospace;">${label}</span>
-                    </div>
-                    <div style="color:#64748B;font-size:0.75rem;">${r.chapter} · ${dateStr}</div>
-                `;
-                recentContainer.appendChild(div);
+        // Use server best scores if available (they are the official ones)
+        if (data.bestScores && data.bestScores.length > 0) {
+            const serverBest = {};
+            data.bestScores.forEach(b => {
+                serverBest[b.quizFile] = b;
             });
+            renderBestScores(serverBest);
         }
         
         document.getElementById('stats-loading').style.display = 'none';
-        document.getElementById('stats-body').style.display = 'block';
+        switchStatsTab('summary');
         
     } catch (e) {
         console.error("loadUserStats fetch crashed:", e);
-        document.getElementById('stats-loading').innerText = 'ဒေတာဆွဲယူရာတွင် အမှားရှိပါသည်: ' + e.message;
+        document.getElementById('stats-loading').style.display = 'none';
+        switchStatsTab('best');
     }
 }
 		
@@ -1264,7 +1419,9 @@ function showStatsScreen() {
     showScreen('stats');
     document.getElementById('stats-loading').style.display = 'block';
     document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
-    document.getElementById('stats-body').style.display = 'none';
+    document.getElementById('stats-tab-summary').style.display = 'none';
+    document.getElementById('stats-tab-best').style.display = 'none';
+    document.getElementById('stats-tab-recent').style.display = 'none';
     loadUserStats();
 }
 
