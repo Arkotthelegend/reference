@@ -306,7 +306,16 @@ input:checked + .slider:before {
     .timer-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 8px 16px; border-radius: 10px; font-size: 0.9rem; }
     .timer-display { font-size: 1.1rem; color: var(--white); font-family: monospace; font-weight: 700; background: #000; padding: 6px 12px; border-radius: 8px; border: 1px solid #334155; display: none; }
 	
-    .markcount { position: absolute; top: 5px; right: 15px; margin: 0; z-index: 50; }
+    .markcount { 
+    position: absolute; 
+    top: 5px; 
+    right: 15px; 
+    margin: 0; 
+    z-index: 50; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
 	
     #score-display {
     display: inline-block;
@@ -664,7 +673,19 @@ body[data-theme] .container {
     --detail-secondary-text: #CBD5E1;
     --detail-accent-text: #00D5FF;
 }
-	   #report-btn { transition: transform 0.1s ease; }
+	   #report-btn {
+    display: inline-block;
+    background: #EF4444;
+    color: #fff;
+    border: 1px solid #EF4444;
+    padding: 6px 15px;
+    border-radius: 12px;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
 #report-btn:active { transform: scale(0.95); }
 	   
 </style>
@@ -885,9 +906,9 @@ body[data-theme] .container {
         <div id="quiz-screen" class="screen" style="position: relative; padding-top: 35px;">
     
     <!-- ရမှတ်ကို absolute ဖြင့် အပေါ်ထောင့်ပို့ရန် div အစီအစဉ် -->
-        <div class="markcount" id="markcount">
+            <div class="markcount" id="markcount">
         <span id="score-display"> ရမှတ်: 0</span>
-        <button id="report-btn" onclick="reportQuestion()" style="display:none; margin-left:8px; background:#EF4444; color:#fff; border:none; padding:4px 10px; border-radius:8px; font-size:0.8rem; cursor:pointer; font-weight:bold;">🚩 Report</button>
+        <button id="report-btn" onclick="reportQuestion()" style="display:none;">🚩 Report</button>
     </div>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
