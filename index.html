@@ -877,6 +877,36 @@ body[data-theme] .container {
     <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
 </div>
 
+		<!-- Statistics Screen -->
+<div id="stats-screen" class="screen">
+    <h2 style="text-align: center; color: var(--accent);">📊 My Statistics</h2>
+    <div id="stats-content" style="padding: 15px;">
+        <div id="stats-loading" style="text-align: center; color: #94A3B8; padding: 40px;">ဆွဲယူနေသည်...</div>
+        <div id="stats-body" style="display: none;">
+            
+            <!-- Overall Card -->
+            <div class="profile-info-card" style="margin-bottom: 15px;">
+                <div style="font-size: 2rem; font-weight: 800; color: var(--accent);" id="stat-overall-acc">0%</div>
+                <div style="color: #94A3B8; font-size: 0.9rem;">စုစုပေါင်း အဖြေမှန်နှုန်း</div>
+                <div style="margin-top: 10px; display: flex; justify-content: space-around;">
+                    <div><b id="stat-total-q">0</b><br><span style="font-size: 0.75rem; color: #64748B;">မေးခွန်းပေါင်း</span></div>
+                    <div><b id="stat-total-c">0</b><br><span style="font-size: 0.75rem; color: #64748B;">မှန်သောအဖြေ</span></div>
+                </div>
+            </div>
+            
+            <!-- By Subject -->
+            <h4 style="color: var(--accent); margin-bottom: 10px;">ဘာသာရပ်အလိုက်</h4>
+            <div id="stat-subjects" style="margin-bottom: 20px;"></div>
+            
+            <!-- Recent Activity -->
+            <h4 style="color: var(--accent); margin-bottom: 10px;">လတ်တလာ လေ့ကျင့်မှုများ</h4>
+            <div id="stat-recent"></div>
+            
+        </div>
+    </div>
+    <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
+</div>
+
         <div id="menu-screen" class="screen">
             <h2 id="menu-title" style="text-align: center; color: var(--accent);"></h2>
             <div id="menu-content"></div>
@@ -972,6 +1002,7 @@ body[data-theme] .container {
 		
 		const ADMIN_ID = 8432363664;
 const specialUsers = [5593040432,1709037573,5186599374];
+		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbxmBkrAAUklW-rWeWLXAphSCk_gteVOuYKySsnAtDeyBgKZG00mTXGjyB2hF67EoJEuHA/exec";
 // --- School Exclusive Themes (ဈေးမရောင်းဘဲ အထူးပေးသုံး) ---
 const exclusiveThemeUsers = {
 'mmpn': [8432363664, 987654321, 5593040432], // ဒီကျောင်းသား Telegram ID များ
@@ -1027,7 +1058,174 @@ const subChapterConfig = {
 		'Chapter 7': [],
         'Chapter 8': []
     }
-};
+	};
+
+		// ─── Quiz File Parser ───
+function parseQuizFile(fileName) {
+    if (!fileName) return { subject: 'unknown', chapter: 'unknown', type: 'unknown', isOld: false };
+    
+    let name = fileName;
+    let isOld = false;
+    
+    if (name.startsWith('old_')) {
+        isOld = true;
+        name = name.substring(4);
+    }
+    
+    if (name.startsWith('daily_')) {
+        return { subject: name.replace('daily_', ''), chapter: 'Daily Quiz', type: 'Daily', isOld: false };
+    }
+    
+    const parts = name.split('_');
+    if (parts.length < 2) return { subject: name, chapter: 'General', type: 'Quiz', isOld };
+    
+    const subject = parts[0];
+    
+    // Pattern: subject_Chapter_X_1.1_MCQ  (sub-chapter with dot)
+    // Pattern: subject_Chapter_X_3_Marks  (math mark type)
+    if (parts.length >= 4 && parts[1] === 'Chapter') {
+        let chapterEnd = 3;
+        // If parts[3] looks like a sub-chapter (has dot, e.g., 1.1), include it
+        if (/^\d+\.\d+$/.test(parts[3])) {
+            chapterEnd = 4;
+        }
+        const chapter = parts.slice(1, chapterEnd).join('_').replace(/_/g, ' ');
+        const type = parts.slice(chapterEnd).join('_').replace(/_/g, ' ') || 'Mixed';
+        return { subject, chapter, type, isOld };
+    }
+    
+    // Pattern: subject_unitX_type
+    if (parts.length >= 3 && parts[1].startsWith('unit')) {
+        const chapter = parts[1];
+        const type = parts.slice(2).join('_').replace(/_/g, ' ') || 'Mixed';
+        return { subject, chapter, type, isOld };
+    }
+    
+    // Burmese fallback
+    if (subject === 'mm') {
+        const chapIdx = parts.findIndex(p => p.includes('အခန်း'));
+        if (chapIdx !== -1 && chapIdx + 1 < parts.length) {
+            const chapter = `${parts[chapIdx]} ${parts[chapIdx + 1]}`;
+            const type = parts.slice(chapIdx + 2).join('_').replace(/_/g, ' ') || parts[parts.length - 1];
+            return { subject, chapter, type, isOld };
+        }
+        if (parts.length >= 3) {
+            return { subject, chapter: parts.slice(1, -1).join('_').replace(/_/g, ' '), type: parts[parts.length - 1], isOld };
+        }
+    }
+    
+    return { subject, chapter: parts.slice(1, -1).join('_').replace(/_/g, ' ') || 'General', type: parts[parts.length - 1] || 'Quiz', isOld };
+}
+
+// ─── Submit Score to New Sheet ───
+async function submitScore() {
+    if (!currentQuizFile || !currentQuestions || currentQuestions.length === 0) return;
+    
+    const userId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
+    const userName = tg.initDataUnsafe?.user?.first_name || 'unknown';
+    const meta = parseQuizFile(currentQuizFile);
+    
+    let finalScore = score || 0;
+    let finalTotal = currentQuestions.length || 0;
+    
+    // Math 2/3 Marks are view-only; send 0/0 so they don't hurt accuracy
+    const isMathShow = currentQuestions[0].type === 'math_show';
+    if (isMathShow) {
+        finalScore = 0;
+        finalTotal = 0;
+    }
+    
+    const params = new URLSearchParams({
+        action: 'saveScore',
+        userId: userId,
+        userName: userName,
+        quizFile: currentQuizFile,
+        subject: meta.subject,
+        chapter: meta.chapter,
+        type: meta.type,
+        score: finalScore,
+        total: finalTotal,
+        isOld: meta.isOld ? 'true' : 'false'
+    });
+    
+    try {
+        await fetch(`${STATS_GAS_URL}?${params.toString()}`);
+    } catch (e) {
+        console.error('Stats save failed', e);
+    }
+}
+
+// ─── Load & Render Statistics ───
+async function loadUserStats() {
+    const userId = tg.initDataUnsafe?.user?.id || 'unknown';
+    const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}`;
+    
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        
+        if (data.status !== 'ok') throw new Error(data.message);
+        
+        document.getElementById('stat-overall-acc').innerText = data.overall.accuracy + '%';
+        document.getElementById('stat-total-q').innerText = data.overall.answered;
+        document.getElementById('stat-total-c').innerText = data.overall.correct;
+        
+        const subContainer = document.getElementById('stat-subjects');
+        subContainer.innerHTML = '';
+        const subjects = data.bySubject;
+        
+        if (Object.keys(subjects).length === 0) {
+            subContainer.innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
+        } else {
+            Object.keys(subjects).forEach(sub => {
+                const s = subjects[sub];
+                const div = document.createElement('div');
+                div.style.cssText = 'background:var(--card-bg);padding:12px 15px;border-radius:12px;margin-bottom:8px;border-left:4px solid var(--accent);display:flex;justify-content:space-between;align-items:center;';
+                div.innerHTML = `<span style="font-weight:600;">${getSubjectName(sub)}</span><span style="font-family:monospace;color:var(--accent);font-weight:bold;">${s.accuracy}%</span>`;
+                subContainer.appendChild(div);
+            });
+        }
+        
+        const recentContainer = document.getElementById('stat-recent');
+        recentContainer.innerHTML = '';
+        if (data.recent.length === 0) {
+            recentContainer.innerHTML = '<div style="text-align:center;color:#64748B;padding:10px;">ဒေတာမရှိသေးပါ</div>';
+        } else {
+            data.recent.forEach(r => {
+                const div = document.createElement('div');
+                div.style.cssText = 'background:var(--card-bg);padding:10px 12px;border-radius:10px;margin-bottom:6px;font-size:0.85rem;color:#CBD5E1;';
+                const dateStr = r.date ? new Date(r.date).toLocaleDateString() : '';
+                const label = r.total > 0 ? `${r.score}/${r.total}` : (r.score === 0 && r.total === 0 ? 'Viewed' : '-');
+                div.innerHTML = `
+                    <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                        <span style="color:var(--accent);font-weight:600;">${getSubjectName(r.subject)}</span>
+                        <span style="font-family:monospace;">${label}</span>
+                    </div>
+                    <div style="color:#64748B;font-size:0.75rem;">${r.chapter} · ${dateStr}</div>
+                `;
+                recentContainer.appendChild(div);
+            });
+        }
+        
+        document.getElementById('stats-loading').style.display = 'none';
+        document.getElementById('stats-body').style.display = 'block';
+        
+    } catch (e) {
+        document.getElementById('stats-loading').innerText = 'ဒေတာဆွဲယူရာတွင် အမှားရှိပါသည်။';
+    }
+}
+
+function showStatsScreen() {
+    showScreen('stats');
+    document.getElementById('stats-loading').style.display = 'block';
+    document.getElementById('stats-body').style.display = 'none';
+    loadUserStats();
+}
+
+function getSubjectName(id) {
+    const map = { mm: 'မြန်မာစာ', en: 'အင်္ဂလိပ်စာ', math: 'သင်္ချာ', phy: 'ရူပဗေဒ', chem: 'ဓာတုဗေဒ', bio: 'ဇီဝဗေဒ', eco: 'ဘောဂဗေဒ', unknown: 'အခြား' };
+    return map[id] || id;
+}
 		
 		function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -2361,8 +2559,14 @@ if (isMath2Or3Mark) {
                     showScreen('quiz');
                     loadQuestion();
                 };
-            } else {
-                mathNextBtn.style.display = 'none'; // မေးခွန်းကုန်သွားရင် ဖျောက်ထားမည်
+                        } else {
+                mathNextBtn.style.display = 'block';
+                mathNextBtn.innerText = 'ပြီးဆုံးပါပြီ ✅';
+                mathNextBtn.onclick = () => {
+                    tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
+                    submitScore(); // ⬅️ Log view-only completion
+                    document.getElementById('quiz-back-btn').click();
+                };
             }
 
             // ထွက်မည် (Menu သို့ ပြန်သွားရန်)
@@ -2517,6 +2721,7 @@ function nextQuestion() {
         loadQuestion();
     } else { 
         tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
+		        submitScore(); // ⬅️ Send result to statistics sheet
         
         // နောက်ထပ်နှိပ်စရာ မေးခွန်းမရှိတော့တဲ့အတွက် "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို ဖျောက်ထားလိုက်ပါမည်
         document.getElementById('next-btn').style.display = 'none';
@@ -2634,9 +2839,12 @@ function renderProfileData() {
     streakBadge.innerHTML = `🔥 ${currentStreak} Day${currentStreak > 1 ? 's' : ''}`;
 
     // Dynamic Area ထဲကို UI တွေ ထည့်မယ်
-    const dynamicArea = document.getElementById('dynamic-content-area');
+        const dynamicArea = document.getElementById('dynamic-content-area');
     dynamicArea.innerHTML = `
-    <button onclick="openThemeShop()" style="width: 100%; background: linear-gradient(135deg, #8B5CF6, #EC4899); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
+    <button onclick="showStatsScreen()" style="width: 100%; background: linear-gradient(135deg, #3B82F6, #06B6D4); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);">
+        📊 My Statistics
+    </button>
+    <button onclick="openThemeShop()" style="width: 100%; background: linear-gradient(135deg, #8B5CF6, #EC4899); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 10px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
         🎨 Theme Shop
     </button>
     <button class="contact-btn" onclick="contactDeveloper()" style="width: 100%; background: #1E293B; padding: 15px; border-radius: 14px; margin-top: 10px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
