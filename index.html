@@ -1175,14 +1175,14 @@ async function submitScore(timeTaken = 0) {
 
 // ─── Load Statistics ───
 async function loadUserStats() {
-    const userId = tg.initDataUnsafe?.user?.id || 'unknown';
+    const userId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
     if (userId === 'unknown') {
         document.getElementById('stats-loading').innerText = 'User ID မရရှိပါ။ Telegram WebApp ကို ပြန်ဖွင့်ပါ။';
         return;
     }
     
     const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}`;
-    console.log("Fetching stats from:", url);
+    console.log("Fetching stats for userId:", userId);
     
     try {
         const res = await fetch(url);
@@ -1259,7 +1259,7 @@ async function loadUserStats() {
         document.getElementById('stats-loading').innerText = 'ဒေတာဆွဲယူရာတွင် အမှားရှိပါသည်: ' + e.message;
     }
 }
-
+		
 function showStatsScreen() {
     showScreen('stats');
     document.getElementById('stats-loading').style.display = 'block';
