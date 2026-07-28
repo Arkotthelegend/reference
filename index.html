@@ -884,13 +884,13 @@ body[data-theme] .container {
         <div id="stats-loading" style="text-align: center; color: #94A3B8; padding: 40px;">ဆွဲယူနေသည်...</div>
         <div id="stats-body" style="display: none;">
             
-            <!-- Overall Card -->
-            <div class="profile-info-card" style="margin-bottom: 15px;">
+                        <div class="profile-info-card" style="margin-bottom: 15px;">
                 <div style="font-size: 2rem; font-weight: 800; color: var(--accent);" id="stat-overall-acc">0%</div>
                 <div style="color: #94A3B8; font-size: 0.9rem;">စုစုပေါင်း အဖြေမှန်နှုန်း</div>
                 <div style="margin-top: 10px; display: flex; justify-content: space-around;">
                     <div><b id="stat-total-q">0</b><br><span style="font-size: 0.75rem; color: #64748B;">မေးခွန်းပေါင်း</span></div>
                     <div><b id="stat-total-c">0</b><br><span style="font-size: 0.75rem; color: #64748B;">မှန်သောအဖြေ</span></div>
+                    <div><b id="stat-total-time">0:00</b><br><span style="font-size: 0.75rem; color: #64748B;">အချိန်စုစုပေါင်း</span></div>
                 </div>
             </div>
             
@@ -1002,7 +1002,7 @@ body[data-theme] .container {
 		
 		const ADMIN_ID = 8432363664;
 const specialUsers = [5593040432,1709037573,5186599374];
-		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbxmBkrAAUklW-rWeWLXAphSCk_gteVOuYKySsnAtDeyBgKZG00mTXGjyB2hF67EoJEuHA/exec";
+		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbwoa4TB58TO_0Nmxa5tJ7v4Z2dwvfGa0MV07cuFL8VGwAaAfBssMcvn_OjYJqeBN5ea/exec";
 // --- School Exclusive Themes (ဈေးမရောင်းဘဲ အထူးပေးသုံး) ---
 const exclusiveThemeUsers = {
 'mmpn': [8432363664, 987654321, 5593040432], // ဒီကျောင်းသား Telegram ID များ
@@ -1111,10 +1111,20 @@ function parseQuizFile(fileName) {
     return { subject, chapter: parts.slice(1, -1).join('_').replace(/_/g, ' ') || 'General', type: parts[parts.length - 1] || 'Quiz', isOld };
 }
 
-// ─── Submit Score ───
-async function submitScore() {
+async function submitScore(finalTime = quizSeconds) {
     if (!currentQuizFile || !currentQuestions || currentQuestions.length === 0) {
         console.warn("submitScore skipped: no quiz data");
+        return;
+    }
+    
+    // 🎯 စစ်ဆေးရန် - Random Mode နှင့် Timer နှစ်ခုလုံး ဖွင့်ထားမှသာ သိမ်းမည်
+    const isRandomEnabled = localStorage.getItem('randomQuizSetting') !== 'false';
+    if (!isRandomEnabled) {
+        console.log("Stats skipped: Random mode not enabled");
+        return;
+    }
+    if (!timerWasStarted) {
+        console.log("Stats skipped: Timer was not started");
         return;
     }
     
@@ -1141,7 +1151,10 @@ async function submitScore() {
         type: meta.type,
         score: String(finalScore),
         total: String(finalTotal),
-        isOld: meta.isOld ? 'true' : 'false'
+        isOld: meta.isOld ? 'true' : 'false',
+        timeTaken: String(finalTime || 0),
+        randomMode: 'true',
+        timerStarted: 'true'
     });
     
     const url = `${STATS_GAS_URL}?${params.toString()}`;
@@ -1156,6 +1169,13 @@ async function submitScore() {
     }
 }
 
+		function formatTime(totalSeconds) {
+    if (!totalSeconds || totalSeconds <= 0) return '0:00';
+    const m = Math.floor(totalSeconds / 60);
+    const s = totalSeconds % 60;
+    return `${m}:${s.toString().padStart(2, '0')}`;
+}
+		
 // ─── Load Statistics ───
 async function loadUserStats() {
     const userId = tg.initDataUnsafe?.user?.id || 'unknown';
@@ -1188,10 +1208,12 @@ async function loadUserStats() {
         }
         
         // Render Overall
-        const overall = data.overall || { accuracy: 0, answered: 0, correct: 0 };
+               const overall = data.overall || { accuracy: 0, answered: 0, correct: 0, time: 0 };
         document.getElementById('stat-overall-acc').innerText = overall.accuracy + '%';
         document.getElementById('stat-total-q').innerText = overall.answered;
         document.getElementById('stat-total-c').innerText = overall.correct;
+        const totalTimeEl = document.getElementById('stat-total-time');
+        if (totalTimeEl) totalTimeEl.innerText = formatTime(overall.time || 0);
         
         // Render Subjects
         const subContainer = document.getElementById('stat-subjects');
@@ -1222,13 +1244,13 @@ async function loadUserStats() {
                 const div = document.createElement('div');
                 div.style.cssText = 'background:var(--card-bg);padding:10px 12px;border-radius:10px;margin-bottom:6px;font-size:0.85rem;color:#CBD5E1;';
                 const dateStr = r.date ? new Date(r.date).toLocaleDateString() : '';
-                const label = r.total > 0 ? `${r.score}/${r.total}` : 'Viewed';
-                div.innerHTML = `
+                            const label = r.total > 0 ? `${r.score}/${r.total}` : 'Viewed';
+            div.innerHTML = `
                     <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
                         <span style="color:var(--accent);font-weight:600;">${getSubjectName(r.subject)}</span>
                         <span style="font-family:monospace;">${label}</span>
                     </div>
-                    <div style="color:#64748B;font-size:0.75rem;">${r.chapter} · ${dateStr}</div>
+                    <div style="color:#64748B;font-size:0.75rem;">${r.chapter} · ${dateStr} · ⏱ ${formatTime(r.time || 0)}</div>
                 `;
                 recentContainer.appendChild(div);
             });
@@ -1336,6 +1358,8 @@ async function fetchPaidUsers() {
         let flashCards = [];
         let isAnswered = false;
 		let currentQuizFile = '';
+let timerWasStarted = false;
+		
         // မူလရှိနေသော const userId နှင့် const userBought နေရာများကို အပေါ်သို့ ရွှေ့လိုက်ပါပြီ။
 
 
@@ -2591,9 +2615,14 @@ if (isMath2Or3Mark) {
                         } else {
                 mathNextBtn.style.display = 'block';
                 mathNextBtn.innerText = 'ပြီးဆုံးပါပြီ ✅';
-                mathNextBtn.onclick = () => {
+                                mathNextBtn.onclick = () => {
+                    const finalTime = quizSeconds;
+                    if (isTimerRunning) {
+                        clearInterval(quizTimerInterval);
+                        isTimerRunning = false;
+                    }
                     tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
-                    submitScore(); // ⬅️ Log view-only completion
+                    submitScore(finalTime);
                     document.getElementById('quiz-back-btn').click();
                 };
             }
@@ -2748,23 +2777,22 @@ function nextQuestion() {
     if (currentIdx < currentQuestions.length - 1) {
         currentIdx++;
         loadQuestion();
-    } else { 
-        tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
-		        submitScore(); // ⬅️ Send result to statistics sheet
-        
-        // နောက်ထပ်နှိပ်စရာ မေးခွန်းမရှိတော့တဲ့အတွက် "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို ဖျောက်ထားလိုက်ပါမည်
-        document.getElementById('next-btn').style.display = 'none';
-
-        // --- ⏱ Timer ကို ရပ်တန့်မည့် Code ---
+        } else { 
+        // ⏱ အချိန်ကိုအရင်ရပ်ပြီး ရမှတ်သိမ်းခြင်း
+        const finalTime = quizSeconds;
         if (isTimerRunning) {
             clearInterval(quizTimerInterval);
             isTimerRunning = false;
-            // ခလုတ်စာသားကို ပြောင်းပြီး ထပ်နှိပ်လို့မရအောင် ပိတ်ထားပါမည်
             const startBtn = document.getElementById('timer-start-btn');
             startBtn.innerText = "⏹ ပြီးဆုံးပါပြီ";
             startBtn.disabled = true; 
-            startBtn.style.opacity = "0.5"; // ပိတ်ထားကြောင်း သိသာစေရန် မှိန်ထားမည်
+            startBtn.style.opacity = "0.5";
         }
+        
+        tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
+        submitScore(finalTime);
+        
+        document.getElementById('next-btn').style.display = 'none';
     }
 }
 
@@ -2780,8 +2808,8 @@ function nextQuestion() {
         }
 
         function showScreen(id) {
-		
-		if (id !== 'quiz') {
+	
+	if (id !== 'quiz' && id !== 'math-solution') {
         resetTimer(); 
     }
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
@@ -3312,7 +3340,8 @@ function toggleTimer() {
         document.getElementById('timer-start-btn').innerText = "▶ ဆက်မှတ်မည်";
     } else {
         // အချိန် စမှတ်မည်
-        isTimerRunning = true;
+                isTimerRunning = true;
+        timerWasStarted = true;
         document.getElementById('timer-display').style.display = 'inline';
         document.getElementById('timer-reset-btn').style.display = 'inline';
         document.getElementById('timer-start-btn').innerText = "⏸ ခဏရပ်မည်";
@@ -3340,8 +3369,9 @@ function reportQuestion() {
 
 // ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
 function resetTimer() {
-    clearInterval(quizTimerInterval);
+        clearInterval(quizTimerInterval);
     isTimerRunning = false;
+    timerWasStarted = false;
     quizSeconds = 0;
     
     document.getElementById('timer-display').innerText = "00:00";
