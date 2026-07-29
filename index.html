@@ -700,6 +700,7 @@ body[data-theme] .container {
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -1113,13 +1114,7 @@ function parseQuizFile(fileName) {
         return { subject, chapter, type, isOld };
     }
     
-        if (subject === 'mm') {
-        // Handle ရေသည် category specially (e.g. mm_ရေသည်_မှား_မှန်)
-        if (parts[1] === 'ရေသည်') {
-            const type = parts.slice(2).join('');
-            return { subject, chapter: 'ရေသည်', type: type || 'Quiz', isOld };
-        }
-        
+    if (subject === 'mm') {
         const chapIdx = parts.findIndex(p => p.includes('အခန်း'));
         if (chapIdx !== -1 && chapIdx + 1 < parts.length) {
             const chapter = `${parts[chapIdx]} ${parts[chapIdx + 1]}`;
@@ -1134,15 +1129,14 @@ function parseQuizFile(fileName) {
     return { subject, chapter: parts.slice(1, -1).join('_').replace(/_/g, ' ') || 'General', type: parts[parts.length - 1] || 'Quiz', isOld };
 }
 
-		function isMyanmarIndividualQuiz(fileName) {
+		// Detect Myanmar individual title/chapter quizzes (skip from stats)
+// The combined "all" quiz (e.g. mm_စကားပြေ_all_အမှန်ရွေး) is allowed
+function isMyanmarIndividualQuiz(fileName) {
     if (!fileName || typeof fileName !== 'string') return false;
-    if (!fileName.startsWith('mm_') && !fileName.startsWith('old_mm_')) return false;
+    if (!fileName.startsWith('mm_')) return false;
     if (fileName.includes('_all_')) return false;
-    
-    // ရေသည် is a standalone category, not an individual title/chapter quiz
-    const clean = fileName.replace(/^old_/, '');
-    if (clean.includes('_ရေသည်_')) return false;
-    
+    // 🆕 ရေသည် is a category-level quiz, not an individual chapter/title
+    if (fileName.includes('_ရေသည်_')) return false;
     return true;
 }
 		
@@ -1172,10 +1166,11 @@ function isSubChapter(quizFile) {
     return /_\d+\.\d+_/.test(quizFile);
 }
 
-	function getStatDisplayName(key, item) {
+		// Clean up Myanmar "_all_" filenames for stats display
+// mm_စကားပြေ_all_မှား_မှန်  →  "စကားပြေ မှားမှန်"
+// mm_အပြော_all_အမှန်ရွေး    →  "အပြော အမှန်ရွေး"
+function getStatDisplayName(key, item) {
     const cleanKey = key.replace(/^old_/, '');
-    
-    // Handle _all_ quizzes (e.g. mm_စကားပြေ_all_မှား_မှန်)
     if (cleanKey.includes('_all_') && item.subject === 'mm') {
         const parts = cleanKey.split('_');
         if (parts.length >= 4 && parts[0] === 'mm') {
@@ -1185,21 +1180,15 @@ function isSubChapter(quizFile) {
             return `${category} ${typeClean}`;
         }
     }
-    
-    // Handle ရေသည် quizzes (e.g. mm_ရေသည်_မှား_မှန်)
-    if (cleanKey.includes('_ရေသည်_') && item.subject === 'mm') {
+    // 🆕 Handle ရေသည် quizzes: mm_ရေသည်_မှား_မှန် → "ရေသည် မှား မှန်"
+    if (item.subject === 'mm' && cleanKey.includes('_ရေသည်_')) {
         const parts = cleanKey.split('_');
-        if (parts.length >= 4 && parts[0] === 'mm') {
-            const category = parts[1];          // ရေသည်
-            const typeParts = parts.slice(2);   // မှား, မှန်
-            const typeClean = typeParts.join('');
-            return `${category} ${typeClean}`;
+        if (parts.length >= 3) {
+            return parts.slice(1).join(' ');
         }
     }
-    
     return item.chapter || '';
 }
-		
 async function submitScore(timeTaken = 0) {
     if (!currentQuizFile || !currentQuestions || currentQuestions.length === 0) {
         console.warn("submitScore skipped: no quiz data");
@@ -1295,14 +1284,18 @@ async function submitScore(timeTaken = 0) {
         const text = await res.text();
         console.log("GAS Response:", text);
         
-        // Optional: show toast for testing (remove after confirmed working)
         const data = JSON.parse(text);
-        if (data.action === 'replaced') {
-            tg.showAlert(`🏆 New record! ${data.oldScore} → ${data.newScore}`);
-        } else if (data.action === 'inserted') {
-            tg.showAlert(`✅ First time score saved!`);
+        if (data.status === 'ok') {
+            if (data.action === 'replaced') {
+                console.log(`🏆 Record replaced: ${data.oldScore} → ${data.newScore}`);
+            } else if (data.action === 'inserted') {
+                console.log(`✅ New score saved at row ${data.row}`);
+            } else if (data.action === 'skipped') {
+                console.log(`⏭️ Score skipped (not better than ${data.bestScore})`);
+            }
+        } else {
+            console.error("GAS Error:", data.message);
         }
-        
     } catch (e) {
         console.error("SaveScore failed:", e);
     }
@@ -1373,14 +1366,16 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
             
             // 🆕 Use clean display name for Myanmar "_all_" quizzes
             const displayName = getStatDisplayName(b.key, b);
-            const isMyanmarAll = b.key.replace(/^old_/, '').includes('_all_') && b.subject === 'mm';
+            const cleanKey = b.key.replace(/^old_/, '');
+            const isMyanmarAll = cleanKey.includes('_all_') && b.subject === 'mm';
+            const isMyanmarYadaya = b.subject === 'mm' && cleanKey.includes('_ရေသည်_');
 
             div.innerHTML = `
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
                     <span style="font-weight:600;color:var(--white);font-size:0.9rem;">${displayName}</span>
                     <span style="font-family:monospace;font-weight:bold;color:#F59E0B;">${b.score}/${b.total} (${percent}%)</span>
                 </div>
-                ${isMyanmarAll ? '' : `<div style="color:#94A3B8;font-size:0.8rem;">${b.type || ''}</div>`}
+                ${(isMyanmarAll || isMyanmarYadaya) ? '' : `<div style="color:#94A3B8;font-size:0.8rem;">${b.type || ''}</div>`}
                 <div style="display:flex;justify-content:space-between;color:#64748B;font-size:0.75rem;margin-top:4px;">
                     <span>⏱ ${timeStr}</span>
                     <span>${dateStr}</span>
@@ -1393,61 +1388,53 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
 // ─── Load Statistics ───
 async function loadUserStats() {
     const userId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
-    
-    // Show loading state initially
+
+    // 1. Show loading first (no stale local data shown yet)
     document.getElementById('stats-loading').style.display = 'block';
     document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
     document.getElementById('stats-tab-summary').style.display = 'none';
     document.getElementById('stats-tab-best').style.display = 'none';
     document.getElementById('stats-tab-old').style.display = 'none';
-    
-    // For guests without user ID, immediately show local data as fallback
-    if (userId === 'unknown') {
-        const localStats = getLocalStats();
-        renderSummary(localStats.bestScores);
-        renderBestScores(localStats.bestScores, 'stat-best-scores', false);
-        renderBestScores(localStats.bestScores, 'stat-old-scores', true);
-        document.getElementById('stats-loading').style.display = 'none';
-        switchStatsTab('summary');
-        return;
+
+    let bestScoresToRender = {};
+
+    // 2. Try server first for the latest official data
+    if (userId !== 'unknown') {
+        const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}`;
+        try {
+            const res = await fetch(url);
+            const text = await res.text();
+            let data;
+            try { data = JSON.parse(text); } catch(e) { throw e; }
+
+            if (data.status === 'ok' && data.bestScores && data.bestScores.length > 0) {
+                data.bestScores.forEach(b => { bestScoresToRender[b.quizFile] = b; });
+            }
+        } catch (e) {
+            console.error("Server stats fetch failed:", e);
+        }
     }
 
-    // For logged-in users: fetch server data first, don't show stale local cache
-    const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}`;
-    try {
-        const res = await fetch(url);
-        const text = await res.text();
-        let data;
-        try { data = JSON.parse(text); } catch(e) { throw new Error('Invalid JSON'); }
-        
-        if (data.status === 'ok') {
-            const serverBest = {};
-            if (data.bestScores && data.bestScores.length > 0) {
-                data.bestScores.forEach(b => { serverBest[b.quizFile] = b; });
-            }
-            renderSummary(serverBest);
-            renderBestScores(serverBest, 'stat-best-scores', false);
-            renderBestScores(serverBest, 'stat-old-scores', true);
-            
-            // Sync server data to local cache for offline fallback
-            const localStats = getLocalStats();
-            localStats.bestScores = serverBest;
-            saveLocalStats(localStats);
-        } else {
-            throw new Error(data.message || 'Server error');
+    // 3. Merge with local data so unsynced high scores aren't lost
+    const localStats = getLocalStats();
+    const localBest = localStats.bestScores || {};
+    Object.keys(localBest).forEach(key => {
+        const localItem = localBest[key];
+        const serverItem = bestScoresToRender[key];
+        if (!serverItem || (localItem.score || 0) > (serverItem.score || 0)) {
+            bestScoresToRender[key] = localItem;
         }
-    } catch (e) {
-        console.error("Server stats fetch failed:", e);
-        // Only fall back to local data if server fails
-        const localStats = getLocalStats();
-        renderSummary(localStats.bestScores);
-        renderBestScores(localStats.bestScores, 'stat-best-scores', false);
-        renderBestScores(localStats.bestScores, 'stat-old-scores', true);
-    }
-    
+    });
+
+    // 4. Render final merged data
+    renderSummary(bestScoresToRender);
+    renderBestScores(bestScoresToRender, 'stat-best-scores', false);
+    renderBestScores(bestScoresToRender, 'stat-old-scores', true);
+
     document.getElementById('stats-loading').style.display = 'none';
     switchStatsTab('summary');
 }
+
 		function renderSummary(bestScoresObj) {
     bestScoresObj = bestScoresObj || {};
     const container = document.getElementById('stat-subjects');
