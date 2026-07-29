@@ -1077,8 +1077,6 @@ const subChapterConfig = {
     }
 	};
 
-		// ─── Quiz File Parser ───
-// ─── Quiz File Parser ───
 function parseQuizFile(fileName) {
     if (!fileName) return { subject: 'unknown', chapter: 'unknown', type: 'unknown', isOld: false };
     
@@ -1120,8 +1118,12 @@ function parseQuizFile(fileName) {
             const type = parts.slice(chapIdx + 2).join('_').replace(/_/g, ' ') || parts[parts.length - 1];
             return { subject, chapter, type, isOld };
         }
+        // ✅ NEW: Handle mm filenames without 'အခန်း' 
+        // e.g. mm_ရေသည်_မှား_မှန် → chapter=ရေသည်, type=မှား မှန်
         if (parts.length >= 3) {
-            return { subject, chapter: parts.slice(1, -1).join('_').replace(/_/g, ' '), type: parts[parts.length - 1], isOld };
+            const chapter = parts[1];
+            const type = parts.slice(2).join('_').replace(/_/g, ' ');
+            return { subject, chapter, type, isOld };
         }
     }
     
@@ -1369,38 +1371,101 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
         });
     });
 }
-// ─── Load Statistics ───
+		
 async function loadUserStats() {
     const userId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
+    if (userId === 'unknown') {
+        document.getElementById('stats-loading').innerText = 'User ID မရရှိပါ။ Telegram WebApp ကို ပြန်ဖွင့်ပါ။';
+        return;
+    }
     
-    // 1. Immediately render from local storage so Summary is NEVER blank
-    const localStats = getLocalStats();
-    renderSummary(localStats.bestScores);
-    renderBestScores(localStats.bestScores, 'stat-best-scores', false);
-    renderBestScores(localStats.bestScores, 'stat-old-scores', true);
+    // Show loading, hide all tabs, clear old content
+    document.getElementById('stats-loading').style.display = 'block';
+    document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
+    document.getElementById('stats-tab-summary').style.display = 'none';
+    document.getElementById('stats-tab-best').style.display = 'none';
+    document.getElementById('stats-tab-old').style.display = 'none';
+    document.getElementById('stat-best-scores').innerHTML = '';
+    document.getElementById('stat-old-scores').innerHTML = '';
     
-    document.getElementById('stats-loading').style.display = 'none';
-    switchStatsTab('summary'); // Start on Summary since it now works offline
-    
-    if (userId === 'unknown') return;
-
-    // 2. Try server for updated official data
     const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}`;
+    console.log("Fetching stats for userId:", userId);
+    
     try {
         const res = await fetch(url);
         const text = await res.text();
-        let data;
-        try { data = JSON.parse(text); } catch(e) { return; }
+        console.log("GetStats raw response:", text.substring(0, 300));
         
-        if (data.status === 'ok' && data.bestScores && data.bestScores.length > 0) {
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (parseErr) {
+            console.error("JSON parse failed:", text.substring(0, 200));
+            throw new Error('parse_failed');
+        }
+        
+        if (data.status !== 'ok') {
+            console.error("GAS returned error:", data.message);
+            throw new Error(data.message || 'server_error');
+        }
+        
+        // Render Overall Summary
+        const overall = data.overall || { accuracy: 0, answered: 0, correct: 0 };
+        document.getElementById('stat-overall-acc').innerText = overall.accuracy + '%';
+        document.getElementById('stat-total-q').innerText = overall.answered;
+        document.getElementById('stat-total-c').innerText = overall.correct;
+        
+        // Render Subjects
+        const subContainer = document.getElementById('stat-subjects');
+        subContainer.innerHTML = '';
+        const subjects = data.bySubject || {};
+        
+        if (Object.keys(subjects).length === 0) {
+            subContainer.innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
+        } else {
+            Object.keys(subjects).forEach(sub => {
+                const s = subjects[sub];
+                const div = document.createElement('div');
+                div.style.cssText = 'background:var(--card-bg);padding:12px 15px;border-radius:12px;margin-bottom:8px;border-left:4px solid var(--accent);display:flex;justify-content:space-between;align-items:center;';
+                div.innerHTML = `<span style="font-weight:600;">${getSubjectName(sub)}</span><span style="font-family:monospace;color:var(--accent);font-weight:bold;">${s.accuracy}%</span>`;
+                subContainer.appendChild(div);
+            });
+        }
+        
+        // Render Best & Old tabs from SERVER only
+        if (data.bestScores && data.bestScores.length > 0) {
             const serverBest = {};
-            data.bestScores.forEach(b => { serverBest[b.quizFile] = b; });
-            renderSummary(serverBest);
+            data.bestScores.forEach(b => {
+                serverBest[b.quizFile] = b;
+            });
             renderBestScores(serverBest, 'stat-best-scores', false);
             renderBestScores(serverBest, 'stat-old-scores', true);
+            
+            // Sync local cache so fallback data is fresh too
+            const localStats = getLocalStats();
+            localStats.bestScores = serverBest;
+            saveLocalStats(localStats);
+        } else {
+            document.getElementById('stat-best-scores').innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
+            document.getElementById('stat-old-scores').innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
         }
+        
+        document.getElementById('stats-loading').style.display = 'none';
+        switchStatsTab('summary');
+        
     } catch (e) {
-        console.error("Server stats fetch failed:", e);
+        console.error("loadUserStats fetch crashed:", e);
+        
+        // FALLBACK: Only use local stats if server completely fails
+        const localStats = getLocalStats();
+        if (Object.keys(localStats.bestScores).length > 0) {
+            renderBestScores(localStats.bestScores, 'stat-best-scores', false);
+            renderBestScores(localStats.bestScores, 'stat-old-scores', true);
+            document.getElementById('stats-loading').style.display = 'none';
+            switchStatsTab('best');
+        } else {
+            document.getElementById('stats-loading').innerText = 'ဆွဲယူရာတွင် အမှားရှိပါသည်။ နောက်မှ ပြန်လည်ကြိုးစားပါ။';
+        }
     }
 }
 
@@ -1487,11 +1552,14 @@ async function loadUserStats() {
 		
 function showStatsScreen() {
     showScreen('stats');
+    
+    // Reset to loading state
     document.getElementById('stats-loading').style.display = 'block';
     document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
     document.getElementById('stats-tab-summary').style.display = 'none';
     document.getElementById('stats-tab-best').style.display = 'none';
-        document.getElementById('stats-tab-old').style.display = 'none';
+    document.getElementById('stats-tab-old').style.display = 'none';
+    
     loadUserStats();
 }
 
