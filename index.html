@@ -752,10 +752,10 @@ body[data-theme] .container {
         <div id="old-subject-list"></div>
     </div>
 
-    <div id="old-types-screen" style="display:none; padding: 15px;">
-        <h3 id="selected-sub-title" style="text-align: center; color: var(--accent);"></h3>
+        <div id="old-types-screen" style="display:none; padding: 15px;">
+        <button class="btn back-btn" onclick="backToOldSubjects()" style="margin-bottom: 15px;">⬅️ နောက်သို့</button>
+        <h3 id="selected-sub-title" style="text-align: center; color: var(--accent); margin-top: 0;"></h3>
         <div id="old-type-list"></div>
-        <button class="btn back-btn" onclick="backToOldSubjects()">နောက်သို့</button>
     </div>
 
 </div>
@@ -1362,8 +1362,8 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
                 return filterOld ? isOld : !isOld;
     });
     
-    // Exclude sub-chapters and individual Myanmar files
-    keys = keys.filter(key => isCountableMainFile(key));
+       // Exclude sub-chapters from Best/Old score tabs (old files are handled by the filter above)
+    keys = keys.filter(key => !/[_-]\d+\.\d+[_-]/.test(key));
     
     if (keys.length === 0) {
         container.innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
@@ -1688,13 +1688,14 @@ function createOldBtn(txt, parent, act) {
 }
 
 function showOldMenu(sub) {
+    // Ensure we are on the scroll screen and the types view is visible
+    showScreen('scroll');
     document.getElementById('old-subjects-screen').style.display = 'none';
     document.getElementById('old-types-screen').style.display = 'block';
-    document.getElementById('selected-sub-title').innerText = sub.name; // Year မပါတော့ပါ
+    document.getElementById('selected-sub-title').innerText = sub.name;
 
     const list = document.getElementById('old-type-list');
     list.innerHTML = '';
-    document.querySelector('#old-types-screen .back-btn').onclick = backToOldSubjects;
 
     if (sub.id === 'en') {
         ['Initial Letter', 'MCQ', 'Grammar'].forEach(type => { 
@@ -1725,7 +1726,7 @@ function showOldENUnits(typeName) {
         createOldBtn(`Unit ${i}`, list, () => {
             initQuiz(`old_en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`);
             document.getElementById('quiz-back-btn').onclick = () => {
-                showScreen('scroll'); 
+                showScreen('scroll');
                 showOldENUnits(typeName);
             };
         });
@@ -1749,24 +1750,24 @@ function showOldENGrammarOptions() {
         });
     });
 }
-
 function showOldMMQuizOptions(typeName) {
     const list = document.getElementById('old-type-list');
     list.innerHTML = '';
     document.getElementById('selected-sub-title').innerText = typeName;
     document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
 
-    ['အပြော', 'စကားပြေ' , 'ကဗျာ' ,'ရေသည်', 'အရေး'].forEach(cat => {
+    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'ရေသည်', 'အရေး'].forEach(cat => {
         createOldBtn(cat, list, () => {
             if (cat === 'အပြော' || cat === 'အရေး') {
-                // "အပြော" နှင့် "အရေး" အတွက် အခန်းခွဲများရွေးရန် သွားမည်
                 showOldMMChapters(typeName, cat);
-            }         else if (cat === 'ရေသည်') {
-            const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-            initQuiz(fileName);  // ✅ initFlashcards ကို initQuiz အစားထိုး
-            document.getElementById('quiz-back-btn').onclick = () => { showScreen('scroll'); showOldMMQuizOptions(typeName); };
-        } else{
-                // "စကားပြေ" နှင့် "ကဗျာ" အတွက် တိုက်ရိုက် မေးခွန်းစမည်
+            } else if (cat === 'ရေသည်') {
+                const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                initQuiz(fileName);
+                document.getElementById('quiz-back-btn').onclick = () => { 
+                    showScreen('scroll'); 
+                    showOldMMQuizOptions(typeName); 
+                };
+            } else {
                 initQuiz(`old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
                 document.getElementById('quiz-back-btn').onclick = () => {
                     showScreen('scroll');
@@ -1777,23 +1778,16 @@ function showOldMMQuizOptions(typeName) {
     });
 }
 
-// အပြော နှင့် အရေး အတွက် အခန်းခွဲများ ပြပေးမည့် Function အသစ်
 function showOldMMChapters(typeName, cat) {
     const list = document.getElementById('old-type-list');
     list.innerHTML = '';
-    // ဥပမာ - "အပြော (မှား/မှန်)" ဟု ခေါင်းစဉ်ပြောင်းရန်
     document.getElementById('selected-sub-title').innerText = `${cat} (${typeName})`;
-
-    // "နောက်သို့" နှိပ်လျှင် မေးခွန်းအမျိုးအစား ရွေးသည့် နေရာသို့ ပြန်သွားရန်
     document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMMQuizOptions(typeName);
 
     ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
         createOldBtn(chapter, list, () => {
-            // ဖိုင်နာမည်ကို ဥပမာ- old_mm_အပြော_အခန်း_၁_မှား_မှန် ဟု ခေါ်ယူမည်
             const fileName = `old_mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
             initQuiz(fileName);
-
-            // ထွက်မည် ကို နှိပ်လျှင် အခန်းရွေးသည့် နေရာသို့ ပြန်လာရန်
             document.getElementById('quiz-back-btn').onclick = () => {
                 showScreen('scroll');
                 showOldMMChapters(typeName, cat);
@@ -1809,14 +1803,10 @@ function showOldGeneralActivities(subId, partName) {
     document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
 
     if(subId === 'math') {
-        // 🛠 သင်္ချာ Chapter 2 ဆိုလျှင် 3_Marks တစ်ခုတည်းသာ ထုတ်ပေးမည်
         let marksArray = ['1_Mark', '2_Marks', '3_Marks'];
-        if (partName === 'Chapter 2') {
-            marksArray = ['3_Marks']; 
-        }
-         if (partName === 'Chapter 7') {
-        marksArray = ['1_Mark', '2_Marks'];
-    }
+        if (partName === 'Chapter 2') marksArray = ['3_Marks'];
+        if (partName === 'Chapter 7') marksArray = ['1_Mark', '2_Marks'];
+        
         marksArray.forEach(mark => {
             createOldBtn(mark.replace('_', ' '), list, () => {
                 const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
@@ -1843,6 +1833,7 @@ function showOldGeneralActivities(subId, partName) {
 }
 
 function backToOldSubjects() {
+    showScreen('scroll');
     document.getElementById('old-types-screen').style.display = 'none';
     document.getElementById('old-subjects-screen').style.display = 'block';
 }
