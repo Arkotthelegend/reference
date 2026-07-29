@@ -1019,7 +1019,7 @@ body[data-theme] .container {
 		
 		const ADMIN_ID = 8432363664;
 const specialUsers = [5593040432,1709037573,5186599374];
-		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbwJUdE9b-kWy8AFf4GNZklhQQ9wtTVF-q4iT0A_0vmt5yzyzrrlbhlslnMlic8YmRBL0g/exec";
+		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyeuoMeo-6IsCuvUaNoIZMAT5PUqOFiG5D4mUguQ8oBbN5mOciknk57jjr98P2f-cBTqA/exec";
 // --- School Exclusive Themes (ဈေးမရောင်းဘဲ အထူးပေးသုံး) ---
 const exclusiveThemeUsers = {
 'mmpn': [8432363664, 987654321, 5593040432], // ဒီကျောင်းသား Telegram ID များ
@@ -1077,6 +1077,8 @@ const subChapterConfig = {
     }
 	};
 
+		// ─── Quiz File Parser ───
+// ─── Quiz File Parser ───
 function parseQuizFile(fileName) {
     if (!fileName) return { subject: 'unknown', chapter: 'unknown', type: 'unknown', isOld: false };
     
@@ -1118,27 +1120,14 @@ function parseQuizFile(fileName) {
             const type = parts.slice(chapIdx + 2).join('_').replace(/_/g, ' ') || parts[parts.length - 1];
             return { subject, chapter, type, isOld };
         }
-        // ✅ NEW: Handle mm filenames without 'အခန်း' 
-        // e.g. mm_ရေသည်_မှား_မှန် → chapter=ရေသည်, type=မှား မှန်
         if (parts.length >= 3) {
-            const chapter = parts[1];
-            const type = parts.slice(2).join('_').replace(/_/g, ' ');
-            return { subject, chapter, type, isOld };
+            return { subject, chapter: parts.slice(1, -1).join('_').replace(/_/g, ' '), type: parts[parts.length - 1], isOld };
         }
     }
     
     return { subject, chapter: parts.slice(1, -1).join('_').replace(/_/g, ' ') || 'General', type: parts[parts.length - 1] || 'Quiz', isOld };
 }
 
-		// Detect Myanmar individual title/chapter quizzes (skip from stats)
-// The combined "all" quiz (e.g. mm_စကားပြေ_all_အမှန်ရွေး) is allowed
-function isMyanmarIndividualQuiz(fileName) {
-    if (!fileName || typeof fileName !== 'string') return false;
-    if (!fileName.startsWith('mm_')) return false;
-    if (fileName.includes('_all_')) return false;
-    return true;
-}
-		
 // ─── Submit Score ───
 // ─── Local Stats Helpers ───
 function getLocalStats() {
@@ -1153,34 +1142,13 @@ function saveLocalStats(stats) {
     localStorage.setItem('local_quiz_stats', JSON.stringify(stats));
 }
 
-		
 function formatTime(seconds) {
     const m = Math.floor(seconds / 60).toString().padStart(2, '0');
     const s = (seconds % 60).toString().padStart(2, '0');
     return `${m}:${s}`;
 }
 
-		// Detect sub-chapter files like phy_Chapter_1_1.1_MCQ
-function isSubChapter(quizFile) {
-    return /_\d+\.\d+_/.test(quizFile);
-}
-
-		// Clean up Myanmar "_all_" filenames for stats display
-// mm_စကားပြေ_all_မှား_မှန်  →  "စကားပြေ မှားမှန်"
-// mm_အပြော_all_အမှန်ရွေး    →  "အပြော အမှန်ရွေး"
-function getStatDisplayName(key, item) {
-    const cleanKey = key.replace(/^old_/, '');
-    if (cleanKey.includes('_all_') && item.subject === 'mm') {
-        const parts = cleanKey.split('_');
-        if (parts.length >= 4 && parts[0] === 'mm') {
-            const category = parts[1];            // e.g. အပြော, စကားပြေ, ကဗျာ, အရေး
-            const typeParts = parts.slice(3);     // everything after "all"
-            const typeClean = typeParts.join(''); // မှား + မှန် = မှားမှန်
-            return `${category} ${typeClean}`;
-        }
-    }
-    return item.chapter || '';
-}
+// ─── Submit Score (only sends to Sheet if new best) ───
 async function submitScore(timeTaken = 0) {
     if (!currentQuizFile || !currentQuestions || currentQuestions.length === 0) {
         console.warn("submitScore skipped: no quiz data");
@@ -1203,7 +1171,7 @@ async function submitScore(timeTaken = 0) {
     const userId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
     const userName = tg.initDataUnsafe?.user?.first_name || 'unknown';
     const meta = parseQuizFile(currentQuizFile);
-    const isSubChapter = /_\d+\.\d+_/.test(currentQuizFile);
+	    const isSubChapter = /_\d+\.\d+_/.test(currentQuizFile);
     
     let finalScore = score || 0;
     let finalTotal = currentQuestions.length || 0;
@@ -1214,11 +1182,12 @@ async function submitScore(timeTaken = 0) {
         finalTotal = 0;
     }
     
-    // Local stats
+    // Get current local stats
     const localStats = getLocalStats();
     const previousBest = localStats.bestScores[currentQuizFile];
     const isNewBest = !previousBest || finalScore > previousBest.score;
     
+    // Always add to local history (sub-chapters and retries all go here)
     const now = new Date().toISOString();
     localStats.history.unshift({
         quizFile: currentQuizFile,
@@ -1233,7 +1202,8 @@ async function submitScore(timeTaken = 0) {
     });
     if (localStats.history.length > 100) localStats.history = localStats.history.slice(0, 100);
     
-    if (isNewBest) {
+    // Update local best if improved
+        if (isNewBest) {
         localStats.bestScores[currentQuizFile] = {
             score: finalScore,
             total: finalTotal,
@@ -1245,9 +1215,10 @@ async function submitScore(timeTaken = 0) {
             isOld: meta.isOld
         };
     }
+    
     saveLocalStats(localStats);
     
-    // Only send to Google Sheet if new best AND not sub-chapter
+        // Only send to Google Sheet if it's a new best score AND not a sub-chapter
     if (!isNewBest || isSubChapter) {
         console.log("Score not sent to sheet: not a new best or is sub-chapter");
         resetTimer();
@@ -1269,27 +1240,19 @@ async function submitScore(timeTaken = 0) {
     });
     
     const url = `${STATS_GAS_URL}?${params.toString()}`;
-    console.log("Submitting to GAS:", url);
+    console.log("Submitting new best score to:", url);
     
     try {
         const res = await fetch(url);
         const text = await res.text();
-        console.log("GAS Response:", text);
-        
-        // Optional: show toast for testing (remove after confirmed working)
-        const data = JSON.parse(text);
-        if (data.action === 'replaced') {
-            tg.showAlert(`🏆 New record! ${data.oldScore} → ${data.newScore}`);
-        } else if (data.action === 'inserted') {
-            tg.showAlert(`✅ First time score saved!`);
-        }
-        
+        console.log("SaveScore raw response:", text);
     } catch (e) {
         console.error("SaveScore failed:", e);
     }
     
     resetTimer();
 }
+
 // ─── Tab Switcher ───
 function switchStatsTab(tabName) {
     document.getElementById('stats-tab-summary').style.display = 'none';
@@ -1312,56 +1275,51 @@ function switchStatsTab(tabName) {
 function renderBestScores(bestScoresObj, containerId, filterOld) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
-
+    
     let keys = Object.keys(bestScoresObj);
-
-    // Filter Old vs New
+    
+    // Keep only old questions OR only new questions based on the tab
     keys = keys.filter(key => {
         const item = bestScoresObj[key];
         const isOld = item.isOld || key.startsWith('old_');
         return filterOld ? isOld : !isOld;
     });
-
-    // Hide sub-chapters and Myanmar individual title/chapter quizzes
-    keys = keys.filter(key => !isSubChapter(key) && !isMyanmarIndividualQuiz(key));
-
+    
     if (keys.length === 0) {
         container.innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
         return;
     }
-
+    
+    // Group by subject
     const bySubject = {};
     keys.forEach(key => {
         const b = bestScoresObj[key];
         const sub = b.subject || 'unknown';
         if (!bySubject[sub]) bySubject[sub] = [];
-        bySubject[sub].push({ key, ...b });
+        bySubject[sub].push(b);
     });
-
+    
+    // Show each subject group
     Object.keys(bySubject).forEach(sub => {
         const header = document.createElement('div');
         header.style.cssText = 'color: var(--accent); font-weight: 700; font-size: 1.05rem; margin: 15px 0 8px 0; padding-bottom: 4px; border-bottom: 1px solid #334155;';
         header.innerText = getSubjectName(sub);
         container.appendChild(header);
-
+        
         bySubject[sub].forEach(b => {
             const div = document.createElement('div');
             div.style.cssText = 'background: var(--card-bg); padding: 12px 15px; border-radius: 12px; margin-bottom: 8px; border-left: 4px solid #F59E0B;';
-
+            
             const timeStr = b.timeTaken ? formatTime(b.timeTaken) : '-';
             const percent = b.total > 0 ? Math.round((b.score / b.total) * 100) : 0;
             const dateStr = b.date ? new Date(b.date).toLocaleDateString() : '';
             
-            // 🆕 Use clean display name for Myanmar "_all_" quizzes
-            const displayName = getStatDisplayName(b.key, b);
-            const isMyanmarAll = b.key.replace(/^old_/, '').includes('_all_') && b.subject === 'mm';
-
             div.innerHTML = `
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                    <span style="font-weight:600;color:var(--white);font-size:0.9rem;">${displayName}</span>
+                    <span style="font-weight:600;color:var(--white);font-size:0.9rem;">${b.chapter || ''}</span>
                     <span style="font-family:monospace;font-weight:bold;color:#F59E0B;">${b.score}/${b.total} (${percent}%)</span>
                 </div>
-                ${isMyanmarAll ? '' : `<div style="color:#94A3B8;font-size:0.8rem;">${b.type || ''}</div>`}
+                <div style="color:#94A3B8;font-size:0.8rem;">${b.type || ''}</div>
                 <div style="display:flex;justify-content:space-between;color:#64748B;font-size:0.75rem;margin-top:4px;">
                     <span>⏱ ${timeStr}</span>
                     <span>${dateStr}</span>
@@ -1371,7 +1329,8 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
         });
     });
 }
-		
+
+// ─── Load Statistics ───
 async function loadUserStats() {
     const userId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
     if (userId === 'unknown') {
@@ -1379,15 +1338,12 @@ async function loadUserStats() {
         return;
     }
     
-    // Show loading, hide all tabs, clear old content
-    document.getElementById('stats-loading').style.display = 'block';
-    document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
-    document.getElementById('stats-tab-summary').style.display = 'none';
-    document.getElementById('stats-tab-best').style.display = 'none';
-    document.getElementById('stats-tab-old').style.display = 'none';
-    document.getElementById('stat-best-scores').innerHTML = '';
-    document.getElementById('stat-old-scores').innerHTML = '';
+        // Load local stats immediately for offline display
+    const localStats = getLocalStats();
+    renderBestScores(localStats.bestScores, 'stat-best-scores', false);
+    renderBestScores(localStats.bestScores, 'stat-old-scores', true);
     
+    // Fetch from Google Sheet for official summary
     const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}`;
     console.log("Fetching stats for userId:", userId);
     
@@ -1401,12 +1357,16 @@ async function loadUserStats() {
             data = JSON.parse(text);
         } catch (parseErr) {
             console.error("JSON parse failed:", text.substring(0, 200));
-            throw new Error('parse_failed');
+            document.getElementById('stats-loading').style.display = 'none';
+            switchStatsTab('best');
+            return;
         }
         
         if (data.status !== 'ok') {
             console.error("GAS returned error:", data.message);
-            throw new Error(data.message || 'server_error');
+            document.getElementById('stats-loading').style.display = 'none';
+            switchStatsTab('best');
+            return;
         }
         
         // Render Overall Summary
@@ -1432,7 +1392,7 @@ async function loadUserStats() {
             });
         }
         
-        // Render Best & Old tabs from SERVER only
+               // Use server best scores if available (they are the official ones)
         if (data.bestScores && data.bestScores.length > 0) {
             const serverBest = {};
             data.bestScores.forEach(b => {
@@ -1440,14 +1400,6 @@ async function loadUserStats() {
             });
             renderBestScores(serverBest, 'stat-best-scores', false);
             renderBestScores(serverBest, 'stat-old-scores', true);
-            
-            // Sync local cache so fallback data is fresh too
-            const localStats = getLocalStats();
-            localStats.bestScores = serverBest;
-            saveLocalStats(localStats);
-        } else {
-            document.getElementById('stat-best-scores').innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
-            document.getElementById('stat-old-scores').innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
         }
         
         document.getElementById('stats-loading').style.display = 'none';
@@ -1455,111 +1407,18 @@ async function loadUserStats() {
         
     } catch (e) {
         console.error("loadUserStats fetch crashed:", e);
-        
-        // FALLBACK: Only use local stats if server completely fails
-        const localStats = getLocalStats();
-        if (Object.keys(localStats.bestScores).length > 0) {
-            renderBestScores(localStats.bestScores, 'stat-best-scores', false);
-            renderBestScores(localStats.bestScores, 'stat-old-scores', true);
-            document.getElementById('stats-loading').style.display = 'none';
-            switchStatsTab('best');
-        } else {
-            document.getElementById('stats-loading').innerText = 'ဆွဲယူရာတွင် အမှားရှိပါသည်။ နောက်မှ ပြန်လည်ကြိုးစားပါ။';
-        }
+        document.getElementById('stats-loading').style.display = 'none';
+        switchStatsTab('best');
     }
-}
-
-		function renderSummary(bestScoresObj) {
-    bestScoresObj = bestScoresObj || {};
-    const container = document.getElementById('stat-subjects');
-    container.innerHTML = '';
-
-       const keys = Object.keys(bestScoresObj).filter(key => {
-        const item = bestScoresObj[key];
-        const isOld = item.isOld || key.startsWith('old_');
-        return !isOld && !isSubChapter(key) && !isMyanmarIndividualQuiz(key);
-    });
-
-    // Overall card elements
-    const overallAccEl = document.getElementById('stat-overall-acc');
-    const card = overallAccEl.closest('.profile-info-card');
-    
-    if (keys.length === 0) {
-        overallAccEl.innerText = '0%';
-        document.getElementById('stat-total-q').innerText = '0';
-        document.getElementById('stat-total-c').innerText = '0';
-        let timeDiv = document.getElementById('stat-total-time');
-        if (timeDiv) timeDiv.innerText = '⏱ 00:00';
-        container.innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
-        return;
-    }
-
-    // Group & sum by subject
-    const bySubject = {};
-    let overallScore = 0, overallTotal = 0, overallTime = 0;
-
-    keys.forEach(key => {
-        const b = bestScoresObj[key];
-        const sub = b.subject || 'unknown';
-        if (!bySubject[sub]) bySubject[sub] = { score: 0, total: 0, time: 0, count: 0 };
-        
-        bySubject[sub].score += (b.score || 0);
-        bySubject[sub].total += (b.total || 0);
-        bySubject[sub].time += (b.timeTaken || 0);
-        bySubject[sub].count += 1;
-
-        overallScore += (b.score || 0);
-        overallTotal += (b.total || 0);
-        overallTime += (b.timeTaken || 0);
-    });
-
-    // Update overall card
-    const overallAcc = overallTotal > 0 ? Math.round((overallScore / overallTotal) * 100) : 0;
-    overallAccEl.innerText = overallAcc + '%';
-    document.getElementById('stat-total-q').innerText = overallTotal;
-    document.getElementById('stat-total-c').innerText = overallScore;
-
-    let timeDiv = document.getElementById('stat-total-time');
-    if (!timeDiv) {
-        timeDiv = document.createElement('div');
-        timeDiv.id = 'stat-total-time';
-        timeDiv.style.cssText = 'margin-top:10px;padding-top:10px;border-top:1px solid #334155;font-family:monospace;color:#94A3B8;font-size:0.85rem;text-align:center;';
-        card.appendChild(timeDiv);
-    }
-    timeDiv.innerText = '⏱ စုစုပေါင်းအချိန်: ' + formatTime(overallTime);
-
-    // Render per-subject rows
-    Object.keys(bySubject).forEach(sub => {
-        const s = bySubject[sub];
-        const acc = s.total > 0 ? Math.round((s.score / s.total) * 100) : 0;
-        const timeStr = formatTime(s.time);
-
-        const div = document.createElement('div');
-        div.style.cssText = 'background:var(--card-bg);padding:12px 15px;border-radius:12px;margin-bottom:8px;border-left:4px solid var(--accent);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;';
-        div.innerHTML = `
-            <div style="flex:1;min-width:120px;">
-                <div style="font-weight:600;color:var(--white);font-size:0.95rem;">${getSubjectName(sub)}</div>
-                <div style="font-size:0.75rem;color:#64748B;margin-top:2px;">⏱ ${timeStr} · ${s.count} ခု</div>
-            </div>
-            <div style="text-align:right;">
-                <div style="font-family:monospace;color:var(--accent);font-weight:bold;font-size:1rem;">${acc}%</div>
-                <div style="font-size:0.75rem;color:#94A3B8;">${s.score}/${s.total}</div>
-            </div>
-        `;
-        container.appendChild(div);
-    });
 }
 		
 function showStatsScreen() {
     showScreen('stats');
-    
-    // Reset to loading state
     document.getElementById('stats-loading').style.display = 'block';
     document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
     document.getElementById('stats-tab-summary').style.display = 'none';
     document.getElementById('stats-tab-best').style.display = 'none';
-    document.getElementById('stats-tab-old').style.display = 'none';
-    
+        document.getElementById('stats-tab-old').style.display = 'none';
     loadUserStats();
 }
 
@@ -2341,40 +2200,28 @@ function showMMQuizOptions(typeName) {
 }
 
 // အပြော နှင့် အရေး အတွက် အခန်းခွဲများကို ပြသမည့် Function အသစ်
-function showMMChapters(typeName, cat) {
-    showScreen('activity');
-    document.getElementById('activity-title').innerText = `${cat} (${typeName})`;
-    const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-    
-    document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
+        function showMMChapters(typeName, cat) {
+            showScreen('activity');
+            // ဥပမာ - "အပြော (အမှန်ရွေး)" ဟု ခေါင်းစဉ်တပ်ရန်
+            document.getElementById('activity-title').innerText = `${cat} (${typeName})`;
+            const content = document.getElementById('activity-content');
+            content.innerHTML = '';
+            
+            // "နောက်သို့" ခလုတ်နှိပ်ပါက မူလရွေးချယ်ရမည့်နေရာသို့ ပြန်သွားရန်
+            document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
 
-    // 🆕 GREEN "All" button (e.g. "အပြောအကုန်လေ့ကျင့်မည်")
-    const allBtn = document.createElement('button');
-    allBtn.className = 'btn';
-    allBtn.innerText = `${cat}အကုန်လေ့ကျင့်မည်`;
-    allBtn.style.background = '#00FF80';
-    allBtn.style.color = '#000000';
-    allBtn.style.border = 'none';
-    allBtn.style.boxShadow = '0 4px 15px rgba(0, 213, 255, 0.3)';
-    allBtn.style.marginBottom = '5px';
-    allBtn.style.fontWeight = 'bold';
-    allBtn.style.gridColumn = '1 / -1';
-    allBtn.onclick = () => {
-        const fileName = `mm_${cat}_all_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-        initQuiz(fileName);
-        document.getElementById('quiz-back-btn').onclick = () => showMMChapters(typeName, cat);
-    };
-    content.appendChild(allBtn);
-
-    ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
-        createBtn(chapter, content, () => {
-            const fileName = `mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-            initQuiz(fileName);
-            document.getElementById('quiz-back-btn').onclick = () => showMMChapters(typeName, cat);
-        });
-    });
-}
+            // အခန်း (၃) ခန်း ဖန်တီးခြင်း (လိုအပ်ပါက ဤနေရာတွင် အခန်းများ ထပ်တိုးနိုင်ပါသည်)
+            ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
+                createBtn(chapter, content, () => {
+                    // ဖိုင်နာမည်ကို mm_အပြော_အခန်း_၁_အမှန်ရွေး.json ပုံစံဖြင့် ဖွဲ့စည်းမည်
+                    const fileName = `mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                    initQuiz(fileName);
+                    
+                    // Quiz ပြီး၍ "ထွက်မည်" ကိုနှိပ်ပါက ယခု အခန်းရွေးသည့် စာမျက်နှာသို့ ပြန်လာရန်
+                    document.getElementById('quiz-back-btn').onclick = () => showMMChapters(typeName, cat);
+                });
+            });
+        }
 
 // ခေါင်းစဉ်ခွဲ (Sub Menu) များကို ပြသပေးမည့် Function အသစ်
 function showSubMenu(typeName, cat, titles) {
@@ -2383,41 +2230,21 @@ function showSubMenu(typeName, cat, titles) {
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
     
-    // ခေါင်းစဉ်ခွဲများမှ Back button နှိပ်ပါက မူလ ရွေးချယ်သည့်နေရာသို့ ပြန်သွားရန်
+    // ခေါင်းစဉ်ခွဲများမှ Back button နှိပ်ပါက မူလ (အပြော, စကားပြေ, ကဗျာ, ရေသည်, အရေး) ရွေးချယ်သည့် နေရာသို့ ပြန်သွားရန်
     document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
-    
-    // 🆕 GREEN "All" button (e.g. "စကားပြေအကုန်လေ့ကျင့်မည်")
-    const allBtn = document.createElement('button');
-    allBtn.className = 'btn';
-    allBtn.innerText = `${cat}အကုန်လေ့ကျင့်မည်`;
-    allBtn.style.background = '#00FF80';
-    allBtn.style.color = '#000000';
-    allBtn.style.border = 'none';
-    allBtn.style.boxShadow = '0 4px 15px rgba(0, 213, 255, 0.3)';
-    allBtn.style.marginBottom = '5px';
-    allBtn.style.fontWeight = 'bold';
-    allBtn.style.gridColumn = '1 / -1';
-    allBtn.onclick = () => {
-        const fileName = `mm_${cat}_all_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-        initQuiz(fileName);
-        document.getElementById('quiz-back-btn').onclick = () => {
-            showScreen('activity');
-            showSubMenu(typeName, cat, titles);
-        };
-    };
-    content.appendChild(allBtn);
     
     titles.forEach(title => {
         createBtn(title, content, () => {
-            const fileName = `mm_${cat}_${title}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-            initQuiz(fileName);
-            document.getElementById('quiz-back-btn').onclick = () => {
-                showScreen('activity');
-                showSubMenu(typeName, cat, titles);
-            };
+            // Quiz ကို စတင်ရန် (ဥပမာ - mm_စကားပြေ_ခေတ်_ရွေးချယ် စသဖြင့် ဖြစ်လာပါမည်)
+            // သင့်ရဲ့ ဒေတာဘေ့စ် သို့မဟုတ် မေးခွန်း Format ပေါ်မူတည်ပြီး string ကို လိုအပ်သလို ပြင်ဆင်နိုင်ပါသည်။
+            initQuiz(`mm_${cat}_${title}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
+            
+            // Quiz အတွင်းမှ Back နှိပ်ပါက ခေါင်းစဉ်ခွဲ (၈) မျိုး ပြသသည့် မျက်နှာပြင်ဆီသို့ ပြန်သွားရန်
+            document.getElementById('quiz-back-btn').onclick = () => showSubMenu(typeName, cat, titles);
         });
     });
 }
+
       function showMMFlashcardOptions(typeName) {
     showScreen('activity');
     document.getElementById('activity-title').innerText = typeName;
