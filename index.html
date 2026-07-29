@@ -1163,6 +1163,23 @@ function isSubChapter(quizFile) {
     return /_\d+\.\d+_/.test(quizFile);
 }
 
+		// Clean up Myanmar "_all_" filenames for stats display
+// mm_စကားပြေ_all_မှား_မှန်  →  "စကားပြေ မှားမှန်"
+// mm_အပြော_all_အမှန်ရွေး    →  "အပြော အမှန်ရွေး"
+function getStatDisplayName(key, item) {
+    const cleanKey = key.replace(/^old_/, '');
+    if (cleanKey.includes('_all_') && item.subject === 'mm') {
+        const parts = cleanKey.split('_');
+        if (parts.length >= 4 && parts[0] === 'mm') {
+            const category = parts[1];            // e.g. အပြော, စကားပြေ, ကဗျာ, အရေး
+            const typeParts = parts.slice(3);     // everything after "all"
+            const typeClean = typeParts.join(''); // မှား + မှန် = မှားမှန်
+            return `${category} ${typeClean}`;
+        }
+    }
+    return item.chapter || '';
+}
+		
 // ─── Submit Score (only sends to Sheet if new best) ───
 async function submitScore(timeTaken = 0) {
     if (!currentQuizFile || !currentQuestions || currentQuestions.length === 0) {
@@ -1302,7 +1319,7 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
         return filterOld ? isOld : !isOld;
     });
 
-    // 🆕 HIDE sub-chapters and Myanmar individual quizzes
+    // Hide sub-chapters and Myanmar individual title/chapter quizzes
     keys = keys.filter(key => !isSubChapter(key) && !isMyanmarIndividualQuiz(key));
 
     if (keys.length === 0) {
@@ -1315,7 +1332,7 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
         const b = bestScoresObj[key];
         const sub = b.subject || 'unknown';
         if (!bySubject[sub]) bySubject[sub] = [];
-        bySubject[sub].push(b);
+        bySubject[sub].push({ key, ...b });
     });
 
     Object.keys(bySubject).forEach(sub => {
@@ -1331,13 +1348,17 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
             const timeStr = b.timeTaken ? formatTime(b.timeTaken) : '-';
             const percent = b.total > 0 ? Math.round((b.score / b.total) * 100) : 0;
             const dateStr = b.date ? new Date(b.date).toLocaleDateString() : '';
+            
+            // 🆕 Use clean display name for Myanmar "_all_" quizzes
+            const displayName = getStatDisplayName(b.key, b);
+            const isMyanmarAll = b.key.replace(/^old_/, '').includes('_all_') && b.subject === 'mm';
 
             div.innerHTML = `
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                    <span style="font-weight:600;color:var(--white);font-size:0.9rem;">${b.chapter || ''}</span>
+                    <span style="font-weight:600;color:var(--white);font-size:0.9rem;">${displayName}</span>
                     <span style="font-family:monospace;font-weight:bold;color:#F59E0B;">${b.score}/${b.total} (${percent}%)</span>
                 </div>
-                <div style="color:#94A3B8;font-size:0.8rem;">${b.type || ''}</div>
+                ${isMyanmarAll ? '' : `<div style="color:#94A3B8;font-size:0.8rem;">${b.type || ''}</div>`}
                 <div style="display:flex;justify-content:space-between;color:#64748B;font-size:0.75rem;margin-top:4px;">
                     <span>⏱ ${timeStr}</span>
                     <span>${dateStr}</span>
@@ -1347,7 +1368,6 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
         });
     });
 }
-
 // ─── Load Statistics ───
 async function loadUserStats() {
     const userId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
