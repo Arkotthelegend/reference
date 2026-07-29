@@ -899,8 +899,10 @@ body[data-theme] .container {
                 <div style="font-size: 2rem; font-weight: 800; color: var(--accent);" id="stat-overall-acc">0%</div>
                 <div style="color: #94A3B8; font-size: 0.9rem;">စုစုပေါင်း အဖြေမှန်နှုန်း</div>
                 <div style="margin-top: 10px; display: flex; justify-content: space-around;">
-                    <div><b id="stat-total-q">0</b><br><span style="font-size: 0.75rem; color: #64748B;">မေးခွန်းပေါင်း</span></div>
+                                        <div><b id="stat-total-q">0</b><br><span style="font-size: 0.75rem; color: #64748B;">မေးခွန်းပေါင်း</span></div>
                     <div><b id="stat-total-c">0</b><br><span style="font-size: 0.75rem; color: #64748B;">မှန်သောအဖြေ</span></div>
+                    <div><b id="stat-total-time">0</b><br><span style="font-size: 0.75rem; color: #64748B;">စုစုပေါင်းအချိန်</span></div>
+                </div>
                 </div>
             </div>
             <h4 style="color: var(--accent); margin-bottom: 10px;">ဘာသာရပ်အလိုက်</h4>
@@ -1142,9 +1144,85 @@ function saveLocalStats(stats) {
 }
 
 function formatTime(seconds) {
-    const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+    if (!seconds || seconds < 0) return '00:00';
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
     const s = (seconds % 60).toString().padStart(2, '0');
+    if (h > 0) return `${h}:${m}:${s}`;
     return `${m}:${s}`;
+}
+
+function isCountableMainFile(fileName) {
+    if (!fileName) return false;
+    if (fileName.startsWith('old_')) return false;
+    if (fileName.startsWith('daily_')) return false;
+    // Exclude sub-chapters (e.g., phy_Chapter_1_1.1_MCQ)
+    if (/[_-]\d+\.\d+[_-]/.test(fileName)) return false;
+    // For Myanmar: only count _full files
+    if (fileName.startsWith('mm_')) {
+        return fileName.endsWith('_full');
+    }
+    return true;
+}
+
+function renderSummary(bestScoresObj) {
+    const container = document.getElementById('stat-subjects');
+    container.innerHTML = '';
+    
+    const countable = {};
+    Object.keys(bestScoresObj).forEach(key => {
+        if (isCountableMainFile(key)) {
+            countable[key] = bestScoresObj[key];
+        }
+    });
+    
+    const bySubject = {};
+    let grandTotalQ = 0, grandTotalCorrect = 0, grandTotalTime = 0;
+    
+    Object.keys(countable).forEach(key => {
+        const b = countable[key];
+        const sub = b.subject || 'unknown';
+        if (!bySubject[sub]) {
+            bySubject[sub] = { score: 0, total: 0, time: 0 };
+        }
+        bySubject[sub].score += (b.score || 0);
+        bySubject[sub].total += (b.total || 0);
+        bySubject[sub].time += (b.timeTaken || 0);
+        
+        grandTotalQ += (b.total || 0);
+        grandTotalCorrect += (b.score || 0);
+        grandTotalTime += (b.timeTaken || 0);
+    });
+    
+    const overallAcc = grandTotalQ > 0 ? Math.round((grandTotalCorrect / grandTotalQ) * 100) : 0;
+    document.getElementById('stat-overall-acc').innerText = overallAcc + '%';
+    document.getElementById('stat-total-q').innerText = grandTotalQ;
+    document.getElementById('stat-total-c').innerText = grandTotalCorrect;
+    document.getElementById('stat-total-time').innerText = formatTime(grandTotalTime);
+    
+    if (Object.keys(bySubject).length === 0) {
+        container.innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
+        return;
+    }
+    
+    Object.keys(bySubject).forEach(sub => {
+        const s = bySubject[sub];
+        const acc = s.total > 0 ? Math.round((s.score / s.total) * 100) : 0;
+        
+        const div = document.createElement('div');
+        div.style.cssText = 'background:var(--card-bg);padding:15px;border-radius:12px;margin-bottom:10px;border-left:4px solid var(--accent);';
+        div.innerHTML = `
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                <span style="font-weight:700;font-size:1rem;">${getSubjectName(sub)}</span>
+                <span style="font-family:monospace;font-weight:bold;color:var(--accent);font-size:1.1rem;">${acc}%</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;color:#94A3B8;font-size:0.8rem;">
+                <span>📝 ${s.score}/${s.total} ပုဒ်</span>
+                <span>⏱ ${formatTime(s.time)}</span>
+            </div>
+        `;
+        container.appendChild(div);
+    });
 }
 
 // ─── Submit Score (only sends to Sheet if new best) ───
@@ -1281,8 +1359,11 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
     keys = keys.filter(key => {
         const item = bestScoresObj[key];
         const isOld = item.isOld || key.startsWith('old_');
-        return filterOld ? isOld : !isOld;
+                return filterOld ? isOld : !isOld;
     });
+    
+    // Exclude sub-chapters and individual Myanmar files
+    keys = keys.filter(key => isCountableMainFile(key));
     
     if (keys.length === 0) {
         container.innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
@@ -1337,10 +1418,12 @@ async function loadUserStats() {
         return;
     }
     
-        // Load local stats immediately for offline display
-    const localStats = getLocalStats();
+            const localStats = getLocalStats();
     renderBestScores(localStats.bestScores, 'stat-best-scores', false);
     renderBestScores(localStats.bestScores, 'stat-old-scores', true);
+    renderSummary(localStats.bestScores);
+    
+    // Fetch from Google Sheet for official summary
     
     // Fetch from Google Sheet for official summary
     const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}`;
@@ -1391,15 +1474,18 @@ async function loadUserStats() {
             });
         }
         
-               // Use server best scores if available (they are the official ones)
+                              // Use server best scores if available (they are the official ones)
+        let bestScoresToUse = localStats.bestScores;
         if (data.bestScores && data.bestScores.length > 0) {
             const serverBest = {};
             data.bestScores.forEach(b => {
                 serverBest[b.quizFile] = b;
             });
+            bestScoresToUse = serverBest;
             renderBestScores(serverBest, 'stat-best-scores', false);
             renderBestScores(serverBest, 'stat-old-scores', true);
         }
+        renderSummary(bestScoresToUse);
         
         document.getElementById('stats-loading').style.display = 'none';
         switchStatsTab('summary');
@@ -2206,8 +2292,25 @@ function showMMQuizOptions(typeName) {
             const content = document.getElementById('activity-content');
             content.innerHTML = '';
             
-            // "နောက်သို့" ခလုတ်နှိပ်ပါက မူလရွေးချယ်ရမည့်နေရာသို့ ပြန်သွားရန်
-            document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
+                       document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
+
+            // အကုန်လေ့ကျင့်ရန် ခလုတ် (မြန်မာစာ)
+            const fullBtn = document.createElement('button');
+            fullBtn.className = 'btn';
+            fullBtn.innerText = `${cat}အကုန်လေ့ကျင့်မည်`;
+            fullBtn.style.gridColumn = "1 / -1";
+            fullBtn.style.background = "#00FF80";
+            fullBtn.style.color = "#000000";
+            fullBtn.style.border = "none";
+            fullBtn.style.boxShadow = "0 4px 15px rgba(0, 255, 128, 0.3)";
+            fullBtn.style.marginBottom = "5px";
+            fullBtn.style.fontWeight = "bold";
+            fullBtn.onclick = () => {
+                const fileName = `mm_${cat}_${typeName}_full`.replace(/\//g, "_").replace(/ /g, "_");
+                initQuiz(fileName);
+                document.getElementById('quiz-back-btn').onclick = () => showMMChapters(typeName, cat);
+            };
+            content.appendChild(fullBtn);
 
             // အခန်း (၃) ခန်း ဖန်တီးခြင်း (လိုအပ်ပါက ဤနေရာတွင် အခန်းများ ထပ်တိုးနိုင်ပါသည်)
             ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
@@ -2230,7 +2333,25 @@ function showSubMenu(typeName, cat, titles) {
     content.innerHTML = '';
     
     // ခေါင်းစဉ်ခွဲများမှ Back button နှိပ်ပါက မူလ (အပြော, စကားပြေ, ကဗျာ, ရေသည်, အရေး) ရွေးချယ်သည့် နေရာသို့ ပြန်သွားရန်
-    document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
+        document.getElementById('activity-back-btn').onclick = () => showMMQuizOptions(typeName);
+    
+    // အကုန်လေ့ကျင့်ရန် ခလုတ် (မြန်မာစာ)
+    const fullBtn = document.createElement('button');
+    fullBtn.className = 'btn';
+    fullBtn.innerText = `${cat}အကုန်လေ့ကျင့်မည်`;
+    fullBtn.style.gridColumn = "1 / -1";
+    fullBtn.style.background = "#00FF80";
+    fullBtn.style.color = "#000000";
+    fullBtn.style.border = "none";
+    fullBtn.style.boxShadow = "0 4px 15px rgba(0, 255, 128, 0.3)";
+    fullBtn.style.marginBottom = "5px";
+    fullBtn.style.fontWeight = "bold";
+    fullBtn.onclick = () => {
+        const fileName = `mm_${cat}_${typeName}_full`.replace(/\//g, "_").replace(/ /g, "_");
+        initQuiz(fileName);
+        document.getElementById('quiz-back-btn').onclick = () => showSubMenu(typeName, cat, titles);
+    };
+    content.appendChild(fullBtn);
     
     titles.forEach(title => {
         createBtn(title, content, () => {
