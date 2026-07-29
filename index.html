@@ -1019,7 +1019,7 @@ body[data-theme] .container {
 		
 		const ADMIN_ID = 8432363664;
 const specialUsers = [5593040432,1709037573,5186599374];
-		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbwJUdE9b-kWy8AFf4GNZklhQQ9wtTVF-q4iT0A_0vmt5yzyzrrlbhlslnMlic8YmRBL0g/exec";
+		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbx9aEK-bQ6Z9_4-XYZDSYtnBNuZ-ZDgaxK-aP4tTZgDh23Y-0jl3Nblcqv9wTF3y8rCOQ/exec";
 // --- School Exclusive Themes (ဈေးမရောင်းဘဲ အထူးပေးသုံး) ---
 const exclusiveThemeUsers = {
 'mmpn': [8432363664, 987654321, 5593040432], // ဒီကျောင်းသား Telegram ID များ
@@ -1113,7 +1113,13 @@ function parseQuizFile(fileName) {
         return { subject, chapter, type, isOld };
     }
     
-    if (subject === 'mm') {
+        if (subject === 'mm') {
+        // Handle ရေသည် category specially (e.g. mm_ရေသည်_မှား_မှန်)
+        if (parts[1] === 'ရေသည်') {
+            const type = parts.slice(2).join('');
+            return { subject, chapter: 'ရေသည်', type: type || 'Quiz', isOld };
+        }
+        
         const chapIdx = parts.findIndex(p => p.includes('အခန်း'));
         if (chapIdx !== -1 && chapIdx + 1 < parts.length) {
             const chapter = `${parts[chapIdx]} ${parts[chapIdx + 1]}`;
@@ -1128,12 +1134,15 @@ function parseQuizFile(fileName) {
     return { subject, chapter: parts.slice(1, -1).join('_').replace(/_/g, ' ') || 'General', type: parts[parts.length - 1] || 'Quiz', isOld };
 }
 
-		// Detect Myanmar individual title/chapter quizzes (skip from stats)
-// The combined "all" quiz (e.g. mm_စကားပြေ_all_အမှန်ရွေး) is allowed
-function isMyanmarIndividualQuiz(fileName) {
+		function isMyanmarIndividualQuiz(fileName) {
     if (!fileName || typeof fileName !== 'string') return false;
-    if (!fileName.startsWith('mm_')) return false;
+    if (!fileName.startsWith('mm_') && !fileName.startsWith('old_mm_')) return false;
     if (fileName.includes('_all_')) return false;
+    
+    // ရေသည် is a standalone category, not an individual title/chapter quiz
+    const clean = fileName.replace(/^old_/, '');
+    if (clean.includes('_ရေသည်_')) return false;
+    
     return true;
 }
 		
@@ -1163,11 +1172,10 @@ function isSubChapter(quizFile) {
     return /_\d+\.\d+_/.test(quizFile);
 }
 
-		// Clean up Myanmar "_all_" filenames for stats display
-// mm_စကားပြေ_all_မှား_မှန်  →  "စကားပြေ မှားမှန်"
-// mm_အပြော_all_အမှန်ရွေး    →  "အပြော အမှန်ရွေး"
-function getStatDisplayName(key, item) {
+	function getStatDisplayName(key, item) {
     const cleanKey = key.replace(/^old_/, '');
+    
+    // Handle _all_ quizzes (e.g. mm_စကားပြေ_all_မှား_မှန်)
     if (cleanKey.includes('_all_') && item.subject === 'mm') {
         const parts = cleanKey.split('_');
         if (parts.length >= 4 && parts[0] === 'mm') {
@@ -1177,8 +1185,21 @@ function getStatDisplayName(key, item) {
             return `${category} ${typeClean}`;
         }
     }
+    
+    // Handle ရေသည် quizzes (e.g. mm_ရေသည်_မှား_မှန်)
+    if (cleanKey.includes('_ရေသည်_') && item.subject === 'mm') {
+        const parts = cleanKey.split('_');
+        if (parts.length >= 4 && parts[0] === 'mm') {
+            const category = parts[1];          // ရေသည်
+            const typeParts = parts.slice(2);   // မှား, မှန်
+            const typeClean = typeParts.join('');
+            return `${category} ${typeClean}`;
+        }
+    }
+    
     return item.chapter || '';
 }
+		
 async function submitScore(timeTaken = 0) {
     if (!currentQuizFile || !currentQuestions || currentQuestions.length === 0) {
         console.warn("submitScore skipped: no quiz data");
@@ -1373,37 +1394,60 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
 async function loadUserStats() {
     const userId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
     
-    // 1. Immediately render from local storage so Summary is NEVER blank
-    const localStats = getLocalStats();
-    renderSummary(localStats.bestScores);
-    renderBestScores(localStats.bestScores, 'stat-best-scores', false);
-    renderBestScores(localStats.bestScores, 'stat-old-scores', true);
+    // Show loading state initially
+    document.getElementById('stats-loading').style.display = 'block';
+    document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
+    document.getElementById('stats-tab-summary').style.display = 'none';
+    document.getElementById('stats-tab-best').style.display = 'none';
+    document.getElementById('stats-tab-old').style.display = 'none';
     
-    document.getElementById('stats-loading').style.display = 'none';
-    switchStatsTab('summary'); // Start on Summary since it now works offline
-    
-    if (userId === 'unknown') return;
+    // For guests without user ID, immediately show local data as fallback
+    if (userId === 'unknown') {
+        const localStats = getLocalStats();
+        renderSummary(localStats.bestScores);
+        renderBestScores(localStats.bestScores, 'stat-best-scores', false);
+        renderBestScores(localStats.bestScores, 'stat-old-scores', true);
+        document.getElementById('stats-loading').style.display = 'none';
+        switchStatsTab('summary');
+        return;
+    }
 
-    // 2. Try server for updated official data
+    // For logged-in users: fetch server data first, don't show stale local cache
     const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}`;
     try {
         const res = await fetch(url);
         const text = await res.text();
         let data;
-        try { data = JSON.parse(text); } catch(e) { return; }
+        try { data = JSON.parse(text); } catch(e) { throw new Error('Invalid JSON'); }
         
-        if (data.status === 'ok' && data.bestScores && data.bestScores.length > 0) {
+        if (data.status === 'ok') {
             const serverBest = {};
-            data.bestScores.forEach(b => { serverBest[b.quizFile] = b; });
+            if (data.bestScores && data.bestScores.length > 0) {
+                data.bestScores.forEach(b => { serverBest[b.quizFile] = b; });
+            }
             renderSummary(serverBest);
             renderBestScores(serverBest, 'stat-best-scores', false);
             renderBestScores(serverBest, 'stat-old-scores', true);
+            
+            // Sync server data to local cache for offline fallback
+            const localStats = getLocalStats();
+            localStats.bestScores = serverBest;
+            saveLocalStats(localStats);
+        } else {
+            throw new Error(data.message || 'Server error');
         }
     } catch (e) {
         console.error("Server stats fetch failed:", e);
+        // Only fall back to local data if server fails
+        const localStats = getLocalStats();
+        renderSummary(localStats.bestScores);
+        renderBestScores(localStats.bestScores, 'stat-best-scores', false);
+        renderBestScores(localStats.bestScores, 'stat-old-scores', true);
     }
+    
+    document.getElementById('stats-loading').style.display = 'none';
+    switchStatsTab('summary');
 }
-
 		function renderSummary(bestScoresObj) {
     bestScoresObj = bestScoresObj || {};
     const container = document.getElementById('stat-subjects');
