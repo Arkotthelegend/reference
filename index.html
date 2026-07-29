@@ -1179,8 +1179,6 @@ function getStatDisplayName(key, item) {
     }
     return item.chapter || '';
 }
-		
-// ─── Submit Score (only sends to Sheet if new best) ───
 async function submitScore(timeTaken = 0) {
     if (!currentQuizFile || !currentQuestions || currentQuestions.length === 0) {
         console.warn("submitScore skipped: no quiz data");
@@ -1214,12 +1212,11 @@ async function submitScore(timeTaken = 0) {
         finalTotal = 0;
     }
     
-    // Get current local stats
+    // Local stats
     const localStats = getLocalStats();
     const previousBest = localStats.bestScores[currentQuizFile];
     const isNewBest = !previousBest || finalScore > previousBest.score;
     
-    // Always add to local history
     const now = new Date().toISOString();
     localStats.history.unshift({
         quizFile: currentQuizFile,
@@ -1234,7 +1231,6 @@ async function submitScore(timeTaken = 0) {
     });
     if (localStats.history.length > 100) localStats.history = localStats.history.slice(0, 100);
     
-    // Update local best if improved
     if (isNewBest) {
         localStats.bestScores[currentQuizFile] = {
             score: finalScore,
@@ -1249,7 +1245,7 @@ async function submitScore(timeTaken = 0) {
     }
     saveLocalStats(localStats);
     
-    // Only send to Google Sheet if it's a new best score AND not a sub-chapter
+    // Only send to Google Sheet if new best AND not sub-chapter
     if (!isNewBest || isSubChapter) {
         console.log("Score not sent to sheet: not a new best or is sub-chapter");
         resetTimer();
@@ -1271,16 +1267,20 @@ async function submitScore(timeTaken = 0) {
     });
     
     const url = `${STATS_GAS_URL}?${params.toString()}`;
-    console.log("Submitting new best score to:", url);
+    console.log("Submitting to GAS:", url);
     
     try {
         const res = await fetch(url);
         const text = await res.text();
-        console.log("SaveScore raw response:", text);
+        console.log("GAS Response:", text);
         
-        // 🔧 TEMPORARY: Show response so you can verify during testing
-        // Remove this line after you confirm replacement works:
-        tg.showAlert("Server response: " + text.substring(0, 200));
+        // Optional: show toast for testing (remove after confirmed working)
+        const data = JSON.parse(text);
+        if (data.action === 'replaced') {
+            tg.showAlert(`🏆 New record! ${data.oldScore} → ${data.newScore}`);
+        } else if (data.action === 'inserted') {
+            tg.showAlert(`✅ First time score saved!`);
+        }
         
     } catch (e) {
         console.error("SaveScore failed:", e);
