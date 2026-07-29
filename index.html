@@ -1187,13 +1187,6 @@ async function submitScore(timeTaken = 0) {
         return;
     }
     
-    // 🆕 SKIP Myanmar individual title/chapter quizzes (only the combined "_all_" files count)
-    if (isMyanmarIndividualQuiz(currentQuizFile)) {
-        console.log("Stats not saved: Myanmar individual quiz");
-        resetTimer();
-        return;
-    }
-    
     const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
     if (!isRandom) {
         console.log("Stats not saved: Random mode is OFF");
@@ -1221,10 +1214,12 @@ async function submitScore(timeTaken = 0) {
         finalTotal = 0;
     }
     
+    // Get current local stats
     const localStats = getLocalStats();
     const previousBest = localStats.bestScores[currentQuizFile];
     const isNewBest = !previousBest || finalScore > previousBest.score;
     
+    // Always add to local history
     const now = new Date().toISOString();
     localStats.history.unshift({
         quizFile: currentQuizFile,
@@ -1239,6 +1234,7 @@ async function submitScore(timeTaken = 0) {
     });
     if (localStats.history.length > 100) localStats.history = localStats.history.slice(0, 100);
     
+    // Update local best if improved
     if (isNewBest) {
         localStats.bestScores[currentQuizFile] = {
             score: finalScore,
@@ -1251,9 +1247,9 @@ async function submitScore(timeTaken = 0) {
             isOld: meta.isOld
         };
     }
-    
     saveLocalStats(localStats);
     
+    // Only send to Google Sheet if it's a new best score AND not a sub-chapter
     if (!isNewBest || isSubChapter) {
         console.log("Score not sent to sheet: not a new best or is sub-chapter");
         resetTimer();
@@ -1281,6 +1277,11 @@ async function submitScore(timeTaken = 0) {
         const res = await fetch(url);
         const text = await res.text();
         console.log("SaveScore raw response:", text);
+        
+        // 🔧 TEMPORARY: Show response so you can verify during testing
+        // Remove this line after you confirm replacement works:
+        tg.showAlert("Server response: " + text.substring(0, 200));
+        
     } catch (e) {
         console.error("SaveScore failed:", e);
     }
