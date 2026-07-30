@@ -3919,21 +3919,24 @@ function switchStatsTab(tabName) {
         loadLeaderboard();
     }
 }
-
 function calculateRankScore(totalScore, totalPossible, totalTime) {
-    if (totalPossible === 0) return { acc: 0, tpp: 999999 };
+    if (totalPossible === 0) return { acc: 0, totalTime: 999999 };
     const accuracy = totalScore / totalPossible;
-    const timePerQuestion = totalTime > 0 ? totalTime / totalPossible : 999999;
-    return { acc: accuracy, tpp: timePerQuestion };
+    // If no timer data (0), treat as very slow so they lose ties
+    return { acc: accuracy, totalTime: totalTime > 0 ? totalTime : 999999 };
 }
+
 
 
 function sortLeaderboard(entries) {
     return entries.sort((a, b) => {
         const ra = a.rankData, rb = b.rankData;
+        // 1. Higher accuracy first
         if (rb.acc !== ra.acc) return rb.acc - ra.acc;
-        if (ra.tpp !== rb.tpp) return ra.tpp - rb.tpp;
-        return rb.total - ra.total;
+        // 2. Same accuracy → faster total time wins
+        if (ra.totalTime !== rb.totalTime) return ra.totalTime - rb.totalTime;
+        // 3. Exact same accuracy & time → more correct answers wins
+        return b.totalScore - a.totalScore;
     });
 }
 		
@@ -4011,14 +4014,12 @@ function renderLeaderboard(entries, currentUserId, subject) {
     listDiv.innerHTML = '';
     
     const medals = ['🥇', '🥈', '🥉'];
-    const subjectLabel = document.querySelector(`#leaderboard-subject option[value="${subject}"]`).text;
     
     entries.forEach((entry, index) => {
         const rank = index + 1;
         const isMe = entry.userId === currentUserId;
         const acc = Math.round(entry.rankData.acc * 100);
         const timeStr = formatTime(entry.totalTime);
-        const avgTimeStr = entry.rankData.tpp < 999 ? Math.round(entry.rankData.tpp) + 's/q' : '-';
         
         const div = document.createElement('div');
         div.className = `leaderboard-item ${isMe ? 'is-me' : ''}`;
@@ -4027,11 +4028,11 @@ function renderLeaderboard(entries, currentUserId, subject) {
         const medal = rank <= 3 ? medals[rank - 1] : '';
         const nameInitial = (entry.userName || 'A').charAt(0).toUpperCase();
         
-        // Truncate long names
         let displayName = entry.userName || 'Anonymous';
         if (displayName.length > 15) displayName = displayName.substring(0, 14) + '…';
         if (isMe) displayName += ' (You)';
         
+        // 🆕 REMOVED: <div class="leaderboard-detail">${avgTimeStr}</div>
         div.innerHTML = `
             <div class="leaderboard-rank ${rankClass}">${rank}</div>
             <div class="leaderboard-avatar">${nameInitial}</div>
@@ -4043,7 +4044,6 @@ function renderLeaderboard(entries, currentUserId, subject) {
             </div>
             <div class="leaderboard-score-box">
                 <div class="leaderboard-acc">${acc}%</div>
-                <div class="leaderboard-detail">${avgTimeStr}</div>
             </div>
             <div class="leaderboard-medal">${medal}</div>
         `;
@@ -4051,10 +4051,9 @@ function renderLeaderboard(entries, currentUserId, subject) {
         listDiv.appendChild(div);
     });
     
-    // If current user not in top list, append them at bottom with their actual rank
+    // If current user not in top list
     const myEntry = entries.find(e => e.userId === currentUserId);
     if (!myEntry && currentUserId !== 'unknown') {
-        // User hasn't played this subject yet
         const div = document.createElement('div');
         div.className = 'leaderboard-item is-me';
         div.style.marginTop = '20px';
@@ -4073,7 +4072,6 @@ function renderLeaderboard(entries, currentUserId, subject) {
         listDiv.appendChild(div);
     }
 }
-
     </script>
 </body>
 </html>
