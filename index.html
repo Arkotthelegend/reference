@@ -973,10 +973,11 @@ body[data-theme] .container {
     <h2 style="text-align: center; color: var(--accent);">📊 My Statistics</h2>
     
     <!-- Tab Buttons -->
-       <div style="display: flex; gap: 8px; padding: 0 15px; margin-bottom: 15px;">
-        <button class="btn" id="tab-summary" onclick="switchStatsTab('summary')" style="flex: 1; background: var(--accent); color: #000; font-size: 0.9rem; padding: 10px;">📈 Summary</button>
-        <button class="btn" id="tab-best" onclick="switchStatsTab('best')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.9rem; padding: 10px;">🏆 Best</button>
-        <button class="btn" id="tab-old" onclick="switchStatsTab('old')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.9rem; padding: 10px;">📜 Old</button>
+             <div style="display: flex; gap: 6px; padding: 0 10px; margin-bottom: 15px;">
+        <button class="btn" id="tab-summary" onclick="switchStatsTab('summary')" style="flex: 1; background: var(--accent); color: #000; font-size: 0.8rem; padding: 10px 4px;">📈 Summary</button>
+        <button class="btn" id="tab-best" onclick="switchStatsTab('best')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.8rem; padding: 10px 4px;">🏆 Best</button>
+        <button class="btn" id="tab-old" onclick="switchStatsTab('old')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.8rem; padding: 10px 4px;">📜 Old</button>
+        <button class="btn" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.8rem; padding: 10px 4px;">🏅 Rank</button>
     </div>
     
     <div id="stats-content" style="padding: 15px;">
@@ -1012,14 +1013,14 @@ body[data-theme] .container {
     <div style="margin-bottom: 15px;">
         <label style="color: var(--accent); font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 6px;">ဘာသာရပ်ရွေးချယ်ပါ</label>
         <select id="leaderboard-subject" onchange="loadLeaderboard()" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--card-bg); color: var(--white); font-size: 1rem; outline: none;">
-            <option value="all">📊 စုစုပေါင်း (All Subjects)</option>
-            <option value="mm">🇲🇲 မြန်မာစာ</option>
-            <option value="en">🇬🇧 အင်္ဂလိပ်စာ</option>
-            <option value="math">🔢 သင်္ချာ</option>
-            <option value="phy">⚛️ ရူပဗေဒ</option>
-            <option value="chem">🧪 ဓာတုဗေဒ</option>
-            <option value="bio">🧬 ဇီဝဗေဒ</option>
-            <option value="eco">📈 ဘောဂဗေဒ</option>
+            <option value="all">စုစုပေါင်း</option>
+            <option value="mm">မြန်မာစာ</option>
+            <option value="en">အင်္ဂလိပ်စာ</option>
+            <option value="math">သင်္ချာ</option>
+            <option value="phy">ရူပဗေဒ</option>
+            <option value="chem">ဓာတုဗေဒ</option>
+            <option value="bio">ဇီဝဗေဒ</option>
+            <option value="eco">ဘောဂဗေဒ</option>
         </select>
     </div>
     
@@ -1419,21 +1420,27 @@ async function submitScore(timeTaken = 0) {
 }
 // ─── Tab Switcher ───
 function switchStatsTab(tabName) {
-    document.getElementById('stats-tab-summary').style.display = 'none';
-    document.getElementById('stats-tab-best').style.display = 'none';
-    document.getElementById('stats-tab-old').style.display = 'none';
+    ['summary', 'best', 'old', 'leaderboard'].forEach(t => {
+        const el = document.getElementById('stats-tab-' + t);
+        if (el) el.style.display = 'none';
+        const btn = document.getElementById('tab-' + t);
+        if (btn) {
+            btn.style.background = 'var(--card-bg)';
+            btn.style.color = 'var(--white)';
+        }
+    });
     
-    document.getElementById('tab-summary').style.background = 'var(--card-bg)';
-    document.getElementById('tab-summary').style.color = 'var(--white)';
-    document.getElementById('tab-best').style.background = 'var(--card-bg)';
-    document.getElementById('tab-best').style.color = 'var(--white)';
-    document.getElementById('tab-old').style.background = 'var(--card-bg)';
-    document.getElementById('tab-old').style.color = 'var(--white)';
-    
-    document.getElementById('stats-tab-' + tabName).style.display = 'block';
+    const activeTab = document.getElementById('stats-tab-' + tabName);
     const activeBtn = document.getElementById('tab-' + tabName);
-    activeBtn.style.background = 'var(--accent)';
-    activeBtn.style.color = '#000';
+    if (activeTab) activeTab.style.display = 'block';
+    if (activeBtn) {
+        activeBtn.style.background = 'var(--accent)';
+        activeBtn.style.color = '#000';
+    }
+    
+    if (tabName === 'leaderboard') {
+        loadLeaderboard();
+    }
 }
 
 function renderBestScores(bestScoresObj, containerId, filterOld) {
@@ -1637,7 +1644,8 @@ function showStatsScreen() {
     document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
     document.getElementById('stats-tab-summary').style.display = 'none';
     document.getElementById('stats-tab-best').style.display = 'none';
-        document.getElementById('stats-tab-old').style.display = 'none';
+    document.getElementById('stats-tab-old').style.display = 'none';
+    document.getElementById('stats-tab-leaderboard').style.display = 'none'; // ⬅️ ADD THIS LINE
     loadUserStats();
 }
 
@@ -4129,6 +4137,7 @@ function renderLeaderboard(entries, currentUserId, subject) {
         listDiv.appendChild(div);
     }
 }
+
     </script>
 </body>
 </html>
