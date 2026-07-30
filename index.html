@@ -694,6 +694,93 @@ body[data-theme] .container {
     transition: color 0.3s ease, border-color 0.3s ease, transform 0.1s ease;
 }
 #report-btn:active { transform: scale(0.95); }
+
+	   /* Leaderboard Styles */
+.leaderboard-item {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #334155;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.15s ease;
+    position: relative;
+    overflow: hidden;
+}
+.leaderboard-item:active { transform: scale(0.98); }
+.leaderboard-item.is-me {
+    border: 2px solid var(--accent);
+    background: linear-gradient(145deg, #0F172A, #162235);
+    box-shadow: 0 0 15px rgba(0, 213, 255, 0.15);
+}
+.leaderboard-rank {
+    font-size: 1.4rem;
+    font-weight: 900;
+    min-width: 36px;
+    text-align: center;
+    font-family: monospace;
+}
+.rank-1 { color: #FFD700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.4); }
+.rank-2 { color: #C0C0C0; text-shadow: 0 0 10px rgba(192, 192, 192, 0.3); }
+.rank-3 { color: #CD7F32; text-shadow: 0 0 10px rgba(205, 127, 50, 0.3); }
+.rank-other { color: #64748B; }
+
+.leaderboard-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #3B82F6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #000;
+    flex-shrink: 0;
+}
+.leaderboard-info {
+    flex: 1;
+    min-width: 0;
+}
+.leaderboard-name {
+    font-weight: 700;
+    color: var(--white);
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.leaderboard-meta {
+    font-size: 0.75rem;
+    color: #94A3B8;
+    margin-top: 3px;
+}
+.leaderboard-score-box {
+    text-align: right;
+    flex-shrink: 0;
+}
+.leaderboard-acc {
+    font-size: 1.1rem;
+    font-weight: 800;
+    font-family: monospace;
+    color: var(--accent);
+}
+.leaderboard-detail {
+    font-size: 0.7rem;
+    color: #64748B;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+.leaderboard-medal {
+    position: absolute;
+    top: -2px;
+    right: 10px;
+    font-size: 1.6rem;
+    opacity: 0.15;
+    pointer-events: none;
+}
 	   
 </style>
 <base target="_blank">
@@ -920,6 +1007,34 @@ body[data-theme] .container {
             <h4 style="color: var(--accent); margin-bottom: 10px;">📜 မေးခွန်းဟောင်းများ အကောင်းဆုံး ရမှတ်များ</h4>
             <div id="stat-old-scores"></div>
         </div>
+		<!-- Leaderboard Tab -->
+<div id="stats-tab-leaderboard" style="display: none;">
+    <div style="margin-bottom: 15px;">
+        <label style="color: var(--accent); font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 6px;">ဘာသာရပ်ရွေးချယ်ပါ</label>
+        <select id="leaderboard-subject" onchange="loadLeaderboard()" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--card-bg); color: var(--white); font-size: 1rem; outline: none;">
+            <option value="all">📊 စုစုပေါင်း (All Subjects)</option>
+            <option value="mm">🇲🇲 မြန်မာစာ</option>
+            <option value="en">🇬🇧 အင်္ဂလိပ်စာ</option>
+            <option value="math">🔢 သင်္ချာ</option>
+            <option value="phy">⚛️ ရူပဗေဒ</option>
+            <option value="chem">🧪 ဓာတုဗေဒ</option>
+            <option value="bio">🧬 ဇီဝဗေဒ</option>
+            <option value="eco">📈 ဘောဂဗေဒ</option>
+        </select>
+    </div>
+    
+    <!-- Legend -->
+    <div style="background: var(--card-bg); padding: 10px; border-radius: 10px; margin-bottom: 12px; border: 1px solid #334155; font-size: 0.75rem; color: #94A3B8; line-height: 1.5;">
+        <b style="color: var(--accent);">🏅 အဆင့်သတ်မှတ်နည်း:</b><br>
+        ① အဖြေမှန်နှုန်း (%) အမြင့်ဆုံး<br>
+        ② မှန်နှုန်းတူရင် အချိန်နည်းသူ အရင်ရပ်<br>
+        ③ အချိန်နည်းသူရှိရင် မေးခွန်းပိုများသူ အရင်ရပ်
+    </div>
+    
+    <div id="leaderboard-loading" style="text-align: center; color: #94A3B8; padding: 30px; display: none;">ဆွဲယူနေသည်...</div>
+    <div id="leaderboard-empty" style="text-align: center; color: #64748B; padding: 30px; display: none;">ဒေတာမရှိသေးပါ</div>
+    <div id="leaderboard-list"></div>
+</div>
         
     </div>
     <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
@@ -3794,6 +3909,225 @@ div.style.cssText = `border: 2px solid ${t.color}; border-radius: 16px; padding:
 function buyThemePrompt(themeId) {
     const t = themes.find(x => x.id === themeId);
     tg.showAlert("🎨 " + t.name + " ဝယ်ယူရန် @minaphayarkot ကို ဆက်သွယ်ပါ။\n\nသင့် ID: " + userId + "\n(Theme: " + themeId + ")");
+}
+
+		// ─── Leaderboard System ───
+
+function switchStatsTab(tabName) {
+    // Hide all tabs
+    ['summary', 'best', 'old', 'leaderboard'].forEach(t => {
+        const tabEl = document.getElementById('stats-tab-' + t);
+        const btnEl = document.getElementById('tab-' + t);
+        if (tabEl) tabEl.style.display = 'none';
+        if (btnEl) {
+            btnEl.style.background = 'var(--card-bg)';
+            btnEl.style.color = 'var(--white)';
+        }
+    });
+    
+    // Show selected
+    const activeTab = document.getElementById('stats-tab-' + tabName);
+    const activeBtn = document.getElementById('tab-' + tabName);
+    if (activeTab) activeTab.style.display = 'block';
+    if (activeBtn) {
+        activeBtn.style.background = 'var(--accent)';
+        activeBtn.style.color = '#000';
+    }
+    
+    // Load data if needed
+    if (tabName === 'leaderboard') {
+        loadLeaderboard();
+    }
+}
+
+// Ranking Algorithm:
+// 1. Higher accuracy % comes first
+// 2. If accuracy ties, lower time-per-question comes first  
+// 3. If still tied, higher total questions comes first
+function calculateRankScore(totalScore, totalPossible, totalTime) {
+    if (totalPossible === 0) return { acc: 0, tpp: 999999, score: 0 };
+    const accuracy = totalScore / totalPossible; // 0.0 to 1.0
+    const timePerQuestion = totalTime > 0 ? totalTime / totalPossible : 999999;
+    return {
+        acc: accuracy,           // Higher is better
+        tpp: timePerQuestion,    // Lower is better
+        score: totalScore,       // Higher is better
+        total: totalPossible,
+        time: totalTime
+    };
+}
+
+function sortLeaderboard(entries) {
+    return entries.sort((a, b) => {
+        const ra = a.rankData;
+        const rb = b.rankData;
+        
+        // 1. Accuracy descending
+        if (rb.acc !== ra.acc) return rb.acc - ra.acc;
+        
+        // 2. Time per question ascending (faster = better)
+        if (ra.tpp !== rb.tpp) return ra.tpp - rb.tpp;
+        
+        // 3. Total questions descending (more volume = better)
+        return rb.total - ra.total;
+    });
+}
+
+async function loadLeaderboard() {
+    const subject = document.getElementById('leaderboard-subject').value;
+    const listDiv = document.getElementById('leaderboard-list');
+    const loadingDiv = document.getElementById('leaderboard-loading');
+    const emptyDiv = document.getElementById('leaderboard-empty');
+    
+    listDiv.innerHTML = '';
+    loadingDiv.style.display = 'block';
+    emptyDiv.style.display = 'none';
+    
+    try {
+        // Fetch all scores from GAS
+        const url = `${STATS_GAS_URL}?action=getLeaderboard&subject=${subject}`;
+        const res = await fetch(url);
+        const text = await res.text();
+        let data;
+        try { data = JSON.parse(text); } catch(e) { throw e; }
+        
+        if (data.status !== 'ok' || !data.rows || data.rows.length === 0) {
+            loadingDiv.style.display = 'none';
+            emptyDiv.style.display = 'block';
+            emptyDiv.innerText = 'ဒေတာမရှိသေးပါ (သို့) Server ချိတ်ဆက်မှားနေပါသည်';
+            return;
+        }
+        
+        // Aggregate: Group by user, sum scores per subject
+        const userMap = {};
+        const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
+        
+        data.rows.forEach(row => {
+            // Skip old questions for main leaderboard
+            if (row.isOld === 'true' || row.isOld === true) return;
+            
+            // Skip sub-chapters (individual 1.1, 1.2 etc)
+            if (isSubChapter(row.quizFile)) return;
+            
+            // Skip Myanmar individual title quizzes
+            if (isMyanmarIndividualQuiz(row.quizFile)) return;
+            
+            const uid = row.userId || 'unknown';
+            const uname = row.userName || 'Anonymous';
+            
+            if (!userMap[uid]) {
+                userMap[uid] = {
+                    userId: uid,
+                    userName: uname,
+                    totalScore: 0,
+                    totalPossible: 0,
+                    totalTime: 0,
+                    quizCount: 0
+                };
+            }
+            
+            userMap[uid].totalScore += parseInt(row.score || 0);
+            userMap[uid].totalPossible += parseInt(row.total || 0);
+            userMap[uid].totalTime += parseInt(row.timeTaken || 0);
+            userMap[uid].quizCount += 1;
+        });
+        
+        // Convert to array and calculate rank scores
+        let entries = Object.values(userMap).map(u => ({
+            ...u,
+            rankData: calculateRankScore(u.totalScore, u.totalPossible, u.totalTime)
+        }));
+        
+        // Filter out users with 0 possible (no valid data)
+        entries = entries.filter(e => e.rankData.total > 0);
+        
+        if (entries.length === 0) {
+            loadingDiv.style.display = 'none';
+            emptyDiv.style.display = 'block';
+            emptyDiv.innerText = 'ဒီဘာသာရပ်အတွက် ဒေတာမရှိသေးပါ';
+            return;
+        }
+        
+        // Sort
+        entries = sortLeaderboard(entries);
+        
+        loadingDiv.style.display = 'none';
+        renderLeaderboard(entries, currentUserId, subject);
+        
+    } catch (e) {
+        console.error("Leaderboard load failed:", e);
+        loadingDiv.style.display = 'none';
+        emptyDiv.style.display = 'block';
+        emptyDiv.innerText = 'ဆွဲယူမှားနေပါသည် - နောက်မှထပ်ကြိုးစားပါ';
+    }
+}
+
+function renderLeaderboard(entries, currentUserId, subject) {
+    const listDiv = document.getElementById('leaderboard-list');
+    listDiv.innerHTML = '';
+    
+    const medals = ['🥇', '🥈', '🥉'];
+    const subjectLabel = document.querySelector(`#leaderboard-subject option[value="${subject}"]`).text;
+    
+    entries.forEach((entry, index) => {
+        const rank = index + 1;
+        const isMe = entry.userId === currentUserId;
+        const acc = Math.round(entry.rankData.acc * 100);
+        const timeStr = formatTime(entry.totalTime);
+        const avgTimeStr = entry.rankData.tpp < 999 ? Math.round(entry.rankData.tpp) + 's/q' : '-';
+        
+        const div = document.createElement('div');
+        div.className = `leaderboard-item ${isMe ? 'is-me' : ''}`;
+        
+        const rankClass = rank <= 3 ? `rank-${rank}` : 'rank-other';
+        const medal = rank <= 3 ? medals[rank - 1] : '';
+        const nameInitial = (entry.userName || 'A').charAt(0).toUpperCase();
+        
+        // Truncate long names
+        let displayName = entry.userName || 'Anonymous';
+        if (displayName.length > 15) displayName = displayName.substring(0, 14) + '…';
+        if (isMe) displayName += ' (You)';
+        
+        div.innerHTML = `
+            <div class="leaderboard-rank ${rankClass}">${rank}</div>
+            <div class="leaderboard-avatar">${nameInitial}</div>
+            <div class="leaderboard-info">
+                <div class="leaderboard-name">${displayName}</div>
+                <div class="leaderboard-meta">
+                    ${entry.quizCount} quizzes · ${entry.totalScore}/${entry.totalPossible} · ⏱ ${timeStr}
+                </div>
+            </div>
+            <div class="leaderboard-score-box">
+                <div class="leaderboard-acc">${acc}%</div>
+                <div class="leaderboard-detail">${avgTimeStr}</div>
+            </div>
+            <div class="leaderboard-medal">${medal}</div>
+        `;
+        
+        listDiv.appendChild(div);
+    });
+    
+    // If current user not in top list, append them at bottom with their actual rank
+    const myEntry = entries.find(e => e.userId === currentUserId);
+    if (!myEntry && currentUserId !== 'unknown') {
+        // User hasn't played this subject yet
+        const div = document.createElement('div');
+        div.className = 'leaderboard-item is-me';
+        div.style.marginTop = '20px';
+        div.style.opacity = '0.7';
+        div.innerHTML = `
+            <div class="leaderboard-rank rank-other">-</div>
+            <div class="leaderboard-avatar">?</div>
+            <div class="leaderboard-info">
+                <div class="leaderboard-name">You (No data)</div>
+                <div class="leaderboard-meta">ဒီဘာသာရပ်အတွက် မေးခွန်းမဖြေဆိုရသေးပါ</div>
+            </div>
+            <div class="leaderboard-score-box">
+                <div class="leaderboard-acc">-%</div>
+            </div>
+        `;
+        listDiv.appendChild(div);
+    }
 }
     </script>
 </body>
