@@ -938,7 +938,7 @@ body[data-theme] .container {
                 <div class="profile-info-card">
                     <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
-                    <a href="https://t.me/minaphayarkot" target="_blank" class="btn buy-btn">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</a>
+                    <button onclick="openBuyLink()" class="btn buy-btn">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
 					<div id="quiz-mode-box" style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
         <span style="font-size: 1.2rem;">⚙️</span>
@@ -3482,13 +3482,6 @@ function displayDailyQuote() {
 }
 
 
-// Developer ကို ဆက်သွယ်ရန် (Telegram သို့ တိုက်ရိုက်ပို့ပေးမည်)
-function contactDeveloper() {
-    const devUsername = "minaphayarkot"; // သင့် Telegram Username ပြောင်းပါ
-    const message = encodeURIComponent("မေးခွန်းမှားနေတာလေးပြောချင်လို့ပါ");
-    window.open(`https://t.me/${devUsername}?text=${message}`, '_blank');
-}
-
 function updateStreak() {
     const todayDate = new Date().toISOString().split('T')[0];
     const yesterday = new Date();
@@ -3739,14 +3732,35 @@ function toggleTimer() {
 		
 function reportQuestion() {
     const devUsername = "minaphayarkot";
-    // Use the current quiz file name; if empty, fall back to subject id
     let fileName = currentQuizFile;
     if (!fileName && currentSubject) {
         fileName = currentSubject.id + '_daily_quiz';
     }
     if (!fileName) fileName = 'unknown_quiz';
     const message = encodeURIComponent('မေးခွန်းအမှားတင်ပြခြင်း - ဖိုင်နာမည်: ' + fileName);
-    window.open('https://t.me/' + devUsername + '?text=' + message, '_blank');
+    const url = 'https://t.me/' + devUsername + '?text=' + message;
+    
+    if (tg.openTelegramLink) {
+        tg.openTelegramLink(url);
+    } else if (tg.openLink) {
+        tg.openLink(url);
+    } else {
+        window.location.href = url;
+    }
+}
+
+function contactDeveloper() {
+    const devUsername = "minaphayarkot";
+    const message = encodeURIComponent("မေးခွန်းမှားနေတာလေးပြောချင်လို့ပါ");
+    const url = 'https://t.me/' + devUsername + '?text=' + message;
+    
+    if (tg.openTelegramLink) {
+        tg.openTelegramLink(url);
+    } else if (tg.openLink) {
+        tg.openLink(url);
+    } else {
+        window.location.href = url;
+    }
 }
 
 // ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
@@ -4107,6 +4121,16 @@ function renderLeaderboard(entries, currentUserId, subject) {
             </div>
         `;
         listDiv.appendChild(div);
+    }
+}
+		function openBuyLink() {
+    const url = 'https://t.me/minaphayarkot';
+    if (tg.openTelegramLink) {
+        tg.openTelegramLink(url);
+    } else if (tg.openLink) {
+        tg.openLink(url);
+    } else {
+        window.location.href = url;
     }
 }
 		
