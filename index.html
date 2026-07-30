@@ -1443,6 +1443,7 @@ function switchStatsTab(tabName) {
     }
 }
 
+
 function renderBestScores(bestScoresObj, containerId, filterOld) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
@@ -3948,39 +3949,23 @@ function switchStatsTab(tabName) {
     }
 }
 
-// Ranking Algorithm:
-// 1. Higher accuracy % comes first
-// 2. If accuracy ties, lower time-per-question comes first  
-// 3. If still tied, higher total questions comes first
 function calculateRankScore(totalScore, totalPossible, totalTime) {
-    if (totalPossible === 0) return { acc: 0, tpp: 999999, score: 0 };
-    const accuracy = totalScore / totalPossible; // 0.0 to 1.0
+    if (totalPossible === 0) return { acc: 0, tpp: 999999 };
+    const accuracy = totalScore / totalPossible;
     const timePerQuestion = totalTime > 0 ? totalTime / totalPossible : 999999;
-    return {
-        acc: accuracy,           // Higher is better
-        tpp: timePerQuestion,    // Lower is better
-        score: totalScore,       // Higher is better
-        total: totalPossible,
-        time: totalTime
-    };
+    return { acc: accuracy, tpp: timePerQuestion };
 }
+
 
 function sortLeaderboard(entries) {
     return entries.sort((a, b) => {
-        const ra = a.rankData;
-        const rb = b.rankData;
-        
-        // 1. Accuracy descending
+        const ra = a.rankData, rb = b.rankData;
         if (rb.acc !== ra.acc) return rb.acc - ra.acc;
-        
-        // 2. Time per question ascending (faster = better)
         if (ra.tpp !== rb.tpp) return ra.tpp - rb.tpp;
-        
-        // 3. Total questions descending (more volume = better)
         return rb.total - ra.total;
     });
 }
-
+		
 async function loadLeaderboard() {
     const subject = document.getElementById('leaderboard-subject').value;
     const listDiv = document.getElementById('leaderboard-list');
@@ -3993,20 +3978,16 @@ async function loadLeaderboard() {
     
     try {
         const url = `${STATS_GAS_URL}?action=getLeaderboard&subject=${encodeURIComponent(subject)}`;
-        console.log("📡 Fetching:", url);
-        
         const res = await fetch(url);
         const text = await res.text();
-        console.log("📥 Response:", text.substring(0, 300));
         
         let data;
         try { data = JSON.parse(text); } catch(e) { 
-            console.error("JSON parse failed:", text);
-            throw new Error("Invalid JSON from server");
+            console.error("Bad response:", text);
+            throw new Error("Server returned invalid data");
         }
         
         if (data.status !== 'ok') {
-            console.error("Server error:", data.message);
             if (loadingDiv) loadingDiv.style.display = 'none';
             if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'Error: ' + (data.message || 'Unknown'); }
             return;
@@ -4018,15 +3999,12 @@ async function loadLeaderboard() {
             return;
         }
         
-        console.log(`Processing ${data.rows.length} rows for subject: ${subject}`);
-        
         const userMap = {};
         const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
         
         data.rows.forEach(row => {
             const uid = row.userId || 'unknown';
             const uname = row.userName || 'Anonymous';
-            
             if (!userMap[uid]) {
                 userMap[uid] = { userId: uid, userName: uname, totalScore: 0, totalPossible: 0, totalTime: 0, quizCount: 0 };
             }
@@ -4038,7 +4016,7 @@ async function loadLeaderboard() {
         
         let entries = Object.values(userMap)
             .map(u => ({ ...u, rankData: calculateRankScore(u.totalScore, u.totalPossible, u.totalTime) }))
-            .filter(e => e.rankData.total > 0);
+            .filter(e => e.totalPossible > 0);
         
         if (entries.length === 0) {
             if (loadingDiv) loadingDiv.style.display = 'none';
@@ -4053,9 +4031,10 @@ async function loadLeaderboard() {
     } catch (e) {
         console.error("Leaderboard error:", e);
         if (loadingDiv) loadingDiv.style.display = 'none';
-        if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'ဆွဲယူမှားနေပါသည် (' + e.message + ')'; }
+        if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'ဆွဲယူမှားနေပါသည်'; }
     }
 }
+		
 function renderLeaderboard(entries, currentUserId, subject) {
     const listDiv = document.getElementById('leaderboard-list');
     listDiv.innerHTML = '';
