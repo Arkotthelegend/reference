@@ -3919,23 +3919,19 @@ function switchStatsTab(tabName) {
         loadLeaderboard();
     }
 }
-function calculateRankScore(totalScore, totalPossible, totalTime) {
+
+		function calculateRankScore(totalScore, totalPossible, totalTime) {
     if (totalPossible === 0) return { acc: 0, totalTime: 999999 };
     const accuracy = totalScore / totalPossible;
-    // If no timer data (0), treat as very slow so they lose ties
     return { acc: accuracy, totalTime: totalTime > 0 ? totalTime : 999999 };
 }
-
 
 
 function sortLeaderboard(entries) {
     return entries.sort((a, b) => {
         const ra = a.rankData, rb = b.rankData;
-        // 1. Higher accuracy first
         if (rb.acc !== ra.acc) return rb.acc - ra.acc;
-        // 2. Same accuracy → faster total time wins
         if (ra.totalTime !== rb.totalTime) return ra.totalTime - rb.totalTime;
-        // 3. Exact same accuracy & time → more correct answers wins
         return b.totalScore - a.totalScore;
     });
 }
@@ -4014,8 +4010,17 @@ function renderLeaderboard(entries, currentUserId, subject) {
     listDiv.innerHTML = '';
     
     const medals = ['🥇', '🥈', '🥉'];
+    const TOP_N = 10;
     
-    entries.forEach((entry, index) => {
+    // Find current user's position in full sorted list
+    let myRank = -1;
+    const myEntryIndex = entries.findIndex(e => e.userId === currentUserId);
+    if (myEntryIndex !== -1) myRank = myEntryIndex + 1;
+    
+    // Slice to Top 10 only
+    const topEntries = entries.slice(0, TOP_N);
+    
+    topEntries.forEach((entry, index) => {
         const rank = index + 1;
         const isMe = entry.userId === currentUserId;
         const acc = Math.round(entry.rankData.acc * 100);
@@ -4032,7 +4037,6 @@ function renderLeaderboard(entries, currentUserId, subject) {
         if (displayName.length > 15) displayName = displayName.substring(0, 14) + '…';
         if (isMe) displayName += ' (You)';
         
-        // 🆕 REMOVED: <div class="leaderboard-detail">${avgTimeStr}</div>
         div.innerHTML = `
             <div class="leaderboard-rank ${rankClass}">${rank}</div>
             <div class="leaderboard-avatar">${nameInitial}</div>
@@ -4051,9 +4055,41 @@ function renderLeaderboard(entries, currentUserId, subject) {
         listDiv.appendChild(div);
     });
     
-    // If current user not in top list
-    const myEntry = entries.find(e => e.userId === currentUserId);
-    if (!myEntry && currentUserId !== 'unknown') {
+    // If current user is outside Top 10, show them separately at bottom
+    if (myRank > TOP_N && currentUserId !== 'unknown') {
+        const me = entries[myEntryIndex];
+        const acc = Math.round(me.rankData.acc * 100);
+        const timeStr = formatTime(me.totalTime);
+        const nameInitial = (me.userName || 'A').charAt(0).toUpperCase();
+        
+        let displayName = me.userName || 'Anonymous';
+        if (displayName.length > 15) displayName = displayName.substring(0, 14) + '…';
+        displayName += ' (You)';
+        
+        const div = document.createElement('div');
+        div.className = 'leaderboard-item is-me';
+        div.style.marginTop = '20px';
+        div.style.borderTop = '2px dashed var(--accent)';
+        div.style.paddingTop = '15px';
+        
+        div.innerHTML = `
+            <div class="leaderboard-rank rank-other">${myRank}</div>
+            <div class="leaderboard-avatar">${nameInitial}</div>
+            <div class="leaderboard-info">
+                <div class="leaderboard-name">${displayName}</div>
+                <div class="leaderboard-meta">
+                    ${me.quizCount} quizzes · ${me.totalScore}/${me.totalPossible} · ⏱ ${timeStr}
+                </div>
+            </div>
+            <div class="leaderboard-score-box">
+                <div class="leaderboard-acc">${acc}%</div>
+            </div>
+        `;
+        listDiv.appendChild(div);
+    }
+    
+    // If user has no data at all
+    if (myRank === -1 && currentUserId !== 'unknown') {
         const div = document.createElement('div');
         div.className = 'leaderboard-item is-me';
         div.style.marginTop = '20px';
@@ -4072,6 +4108,7 @@ function renderLeaderboard(entries, currentUserId, subject) {
         listDiv.appendChild(div);
     }
 }
+		
     </script>
 </body>
 </html>
