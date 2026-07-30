@@ -1081,7 +1081,7 @@ body[data-theme] .container {
                 <div class="markcount" id="markcount">
         <span id="score-display"> ရမှတ်: 0</span>
     </div>
-   <button id="report-btn" style="display:none;">🚩 Report</button>
+    <button id="report-btn" onclick="reportQuestion()" style="display:none;">🚩 Report</button>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
     <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5; overflow-x: auto; max-width: 100%; box-sizing: border-box; padding: 10px;"></div>
@@ -3482,34 +3482,39 @@ function displayDailyQuote() {
 }
 
 
+// Developer ကို ဆက်သွယ်ရန် (Telegram သို့ တိုက်ရိုက်ပို့ပေးမည်)
 function contactDeveloper() {
-    const devUsername = "minaphayarkot";
+    const devUsername = "minaphayarkot"; // သင့် Telegram Username ပြောင်းပါ
     const message = encodeURIComponent("မေးခွန်းမှားနေတာလေးပြောချင်လို့ပါ");
-    const url = 'https://t.me/' + devUsername + '?text=' + message;
-    
-    if (tg && tg.openTelegramLink) {
-        tg.openTelegramLink(url);
-    } else {
-        window.open(url, '_blank');
-    }
+    window.open(`https://t.me/${devUsername}?text=${message}`, '_blank');
 }
 
-function contactDeveloper() {
-    const devUsername = "minaphayarkot";
-    const message = encodeURIComponent("မေးခွန်းမှားနေတာလေးပြောချင်လို့ပါ");
-    const url = 'https://t.me/' + devUsername + '?text=' + message;
-    
-    try {
-        if (tg && typeof tg.openTelegramLink === 'function') {
-            tg.openTelegramLink(url);
-        } else if (tg && typeof tg.openLink === 'function') {
-            tg.openLink(url);
-        } else {
-            window.location.href = url;
-        }
-    } catch (e) {
-        window.location.href = url;
+function updateStreak() {
+    const todayDate = new Date().toISOString().split('T')[0];
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayDate = yesterday.toISOString().split('T')[0];
+
+    let lastLogin = localStorage.getItem('last_login_date');
+    let streak = parseInt(localStorage.getItem('streak_count')) || 0;
+
+    if (!lastLogin) {
+        // ပထမဆုံးအကြိမ် App သုံးသူဖြစ်လျှင်
+        streak = 1;
+    } else if (lastLogin === todayDate) {
+        // ဒီနေ့ ဝင်ပြီးသားဖြစ်လျှင် (ဘာမှမလုပ်ဘူး၊ လက်ရှိ streak အတိုင်းပဲ)
+        if (streak === 0) streak = 1; 
+    } else if (lastLogin === yesterdayDate) {
+        // မနေ့က ဝင်ခဲ့လျှင် Streak ၁ တိုးမယ်
+        streak += 1;
+    } else {
+        // တစ်ရက်ထက်ကျော်ပြီး ပျက်ကွက်သွားလျှင် ၁ ကနေ ပြန်စမယ်
+        streak = 1;
     }
+
+    localStorage.setItem('last_login_date', todayDate);
+    localStorage.setItem('streak_count', streak.toString());
+    return streak;
 }
       
 	  // ၁။ Daily Quiz အတွက် မေးခွန်းများ စုစည်းထားမည့် နေရာ
@@ -3732,49 +3737,18 @@ function toggleTimer() {
     }
 }
 		
-// Report Button - Mobile-safe attachment
 function reportQuestion() {
     const devUsername = "minaphayarkot";
+    // Use the current quiz file name; if empty, fall back to subject id
     let fileName = currentQuizFile;
     if (!fileName && currentSubject) {
         fileName = currentSubject.id + '_daily_quiz';
     }
     if (!fileName) fileName = 'unknown_quiz';
-    
     const message = encodeURIComponent('မေးခွန်းအမှားတင်ပြခြင်း - ဖိုင်နာမည်: ' + fileName);
-    const url = 'https://t.me/' + devUsername + '?text=' + message;
-    
-    // Try multiple methods for maximum compatibility
-    try {
-        if (tg && typeof tg.openTelegramLink === 'function') {
-            tg.openTelegramLink(url);
-        } else if (tg && typeof tg.openLink === 'function') {
-            tg.openLink(url);
-        } else {
-            window.location.href = url;
-        }
-    } catch (e) {
-        window.location.href = url;
-    }
+    window.open('https://t.me/' + devUsername + '?text=' + message, '_blank');
 }
 
-// Attach event listener AFTER DOM is ready
-// (Your script is already at the bottom of body, so this runs immediately)
-document.addEventListener('DOMContentLoaded', function() {
-    const reportBtn = document.getElementById('report-btn');
-    if (reportBtn) {
-        // Remove any old inline onclick to avoid double-firing
-        reportBtn.onclick = null;
-        reportBtn.removeAttribute('onclick');
-        
-        // Add proper listener
-        reportBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            reportQuestion();
-        });
-    }
-});
-		
 // ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
 function resetTimer() {
     clearInterval(quizTimerInterval);
