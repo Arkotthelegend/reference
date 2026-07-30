@@ -3482,13 +3482,6 @@ function displayDailyQuote() {
 }
 
 
-// Developer ကို ဆက်သွယ်ရန် (Telegram သို့ တိုက်ရိုက်ပို့ပေးမည်)
-function contactDeveloper() {
-    const devUsername = "minaphayarkot"; // သင့် Telegram Username ပြောင်းပါ
-    const message = encodeURIComponent("မေးခွန်းမှားနေတာလေးပြောချင်လို့ပါ");
-    window.open(`https://t.me/${devUsername}?text=${message}`, '_blank');
-}
-
 function contactDeveloper() {
     const devUsername = "minaphayarkot";
     const message = encodeURIComponent("မေးခွန်းမှားနေတာလေးပြောချင်လို့ပါ");
@@ -3499,6 +3492,34 @@ function contactDeveloper() {
     } else {
         window.open(url, '_blank');
     }
+}
+
+function updateStreak() {
+    const todayDate = new Date().toISOString().split('T')[0];
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayDate = yesterday.toISOString().split('T')[0];
+
+    let lastLogin = localStorage.getItem('last_login_date');
+    let streak = parseInt(localStorage.getItem('streak_count')) || 0;
+
+    if (!lastLogin) {
+        // ပထမဆုံးအကြိမ် App သုံးသူဖြစ်လျှင်
+        streak = 1;
+    } else if (lastLogin === todayDate) {
+        // ဒီနေ့ ဝင်ပြီးသားဖြစ်လျှင် (ဘာမှမလုပ်ဘူး၊ လက်ရှိ streak အတိုင်းပဲ)
+        if (streak === 0) streak = 1; 
+    } else if (lastLogin === yesterdayDate) {
+        // မနေ့က ဝင်ခဲ့လျှင် Streak ၁ တိုးမယ်
+        streak += 1;
+    } else {
+        // တစ်ရက်ထက်ကျော်ပြီး ပျက်ကွက်သွားလျှင် ၁ ကနေ ပြန်စမယ်
+        streak = 1;
+    }
+
+    localStorage.setItem('last_login_date', todayDate);
+    localStorage.setItem('streak_count', streak.toString());
+    return streak;
 }
       
 	  // ၁။ Daily Quiz အတွက် မေးခွန်းများ စုစည်းထားမည့် နေရာ
@@ -3739,7 +3760,6 @@ function reportQuestion() {
         window.open(url, '_blank');
     }
 }
-
 // ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
 function resetTimer() {
     clearInterval(quizTimerInterval);
