@@ -1136,7 +1136,7 @@ body[data-theme] .container {
 		
 		const ADMIN_ID = 8432363664;
 const specialUsers = [5593040432,1709037573,5186599374];
-		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbwZN36Iv_0hC0eD23pI9MSPGytYPk6AaXNGAEie5HVGGT8-OJH2MmQsyMuWNzktv5lHlg/exec";
+		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbzA3kHqf_VemDdtEtildlBWnKqOG-QJTTxl6eOIIGkOLGtaAVR98Qp8A6BCuuZTaBicQw/exec";
 // --- School Exclusive Themes (ဈေးမရောင်းဘဲ အထူးပေးသုံး) ---
 const exclusiveThemeUsers = {
 'mmpn': [8432363664, 987654321, 5593040432], // ဒီကျောင်းသား Telegram ID များ
@@ -1417,30 +1417,6 @@ async function submitScore(timeTaken = 0) {
     }
     
     resetTimer();
-}
-// ─── Tab Switcher ───
-function switchStatsTab(tabName) {
-    ['summary', 'best', 'old', 'leaderboard'].forEach(t => {
-        const el = document.getElementById('stats-tab-' + t);
-        if (el) el.style.display = 'none';
-        const btn = document.getElementById('tab-' + t);
-        if (btn) {
-            btn.style.background = 'var(--card-bg)';
-            btn.style.color = 'var(--white)';
-        }
-    });
-    
-    const activeTab = document.getElementById('stats-tab-' + tabName);
-    const activeBtn = document.getElementById('tab-' + tabName);
-    if (activeTab) activeTab.style.display = 'block';
-    if (activeBtn) {
-        activeBtn.style.background = 'var(--accent)';
-        activeBtn.style.color = '#000';
-    }
-    
-    if (tabName === 'leaderboard') {
-        loadLeaderboard();
-    }
 }
 
 
@@ -3920,21 +3896,17 @@ function buyThemePrompt(themeId) {
     tg.showAlert("🎨 " + t.name + " ဝယ်ယူရန် @minaphayarkot ကို ဆက်သွယ်ပါ။\n\nသင့် ID: " + userId + "\n(Theme: " + themeId + ")");
 }
 
-		// ─── Leaderboard System ───
-
 function switchStatsTab(tabName) {
-    // Hide all tabs
     ['summary', 'best', 'old', 'leaderboard'].forEach(t => {
-        const tabEl = document.getElementById('stats-tab-' + t);
-        const btnEl = document.getElementById('tab-' + t);
-        if (tabEl) tabEl.style.display = 'none';
-        if (btnEl) {
-            btnEl.style.background = 'var(--card-bg)';
-            btnEl.style.color = 'var(--white)';
+        const el = document.getElementById('stats-tab-' + t);
+        if (el) el.style.display = 'none';
+        const btn = document.getElementById('tab-' + t);
+        if (btn) {
+            btn.style.background = 'var(--card-bg)';
+            btn.style.color = 'var(--white)';
         }
     });
     
-    // Show selected
     const activeTab = document.getElementById('stats-tab-' + tabName);
     const activeBtn = document.getElementById('tab-' + tabName);
     if (activeTab) activeTab.style.display = 'block';
@@ -3943,7 +3915,6 @@ function switchStatsTab(tabName) {
         activeBtn.style.color = '#000';
     }
     
-    // Load data if needed
     if (tabName === 'leaderboard') {
         loadLeaderboard();
     }
