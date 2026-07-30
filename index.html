@@ -3987,86 +3987,101 @@ async function loadLeaderboard() {
     const loadingDiv = document.getElementById('leaderboard-loading');
     const emptyDiv = document.getElementById('leaderboard-empty');
     
-    listDiv.innerHTML = '';
-    loadingDiv.style.display = 'block';
-    emptyDiv.style.display = 'none';
+    if (listDiv) listDiv.innerHTML = '';
+    if (loadingDiv) loadingDiv.style.display = 'block';
+    if (emptyDiv) emptyDiv.style.display = 'none';
     
     try {
-        // Fetch all scores from GAS
-        const url = `${STATS_GAS_URL}?action=getLeaderboard&subject=${subject}`;
+        const url = `${STATS_GAS_URL}?action=getLeaderboard&subject=${encodeURIComponent(subject)}`;
+        console.log("📡 Fetching leaderboard:", url);
+        
         const res = await fetch(url);
         const text = await res.text();
-        let data;
-        try { data = JSON.parse(text); } catch(e) { throw e; }
+        console.log("📥 Raw response:", text.substring(0, 500));
         
-        if (data.status !== 'ok' || !data.rows || data.rows.length === 0) {
-            loadingDiv.style.display = 'none';
-            emptyDiv.style.display = 'block';
-            emptyDiv.innerText = 'ဒေတာမရှိသေးပါ (သို့) Server ချိတ်ဆက်မှားနေပါသည်';
+        let data;
+        try { data = JSON.parse(text); } catch(e) { 
+            console.error("❌ JSON parse failed:", e, "Raw:", text);
+            throw new Error("Server returned invalid JSON");
+        }
+        
+        console.log("✅ Parsed data:", data);
+        
+        if (data.status !== 'ok') {
+            console.error("❌ Server error:", data.message);
+            if (loadingDiv) loadingDiv.style.display = 'none';
+            if (emptyDiv) { 
+                emptyDiv.style.display = 'block'; 
+                emptyDiv.innerText = 'Server error: ' + (data.message || 'Unknown'); 
+            }
             return;
         }
         
-        // Aggregate: Group by user, sum scores per subject
+        if (!data.rows || data.rows.length === 0) {
+            console.warn("⚠️ No rows returned from server");
+            if (loadingDiv) loadingDiv.style.display = 'none';
+            if (emptyDiv) { 
+                emptyDiv.style.display = 'block'; 
+                emptyDiv.innerText = 'ဒေတာမရှိသေးပါ (Sheet မှာ ကိုယ့်ဒေတာသာရှိပါက Subject ရွေးချယ်မှုကို စစ်ဆေးပါ)'; 
+            }
+            return;
+        }
+        
+        console.log(`📊 Processing ${data.rows.length} rows...`);
+        
         const userMap = {};
         const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
+        let skippedOld = 0, skippedSub = 0, skippedMM = 0, kept = 0;
         
-        data.rows.forEach(row => {
-            // Skip old questions for main leaderboard
-            if (row.isOld === 'true' || row.isOld === true) return;
+        data.rows.forEach((row, i) => {
+            // Debug first 3 rows
+            if (i < 3) console.log(`Row ${i}:`, row);
             
-            // Skip sub-chapters (individual 1.1, 1.2 etc)
-            if (isSubChapter(row.quizFile)) return;
-            
-            // Skip Myanmar individual title quizzes
-            if (isMyanmarIndividualQuiz(row.quizFile)) return;
+            if (row.isOld === 'true' || row.isOld === true) { skippedOld++; return; }
+            if (isSubChapter(row.quizFile)) { skippedSub++; return; }
+            if (isMyanmarIndividualQuiz(row.quizFile)) { skippedMM++; return; }
             
             const uid = row.userId || 'unknown';
             const uname = row.userName || 'Anonymous';
             
             if (!userMap[uid]) {
-                userMap[uid] = {
-                    userId: uid,
-                    userName: uname,
-                    totalScore: 0,
-                    totalPossible: 0,
-                    totalTime: 0,
-                    quizCount: 0
-                };
+                userMap[uid] = { userId: uid, userName: uname, totalScore: 0, totalPossible: 0, totalTime: 0, quizCount: 0 };
             }
-            
             userMap[uid].totalScore += parseInt(row.score || 0);
             userMap[uid].totalPossible += parseInt(row.total || 0);
             userMap[uid].totalTime += parseInt(row.timeTaken || 0);
             userMap[uid].quizCount += 1;
+            kept++;
         });
         
-        // Convert to array and calculate rank scores
-        let entries = Object.values(userMap).map(u => ({
-            ...u,
-            rankData: calculateRankScore(u.totalScore, u.totalPossible, u.totalTime)
-        }));
+        console.log(`Filter results: Kept=${kept}, SkippedOld=${skippedOld}, SkippedSub=${skippedSub}, SkippedMM=${skippedMM}`);
         
-        // Filter out users with 0 possible (no valid data)
-        entries = entries.filter(e => e.rankData.total > 0);
+        let entries = Object.values(userMap)
+            .map(u => ({ ...u, rankData: calculateRankScore(u.totalScore, u.totalPossible, u.totalTime) }))
+            .filter(e => e.rankData.total > 0);
+        
+        console.log(`Final entries after aggregation: ${entries.length}`);
         
         if (entries.length === 0) {
-            loadingDiv.style.display = 'none';
-            emptyDiv.style.display = 'block';
-            emptyDiv.innerText = 'ဒီဘာသာရပ်အတွက် ဒေတာမရှိသေးပါ';
+            if (loadingDiv) loadingDiv.style.display = 'none';
+            if (emptyDiv) { 
+                emptyDiv.style.display = 'block'; 
+                emptyDiv.innerHTML = 'ဒေတာမရှိသေးပါ<br><span style="font-size:0.75rem;color:#64748B;">Filters removed all rows. Check console.</span>'; 
+            }
             return;
         }
         
-        // Sort
         entries = sortLeaderboard(entries);
-        
-        loadingDiv.style.display = 'none';
+        if (loadingDiv) loadingDiv.style.display = 'none';
         renderLeaderboard(entries, currentUserId, subject);
         
     } catch (e) {
-        console.error("Leaderboard load failed:", e);
-        loadingDiv.style.display = 'none';
-        emptyDiv.style.display = 'block';
-        emptyDiv.innerText = 'ဆွဲယူမှားနေပါသည် - နောက်မှထပ်ကြိုးစားပါ';
+        console.error("💥 Leaderboard crash:", e);
+        if (loadingDiv) loadingDiv.style.display = 'none';
+        if (emptyDiv) { 
+            emptyDiv.style.display = 'block'; 
+            emptyDiv.innerText = 'ဆွဲယူမှားနေပါသည် - Console ကို စစ်ဆေးပါ (' + e.message + ')'; 
+        }
     }
 }
 
