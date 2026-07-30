@@ -3739,16 +3739,23 @@ function toggleTimer() {
 		
 function reportQuestion() {
     const devUsername = "minaphayarkot";
-    // Use the current quiz file name; if empty, fall back to subject id
     let fileName = currentQuizFile;
     if (!fileName && currentSubject) {
         fileName = currentSubject.id + '_daily_quiz';
     }
     if (!fileName) fileName = 'unknown_quiz';
+    
     const message = encodeURIComponent('မေးခွန်းအမှားတင်ပြခြင်း - ဖိုင်နာမည်: ' + fileName);
-    window.open('https://t.me/' + devUsername + '?text=' + message, '_blank');
+    const url = 'https://t.me/' + devUsername + '?text=' + message;
+    
+    // ✅ Use Telegram API for mobile compatibility
+    if (typeof tg !== 'undefined' && tg.openTelegramLink) {
+        tg.openTelegramLink(url);
+    } else {
+        // Fallback for non-Telegram browsers
+        window.open(url, '_blank');
+    }
 }
-
 // ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
 function resetTimer() {
     clearInterval(quizTimerInterval);
