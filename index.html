@@ -157,13 +157,9 @@
         text-align: center !important; border: none !important; animation: none !important;
     }
 
-    /* Buy Button Fixed */
-    .buy-btn {
-        display: block !important; width: auto !important; 
-        margin: 15px 0 8px 0 !important;
-        box-sizing: border-box !important; white-space: normal !important; text-align: center !important;
-        background: transparent; border: 1px solid #10B981; color: #10B981; text-decoration: none; padding: 12px; border-radius: 12px;
-    }
+   .buy-btn {
+    display: inline-block !important; width: auto !important; 
+    margin: 15px auto 8px auto !important;
 
     /* --- 4. Flashcard UI (Rebuilt & Perfectly Centered) --- */
       #flashcard-screen div[style*="display: flex; gap: 10px;"] .btn {
@@ -3456,12 +3452,6 @@ function displayDailyQuote() {
 }
 
 
-// Developer ကို ဆက်သွယ်ရန် (Telegram သို့ တိုက်ရိုက်ပို့ပေးမည်)
-function contactDeveloper() {
-    const devUsername = "minaphayarkot"; // သင့် Telegram Username ပြောင်းပါ
-    const message = encodeURIComponent("မေးခွန်းမှားနေတာလေးပြောချင်လို့ပါ");
-    window.open(`https://t.me/${devUsername}?text=${message}`, '_blank');
-}
 
 function updateStreak() {
     const todayDate = new Date().toISOString().split('T')[0];
@@ -4072,13 +4062,24 @@ function renderLeaderboard(entries, currentUserId, subject) {
         listDiv.appendChild(div);
     }
 }
-		function showContactPopup() {
-    tg.showAlert(
-        "💳 KPay: 09793727678\n" +
-        "📲 Wave: 09793727678\n" +
-        "✈️ Telegram: @minaphayarkot\n\n" +
-        "နံပါတ်များကို ကူးယူပြီး ဆက်သွယ်ပါ"
-    );
+		function copyTelegram() {
+    const username = "@minaphayarkot";
+    tg.showPopup({
+        title: 'ဆက်သွယ်ရန်',
+        message: username,
+        buttons: [
+            {id: 'copy', type: 'default', text: '📋 Copy'},
+            {type: 'cancel'}
+        ]
+    }, function(btnId) {
+        if (btnId === 'copy') {
+            navigator.clipboard.writeText(username).then(function() {
+                tg.showAlert('ကူးယူပြီးပါပြီ ✅');
+            }).catch(function() {
+                tg.showAlert('ကူးယူ၍မရပါ။ လက်နဲ့မှတ်ယူပါ: ' + username);
+            });
+        }
+    });
 }
 		
     </script>
