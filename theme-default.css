@@ -44,6 +44,11 @@ body[data-theme="default"] {
   --profile-theme-btn-bg: linear-gradient(135deg, #8B5CF6, #EC4899);
   --profile-theme-btn-text: #FFFFFF;
   --profile-theme-btn-shadow: rgba(139, 92, 246, 0.3);
+
+    /* Score display (quiz screen top-left) */
+  --score-bg: rgba(16, 185, 129, 0.15);
+  --score-border: var(--t-success);
+  --score-text: var(--t-success);
 }
 
 /* Background gradient */
@@ -356,4 +361,28 @@ body[data-theme="default"] #stats-screen .bought-badge {
 body[data-theme="default"] #stats-screen #leaderboard-empty,
 body[data-theme="default"] #stats-screen #stats-loading {
     color: var(--t-muted) !important;
+}
+
+/* ============================================================
+   SCORE DISPLAY (Quiz Screen)
+   ============================================================ */
+
+body[data-theme="default"] #score-display {
+    background: var(--score-bg) !important;
+    border: 1px solid var(--score-border) !important;
+    color: var(--score-text) !important;
+    display: inline-block !important;
+    padding: 6px 15px;
+    border-radius: 12px;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+body[data-theme="default"] .markcount {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    z-index: 50;
+    white-space: nowrap;
 }
