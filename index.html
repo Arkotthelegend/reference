@@ -157,7 +157,8 @@
         text-align: center !important; border: none !important; animation: none !important;
     }
 
-.buy-btn {
+    /* Buy Button Fixed */
+    .buy-btn {
         display: block !important; width: auto !important; 
         margin: 15px 0 8px 0 !important;
         box-sizing: border-box !important; white-space: normal !important; text-align: center !important;
@@ -675,7 +676,7 @@ body[data-theme] .container {
     --detail-secondary-text: #CBD5E1;
     --detail-accent-text: #00D5FF;
 }
-	
+
 
 	   /* Leaderboard Styles */
 .leaderboard-item {
@@ -920,7 +921,7 @@ body[data-theme] .container {
                 <div class="profile-info-card">
                     <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
-                    <button class="btn buy-btn" onclick="showContactPopup()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
+                    <button class="btn buy-btn" onclick="copyTelegram()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
 					<div id="quiz-mode-box" style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
         <span style="font-size: 1.2rem;">⚙️</span>
@@ -2919,10 +2920,13 @@ function updateFlashUI() {
 const isMath2Or3Mark = currentQuizFile && (currentQuizFile.includes('2_Marks') || currentQuizFile.includes('3_Marks'));
 
 const scoreDisplay = document.getElementById('score-display');
-		   if (isMath2Or3Mark) {
+const reportBtn = document.getElementById('report-btn');
+if (isMath2Or3Mark) {
     scoreDisplay.style.display = 'none';
+    reportBtn.style.display = 'inline-block';
 } else {
     scoreDisplay.style.display = 'inline-block';
+    reportBtn.style.display = 'inline-block';
 }
 
 const timerWrapper = document.getElementById('timer-wrapper');
@@ -4067,7 +4071,25 @@ function renderLeaderboard(entries, currentUserId, subject) {
         listDiv.appendChild(div);
     }
 }
-	
+		function copyTelegram() {
+    const username = "@minaphayarkot";
+    tg.showPopup({
+        title: 'ဆက်သွယ်ရန်',
+        message: username,
+        buttons: [
+            {id: 'copy', type: 'default', text: '📋 Copy'},
+            {type: 'cancel'}
+        ]
+    }, function(btnId) {
+        if (btnId === 'copy') {
+            navigator.clipboard.writeText(username).then(function() {
+                tg.showAlert('ကူးယူပြီးပါပြီ ✅');
+            }).catch(function() {
+                tg.showAlert('ကူးယူ၍မရပါ။ လက်နဲ့မှတ်ယူပါ: ' + username);
+            });
+        }
+    });
+}
 		
     </script>
 </body>
