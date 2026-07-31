@@ -1,4 +1,8 @@
-/* theme-default.css - Pure Black OLED (Performance & Eye-friendly) */
+/* ============================================================
+   theme-default.css — Pure Black OLED (Template)
+   Copy to theme-xxx.css, rename data-theme, change colors.
+   ============================================================ */
+
 body[data-theme="default"] {
   /* Base Colors - Pure Black / OLED Dark tones */
   --t-bg: #000000;          /* Pure Black Background */
@@ -10,98 +14,226 @@ body[data-theme="default"] {
   --t-success: #10B981;     /* Emerald Green */
   --t-danger:  #E11D48;     /* Soft Rose/Red */
 
+  /* Text hierarchy (used by stats screen & leaderboard) */
+  --t-text: #F8FAFC;        /* Primary text (headings, names) */
+  --t-muted: #94A3B8;       /* Secondary text (meta, details) */
+
   --t-border-home: #3B82F6;
   --t-border-old: #6366F1;
   --t-border-daily: #10B981;
+  --t-border-subtle: #1A1A2E; /* Subtle border for clean UI */
 
-  --t-border-subtle: #1A1A2E; /* Subtle border for clean UI - adjusted for black bg */
-
+  /* Detail / Definition / Formula screens */
   --detail-bg: #162235;
-    --detail-border: #00D5FF;
-    --detail-text: #fff;
-    --detail-secondary-text: #CBD5E1;
-    --detail-accent-text: #00D5FF;
+  --detail-border: #00D5FF;
+  --detail-text: #fff;
+  --detail-secondary-text: #CBD5E1;
+  --detail-accent-text: #00D5FF;
+
+  /* ===== STATISTICS & PROFILE BUTTON VARIABLES =====
+     Change these per theme to customize the stats screen. */
+  --stats-tab-active-bg: var(--t-accent);
+  --stats-tab-active-text: #000000;          /* Black text on bright accent */
+  --stats-tab-inactive-bg: var(--t-card);
+  --stats-tab-inactive-text: var(--t-text);
+
+  --profile-stat-btn-bg: linear-gradient(135deg, #3B82F6, #06B6D4);
+  --profile-stat-btn-text: #FFFFFF;
+  --profile-stat-btn-shadow: rgba(59, 130, 246, 0.3);
+
+  --profile-theme-btn-bg: linear-gradient(135deg, #8B5CF6, #EC4899);
+  --profile-theme-btn-text: #FFFFFF;
+  --profile-theme-btn-shadow: rgba(139, 92, 246, 0.3);
 }
 
+/* Background gradient */
 body[data-theme="default"] {
-    /* OLED-friendly pure black gradient */
     background: linear-gradient(180deg, #000000 0%, #0A0A0F 100%);
     background-attachment: fixed;
 }
 
+/* Subject cards */
 body[data-theme="default"] .subject-card {
     background: var(--t-card) !important;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Slightly deeper shadow for contrast */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
+/* Overlay screens */
 body[data-theme="default"] #math-solution-screen,
-body[data-theme="default"] #grammar-note-screen { background: var(--t-bg) !important; }
+body[data-theme="default"] #grammar-note-screen { 
+    background: var(--t-bg) !important; 
+}
 
-body[data-theme="default"] #subject-list .subject-card { border: 1px solid var(--t-border-home) !important; }
-body[data-theme="default"] #subject-list .subject-card span:last-child { color: var(--t-border-home) !important; }
+/* Home subject list borders */
+body[data-theme="default"] #subject-list .subject-card { 
+    border: 1px solid var(--t-border-home) !important; 
+}
+body[data-theme="default"] #subject-list .subject-card span:last-child { 
+    color: var(--t-border-home) !important; 
+}
 
-body[data-theme="default"] #old-subject-list .subject-card { border: 1px solid var(--t-border-old) !important; }
-body[data-theme="default"] #old-subject-list .subject-card span:last-child { color: var(--t-border-old) !important; }
+/* Old questions subject list borders */
+body[data-theme="default"] #old-subject-list .subject-card { 
+    border: 1px solid var(--t-border-old) !important; 
+}
+body[data-theme="default"] #old-subject-list .subject-card span:last-child { 
+    color: var(--t-border-old) !important; 
+}
 
-body[data-theme="default"] #daily-screen .subject-card { border: 1px solid var(--t-border-daily) !important; }
-body[data-theme="default"] #daily-screen .subject-card span:last-child { color: var(--t-border-daily) !important; }
+/* Daily quiz subject list borders */
+body[data-theme="default"] #daily-screen .subject-card { 
+    border: 1px solid var(--t-border-daily) !important; 
+}
+body[data-theme="default"] #daily-screen .subject-card span:last-child { 
+    color: var(--t-border-daily) !important; 
+}
 
-body[data-theme="default"] .btn { background: var(--t-accent) !important; color: #FFFFFF !important; border: none !important; }
-body[data-theme="default"] .back-btn { background: var(--t-card) !important; border: 1px solid var(--t-border-subtle) !important; color: #FFFFFF !important; }
+/* Buttons */
+body[data-theme="default"] .btn { 
+    background: var(--t-accent) !important; 
+    color: #FFFFFF !important; 
+    border: none !important; 
+}
+body[data-theme="default"] .back-btn { 
+    background: var(--t-card) !important; 
+    border: 1px solid var(--t-border-subtle) !important; 
+    color: #FFFFFF !important; 
+}
 body[data-theme="default"] .next-btn-styled, 
-body[data-theme="default"] .next-btn { background: var(--t-success) !important; color: #FFFFFF !important; }
-body[data-theme="default"] .option-btn { background: var(--t-card) !important; border: 1px solid var(--t-border-subtle) !important; color: #F8FAFC !important; }
+body[data-theme="default"] .next-btn { 
+    background: var(--t-success) !important; 
+    color: #FFFFFF !important; 
+}
+body[data-theme="default"] .option-btn { 
+    background: var(--t-card) !important; 
+    border: 1px solid var(--t-border-subtle) !important; 
+    color: #F8FAFC !important; 
+}
 
+/* Profile info card */
 body[data-theme="default"] .profile-info-card { 
     background: linear-gradient(180deg, #111118, #0A0A0F) !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important; 
     border: 1px solid var(--t-border-subtle) !important;
 }
 
-body[data-theme="default"] .correct-answer { background: #064E3B !important; border: 1px solid var(--t-success) !important; color: #FFFFFF !important; }
-body[data-theme="default"] .wrong-answer { background: #7F1D1D !important; border: 1px solid var(--t-danger) !important; color: #FFFFFF !important; }
+/* Quiz answer states */
+body[data-theme="default"] .correct-answer { 
+    background: #064E3B !important; 
+    border: 1px solid var(--t-success) !important; 
+    color: #FFFFFF !important; 
+}
+body[data-theme="default"] .wrong-answer { 
+    background: #7F1D1D !important; 
+    border: 1px solid var(--t-danger) !important; 
+    color: #FFFFFF !important; 
+}
 
-body[data-theme="default"] .flash-front { border: 1px solid var(--t-accent) !important; }
-body[data-theme="default"] .flash-back { border: 1px solid var(--t-danger) !important; }
+/* Flashcard borders */
+body[data-theme="default"] .flash-front { 
+    border: 1px solid var(--t-accent) !important; 
+}
+body[data-theme="default"] .flash-back { 
+    border: 1px solid var(--t-danger) !important; 
+}
 
-body[data-theme="default"] #exam-countdown { border-color: var(--t-accent) !important; box-shadow: 0 2px 10px rgba(59, 130, 246, 0.1) !important; }
-body[data-theme="default"] .countdown-value { color: var(--t-accent) !important; }
+/* Exam countdown */
+body[data-theme="default"] #exam-countdown { 
+    border-color: var(--t-accent) !important; 
+    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.1) !important; 
+}
+body[data-theme="default"] .countdown-value { 
+    color: var(--t-accent) !important; 
+}
 
-body[data-theme="default"] .bought-badge { color: var(--t-accent) !important; border-color: var(--t-accent) !important; }
-body[data-theme="default"] .buy-btn { background: transparent !important; color: var(--t-success) !important; border: 1px solid var(--t-success) !important; }
+/* Badges & buy button */
+body[data-theme="default"] .bought-badge { 
+    color: var(--t-accent) !important; 
+    border-color: var(--t-accent) !important; 
+}
+body[data-theme="default"] .buy-btn { 
+    background: transparent !important; 
+    color: var(--t-success) !important; 
+    border: 1px solid var(--t-success) !important; 
+}
 
-body[data-theme="default"] .gender-container input:checked + .slider { background-color: var(--t-accent) !important; }
-body[data-theme="default"] .quiz-input:focus { border-color: var(--t-accent) !important; }
-body[data-theme="default"] .quiz-card { border-left: 4px solid var(--t-accent) !important; }
+/* Gender switch */
+body[data-theme="default"] .gender-container input:checked + .slider { 
+    background-color: var(--t-accent) !important; 
+}
 
+/* Inputs & cards */
+body[data-theme="default"] .quiz-input:focus { 
+    border-color: var(--t-accent) !important; 
+}
+body[data-theme="default"] .quiz-card { 
+    border-left: 4px solid var(--t-accent) !important; 
+}
+
+/* Content boxes */
 body[data-theme="default"] #grammar-note-content, 
-body[data-theme="default"] #math-solution-content { border: 1px solid var(--t-border-subtle) !important; }
+body[data-theme="default"] #math-solution-content { 
+    border: 1px solid var(--t-border-subtle) !important; 
+}
 
+/* Scrollbars */
 body[data-theme="default"] .mjx-container::-webkit-scrollbar-thumb, 
-body[data-theme="default"] .math-scroll-container::-webkit-scrollbar-thumb { background: var(--t-accent) !important; }
+body[data-theme="default"] .math-scroll-container::-webkit-scrollbar-thumb { 
+    background: var(--t-accent) !important; 
+}
 
-body[data-theme="default"] #checklist-container input[type="checkbox"] { accent-color: var(--t-accent) !important; }
+/* Checklist */
+body[data-theme="default"] #checklist-container input[type="checkbox"] { 
+    accent-color: var(--t-accent) !important; 
+}
 
-body[data-theme="default"] .timer-btn { background: var(--t-card) !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
-body[data-theme="default"] .shuffle-btn { background: var(--t-card) !important; color: var(--t-accent) !important; border: 1px solid var(--t-accent) !important; }
-body[data-theme="default"] .shuffle-active { background: var(--t-accent) !important; color: #FFFFFF !important; }
+/* Timer & shuffle buttons */
+body[data-theme="default"] .timer-btn { 
+    background: var(--t-card) !important; 
+    color: var(--t-accent) !important; 
+    border: 1px solid var(--t-accent) !important; 
+}
+body[data-theme="default"] .shuffle-btn { 
+    background: var(--t-card) !important; 
+    color: var(--t-accent) !important; 
+    border: 1px solid var(--t-accent) !important; 
+}
+body[data-theme="default"] .shuffle-active { 
+    background: var(--t-accent) !important; 
+    color: #FFFFFF !important; 
+}
 
+/* Motivation box */
 body[data-theme="default"] #middle-screen > div > div:first-child, 
-body[data-theme="default"] #motivation-box { background: rgba(10, 10, 15, 0.6) !important; border: 1px solid var(--t-border-subtle) !important; box-shadow: none !important; }
+body[data-theme="default"] #motivation-box { 
+    background: rgba(10, 10, 15, 0.6) !important; 
+    border: 1px solid var(--t-border-subtle) !important; 
+    box-shadow: none !important; 
+}
 
-body[data-theme="default"] .contact-btn { color: var(--t-accent) !important; border-color: var(--t-accent) !important; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important; }
-body[data-theme="default"] #quiz-mode-box { border-color: var(--t-border-subtle) !important; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important; }
+/* Contact & quiz mode */
+body[data-theme="default"] .contact-btn { 
+    color: var(--t-accent) !important; 
+    border-color: var(--t-accent) !important; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important; 
+}
+body[data-theme="default"] #quiz-mode-box { 
+    border-color: var(--t-border-subtle) !important; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important; 
+}
 
-/* === ADDITIONAL ENHANCEMENTS FOR PURE BLACK THEME === */
+/* ============================================================
+   ADDITIONAL ENHANCEMENTS FOR PURE BLACK THEME
+   ============================================================ */
 
-/* Scrollbar styling for dark theme consistency */
+/* Scrollbar styling */
 body[data-theme="default"] ::-webkit-scrollbar { width: 8px; }
 body[data-theme="default"] ::-webkit-scrollbar-track { background: #000000; }
 body[data-theme="default"] ::-webkit-scrollbar-thumb { background: #1A1A2E; border-radius: 4px; }
 body[data-theme="default"] ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
 
-/* Input fields on pure black background */
+/* Input fields */
 body[data-theme="default"] input,
 body[data-theme="default"] textarea,
 body[data-theme="default"] select {
@@ -109,7 +241,6 @@ body[data-theme="default"] select {
     border: 1px solid #1A1A2E !important;
     color: #F8FAFC !important;
 }
-
 body[data-theme="default"] input:focus,
 body[data-theme="default"] textarea:focus,
 body[data-theme="default"] select:focus {
@@ -125,18 +256,104 @@ body[data-theme="default"] .overlay {
     backdrop-filter: blur(4px);
 }
 
-/* Divider lines */
+/* Dividers */
 body[data-theme="default"] hr,
 body[data-theme="default"] .divider {
     border-color: #1A1A2E !important;
 }
 
-/* Text colors for hierarchy on pure black */
+/* Text hierarchy */
 body[data-theme="default"] .text-muted,
 body[data-theme="default"] .text-secondary {
     color: #94A3B8 !important;
 }
-
 body[data-theme="default"] .text-primary {
     color: #F8FAFC !important;
+}
+
+/* ============================================================
+   STATISTICS SCREEN & PROFILE BUTTONS (Theme-aware)
+   ============================================================ */
+
+/* --- Stats Tabs --- */
+body[data-theme="default"] .stats-tab-active {
+    background: var(--stats-tab-active-bg) !important;
+    color: var(--stats-tab-active-text) !important;
+    opacity: 1 !important;
+}
+body[data-theme="default"] .stats-tab-inactive {
+    background: var(--stats-tab-inactive-bg) !important;
+    color: var(--stats-tab-inactive-text) !important;
+    opacity: 0.85 !important;
+}
+
+/* --- Profile Buttons ("My Statistics" & "Theme Shop") --- */
+body[data-theme="default"] .profile-stats-btn {
+    background: var(--profile-stat-btn-bg) !important;
+    color: var(--profile-stat-btn-text) !important;
+    box-shadow: 0 4px 15px var(--profile-stat-btn-shadow) !important;
+}
+body[data-theme="default"] .profile-theme-btn {
+    background: var(--profile-theme-btn-bg) !important;
+    color: var(--profile-theme-btn-text) !important;
+    box-shadow: 0 4px 15px var(--profile-theme-btn-shadow) !important;
+}
+
+/* --- Stats Screen Content --- */
+body[data-theme="default"] #stats-screen .profile-info-card,
+body[data-theme="default"] #stats-screen .leaderboard-item,
+body[data-theme="default"] #stats-screen #stat-subjects > div {
+    background: var(--t-card) !important;
+    border: 1px solid var(--t-border-subtle) !important;
+}
+body[data-theme="default"] #stats-screen h2,
+body[data-theme="default"] #stats-screen h4 {
+    color: var(--t-accent) !important;
+}
+body[data-theme="default"] #stats-screen .countdown-value,
+body[data-theme="default"] #stats-screen .leaderboard-acc,
+body[data-theme="default"] #stats-screen #stat-overall-acc {
+    color: var(--t-accent) !important;
+}
+body[data-theme="default"] #stats-screen .leaderboard-name {
+    color: var(--t-text) !important;
+}
+body[data-theme="default"] #stats-screen .leaderboard-meta,
+body[data-theme="default"] #stats-screen .leaderboard-detail {
+    color: var(--t-muted) !important;
+}
+body[data-theme="default"] #stats-screen .rank-1 { 
+    color: #FFD700 !important; 
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4) !important; 
+}
+body[data-theme="default"] #stats-screen .rank-2 { 
+    color: #C0C0C0 !important; 
+    text-shadow: 0 0 10px rgba(192, 192, 192, 0.3) !important; 
+}
+body[data-theme="default"] #stats-screen .rank-3 { 
+    color: #CD7F32 !important; 
+    text-shadow: 0 0 10px rgba(205, 127, 50, 0.3) !important; 
+}
+body[data-theme="default"] #stats-screen .rank-other { 
+    color: var(--t-muted) !important; 
+}
+body[data-theme="default"] #stats-screen .leaderboard-avatar {
+    background: linear-gradient(135deg, var(--t-accent), var(--t-accent2)) !important;
+    color: #000 !important;
+}
+body[data-theme="default"] #stats-screen .leaderboard-item.is-me {
+    border: 2px solid var(--t-accent) !important;
+    background: linear-gradient(145deg, #0F172A, #162235) !important;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.15) !important;
+}
+body[data-theme="default"] #stats-screen .leaderboard-medal {
+    opacity: 0.15 !important;
+}
+body[data-theme="default"] #stats-screen .bought-badge {
+    color: var(--t-accent) !important;
+    border-color: var(--t-accent) !important;
+}
+body[data-theme="default"] #stats-screen #leaderboard-empty,
+body[data-theme="default"] #stats-screen #stats-loading {
+    color: var(--t-muted) !important;
 }
