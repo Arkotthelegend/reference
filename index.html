@@ -157,9 +157,12 @@
         text-align: center !important; border: none !important; animation: none !important;
     }
 
-   .buy-btn {
-    display: inline-block !important; width: auto !important; 
-    margin: 15px auto 8px auto !important;
+.buy-btn {
+        display: block !important; width: auto !important; 
+        margin: 15px 0 8px 0 !important;
+        box-sizing: border-box !important; white-space: normal !important; text-align: center !important;
+        background: transparent; border: 1px solid #10B981; color: #10B981; text-decoration: none; padding: 12px; border-radius: 12px;
+    }
 
     /* --- 4. Flashcard UI (Rebuilt & Perfectly Centered) --- */
       #flashcard-screen div[style*="display: flex; gap: 10px;"] .btn {
@@ -460,7 +463,9 @@ input:checked + .slider:before {
         
         .bought-container { gap: 5px !important; margin: 8px 0 !important; }
         .bought-badge { font-size: 0.7rem !important; padding: 3px 6px !important; }
-        .buy-btn { padding: 8px !important; font-size: 0.85rem !important; margin-top: 8px !important; margin-bottom: 0 !important; }
+        .buy-btn {
+    display: inline-block !important; width: auto !important; 
+    margin: 15px auto 8px auto !important;
         
         /* ညာဘက်အပေါ်ထောင့်က ကျား/မ ရွေးချယ်သည့်ခလုတ် (အသေးစား ဒေါင်လိုက်) */
         .gender-container { 
@@ -4062,25 +4067,7 @@ function renderLeaderboard(entries, currentUserId, subject) {
         listDiv.appendChild(div);
     }
 }
-		function copyTelegram() {
-    const username = "@minaphayarkot";
-    tg.showPopup({
-        title: 'ဆက်သွယ်ရန်',
-        message: username,
-        buttons: [
-            {id: 'copy', type: 'default', text: '📋 Copy'},
-            {type: 'cancel'}
-        ]
-    }, function(btnId) {
-        if (btnId === 'copy') {
-            navigator.clipboard.writeText(username).then(function() {
-                tg.showAlert('ကူးယူပြီးပါပြီ ✅');
-            }).catch(function() {
-                tg.showAlert('ကူးယူ၍မရပါ။ လက်နဲ့မှတ်ယူပါ: ' + username);
-            });
-        }
-    });
-}
+	
 		
     </script>
 </body>
