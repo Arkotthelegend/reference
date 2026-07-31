@@ -977,6 +977,80 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     border: 2px solid var(--accent);
 }
 
+	   /* ===== STATISTICS SCREEN & PROFILE BUTTONS THEMING ===== */
+
+/* --- Tabs --- */
+.stats-tab-btn {
+    flex: 1;
+    font-size: 0.8rem;
+    padding: 10px 4px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+.stats-tab-active {
+    background: var(--stats-tab-active-bg, var(--t-accent, #00D5FF)) !important;
+    color: var(--stats-tab-active-text, #000) !important;
+    opacity: 1 !important;
+}
+.stats-tab-inactive {
+    background: var(--stats-tab-inactive-bg, var(--t-card, #162235)) !important;
+    color: var(--stats-tab-inactive-text, var(--t-text, #fff)) !important;
+    opacity: 0.85;
+}
+
+/* --- Profile Buttons --- */
+.profile-stats-btn {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    border-radius: 14px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    background: var(--profile-stat-btn-bg, linear-gradient(135deg, #3B82F6, #06B6D4)) !important;
+    color: var(--profile-stat-btn-text, #fff) !important;
+    box-shadow: 0 4px 15px var(--profile-stat-btn-shadow, rgba(59, 130, 246, 0.3)) !important;
+}
+.profile-theme-btn {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    border-radius: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    background: var(--profile-theme-btn-bg, linear-gradient(135deg, #8B5CF6, #EC4899)) !important;
+    color: var(--profile-theme-btn-text, #fff) !important;
+    box-shadow: 0 4px 15px var(--profile-theme-btn-shadow, rgba(139, 92, 246, 0.3)) !important;
+}
+
+/* --- Stats Screen Content --- */
+#stats-screen .profile-info-card,
+#stats-screen .leaderboard-item,
+#stats-screen #stat-subjects > div {
+    background: var(--t-card, var(--card-bg, #162235)) !important;
+    border-color: var(--t-border, #334155) !important;
+}
+#stats-screen h2,
+#stats-screen h4 {
+    color: var(--t-accent, var(--accent, #00D5FF)) !important;
+}
+#stats-screen .countdown-value,
+#stats-screen .leaderboard-acc,
+#stats-screen #stat-overall-acc {
+    color: var(--t-accent, var(--accent, #00D5FF)) !important;
+}
+#stats-screen .leaderboard-name {
+    color: var(--t-text, var(--white, #fff)) !important;
+}
+#stats-screen .leaderboard-meta,
+#stats-screen .leaderboard-detail {
+    color: var(--t-muted, var(--text-muted, #94A3B8)) !important;
+}
+
 </style>
 <base target="_blank">
 <base target="_blank">
@@ -1170,11 +1244,11 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     <h2 style="text-align: center; color: var(--accent);">📊 My Statistics</h2>
     
     <!-- Tab Buttons -->
-             <div class="stats-tabs-row">
-        <button class="btn stats-tab stats-tab-active" id="tab-summary" onclick="switchStatsTab('summary')">📈 Summary</button>
-        <button class="btn stats-tab" id="tab-best" onclick="switchStatsTab('best')">🏆 Best</button>
-        <button class="btn stats-tab" id="tab-old" onclick="switchStatsTab('old')">📜 Old</button>
-        <button class="btn stats-tab" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')">🏅 Rank</button>
+                         <div style="display: flex; gap: 6px; padding: 0 10px; margin-bottom: 15px;">
+        <button class="btn stats-tab-btn stats-tab-active" id="tab-summary" onclick="switchStatsTab('summary')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">📈 Summary</button>
+        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-best" onclick="switchStatsTab('best')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">🏆 Best</button>
+        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-old" onclick="switchStatsTab('old')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">📜 Old</button>
+        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">🏅 Rank</button>
     </div>
     
     <div id="stats-content" style="padding: 15px;">
@@ -3484,13 +3558,9 @@ function renderProfileData() {
 
     // Dynamic Area ထဲကို UI တွေ ထည့်မယ်
         const dynamicArea = document.getElementById('dynamic-content-area');
-    dynamicArea.innerHTML = `
-    <button onclick="showStatsScreen()" class="profile-btn-stats">
-        📊 My Statistics
-    </button>
-    <button onclick="openThemeShop()" class="profile-btn-shop">
-        🎨 Theme Shop
-    </button>
+        dynamicArea.innerHTML = `
+    <button class="btn profile-stats-btn" onclick="showStatsScreen()">📊 My Statistics</button>
+    <button class="btn profile-theme-btn" onclick="openThemeShop()">🎨 Theme Shop</button>
 `;
 }
 
@@ -4084,8 +4154,8 @@ function switchStatsTab(tabName) {
         if (el) el.style.display = 'none';
         const btn = document.getElementById('tab-' + t);
         if (btn) {
-            btn.style.background = 'var(--card-bg)';
-            btn.style.color = 'var(--white)';
+            btn.classList.remove('stats-tab-active');
+            btn.classList.add('stats-tab-inactive');
         }
     });
     
@@ -4093,8 +4163,8 @@ function switchStatsTab(tabName) {
     const activeBtn = document.getElementById('tab-' + tabName);
     if (activeTab) activeTab.style.display = 'block';
     if (activeBtn) {
-        activeBtn.style.background = 'var(--accent)';
-        activeBtn.style.color = '#000';
+        activeBtn.classList.remove('stats-tab-inactive');
+        activeBtn.classList.add('stats-tab-active');
     }
     
     if (tabName === 'leaderboard') {
