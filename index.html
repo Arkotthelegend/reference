@@ -674,26 +674,7 @@ body[data-theme] .container {
     --detail-secondary-text: #CBD5E1;
     --detail-accent-text: #00D5FF;
 }
-	   #report-btn {
-    position: absolute;
-    top: 5px;
-    right: 15px;
-    z-index: 50;
-    display: inline-block !important;
-    width: auto !important;
-    white-space: nowrap !important;
-    background: transparent;
-    color: var(--t-error, #EF4444);
-    border: 1px solid var(--t-error, #EF4444);
-    padding: 6px 15px;
-    border-radius: 12px;
-    font-family: monospace;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: color 0.3s ease, border-color 0.3s ease, transform 0.1s ease;
-}
-#report-btn:active { transform: scale(0.95); }
+	
 
 	   /* Leaderboard Styles */
 .leaderboard-item {
@@ -938,7 +919,7 @@ body[data-theme] .container {
                 <div class="profile-info-card">
                     <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
-                    <a href="https://t.me/minaphayarkot" target="_blank" class="btn buy-btn">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</a>
+                    <button class="btn buy-btn" onclick="showContactPopup()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
 					<div id="quiz-mode-box" style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
         <span style="font-size: 1.2rem;">⚙️</span>
@@ -1081,7 +1062,6 @@ body[data-theme] .container {
                 <div class="markcount" id="markcount">
         <span id="score-display"> ရမှတ်: 0</span>
     </div>
-    <button id="report-btn" onclick="reportQuestion()" style="display:none;">🚩 Report</button>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
     <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5; overflow-x: auto; max-width: 100%; box-sizing: border-box; padding: 10px;"></div>
@@ -2938,13 +2918,10 @@ function updateFlashUI() {
 const isMath2Or3Mark = currentQuizFile && (currentQuizFile.includes('2_Marks') || currentQuizFile.includes('3_Marks'));
 
 const scoreDisplay = document.getElementById('score-display');
-const reportBtn = document.getElementById('report-btn');
-if (isMath2Or3Mark) {
+		   if (isMath2Or3Mark) {
     scoreDisplay.style.display = 'none';
-    reportBtn.style.display = 'inline-block';
 } else {
     scoreDisplay.style.display = 'inline-block';
-    reportBtn.style.display = 'inline-block';
 }
 
 const timerWrapper = document.getElementById('timer-wrapper');
@@ -3286,9 +3263,6 @@ function renderProfileData() {
     </button>
     <button onclick="openThemeShop()" style="width: 100%; background: linear-gradient(135deg, #8B5CF6, #EC4899); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 10px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
         🎨 Theme Shop
-    </button>
-    <button class="contact-btn" onclick="contactDeveloper()" style="width: 100%; background: #1E293B; padding: 15px; border-radius: 14px; margin-top: 10px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
-        🛠 အမှားများတိုင်ကြားရန်
     </button>
 `;
 }
@@ -3737,17 +3711,6 @@ function toggleTimer() {
     }
 }
 		
-function reportQuestion() {
-    const devUsername = "minaphayarkot";
-    // Use the current quiz file name; if empty, fall back to subject id
-    let fileName = currentQuizFile;
-    if (!fileName && currentSubject) {
-        fileName = currentSubject.id + '_daily_quiz';
-    }
-    if (!fileName) fileName = 'unknown_quiz';
-    const message = encodeURIComponent('မေးခွန်းအမှားတင်ပြခြင်း - ဖိုင်နာမည်: ' + fileName);
-    window.open('https://t.me/' + devUsername + '?text=' + message, '_blank');
-}
 
 // ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
 function resetTimer() {
@@ -4108,6 +4071,14 @@ function renderLeaderboard(entries, currentUserId, subject) {
         `;
         listDiv.appendChild(div);
     }
+}
+		function showContactPopup() {
+    tg.showAlert(
+        "💳 KPay: 09793727678\n" +
+        "📲 Wave: 09793727678\n" +
+        "✈️ Telegram: @minaphayarkot\n\n" +
+        "နံပါတ်များကို ကူးယူပြီး ဆက်သွယ်ပါ"
+    );
 }
 		
     </script>
