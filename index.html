@@ -761,7 +761,224 @@ body[data-theme] .container {
     pointer-events: none;
 }
 	   
+
+/* ===== THEME VARIABLE MAPPING ===== */
+body[data-theme] {
+    --accent: var(--t-accent);
+    --card-bg: var(--t-card);
+    --white: var(--t-text);
+    --text-muted: var(--t-muted);
+    --success: var(--t-success);
+    --error: var(--t-error);
+    --nav-bg: var(--t-card);
+    --nav-border: var(--t-accent);
+    --nav-icon-active: var(--t-accent);
+    --detail-bg: var(--t-card);
+    --detail-border: var(--t-accent);
+    --detail-text: var(--t-text);
+    --detail-secondary-text: var(--t-muted);
+    --detail-accent-text: var(--t-accent);
+    --score-bg: var(--t-success);
+    --score-border: var(--t-success);
+    --score-text: var(--t-success);
+}
+
+/* Theme-specific contrast colors for buttons on accent background */
+body[data-theme="default"] { --t-accent-contrast: #000000; }
+body[data-theme="joker"] { --t-accent-contrast: #FFFFFF; }
+body[data-theme="heaven"] { --t-accent-contrast: #000000; }
+body[data-theme="itachi"] { --t-accent-contrast: #FFFFFF; }
+body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
+
+/* ===== STATISTICS SCREEN FIXES ===== */
+.stats-tabs-row {
+    display: flex;
+    gap: 6px;
+    padding: 0 10px;
+    margin-bottom: 15px;
+}
+
+.stats-tab {
+    flex: 1;
+    background: var(--card-bg) !important;
+    color: var(--white) !important;
+    border: 1px solid #334155 !important;
+    font-size: 0.8rem !important;
+    padding: 10px 4px !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stats-tab:hover {
+    border-color: var(--accent) !important;
+    color: var(--accent) !important;
+}
+
+.stats-tab-active {
+    background: var(--accent) !important;
+    color: var(--t-accent-contrast, #000) !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transform: translateY(-1px);
+}
+
+/* Stats Content Cards */
+.stat-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #334155;
+    text-align: center;
+}
+
+.stat-big-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    font-family: monospace;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.stat-row-item b {
+    color: var(--white);
+    font-size: 1.1rem;
+}
+
+.stat-row-item span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.stat-subject-header {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 15px 0 8px 0;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #334155;
+}
+
+.stat-score-item {
+    background: var(--card-bg);
+    padding: 12px 15px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    border-left: 4px solid var(--accent);
+}
+
+.stat-score-name {
+    font-weight: 600;
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+.stat-score-value {
+    font-family: monospace;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.stat-score-meta {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.stat-score-time {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.stat-empty {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 20px;
+}
+
+/* Leaderboard theme fixes */
+.leaderboard-item {
+    background: var(--card-bg);
+    border: 1px solid #334155;
+}
+
+.leaderboard-item.is-me {
+    border: 2px solid var(--accent);
+    background: linear-gradient(145deg, var(--t-bg, #0F172A), var(--t-card, #162235));
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.leaderboard-acc {
+    color: var(--accent);
+}
+
+/* Profile Buttons - Theme Aware */
+.profile-btn-stats {
+    width: 100%;
+    background: var(--accent);
+    color: var(--t-accent-contrast, #000);
+    border: none;
+    padding: 15px;
+    border-radius: 14px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.profile-btn-stats:active {
+    transform: scale(0.97);
+}
+
+.profile-btn-shop {
+    width: 100%;
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 15px;
+    border-radius: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.profile-btn-shop:hover {
+    background: var(--accent);
+    color: var(--t-accent-contrast, #000);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.profile-btn-shop:active {
+    transform: scale(0.97);
+}
+
+/* Theme shop card improvements */
+.theme-shop-card {
+    background: var(--card-bg);
+    border: 2px solid var(--accent);
+}
+
 </style>
+<base target="_blank">
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
@@ -953,27 +1170,27 @@ body[data-theme] .container {
     <h2 style="text-align: center; color: var(--accent);">📊 My Statistics</h2>
     
     <!-- Tab Buttons -->
-             <div style="display: flex; gap: 6px; padding: 0 10px; margin-bottom: 15px;">
-        <button class="btn" id="tab-summary" onclick="switchStatsTab('summary')" style="flex: 1; background: var(--accent); color: #000; font-size: 0.8rem; padding: 10px 4px;">📈 Summary</button>
-        <button class="btn" id="tab-best" onclick="switchStatsTab('best')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.8rem; padding: 10px 4px;">🏆 Best</button>
-        <button class="btn" id="tab-old" onclick="switchStatsTab('old')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.8rem; padding: 10px 4px;">📜 Old</button>
-        <button class="btn" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')" style="flex: 1; background: var(--card-bg); color: var(--white); font-size: 0.8rem; padding: 10px 4px;">🏅 Rank</button>
+             <div class="stats-tabs-row">
+        <button class="btn stats-tab stats-tab-active" id="tab-summary" onclick="switchStatsTab('summary')">📈 Summary</button>
+        <button class="btn stats-tab" id="tab-best" onclick="switchStatsTab('best')">🏆 Best</button>
+        <button class="btn stats-tab" id="tab-old" onclick="switchStatsTab('old')">📜 Old</button>
+        <button class="btn stats-tab" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')">🏅 Rank</button>
     </div>
     
     <div id="stats-content" style="padding: 15px;">
-        <div id="stats-loading" style="text-align: center; color: #94A3B8; padding: 40px;">ဆွဲယူနေသည်...</div>
+        <div id="stats-loading" style="text-align: center; color: var(--text-muted); padding: 40px;">ဆွဲယူနေသည်...</div>
         
         <!-- Summary Tab -->
         <div id="stats-tab-summary" style="display: none;">
-            <div class="profile-info-card" style="margin-bottom: 15px;">
-                <div style="font-size: 2rem; font-weight: 800; color: var(--accent);" id="stat-overall-acc">0%</div>
-                <div style="color: #94A3B8; font-size: 0.9rem;">စုစုပေါင်း အဖြေမှန်နှုန်း</div>
-                <div style="margin-top: 10px; display: flex; justify-content: space-around;">
-                    <div><b id="stat-total-q">0</b><br><span style="font-size: 0.75rem; color: #64748B;">မေးခွန်းပေါင်း</span></div>
-                    <div><b id="stat-total-c">0</b><br><span style="font-size: 0.75rem; color: #64748B;">မှန်သောအဖြေ</span></div>
+            <div class="stat-card">
+                <div class="stat-big-number" id="stat-overall-acc">0%</div>
+                <div class="stat-label">စုစုပေါင်း အဖြေမှန်နှုန်း</div>
+                <div class="stat-row">
+                    <div class="stat-row-item"><b id="stat-total-q">0</b><br><span>မေးခွန်းပေါင်း</span></div>
+                    <div class="stat-row-item"><b id="stat-total-c">0</b><br><span>မှန်သောအဖြေ</span></div>
                 </div>
             </div>
-            <h4 style="color: var(--accent); margin-bottom: 10px;">ဘာသာရပ်အလိုက်</h4>
+            <div class="stat-subject-header">ဘာသာရပ်အလိုက်</div>
             <div id="stat-subjects" style="margin-bottom: 20px;"></div>
         </div>
         
@@ -992,7 +1209,7 @@ body[data-theme] .container {
 <div id="stats-tab-leaderboard" style="display: none;">
     <div style="margin-bottom: 15px;">
         <label style="color: var(--accent); font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 6px;">ဘာသာရပ်ရွေးချယ်ပါ</label>
-        <select id="leaderboard-subject" onchange="loadLeaderboard()" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--card-bg); color: var(--white); font-size: 1rem; outline: none;">
+        <select id="leaderboard-subject" onchange="loadLeaderboard()" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--card-bg); color: var(--white); font-size: 1rem; outline: none; cursor: pointer;">
             <option value="all">စုစုပေါင်း</option>
             <option value="mm">မြန်မာစာ</option>
             <option value="en">အင်္ဂလိပ်စာ</option>
@@ -1005,8 +1222,8 @@ body[data-theme] .container {
     </div>
     
     <!-- Legend -->
-    <div style="background: var(--card-bg); padding: 10px; border-radius: 10px; margin-bottom: 12px; border: 1px solid #334155; font-size: 0.75rem; color: #94A3B8; line-height: 1.5;">
-        <b style="color: var(--accent);">🏅 အဆင့်သတ်မှတ်နည်း:</b><br>
+    <div style="background: var(--card-bg); padding: 10px; border-radius: 10px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">
+        <b style="color: var(--accent); font-weight: 800;">🏅 အဆင့်သတ်မှတ်နည်း:</b><br>
         ① အဖြေမှန်နှုန်း (%) အမြင့်ဆုံး<br>
         ② မှန်နှုန်းတူရင် အချိန်နည်းသူ အရင်ရပ်<br>
         ③ အချိန်နည်းသူရှိရင် မေးခွန်းပိုများသူ အရင်ရပ်
@@ -1416,7 +1633,7 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
     keys = keys.filter(key => !isSubChapter(key) && !isMyanmarIndividualQuiz(key));
 
     if (keys.length === 0) {
-        container.innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
+        container.innerHTML = '<div class="stat-empty">ဒေတာမရှိသေးပါ</div>';
         return;
     }
 
@@ -1430,7 +1647,7 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
 
     Object.keys(bySubject).forEach(sub => {
         const header = document.createElement('div');
-        header.style.cssText = 'color: var(--accent); font-weight: 700; font-size: 1.05rem; margin: 15px 0 8px 0; padding-bottom: 4px; border-bottom: 1px solid #334155;';
+        header.className = 'stat-subject-header';
         header.innerText = getSubjectName(sub);
         container.appendChild(header);
 
@@ -1470,6 +1687,7 @@ async function loadUserStats() {
     // 1. Show loading first (no stale local data shown yet)
     document.getElementById('stats-loading').style.display = 'block';
     document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
+    document.getElementById('stats-loading').style.color = 'var(--text-muted)';
     document.getElementById('stats-tab-summary').style.display = 'none';
     document.getElementById('stats-tab-best').style.display = 'none';
     document.getElementById('stats-tab-old').style.display = 'none';
@@ -1526,7 +1744,7 @@ async function loadUserStats() {
 
     // Overall card elements
     const overallAccEl = document.getElementById('stat-overall-acc');
-    const card = overallAccEl.closest('.profile-info-card');
+    const card = overallAccEl.closest('.stat-card');
     
     if (keys.length === 0) {
         overallAccEl.innerText = '0%';
@@ -1534,7 +1752,7 @@ async function loadUserStats() {
         document.getElementById('stat-total-c').innerText = '0';
         let timeDiv = document.getElementById('stat-total-time');
         if (timeDiv) timeDiv.innerText = '⏱ 00:00';
-        container.innerHTML = '<div style="text-align:center;color:#64748B;padding:20px;">ဒေတာမရှိသေးပါ</div>';
+        container.innerHTML = '<div class="stat-empty">ဒေတာမရှိသေးပါ</div>';
         return;
     }
 
@@ -1567,7 +1785,7 @@ async function loadUserStats() {
     if (!timeDiv) {
         timeDiv = document.createElement('div');
         timeDiv.id = 'stat-total-time';
-        timeDiv.style.cssText = 'margin-top:10px;padding-top:10px;border-top:1px solid #334155;font-family:monospace;color:#94A3B8;font-size:0.85rem;text-align:center;';
+        timeDiv.style.cssText = 'margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.1);font-family:monospace;color:var(--text-muted);font-size:0.85rem;text-align:center;';
         card.appendChild(timeDiv);
     }
     timeDiv.innerText = '⏱ စုစုပေါင်းအချိန်: ' + formatTime(overallTime);
@@ -1583,11 +1801,11 @@ async function loadUserStats() {
         div.innerHTML = `
             <div style="flex:1;min-width:120px;">
                 <div style="font-weight:600;color:var(--white);font-size:0.95rem;">${getSubjectName(sub)}</div>
-                <div style="font-size:0.75rem;color:#64748B;margin-top:2px;">⏱ ${timeStr} · ${s.count} ခု</div>
+                <div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">⏱ ${timeStr} · ${s.count} ခု</div>
             </div>
             <div style="text-align:right;">
                 <div style="font-family:monospace;color:var(--accent);font-weight:bold;font-size:1rem;">${acc}%</div>
-                <div style="font-size:0.75rem;color:#94A3B8;">${s.score}/${s.total}</div>
+                <div style="font-size:0.75rem;color:var(--text-muted);">${s.score}/${s.total}</div>
             </div>
         `;
         container.appendChild(div);
@@ -1598,10 +1816,21 @@ function showStatsScreen() {
     showScreen('stats');
     document.getElementById('stats-loading').style.display = 'block';
     document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
+    document.getElementById('stats-loading').style.color = 'var(--text-muted)';
     document.getElementById('stats-tab-summary').style.display = 'none';
     document.getElementById('stats-tab-best').style.display = 'none';
     document.getElementById('stats-tab-old').style.display = 'none';
-    document.getElementById('stats-tab-leaderboard').style.display = 'none'; // ⬅️ ADD THIS LINE
+    document.getElementById('stats-tab-leaderboard').style.display = 'none';
+
+    // Reset all tabs to inactive first
+    ['summary', 'best', 'old', 'leaderboard'].forEach(t => {
+        const btn = document.getElementById('tab-' + t);
+        if (btn) btn.classList.remove('stats-tab-active');
+    });
+    // Set summary as active by default
+    const summaryBtn = document.getElementById('tab-summary');
+    if (summaryBtn) summaryBtn.classList.add('stats-tab-active');
+
     loadUserStats();
 }
 
@@ -3256,10 +3485,10 @@ function renderProfileData() {
     // Dynamic Area ထဲကို UI တွေ ထည့်မယ်
         const dynamicArea = document.getElementById('dynamic-content-area');
     dynamicArea.innerHTML = `
-    <button onclick="showStatsScreen()" style="width: 100%; background: linear-gradient(135deg, #3B82F6, #06B6D4); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 15px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);">
+    <button onclick="showStatsScreen()" class="profile-btn-stats">
         📊 My Statistics
     </button>
-    <button onclick="openThemeShop()" style="width: 100%; background: linear-gradient(135deg, #8B5CF6, #EC4899); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 10px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
+    <button onclick="openThemeShop()" class="profile-btn-shop">
         🎨 Theme Shop
     </button>
 `;
@@ -3912,13 +4141,13 @@ async function loadLeaderboard() {
         
         if (data.status !== 'ok') {
             if (loadingDiv) loadingDiv.style.display = 'none';
-            if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'Error: ' + (data.message || 'Unknown'); }
+            if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'Error: ' + (data.message || 'Unknown'); emptyDiv.style.color = 'var(--text-muted)'; }
             return;
         }
         
         if (!data.rows || data.rows.length === 0) {
             if (loadingDiv) loadingDiv.style.display = 'none';
-            if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'ဒေတာမရှိသေးပါ'; }
+            if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'ဒေတာမရှိသေးပါ'; emptyDiv.style.color = 'var(--text-muted)'; }
             return;
         }
         
@@ -3943,7 +4172,7 @@ async function loadLeaderboard() {
         
         if (entries.length === 0) {
             if (loadingDiv) loadingDiv.style.display = 'none';
-            if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'ဒေတာမရှိသေးပါ'; }
+            if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'ဒေတာမရှိသေးပါ'; emptyDiv.style.color = 'var(--text-muted)'; }
             return;
         }
         
@@ -3954,7 +4183,7 @@ async function loadLeaderboard() {
     } catch (e) {
         console.error("Leaderboard error:", e);
         if (loadingDiv) loadingDiv.style.display = 'none';
-        if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'ဆွဲယူမှားနေပါသည်'; }
+        if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'ဆွဲယူမှားနေပါသည်'; emptyDiv.style.color = 'var(--text-muted)'; }
     }
 }
 		
@@ -4049,13 +4278,13 @@ function renderLeaderboard(entries, currentUserId, subject) {
         div.style.opacity = '0.7';
         div.innerHTML = `
             <div class="leaderboard-rank rank-other">-</div>
-            <div class="leaderboard-avatar">?</div>
+            <div class="leaderboard-avatar" style="background: var(--card-bg); color: var(--text-muted);">?</div>
             <div class="leaderboard-info">
-                <div class="leaderboard-name">You (No data)</div>
+                <div class="leaderboard-name" style="color: var(--text-muted);">You (No data)</div>
                 <div class="leaderboard-meta">ဒီဘာသာရပ်အတွက် မေးခွန်းမဖြေဆိုရသေးပါ</div>
             </div>
             <div class="leaderboard-score-box">
-                <div class="leaderboard-acc">-%</div>
+                <div class="leaderboard-acc" style="color: var(--text-muted);">-%</div>
             </div>
         `;
         listDiv.appendChild(div);
