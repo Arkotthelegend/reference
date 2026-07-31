@@ -1,410 +1,429 @@
-/* theme-joker.css - The Joker v3 (Clean: No Glitch Textures) */
-body[data-theme="joker"] {
-  --t-bg: #0A0014;
-  --t-card: #1E1035;
-  --t-accent: #39FF14;
-  --t-accent2: #BF00FF;
-  --t-success: #00FF88;
-  --t-danger: #FF003C;
-  --t-border-home: #39FF14;
-  --t-border-old: #FF003C;
-  --t-border-daily: #BF00FF;
-  --t-border-subtle: #2A0044;
-  --detail-bg: #1E1035;
-  --detail-border: #BF00FF;
-  --detail-text: #FFFFFF;
-  --detail-secondary-text: #C084FC;
-  --detail-accent-text: #BF00FF;
-}
-
-/* === NAV BAR — Joker's Deck === */
-body[data-theme="joker"] .nav {
-    background: linear-gradient(145deg, #150030, #1E1035, #150030) !important;
-    border-top: 2px solid #2A0044 !important;
-    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(57, 255, 20, 0.06) !important;
-}
-
-body[data-theme="joker"] .nav-item {
-    color: #8B6FA8 !important;
-    transition: all 0.25s ease;
-    text-shadow: none;
-}
-
-body[data-theme="joker"] .nav-item:hover {
-    color: #39FF14 !important;
-    text-shadow: 0 0 12px rgba(57, 255, 20, 0.4);
-}
-
-body[data-theme="joker"] .nav-item.active {
-    color: #C084FC !important;
-    text-shadow: 0 0 16px rgba(192, 132, 252, 0.5);
-}
-
-body[data-theme="joker"] .nav-item.active::before {
-    background: linear-gradient(90deg, transparent, #BF00FF, #39FF14, transparent) !important;
-    height: 2px !important;
-    box-shadow: 0 0 12px rgba(191, 0, 255, 0.3);
-}
-
-body[data-theme="joker"] .nav-icon {
-    filter: drop-shadow(0 0 4px rgba(57, 255, 20, 0.15));
-}
-
-body[data-theme="joker"] .nav-item.active .nav-icon {
-    filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.4));
-}
+/* ============================================================
+   theme-joker.css — Joker / Chaos Theme (No Shadows, Low Lag)
+   Based on theme-default.css template.
+   ============================================================ */
 
 body[data-theme="joker"] {
-    background: 
-        radial-gradient(ellipse 70% 40% at 50% -5%, rgba(191, 0, 255, 0.04) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 30% at 80% 100%, rgba(57, 255, 20, 0.02) 0%, transparent 50%),
-        linear-gradient(180deg, #0A0014 0%, #0F0020 40%, #0A0014 100%);
+  /* Base Colors — Dark Purple Void */
+  --t-bg: #050508;          /* Near-Black with purple undertone */
+  --t-card: #0F0518;        /* Deep Joker Purple card */
+
+  /* Accents — Toxic Green & Chaos Purple */
+  --t-accent: #22C55E;      /* Toxic Green (Joker's signature) */
+  --t-accent2: #A855F7;     /* Chaos Purple */
+  --t-success: #4ADE80;     /* Bright Neon Green */
+  --t-danger:  #EC4899;     /* Joker Magenta / Hot Pink */
+
+  /* Text hierarchy */
+  --t-text: #F0FDF4;        /* Green-tinted white */
+  --t-muted: #C4B5FD;       /* Soft lavender */
+
+  --t-border-home: #22C55E;
+  --t-border-old: #A855F7;
+  --t-border-daily: #EC4899;
+  --t-border-subtle: #2E1065; /* Deep purple border */
+
+  /* Detail / Definition / Formula screens */
+  --detail-bg: #1A0A2E;
+  --detail-border: #22C55E;
+  --detail-text: #fff;
+  --detail-secondary-text: #D8B4FE;
+  --detail-accent-text: #4ADE80;
+
+  /* ===== STATISTICS & PROFILE BUTTON VARIABLES ===== */
+  --stats-tab-active-bg: var(--t-accent);
+  --stats-tab-active-text: #000000;
+  --stats-tab-inactive-bg: var(--t-card);
+  --stats-tab-inactive-text: var(--t-text);
+
+  --profile-stat-btn-bg: linear-gradient(135deg, #22C55E, #16A34A);
+  --profile-stat-btn-text: #000000;
+  --profile-stat-btn-shadow: none;
+
+  --profile-theme-btn-bg: linear-gradient(135deg, #A855F7, #EC4899);
+  --profile-theme-btn-text: #FFFFFF;
+  --profile-theme-btn-shadow: none;
+
+    /* Score display (quiz screen top-left) */
+  --score-bg: rgba(34, 197, 94, 0.15);
+  --score-border: var(--t-accent);
+  --score-text: var(--t-accent);
+}
+
+/* Background gradient */
+body[data-theme="joker"] {
+    background: linear-gradient(180deg, #050508 0%, #0F0518 50%, #1A0A2E 100%);
     background-attachment: fixed;
 }
 
+/* Subject cards */
+body[data-theme="joker"] .subject-card {
+    background: var(--t-card) !important;
+    border-radius: 12px;
+    border: 2px solid #2E1065;
+}
+
+/* Overlay screens */
 body[data-theme="joker"] #math-solution-screen,
 body[data-theme="joker"] #grammar-note-screen { 
     background: var(--t-bg) !important; 
 }
 
-/* === CARDS - Clean gradient, NO texture === */
-body[data-theme="joker"] .subject-card { 
-    background: linear-gradient(145deg, #1E1035 0%, #150030 50%, #1E1035 100%) !important;
-    border-radius: 14px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-    border: 2px solid #2A0044 !important;
-}
-
-body[data-theme="joker"] .subject-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(57, 255, 20, 0.06);
-    border-color: #3A0066 !important;
-}
-
-/* === SUBJECT LIST - BOLD 2px borders === */
+/* Home subject list borders */
 body[data-theme="joker"] #subject-list .subject-card { 
     border: 2px solid var(--t-border-home) !important; 
-    box-shadow: 0 0 20px rgba(57, 255, 20, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 body[data-theme="joker"] #subject-list .subject-card span:last-child { 
     color: var(--t-border-home) !important; 
-    text-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
-    font-weight: 700;
 }
 
+/* Old questions subject list borders */
 body[data-theme="joker"] #old-subject-list .subject-card { 
     border: 2px solid var(--t-border-old) !important; 
-    box-shadow: 0 0 20px rgba(255, 0, 60, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 body[data-theme="joker"] #old-subject-list .subject-card span:last-child { 
     color: var(--t-border-old) !important; 
-    text-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
-    font-weight: 700;
 }
 
+/* Daily quiz subject list borders */
 body[data-theme="joker"] #daily-screen .subject-card { 
     border: 2px solid var(--t-border-daily) !important; 
-    box-shadow: 0 0 20px rgba(191, 0, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 body[data-theme="joker"] #daily-screen .subject-card span:last-child { 
     color: var(--t-border-daily) !important; 
-    text-shadow: 0 0 10px rgba(191, 0, 255, 0.3);
-    font-weight: 700;
 }
 
-/* === BUTTONS - CLEAN: No texture, just smooth gradients + glow === */
-
-/* Primary: Purple fill, Green border */
+/* Buttons */
 body[data-theme="joker"] .btn { 
-    background: linear-gradient(135deg, #4C1D95, #6D28D9) !important; 
-    color: #FFFFFF !important; 
-    border: 2px solid #39FF14 !important;
-    box-shadow: 
-        0 0 24px rgba(57, 255, 20, 0.15),
-        0 4px 12px rgba(0, 0, 0, 0.3) !important;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    background: var(--t-accent) !important; 
+    color: #000000 !important; 
+    border: 2px solid #4ADE80 !important; 
     font-weight: 700;
-    letter-spacing: 0.3px;
 }
-
-/* Back Button */
 body[data-theme="joker"] .back-btn { 
-    background: linear-gradient(145deg, #1E1035, #150030) !important; 
-    border: 2px solid #3A0066 !important; 
-    color: #E0E0E0 !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: var(--t-card) !important; 
+    border: 2px solid var(--t-border-subtle) !important; 
+    color: #FFFFFF !important; 
 }
-
-/* Next: Green fill, Purple border */
 body[data-theme="joker"] .next-btn-styled, 
 body[data-theme="joker"] .next-btn { 
-    background: linear-gradient(135deg, #064E3B, #065F46) !important; 
-    color: #FFFFFF !important; 
+    background: var(--t-success) !important; 
+    color: #000000 !important; 
+    border: 2px solid #86EFAC !important;
     font-weight: 700;
-    border: 2px solid #BF00FF !important;
-    box-shadow: 0 0 20px rgba(191, 0, 255, 0.12), 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
-
-/* Option Buttons */
 body[data-theme="joker"] .option-btn { 
-    background: linear-gradient(145deg, #1E1035, #150030) !important; 
-    border: 2px solid #2A0044 !important; 
-    color: #E0E0E0 !important;
-    transition: all 0.25s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background: var(--t-card) !important; 
+    border: 2px solid var(--t-border-subtle) !important; 
+    color: #F0FDF4 !important; 
 }
 
-body[data-theme="joker"] .option-btn:hover {
-    border-color: #39FF14 !important;
-    background: linear-gradient(145deg, #2A0A4A, #1E1035) !important;
-    box-shadow: 0 0 16px rgba(57, 255, 20, 0.08), 0 2px 8px rgba(0, 0, 0, 0.3);
+/* Profile info card */
+body[data-theme="joker"] .profile-info-card { 
+    background: linear-gradient(180deg, #1A0A2E, #0F0518) !important;
+    border: 2px solid #2E1065 !important;
 }
 
-/* === ANSWER STATES === */
+/* Quiz answer states */
 body[data-theme="joker"] .correct-answer { 
-    background: linear-gradient(145deg, #00331A, #004D26) !important; 
+    background: #064E3B !important; 
     border: 2px solid var(--t-success) !important; 
-    color: #fff !important;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.12), 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: #FFFFFF !important; 
 }
-
 body[data-theme="joker"] .wrong-answer { 
-    background: linear-gradient(145deg, #33000D, #4A0014) !important; 
+    background: #4A044E !important; 
     border: 2px solid var(--t-danger) !important; 
-    color: #fff !important;
-    box-shadow: 0 0 20px rgba(255, 0, 60, 0.12), 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: #FFFFFF !important; 
 }
 
-/* === FLASHCARDS === */
+/* Flashcard borders */
 body[data-theme="joker"] .flash-front { 
     border: 2px solid var(--t-accent) !important; 
-    box-shadow: 0 0 24px rgba(57, 255, 20, 0.08), 0 4px 16px rgba(0, 0, 0, 0.3);
 }
-
 body[data-theme="joker"] .flash-back { 
     border: 2px solid var(--t-danger) !important; 
-    box-shadow: 0 0 24px rgba(255, 0, 60, 0.08), 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* === PROFILE CARD === */
-body[data-theme="joker"] .profile-info-card { 
-    background: linear-gradient(145deg, #150030, #1E1035) !important; 
-    border: 2px solid #3A0066 !important; 
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 24px rgba(191, 0, 255, 0.05) !important; 
-}
-
-/* === EXAM COUNTDOWN === */
+/* Exam countdown */
 body[data-theme="joker"] #exam-countdown { 
-    border: 2px solid var(--t-danger) !important; 
-    box-shadow: 0 0 30px rgba(255, 0, 60, 0.1), 0 4px 16px rgba(0, 0, 0, 0.3) !important; 
-    background: linear-gradient(145deg, #150030, #1E1035) !important;
+    border: 2px solid var(--t-accent) !important; 
 }
-
 body[data-theme="joker"] .countdown-value { 
-    color: var(--t-accent) !important;
-    text-shadow: 0 0 16px rgba(57, 255, 20, 0.4);
-    font-weight: 800;
-    font-size: 1.1em;
+    color: var(--t-accent) !important; 
 }
 
-/* === BADGES & BUY === */
+/* Badges & buy button */
 body[data-theme="joker"] .bought-badge { 
     color: var(--t-accent) !important; 
-    border: 1px solid var(--t-accent) !important; 
-    box-shadow: 0 0 12px rgba(57, 255, 20, 0.1);
-    background: rgba(57, 255, 20, 0.05) !important;
+    border: 2px solid var(--t-accent) !important; 
+    background: rgba(34, 197, 94, 0.1) !important;
 }
-
 body[data-theme="joker"] .buy-btn { 
     background: transparent !important; 
     color: var(--t-success) !important; 
-    border: 1px solid var(--t-success) !important; 
-    box-shadow: 0 0 8px rgba(0, 255, 136, 0.08);
+    border: 2px solid var(--t-success) !important; 
+    font-weight: 600;
 }
 
-/* === FORM ELEMENTS === */
+/* Gender switch */
 body[data-theme="joker"] .gender-container input:checked + .slider { 
     background-color: var(--t-accent) !important; 
-    box-shadow: 0 0 16px rgba(57, 255, 20, 0.4);
 }
 
+/* Inputs & cards */
 body[data-theme="joker"] .quiz-input:focus { 
     border-color: var(--t-accent) !important; 
-    box-shadow: 0 0 0 3px rgba(57, 255, 20, 0.1), 0 0 16px rgba(57, 255, 20, 0.06) !important;
 }
-
 body[data-theme="joker"] .quiz-card { 
     border-left: 4px solid var(--t-accent) !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* === CONTENT BOXES === */
+/* Content boxes */
 body[data-theme="joker"] #grammar-note-content, 
 body[data-theme="joker"] #math-solution-content { 
-    border: 1px solid #2A0044 !important; 
-    background: linear-gradient(145deg, #150030, #1E1035) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--t-border-subtle) !important; 
 }
 
-/* === SCROLLBAR === */
+/* Scrollbars */
 body[data-theme="joker"] .mjx-container::-webkit-scrollbar-thumb, 
 body[data-theme="joker"] .math-scroll-container::-webkit-scrollbar-thumb { 
-    background: linear-gradient(180deg, #BF00FF, #4C1D95) !important; 
+    background: var(--t-accent) !important; 
     border-radius: 4px;
 }
 
-body[data-theme="joker"] ::-webkit-scrollbar { width: 8px; }
-body[data-theme="joker"] ::-webkit-scrollbar-track { background: var(--t-bg); border-radius: 4px; }
-body[data-theme="joker"] ::-webkit-scrollbar-thumb { 
-    background: linear-gradient(180deg, #2A0044, #1E1035); 
-    border-radius: 4px; 
-    border: 1px solid #0A0014;
-}
-body[data-theme="joker"] ::-webkit-scrollbar-thumb:hover { 
-    background: linear-gradient(180deg, #39FF14, #00D26A); 
-}
-
-/* === CHECKLIST === */
+/* Checklist */
 body[data-theme="joker"] #checklist-container input[type="checkbox"] { 
     accent-color: var(--t-accent) !important; 
 }
 
-/* === TIMER & SHUFFLE === */
+/* Timer & shuffle buttons */
 body[data-theme="joker"] .timer-btn { 
-    background: linear-gradient(145deg, #1E1035, #150030) !important; 
+    background: var(--t-card) !important; 
     color: var(--t-accent) !important; 
-    border: 2px solid #2A0044 !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    text-shadow: 0 0 6px rgba(57, 255, 20, 0.3);
+    border: 2px solid var(--t-accent) !important; 
     font-weight: 600;
 }
-
 body[data-theme="joker"] .shuffle-btn { 
-    background: linear-gradient(145deg, #1E1035, #150030) !important; 
+    background: var(--t-card) !important; 
     color: var(--t-accent) !important; 
-    border: 2px solid #2A0044 !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    text-shadow: 0 0 6px rgba(57, 255, 20, 0.3);
+    border: 2px solid var(--t-accent) !important; 
+    font-weight: 600;
 }
-
 body[data-theme="joker"] .shuffle-active { 
-    background: linear-gradient(135deg, #4C1D95, #6D28D9) !important; 
-    color: #FFFFFF !important;
-    box-shadow: 0 0 20px rgba(191, 0, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid #39FF14 !important;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    background: var(--t-accent) !important; 
+    color: #000000 !important; 
 }
 
-/* === MIDDLE SCREEN & MOTIVATION === */
+/* Motivation box */
 body[data-theme="joker"] #middle-screen > div > div:first-child, 
 body[data-theme="joker"] #motivation-box { 
-    background: linear-gradient(145deg, rgba(15, 0, 32, 0.9), rgba(21, 0, 48, 0.9)) !important; 
-    border: 1px solid #2A0044 !important; 
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important; 
-    backdrop-filter: blur(12px);
+    background: #0F0518 !important; 
+    border: 2px solid var(--t-border-subtle) !important; 
 }
 
-/* === CONTACT & QUIZ MODE === */
+/* Contact & quiz mode */
 body[data-theme="joker"] .contact-btn { 
     color: var(--t-accent) !important; 
-    border: 2px solid #2A0044 !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important; 
-    transition: all 0.25s ease;
-    background: linear-gradient(145deg, #1E1035, #150030) !important;
-    text-shadow: 0 0 6px rgba(57, 255, 20, 0.2);
+    border: 2px solid var(--t-accent) !important; 
+    font-weight: 600;
 }
-
-body[data-theme="joker"] .contact-btn:hover {
-    border-color: var(--t-accent) !important;
-    box-shadow: 0 0 20px rgba(57, 255, 20, 0.1) !important;
-}
-
 body[data-theme="joker"] #quiz-mode-box { 
-    border: 1px solid #2A0044 !important; 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important; 
-    background: linear-gradient(145deg, #150030, #1E1035) !important;
+    border: 2px solid var(--t-border-subtle) !important; 
 }
 
-/* === INPUTS === */
+/* ============================================================
+   ADDITIONAL ENHANCEMENTS FOR JOKER THEME (NO SHADOWS)
+   ============================================================ */
+
+/* Scrollbar styling */
+body[data-theme="joker"] ::-webkit-scrollbar { width: 8px; }
+body[data-theme="joker"] ::-webkit-scrollbar-track { background: #050508; }
+body[data-theme="joker"] ::-webkit-scrollbar-thumb { background: #2E1065; border-radius: 4px; }
+body[data-theme="joker"] ::-webkit-scrollbar-thumb:hover { background: #22C55E; }
+
+/* Input fields */
 body[data-theme="joker"] input,
 body[data-theme="joker"] textarea,
 body[data-theme="joker"] select {
-    background: linear-gradient(145deg, #1E1035, #150030) !important;
-    border: 1px solid #2A0044 !important;
-    color: #F0F0F0 !important;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: #0F0518 !important;
+    border: 2px solid #2E1065 !important;
+    color: #F0FDF4 !important;
 }
-
 body[data-theme="joker"] input:focus,
 body[data-theme="joker"] textarea:focus,
 body[data-theme="joker"] select:focus {
     border-color: var(--t-accent) !important;
     outline: none !important;
-    box-shadow: 0 0 0 3px rgba(57, 255, 20, 0.08), 0 0 16px rgba(57, 255, 20, 0.06), inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* === MODAL OVERLAY === */
+/* Modal / overlay backgrounds */
 body[data-theme="joker"] .modal-overlay,
 body[data-theme="joker"] .overlay {
-    background: rgba(10, 0, 20, 0.93) !important;
-    backdrop-filter: blur(12px);
+    background: rgba(5, 5, 8, 0.95) !important;
 }
 
-/* === DIVIDERS === */
+/* Dividers */
 body[data-theme="joker"] hr,
 body[data-theme="joker"] .divider {
-    border: none !important;
-    height: 1px !important;
-    background: linear-gradient(90deg, transparent 0%, #39FF14 25%, #BF00FF 50%, #FF003C 75%, transparent 100%) !important;
-    opacity: 0.5;
+    border-color: #2E1065 !important;
+    border-width: 2px !important;
 }
 
-/* === TEXT === */
+/* Text hierarchy */
 body[data-theme="joker"] .text-muted,
 body[data-theme="joker"] .text-secondary {
-    color: #8B6FA8 !important;
+    color: #C4B5FD !important;
 }
-
 body[data-theme="joker"] .text-primary {
-    color: #F0F0F0 !important;
+    color: #F0FDF4 !important;
 }
 
-/* Joker Theme - Switch & Tracker */
-body[data-theme="joker"] {
-    --switch-bg-off: #141414;
-    --switch-border-off: #39ff14;
-    --switch-bg-on: #bf00ff;
-    --switch-knob-off: #39ff14;
-    --switch-knob-on: #0a0a0a;
-    
-    --tracker-bg: #0f0f0f;
-    --tracker-border: #39ff14;
-    --tracker-text: #39ff14;
-    --tracker-check-accent: #bf00ff;
-    
-    --toggle-inner-bg: #0f0f0f;
-    --toggle-inner-border: #bf00ff;
-    --toggle-label-color: #39ff14;
+/* ============================================================
+   STATISTICS SCREEN & PROFILE BUTTONS (Joker Theme)
+   ============================================================ */
+
+/* --- Stats Tabs --- */
+body[data-theme="joker"] .stats-tab-active {
+    background: var(--stats-tab-active-bg) !important;
+    color: var(--stats-tab-active-text) !important;
+    opacity: 1 !important;
+    font-weight: 700;
+    border: 2px solid #4ADE80 !important;
+}
+body[data-theme="joker"] .stats-tab-inactive {
+    background: var(--stats-tab-inactive-bg) !important;
+    color: var(--stats-tab-inactive-text) !important;
+    opacity: 0.85 !important;
+    border: 2px solid #2E1065 !important;
 }
 
-/* Joker Theme - Theme Shop */
-body[data-theme="joker"] .theme-shop-card {
-    background: var(--t-card, #141414);
-    border-color: var(--t-accent, #39ff14) !important;
+/* --- Profile Buttons ("My Statistics" & "Theme Shop") --- */
+body[data-theme="joker"] .profile-stats-btn {
+    background: var(--profile-stat-btn-bg) !important;
+    color: var(--profile-stat-btn-text) !important;
+    border: 2px solid #4ADE80 !important;
+    font-weight: 700;
+}
+body[data-theme="joker"] .profile-theme-btn {
+    background: var(--profile-theme-btn-bg) !important;
+    color: var(--profile-theme-btn-text) !important;
+    border: 2px solid #EC4899 !important;
+    font-weight: 700;
 }
 
-body[data-theme="joker"] .theme-shop-card .theme-name {
-    color: var(--t-accent, #39ff14);
+/* --- Stats Screen Content --- */
+body[data-theme="joker"] #stats-screen .profile-info-card,
+body[data-theme="joker"] #stats-screen .leaderboard-item,
+body[data-theme="joker"] #stats-screen #stat-subjects > div {
+    background: var(--t-card) !important;
+    border: 2px solid var(--t-border-subtle) !important;
+}
+body[data-theme="joker"] #stats-screen h2,
+body[data-theme="joker"] #stats-screen h4 {
+    color: var(--t-accent) !important;
+}
+body[data-theme="joker"] #stats-screen .countdown-value,
+body[data-theme="joker"] #stats-screen .leaderboard-acc,
+body[data-theme="joker"] #stats-screen #stat-overall-acc {
+    color: var(--t-accent) !important;
+}
+body[data-theme="joker"] #stats-screen .leaderboard-name {
+    color: var(--t-text) !important;
+}
+body[data-theme="joker"] #stats-screen .leaderboard-meta,
+body[data-theme="joker"] #stats-screen .leaderboard-detail {
+    color: var(--t-muted) !important;
+}
+body[data-theme="joker"] #stats-screen .rank-1 { 
+    color: #22C55E !important; 
+    font-weight: 700;
+}
+body[data-theme="joker"] #stats-screen .rank-2 { 
+    color: #A855F7 !important; 
+    font-weight: 700;
+}
+body[data-theme="joker"] #stats-screen .rank-3 { 
+    color: #EC4899 !important; 
+    font-weight: 700;
+}
+body[data-theme="joker"] #stats-screen .rank-other { 
+    color: var(--t-muted) !important; 
+}
+body[data-theme="joker"] #stats-screen .leaderboard-avatar {
+    background: linear-gradient(135deg, var(--t-accent), var(--t-accent2)) !important;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+}
+body[data-theme="joker"] #stats-screen .leaderboard-item.is-me {
+    border: 3px solid var(--t-accent) !important;
+    background: #1A0A2E !important;
+}
+body[data-theme="joker"] #stats-screen .leaderboard-medal {
+    opacity: 0.15 !important;
+}
+body[data-theme="joker"] #stats-screen .bought-badge {
+    color: var(--t-accent) !important;
+    border-color: var(--t-accent) !important;
+}
+body[data-theme="joker"] #stats-screen #leaderboard-empty,
+body[data-theme="joker"] #stats-screen #stats-loading {
+    color: var(--t-muted) !important;
 }
 
-body[data-theme="joker"] .theme-shop-card .theme-price {
-    color: var(--t-accent2, #bf00ff);
+/* ============================================================
+   SCORE DISPLAY (Quiz Screen)
+   ============================================================ */
+
+body[data-theme="joker"] #score-display {
+    background: var(--score-bg) !important;
+    border: 2px solid var(--score-border) !important;
+    color: var(--score-text) !important;
+    display: inline-block !important;
+    padding: 6px 15px;
+    border-radius: 12px;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
-/* Joker Theme - Score Display */
-body[data-theme="joker"] {
-    --score-bg: #141414;
-    --score-border: #39ff14;
-    --score-text: #39ff14;
+body[data-theme="joker"] .markcount {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    z-index: 50;
+    white-space: nowrap;
+}
+
+/* ============================================================
+   JOKER EXTRAS — Bold borders for depth instead of shadows
+   ============================================================ */
+
+/* Option button hover state (replaces shadow with border glow) */
+body[data-theme="joker"] .option-btn:hover {
+    border-color: var(--t-accent) !important;
+    background: #1A0A2E !important;
+}
+
+/* Subject card hover */
+body[data-theme="joker"] .subject-card:hover {
+    border-color: var(--t-accent) !important;
+    background: #1A0A2E !important;
+}
+
+/* Active/pressed button state */
+body[data-theme="joker"] .btn:active,
+body[data-theme="joker"] .next-btn:active,
+body[data-theme="joker"] .next-btn-styled:active {
+    border-color: #FFFFFF !important;
+}
+
+/* Leaderboard item hover */
+body[data-theme="joker"] #stats-screen .leaderboard-item:hover {
+    border-color: var(--t-accent2) !important;
+    background: #1A0A2E !important;
+}
+
+/* Strong border accents for important elements */
+body[data-theme="joker"] .important-border {
+    border: 3px solid var(--t-accent) !important;
 }
