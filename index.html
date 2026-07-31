@@ -3,108 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script src="https://telegram.org/js/telegram-web-app.js">
-// ─── Contact Modal Functions ───
-function showContactModal() {
-    const modal = document.getElementById('contact-modal');
-    modal.style.display = 'flex';
-}
-function closeContactModal() {
-    document.getElementById('contact-modal').style.display = 'none';
-}
-function copyToClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => {
-            tg.showAlert("✅ ကူးယူပြီးပါပြီ: " + text);
-        }).catch(() => {
-            fallbackCopy(text);
-        });
-    } else {
-        fallbackCopy(text);
-    }
-}
-function fallbackCopy(text) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-        document.execCommand('copy');
-        tg.showAlert("✅ ကူးယူပြီးပါပြီ: " + text);
-    } catch (err) {
-        tg.showAlert("❌ ကူးယူ၍မရပါ: " + text);
-    }
-    document.body.removeChild(ta);
-}
-</script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6">
-// ─── Contact Modal Functions ───
-function showContactModal() {
-    const modal = document.getElementById('contact-modal');
-    modal.style.display = 'flex';
-}
-function closeContactModal() {
-    document.getElementById('contact-modal').style.display = 'none';
-}
-function copyToClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => {
-            tg.showAlert("✅ ကူးယူပြီးပါပြီ: " + text);
-        }).catch(() => {
-            fallbackCopy(text);
-        });
-    } else {
-        fallbackCopy(text);
-    }
-}
-function fallbackCopy(text) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-        document.execCommand('copy');
-        tg.showAlert("✅ ကူးယူပြီးပါပြီ: " + text);
-    } catch (err) {
-        tg.showAlert("❌ ကူးယူ၍မရပါ: " + text);
-    }
-    document.body.removeChild(ta);
-}
-</script>
-	
-<!-- Contact / Payment Modal -->
-<div id="contact-modal" onclick="if(event.target===this)closeContactModal()">
-    <div class="contact-modal-content">
-        <button class="contact-modal-close" onclick="closeContactModal()">✕</button>
-        <h3 style="color:var(--accent); margin:5px 0 20px 0; font-size:1.25rem;">💬 ဝယ်ယူမှုဆိုင်ရာ ဆက်သွယ်ရန်</h3>
-
-        <div class="contact-info-box">
-            <div class="contact-info-label">📱 KPay / Wave Money</div>
-            <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-                <span id="contact-phone" class="contact-info-value">09-793727678</span>
-                <button class="contact-copy-btn" onclick="copyToClipboard('09-XXXXXXXXX')">📋 ကူးယူ</button>
-            </div>
-        </div>
-
-        <div class="contact-info-box">
-            <div class="contact-info-label">✈️ Telegram Account</div>
-            <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-                <span class="contact-info-value">@minaphayarkot</span>
-                <button class="contact-copy-btn" onclick="copyToClipboard('@minaphayarkot')">📋 ကူးယူ</button>
-            </div>
-        </div>
-
-        <p class="contact-modal-footer">
-            ဘာသာရပ်ဝယ်ယူလိုပါက အထက်ပါ KPay (သို့မဟုတ်) Wave နံပါတ်သို့ ငွေလွှဲနိုင်ပါသည်။<br>
-            ငွေလွှဲပြီးပါက Telegram မှတစ်ဆင့် screenshot နှင့် အတူ ဆက်သွယ်နိုင်ပါသည်။
-        </p>
-    </div>
-</div>
-<script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script>
         window.MathJax = {
 		options: {
             enableMenu: false // ဤနေရာတွင် Menu ကို ပိတ်လိုက်ပါသည်
@@ -115,78 +16,8 @@ function fallbackCopy(text) {
                 processEscapes: true
             }
         };
-    
-// ─── Contact Modal Functions ───
-function showContactModal() {
-    const modal = document.getElementById('contact-modal');
-    modal.style.display = 'flex';
-}
-function closeContactModal() {
-    document.getElementById('contact-modal').style.display = 'none';
-}
-function copyToClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => {
-            tg.showAlert("✅ ကူးယူပြီးပါပြီ: " + text);
-        }).catch(() => {
-            fallbackCopy(text);
-        });
-    } else {
-        fallbackCopy(text);
-    }
-}
-function fallbackCopy(text) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-        document.execCommand('copy');
-        tg.showAlert("✅ ကူးယူပြီးပါပြီ: " + text);
-    } catch (err) {
-        tg.showAlert("❌ ကူးယူ၍မရပါ: " + text);
-    }
-    document.body.removeChild(ta);
-}
-</script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-// ─── Contact Modal Functions ───
-function showContactModal() {
-    const modal = document.getElementById('contact-modal');
-    modal.style.display = 'flex';
-}
-function closeContactModal() {
-    document.getElementById('contact-modal').style.display = 'none';
-}
-function copyToClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => {
-            tg.showAlert("✅ ကူးယူပြီးပါပြီ: " + text);
-        }).catch(() => {
-            fallbackCopy(text);
-        });
-    } else {
-        fallbackCopy(text);
-    }
-}
-function fallbackCopy(text) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-        document.execCommand('copy');
-        tg.showAlert("✅ ကူးယူပြီးပါပြီ: " + text);
-    } catch (err) {
-        tg.showAlert("❌ ကူးယူ၍မရပါ: " + text);
-    }
-    document.body.removeChild(ta);
-}
-</script>
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
    <style>
    
    .mjx-container {
@@ -843,6 +674,26 @@ body[data-theme] .container {
     --detail-secondary-text: #CBD5E1;
     --detail-accent-text: #00D5FF;
 }
+	   #report-btn {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    z-index: 50;
+    display: inline-block !important;
+    width: auto !important;
+    white-space: nowrap !important;
+    background: transparent;
+    color: var(--t-error, #EF4444);
+    border: 1px solid var(--t-error, #EF4444);
+    padding: 6px 15px;
+    border-radius: 12px;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.1s ease;
+}
+#report-btn:active { transform: scale(0.95); }
 
 	   /* Leaderboard Styles */
 .leaderboard-item {
@@ -931,92 +782,6 @@ body[data-theme] .container {
     pointer-events: none;
 }
 	   
-
-/* ===== Contact Modal ===== */
-#contact-modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85);
-    z-index: 200;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-.contact-modal-content {
-    background: var(--card-bg);
-    border: 2px solid var(--accent);
-    border-radius: 20px;
-    padding: 25px;
-    width: 85%;
-    max-width: 400px;
-    text-align: center;
-    position: relative;
-    animation: modalPop 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
-@keyframes modalPop {
-    from { transform: scale(0.85); opacity: 0; }
-    to   { transform: scale(1); opacity: 1; }
-}
-.contact-modal-close {
-    position: absolute;
-    top: 8px; right: 15px;
-    background: none; border: none;
-    color: var(--text-muted);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0;
-    width: auto !important;
-    transition: color 0.2s;
-}
-.contact-modal-close:active { color: var(--accent); transform: scale(0.9); }
-.contact-info-box {
-    background: var(--bg);
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 12px;
-    text-align: left;
-}
-.contact-info-label {
-    color: #94A3B8;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 6px;
-}
-.contact-info-value {
-    font-family: 'Inter', monospace;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--white);
-    word-break: break-all;
-}
-.contact-copy-btn {
-    background: var(--accent);
-    color: #000;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: transform 0.1s ease, filter 0.2s;
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-left: 10px;
-}
-.contact-copy-btn:active { transform: scale(0.92); }
-.contact-copy-btn:hover { filter: brightness(1.15); }
-.contact-modal-footer {
-    color: #64748B;
-    font-size: 0.8rem;
-    line-height: 1.5;
-    margin-top: 8px;
-}
 </style>
 <base target="_blank">
 <base target="_blank">
@@ -1235,13 +1000,13 @@ body[data-theme] .container {
         
         <!-- Best Scores Tab -->
         <div id="stats-tab-best" style="display: none;">
-            <h4 style="color: var(--accent); margin-bottom: 10px;">🏆 အကောင်းဆုံးရမှတ်များ</h4>
+            <h4 style="color: var(--accent); margin-bottom: 10px;">🏆 အကောင်းဆုံး ရမှတ်များ</h4>
             <div id="stat-best-scores"></div>
         </div>
         
                 <!-- Old Questions Tab -->
         <div id="stats-tab-old" style="display: none;">
-            <h4 style="color: var(--accent); margin-bottom: 10px;">📜 မေးခွန်းဟောင်းများအကောင်းဆုံးရမှတ်များ</h4>
+            <h4 style="color: var(--accent); margin-bottom: 10px;">📜 မေးခွန်းဟောင်းများ အကောင်းဆုံး ရမှတ်များ</h4>
             <div id="stat-old-scores"></div>
         </div>
 		<!-- Leaderboard Tab -->
@@ -1262,11 +1027,10 @@ body[data-theme] .container {
     
     <!-- Legend -->
     <div style="background: var(--card-bg); padding: 10px; border-radius: 10px; margin-bottom: 12px; border: 1px solid #334155; font-size: 0.75rem; color: #94A3B8; line-height: 1.5;">
-        <b style="color: var(--accent);">🏅 အဆင့်သတ်မှတ်ခြင်း</b><br>
-        ① အဖြေမှန်နှုန်း(%)အမြင့်ဆုံး<br>
-        ② အချိန်အနည်းဆုံး<br>
-        ③ မေးခွန်းဖြေဆိုမှုအများဆုံး<br>
-		အပေါ်ကဦးစား‌ပေးအစီအစဉ်အတိုင်းအဆင့်သတ်မှတ်ပေးမှာဖြစ်ပါတယ်
+        <b style="color: var(--accent);">🏅 အဆင့်သတ်မှတ်နည်း:</b><br>
+        ① အဖြေမှန်နှုန်း (%) အမြင့်ဆုံး<br>
+        ② မှန်နှုန်းတူရင် အချိန်နည်းသူ အရင်ရပ်<br>
+        ③ အချိန်နည်းသူရှိရင် မေးခွန်းပိုများသူ အရင်ရပ်
     </div>
     
     <div id="leaderboard-loading" style="text-align: center; color: #94A3B8; padding: 30px; display: none;">ဆွဲယူနေသည်...</div>
@@ -1317,7 +1081,7 @@ body[data-theme] .container {
                 <div class="markcount" id="markcount">
         <span id="score-display"> ရမှတ်: 0</span>
     </div>
-    
+    <button id="report-btn" onclick="reportQuestion()" style="display:none;">🚩 Report</button>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
     <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5; overflow-x: auto; max-width: 100%; box-sizing: border-box; padding: 10px;"></div>
@@ -3523,6 +3287,9 @@ function renderProfileData() {
     <button onclick="openThemeShop()" style="width: 100%; background: linear-gradient(135deg, #8B5CF6, #EC4899); color: #fff; border: none; padding: 15px; border-radius: 14px; margin-top: 10px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
         🎨 Theme Shop
     </button>
+    <button class="contact-btn" onclick="contactDeveloper()" style="width: 100%; background: #1E293B; padding: 15px; border-radius: 14px; margin-top: 10px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(0, 213, 255, 0.1);">
+        🛠 အမှားများတိုင်ကြားရန်
+    </button>
 `;
 }
 
@@ -3716,7 +3483,11 @@ function displayDailyQuote() {
 
 
 // Developer ကို ဆက်သွယ်ရန် (Telegram သို့ တိုက်ရိုက်ပို့ပေးမည်)
-
+function contactDeveloper() {
+    const devUsername = "minaphayarkot"; // သင့် Telegram Username ပြောင်းပါ
+    const message = encodeURIComponent("မေးခွန်းမှားနေတာလေးပြောချင်လို့ပါ");
+    window.open(`https://t.me/${devUsername}?text=${message}`, '_blank');
+}
 
 function updateStreak() {
     const todayDate = new Date().toISOString().split('T')[0];
@@ -4339,41 +4110,6 @@ function renderLeaderboard(entries, currentUserId, subject) {
     }
 }
 		
-    
-// ─── Contact Modal Functions ───
-function showContactModal() {
-    const modal = document.getElementById('contact-modal');
-    modal.style.display = 'flex';
-}
-function closeContactModal() {
-    document.getElementById('contact-modal').style.display = 'none';
-}
-function copyToClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => {
-            tg.showAlert("✅ ကူးယူပြီးပါပြီ: " + text);
-        }).catch(() => {
-            fallbackCopy(text);
-        });
-    } else {
-        fallbackCopy(text);
-    }
-}
-function fallbackCopy(text) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-        document.execCommand('copy');
-        tg.showAlert("✅ ကူးယူပြီးပါပြီ: " + text);
-    } catch (err) {
-        tg.showAlert("❌ ကူးယူ၍မရပါ: " + text);
-    }
-    document.body.removeChild(ta);
-}
-</script>
+    </script>
 </body>
 </html>
