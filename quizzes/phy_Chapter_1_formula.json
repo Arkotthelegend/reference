@@ -1,4 +1,17 @@
 [
-  {"name": "F = ma", "content": "Newton's Second Law"},
-  {"name": "v = u + at", "content": "First equation of motion"}
+  {
+    "name": "Tangential acceleration",
+    "formula": "a_T = rα",
+    "description": "Tangential acceleration (a_T) is equal to the radius of the circle (r) multiplied by the angular acceleration (α)."
+  },
+  {
+    "name": "Centripetal acceleration (using velocity)",
+    "formula": "a_c = v^2 / r",
+    "description": "Centripetal acceleration (a_c) is equal to the square of the tangential velocity (v) divided by the radius of the circle (r)."
+  },
+  {
+    "name": "Centripetal acceleration (using angular velocity)",
+    "formula": "a_c = rω^2",
+    "description": "Centripetal acceleration (a_c) is equal to the radius of the circle (r) multiplied by the square of the angular velocity (ω)."
+  }
 ]
