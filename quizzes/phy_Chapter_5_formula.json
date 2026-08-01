@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Heat conduction",
+    "formula": "H_cond = κ A (T_2 - T_1) / l",
+    "description": "Calculates the rate of heat conduction (H_cond) using thermal conductivity (κ), cross-sectional area (A), temperature difference (T_2 - T_1), and length or thickness (l)."
+  },
+  {
+    "name": "Heat Convection",
+    "formula": "H_conv = q A (T_2 - T_1)",
+    "description": "Calculates the rate of heat convection (H_conv) using heat convection constant (q), surface area (A), and temperature difference (T_2 - T_1)."
+  },
+  {
+    "name": "Heat Radiation",
+    "formula": "H_rad = e σ A T^4",
+    "description": "Calculates the rate of heat radiation (H_rad) using emissivity (e), Stefan's constant (σ), surface area (A), and absolute temperature (T)."
+  },
+  {
+    "name": "Stefan - Boltzmann's Law",
+    "formula": "ε_o = σ T^4",
+    "description": "The total emissive power of a black body (ε_o) is equal to Stefan's constant (σ) times the fourth power of absolute temperature (T)."
+  },
+  {
+    "name": "Emissivity",
+    "formula": "e = ε / ε_o",
+    "description": "Emissivity (e) is the ratio of the total emissive power of an object (ε) to the total emissive power of a blackbody (ε_o)."
+  },
+  {
+    "name": "First Law of Thermodynamics",
+    "formula": "ΔU = Q - W",
+    "description": "The change in internal energy (ΔU) is equal to net heat flow (Q) minus total work (W) done by the system."
+  },
+  {
+    "name": "Internal Energy",
+    "formula": "U = (3/2) n R T",
+    "description": "Calculates internal energy (U) using the number of moles (n), universal gas constant (R), and absolute temperature (T). Can also be calculated using number of particles and Boltzmann constant."
+  },
+  {
+    "name": "Thermal efficiency",
+    "formula": "η = W / Q_H",
+    "description": "Thermal efficiency (η) is the ratio of work output (W) to heat input (Q_H)."
+  },
+  {
+    "name": "Carnot's Theorem (Maximum Efficiency)",
+    "formula": "η_c = 1 - (T_C / T_H)",
+    "description": "Calculates maximum efficiency (η_c) using the absolute temperature of the cold reservoir (T_C) and absolute temperature of the hot reservoir (T_H)."
+  }
+]
