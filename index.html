@@ -2842,7 +2842,7 @@ function showSubChaptersMenu(subId, chapterName) {
     }
 
     // 3) Formula (Physics all chapters, Economy only ch 1,2,3,7)
-    if (subId === 'phy' || (subId === 'eco' && isFormulaChapter(chapterName))) {
+    if (subId === 'phy') {
         createBtn("Formula", content, () => {
             loadFormulas(subId, chapterName);
         });
