@@ -1310,7 +1310,11 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     <div id="leaderboard-list"></div>
 </div>
         
-    </div>
+        </div>
+    
+    <!-- ADD THIS BUTTON HERE -->
+    <button class="btn" style="background: var(--accent); color: #000; margin: 10px 0;" onclick="downloadStats()">📥 Download My Stats</button>
+    
     <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
 </div>
 
@@ -4379,6 +4383,16 @@ function renderLeaderboard(entries, currentUserId, subject) {
                 tg.showAlert('ကူးယူ၍မရပါ။ လက်နဲ့မှတ်ယူပါ: ' + username);
             });
         }
+    });
+}
+
+		function downloadStats() {
+    const content = document.getElementById('stats-content');
+    html2canvas(content, { backgroundColor: '#0B0F19', scale: 2 }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'My_Statistics.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
     });
 }
 		
