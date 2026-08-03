@@ -1,17 +1,42 @@
 [
   {
-    "name": "Capacitance",
-    "formula": "C = Q / V",
-    "description": "Ratio of the charge (Q) to the potential difference (V) of the capacitor."
+    "name": "$C = \\frac{Q}{V}$",
+    "content": "Capacitance of a capacitor"
   },
   {
-    "name": "Dielectric constant",
-    "formula": "κ = ε / ε₀",
-    "description": "Ratio of the permittivity of the material (ε) to the permittivity of the vacuum (ε₀)."
+    "name": "$W = \\frac{1}{2} V Q$",
+    "content": "Energy of a capacitor (in terms of voltage and charge)"
   },
   {
-    "name": "Time constant",
-    "formula": "τ = RC",
-    "description": "The product of the resistance (R) and the capacitance (C) of a capacitor charging or discharging process."
+    "name": "$W = \\frac{1}{2} C V^2$",
+    "content": "Energy of a capacitor (in terms of capacitance and voltage)"
+  },
+  {
+    "name": "$W = \\frac{1}{2} \\frac{Q^2}{C}$",
+    "content": "Energy of a capacitor (in terms of charge and capacitance)"
+  },
+  {
+    "name": "$C = C_1 + C_2 + C_3$",
+    "content": "Equivalent capacitance for capacitors in parallel"
+  },
+  {
+    "name": "$\\frac{1}{C} = \\frac{1}{C_1} + \\frac{1}{C_2} + \\frac{1}{C_3}$",
+    "content": "Equivalent capacitance for capacitors in series"
+  },
+  {
+    "name": "$C = \\frac{\\kappa \\varepsilon_0 A}{d}$",
+    "content": "Capacitance of a parallel plate capacitor"
+  },
+  {
+    "name": "$\\kappa = \\frac{\\varepsilon}{\\varepsilon_0} = \\frac{C}{C_0}$",
+    "content": "Dielectric constant"
+  },
+  {
+    "name": "$V_c = V_0 (1 - e^{-t/RC})$",
+    "content": "Charging equation of a capacitor"
+  },
+  {
+    "name": "$V_c = V_0 e^{-t/RC}$",
+    "content": "Discharging equation of a capacitor"
   }
 ]
