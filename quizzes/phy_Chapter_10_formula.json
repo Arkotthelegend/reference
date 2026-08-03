@@ -1,17 +1,34 @@
 [
   {
-    "name": "Electromotive Force (emf)",
-    "formula": "E = W / Q",
-    "description": "The amount of energy (W) provided per unit charge (Q) to move round the complete circuit."
+    "name": "$I = \\frac{E}{R + r}$",
+    "content": "Electromotive Force (emf)"
   },
   {
-    "name": "Electrical Power",
-    "formula": "P = E / t",
-    "description": "The rate of transfer of electrical energy (E) over a given time (t)."
+    "name": "$I = \\frac{E_1 + E_2}{R + r_1 + r_2}$",
+    "content": "Batteries in series aiding"
   },
   {
-    "name": "Joule's Law",
-    "formula": "H ∝ I²Rt",
-    "description": "The amount of heat (H) produced is directly proportional to the square of the current (I), the value of resistance (R), and the time taken (t)."
+    "name": "$I = \\frac{E_1 - E_2}{R + r_1 + r_2}$",
+    "content": "Batteries in series opposing ($E_1 > E_2$)"
+  },
+  {
+    "name": "$I = \\frac{E}{R + \\frac{r}{2}}$",
+    "content": "Batteries in parallel"
+  },
+  {
+    "name": "$W = VIt = I^2Rt = \\frac{V^2}{R}t$",
+    "content": "Electrical energy"
+  },
+  {
+    "name": "$P = VI = I^2R = \\frac{V^2}{R}$",
+    "content": "Electrical power"
+  },
+  {
+    "name": "$W = JH$",
+    "content": "Joule's law of electricity and heat (Work-Heat relation)"
+  },
+  {
+    "name": "$H = \\frac{I^2Rt}{J}$",
+    "content": "Heat produced by electric current"
   }
 ]
