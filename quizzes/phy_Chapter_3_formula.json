@@ -1,32 +1,32 @@
 [
   {
+    "name": "Equation of Continuity",
+    "formula": "A1 v1 = A2 v2",
+    "description": "States that for an incompressible fluid, the volume flow rate remains constant throughout a pipe."
+  },
+  {
+    "name": "Bernoulli's Equation",
+    "formula": "p + 1/2 ρ v^2 + ρ g h = constant",
+    "description": "Represents the conservation of energy for a flowing fluid, relating pressure, kinetic energy, and potential energy."
+  },
+  {
     "name": "Newton's Law of Viscosity",
-    "formula": "τ = -η(dv/dy)",
-    "description": "Shear stress between two adjacent layers of fluid is directly proportional to the negative value of the velocity gradient."
+    "formula": "η = - (F / A) / (dv / dy)",
+    "description": "Defines the coefficient of viscosity as the ratio of shear stress to the velocity gradient."
   },
   {
-    "name": "Shear Stress",
-    "formula": "τ = F / A",
-    "description": "Shear stress is the shearing force per unit area."
+    "name": "Stokes' Law",
+    "formula": "F = 6π η r v",
+    "description": "Expresses the drag force acting on a spherical object moving through a viscous fluid."
   },
   {
-    "name": "Viscosity",
-    "formula": "η = (F/A) / (dv/dy)",
-    "description": "The ratio of shearing stress to the velocity gradient."
-  },
-  {
-    "name": "Capillary action (Capillarity)",
-    "formula": "h = (2γ cos θ) / (ρgr)",
-    "description": "Height which the liquid can be lifted in a narrow tube."
-  },
-  {
-    "name": "Surface tension",
+    "name": "Surface Tension",
     "formula": "γ = F / l",
-    "description": "The force per unit length that acts across any line on a surface."
+    "description": "Defines surface tension as the force acting parallel to the surface per unit length."
   },
   {
-    "name": "Stokes' law",
-    "formula": "F = 6πηrv",
-    "description": "The drag force F acting upward in resistance to the fall of a spherical object in a viscous liquid."
+    "name": "Capillary Action",
+    "formula": "h = (2γ cosθ) / (ρ g r)",
+    "description": "Calculates the height to which a liquid is elevated or depressed in a capillary tube."
   }
 ]
