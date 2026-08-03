@@ -1,17 +1,42 @@
 [
   {
-    "name": "Tangential acceleration",
+    "name": "Final Angular Velocity",
+    "formula": "ω = ω₀ + αt",
+    "description": "Calculates final angular velocity under constant angular acceleration."
+  },
+  {
+    "name": "Angular Displacement",
+    "formula": "θ = ω₀t + 1/2 αt²",
+    "description": "Calculates angular displacement under constant angular acceleration over a given time."
+  },
+  {
+    "name": "Final Angular Velocity Squared",
+    "formula": "ω² = ω₀² + 2αθ",
+    "description": "Relates final and initial angular velocity to angular acceleration and displacement, independent of time."
+  },
+  {
+    "name": "Arc Length (Linear Displacement)",
+    "formula": "s = rθ",
+    "description": "Relation between linear displacement (arc length) and angular displacement."
+  },
+  {
+    "name": "Linear Velocity",
+    "formula": "v = rω",
+    "description": "Relation between linear (tangential) velocity and angular velocity."
+  },
+  {
+    "name": "Tangential Acceleration",
     "formula": "a_T = rα",
-    "description": "Tangential acceleration (a_T) is equal to the radius of the circle (r) multiplied by the angular acceleration (α)."
+    "description": "Relation between linear (tangential) acceleration and angular acceleration."
   },
   {
-    "name": "Centripetal acceleration (using velocity)",
-    "formula": "a_c = v^2 / r",
-    "description": "Centripetal acceleration (a_c) is equal to the square of the tangential velocity (v) divided by the radius of the circle (r)."
+    "name": "Centripetal Acceleration (Linear)",
+    "formula": "a_C = v² / r",
+    "description": "Centripetal acceleration expressed in terms of linear velocity and radius."
   },
   {
-    "name": "Centripetal acceleration (using angular velocity)",
-    "formula": "a_c = rω^2",
-    "description": "Centripetal acceleration (a_c) is equal to the radius of the circle (r) multiplied by the square of the angular velocity (ω)."
+    "name": "Centripetal Acceleration (Angular)",
+    "formula": "a_C = rω²",
+    "description": "Centripetal acceleration expressed in terms of angular velocity and radius."
   }
 ]
