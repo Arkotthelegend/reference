@@ -1,17 +1,30 @@
 [
   {
-    "name": "Doppler effect, the apparent frequency",
-    "formula": "f_o = f_s ((v ± v_o) / (v ∓ v_s))",
-    "description": "Calculates apparent frequency where f_o is frequency heard by the observer, f_s is frequency produced by the source, v is speed of sound in the medium, v_o is speed of the observer, and v_s is speed of the source."
+    "name": "$v = \\sqrt{\\frac{Y}{\\rho}}$",
+    "content": "Speed of sound in a solid medium"
   },
   {
-    "name": "Intensity of Sound",
-    "formula": "I = 1/2 ρ v ω² A²",
-    "description": "The intensity of the sound at a place is the energy transmitted per second per unit area held normally to direction of sound, where ρ = density of medium, v = velocity of sound wave, ω = angular frequency of sound wave, and A = amplitude of sound wave."
+    "name": "$v = \\sqrt{\\frac{B}{\\rho}}$",
+    "content": "Velocity of sound in liquids"
   },
   {
-    "name": "Intensity of a wave",
-    "formula": "I ∝ A²",
-    "description": "The intensity of a wave is directly proportional to the square of the amplitude of the wave."
+    "name": "$v = \\sqrt{\\frac{\\gamma P}{\\rho}}$",
+    "content": "Velocity of sound in gases"
+  },
+  {
+    "name": "$\\beta (\\text{dB}) = 10 \\log_{10} \\frac{I}{I_0}$",
+    "content": "Intensity level of sound in decibels"
+  },
+  {
+    "name": "$v = \\frac{2d}{t}$",
+    "content": "Formula used to determine the distance or speed using an echo"
+  },
+  {
+    "name": "$f_o = f_s \\left( \\frac{v \\pm v_o}{v \\mp v_s} \\right)$",
+    "content": "Doppler equation in general form"
+  },
+  {
+    "name": "$I = \\frac{1}{2} \\rho v \\omega^2 A^2$",
+    "content": "Intensity and loudness of sound related to amplitude"
   }
 ]
