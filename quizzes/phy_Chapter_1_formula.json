@@ -1,42 +1,46 @@
 [
   {
-    "name": "Final Angular Velocity",
-    "formula": "ω = ω₀ + αt",
-    "description": "Calculates final angular velocity under constant angular acceleration."
+    "name": "\\omega = \\omega_0 + \\alpha t",
+    "content": "Kinematic equation for angular velocity"
   },
   {
-    "name": "Angular Displacement",
-    "formula": "θ = ω₀t + 1/2 αt²",
-    "description": "Calculates angular displacement under constant angular acceleration over a given time."
+    "name": "\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2",
+    "content": "Kinematic equation for angular displacement"
   },
   {
-    "name": "Final Angular Velocity Squared",
-    "formula": "ω² = ω₀² + 2αθ",
-    "description": "Relates final and initial angular velocity to angular acceleration and displacement, independent of time."
+    "name": "\\omega^2 = \\omega_0^2 + 2 \\alpha \\theta",
+    "content": "Kinematic equation relating angular velocity, acceleration, and displacement"
   },
   {
-    "name": "Arc Length (Linear Displacement)",
-    "formula": "s = rθ",
-    "description": "Relation between linear displacement (arc length) and angular displacement."
+    "name": "\\bar{\\omega} = \\frac{\\omega + \\omega_0}{2}",
+    "content": "Equation for average angular velocity"
   },
   {
-    "name": "Linear Velocity",
-    "formula": "v = rω",
-    "description": "Relation between linear (tangential) velocity and angular velocity."
+    "name": "a = \\sqrt{a_C^2 + a_T^2}",
+    "content": "Magnitude of resultant acceleration"
   },
   {
-    "name": "Tangential Acceleration",
-    "formula": "a_T = rα",
-    "description": "Relation between linear (tangential) acceleration and angular acceleration."
+    "name": "\\tan \\phi = \\frac{a_T}{a_C}",
+    "content": "Direction of resultant acceleration"
   },
   {
-    "name": "Centripetal Acceleration (Linear)",
-    "formula": "a_C = v² / r",
-    "description": "Centripetal acceleration expressed in terms of linear velocity and radius."
+    "name": "a_C = \\frac{v^2}{r}",
+    "content": "Centripetal acceleration in terms of linear velocity"
   },
   {
-    "name": "Centripetal Acceleration (Angular)",
-    "formula": "a_C = rω²",
-    "description": "Centripetal acceleration expressed in terms of angular velocity and radius."
+    "name": "a_C = r \\omega^2",
+    "content": "Centripetal acceleration in terms of angular velocity"
+  },
+  {
+    "name": "s = r \\theta",
+    "content": "Relation between linear displacement and angular displacement"
+  },
+  {
+    "name": "v = r \\omega",
+    "content": "Relation between linear velocity and angular velocity"
+  },
+  {
+    "name": "a_T = r \\alpha",
+    "content": "Relation between tangential acceleration and angular acceleration"
   }
 ]
