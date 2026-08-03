@@ -1,22 +1,54 @@
 [
   {
-    "name": "Magnetic Flux Density",
-    "formula": "B = μH",
-    "description": "Calculates magnetic flux density (B) using permeability (μ) and magnetic field strength (H)."
+    "name": "\\(\\phi_B = B A \\cos \\theta\\)",
+    "content": "Magnetic flux when the magnetic field is at an angle \\(\\theta\\) to the surface normal"
   },
   {
-    "name": "Magnetic Flux",
-    "formula": "Φ_B = BA cos θ",
-    "description": "Calculates magnetic flux (Φ_B) using magnetic flux density (B), elemental surface area (A), and the angle between the magnetic field and area vector (θ)."
+    "name": "\\(\\phi_B = B A\\)",
+    "content": "Magnetic flux when the field is perpendicular to the surface area (\\(\\theta = 0^\\circ\\))"
   },
   {
-    "name": "Faraday's Law",
-    "formula": "E = -N (dΦ_B / dt)",
-    "description": "Calculates the magnitude of induced emf (E) using the number of turns in the wire loop (N) and the rate of change of magnetic flux (dΦ_B / dt)."
+    "name": "\\(\\phi_B = 0\\)",
+    "content": "Magnetic flux when the field is parallel to the surface area (\\(\\theta = 90^\\circ\\))"
   },
   {
-    "name": "Efficiency of a Transformer",
-    "formula": "Efficiency = (Output Power / Input Power) x 100%",
-    "description": "Calculates the efficiency of a transformer as the ratio of output power to input power."
+    "name": "\\(E = -\\frac{d\\phi_B}{dt}\\)",
+    "content": "Faraday's Law of induction for a single turn wire loop"
+  },
+  {
+    "name": "\\(E = -N \\frac{d\\phi_B}{dt}\\)",
+    "content": "Faraday's Law of induction for a wire loop with \\(N\\) identical turns"
+  },
+  {
+    "name": "\\(P = VI\\)",
+    "content": "Electrical power formula in terms of voltage and current"
+  },
+  {
+    "name": "\\(I = \\frac{P}{V}\\)",
+    "content": "Current calculation for power transmission"
+  },
+  {
+    "name": "\\(B = \\mu H\\)",
+    "content": "Relationship between magnetic flux density and magnetic field strength"
+  },
+  {
+    "name": "\\(\\phi_B = \\int \\vec{B} \\cdot d\\vec{A}\\)",
+    "content": "Definition of magnetic flux integral"
+  },
+  {
+    "name": "\\(E = E_m \\sin \\omega t\\)",
+    "content": "Alternating electromotive force (emf)"
+  },
+  {
+    "name": "\\(I = I_m \\sin \\omega t\\)",
+    "content": "Alternating current"
+  },
+  {
+    "name": "\\(E = N B A \\omega \\sin \\omega t\\)",
+    "content": "Induced emf generated in an AC generator"
+  },
+  {
+    "name": "\\(\\frac{V_s}{V_p} = \\frac{E_s}{E_p} = \\frac{N_s}{N_p} = \\frac{I_p}{I_s}\\)",
+    "content": "Transformer relationship between voltage, emf, turns ratio, and current"
   }
 ]
