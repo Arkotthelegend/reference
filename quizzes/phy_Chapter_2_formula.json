@@ -1,12 +1,22 @@
 [
   {
-    "name": "Centripetal Force",
-    "formula": "F_c = m * a_c = (m * v^2) / r = m * r * ω^2",
-    "description": "F_c = Centripetal force, m = mass of the object, r = radius of the circle, v = linear velocity, ω = angular velocity, a_c = centripetal acceleration"
+    "name": "Centripetal Force (Linear Velocity)",
+    "formula": "F_c = (m * v^2) / r",
+    "description": "The net inward force required to keep an object of mass m moving in a circular path of radius r at speed v."
   },
   {
-    "name": "Angle of Banking",
-    "formula": "tan θ = v^2 / (r * g)",
-    "description": "θ = banking angle of a road, v = limiting speed, r = radius of the circular path, g = acceleration due to gravity"
+    "name": "Centripetal Force (Angular Velocity)",
+    "formula": "F_c = m * r * ω^2",
+    "description": "The centripetal force expressed in terms of angular velocity ω."
+  },
+  {
+    "name": "Frictional Force on Flat Road",
+    "formula": "F_f = (m * v^2) / r",
+    "description": "The frictional force between tires and the road supplying the necessary centripetal force on an unbanked turn."
+  },
+  {
+    "name": "Banking Angle",
+    "formula": "tan(θ) = v^2 / (r * g)",
+    "description": "The inclination angle θ of a banked curve that allows a vehicle to turn safely without relying on friction."
   }
 ]
