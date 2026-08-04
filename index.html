@@ -1049,6 +1049,57 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     color: var(--t-muted, var(--text-muted, #94A3B8)) !important;
 }
 
+	   /* ===== ARTICLE EXPANDABLE CARDS ===== */
+.article-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    margin-bottom: 15px;
+    border: 1px solid var(--accent);
+    overflow: hidden;
+}
+.article-title {
+    padding: 18px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.05rem;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.article-title:active {
+    opacity: 0.8;
+}
+.article-arrow {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+    color: var(--accent);
+}
+.article-arrow.open {
+    transform: rotate(180deg);
+}
+.article-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 20px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+.article-content.open {
+    max-height: 1000px;
+    padding: 0 20px 20px 20px;
+}
+.article-content p {
+    margin: 0 0 10px 0;
+}
+.article-content p:last-child {
+    margin-bottom: 0;
+}
+	   
 </style>
 <base target="_blank">
 <base target="_blank">
@@ -1406,20 +1457,26 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 </div>
 
 		<!-- Articles Screen -->
+<!-- Articles Screen -->
 <div id="articles-screen" class="screen">
     <h2 style="text-align: center; color: var(--accent);">📰 Articles</h2>
     <div id="articles-content" style="padding: 15px;">
+        
         <!-- Article 1 -->
-        <div style="background: var(--card-bg); padding: 20px; border-radius: 16px; margin-bottom: 15px; border: 1px solid var(--accent);">
-            <h3 style="color: var(--accent); margin-top: 0;">Welcome to Our App</h3>
-            <p style="color: var(--text-muted); line-height: 1.6;">This is where you can write articles about your app. Edit this text in the HTML file.</p>
+        <div class="article-card">
+            <div class="article-title" onclick="toggleArticle('art1')">
+                <span>Rank ထဲဝင်အောင် ၊ Best Score တွေကိုမှတ်အောင်ဘယ်လိုလုပ်ရမလဲ</span>
+                <span class="article-arrow" id="arrow-art1">▼</span>
+            </div>
+            <div class="article-content" id="art1">
+                <p>၁။ ကျပန်းခလုပ်ကိုဖွင့်ထားပါ ။</p>
+                <p>၂။ မေးခွန်းကိုပြီးအောင်ဖြေပါ ။</p>
+                <p>၃။ Timer ကိုဖွင့်ထားပါ ။</p>
+                <p>၄။ တစ်ဝက်တပျက်နဲ့ Timer ကိုလုံးဝမရပ်ရပါ ။ ရပ်ခဲ့ရင်ဘောင်မဝင်တော့ပါဘူး</p>
+                <p>၅။ sub-chapter တွေဖြစ်တဲ့ 1.1,2.3 စတာတွေကိုဖြေရင်လည်းမမှတ်ပါဘူး ။ အခန်းအစအဆုံးဖြေရပါမယ် ။ မြန်မာစာဆိုရင်လည်း ခလုပ်အစိမ်းနဲ့မေးခွန်းတွေကိုပဲမှတ်သားပါတယ် ။</p>
+            </div>
         </div>
 
-		<div style="background: var(--card-bg); padding: 20px; border-radius: 16px; margin-bottom: 15px; border: 1px solid var(--accent);">
-    <h3 style="color: var(--accent); margin-top: 0;">Your Title Here</h3>
-    <p style="color: var(--text-muted); line-height: 1.6;">Your article text goes here.</p>
-</div>
-		
     </div>
 </div>
 		
@@ -1950,6 +2007,22 @@ function getSubjectName(id) {
     return array;
 }
 
+		function toggleArticle(id) {
+    const content = document.getElementById(id);
+    const arrow = document.getElementById('arrow-' + id);
+    
+    if (content.classList.contains('open')) {
+        content.classList.remove('open');
+        arrow.classList.remove('open');
+    } else {
+        // Close all other articles first (only one open at a time)
+        document.querySelectorAll('.article-content').forEach(el => el.classList.remove('open'));
+        document.querySelectorAll('.article-arrow').forEach(el => el.classList.remove('open'));
+        
+        content.classList.add('open');
+        arrow.classList.add('open');
+    }
+}
 		
         const tg = window.Telegram.WebApp;
         tg.ready(); tg.expand();
