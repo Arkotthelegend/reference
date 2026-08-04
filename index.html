@@ -779,9 +779,6 @@ body[data-theme] {
     --detail-text: var(--t-text);
     --detail-secondary-text: var(--t-muted);
     --detail-accent-text: var(--t-accent);
-    --score-bg: var(--t-success);
-    --score-border: var(--t-success);
-    --score-text: var(--t-success);
 }
 
 /* Theme-specific contrast colors for buttons on accent background */
@@ -1060,21 +1057,45 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
     <div class="container">
         <div id="home-screen" class="screen active-screen">
-            <h2 style="text-align: center; color: var(--accent);">ဘာသာရပ်များ</h2>
-            <div id="subject-list"></div>
-            <div style="padding: 20px; margin-top: 10px;">
-    <button class="btn" style="background: linear-gradient(135deg, #10B981, #059669); font-weight: bold; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);" onclick="openTrialMenu()">
-        🎁 ဘာသာရပ်များကို အစမ်းသုံးရန်
-    </button>
-	<div id="admin-announcement" style="margin-top: 20px; padding: 15px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border: 1px solid var(--accent); color: var(--accent); font-size: 0.9rem; text-align: center; display: none;">
+    <!-- Two Tabs -->
+    <div style="display: flex; gap: 10px; margin-bottom: 20px; padding: 0 5px;">
+        <button id="home-tab-current" class="btn" style="flex:1; background: var(--accent); color: #000;" onclick="switchHomeTab('current')">လက်ရှိဘာသာရပ်များ</button>
+        <button id="home-tab-old" class="btn" style="flex:1; background: #1E293B; color: var(--white); opacity: 0.6;" onclick="switchHomeTab('old')">မေးခွန်းဟောင်းများ</button>
+    </div>
+    
+    <!-- Current Subjects Section -->
+    <div id="home-current-section">
+        <h2 style="text-align: center; color: var(--accent);">ဘာသာရပ်များ</h2>
+        <div id="subject-list"></div>
+        <div style="padding: 20px; margin-top: 10px;">
+            <button class="btn" style="background: linear-gradient(135deg, #10B981, #059669); font-weight: bold; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);" onclick="openTrialMenu()">
+                🎁 ဘာသာရပ်များကို အစမ်းသုံးရန်
+            </button>
+            <div id="admin-announcement" style="margin-top: 20px; padding: 15px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border: 1px solid var(--accent); color: var(--accent); font-size: 0.9rem; text-align: center; display: none;">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Old Questions Section -->
+    <div id="home-old-section" style="display: none;">
+        <div id="old-subjects-screen" style="padding: 15px;">
+            <h2 style="text-align: center; color: var(--accent);">မေးခွန်းဟောင်းများ</h2>
+            <div id="old-subject-list"></div>
+        </div>
+
+        <div id="old-types-screen" style="display:none; padding: 15px;">
+            <h3 id="selected-sub-title" style="text-align: center; color: var(--accent);"></h3>
+            <div id="old-type-list"></div>
+            <button class="btn back-btn" onclick="backToOldSubjects()">နောက်သို့</button>
+        </div>
     </div>
 </div>
-        </div>
 		
 		<div id="daily-screen" class="screen">
     <h2 style="text-align: center; color: var(--accent);">Daily Quiz (Free)</h2>
@@ -1106,20 +1127,6 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 </div>
 
 		
-	<div id="scroll-screen" class="screen">
-    
-    <div id="old-subjects-screen" style="padding: 15px;">
-        <h2 style="text-align: center; color: var(--accent);">မေးခွန်းဟောင်းများ</h2>
-        <div id="old-subject-list"></div>
-    </div>
-
-    <div id="old-types-screen" style="display:none; padding: 15px;">
-        <h3 id="selected-sub-title" style="text-align: center; color: var(--accent);"></h3>
-        <div id="old-type-list"></div>
-        <button class="btn back-btn" onclick="backToOldSubjects()">နောက်သို့</button>
-    </div>
-
-</div>
 		
     <div id="middle-screen" class="screen">
     <div style="padding: 20px; padding-bottom: 100px;">
@@ -1299,8 +1306,8 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     <!-- Legend -->
     <div style="background: var(--card-bg); padding: 10px; border-radius: 10px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">
         <b style="color: var(--accent); font-weight: 800;">🏅အဆင့်သတ်မှတ်ခြင်း</b><br>
-        ① အချိန်အနည်းဆုံး<br>
-        ② မအချိန်အနည်းဆုံး<br>
+        ① အဖြေမှန်နှုန်းအများဆုံး<br>
+        ② အချိန်အနည်းဆုံး<br>
         ③ မေးခွန်းဖြေဆိုမှုအများဆုံး<br>
 		အပေါ်ကဦးစား‌ပေးအစီအစဉ်အတိုင်းအဆင့်သတ်မှတ်ပေးမှာဖြစ်ပါတယ်
     </div>
@@ -1398,13 +1405,31 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     <button class="btn back-btn" onclick="showENPoemOptions()">နောက်သို့</button>
 </div>
 
-    <div class="nav">
-        <div class="nav-item nav-active" onclick="changeTab('home', this)">🏠</div>
-		<div class="nav-item" onclick="changeTab('scroll', this)">📜</div>
-		<div class="nav-item" onclick="changeTab('daily', this)">📝</div>
-        <div class="nav-item" onclick="changeTab('middle', this)">⏳</div>
-        <div class="nav-item" onclick="changeTab('profile', this)">👤</div>
+		<!-- Articles Screen -->
+<div id="articles-screen" class="screen">
+    <h2 style="text-align: center; color: var(--accent);">📰 Articles</h2>
+    <div id="articles-content" style="padding: 15px;">
+        <!-- Article 1 -->
+        <div style="background: var(--card-bg); padding: 20px; border-radius: 16px; margin-bottom: 15px; border: 1px solid var(--accent);">
+            <h3 style="color: var(--accent); margin-top: 0;">Welcome to Our App</h3>
+            <p style="color: var(--text-muted); line-height: 1.6;">This is where you can write articles about your app. Edit this text in the HTML file.</p>
+        </div>
+
+		<div style="background: var(--card-bg); padding: 20px; border-radius: 16px; margin-bottom: 15px; border: 1px solid var(--accent);">
+    <h3 style="color: var(--accent); margin-top: 0;">Your Title Here</h3>
+    <p style="color: var(--text-muted); line-height: 1.6;">Your article text goes here.</p>
+</div>
+		
     </div>
+</div>
+		
+   <div class="nav">
+    <div class="nav-item nav-active" onclick="changeTab('home', this)">🏠</div>
+    <div class="nav-item" onclick="changeTab('daily', this)">📝</div>
+    <div class="nav-item" onclick="changeTab('middle', this)">⏳</div>
+    <div class="nav-item" onclick="changeTab('articles', this)">📰</div>
+    <div class="nav-item" onclick="changeTab('profile', this)">👤</div>
+</div>
 
     <script>
 		
@@ -2130,7 +2155,8 @@ function showOldENUnits(typeName) {
         createOldBtn(`Unit ${i}`, list, () => {
             initQuiz(`old_en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`);
             document.getElementById('quiz-back-btn').onclick = () => {
-                showScreen('scroll'); 
+                showScreen('home');
+switchHomeTab('old'); 
                 showOldENUnits(typeName);
             };
         });
@@ -2148,7 +2174,8 @@ function showOldENGrammarOptions() {
             initFlashcards(`old_${topic.id}`, topic.title);
             const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
             flashExitBtn.onclick = () => {
-                showScreen('scroll');
+                showScreen('home');
+switchHomeTab('old');
                 showOldENGrammarOptions();
             };
         });
@@ -2169,12 +2196,13 @@ function showOldMMQuizOptions(typeName) {
             }         else if (cat === 'ရေသည်') {
             const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
             initQuiz(fileName);  // ✅ initFlashcards ကို initQuiz အစားထိုး
-            document.getElementById('quiz-back-btn').onclick = () => { showScreen('scroll'); showOldMMQuizOptions(typeName); };
+            document.getElementById('quiz-back-btn').onclick = () => { showScreen('home'); switchHomeTab('old'); showOldMMQuizOptions(typeName); };
         } else{
                 // "စကားပြေ" နှင့် "ကဗျာ" အတွက် တိုက်ရိုက် မေးခွန်းစမည်
                 initQuiz(`old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
                 document.getElementById('quiz-back-btn').onclick = () => {
-                    showScreen('scroll');
+                    showScreen('home');
+switchHomeTab('old');
                     showOldMMQuizOptions(typeName);
                 };
             }
@@ -2200,7 +2228,8 @@ function showOldMMChapters(typeName, cat) {
 
             // ထွက်မည် ကို နှိပ်လျှင် အခန်းရွေးသည့် နေရာသို့ ပြန်လာရန်
             document.getElementById('quiz-back-btn').onclick = () => {
-                showScreen('scroll');
+                showScreen('home');
+switchHomeTab('old');
                 showOldMMChapters(typeName, cat);
             };
         });
@@ -2227,7 +2256,8 @@ function showOldGeneralActivities(subId, partName) {
                 const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
                 initQuiz(fileName);
                 document.getElementById('quiz-back-btn').onclick = () => {
-                    showScreen('scroll');
+                    showScreen('home');
+switchHomeTab('old');
                     showOldGeneralActivities(subId, partName);
                 };
             });
@@ -2239,7 +2269,8 @@ function showOldGeneralActivities(subId, partName) {
                 const fileName = `old_${subId}_${partName}_${type}`.replace(/ /g, "_");
                 initQuiz(fileName);
                 document.getElementById('quiz-back-btn').onclick = () => {
-                    showScreen('scroll');
+                    showScreen('home');
+switchHomeTab('old');
                     showOldGeneralActivities(subId, partName);
                 };
             });
@@ -2938,7 +2969,7 @@ function showDefinitionDetail(subId, chapterName, data, index) {
 
 async function loadKeyTerms(subId, chapterName) {
     try {
-        const fileName = `${subId}_${chapterName}_keyterms`.replace(/ /g, "_");
+        const fileName = `${subId}_${chapterName}_definition`.replace(/ /g, "_");
         const res = await fetch(`./quizzes/${fileName}.json`);
         if (!res.ok) throw new Error();
         const data = await res.json();
@@ -2971,6 +3002,18 @@ function showKeyTermDetail(subId, chapterName, data, index) {
     div.innerText = data[index].content;
     content.appendChild(div);
 }
+
+		function wrapLatex(formula) {
+    formula = formula.trim();
+    // Already wrapped? Leave it alone
+    if (formula.startsWith('\\(') && formula.endsWith('\\)')) return formula;
+    if (formula.startsWith('$') && formula.endsWith('$')) return formula;
+    if (formula.startsWith('\\[') && formula.endsWith('\\]')) return formula;
+    if (formula.startsWith('$$') && formula.endsWith('$$')) return formula;
+    // Otherwise wrap with inline math delimiters
+    return `\\(${formula}\\)`;
+}
+
 async function loadFormulas(subId, chapterName) {
     try {
         const fileName = `${subId}_${chapterName}_formula`.replace(/ /g, "_");
@@ -2986,13 +3029,32 @@ async function loadFormulas(subId, chapterName) {
         
         data.forEach(item => {
             const card = document.createElement('div');
-            card.style.cssText = 'background: var(--detail-bg); padding: 20px; border-radius: 16px; margin-bottom: 15px; border: 1px solid var(--detail-border); width: 100%; max-width: 100%; margin-left: auto; margin-right: auto; text-align: center; box-sizing: border-box;';
+            card.style.cssText = `
+                grid-column: 1 / -1;
+                background: var(--detail-bg); 
+                padding: 20px; 
+                border-radius: 16px; 
+                margin-bottom: 12px; 
+                border: 1px solid var(--detail-border); 
+                width: 100%; 
+                box-sizing: border-box;
+            `;
+            
             card.innerHTML = `
-                <div style="color: var(--detail-accent-text); font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; text-align: center;">${item.name}</div>
-                <div style="color: var(--detail-secondary-text); line-height: 1.6; white-space: pre-wrap; text-align: center;">${item.content}</div>
+                <div class="math-scroll-container" style="text-align: center; margin-bottom: 10px;">
+                    ${wrapLatex(item.name)}
+                </div>
+                <div style="color: var(--detail-secondary-text); text-align: center; font-size: 0.95rem; line-height: 1.5;">
+                    ${item.content}
+                </div>
             `;
             content.appendChild(card);
         });
+
+        if (window.MathJax && MathJax.typesetPromise) {
+            await MathJax.typesetPromise([content]);
+        }
+
     } catch (e) {
         tg.showAlert("Formula file not found for " + chapterName);
     }
@@ -3482,18 +3544,43 @@ function nextQuestion() {
         }
 
         function changeTab(id, el) {
-            showScreen(id);
-            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('nav-active'));
-            el.classList.add('nav-active');
-			if(id === 'scroll') {
-        // Tab ကို ပြန်နှိပ်ရင် Year selection ပြန်ရောက်အောင်
-        document.getElementById('old-q-years').style.display = 'block';
-        document.getElementById('old-q-subjects').style.display = 'none';
-        document.getElementById('old-q-types').style.display = 'none';
+    showScreen(id);
+    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('nav-active'));
+    el.classList.add('nav-active');
+    if(id === 'home') {
+        renderSubjects();
+        backToOldSubjects();
+        switchHomeTab('current');
     }
-            if(id === 'home') renderSubjects();
-            if(id === 'profile') renderProfileData();
-        }
+    if(id === 'profile') renderProfileData();
+}
+
+function switchHomeTab(tab) {
+    const currentSection = document.getElementById('home-current-section');
+    const oldSection = document.getElementById('home-old-section');
+    const currentBtn = document.getElementById('home-tab-current');
+    const oldBtn = document.getElementById('home-tab-old');
+    
+    if(tab === 'current') {
+        currentSection.style.display = 'block';
+        oldSection.style.display = 'none';
+        currentBtn.style.opacity = '1';
+        currentBtn.style.background = 'var(--accent)';
+        currentBtn.style.color = '#000';
+        oldBtn.style.opacity = '0.6';
+        oldBtn.style.background = '#1E293B';
+        oldBtn.style.color = 'var(--white)';
+    } else {
+        currentSection.style.display = 'none';
+        oldSection.style.display = 'block';
+        oldBtn.style.opacity = '1';
+        oldBtn.style.background = 'var(--accent)';
+        oldBtn.style.color = '#000';
+        currentBtn.style.opacity = '0.6';
+        currentBtn.style.background = '#1E293B';
+        currentBtn.style.color = 'var(--white)';
+    }
+}
 // Special Users ID များစာရင်း (ဒီမှာ ID ထည့်ရုံနဲ့ Premium ဖြစ်ပြီး ၆ ဘာသာပွင့်ပါမယ်)
 
 function renderProfileData() {
