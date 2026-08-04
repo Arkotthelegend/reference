@@ -2138,7 +2138,7 @@ const oldENGrammarTopics = [
 // App စတင်သည်နှင့် Old Subjects များကို အသင့်တည်ဆောက်ထားရန်
 function initOldSubjects() {
     const list = document.getElementById('old-subject-list');
-    if (!list) return; // Check for safety
+    if (!list) return;
     list.innerHTML = '';
 
     subjects.forEach(sub => {
@@ -2151,17 +2151,10 @@ function initOldSubjects() {
         }
 
         const card = document.createElement('div');
-        card.className = `subject-card ${isPaid ? '' : 'locked'}`;
-        // အစိမ်းနုရောင်
-        card.style.background = 'linear-gradient(135deg, #4ade80, #22c55e)';
-        card.style.boxShadow = '0 4px 15px rgba(34, 197, 94, 0.3)';
-        card.style.border = '1px solid #16a34a';
-        card.style.color = '#064e3b'; 
-
-        card.innerHTML = `
-            <span>${sub.name}</span>
-            ${isPaid ? '<span>➔</span>' : '<span class="lock-icon">🔒</span>'}
-        `;
+        card.className = `subject-card ${isPaid ? '' : 'locked'} ${isSpecial && isPaid ? 'premium-card' : ''}`;
+        
+        // Same HTML structure as renderSubjects()
+        card.innerHTML = `<span>${sub.name} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
 
         card.onclick = () => {
             if (isPaid) {
