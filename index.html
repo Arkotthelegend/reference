@@ -403,17 +403,20 @@ input:checked + .slider:before {
 
         /* ၁။ Free Trial နှင့် အခြား Menu ခလုတ်များအားလုံးကို ၂ ကော်လံ ခွဲခြင်း */
         #activity-content, #menu-content, #old-type-list {
-            display: grid !important;
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 10px !important;
-        }
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    grid-auto-rows: 1fr !important;
+}
         #activity-content .btn, #menu-content .btn, #old-type-list .btn {
-            margin: 0 !important;
-            height: 100% !important;
-            font-size: 0.95rem !important;
-            padding: 12px 10px !important;
-        }
-
+    margin: 0 !important;
+    height: 100% !important;
+    font-size: 0.95rem !important;
+    padding: 12px 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
         /* ၂။ Daily Study Tracker ကို ၂ ကော်လံ ခွဲခြင်း */
         #checklist-container {
             display: grid !important;
