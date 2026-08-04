@@ -567,7 +567,7 @@ body {
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 .subject-card, .btn, .option-btn, .flash-face, .profile-info-card, #exam-countdown, #motivation-box, #quiz-mode-box {
-    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 body[data-theme] {
@@ -1121,27 +1121,27 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 </div>
     
     <!-- Current Subjects Section -->
-    <div id="home-current-section">
+       <!-- Current Subjects Section -->
+    <div id="home-current-section" style="margin-top: 5px;">
         <div id="subject-list"></div>
-        <div style="padding: 20px; margin-top: 10px;">
-            <button class="btn" style="background: linear-gradient(135deg, #10B981, #059669); font-weight: bold; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);" onclick="openTrialMenu()">
-                🎁 ဘာသာရပ်များကို အစမ်းသုံးရန်
-            </button>
-            <div id="admin-announcement" style="margin-top: 20px; padding: 15px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border: 1px solid var(--accent); color: var(--accent); font-size: 0.9rem; text-align: center; display: none;">
-            </div>
-        </div>
     </div>
     
     <!-- Old Questions Section -->
     <div id="home-old-section" style="display: none;">
-        <div id="old-subjects-screen" style="padding: 15px;">
+        <div id="old-subjects-screen">
             <div id="old-subject-list"></div>
         </div>
-
         <div id="old-types-screen" style="display:none; padding: 15px;">
-            <h3 id="selected-sub-title" style="text-align: center; color: var(--accent);"></h3>
-            <div id="old-type-list"></div>
-            <button class="btn back-btn" onclick="backToOldSubjects()">နောက်သို့</button>
+            ...
+        </div>
+    </div>
+
+    <!-- Free Trial Button (visible on both tabs now) -->
+    <div style="padding: 20px; margin-top: 10px;">
+        <button class="btn" style="background: linear-gradient(135deg, #10B981, #059669); font-weight: bold; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);" onclick="openTrialMenu()">
+            🎁 ဘာသာရပ်များကို အစမ်းသုံးရန်
+        </button>
+        <div id="admin-announcement" style="margin-top: 20px; padding: 15px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border: 1px solid var(--accent); color: var(--accent); font-size: 0.9rem; text-align: center; display: none;">
         </div>
     </div>
 </div>
