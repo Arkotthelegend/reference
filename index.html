@@ -14,7 +14,7 @@
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
                 displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
+                processEscapes: true 
             }
         };
     </script>
@@ -402,13 +402,13 @@ input:checked + .slider:before {
            ============================================================ */
 
         /* ၁။ Free Trial နှင့် အခြား Menu ခလုတ်များအားလုံးကို ၂ ကော်လံ ခွဲခြင်း */
-        #activity-content, #menu-content, #old-type-list {
+       #activity-content, #menu-content, #old-menu-content {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 10px !important;
     grid-auto-rows: 1fr !important;
 }
-        #activity-content .btn, #menu-content .btn, #old-type-list .btn {
+#activity-content .btn, #menu-content .btn, #old-menu-content .btn {
     margin: 0 !important;
     height: 100% !important;
     font-size: 0.95rem !important;
@@ -1119,7 +1119,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
         <div id="home-screen" class="screen active-screen">
     <!-- Two Tabs -->
   <div style="display: flex; gap: 10px; margin-bottom: 20px; padding: 0 5px;">
-    <button id="home-tab-current" class="btn" style="flex:1; background: var(--accent); color: #000;" onclick="switchHomeTab('current')">လက်ရှိဘာသာရပ်များ</button>
+    <button id="home-tab-current" class="btn" style="flex:1; background: var(--accent); color: #000;" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
     <button id="home-tab-old" class="btn" style="flex:1; background: #1E293B; color: var(--white); opacity: 0.6;" onclick="switchHomeTab('old')">မေးခွန်းဟောင်းများ</button>
 </div>
     
@@ -1130,12 +1130,9 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     </div>
     
     <!-- Old Questions Section -->
-    <div id="home-old-section" style="display: none;">
+        <div id="home-old-section" style="display: none;">
         <div id="old-subjects-screen">
             <div id="old-subject-list"></div>
-        </div>
-        <div id="old-types-screen" style="display:none; padding: 15px;">
-            ...
         </div>
     </div>
 
@@ -1148,6 +1145,11 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
         </div>
     </div>
 </div>
+		<div id="old-menu-screen" class="screen">
+            <h2 id="old-menu-title" style="text-align: center; color: var(--accent); margin-bottom: 20px;"></h2>
+            <div id="old-menu-content" style="padding: 0 10px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; grid-auto-rows: 1fr;"></div>
+            <button class="btn back-btn" id="old-menu-back-btn" style="margin-top: 20px;">နောက်သို့</button>
+        </div>
 		
 		<div id="daily-screen" class="screen">
     <h2 style="text-align: center; color: var(--accent);">Daily Quiz (Free)</h2>
@@ -1355,13 +1357,13 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
         </select>
     </div>
     
-    <!-- Legend -->
+        <!-- Legend -->
     <div style="background: var(--card-bg); padding: 10px; border-radius: 10px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">
-        <b style="color: var(--accent); font-weight: 800;">🏅အဆင့်သတ်မှတ်ခြင်း</b><br>
-        ① အဖြေမှန်နှုန်းအများဆုံး<br>
-        ② အချိန်အနည်းဆုံး<br>
-        ③ မေးခွန်းဖြေဆိုမှုအများဆုံး<br>
-		အပေါ်ကဦးစား‌ပေးအစီအစဉ်အတိုင်းအဆင့်သတ်မှတ်ပေးမှာဖြစ်ပါတယ်
+        <b style="color: var(--accent); font-weight: 800;">🏅အဆင့်သတ်မှတ်ခြင်း (Fair Rank System)</b><br>
+        ① မေးခွန်းအရေအတွက် (40%) — များများဖြေထားရင် ပိုကောင်းသည်<br>
+        ② အဖြေမှန်နှုန်း (40%) — မှန်နှုန်းမြင့်ရင် ပိုကောင်းသည်<br>
+        ③ အချိန်မြန်မှု (20%) — တစ်ပုဒ်ချင်းအချိန်နည်းရင် ပိုကောင်းသည်<br>
+        <span style="color: var(--accent);">⚠️ Daily Quiz ဖြေဆိုထားသူများ Rank ထဲမပါပါ</span>
     </div>
     
     <div id="leaderboard-loading" style="text-align: center; color: #94A3B8; padding: 30px; display: none;">ဆွဲယူနေသည်...</div>
@@ -1663,6 +1665,13 @@ function getStatDisplayName(key, item) {
     return item.chapter || '';
 }
 async function submitScore(timeTaken = 0) {
+    // 🚫 Do NOT save Daily Quiz data to statistics
+    if (currentQuizFile && currentQuizFile.startsWith('daily_')) {
+        console.log("Daily Quiz data not saved to sheet.");
+        resetTimer();
+        return;
+    }
+
     if (!currentQuizFile || !currentQuestions || currentQuestions.length === 0) {
         console.warn("submitScore skipped: no quiz data");
         return;
@@ -1784,12 +1793,13 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
     let keys = Object.keys(bestScoresObj);
 
     // Filter Old vs New
-    keys = keys.filter(key => {
+       keys = keys.filter(key => {
         const item = bestScoresObj[key];
         const isOld = item.isOld || key.startsWith('old_');
-        return filterOld ? isOld : !isOld;
+        const isDaily = key.startsWith('daily_');
+        if (filterOld) return isOld;
+        return !isOld && !isDaily;
     });
-
     // Hide sub-chapters and Myanmar individual title/chapter quizzes
     keys = keys.filter(key => !isSubChapter(key) && !isMyanmarIndividualQuiz(key));
 
@@ -1897,10 +1907,11 @@ async function loadUserStats() {
     const container = document.getElementById('stat-subjects');
     container.innerHTML = '';
 
-       const keys = Object.keys(bestScoresObj).filter(key => {
+           const keys = Object.keys(bestScoresObj).filter(key => {
         const item = bestScoresObj[key];
         const isOld = item.isOld || key.startsWith('old_');
-        return !isOld && !isSubChapter(key) && !isMyanmarIndividualQuiz(key);
+        const isDaily = key.startsWith('daily_');
+        return !isOld && !isDaily && !isSubChapter(key) && !isMyanmarIndividualQuiz(key);
     });
 
     // Overall card elements
@@ -2138,8 +2149,20 @@ const oldENGrammarTopics = [
     // လိုအပ်သလို ထပ်ဖြည့်နိုင်ပါသည်
 ];
 
-// App စတင်သည်နှင့် Old Subjects များကို အသင့်တည်ဆောက်ထားရန်
-function initOldSubjects() {
+
+// မေးခွန်းဟောင်းအတွက် သီးသန့် Button ဖန်တီးပေးသည့် Function
+function createOldBtn(txt, parent, act) {
+    const b = document.createElement('button');
+    b.className = 'btn';
+    b.style.background = '#38BDF8'; 
+    b.style.border = '1px solid #22c55e';
+    b.style.color = '#000000';
+    b.innerText = txt;
+    b.onclick = act;
+    parent.appendChild(b);
+}
+
+		function initOldSubjects() {
     const list = document.getElementById('old-subject-list');
     if (!list) return;
     list.innerHTML = '';
@@ -2155,15 +2178,14 @@ function initOldSubjects() {
 
         const card = document.createElement('div');
         card.className = `subject-card ${isPaid ? '' : 'locked'} ${isSpecial && isPaid ? 'premium-card' : ''}`;
-        
-        // Same HTML structure as renderSubjects()
         card.innerHTML = `<span>${sub.name} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
 
         card.onclick = () => {
             if (isPaid) {
                 currentSubject = sub;
                 isAnswered = false;
-                showOldMenu(sub); 
+                showScreen('old-menu');   // ⬅️ Go to separate screen
+                showOldMenu(sub);
             } else {
                 tg.showAlert("ဒီဘာသာရပ်ကို ဝယ်ယူထားခြင်း မရှိသေးပါ။ Unlock လုပ်ရန် ဆက်သွယ်ပါ။");
             }
@@ -2172,40 +2194,30 @@ function initOldSubjects() {
     });
 }
 
-// မေးခွန်းဟောင်းအတွက် သီးသန့် Button ဖန်တီးပေးသည့် Function
-function createOldBtn(txt, parent, act) {
-    const b = document.createElement('button');
-    b.className = 'btn';
-    b.style.background = '#38BDF8'; 
-    b.style.border = '1px solid #22c55e';
-    b.style.color = '#000000';
-    b.innerText = txt;
-    b.onclick = act;
-    parent.appendChild(b);
+function backToOldSubjects() {
+    showScreen('home');
+    switchHomeTab('old');
 }
 
 function showOldMenu(sub) {
-    document.getElementById('old-subjects-screen').style.display = 'none';
-    document.getElementById('old-types-screen').style.display = 'block';
-    document.getElementById('selected-sub-title').innerText = sub.name; // Year မပါတော့ပါ
-
-    const list = document.getElementById('old-type-list');
+    document.getElementById('old-menu-title').innerText = sub.name;
+    const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
-    document.querySelector('#old-types-screen .back-btn').onclick = backToOldSubjects;
+    document.getElementById('old-menu-back-btn').onclick = backToOldSubjects;
 
     if (sub.id === 'en') {
-        ['Initial Letter', 'MCQ', 'Grammar'].forEach(type => { 
+        ['Initial Letter', 'MCQ', 'Grammar'].forEach(type => {
             createOldBtn(type, list, () => {
                 if (type === 'Grammar') showOldENGrammarOptions();
                 else showOldENUnits(type);
             });
         });
     } else if (sub.id === 'mm') {
-        ['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး'].forEach(m => { 
+        ['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး'].forEach(m => {
             createOldBtn(m, list, () => showOldMMQuizOptions(m));
         });
     } else {
-        for(let i=1; i<=sub.chapters; i++) {
+        for (let i = 1; i <= sub.chapters; i++) {
             if (sub.id === 'eco' && i === 6) continue;
             createOldBtn(`Chapter ${i}`, list, () => showOldGeneralActivities(sub.id, `Chapter ${i}`));
         }
@@ -2213,17 +2225,16 @@ function showOldMenu(sub) {
 }
 
 function showOldENUnits(typeName) {
-    const list = document.getElementById('old-type-list');
+    const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
-    document.getElementById('selected-sub-title').innerText = typeName;
-    document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
+    document.getElementById('old-menu-title').innerText = typeName;
+    document.getElementById('old-menu-back-btn').onclick = () => showOldMenu(currentSubject);
 
     for (let i = 1; i <= 12; i++) {
         createOldBtn(`Unit ${i}`, list, () => {
             initQuiz(`old_en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`);
             document.getElementById('quiz-back-btn').onclick = () => {
-                showScreen('home');
-switchHomeTab('old'); 
+                showScreen('old-menu');
                 showOldENUnits(typeName);
             };
         });
@@ -2231,18 +2242,17 @@ switchHomeTab('old');
 }
 
 function showOldENGrammarOptions() {
-    const list = document.getElementById('old-type-list');
+    const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
-    document.getElementById('selected-sub-title').innerText = "Grammar";
-    document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
+    document.getElementById('old-menu-title').innerText = "Grammar";
+    document.getElementById('old-menu-back-btn').onclick = () => showOldMenu(currentSubject);
 
     oldENGrammarTopics.forEach(topic => {
         createOldBtn(topic.title, list, () => {
             initFlashcards(`old_${topic.id}`, topic.title);
             const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
             flashExitBtn.onclick = () => {
-                showScreen('home');
-switchHomeTab('old');
+                showScreen('old-menu');
                 showOldENGrammarOptions();
             };
         });
@@ -2250,26 +2260,26 @@ switchHomeTab('old');
 }
 
 function showOldMMQuizOptions(typeName) {
-    const list = document.getElementById('old-type-list');
+    const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
-    document.getElementById('selected-sub-title').innerText = typeName;
-    document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
+    document.getElementById('old-menu-title').innerText = typeName;
+    document.getElementById('old-menu-back-btn').onclick = () => showOldMenu(currentSubject);
 
-    ['အပြော', 'စကားပြေ' , 'ကဗျာ' ,'ရေသည်', 'အရေး'].forEach(cat => {
+    ['အပြော', 'စကားပြေ', 'ကဗျာ', 'ရေသည်', 'အရေး'].forEach(cat => {
         createOldBtn(cat, list, () => {
             if (cat === 'အပြော' || cat === 'အရေး') {
-                // "အပြော" နှင့် "အရေး" အတွက် အခန်းခွဲများရွေးရန် သွားမည်
                 showOldMMChapters(typeName, cat);
-            }         else if (cat === 'ရေသည်') {
-            const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-            initQuiz(fileName);  // ✅ initFlashcards ကို initQuiz အစားထိုး
-            document.getElementById('quiz-back-btn').onclick = () => { showScreen('home'); switchHomeTab('old'); showOldMMQuizOptions(typeName); };
-        } else{
-                // "စကားပြေ" နှင့် "ကဗျာ" အတွက် တိုက်ရိုက် မေးခွန်းစမည်
+            } else if (cat === 'ရေသည်') {
+                const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                initQuiz(fileName);
+                document.getElementById('quiz-back-btn').onclick = () => {
+                    showScreen('old-menu');
+                    showOldMMQuizOptions(typeName);
+                };
+            } else {
                 initQuiz(`old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
                 document.getElementById('quiz-back-btn').onclick = () => {
-                    showScreen('home');
-switchHomeTab('old');
+                    showScreen('old-menu');
                     showOldMMQuizOptions(typeName);
                 };
             }
@@ -2277,26 +2287,20 @@ switchHomeTab('old');
     });
 }
 
-// အပြော နှင့် အရေး အတွက် အခန်းခွဲများ ပြပေးမည့် Function အသစ်
 function showOldMMChapters(typeName, cat) {
-    const list = document.getElementById('old-type-list');
+    const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
-    // ဥပမာ - "အပြော (မှား/မှန်)" ဟု ခေါင်းစဉ်ပြောင်းရန်
-    document.getElementById('selected-sub-title').innerText = `${cat} (${typeName})`;
+    document.getElementById('old-menu-title').innerText = `${cat} (${typeName})`;
+    document.getElementById('old-menu-back-btn').onclick = () => showOldMMQuizOptions(typeName);
 
-    // "နောက်သို့" နှိပ်လျှင် မေးခွန်းအမျိုးအစား ရွေးသည့် နေရာသို့ ပြန်သွားရန်
-    document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMMQuizOptions(typeName);
+    // ❌ The green "All" button block is removed here
 
     ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
         createOldBtn(chapter, list, () => {
-            // ဖိုင်နာမည်ကို ဥပမာ- old_mm_အပြော_အခန်း_၁_မှား_မှန် ဟု ခေါ်ယူမည်
             const fileName = `old_mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
             initQuiz(fileName);
-
-            // ထွက်မည် ကို နှိပ်လျှင် အခန်းရွေးသည့် နေရာသို့ ပြန်လာရန်
             document.getElementById('quiz-back-btn').onclick = () => {
-                showScreen('home');
-switchHomeTab('old');
+                showScreen('old-menu');
                 showOldMMChapters(typeName, cat);
             };
         });
@@ -2304,27 +2308,22 @@ switchHomeTab('old');
 }
 
 function showOldGeneralActivities(subId, partName) {
-    const list = document.getElementById('old-type-list');
+    const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
-    document.getElementById('selected-sub-title').innerText = partName;
-    document.querySelector('#old-types-screen .back-btn').onclick = () => showOldMenu(currentSubject);
+    document.getElementById('old-menu-title').innerText = partName;
+    document.getElementById('old-menu-back-btn').onclick = () => showOldMenu(currentSubject);
 
-    if(subId === 'math') {
-        // 🛠 သင်္ချာ Chapter 2 ဆိုလျှင် 3_Marks တစ်ခုတည်းသာ ထုတ်ပေးမည်
+    if (subId === 'math') {
         let marksArray = ['1_Mark', '2_Marks', '3_Marks'];
-        if (partName === 'Chapter 2') {
-            marksArray = ['3_Marks']; 
-        }
-         if (partName === 'Chapter 7') {
-        marksArray = ['1_Mark', '2_Marks'];
-    }
+        if (partName === 'Chapter 2') marksArray = ['3_Marks'];
+        if (partName === 'Chapter 7') marksArray = ['1_Mark', '2_Marks'];
+
         marksArray.forEach(mark => {
             createOldBtn(mark.replace('_', ' '), list, () => {
                 const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
                 initQuiz(fileName);
                 document.getElementById('quiz-back-btn').onclick = () => {
-                    showScreen('home');
-switchHomeTab('old');
+                    showScreen('old-menu');
                     showOldGeneralActivities(subId, partName);
                 };
             });
@@ -2336,20 +2335,13 @@ switchHomeTab('old');
                 const fileName = `old_${subId}_${partName}_${type}`.replace(/ /g, "_");
                 initQuiz(fileName);
                 document.getElementById('quiz-back-btn').onclick = () => {
-                    showScreen('home');
-switchHomeTab('old');
+                    showScreen('old-menu');
                     showOldGeneralActivities(subId, partName);
                 };
             });
         });
     }
 }
-
-function backToOldSubjects() {
-    document.getElementById('old-types-screen').style.display = 'none';
-    document.getElementById('old-subjects-screen').style.display = 'block';
-}
-
 
 function checkAccess(subId) {
     // ၁။ ဒီနေ့ ရက်စွဲကို အချိန် (Time) မပါဘဲ ယူမည်
@@ -4331,18 +4323,42 @@ function switchStatsTab(tabName) {
 }
 
 		function calculateRankScore(totalScore, totalPossible, totalTime) {
-    if (totalPossible === 0) return { acc: 0, totalTime: 999999 };
+    if (totalPossible === 0) return { composite: -1, acc: 0, avgTime: 999, volume: 0 };
+    
     const accuracy = totalScore / totalPossible;
-    return { acc: accuracy, totalTime: totalTime > 0 ? totalTime : 999999 };
+    const avgTimePerQ = totalTime / totalPossible;
+    
+    // Volume: logarithmic curve (0 → 1). 10 Qs ≈ 0.39, 50 ≈ 0.63, 100 ≈ 0.74, 200 ≈ 0.85, 500+ = 1.0
+    const volumeScore = Math.min(Math.log(totalPossible + 1) / Math.log(501), 1);
+    
+    // Speed: optimal ~20s/q, linear penalty, zero at 120s/q
+    const timeScore = Math.max(0, Math.min(1, 1 - ((avgTimePerQ - 20) / 100)));
+    
+    // Composite: 40% accuracy + 40% volume + 20% speed
+    const composite = (accuracy * 0.40) + (volumeScore * 0.40) + (timeScore * 0.20);
+    
+    return {
+        composite: composite,
+        acc: accuracy,
+        avgTime: avgTimePerQ,
+        volume: totalPossible,
+        volumeScore: volumeScore,
+        timeScore: timeScore
+    };
 }
 
 
 function sortLeaderboard(entries) {
     return entries.sort((a, b) => {
         const ra = a.rankData, rb = b.rankData;
+        // 1) Composite score (higher is better)
+        if (rb.composite !== ra.composite) return rb.composite - ra.composite;
+        // 2) Tie-break: accuracy
         if (rb.acc !== ra.acc) return rb.acc - ra.acc;
-        if (ra.totalTime !== rb.totalTime) return ra.totalTime - rb.totalTime;
-        return b.totalScore - a.totalScore;
+        // 3) Tie-break: total questions answered (more is better)
+        if (rb.volume !== ra.volume) return rb.volume - ra.volume;
+        // 4) Tie-break: average time per question (less is better)
+        return ra.avgTime - rb.avgTime;
     });
 }
 		
@@ -4382,7 +4398,12 @@ async function loadLeaderboard() {
         const userMap = {};
         const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
         
-        data.rows.forEach(row => {
+         const filteredRows = data.rows.filter(row => {
+            const qf = row.quizFile || '';
+            return !qf.startsWith('daily_');
+        });
+
+        filteredRows.forEach(row => {
             const uid = row.userId || 'unknown';
             const uname = row.userName || 'Anonymous';
             if (!userMap[uid]) {
@@ -4422,19 +4443,17 @@ function renderLeaderboard(entries, currentUserId, subject) {
     const medals = ['🥇', '🥈', '🥉'];
     const TOP_N = 10;
     
-    // Find current user's position in full sorted list
     let myRank = -1;
     const myEntryIndex = entries.findIndex(e => e.userId === currentUserId);
     if (myEntryIndex !== -1) myRank = myEntryIndex + 1;
     
-    // Slice to Top 10 only
     const topEntries = entries.slice(0, TOP_N);
     
     topEntries.forEach((entry, index) => {
         const rank = index + 1;
         const isMe = entry.userId === currentUserId;
         const acc = Math.round(entry.rankData.acc * 100);
-        const timeStr = formatTime(entry.totalTime);
+        const totalTimeStr = formatTime(entry.totalTime); // ⬅️ Total time instead of avg
         
         const div = document.createElement('div');
         div.className = `leaderboard-item ${isMe ? 'is-me' : ''}`;
@@ -4453,11 +4472,12 @@ function renderLeaderboard(entries, currentUserId, subject) {
             <div class="leaderboard-info">
                 <div class="leaderboard-name">${displayName}</div>
                 <div class="leaderboard-meta">
-                    ${entry.quizCount} quizzes · ${entry.totalScore}/${entry.totalPossible} · ⏱ ${timeStr}
+                    ${entry.totalPossible} Qs · ${acc}% correct · ⏱ ${totalTimeStr}
                 </div>
             </div>
             <div class="leaderboard-score-box">
                 <div class="leaderboard-acc">${acc}%</div>
+                <div class="leaderboard-detail">${entry.quizCount} quizzes</div>
             </div>
             <div class="leaderboard-medal">${medal}</div>
         `;
@@ -4465,11 +4485,11 @@ function renderLeaderboard(entries, currentUserId, subject) {
         listDiv.appendChild(div);
     });
     
-    // If current user is outside Top 10, show them separately at bottom
+    // Current user outside Top 10
     if (myRank > TOP_N && currentUserId !== 'unknown') {
         const me = entries[myEntryIndex];
         const acc = Math.round(me.rankData.acc * 100);
-        const timeStr = formatTime(me.totalTime);
+        const totalTimeStr = formatTime(me.totalTime); // ⬅️ Total time instead of avg
         const nameInitial = (me.userName || 'A').charAt(0).toUpperCase();
         
         let displayName = me.userName || 'Anonymous';
@@ -4488,17 +4508,18 @@ function renderLeaderboard(entries, currentUserId, subject) {
             <div class="leaderboard-info">
                 <div class="leaderboard-name">${displayName}</div>
                 <div class="leaderboard-meta">
-                    ${me.quizCount} quizzes · ${me.totalScore}/${me.totalPossible} · ⏱ ${timeStr}
+                    ${me.totalPossible} Qs · ${acc}% correct · ⏱ ${totalTimeStr}
                 </div>
             </div>
             <div class="leaderboard-score-box">
                 <div class="leaderboard-acc">${acc}%</div>
+                <div class="leaderboard-detail">${me.quizCount} quizzes</div>
             </div>
         `;
         listDiv.appendChild(div);
     }
     
-    // If user has no data at all
+    // No data state
     if (myRank === -1 && currentUserId !== 'unknown') {
         const div = document.createElement('div');
         div.className = 'leaderboard-item is-me';
@@ -4509,7 +4530,7 @@ function renderLeaderboard(entries, currentUserId, subject) {
             <div class="leaderboard-avatar" style="background: var(--card-bg); color: var(--text-muted);">?</div>
             <div class="leaderboard-info">
                 <div class="leaderboard-name" style="color: var(--text-muted);">You (No data)</div>
-                <div class="leaderboard-meta">ဒီဘာသာရပ်အတွက် မေးခွန်းမဖြေဆိုရသေးပါ</div>
+                <div class="leaderboard-meta">ဒီဘာသာရပ်အတွက် မေးခွန်းမဖြေဆိုရသေးပါ (Daily Quiz မပါ)</div>
             </div>
             <div class="leaderboard-score-box">
                 <div class="leaderboard-acc" style="color: var(--text-muted);">-%</div>
