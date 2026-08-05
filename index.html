@@ -1634,17 +1634,18 @@ function parseQuizFile(fileName) {
     return { subject, chapter: parts.slice(1, -1).join('_').replace(/_/g, ' ') || 'General', type: parts[parts.length - 1] || 'Quiz', isOld };
 }
 
-		// Detect Myanmar individual title/chapter quizzes (skip from stats)
-// The combined "all" quiz (e.g. mm_စကားပြေ_all_အမှန်ရွေး) is allowed
 function isMyanmarIndividualQuiz(fileName) {
     if (!fileName || typeof fileName !== 'string') return false;
-    if (!fileName.startsWith('mm_')) return false;
+    // 🆕 Catch both current (mm_) and old (old_mm_) Myanmar quizzes
+    const isMm = fileName.startsWith('mm_') || fileName.startsWith('old_mm_');
+    if (!isMm) return false;
+    // ✅ Allow combined "all" quizzes (e.g. mm_စကားပြေ_all_မှား_မှန်)
     if (fileName.includes('_all_')) return false;
-    // 🆕 ရေသည် is a category-level quiz, not an individual chapter/title
+    // ✅ Allow ရေသည် (no sub-chapters)
     if (fileName.includes('_ရေသည်_')) return false;
+    // ❌ Everything else is individual chapter/title → skip from rank/stats
     return true;
 }
-		
 // ─── Submit Score ───
 // ─── Local Stats Helpers ───
 function getLocalStats() {
@@ -1698,6 +1699,13 @@ async function submitScore(timeTaken = 0) {
     // 🚫 Do NOT save Daily Quiz data to statistics
     if (currentQuizFile && currentQuizFile.startsWith('daily_')) {
         console.log("Daily Quiz data not saved to sheet.");
+        resetTimer();
+        return;
+    }
+
+	 // 🚫 Do NOT save Myanmar individual chapter/title quizzes
+    if (isMyanmarIndividualQuiz(currentQuizFile)) {
+        console.log("Stats not saved: Myanmar individual chapter/title quiz");
         resetTimer();
         return;
     }
@@ -4609,8 +4617,13 @@ async function loadLeaderboard() {
         
          const filteredRows = data.rows.filter(row => {
             const qf = row.quizFile || '';
-            return !qf.startsWith('daily_');
+            // Exclude Daily Quiz
+            if (qf.startsWith('daily_')) return false;
+            // 🆕 Exclude Myanmar individual chapter/title quizzes
+            if (isMyanmarIndividualQuiz(qf)) return false;
+            return true;
         });
+
 
         filteredRows.forEach(row => {
             const uid = row.userId || 'unknown';
