@@ -2107,16 +2107,64 @@ async function openArticleDetail(articleId) {
         const bodyDiv = document.getElementById('article-detail-body');
         bodyDiv.innerHTML = '';
         
-        // Support array of paragraphs (plain text) or single HTML string
-        if (Array.isArray(article.content)) {
-            article.content.forEach(paragraph => {
+        // Helper to render each block
+        const renderBlock = (block) => {
+            // Case 1: Plain text paragraph
+            if (typeof block === 'string') {
                 const p = document.createElement('p');
-                p.style.margin = '0 0 12px 0';
+                p.style.margin = '0 0 14px 0';
+                p.style.lineHeight = '1.8';
                 p.style.color = 'var(--white)';
-                p.innerText = paragraph;
-                bodyDiv.appendChild(p);
+                p.innerText = block;
+                return p;
+            }
+            
+            // Case 2: Image object
+            if (typeof block === 'object' && block.type === 'image') {
+                const wrapper = document.createElement('div');
+                wrapper.style.cssText = 'margin: 16px 0; text-align: center;';
+                
+                const img = document.createElement('img');
+                img.src = block.src;
+                img.alt = block.caption || 'Image';
+                img.style.cssText = 'width: 100%; max-width: 100%; border-radius: 12px; display: block; border: 1px solid #334155;';
+                
+                // Optional: click to enlarge (Telegram Web App friendly)
+                img.onclick = () => {
+                    if (tg.openLink) tg.openLink(block.src);
+                };
+                
+                wrapper.appendChild(img);
+                
+                // Optional caption
+                if (block.caption) {
+                    const cap = document.createElement('div');
+                    cap.style.cssText = 'margin-top: 8px; font-size: 0.8rem; color: var(--text-muted); font-style: italic;';
+                    cap.innerText = block.caption;
+                    wrapper.appendChild(cap);
+                }
+                
+                return wrapper;
+            }
+            
+            // Case 3: Raw HTML fallback (for advanced use)
+            if (typeof block === 'object' && block.type === 'html') {
+                const div = document.createElement('div');
+                div.style.margin = '0 0 14px 0';
+                div.innerHTML = block.value;
+                return div;
+            }
+            
+            return document.createElement('span');
+        };
+        
+        // Support both old array format and new mixed format
+        if (Array.isArray(article.content)) {
+            article.content.forEach(block => {
+                bodyDiv.appendChild(renderBlock(block));
             });
         } else if (typeof article.content === 'string') {
+            // Legacy single-string HTML support
             bodyDiv.innerHTML = article.content;
         }
         
