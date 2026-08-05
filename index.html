@@ -1148,6 +1148,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -1306,7 +1307,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
                 <div class="profile-info-card">
                     <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
-                    <button class="btn buy-btn" onclick="copyTelegram()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
+                    <button class="btn buy-btn" onclick="openPaymentScreen('all')">💳 ဘာသာရပ်ဝယ်ယူရန်</button>
 					<div id="quiz-mode-box" style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
         <span style="font-size: 1.2rem;">⚙️</span>
@@ -1512,7 +1513,72 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
         <div id="article-detail-body" style="background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--accent); line-height: 1.8; color: var(--white); font-size: 0.95rem;"></div>
     </div>
 </div>
-		
+
+		<!-- Payment Screen -->
+<div id="payment-screen" class="screen">
+    <h2 style="text-align: center; color: var(--accent); margin-bottom: 5px;">💳 ဝယ်ယူရန်</h2>
+    <p style="text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top:0; margin-bottom: 20px;">Kpay (or) Wave ဖြင့်ပေးချေနိုင်ပါသည်</p>
+    
+    <div id="payment-content" style="padding: 0 15px; padding-bottom: 100px;">
+        <!-- Subject Selection -->
+        <div id="payment-subject-select" style="margin-bottom: 20px;"></div>
+        
+        <!-- Payment Methods -->
+        <div id="payment-methods" style="display: none;">
+            <h3 style="color: var(--accent); font-size: 1rem; margin-bottom: 12px;">ငွေပေးချေမှု နည်းလမ်းရွေးပါ</h3>
+            
+            <div class="subject-card" onclick="selectPaymentMethod('kpay')" style="border-color: #F59E0B !important; margin-bottom: 10px;">
+                <span>📱 Kpay</span> <span style="color: #F59E0B !important;">➔</span>
+            </div>
+            <div class="subject-card" onclick="selectPaymentMethod('wave')" style="border-color: #3B82F6 !important; margin-bottom: 10px;">
+                <span>🌊 Wave Money</span> <span style="color: #3B82F6 !important;">➔</span>
+            </div>
+        </div>
+        
+        <!-- Payment Details -->
+        <div id="payment-details" style="display: none; background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--accent); margin-bottom: 15px;">
+            <div style="text-align: center; margin-bottom: 15px;">
+                <span id="pay-method-icon" style="font-size: 2rem;"></span>
+                <h3 id="pay-method-title" style="margin: 5px 0; color: var(--white);"></h3>
+            </div>
+            
+            <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="color: var(--text-muted);">ဘာသာရပ်</span>
+                    <span id="pay-subject-name" style="color: var(--white); font-weight: bold;"></span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="color: var(--text-muted);">စျေးနှုန်း</span>
+                    <span id="pay-amount" style="color: var(--accent); font-weight: bold;"></span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="color: var(--text-muted);">လက်ခံသူ</span>
+                    <span id="pay-account-name" style="color: var(--white); font-weight: bold;"></span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: var(--text-muted);">ဖုန်းနံပါတ်</span>
+                    <span id="pay-phone" style="color: var(--accent); font-weight: bold; font-family: monospace; font-size: 1.1rem;"></span>
+                </div>
+            </div>
+            
+            <div style="background: rgba(255, 193, 7, 0.1); border: 1px dashed #F59E0B; padding: 12px; border-radius: 10px; margin-bottom: 15px; text-align: center;">
+                <span style="color: #F59E0B; font-size: 0.85rem;">📋 Order ID (ဤစာသားကို ထည့်ပေးရန်)</span>
+                <div id="pay-order-id" style="color: #F59E0B; font-weight: 900; font-family: monospace; font-size: 1.2rem; margin-top: 5px; letter-spacing: 1px;"></div>
+            </div>
+            
+            <p style="color: var(--text-muted); font-size: 0.8rem; text-align: center; line-height: 1.6; margin-bottom: 15px;">
+                ၁။ ငွေလွှဲပါ (Description တွင် Order ID ထည့်ပါ)<br>
+                ၂။ Screenshot ရိုက်ထားပါ<br>
+                ၃⃣ "ငွေလွှဲပြီးပါပြီ" နှိပ်ပြီး ပို့ပါ
+            </p>
+            
+            <button class="btn" id="pay-confirm-btn" style="background: #10B981; margin-bottom: 10px; font-weight: bold;">✅ ငွေလွှဲပြီးပါပြီ</button>
+            <button class="btn" style="background: #1E293B; border: 1px solid #334155; color: var(--white);" onclick="resetPaymentScreen()">နောက်သို့</button>
+        </div>
+    </div>
+    
+    <button class="btn back-btn" onclick="showScreen('profile')" style="margin-top: 10px;">ပရိုဖိုင်သို့</button>
+</div>
    <div class="nav">
     <div class="nav-item nav-active" onclick="changeTab('home', this)">🏠</div>
     <div class="nav-item" onclick="changeTab('daily', this)">📝</div>
@@ -1522,6 +1588,158 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 </div>
 
     <script>
+
+		// ==================== PAYMENT SYSTEM CONFIG ====================
+const PAYMENT_CONFIG = {
+    kpay: { 
+        phone: '09793727678',      // ⬅️ CHANGE: Your Kpay phone number
+        name: 'Oakar Pyae Sone',         // ⬅️ CHANGE: Your Kpay account name
+        icon: '📱',
+        color: '#F59E0B'
+    },
+    wave: { 
+        phone: '09793727678',      // ⬅️ CHANGE: Your Wave phone number
+        name: 'Daw Aye Sandar',         // ⬅️ CHANGE: Your Wave account name
+        icon: '🌊',
+        color: '#3B82F6'
+    }
+};
+
+const SUBJECT_PRICES = {
+    'mm': 1000, 'en': 1000, 'math': 1500, 'phy': 1500,
+    'chem': 1500, 'bio': 1500, 'eco': 1500, 'all': 8000
+};
+
+let currentPaymentSubject = null;
+let currentPaymentMethod = null;
+let currentOrderId = null;
+
+// ==================== PAYMENT FUNCTIONS ====================
+
+function openPaymentScreen(subjectId) {
+    currentPaymentSubject = subjectId || 'all';
+    showScreen('payment');
+    resetPaymentScreen();
+    
+    const content = document.getElementById('payment-subject-select');
+    content.innerHTML = '';
+    
+    // If coming from a specific locked subject
+    if (subjectId && subjectId !== 'all') {
+        const sub = subjects.find(s => s.id === subjectId);
+        const price = SUBJECT_PRICES[subjectId] || 1000;
+        content.innerHTML = `
+            <div style="background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid var(--accent); text-align: center; margin-bottom: 15px;">
+                <div style="color: var(--text-muted); font-size: 0.9rem;">ဝယ်ယူမည့်ဘာသာရပ်</div>
+                <div style="color: var(--white); font-size: 1.2rem; font-weight: bold; margin: 5px 0;">${sub ? sub.name : subjectId}</div>
+                <div style="color: var(--accent); font-weight: bold;">${price} MMK</div>
+            </div>
+        `;
+        document.getElementById('payment-methods').style.display = 'block';
+    } else {
+        // Show all subject options + bundle
+        let html = `<h3 style="color: var(--accent); font-size: 1rem; margin-bottom: 12px;">ဘာသာရပ်ရွေးပါ</h3>`;
+        content.innerHTML = html;
+        
+        subjects.forEach(sub => {
+            const price = SUBJECT_PRICES[sub.id] || 1000;
+            const div = document.createElement('div');
+            div.className = 'subject-card';
+            div.style.cssText = 'margin-bottom: 8px; border-color: var(--accent) !important; cursor: pointer;';
+            div.innerHTML = `<span>${sub.name}</span> <span style="color: var(--accent) !important;">${price} K</span>`;
+            div.onclick = () => {
+                currentPaymentSubject = sub.id;
+                document.getElementById('payment-subject-select').innerHTML = `
+                    <div style="background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid var(--accent); text-align: center; margin-bottom: 15px;">
+                        <div style="color: var(--text-muted); font-size: 0.9rem;">ဝယ်ယူမည့်ဘာသာရပ်</div>
+                        <div style="color: var(--white); font-size: 1.2rem; font-weight: bold; margin: 5px 0;">${sub.name}</div>
+                        <div style="color: var(--accent); font-weight: bold;">${price} MMK</div>
+                    </div>
+                `;
+                document.getElementById('payment-methods').style.display = 'block';
+            };
+            content.appendChild(div);
+        });
+        
+        // All subjects bundle
+        const allPrice = SUBJECT_PRICES['all'];
+        const allDiv = document.createElement('div');
+        allDiv.className = 'subject-card premium-card';
+        allDiv.style.cssText = 'margin-bottom: 8px; margin-top: 8px; cursor: pointer;';
+        allDiv.innerHTML = `<span>ဘာသာရပ်အားလုံး 📦</span> <span style="color: #F59E0B !important;">${allPrice} K</span>`;
+        allDiv.onclick = () => {
+            currentPaymentSubject = 'all';
+            document.getElementById('payment-subject-select').innerHTML = `
+                <div style="background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid #F59E0B; text-align: center; margin-bottom: 15px;">
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">ဝယ်ယူမည့်ဘာသာရပ်</div>
+                    <div style="color: var(--white); font-size: 1.2rem; font-weight: bold; margin: 5px 0;">ဘာသာရပ်အားလုံး 📦</div>
+                    <div style="color: #F59E0B; font-weight: bold;">${allPrice} MMK</div>
+                </div>
+            `;
+            document.getElementById('payment-methods').style.display = 'block';
+        };
+        content.appendChild(allDiv);
+    }
+}
+
+function selectPaymentMethod(method) {
+    currentPaymentMethod = method;
+    const config = PAYMENT_CONFIG[method];
+    const sub = subjects.find(s => s.id === currentPaymentSubject);
+    const price = SUBJECT_PRICES[currentPaymentSubject] || 1000;
+    currentOrderId = generateOrderId();
+    
+    document.getElementById('payment-methods').style.display = 'none';
+    document.getElementById('payment-details').style.display = 'block';
+    
+    document.getElementById('pay-method-icon').innerText = config.icon;
+    document.getElementById('pay-method-title').innerText = method.toUpperCase() + ' Payment';
+    document.getElementById('pay-method-title').style.color = config.color;
+    
+    document.getElementById('pay-subject-name').innerText = currentPaymentSubject === 'all' ? 'ဘာသာရပ်အားလုံး' : (sub ? sub.name : currentPaymentSubject);
+    document.getElementById('pay-amount').innerText = price + ' MMK';
+    document.getElementById('pay-account-name').innerText = config.name;
+    document.getElementById('pay-phone').innerText = config.phone;
+    document.getElementById('pay-order-id').innerText = currentOrderId;
+    
+    // Setup confirm button
+    const btn = document.getElementById('pay-confirm-btn');
+    btn.onclick = () => sendPaymentProof(currentOrderId, currentPaymentSubject, method, price);
+}
+
+function generateOrderId() {
+    return 'ORD-' + Date.now().toString(36).toUpperCase() + Math.random().toString(36).substring(2, 5).toUpperCase();
+}
+
+function sendPaymentProof(orderId, subjectId, method, amount) {
+    const subName = currentPaymentSubject === 'all' ? 'ဘာသာရပ်အားလုံး' : (subjects.find(s => s.id === subjectId)?.name || subjectId);
+    const msg = `📋 Payment Proof\nOrder: ${orderId}\nSubject: ${subName}\nAmount: ${amount} MMK\nMethod: ${method.toUpperCase()}\nUserID: ${userId}\n\nPlease verify my payment.`;
+    
+    navigator.clipboard.writeText(msg).then(() => {
+        tg.showPopup({
+            title: 'ငွေလွှဲပြီးပါပြီ ✅',
+            message: 'Payment details copied! Please send screenshot to admin.',
+            buttons: [
+                {id: 'send', type: 'default', text: '📨 Telegram သို့ပို့မည်'},
+                {type: 'cancel'}
+            ]
+        }, function(btnId) {
+            if (btnId === 'send') {
+                tg.openLink('https://t.me/minaphayarkot');
+            }
+        });
+    }).catch(() => {
+        tg.showAlert('Please manually send payment screenshot to @minaphayarkot');
+    });
+}
+
+function resetPaymentScreen() {
+    document.getElementById('payment-details').style.display = 'none';
+    document.getElementById('payment-methods').style.display = 'none';
+    if (currentPaymentSubject && currentPaymentSubject !== 'all') {
+        document.getElementById('payment-methods').style.display = 'block';
+    }
+}
 		
 		const ADMIN_ID = 8432363664;
 const specialUsers = [5593040432,1709037573,5186599374];
