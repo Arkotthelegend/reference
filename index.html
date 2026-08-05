@@ -1102,6 +1102,25 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 .article-content p:last-child {
     margin-bottom: 0;
 }
+
+	   /* ===== OLD QUESTIONS BUTTON THEME ===== */
+.old-btn {
+    background: #7C3AED !important;        /* Violet */
+    border: 1px solid #A855F7 !important;  /* Purple border */
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.25) !important;
+}
+.old-btn:active {
+    transform: scale(0.97);
+    background: #6D28D9 !important;
+}
+
+/* Old-menu back button also tinted purple */
+#old-menu-screen .back-btn {
+    background: linear-gradient(135deg, #4C1D95, #7C3AED) !important;
+    border-color: #A855F7 !important;
+    color: #FFFFFF !important;
+}
 	   
 </style>
 <base target="_blank">
@@ -1146,7 +1165,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     </div>
 </div>
 		<div id="old-menu-screen" class="screen">
-            <h2 id="old-menu-title" style="text-align: center; color: var(--accent); margin-bottom: 20px;"></h2>
+            <h2 id="old-menu-title" style="text-align: center; color: #C084FC; margin-bottom: 20px;"></h2>
             <div id="old-menu-content" style="padding: 0 10px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; grid-auto-rows: 1fr;"></div>
             <button class="btn back-btn" id="old-menu-back-btn" style="margin-top: 20px;">နောက်သို့</button>
         </div>
@@ -1459,27 +1478,21 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     <button class="btn back-btn" onclick="showENPoemOptions()">နောက်သို့</button>
 </div>
 
-		<!-- Articles Screen -->
-<!-- Articles Screen -->
+<!-- Articles List Screen -->
 <div id="articles-screen" class="screen">
     <h2 style="text-align: center; color: var(--accent);">📰 News</h2>
-    <div id="articles-content" style="padding: 15px;">
-        
-        <!-- Article 1 -->
-        <div class="article-card">
-            <div class="article-title" onclick="toggleArticle('art1')">
-                <span>Rank ထဲဝင်အောင် ၊ Best Score တွေကိုမှတ်အောင်ဘယ်လိုလုပ်ရမလဲ</span>
-                <span class="article-arrow" id="arrow-art1">▼</span>
-            </div>
-            <div class="article-content" id="art1">
-                <p>၁။ ကျပန်းခလုပ်ကိုဖွင့်ထားပါ ။</p>
-                <p>၂။ မေးခွန်းကိုပြီးအောင်ဖြေပါ ။</p>
-                <p>၃။ Timer ကိုဖွင့်ထားပါ ။</p>
-                <p>၄။ တစ်ဝက်တပျက်နဲ့ Timer ကိုလုံးဝမရပ်ရပါ ။ ရပ်ခဲ့ရင်ဘောင်မဝင်တော့ပါဘူး</p>
-                <p>၅။ sub-chapter တွေဖြစ်တဲ့ 1.1,2.3 စတာတွေကိုဖြေရင်လည်းမမှတ်ပါဘူး ။ အခန်းအစအဆုံးဖြေရပါမယ် ။ မြန်မာစာဆိုရင်လည်း ခလုပ်အစိမ်းနဲ့မေးခွန်းတွေကိုပဲမှတ်သားပါတယ် ။</p>
-            </div>
-        </div>
+    <div id="articles-list" style="padding: 15px;">
+        <div style="text-align: center; color: var(--text-muted); padding: 40px;">ဆွဲယူနေသည်...</div>
+    </div>
+</div>
 
+<!-- Article Detail Screen -->
+<div id="article-detail-screen" class="screen">
+    <div style="padding: 20px; padding-bottom: 100px;">
+        <button class="btn back-btn" onclick="showScreen('articles')" style="margin-bottom: 15px; width: auto; display: inline-block;">← နောက်သို့</button>
+        <h2 id="article-detail-title" style="color: var(--accent); margin-bottom: 10px; font-size: 1.2rem; line-height: 1.4;"></h2>
+        <div id="article-detail-date" style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 20px;"></div>
+        <div id="article-detail-body" style="background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--accent); line-height: 1.8; color: var(--white); font-size: 0.95rem;"></div>
     </div>
 </div>
 		
@@ -2035,6 +2048,83 @@ function getSubjectName(id) {
         arrow.classList.add('open');
     }
 }
+		// ===== ARTICLES SYSTEM (JSON Based) =====
+let articlesIndex = [];
+
+async function loadArticlesIndex() {
+    const container = document.getElementById('articles-list');
+    container.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 40px;">ဆွဲယူနေသည်...</div>';
+    
+    try {
+        const res = await fetch('./articles/index.json');
+        if (!res.ok) throw new Error();
+        articlesIndex = await res.json();
+        renderArticlesList();
+    } catch (e) {
+        container.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 40px;">ဆောင်းပါးများ မရရှိသေးပါ</div>';
+    }
+}
+
+function renderArticlesList() {
+    const container = document.getElementById('articles-list');
+    container.innerHTML = '';
+    
+    if (!articlesIndex || articlesIndex.length === 0) {
+        container.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 40px;">ဆောင်းပါးများ မရှိသေးပါ</div>';
+        return;
+    }
+    
+    articlesIndex.forEach(article => {
+        const div = document.createElement('div');
+        div.style.cssText = 'background: var(--card-bg); border-radius: 14px; margin-bottom: 12px; border: 1px solid #334155; overflow: hidden; cursor: pointer; transition: transform 0.1s ease;';
+        div.innerHTML = `
+            <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; pointer-events: none;">
+                <div style="flex: 1; min-width: 0;">
+                    <div style="font-weight: 700; color: var(--white); font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${article.title}</div>
+                    ${article.date ? `<div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">${article.date}</div>` : ''}
+                </div>
+                <span style="color: var(--accent); font-size: 1.2rem; margin-left: 10px;">➔</span>
+            </div>
+        `;
+        
+        div.onmousedown = () => div.style.transform = 'scale(0.98)';
+        div.onmouseup = () => div.style.transform = 'scale(1)';
+        div.onmouseleave = () => div.style.transform = 'scale(1)';
+        div.onclick = () => openArticleDetail(article.id);
+        container.appendChild(div);
+    });
+}
+
+async function openArticleDetail(articleId) {
+    try {
+        const res = await fetch(`./articles/${articleId}.json`);
+        if (!res.ok) throw new Error();
+        const article = await res.json();
+        
+        document.getElementById('article-detail-title').innerText = article.title;
+        document.getElementById('article-detail-date').innerText = article.date || '';
+        
+        const bodyDiv = document.getElementById('article-detail-body');
+        bodyDiv.innerHTML = '';
+        
+        // Support array of paragraphs (plain text) or single HTML string
+        if (Array.isArray(article.content)) {
+            article.content.forEach(paragraph => {
+                const p = document.createElement('p');
+                p.style.margin = '0 0 12px 0';
+                p.style.color = 'var(--white)';
+                p.innerText = paragraph;
+                bodyDiv.appendChild(p);
+            });
+        } else if (typeof article.content === 'string') {
+            bodyDiv.innerHTML = article.content;
+        }
+        
+        showScreen('article-detail');
+    } catch (e) {
+        tg.showAlert("ဆောင်းပါး ဖွင့်ရာတွင် အမှားတစ်ခု ဖြစ်သွားပါသည်။");
+    }
+}
 		
         const tg = window.Telegram.WebApp;
         tg.ready(); tg.expand();
@@ -2153,15 +2243,57 @@ const oldENGrammarTopics = [
 // မေးခွန်းဟောင်းအတွက် သီးသန့် Button ဖန်တီးပေးသည့် Function
 function createOldBtn(txt, parent, act) {
     const b = document.createElement('button');
-    b.className = 'btn';
-    b.style.background = '#38BDF8'; 
-    b.style.border = '1px solid #22c55e';
-    b.style.color = '#000000';
+    b.className = 'btn old-btn';   // ⬅️ uses the purple theme
     b.innerText = txt;
     b.onclick = act;
     parent.appendChild(b);
 }
 
+		let isOldQuestionFlow = false;
+
+function setOldQuestionContext(active) {
+    isOldQuestionFlow = active;
+}
+
+function updateOldQuestionBadges() {
+    // Remove any existing badges first
+    document.querySelectorAll('.old-question-badge').forEach(el => el.remove());
+    
+    if (!isOldQuestionFlow) return;
+    
+    // Quiz screen
+    const quizScreen = document.getElementById('quiz-screen');
+    if (quizScreen && quizScreen.classList.contains('active-screen')) {
+        const badge = document.createElement('div');
+        badge.className = 'old-question-badge';
+        badge.innerText = '📜 မေးခွန်းဟောင်း';
+        badge.style.cssText = 'position:absolute; top:5px; right:10px; background:linear-gradient(135deg,#A855F7,#7C3AED); color:#fff; padding:3px 10px; border-radius:10px; font-size:0.7rem; font-weight:700; z-index:40; border:1px solid rgba(255,255,255,0.2); pointer-events:none;';
+        quizScreen.appendChild(badge);
+    }
+    
+    // Flashcard screen
+    const flashScreen = document.getElementById('flashcard-screen');
+    if (flashScreen && flashScreen.classList.contains('active-screen')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'old-question-badge';
+        wrap.style.cssText = 'text-align:center; margin-bottom:8px;';
+        wrap.innerHTML = '<span style="display:inline-block; background:linear-gradient(135deg,#A855F7,#7C3AED); color:#fff; padding:4px 12px; border-radius:12px; font-size:0.75rem; font-weight:700; pointer-events:none;">📜 မေးခွန်းဟောင်း</span>';
+        const firstDiv = flashScreen.querySelector('div');
+        if (firstDiv) flashScreen.insertBefore(wrap, firstDiv);
+        else flashScreen.prepend(wrap);
+    }
+    
+    // Math solution screen
+    const mathScreen = document.getElementById('math-solution-screen');
+    if (mathScreen && mathScreen.classList.contains('active-screen')) {
+        const badge = document.createElement('div');
+        badge.className = 'old-question-badge';
+        badge.innerText = '📜 မေးခွန်းဟောင်း';
+        badge.style.cssText = 'position:absolute; top:10px; right:10px; background:linear-gradient(135deg,#A855F7,#7C3AED); color:#fff; padding:3px 10px; border-radius:10px; font-size:0.7rem; font-weight:700; z-index:40; border:1px solid rgba(255,255,255,0.2); pointer-events:none;';
+        mathScreen.appendChild(badge);
+    }
+}
+		
 		function initOldSubjects() {
     const list = document.getElementById('old-subject-list');
     if (!list) return;
@@ -2184,6 +2316,7 @@ function createOldBtn(txt, parent, act) {
             if (isPaid) {
                 currentSubject = sub;
                 isAnswered = false;
+				setOldQuestionContext(true);
                 showScreen('old-menu');   // ⬅️ Go to separate screen
                 showOldMenu(sub);
             } else {
@@ -2195,15 +2328,19 @@ function createOldBtn(txt, parent, act) {
 }
 
 function backToOldSubjects() {
+	setOldQuestionContext(false);
     showScreen('home');
     switchHomeTab('old');
 }
 
 function showOldMenu(sub) {
-    document.getElementById('old-menu-title').innerText = sub.name;
+    document.getElementById('old-menu-title').innerHTML = 
+        `<div style="font-size:0.85rem;color:#A855F7;margin-bottom:4px;">📜 မေးခွန်းဟောင်း</div>` +
+        `<div style="color:#C084FC;">${sub.name}</div>`;
     const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
     document.getElementById('old-menu-back-btn').onclick = backToOldSubjects;
+    // ... rest of the function stays exactly the same
 
     if (sub.id === 'en') {
         ['Initial Letter', 'MCQ', 'Grammar'].forEach(type => {
@@ -2292,8 +2429,6 @@ function showOldMMChapters(typeName, cat) {
     list.innerHTML = '';
     document.getElementById('old-menu-title').innerText = `${cat} (${typeName})`;
     document.getElementById('old-menu-back-btn').onclick = () => showOldMMQuizOptions(typeName);
-
-    // ❌ The green "All" button block is removed here
 
     ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
         createOldBtn(chapter, list, () => {
@@ -2403,12 +2538,16 @@ function unlockCard(div, sub) {
         div.className = `subject-card ${isPaid ? '' : 'locked'} ${isSpecial && isPaid ? 'premium-card' : ''}`;
         div.innerHTML = `<span>${sub.name} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
         
-        div.onclick = () => isPaid ? openSubjectMenu(sub) : tg.showAlert("ဘာသာရပ်၀ယ်ယူထားသူများသာ အသုံးပြုနိုင်ပါသည်။");
+                div.onclick = () => {
+            setOldQuestionContext(false);      // ⬅️ ADD THIS LINE
+            isPaid ? openSubjectMenu(sub) : tg.showAlert("ဘာသာရပ်၀ယ်ယူထားသူများသာ အသုံးပြုနိုင်ပါသည်။");
+        };
         list.appendChild(div);
     });
 }
 
 function openSubjectMenu(sub) {
+	setOldQuestionContext(false);  
     const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || "0";
     const isSpecial = specialUsers.map(String).includes(currentUserId);
 
@@ -3150,6 +3289,7 @@ async function loadFormulas(subId, chapterName) {
   // --- Trial System Functions ---
 
 function openTrialMenu() {
+	setOldQuestionContext(false);
     showScreen('activity');
     document.getElementById('activity-title').innerText = "Free Trial (စမ်းသုံးရန်)";
     const content = document.getElementById('activity-content');
@@ -3593,25 +3733,29 @@ function nextQuestion() {
             const b = document.createElement('button'); b.className = 'btn'; b.innerText = txt; b.onclick = act; parent.appendChild(b);
         }
 
-        function showScreen(id) {
-		
-		if (id !== 'quiz') {
+      function showScreen(id) {
+    if (id !== 'quiz') {
         resetTimer(); 
     }
-            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
-            document.getElementById(id + '-screen').classList.add('active-screen');
-        }
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
+    document.getElementById(id + '-screen').classList.add('active-screen');
+    
+    // Refresh old-question badge whenever screen changes
+    updateOldQuestionBadges();
+}
 
         function changeTab(id, el) {
     showScreen(id);
     document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('nav-active'));
     el.classList.add('nav-active');
     if(id === 'home') {
+		setOldQuestionContext(false); 
         renderSubjects();
         backToOldSubjects();
         switchHomeTab('current');
     }
     if(id === 'profile') renderProfileData();
+			    if(id === 'articles') loadArticlesIndex();
 }
 
 function switchHomeTab(tab) {
