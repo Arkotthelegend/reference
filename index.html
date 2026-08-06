@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="manifest" href="/manifest.json?v=2">
+<meta name="theme-color" content="#00D5FF">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 	<script>
         window.MathJax = {
@@ -20,6 +21,27 @@
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
    <style>
+	   /* Transparent scrollbar for whole page */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+}
+	   
    
    .mjx-container {
     pointer-events: none;
@@ -104,8 +126,24 @@
         box-sizing: border-box !important;
     }
     .container {
-        padding: 20px; flex: 1; overflow-y: auto; padding-bottom: 110px; 
-    }
+    padding: 20px; 
+    flex: 1; 
+    overflow-y: auto; 
+    padding-bottom: 110px;
+    max-width: 600px !important;  /* ⬅️ Prevents stretching on laptop */
+    margin-left: auto !important;  /* ⬅️ Centers the content */
+    margin-right: auto !important;
+}
+
+/* Images won't explode on big screens */
+#article-detail-body img,
+.poem-content img,
+.flash-face img {
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 400px;  /* ⬅️ Limits image height on desktop */
+    object-fit: contain;
+}
     
     .screen { display: none; }
     .active-screen { display: block; }
@@ -1139,6 +1177,8 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     pointer-events: none !important;
     cursor: default !important;
 }
+	   /* Keep modals/popups from stretching */
+
 </style>
 <base target="_blank">
 <base target="_blank">
@@ -1149,6 +1189,9 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 </head>
 <body>
 
@@ -1178,6 +1221,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
         <button class="btn" style="background: linear-gradient(135deg, #10B981, #059669); font-weight: bold; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);" onclick="openTrialMenu()">
             🎁 ဘာသာရပ်များကို အစမ်းသုံးရန်
         </button>
+		    
         <div id="admin-announcement" style="margin-top: 20px; padding: 15px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border: 1px solid var(--accent); color: var(--accent); font-size: 0.9rem; text-align: center; display: none;">
         </div>
     </div>
@@ -1220,7 +1264,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 		
 		
     <div id="middle-screen" class="screen">
-    <div style="padding: 20px; padding-bottom: 100px;">
+    <div style="padding: 20px;">
         
         <div id="motivation-box" style="margin-bottom: 25px; text-align: center; padding: 20px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent); border-radius: 20px;">
 		
@@ -1307,7 +1351,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
                 <div class="profile-info-card">
                     <b style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
-                    <button class="btn buy-btn" onclick="openPaymentScreen('all')">💳 ဘာသာရပ်ဝယ်ယူရန်</button>
+                    <button class="btn buy-btn" onclick="copyTelegram()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
 					<div id="quiz-mode-box" style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent); box-shadow: 0 4px 10px rgba(56, 189, 248, 0.15);">
     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
         <span style="font-size: 1.2rem;">⚙️</span>
@@ -1513,72 +1557,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
         <div id="article-detail-body" style="background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--accent); line-height: 1.8; color: var(--white); font-size: 0.95rem;"></div>
     </div>
 </div>
-
-		<!-- Payment Screen -->
-<div id="payment-screen" class="screen">
-    <h2 style="text-align: center; color: var(--accent); margin-bottom: 5px;">💳 ဝယ်ယူရန်</h2>
-    <p style="text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top:0; margin-bottom: 20px;">Kpay (or) Wave ဖြင့်ပေးချေနိုင်ပါသည်</p>
-    
-    <div id="payment-content" style="padding: 0 15px; padding-bottom: 100px;">
-        <!-- Subject Selection -->
-        <div id="payment-subject-select" style="margin-bottom: 20px;"></div>
-        
-        <!-- Payment Methods -->
-        <div id="payment-methods" style="display: none;">
-            <h3 style="color: var(--accent); font-size: 1rem; margin-bottom: 12px;">ငွေပေးချေမှု နည်းလမ်းရွေးပါ</h3>
-            
-            <div class="subject-card" onclick="selectPaymentMethod('kpay')" style="border-color: #F59E0B !important; margin-bottom: 10px;">
-                <span>📱 Kpay</span> <span style="color: #F59E0B !important;">➔</span>
-            </div>
-            <div class="subject-card" onclick="selectPaymentMethod('wave')" style="border-color: #3B82F6 !important; margin-bottom: 10px;">
-                <span>🌊 Wave Money</span> <span style="color: #3B82F6 !important;">➔</span>
-            </div>
-        </div>
-        
-        <!-- Payment Details -->
-        <div id="payment-details" style="display: none; background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--accent); margin-bottom: 15px;">
-            <div style="text-align: center; margin-bottom: 15px;">
-                <span id="pay-method-icon" style="font-size: 2rem;"></span>
-                <h3 id="pay-method-title" style="margin: 5px 0; color: var(--white);"></h3>
-            </div>
-            
-            <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; margin-bottom: 15px;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                    <span style="color: var(--text-muted);">ဘာသာရပ်</span>
-                    <span id="pay-subject-name" style="color: var(--white); font-weight: bold;"></span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                    <span style="color: var(--text-muted);">စျေးနှုန်း</span>
-                    <span id="pay-amount" style="color: var(--accent); font-weight: bold;"></span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                    <span style="color: var(--text-muted);">လက်ခံသူ</span>
-                    <span id="pay-account-name" style="color: var(--white); font-weight: bold;"></span>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="color: var(--text-muted);">ဖုန်းနံပါတ်</span>
-                    <span id="pay-phone" style="color: var(--accent); font-weight: bold; font-family: monospace; font-size: 1.1rem;"></span>
-                </div>
-            </div>
-            
-            <div style="background: rgba(255, 193, 7, 0.1); border: 1px dashed #F59E0B; padding: 12px; border-radius: 10px; margin-bottom: 15px; text-align: center;">
-                <span style="color: #F59E0B; font-size: 0.85rem;">📋 Order ID (ဤစာသားကို ထည့်ပေးရန်)</span>
-                <div id="pay-order-id" style="color: #F59E0B; font-weight: 900; font-family: monospace; font-size: 1.2rem; margin-top: 5px; letter-spacing: 1px;"></div>
-            </div>
-            
-            <p style="color: var(--text-muted); font-size: 0.8rem; text-align: center; line-height: 1.6; margin-bottom: 15px;">
-                ၁။ ငွေလွှဲပါ (Description တွင် Order ID ထည့်ပါ)<br>
-                ၂။ Screenshot ရိုက်ထားပါ<br>
-                ၃⃣ "ငွေလွှဲပြီးပါပြီ" နှိပ်ပြီး ပို့ပါ
-            </p>
-            
-            <button class="btn" id="pay-confirm-btn" style="background: #10B981; margin-bottom: 10px; font-weight: bold;">✅ ငွေလွှဲပြီးပါပြီ</button>
-            <button class="btn" style="background: #1E293B; border: 1px solid #334155; color: var(--white);" onclick="resetPaymentScreen()">နောက်သို့</button>
-        </div>
-    </div>
-    
-    <button class="btn back-btn" onclick="showScreen('profile')" style="margin-top: 10px;">ပရိုဖိုင်သို့</button>
-</div>
+		
    <div class="nav">
     <div class="nav-item nav-active" onclick="changeTab('home', this)">🏠</div>
     <div class="nav-item" onclick="changeTab('daily', this)">📝</div>
@@ -1588,160 +1567,189 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 </div>
 
     <script>
-
-		// ==================== PAYMENT SYSTEM CONFIG ====================
-const PAYMENT_CONFIG = {
-    kpay: { 
-        phone: '09793727678',      // ⬅️ CHANGE: Your Kpay phone number
-        name: 'Oakar Pyae Sone',         // ⬅️ CHANGE: Your Kpay account name
-        icon: '📱',
-        color: '#F59E0B'
-    },
-    wave: { 
-        phone: '09793727678',      // ⬅️ CHANGE: Your Wave phone number
-        name: 'Daw Aye Sandar',         // ⬅️ CHANGE: Your Wave account name
-        icon: '🌊',
-        color: '#3B82F6'
-    }
-};
-
-const SUBJECT_PRICES = {
-    'mm': 1000, 'en': 1000, 'math': 1500, 'phy': 1500,
-    'chem': 1500, 'bio': 1500, 'eco': 1500, 'all': 8000
-};
-
-let currentPaymentSubject = null;
-let currentPaymentMethod = null;
-let currentOrderId = null;
-
-// ==================== PAYMENT FUNCTIONS ====================
-
-function openPaymentScreen(subjectId) {
-    currentPaymentSubject = subjectId || 'all';
-    showScreen('payment');
-    resetPaymentScreen();
-    
-    const content = document.getElementById('payment-subject-select');
-    content.innerHTML = '';
-    
-    // If coming from a specific locked subject
-    if (subjectId && subjectId !== 'all') {
-        const sub = subjects.find(s => s.id === subjectId);
-        const price = SUBJECT_PRICES[subjectId] || 1000;
-        content.innerHTML = `
-            <div style="background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid var(--accent); text-align: center; margin-bottom: 15px;">
-                <div style="color: var(--text-muted); font-size: 0.9rem;">ဝယ်ယူမည့်ဘာသာရပ်</div>
-                <div style="color: var(--white); font-size: 1.2rem; font-weight: bold; margin: 5px 0;">${sub ? sub.name : subjectId}</div>
-                <div style="color: var(--accent); font-weight: bold;">${price} MMK</div>
+if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
+        document.body.innerHTML = `
+    <style>
+        .ld-page { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #0B0F19; color: #fff; min-height: 100vh; overflow-y: auto; position: relative; }
+        .ld-wrap { max-width: 600px; margin: 0 auto; padding: 40px 20px 140px; text-align: center; position: relative; z-index: 1; }
+        
+        @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+        .reveal { opacity:0; transform:translateY(24px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity:1; transform:translateY(0); }
+        
+        .ld-glow-bg { position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; background: radial-gradient(circle, rgba(0,213,255,0.10) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+        
+        .ld-logo { width: 100px; height: 100px; border-radius: 24px; margin: 0 auto 20px; object-fit: cover; border: 2px solid rgba(0,213,255,0.4); box-shadow: 0 0 40px rgba(0,213,255,0.15), 0 8px 32px rgba(0,0,0,0.4); animation: fadeInUp 0.6s ease-out; }
+        .ld-logo-fallback { width: 100px; height: 100px; border-radius: 24px; margin: 0 auto 20px; background: linear-gradient(135deg, #00D5FF, #0066FF); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 800; color: #000; border: 2px solid rgba(0,213,255,0.4); box-shadow: 0 0 40px rgba(0,213,255,0.15); }
+        
+        .ld-hero { animation: fadeInUp 0.8s ease-out; position: relative; z-index: 1; }
+        .ld-hero h1 { font-size: 2.6rem; margin: 0 0 12px; letter-spacing: -0.5px; background: linear-gradient(135deg, #00D5FF 0%, #00FF9D 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .ld-hero p { color: #94A3B8; font-size: 1.1rem; margin: 0 auto 24px; line-height: 1.6; max-width: 90%; }
+        
+        .ld-statbar { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; animation: fadeInUp 0.8s ease-out 0.1s both; }
+        .ld-stat-item { text-align: center; }
+        .ld-stat-num { font-size: 1.7rem; font-weight: 800; color: #00D5FF; font-family: monospace; }
+        .ld-stat-label { font-size: 0.7rem; color: #64748B; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+        .ld-stat-div { width: 1px; background: #1E293B; }
+        
+        .ld-section { margin-bottom: 40px; text-align: left; }
+        .ld-section h2 { color: #00D5FF; font-size: 1.2rem; margin-bottom: 16px; text-align: center; }
+        .ld-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .ld-card { background: linear-gradient(145deg, #162235, #0F172A); border: 1px solid rgba(30,41,59,0.8); border-radius: 20px; padding: 24px 18px; text-align: center; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
+        .ld-card::before { content:''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #00D5FF, transparent); opacity: 0; transition: opacity 0.3s; }
+        .ld-card:hover { transform: translateY(-6px); border-color: rgba(0,213,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,213,255,0.08); }
+        .ld-card:hover::before { opacity: 1; }
+        .ld-card-icon { font-size: 2rem; margin-bottom: 12px; display: block; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
+        .ld-card-title { font-weight: 700; font-size: 0.95rem; color: #fff; margin-bottom: 4px; }
+        .ld-card-desc { font-size: 0.8rem; color: #94A3B8; line-height: 1.4; }
+        
+        .ld-subjects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .ld-sub { background: linear-gradient(90deg, #162235, #0F172A); border-left: 3px solid #00D5FF; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease; border: 1px solid rgba(30,41,59,0.6); border-left-width: 3px; }
+        .ld-sub:hover { transform: translateX(4px); border-color: rgba(0,213,255,0.4); background: linear-gradient(90deg, #162235, #1E293B); }
+        .ld-sub-ico { font-size: 1.3rem; }
+        
+        .ld-steps { background: linear-gradient(145deg, #0F172A, #162235); border-radius: 16px; padding: 20px; border: 1px solid #334155; }
+        .ld-step { display: flex; align-items: center; gap: 15px; margin-bottom: 16px; }
+        .ld-step:last-child { margin-bottom: 0; }
+        .ld-step-num { background: #00D5FF; color: #000; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; }
+        .ld-step-text { color: #CBD5E1; font-size: 0.95rem; }
+        .ld-step-text b { color: #fff; display: block; margin-bottom: 2px; }
+        
+        .ld-countdown-wrap { background: linear-gradient(145deg, #0F172A, #162235); border: 1px solid #00D5FF; border-radius: 16px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 4px 20px rgba(0,213,255,0.08); }
+        .ld-countdown-label { color: #00D5FF; font-size: 0.85rem; font-weight: 700; margin-bottom: 12px; letter-spacing: 0.5px; }
+        .ld-countdown { display: flex; justify-content: center; gap: 12px; }
+        .ld-cd-box { background: #0B0F19; border: 1px solid #334155; border-radius: 12px; padding: 12px 14px; text-align: center; min-width: 55px; }
+        .ld-cd-val { font-size: 1.4rem; font-weight: 800; color: #00D5FF; font-family: monospace; }
+        .ld-cd-lbl { font-size: 0.65rem; color: #94A3B8; text-transform: uppercase; margin-top: 4px; letter-spacing: 1px; }
+        
+        .ld-cta { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(11,15,25,0.8); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid rgba(30,41,59,0.6); padding: 16px 20px 28px; display: flex; flex-direction: column; gap: 10px; z-index: 100; box-sizing: border-box; }
+        .ld-btn { display: block; width: 100%; padding: 16px; border-radius: 14px; font-weight: 700; font-size: 1rem; text-decoration: none; text-align: center; border: none; cursor: pointer; transition: transform 0.1s; }
+        .ld-btn:active { transform: scale(0.97); }
+        .ld-btn-primary { background: #00D5FF; color: #000; }
+        .ld-btn-secondary { background: transparent; color: #00D5FF; border: 2px solid #00D5FF; }
+        .ld-footer { text-align: center; color: #64748B; font-size: 0.8rem; margin-top: 10px; padding-bottom: 20px; }
+        .ld-footer a { color: #00D5FF; text-decoration: none; }
+        
+        @media (max-width: 400px) {
+            .ld-hero h1 { font-size: 2rem; }
+            .ld-grid { gap: 8px; }
+            .ld-card { padding: 18px 14px; }
+            .ld-cd-box { min-width: 48px; padding: 10px 8px; }
+            .ld-cd-val { font-size: 1.2rem; }
+        }
+    </style>
+    <div class="ld-page">
+        <div class="ld-glow-bg"></div>
+        <div class="ld-wrap">
+            
+            <img src="./logo.jpg" alt="REED Education Logo" class="ld-logo" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+            <div id="logo-fallback" class="ld-logo-fallback" style="display:none;">📚</div>
+            
+            <div class="ld-hero">
+                <h1>REED Education</h1>
+                <p>Grade 12 Matriculation Prep App<br>မြန်မာစာ · အင်္ဂလိပ်စာ · သင်္ချာ · ရူပဗေဒ · ဓာတုဗေဒ · ဇီဝဗေဒ · ဘောဂဗေဒ</p>
             </div>
-        `;
-        document.getElementById('payment-methods').style.display = 'block';
-    } else {
-        // Show all subject options + bundle
-        let html = `<h3 style="color: var(--accent); font-size: 1rem; margin-bottom: 12px;">ဘာသာရပ်ရွေးပါ</h3>`;
-        content.innerHTML = html;
-        
-        subjects.forEach(sub => {
-            const price = SUBJECT_PRICES[sub.id] || 1000;
-            const div = document.createElement('div');
-            div.className = 'subject-card';
-            div.style.cssText = 'margin-bottom: 8px; border-color: var(--accent) !important; cursor: pointer;';
-            div.innerHTML = `<span>${sub.name}</span> <span style="color: var(--accent) !important;">${price} K</span>`;
-            div.onclick = () => {
-                currentPaymentSubject = sub.id;
-                document.getElementById('payment-subject-select').innerHTML = `
-                    <div style="background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid var(--accent); text-align: center; margin-bottom: 15px;">
-                        <div style="color: var(--text-muted); font-size: 0.9rem;">ဝယ်ယူမည့်ဘာသာရပ်</div>
-                        <div style="color: var(--white); font-size: 1.2rem; font-weight: bold; margin: 5px 0;">${sub.name}</div>
-                        <div style="color: var(--accent); font-weight: bold;">${price} MMK</div>
-                    </div>
-                `;
-                document.getElementById('payment-methods').style.display = 'block';
-            };
-            content.appendChild(div);
-        });
-        
-        // All subjects bundle
-        const allPrice = SUBJECT_PRICES['all'];
-        const allDiv = document.createElement('div');
-        allDiv.className = 'subject-card premium-card';
-        allDiv.style.cssText = 'margin-bottom: 8px; margin-top: 8px; cursor: pointer;';
-        allDiv.innerHTML = `<span>ဘာသာရပ်အားလုံး 📦</span> <span style="color: #F59E0B !important;">${allPrice} K</span>`;
-        allDiv.onclick = () => {
-            currentPaymentSubject = 'all';
-            document.getElementById('payment-subject-select').innerHTML = `
-                <div style="background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid #F59E0B; text-align: center; margin-bottom: 15px;">
-                    <div style="color: var(--text-muted); font-size: 0.9rem;">ဝယ်ယူမည့်ဘာသာရပ်</div>
-                    <div style="color: var(--white); font-size: 1.2rem; font-weight: bold; margin: 5px 0;">ဘာသာရပ်အားလုံး 📦</div>
-                    <div style="color: #F59E0B; font-weight: bold;">${allPrice} MMK</div>
+
+            <div class="ld-statbar">
+                <div class="ld-stat-item"><div class="ld-stat-num">7</div><div class="ld-stat-label">Subjects</div></div>
+                <div class="ld-stat-div"></div>
+                <div class="ld-stat-item"><div class="ld-stat-num">20K+</div><div class="ld-stat-label">Obj Questions</div></div>
+                <div class="ld-stat-div"></div>
+                <div class="ld-stat-item"><div class="ld-stat-num">📄</div><div class="ld-stat-label">Old Questions</div></div>
+                <div class="ld-stat-div"></div>
+                <div class="ld-stat-item"><div class="ld-stat-num">🏆</div><div class="ld-stat-label">Rankings</div></div>
+            </div>
+
+            <div class="ld-section reveal">
+                <h2>✨ What You Get</h2>
+                <div class="ld-grid">
+                    <div class="ld-card"><span class="ld-card-icon">📝</span><div class="ld-card-title">Daily Quiz</div><div class="ld-card-desc">3 free random questions every day for every subject</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">🗂️</span><div class="ld-card-title">Daily Practice</div><div class="ld-card-desc">Paid 20,000+ Objective Questions</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">📊</span><div class="ld-card-title">Smart Stats</div><div class="ld-card-desc">Track accuracy, speed & progress per subject</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">🏅</span><div class="ld-card-title">Leaderboard</div><div class="ld-card-desc">Compete with friends on accuracy & speed</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">📰</span><div class="ld-card-title">News & Articles</div><div class="ld-card-desc">Read study tips and subject articles</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">✅</span><div class="ld-card-title">Study Tracker</div><div class="ld-card-desc">Daily checklist to keep your prep on track</div></div>
+                </div> 
+            </div>
+
+            <div class="ld-section reveal">
+                <h2>📖 All Subjects</h2>
+                <div class="ld-subjects">
+                    <div class="ld-sub"><span class="ld-sub-ico">🇲🇲</span> မြန်မာစာ</div>
+                    <div class="ld-sub"><span class="ld-sub-ico">🇬🇧</span> အင်္ဂလိပ်စာ</div>
+                    <div class="ld-sub"><span class="ld-sub-ico">🔢</span> သင်္ချာ</div>
+                    <div class="ld-sub"><span class="ld-sub-ico">⚛️</span> ရူပဗေဒ</div>
+                    <div class="ld-sub"><span class="ld-sub-ico">🧪</span> ဓာတုဗေဒ</div>
+                    <div class="ld-sub"><span class="ld-sub-ico">🧬</span> ဇီဝဗေဒ</div>
+                    <div class="ld-sub"><span class="ld-sub-ico">📊</span> ဘောဂဗေဒ</div>
                 </div>
-            `;
-            document.getElementById('payment-methods').style.display = 'block';
-        };
-        content.appendChild(allDiv);
-    }
-}
+            </div>
 
-function selectPaymentMethod(method) {
-    currentPaymentMethod = method;
-    const config = PAYMENT_CONFIG[method];
-    const sub = subjects.find(s => s.id === currentPaymentSubject);
-    const price = SUBJECT_PRICES[currentPaymentSubject] || 1000;
-    currentOrderId = generateOrderId();
-    
-    document.getElementById('payment-methods').style.display = 'none';
-    document.getElementById('payment-details').style.display = 'block';
-    
-    document.getElementById('pay-method-icon').innerText = config.icon;
-    document.getElementById('pay-method-title').innerText = method.toUpperCase() + ' Payment';
-    document.getElementById('pay-method-title').style.color = config.color;
-    
-    document.getElementById('pay-subject-name').innerText = currentPaymentSubject === 'all' ? 'ဘာသာရပ်အားလုံး' : (sub ? sub.name : currentPaymentSubject);
-    document.getElementById('pay-amount').innerText = price + ' MMK';
-    document.getElementById('pay-account-name').innerText = config.name;
-    document.getElementById('pay-phone').innerText = config.phone;
-    document.getElementById('pay-order-id').innerText = currentOrderId;
-    
-    // Setup confirm button
-    const btn = document.getElementById('pay-confirm-btn');
-    btn.onclick = () => sendPaymentProof(currentOrderId, currentPaymentSubject, method, price);
-}
+            <div class="ld-section reveal">
+                <h2>How to Start</h2>
+                <div class="ld-steps">
+                    <div class="ld-step"><div class="ld-step-num">1</div><div class="ld-step-text"><b>Open in Telegram</b>Click the button below to launch the app</div></div>
+                    <div class="ld-step"><div class="ld-step-num">2</div><div class="ld-step-text"><b>Pick a Subject</b>Choose from 7 Grade 12 subjects</div></div>
+                    <div class="ld-step"><div class="ld-step-num">3</div><div class="ld-step-text"><b>Practice Daily</b>Quizzes, flashcards & past year questions</div></div>
+                </div>
+            </div>
 
-function generateOrderId() {
-    return 'ORD-' + Date.now().toString(36).toUpperCase() + Math.random().toString(36).substring(2, 5).toUpperCase();
-}
+            <div class="ld-countdown-wrap reveal">
+                <div class="ld-countdown-label">⏳ ခန့်မှန်းခြေ စာမေးပွဲဖြေဆိုရန် ကျန်ရှိချိန်</div>
+                <div class="ld-countdown">
+                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-d">00</div><div class="ld-cd-lbl">Days</div></div>
+                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-h">00</div><div class="ld-cd-lbl">Hrs</div></div>
+                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-m">00</div><div class="ld-cd-lbl">Mins</div></div>
+                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-s">00</div><div class="ld-cd-lbl">Secs</div></div>
+                </div>
+            </div>
 
-function sendPaymentProof(orderId, subjectId, method, amount) {
-    const subName = currentPaymentSubject === 'all' ? 'ဘာသာရပ်အားလုံး' : (subjects.find(s => s.id === subjectId)?.name || subjectId);
-    const msg = `📋 Payment Proof\nOrder: ${orderId}\nSubject: ${subName}\nAmount: ${amount} MMK\nMethod: ${method.toUpperCase()}\nUserID: ${userId}\n\nPlease verify my payment.`;
+            <div class="ld-footer">
+                <p>Need help? Contact <a href="https://t.me/minaphayarkot" target="_blank">@minaphayarkot</a></p>
+                <p style="margin-top:6px;">© 2026 REED Education</p>
+            </div>
+        </div>
+
+        <div class="ld-cta">
+            <a href="https://t.me/reededucation_bot" class="ld-btn ld-btn-primary">📱 Open App in Telegram</a>
+            <a href="https://t.me/REED_education" class="ld-btn ld-btn-secondary">📢 Join Telegram Channel</a>
+        </div>
+    </div>
+    `;
     
-    navigator.clipboard.writeText(msg).then(() => {
-        tg.showPopup({
-            title: 'ငွေလွှဲပြီးပါပြီ ✅',
-            message: 'Payment details copied! Please send screenshot to admin.',
-            buttons: [
-                {id: 'send', type: 'default', text: '📨 Telegram သို့ပို့မည်'},
-                {type: 'cancel'}
-            ]
-        }, function(btnId) {
-            if (btnId === 'send') {
-                tg.openLink('https://t.me/minaphayarkot');
-            }
-        });
-    }).catch(() => {
-        tg.showAlert('Please manually send payment screenshot to @minaphayarkot');
-    });
-}
+    // Scroll reveal animation
+    (function(){
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
 
-function resetPaymentScreen() {
-    document.getElementById('payment-details').style.display = 'none';
-    document.getElementById('payment-methods').style.display = 'none';
-    if (currentPaymentSubject && currentPaymentSubject !== 'all') {
-        document.getElementById('payment-methods').style.display = 'block';
-    }
+    // Countdown timer logic
+    (function(){
+        const examDate = new Date("March 9, 2027 09:00:00").getTime();
+        function update(){
+            const now = new Date().getTime();
+            const diff = examDate - now;
+            if(diff <= 0) return;
+            const d = Math.floor(diff / (1000*60*60*24));
+            const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+            const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+            const s = Math.floor((diff % (1000*60)) / 1000);
+            const el = document.getElementById('ld-d');
+            if(!el) return;
+            el.innerText = String(d).padStart(2,'0');
+            document.getElementById('ld-h').innerText = String(h).padStart(2,'0');
+            document.getElementById('ld-m').innerText = String(m).padStart(2,'0');
+            document.getElementById('ld-s').innerText = String(s).padStart(2,'0');
+        }
+        update();
+        setInterval(update, 1000);
+    })();
 }
 		
 		const ADMIN_ID = 8432363664;
+		const CB = '?v=2'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 const specialUsers = [5593040432,1709037573,5186599374];
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
 // --- School Exclusive Themes (ဈေးမရောင်းဘဲ အထူးပေးသုံး) ---
@@ -4142,6 +4150,9 @@ function renderProfileData() {
         dynamicArea.innerHTML = `
     <button class="btn profile-stats-btn" onclick="showStatsScreen()">📊 My Statistics</button>
     <button class="btn profile-theme-btn" onclick="openThemeShop()">🎨 Theme Shop</button>
+	<button class="btn" style="background: #1E293B; border: 1px solid #A855F7; color: #A855F7; margin-top: 10px;" onclick="openChannel()">
+        📢 Join Telegram Channel
+    </button>
 `;
 }
 
@@ -4994,7 +5005,10 @@ function renderLeaderboard(entries, currentUserId, subject) {
         }
     });
 }
-
+	function openChannel() {
+    tg.openTelegramLink('https://t.me/REED_education');
+}
     </script>
+	
 </body>
 </html>
