@@ -1179,13 +1179,18 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 }
 /* ===== QUIZ LAYOUT FIX & EXPLANATION PANEL ===== */
 
-#quiz-screen {
-    display: flex !important;
+/* Only apply flex layout when quiz is actually visible */
+#quiz-screen.active-screen {
+    display: flex;
     flex-direction: column;
     min-height: 100%;
     padding-top: 45px !important;
 }
 
+/* Safety: force-hide the score pill when quiz is not active */
+.screen:not(.active-screen) #markcount {
+    display: none !important;
+}
 #quiz-progress {
     flex-shrink: 0;
     margin-bottom: 8px;
@@ -1575,7 +1580,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
             <button class="btn back-btn" onclick="showScreen('activity')">ထွက်မည်</button>
         </div>
 
-       <div id="quiz-screen" class="screen" style="position: relative; padding-top: 45px; display: flex; flex-direction: column; height: 100%;">
+       <div id="quiz-screen" class="screen" style="position: relative; padding-top: 45px;">
     
     <div class="markcount" id="markcount">
         <span id="score-display"> ရမှတ်: 0</span>
