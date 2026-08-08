@@ -1177,46 +1177,43 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     pointer-events: none !important;
     cursor: default !important;
 }
-	/* ===== QUIZ LAYOUT FIX & EXPLANATION PANEL ===== */
+/* ===== QUIZ LAYOUT FIX & EXPLANATION PANEL ===== */
 
 #quiz-screen {
     display: flex !important;
     flex-direction: column;
-    height: 100%;
+    min-height: 100%;
     padding-top: 45px !important;
 }
 
 #quiz-progress {
     flex-shrink: 0;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 #question-box {
     flex-shrink: 0;
-    min-height: 80px;
-    max-height: 170px;
+    max-height: 130px;
     overflow-y: auto;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     font-size: 1.1rem;
     text-align: center;
     line-height: 1.5;
     padding: 0 5px;
 }
 
-/* Reserve fixed space for options so footer never jumps */
+/* Options: natural height — NO forced min-height */
 #quiz-options {
-    flex: 1 0 auto;
-    min-height: 240px;
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 /* Consistent option button height */
 .option-btn {
-    min-height: 56px;
+    min-height: 54px;
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -1229,10 +1226,10 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     border: 1px solid rgba(16, 185, 129, 0.35);
     border-radius: 14px;
     padding: 0 16px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     color: #CBD5E1;
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 0.9rem;
+    line-height: 1.5;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -1240,10 +1237,11 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 }
 
 #explanation-box.show {
-    padding: 14px 16px;
-    max-height: 260px;
+    padding: 12px 16px;
+    max-height: 140px; /* ⬅️ Hard cap so it never pushes Next button off screen */
     opacity: 1;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 #explanation-box.wrong {
@@ -1253,15 +1251,16 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 
 #explanation-box b {
     display: block;
-    margin-bottom: 6px;
-    font-size: 1rem;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
 }
 
-/* Footer sticks to bottom */
+/* Footer stays at bottom of flex container */
 #quiz-footer {
     flex-shrink: 0;
     margin-top: auto;
     padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 </style>
@@ -3858,7 +3857,7 @@ function updateFlashUI() {
     } catch (e) { tg.showAlert("မေးခွန်းဖိုင်မတွေ့သေးပါ- " + fileName); }
 }
        
-	   function showExplanation(text, isCorrect, correctAnswerText) {
+function showExplanation(text, isCorrect, correctAnswerText) {
     const box = document.getElementById('explanation-box');
     const icon = isCorrect ? '✅' : '❌';
     const title = isCorrect ? 'မှန်ကန်ပါသည်' : 'အဖြေမှားနေပါသည်';
@@ -3921,6 +3920,9 @@ function loadQuestion() {
     if (currentSubject.id === 'math' && (q.type === undefined || q.type === 'math_show')) {
         q.type = 'math_show';
     }
+
+    // ⬇️ Only phy, chem, bio get the explanation panel
+    const isExplSubject = ['phy', 'chem', 'bio'].includes(currentSubject?.id);
 
     if (q.type === 'math_show') {
         const showBtn = document.createElement('button');
@@ -4005,8 +4007,10 @@ function loadQuestion() {
                 }
                 options.forEach(b => b.disabled = true);
                 
-                // Show clean explanation instead of messy alerts
-                showExplanation(q.e, isCorrect, opts[correctIdx]);
+                // ⬇️ Explanation panel ONLY for phy / chem / bio
+                if (isExplSubject) {
+                    showExplanation(q.e, isCorrect, opts[correctIdx]);
+                }
                 
                 const nextBtnStyled = document.getElementById('next-btn');
                 nextBtnStyled.style.display = 'block';
@@ -4048,16 +4052,25 @@ function loadQuestion() {
                 input.style.background = 'rgba(239, 68, 68, 0.1)';
             }
             
-            // Build explanation text
-            let explText = q.e || '';
-            if (!explText) {
-                if (!isCorrect) {
-                    explText = `အဖြေမှန်မှာ <b style="color:#fff">${q.c}</b> ဖြစ်ပါသည်။`;
+            // ⬇️ phy / chem / bio → clean explanation panel
+            if (isExplSubject) {
+                let explText = q.e || '';
+                if (!explText) {
+                    if (!isCorrect) {
+                        explText = `အဖြေမှန်မှာ <b style="color:#fff">${q.c}</b> ဖြစ်ပါသည်။`;
+                    } else {
+                        explText = 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။';
+                    }
+                }
+                showExplanation(explText, isCorrect);
+            } else {
+                // ⬇️ Other subjects → original alert behavior
+                if(isCorrect) {
+                    tg.showAlert("မှန်ကန်ပါသည်။ ✅");
                 } else {
-                    explText = 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။';
+                    tg.showAlert("အဖြေမှန်မှာ: " + q.c + "\nအခြားသောအဖြေမှန်များလည်းရှိနိုင်ပါသည်");
                 }
             }
-            showExplanation(explText, isCorrect);
             
             const nextBtnStyled = document.getElementById('next-btn');
             nextBtnStyled.style.display = 'block';
