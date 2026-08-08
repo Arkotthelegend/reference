@@ -3862,25 +3862,38 @@ function updateFlashUI() {
     } catch (e) { tg.showAlert("မေးခွန်းဖိုင်မတွေ့သေးပါ- " + fileName); }
 }
        
-function showExplanation(text, isCorrect, correctAnswerText) {
+// ─── Explanation Helper ───
+function getExplanation(q, isCorrect, correctAnswerText) {
+    // 1) Custom explanation (only used for phy/chem/bio)
+    const custom = q.e || q.explanation || q.note;
+    if (typeof custom === 'string' && custom.trim().length > 0) {
+        return custom;
+    }
+    
+    // 2) Wrong-answer fallback
+    if (!isCorrect && correctAnswerText) {
+        return `အဖြေမှန်မှာ <b style="color:#fff">${correctAnswerText}</b> ဖြစ်ပါသည်။`;
+    }
+    
+    // 3) Generic fallback
+    return isCorrect 
+        ? 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။' 
+        : 'အဖြေမှားနေပါသည်။ နောက်တစ်ပုဒ်တွင် ကြိုးစားကြည့်ပါ။';
+}
+
+function showExplanation(htmlContent, isCorrect) {
     const box = document.getElementById('explanation-box');
     const icon = isCorrect ? '✅' : '❌';
     const title = isCorrect ? 'မှန်ကန်ပါသည်' : 'အဖြေမှားနေပါသည်';
     const color = isCorrect ? '#10B981' : '#EF4444';
     
-    let html = `<b style="color:${color};display:block;margin-bottom:8px;font-size:1.05rem;">${icon} ${title}</b>`;
+    // Force htmlContent to be a string so "undefined" can never leak into the UI
+    const safeContent = String(htmlContent || '');
     
-    if (text && text.trim().length > 0) {
-        html += `<div style="color:#E2E8F0;">${text}</div>`;
-    } else {
-        if (!isCorrect && correctAnswerText) {
-            html += `<div style="color:#E2E8F0;">အဖြေမှန်မှာ <b style="color:#fff">${correctAnswerText}</b> ဖြစ်ပါသည်။</div>`;
-        } else {
-            html += `<div style="color:#94A3B8;font-style:italic;">${isCorrect ? 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။' : 'အဖြေမှားနေပါသည်။ နောက်တစ်ပုဒ်တွင် ကြိုးစားကြည့်ပါ။'}</div>`;
-        }
-    }
-    
-    box.innerHTML = html;
+    box.innerHTML = `
+        <b style="color:${color};display:block;margin-bottom:6px;font-size:1rem;">${icon} ${title}</b>
+        <div style="color:#E2E8F0;">${safeContent}</div>
+    `;
     box.classList.toggle('wrong', !isCorrect);
     box.classList.add('show');
 }
@@ -3926,7 +3939,7 @@ function loadQuestion() {
         q.type = 'math_show';
     }
 
-    // ⬇️ Only phy, chem, bio get the explanation panel
+    // Only phy, chem, bio get the explanation panel
     const isExplSubject = ['phy', 'chem', 'bio'].includes(currentSubject?.id);
 
     if (q.type === 'math_show') {
@@ -4012,9 +4025,10 @@ function loadQuestion() {
                 }
                 options.forEach(b => b.disabled = true);
                 
-                // ⬇️ Explanation panel ONLY for phy / chem / bio
+                // Explanation panel ONLY for phy / chem / bio
                 if (isExplSubject) {
-                    showExplanation(q.e, isCorrect, opts[correctIdx]);
+                    const expl = getExplanation(q, isCorrect, opts[correctIdx]);
+                    showExplanation(expl, isCorrect);
                 }
                 
                 const nextBtnStyled = document.getElementById('next-btn');
@@ -4057,19 +4071,11 @@ function loadQuestion() {
                 input.style.background = 'rgba(239, 68, 68, 0.1)';
             }
             
-            // ⬇️ phy / chem / bio → clean explanation panel
             if (isExplSubject) {
-                let explText = q.e || '';
-                if (!explText) {
-                    if (!isCorrect) {
-                        explText = `အဖြေမှန်မှာ <b style="color:#fff">${q.c}</b> ဖြစ်ပါသည်။`;
-                    } else {
-                        explText = 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။';
-                    }
-                }
-                showExplanation(explText, isCorrect);
+                const expl = getExplanation(q, isCorrect, q.c);
+                showExplanation(expl, isCorrect);
             } else {
-                // ⬇️ Other subjects → original alert behavior
+                // Original alert behavior for non-science subjects
                 if(isCorrect) {
                     tg.showAlert("မှန်ကန်ပါသည်။ ✅");
                 } else {
