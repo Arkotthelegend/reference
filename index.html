@@ -3891,6 +3891,10 @@ function renderExplanationPanel(rawText, isCorrect, correctAnswerText) {
     `;
     box.classList.toggle('wrong', !isCorrect);
     box.classList.add('show');
+
+	if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise([box]);
+    }
 }
 
 // ─── Helper: decide what text to show ───
