@@ -3838,74 +3838,94 @@ function updateFlashUI() {
         });
     }
 }
-        // --- Quiz Engine ---
-      async function initQuiz(fileName) {
-	  currentQuizFile = fileName;
+       async function initQuiz(fileName) {
+    currentQuizFile = fileName;
     try {
-        const res = await fetch(`./quizzes/${fileName}.json`);
+        // 🆕 Cache-bust so updated JSON files are never stale
+        const cb = Date.now();
+        const res = await fetch(`./quizzes/${fileName}.json?cb=${cb}`);
         if(!res.ok) throw new Error();
         let data = await res.json();
         
-        // Local Storage မှ Setting ကို ဆွဲယူစစ်ဆေးခြင်း (Default အနေဖြင့် ကျပန်းကိုသာ ထားမည်)
         const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
-        
-        // အသုံးပြုသူ ရွေးချယ်မှုပေါ် မူတည်၍ Random လုပ်/မလုပ် ဆုံးဖြတ်ခြင်း
         if (isRandom) {
             currentQuestions = shuffleArray(data); 
         } else {
-            currentQuestions = [...data]; // မူရင်း အစဉ်လိုက်အတိုင်းထားမည်
+            currentQuestions = [...data];
         }
         
         currentIdx = 0; 
         showScreen('quiz'); 
         loadQuestion();
-    } catch (e) { tg.showAlert("မေးခွန်းဖိုင်မတွေ့သေးပါ- " + fileName); }
-}
-       
-// ─── Explanation Helper ───
-function getExplanation(q, isCorrect, correctAnswerText) {
-    // 1) Custom explanation (only used for phy/chem/bio)
-    const custom = q.e || q.explanation || q.note;
-    if (typeof custom === 'string' && custom.trim().length > 0) {
-        return custom;
+    } catch (e) { 
+        tg.showAlert("မေးခွန်းဖိုင်မတွေ့သေးပါ- " + fileName); 
     }
-    
-    // 2) Wrong-answer fallback
-    if (!isCorrect && correctAnswerText) {
-        return `အဖြေမှန်မှာ <b style="color:#fff">${correctAnswerText}</b> ဖြစ်ပါသည်။`;
-    }
-    
-    // 3) Generic fallback
-    return isCorrect 
-        ? 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။' 
-        : 'အဖြေမှားနေပါသည်။ နောက်တစ်ပုဒ်တွင် ကြိုးစားကြည့်ပါ။';
 }
-
-function showExplanation(htmlContent, isCorrect) {
+		
+// ─── NEW: Bullet-proof explanation renderer ───
+function renderExplanationPanel(rawText, isCorrect, correctAnswerText) {
     const box = document.getElementById('explanation-box');
+    if (!box) return;
+
     const icon = isCorrect ? '✅' : '❌';
     const title = isCorrect ? 'မှန်ကန်ပါသည်' : 'အဖြေမှားနေပါသည်';
     const color = isCorrect ? '#10B981' : '#EF4444';
-    
-    // Force htmlContent to be a string so "undefined" can never leak into the UI
-    const safeContent = String(htmlContent || '');
-    
+
+    // Defensive: force to string, kill literal "undefined"/"null"
+    let text = String(rawText ?? '');
+    if (text.toLowerCase() === 'undefined' || text.toLowerCase() === 'null') text = '';
+
+    // Build safe HTML
+    let bodyHtml = '';
+    if (text.length > 0) {
+        bodyHtml = `<div style="color:#E2E8F0;">${text}</div>`;
+    } else if (!isCorrect && correctAnswerText) {
+        bodyHtml = `<div style="color:#E2E8F0;">အဖြေမှန်မှာ <b style="color:#fff">${correctAnswerText}</b> ဖြစ်ပါသည်။</div>`;
+    } else {
+        bodyHtml = `<div style="color:#94A3B8;font-style:italic;">${isCorrect ? 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။' : 'အဖြေမှားနေပါသည်။ နောက်တစ်ပုဒ်တွင် ကြိုးစားကြည့်ပါ။'}</div>`;
+    }
+
     box.innerHTML = `
         <b style="color:${color};display:block;margin-bottom:6px;font-size:1rem;">${icon} ${title}</b>
-        <div style="color:#E2E8F0;">${safeContent}</div>
+        ${bodyHtml}
     `;
     box.classList.toggle('wrong', !isCorrect);
     box.classList.add('show');
 }
 
+// ─── Helper: decide what text to show ───
+function buildExplanationText(q, isCorrect, correctAnswerText) {
+    // Debug: open browser console to see this
+    console.log('🔍 buildExplanationText called. q.e =', q.e, '| type =', typeof q.e);
+
+    // Accept e, explanation, or note
+    let custom = q.e;
+    if (custom === undefined || custom === null) custom = q.explanation;
+    if (custom === undefined || custom === null) custom = q.note;
+
+    if (typeof custom === 'string' && custom.trim().length > 0) {
+        return custom.trim();
+    }
+
+    if (!isCorrect && correctAnswerText) {
+        return `အဖြေမှန်မှာ <b style="color:#fff">${correctAnswerText}</b> ဖြစ်ပါသည်။`;
+    }
+
+    return isCorrect
+        ? 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။'
+        : 'အဖြေမှားနေပါသည်။ နောက်တစ်ပုဒ်တွင် ကြိုးစားကြည့်ပါ။';
+}
+
 function loadQuestion() {
     isAnswered = false;
-    
+
     // Reset explanation panel
     const explBox = document.getElementById('explanation-box');
-    explBox.innerHTML = '';
-    explBox.classList.remove('show', 'wrong');
-    
+    if (explBox) {
+        explBox.innerHTML = '';
+        explBox.classList.remove('show', 'wrong');
+    }
+
     const nextBtn = document.getElementById('next-btn');
     nextBtn.style.display = 'block';
     nextBtn.className = 'btn next-btn';
@@ -3931,7 +3951,7 @@ function loadQuestion() {
     const q = currentQuestions[currentIdx];
     document.getElementById('quiz-progress').innerHTML = `${currentIdx + 1} / ${currentQuestions.length}`;
     document.getElementById('question-box').innerHTML = q.q;
-    
+
     const optDiv = document.getElementById('quiz-options');
     optDiv.innerHTML = '';
 
@@ -3977,7 +3997,7 @@ function loadQuestion() {
             }
         };
         optDiv.appendChild(showBtn);
-    } 
+    }
     else if (q.type === 'mcq' || q.type === 'tf') {
         let opts = [];
         let correctIdx = 0;
@@ -4004,13 +4024,13 @@ function loadQuestion() {
             const btn = document.createElement('button');
             btn.className = 'btn option-btn';
             btn.innerHTML = a;
-            
+
             btn.onclick = () => {
                 if(isAnswered) return;
                 isAnswered = true;
                 const options = document.querySelectorAll('.option-btn');
                 const isCorrect = (i === correctIdx);
-                
+
                 if (isCorrect) {
                     options[i].classList.add('correct-answer');
                     if (typeof score !== 'undefined') {
@@ -4024,13 +4044,13 @@ function loadQuestion() {
                     });
                 }
                 options.forEach(b => b.disabled = true);
-                
+
                 // Explanation panel ONLY for phy / chem / bio
                 if (isExplSubject) {
-                    const expl = getExplanation(q, isCorrect, opts[correctIdx]);
-                    showExplanation(expl, isCorrect);
+                    const explText = buildExplanationText(q, isCorrect, opts[correctIdx]);
+                    renderExplanationPanel(explText, isCorrect, opts[correctIdx]);
                 }
-                
+
                 const nextBtnStyled = document.getElementById('next-btn');
                 nextBtnStyled.style.display = 'block';
                 nextBtnStyled.className = 'next-btn-styled';
@@ -4038,27 +4058,27 @@ function loadQuestion() {
             };
             optDiv.appendChild(btn);
         });
-    } 
+    }
     else if (q.type === 'blank') {
         const input = document.createElement('input');
         input.className = 'quiz-input';
         input.placeholder = "အဖြေရိုက်ထည့်ပါ...";
-        
+
         const sBtn = document.createElement('button');
         sBtn.className = 'btn';
         sBtn.style.width = '100%';
         sBtn.style.maxWidth = '280px';
         sBtn.style.margin = '10px auto 0 auto';
         sBtn.innerText = "အဖြေစစ်မည်";
-        
+
         sBtn.onclick = () => {
             if(isAnswered) return;
             isAnswered = true;
             input.disabled = true;
             sBtn.disabled = true;
-            
+
             const isCorrect = input.value.trim().toLowerCase() === q.c.toString().toLowerCase();
-            
+
             if(isCorrect) {
                 input.style.borderColor = '#10B981';
                 input.style.background = 'rgba(16, 185, 129, 0.1)';
@@ -4070,19 +4090,18 @@ function loadQuestion() {
                 input.style.borderColor = '#EF4444';
                 input.style.background = 'rgba(239, 68, 68, 0.1)';
             }
-            
+
             if (isExplSubject) {
-                const expl = getExplanation(q, isCorrect, q.c);
-                showExplanation(expl, isCorrect);
+                const explText = buildExplanationText(q, isCorrect, q.c);
+                renderExplanationPanel(explText, isCorrect, q.c);
             } else {
-                // Original alert behavior for non-science subjects
                 if(isCorrect) {
                     tg.showAlert("မှန်ကန်ပါသည်။ ✅");
                 } else {
                     tg.showAlert("အဖြေမှန်မှာ: " + q.c + "\nအခြားသောအဖြေမှန်များလည်းရှိနိုင်ပါသည်");
                 }
             }
-            
+
             const nextBtnStyled = document.getElementById('next-btn');
             nextBtnStyled.style.display = 'block';
             nextBtnStyled.className = 'next-btn-styled';
@@ -4090,7 +4109,7 @@ function loadQuestion() {
         };
         optDiv.append(input, sBtn);
     }
-    
+
     if (window.MathJax) MathJax.typesetPromise();
 }
 
