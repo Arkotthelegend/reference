@@ -1177,7 +1177,92 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     pointer-events: none !important;
     cursor: default !important;
 }
-	   /* Keep modals/popups from stretching */
+	/* ===== QUIZ LAYOUT FIX & EXPLANATION PANEL ===== */
+
+#quiz-screen {
+    display: flex !important;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 45px !important;
+}
+
+#quiz-progress {
+    flex-shrink: 0;
+    margin-bottom: 10px;
+}
+
+#question-box {
+    flex-shrink: 0;
+    min-height: 80px;
+    max-height: 170px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.5;
+    padding: 0 5px;
+}
+
+/* Reserve fixed space for options so footer never jumps */
+#quiz-options {
+    flex: 1 0 auto;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+/* Consistent option button height */
+.option-btn {
+    min-height: 56px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Explanation panel (hidden by default) */
+#explanation-box {
+    flex-shrink: 0;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: 14px;
+    padding: 0 16px;
+    margin-bottom: 12px;
+    color: #CBD5E1;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#explanation-box.show {
+    padding: 14px 16px;
+    max-height: 260px;
+    opacity: 1;
+    overflow-y: auto;
+}
+
+#explanation-box.wrong {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.35);
+}
+
+#explanation-box b {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1rem;
+}
+
+/* Footer sticks to bottom */
+#quiz-footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    padding-top: 5px;
+}
 
 </style>
 <base target="_blank">
@@ -1491,27 +1576,32 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
             <button class="btn back-btn" onclick="showScreen('activity')">ထွက်မည်</button>
         </div>
 
-        <div id="quiz-screen" class="screen" style="position: relative; padding-top: 35px;">
+       <div id="quiz-screen" class="screen" style="position: relative; padding-top: 45px; display: flex; flex-direction: column; height: 100%;">
     
-    <!-- ရမှတ်ကို absolute ဖြင့် အပေါ်ထောင့်ပို့ရန် div အစီအစဉ် -->
-                <div class="markcount" id="markcount">
+    <div class="markcount" id="markcount">
         <span id="score-display"> ရမှတ်: 0</span>
     </div>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
-    <div id="question-box" style="font-size: 1.2rem; text-align: center; margin: 20px 0; line-height: 1.5; overflow-x: auto; max-width: 100%; box-sizing: border-box; padding: 10px;"></div>
-    <div id="quiz-options"></div>
-    <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
     
-    <!-- Timer ကို ထွက်မည် ခလုတ်အပေါ် ရွှေ့လိုက်ပါပြီ -->
-    <div class="timer-wrapper" id="timer-wrapper">
-        <span id="timer-display" class="timer-display">00:00</span>
-        <button id="timer-start-btn" class="timer-btn" onclick="toggleTimer()">⏱ အချိန်မှတ်မည်</button>
-        <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none;">🔄 ပြန်စမည်</button>
-    </div>
+    <div id="question-box" style="font-size: 1.15rem; text-align: center; margin: 0 0 15px 0; line-height: 1.5; overflow-x: auto; max-width: 100%; box-sizing: border-box; padding: 10px; min-height: 80px; max-height: 170px; overflow-y: auto;"></div>
+    
+    <div id="quiz-options"></div>
+    
+    <!-- Explanation appears here so it doesn't cover options -->
+    <div id="explanation-box"></div>
+    
+    <div id="quiz-footer">
+        <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
+        
+        <div class="timer-wrapper" id="timer-wrapper" style="display: flex; align-items: center; justify-content: center; margin-top: 15px; gap: 10px;">
+            <span id="timer-display" class="timer-display">00:00</span>
+            <button id="timer-start-btn" class="timer-btn" onclick="toggleTimer()">⏱ အချိန်မှတ်မည်</button>
+            <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none;">🔄 ပြန်စမည်</button>
+        </div>
 
-    <!-- ထွက်မည် ခလုတ်ကို အောက်ဆုံးသို့ ပို့လိုက်ပါပြီ -->
-    <button class="btn back-btn" id="quiz-back-btn">ထွက်မည်</button>
+        <button class="btn back-btn" id="quiz-back-btn" style="margin-top: 15px;">ထွက်မည်</button>
+    </div>
 </div>
 
 <!-- ပြင်ဆင်ထားသည့် Math Solution Screen -->
@@ -1567,12 +1657,13 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 </div>
 
     <script>
-if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
+
+		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
         document.body.innerHTML = `
     <style>
-        .ld-page { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #0B0F19; color: #fff; min-height: 100vh; overflow-y: auto; position: relative; }
-        .ld-wrap { max-width: 600px; margin: 0 auto; padding: 40px 20px 140px; text-align: center; position: relative; z-index: 1; }
-        
+        .ld-page { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #0B0F19; color: #fff; min-height: 100vh; overflow-y: auto; overflow-x: hidden; position: relative; }
+		.ld-wrap { max-width: 600px; margin: 0 auto; padding: 30px 16px 140px; text-align: center; position: relative; z-index: 1; overflow-x: hidden; }
+		
         @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
         .reveal { opacity:0; transform:translateY(24px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity:1; transform:translateY(0); }
@@ -1583,14 +1674,14 @@ if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
         .ld-logo-fallback { width: 100px; height: 100px; border-radius: 24px; margin: 0 auto 20px; background: linear-gradient(135deg, #00D5FF, #0066FF); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 800; color: #000; border: 2px solid rgba(0,213,255,0.4); box-shadow: 0 0 40px rgba(0,213,255,0.15); }
         
         .ld-hero { animation: fadeInUp 0.8s ease-out; position: relative; z-index: 1; }
-        .ld-hero h1 { font-size: 2.6rem; margin: 0 0 12px; letter-spacing: -0.5px; background: linear-gradient(135deg, #00D5FF 0%, #00FF9D 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .ld-hero p { color: #94A3B8; font-size: 1.1rem; margin: 0 auto 24px; line-height: 1.6; max-width: 90%; }
+        .ld-hero h1 { font-size: clamp(1.8rem, 8vw, 2.6rem); margin: 0 0 12px; letter-spacing: -0.5px; background: linear-gradient(135deg, #00D5FF 0%, #00FF9D 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+		.ld-hero p { color: #94A3B8; font-size: 0.9rem; margin: 0 auto 24px; line-height: 1.6; max-width: 90%; }
         
-        .ld-statbar { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; animation: fadeInUp 0.8s ease-out 0.1s both; }
-        .ld-stat-item { text-align: center; }
-        .ld-stat-num { font-size: 1.7rem; font-weight: 800; color: #00D5FF; font-family: monospace; }
-        .ld-stat-label { font-size: 0.7rem; color: #64748B; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-        .ld-stat-div { width: 1px; background: #1E293B; }
+ .ld-statbar { display: flex; justify-content: center; gap: 12px; flex-wrap: nowrap; margin-bottom: 24px; animation: fadeInUp 0.8s ease-out 0.1s both; }
+.ld-stat-item { text-align: center; flex: 1; min-width: 0; }
+.ld-stat-num { font-size: 1.2rem; font-weight: 800; color: #00D5FF; font-family: monospace; }
+.ld-stat-label { font-size: 0.6rem; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+.ld-stat-div { width: 1px; background: #1E293B; flex-shrink: 0; align-self: stretch; margin: 4px 0; }
         
         .ld-section { margin-bottom: 40px; text-align: left; }
         .ld-section h2 { color: #00D5FF; font-size: 1.2rem; margin-bottom: 16px; text-align: center; }
@@ -1618,9 +1709,9 @@ if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
         .ld-countdown-wrap { background: linear-gradient(145deg, #0F172A, #162235); border: 1px solid #00D5FF; border-radius: 16px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 4px 20px rgba(0,213,255,0.08); }
         .ld-countdown-label { color: #00D5FF; font-size: 0.85rem; font-weight: 700; margin-bottom: 12px; letter-spacing: 0.5px; }
         .ld-countdown { display: flex; justify-content: center; gap: 12px; }
-        .ld-cd-box { background: #0B0F19; border: 1px solid #334155; border-radius: 12px; padding: 12px 14px; text-align: center; min-width: 55px; }
-        .ld-cd-val { font-size: 1.4rem; font-weight: 800; color: #00D5FF; font-family: monospace; }
-        .ld-cd-lbl { font-size: 0.65rem; color: #94A3B8; text-transform: uppercase; margin-top: 4px; letter-spacing: 1px; }
+        .ld-cd-box { background: #0B0F19; border: 1px solid #334155; border-radius: 10px; padding: 10px 6px; text-align: center; min-width: 44px; flex: 1; }
+.ld-cd-val { font-size: 1.2rem; font-weight: 800; color: #00D5FF; font-family: monospace; }
+.ld-cd-lbl { font-size: 0.65rem; color: #94A3B8; text-transform: uppercase; margin-top: 4px; letter-spacing: 1px; }
         
         .ld-cta { position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(11,15,25,0.8); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid rgba(30,41,59,0.6); padding: 16px 20px 28px; display: flex; flex-direction: column; gap: 10px; z-index: 100; box-sizing: border-box; }
         .ld-btn { display: block; width: 100%; padding: 16px; border-radius: 14px; font-weight: 700; font-size: 1rem; text-decoration: none; text-align: center; border: none; cursor: pointer; transition: transform 0.1s; }
@@ -1653,7 +1744,7 @@ if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
             <div class="ld-statbar">
                 <div class="ld-stat-item"><div class="ld-stat-num">7</div><div class="ld-stat-label">Subjects</div></div>
                 <div class="ld-stat-div"></div>
-                <div class="ld-stat-item"><div class="ld-stat-num">20K+</div><div class="ld-stat-label">Obj Questions</div></div>
+                <div class="ld-stat-item"><div class="ld-stat-num">12K+</div><div class="ld-stat-label">Obj Questions</div></div>
                 <div class="ld-stat-div"></div>
                 <div class="ld-stat-item"><div class="ld-stat-num">📄</div><div class="ld-stat-label">Old Questions</div></div>
                 <div class="ld-stat-div"></div>
@@ -1664,7 +1755,7 @@ if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
                 <h2>✨ What You Get</h2>
                 <div class="ld-grid">
                     <div class="ld-card"><span class="ld-card-icon">📝</span><div class="ld-card-title">Daily Quiz</div><div class="ld-card-desc">3 free random questions every day for every subject</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">🗂️</span><div class="ld-card-title">Daily Practice</div><div class="ld-card-desc">Paid 20,000+ Objective Questions</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">📚</span><div class="ld-card-title">Essential Objective Questions</div><div class="ld-card-desc">Paid 12,000+ Objective Questions</div></div>
                     <div class="ld-card"><span class="ld-card-icon">📊</span><div class="ld-card-title">Smart Stats</div><div class="ld-card-desc">Track accuracy, speed & progress per subject</div></div>
                     <div class="ld-card"><span class="ld-card-icon">🏅</span><div class="ld-card-title">Leaderboard</div><div class="ld-card-desc">Compete with friends on accuracy & speed</div></div>
                     <div class="ld-card"><span class="ld-card-icon">📰</span><div class="ld-card-title">News & Articles</div><div class="ld-card-desc">Read study tips and subject articles</div></div>
@@ -1747,7 +1838,6 @@ if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
         setInterval(update, 1000);
     })();
 }
-		
 		const ADMIN_ID = 8432363664;
 		const CB = '?v=2'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 const specialUsers = [5593040432,1709037573,5186599374];
@@ -3768,93 +3858,106 @@ function updateFlashUI() {
     } catch (e) { tg.showAlert("မေးခွန်းဖိုင်မတွေ့သေးပါ- " + fileName); }
 }
        
-	   function loadQuestion() {
-        isAnswered = false; 
-    const nextBtn = document.getElementById('next-btn');
-    // Always show next button so users can skip for speedrunning
-    nextBtn.style.display = 'block';
-    nextBtn.className = 'btn';
-    nextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ➔'; // Reset to default class first
-
-const isMath2Or3Mark = currentQuizFile && (currentQuizFile.includes('2_Marks') || currentQuizFile.includes('3_Marks'));
-
-const scoreDisplay = document.getElementById('score-display');
-if (isMath2Or3Mark) {
-    scoreDisplay.style.display = 'none';
-} else {
-    scoreDisplay.style.display = 'inline-block';
-}
-
-const timerWrapper = document.getElementById('timer-wrapper');
-if (isMath2Or3Mark) {
-    timerWrapper.style.display = 'none';
-    if (isTimerRunning) resetTimer();
-} else {
-    timerWrapper.style.display = 'flex';
-}
-	
-    const q = currentQuestions[currentIdx];
+	   function showExplanation(text, isCorrect, correctAnswerText) {
+    const box = document.getElementById('explanation-box');
+    const icon = isCorrect ? '✅' : '❌';
+    const title = isCorrect ? 'မှန်ကန်ပါသည်' : 'အဖြေမှားနေပါသည်';
+    const color = isCorrect ? '#10B981' : '#EF4444';
     
-    // Progress နှင့် မေးခွန်းပြသခြင်း
+    let html = `<b style="color:${color};display:block;margin-bottom:8px;font-size:1.05rem;">${icon} ${title}</b>`;
+    
+    if (text && text.trim().length > 0) {
+        html += `<div style="color:#E2E8F0;">${text}</div>`;
+    } else {
+        if (!isCorrect && correctAnswerText) {
+            html += `<div style="color:#E2E8F0;">အဖြေမှန်မှာ <b style="color:#fff">${correctAnswerText}</b> ဖြစ်ပါသည်။</div>`;
+        } else {
+            html += `<div style="color:#94A3B8;font-style:italic;">${isCorrect ? 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။' : 'အဖြေမှားနေပါသည်။ နောက်တစ်ပုဒ်တွင် ကြိုးစားကြည့်ပါ။'}</div>`;
+        }
+    }
+    
+    box.innerHTML = html;
+    box.classList.toggle('wrong', !isCorrect);
+    box.classList.add('show');
+}
+
+function loadQuestion() {
+    isAnswered = false;
+    
+    // Reset explanation panel
+    const explBox = document.getElementById('explanation-box');
+    explBox.innerHTML = '';
+    explBox.classList.remove('show', 'wrong');
+    
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.style.display = 'block';
+    nextBtn.className = 'btn next-btn';
+    nextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ➔';
+    nextBtn.disabled = false;
+
+    const isMath2Or3Mark = currentQuizFile && (currentQuizFile.includes('2_Marks') || currentQuizFile.includes('3_Marks'));
+    const scoreDisplay = document.getElementById('score-display');
+    if (isMath2Or3Mark) {
+        scoreDisplay.style.display = 'none';
+    } else {
+        scoreDisplay.style.display = 'inline-block';
+    }
+
+    const timerWrapper = document.getElementById('timer-wrapper');
+    if (isMath2Or3Mark) {
+        timerWrapper.style.display = 'none';
+        if (isTimerRunning) resetTimer();
+    } else {
+        timerWrapper.style.display = 'flex';
+    }
+
+    const q = currentQuestions[currentIdx];
     document.getElementById('quiz-progress').innerHTML = `${currentIdx + 1} / ${currentQuestions.length}`;
     document.getElementById('question-box').innerHTML = q.q;
     
-    const optDiv = document.getElementById('quiz-options'); 
+    const optDiv = document.getElementById('quiz-options');
     optDiv.innerHTML = '';
 
-    // သင်္ချာမေးခွန်းအတွက် ကြိုတင်သတ်မှတ်ချက်
     if (currentSubject.id === 'math' && (q.type === undefined || q.type === 'math_show')) {
         q.type = 'math_show';
     }
 
-   // --- ၁။ သင်္ချာမေးခွန်းဖြစ်မဖြစ် စစ်ဆေးခြင်း ---
     if (q.type === 'math_show') {
         const showBtn = document.createElement('button');
         showBtn.className = 'btn';
         showBtn.innerText = "အဖြေကြည့်ရန်";
-        
+        showBtn.style.maxWidth = "280px";
+        showBtn.style.margin = "0 auto";
         showBtn.onclick = function() {
-            // Screen အသစ်ကို ပြောင်းမည်
             showScreen('math-solution');
             document.getElementById('math-solution-content').innerHTML = q.c;
             if (window.MathJax) MathJax.typesetPromise();
-			            // အပေါ်ဆုံးသို့ scroll လုပ်ရန်
             document.getElementById('math-solution-screen').scrollTop = 0;
             window.scrollTo(0, 0);
 
-            // နောက်သို့ (မေးခွန်း ပြန်ကြည့်ရန်)
-            document.getElementById('math-prev-btn').onclick = () => {
-                showScreen('quiz');
-            };
+            document.getElementById('math-prev-btn').onclick = () => showScreen('quiz');
 
-            // ရှေ့သို့ (နောက်တစ်ပုဒ် သွားရန်)
             const mathNextBtn = document.getElementById('math-next-btn');
             if (currentIdx < currentQuestions.length - 1) {
                 mathNextBtn.style.display = 'block';
+                mathNextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ➡️';
                 mathNextBtn.onclick = () => {
                     currentIdx++;
                     showScreen('quiz');
                     loadQuestion();
                 };
-                        } else {
+            } else {
                 mathNextBtn.style.display = 'block';
                 mathNextBtn.innerText = 'ပြီးဆုံးပါပြီ ✅';
                 mathNextBtn.onclick = () => {
                     tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
-                    submitScore(); // ⬅️ Log view-only completion
+                    submitScore();
                     document.getElementById('quiz-back-btn').click();
                 };
             }
-
-            // ထွက်မည် (Menu သို့ ပြန်သွားရန်)
-            document.getElementById('math-exit-btn').onclick = () => {
-                document.getElementById('quiz-back-btn').click(); 
-            };
         };
-
         optDiv.appendChild(showBtn);
     } 
-    // --- ၂။ အခြားပုံမှန် မေးခွန်းများ (MCQ, True/False) ---
     else if (q.type === 'mcq' || q.type === 'tf') {
         let opts = [];
         let correctIdx = 0;
@@ -3863,17 +3966,13 @@ if (isMath2Or3Mark) {
             opts = ["မှန် (TRUE)", "မှား (FALSE)"];
             correctIdx = (q.c === true || q.c === "true" || q.c === 0 || q.c === "မှန်") ? 0 : 1;
         } else {
-            let originalCorrectAnswer = String(q.a[q.c]).trim(); 
-            opts = [...q.a]; 
-
-            // ရွေးချယ်စရာများကို မွှေနှောက်ခြင်း
+            let originalCorrectAnswer = String(q.a[q.c]).trim();
+            opts = [...q.a];
             for (let i = opts.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [opts[i], opts[j]] = [opts[j], opts[i]];
             }
-
             correctIdx = opts.map(opt => String(opt).trim()).indexOf(originalCorrectAnswer);
-            
             if (correctIdx === -1) {
                 console.error("အဖြေမှန်စာသားကို ရှာမတွေ့ပါ");
                 opts = [...q.a];
@@ -3882,20 +3981,18 @@ if (isMath2Or3Mark) {
         }
 
         opts.forEach((a, i) => {
-            const btn = document.createElement('button'); 
-            btn.className = 'btn option-btn'; 
-            btn.innerHTML = a; 
+            const btn = document.createElement('button');
+            btn.className = 'btn option-btn';
+            btn.innerHTML = a;
             
             btn.onclick = () => {
-                if(isAnswered) return; 
+                if(isAnswered) return;
                 isAnswered = true;
-
                 const options = document.querySelectorAll('.option-btn');
-
-                // အဖြေမှန်/မှား စစ်ဆေးခြင်း
-                if (i === correctIdx) {
+                const isCorrect = (i === correctIdx);
+                
+                if (isCorrect) {
                     options[i].classList.add('correct-answer');
-                    // မှန်ရင် ရမှတ်တိုးမည်
                     if (typeof score !== 'undefined') {
                         score++;
                         document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
@@ -3906,44 +4003,61 @@ if (isMath2Or3Mark) {
                         else if(idx === i) b.classList.add('wrong-answer');
                     });
                 }
-
-                // ခလုတ်အားလုံးကို ပိတ်မည်
                 options.forEach(b => b.disabled = true);
-
-                // Next Button ကို Display ပေးပြီး ပုံစံပြောင်းမည်
+                
+                // Show clean explanation instead of messy alerts
+                showExplanation(q.e, isCorrect, opts[correctIdx]);
+                
                 const nextBtnStyled = document.getElementById('next-btn');
                 nextBtnStyled.style.display = 'block';
-                nextBtnStyled.className = 'next-btn-styled'; 
+                nextBtnStyled.className = 'next-btn-styled';
                 nextBtnStyled.innerText = 'နောက်တစ်ပုဒ်သို့ ⮕';
             };
             optDiv.appendChild(btn);
         });
     } 
-    // --- ၃။ ကွက်လပ်ဖြည့် ---
     else if (q.type === 'blank') {
         const input = document.createElement('input');
-        input.className = 'quiz-input'; 
+        input.className = 'quiz-input';
         input.placeholder = "အဖြေရိုက်ထည့်ပါ...";
         
         const sBtn = document.createElement('button');
-        sBtn.className = 'btn'; 
+        sBtn.className = 'btn';
         sBtn.style.width = '100%';
+        sBtn.style.maxWidth = '280px';
+        sBtn.style.margin = '10px auto 0 auto';
         sBtn.innerText = "အဖြေစစ်မည်";
         
         sBtn.onclick = () => {
-            if(isAnswered) return; 
+            if(isAnswered) return;
             isAnswered = true;
+            input.disabled = true;
+            sBtn.disabled = true;
             
-            if(input.value.trim().toLowerCase() === q.c.toString().toLowerCase()) {
-                tg.showAlert("မှန်ကန်ပါသည်။ ✅");
-                // မှန်ရင် ရမှတ်တိုးမည်
+            const isCorrect = input.value.trim().toLowerCase() === q.c.toString().toLowerCase();
+            
+            if(isCorrect) {
+                input.style.borderColor = '#10B981';
+                input.style.background = 'rgba(16, 185, 129, 0.1)';
                 if (typeof score !== 'undefined') {
                     score++;
                     document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
                 }
             } else {
-                tg.showAlert("အဖြေမှန်မှာ: " + q.c + "\nအခြားသောအဖြေမှန်များလည်းရှိနိုင်ပါသည်");
+                input.style.borderColor = '#EF4444';
+                input.style.background = 'rgba(239, 68, 68, 0.1)';
             }
+            
+            // Build explanation text
+            let explText = q.e || '';
+            if (!explText) {
+                if (!isCorrect) {
+                    explText = `အဖြေမှန်မှာ <b style="color:#fff">${q.c}</b> ဖြစ်ပါသည်။`;
+                } else {
+                    explText = 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။';
+                }
+            }
+            showExplanation(explText, isCorrect);
             
             const nextBtnStyled = document.getElementById('next-btn');
             nextBtnStyled.style.display = 'block';
