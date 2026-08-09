@@ -1,288 +1,282 @@
 [
   {
+    "q": "The relations between linear quantities and angular quantities for circular motion have been studied in Grade ____.",
     "type": "mcq",
-    "q": "What types of quantities are related in Section 1.2?",
-    "a": [
-      "Linear quantities (s, v, a) and angular quantities ($\\theta$, $\\omega$, $\\alpha$).",
-      "Mass, force, and energy.",
-      "Temperature, pressure, and volume.",
-      "Electric charge, current, and voltage."
-    ],
-    "c": 0
+    "a": ["9", "10", "11", "12"],
+    "c": 2,
+    "e": "The textbook notes that these relations were previously studied in Grade 11."
   },
   {
+    "q": "All particles of an object rotating around the axis of rotation move in a ____ path.",
     "type": "mcq",
-    "q": "In rotational motion, how do all particles of an object rotating around the axis of rotation move?",
-    "a": [
-      "In a circular path.",
-      "In a parabolic path.",
-      "In a straight line.",
-      "In an elliptical path."
-    ],
-    "c": 0
+    "a": ["linear", "circular", "parabolic", "elliptical"],
+    "c": 1,
+    "e": "Every particle in a rotating object follows a circular path."
   },
   {
+    "q": "All particles of the body move in a circle lying on a plane that is ____ to the axis.",
     "type": "mcq",
-    "q": "If $s$ is the linear distance of a particle of a rotating object measured along the arc, and $\\theta$ is the angle subtended at the origin, what is the relation between $s$ and $\\theta$?",
-    "a": [
-      "$s = r \\theta$",
-      "$s = r / \\theta$",
-      "$s = r + \\theta$",
-      "$s = r \\theta^2$"
-    ],
-    "c": 0
+    "a": ["parallel", "perpendicular", "tangential", "radial"],
+    "c": 1,
+    "e": "The plane of the circular path for any particle is perpendicular to the axis of rotation."
   },
   {
+    "q": "For a rotating rigid body, the centre of rotation lies on the ____.",
     "type": "mcq",
-    "q": "In the relation $s = r \\theta$, what must $\\theta$ be measured in?",
-    "a": [
-      "Radian.",
-      "Degrees.",
-      "Revolutions.",
-      "Gradians."
-    ],
-    "c": 0
+    "a": ["circumference", "tangent", "axis", "radius"],
+    "c": 2,
+    "e": "The centre of the circular path for all particles is located on the axis of rotation."
   },
   {
+    "q": "The linear distance of a particle of a rotating object measured along the arc is denoted by ____.",
     "type": "mcq",
-    "q": "For a rotational object, how does the instantaneous angular velocity $\\omega$ compare for all the particles comprising the object?",
-    "a": [
-      "It is the same for all particles.",
-      "It varies for different particles.",
-      "It is zero for particles at the edge.",
-      "It is infinite for particles near the axis."
-    ],
-    "c": 0
+    "a": ["$r$", "$\\theta$", "$s$", "$\\omega$"],
+    "c": 2,
+    "e": "The linear distance $s$ is measured along the arc of the circular path."
   },
   {
+    "q": "The arc length $s$ subtends an angle $\\theta$ at the ____.",
     "type": "mcq",
-    "q": "What is the relation between the magnitude of the linear velocity $v$ and the angular velocity $\\omega$ of a particle?",
-    "a": [
-      "$v = r \\omega$",
-      "$v = r / \\omega$",
-      "$v = r + \\omega$",
-      "$v = r \\omega^2$"
-    ],
-    "c": 0
+    "a": ["axis", "origin", "circumference", "tangent"],
+    "c": 1,
+    "e": "The angular displacement $\\theta$ is the angle subtended by the arc at the origin."
   },
   {
+    "q": "The relation between arc length $s$ and angular displacement $\\theta$, measured in radian, is ____.",
     "type": "mcq",
-    "q": "In the relation $v = r \\omega$, what must $\\omega$ be measured in?",
-    "a": [
-      "Radian per second.",
-      "Radian.",
-      "Degrees per second.",
-      "Revolutions per minute."
-    ],
-    "c": 0
+    "a": ["$s = \\frac{r}{\\theta}$", "$s = r\\theta$", "$s = \\frac{\\theta}{r}$", "$s = r^2\\theta$"],
+    "c": 1,
+    "e": "This is the fundamental geometric relationship between arc length and angular displacement."
   },
   {
+    "q": "In the relation $s = r\\theta$, the angular displacement $\\theta$ is measured in ____.",
     "type": "mcq",
-    "q": "To which particles of a rotational object does the relation $v = r \\omega$ apply?",
-    "a": [
-      "To every particle of the rotational object.",
-      "Only to particles at the axis of rotation.",
-      "Only to particles at the outermost edge.",
-      "Only to particles moving in a straight line."
-    ],
-    "c": 0
+    "a": ["degree", "radian", "revolution", "gradient"],
+    "c": 1,
+    "e": "The formula $s = r\\theta$ requires the angle to be measured in radians."
   },
   {
+    "q": "In the relation $s = r\\theta$, the term $r$ represents the ____ of the circle.",
     "type": "mcq",
-    "q": "What is the direction of linear velocity relative to the path of a rotating object?",
-    "a": [
-      "Tangent to the path.",
-      "Perpendicular to the path, pointing inwards.",
-      "Perpendicular to the path, pointing outwards.",
-      "Along the radius."
-    ],
-    "c": 0
+    "a": ["diameter", "circumference", "radius", "area"],
+    "c": 2,
+    "e": "The variable $r$ stands for the radius of the circular path of the particle."
   },
   {
+    "q": "The instantaneous angular velocity $\\omega$ of a rotational object is ____ for all the particles comprising the object.",
     "type": "mcq",
-    "q": "What is another name for linear velocity in the context of rotational motion?",
-    "a": [
-      "Tangential velocity.",
-      "Radial velocity.",
-      "Angular velocity.",
-      "Rotational velocity."
-    ],
-    "c": 0
+    "a": ["different", "the same", "zero", "inversely proportional to the radius"],
+    "c": 1,
+    "e": "All particles of a rigid rotating body share the same instantaneous angular velocity."
   },
   {
+    "q": "The relation between the magnitude of the linear velocity $v$ and the angular velocity $\\omega$ of a particle is ____.",
     "type": "mcq",
-    "q": "What happens if the magnitude of the angular velocity of a rotating object changes?",
-    "a": [
-      "The magnitude of linear velocity will also change, and the object will have tangential acceleration.",
-      "The object will have only centripetal acceleration.",
-      "The object's mass will change.",
-      "The object will stop rotating."
-    ],
-    "c": 0
+    "a": ["$v = \\frac{r}{\\omega}$", "$v = \\frac{\\omega}{r}$", "$v = r\\omega$", "$v = r^2\\omega$"],
+    "c": 2,
+    "e": "This equation correctly relates linear velocity to angular velocity and radius."
   },
   {
+    "q": "In the relation $v = r\\omega$, the angular velocity $\\omega$ is measured in ____.",
     "type": "mcq",
-    "q": "What is the direction of tangential acceleration?",
-    "a": [
-      "Always tangent to the circular path.",
-      "Always perpendicular to the circular path, pointing inwards.",
-      "Always perpendicular to the circular path, pointing outwards.",
-      "Always along the axis of rotation."
-    ],
-    "c": 0
+    "a": ["degree per second", "radian per second", "revolution per second", "meter per second"],
+    "c": 1,
+    "e": "Angular velocity must be in radians per second for this relation to hold."
   },
   {
+    "q": "The relation $v = r\\omega$ applies to ____ particle of the rotational object.",
     "type": "mcq",
-    "q": "How does tangential acceleration $a_T$ relate to angular acceleration $\\alpha$?",
-    "a": [
-      "$a_T = r \\alpha$",
-      "$a_T = r / \\alpha$",
-      "$a_T = r + \\alpha$",
-      "$a_T = r \\alpha^2$"
-    ],
-    "c": 0
+    "a": ["only the outermost", "only the innermost", "every", "only the central"],
+    "c": 2,
+    "e": "The textbook states that this relation applies to every particle of the rotational object."
   },
   {
+    "q": "Since the direction of linear velocity is tangent to the path, the linear velocity is also called ____ velocity.",
     "type": "mcq",
-    "q": "In the equation $a_T = r \\alpha$, what must angular acceleration $\\alpha$ be measured in?",
-    "a": [
-      "Radian per second squared.",
-      "Radian per second.",
-      "Degrees per second squared.",
-      "Revolutions per minute squared."
-    ],
-    "c": 0
+    "a": ["radial", "centripetal", "tangential", "angular"],
+    "c": 2,
+    "e": "Linear velocity in circular motion is tangential to the path, hence the name tangential velocity."
   },
   {
+    "q": "If the magnitude of the angular velocity of a rotating object changes, the magnitude of ____ velocity will also change.",
     "type": "mcq",
-    "q": "What does the tangential acceleration of a rotating object measure?",
-    "a": [
-      "How fast the tangential velocity changes.",
-      "How fast the angular displacement changes.",
-      "How fast the angular velocity changes.",
-      "How fast the radius changes."
-    ],
-    "c": 0
+    "a": ["angular", "linear", "radial", "centripetal"],
+    "c": 1,
+    "e": "Because $v = r\\omega$, a change in $\\omega$ necessitates a change in linear velocity $v$."
   },
   {
+    "q": "If the magnitude of the angular velocity of a rotating object changes, the object will have a ____ acceleration.",
     "type": "mcq",
-    "q": "According to Table 1.2, what is the relation for displacement ($s$)?",
-    "a": [
-      "$s = r \\theta$",
-      "$s = r \\omega$",
-      "$s = r \\alpha$",
-      "$s = \\theta / r$"
-    ],
-    "c": 0
+    "a": ["centripetal", "radial", "tangential", "angular"],
+    "c": 2,
+    "e": "A changing linear velocity magnitude results in a tangential acceleration."
   },
   {
+    "q": "The direction of tangential acceleration is always ____ to the circular path.",
     "type": "mcq",
-    "q": "According to Table 1.2, what is the relation for tangential velocity ($v$)?",
-    "a": [
-      "$v = r \\omega$",
-      "$v = r \\theta$",
-      "$v = r \\alpha$",
-      "$v = \\omega / r$"
-    ],
-    "c": 0
+    "a": ["perpendicular", "tangent", "radial", "parallel"],
+    "c": 1,
+    "e": "Tangential acceleration acts along the tangent to the circular path of the particle."
   },
   {
+    "q": "The tangential acceleration $a_T$ relates to angular acceleration $\\alpha$ by the equation ____.",
     "type": "mcq",
-    "q": "According to Table 1.2, what is the relation for tangential acceleration ($a_T$)?",
-    "a": [
-      "$a_T = r \\alpha$",
-      "$a_T = r \\omega$",
-      "$a_T = r \\theta$",
-      "$a_T = \\alpha / r$"
-    ],
-    "c": 0
+    "a": ["$a_T = \\frac{r}{\\alpha}$", "$a_T = \\frac{\\alpha}{r}$", "$a_T = r\\alpha$", "$a_T = r^2\\alpha$"],
+    "c": 2,
+    "e": "This is the correct equation relating tangential acceleration to angular acceleration."
   },
   {
+    "q": "In the equation $a_T = r\\alpha$, the angular acceleration $\\alpha$ is measured in ____.",
     "type": "mcq",
-    "q": "What is the direction of the angular velocity vector?",
-    "a": [
-      "Perpendicular to the plane of rotation and along the axis of rotation.",
-      "Tangent to the plane of rotation.",
-      "Radial, pointing towards the center.",
-      "Radial, pointing away from the center."
-    ],
-    "c": 0
+    "a": ["radian per second", "radian per second squared", "meter per second squared", "degree per second squared"],
+    "c": 1,
+    "e": "The standard unit for angular acceleration is radian per second squared."
   },
   {
+    "q": "The tangential acceleration of a rotating object is a measure of how fast the ____ velocity changes.",
     "type": "mcq",
-    "q": "How is the direction of angular velocity usually specified?",
-    "a": [
-      "By the right-hand rule.",
-      "By the left-hand rule.",
-      "By the direction of linear velocity.",
-      "By the direction of centripetal acceleration."
-    ],
-    "c": 0
+    "a": ["angular", "radial", "centripetal", "tangential"],
+    "c": 3,
+    "e": "The textbook explicitly defines tangential acceleration as the measure of how fast tangential velocity changes."
   },
   {
+    "q": "Table 1.2 expresses the relation between the linear and ____ quantities.",
     "type": "mcq",
-    "q": "When using the right-hand rule for angular velocity, what do the fingers represent?",
-    "a": [
-      "The direction of rotation.",
-      "The direction of the angular velocity vector.",
-      "The direction of linear velocity.",
-      "The axis of rotation."
-    ],
-    "c": 0
+    "a": ["translational", "rotational", "oscillatory", "static"],
+    "c": 1,
+    "e": "Table 1.2 summarizes the relations between linear and rotational quantities."
   },
   {
+    "q": "In the relation between linear and rotational quantities, the rotational quantity corresponding to linear displacement $s$ is ____.",
     "type": "mcq",
-    "q": "When using the right-hand rule for angular velocity, what does the thumb represent?",
-    "a": [
-      "The direction of the angular velocity vector.",
-      "The direction of rotation.",
-      "The direction of linear velocity.",
-      "The axis of rotation."
-    ],
-    "c": 0
+    "a": ["$\\omega$", "$\\alpha$", "$\\theta$", "$a_T$"],
+    "c": 2,
+    "e": "Angular displacement $\\theta$ corresponds to linear displacement $s$."
   },
   {
+    "q": "In the relation between linear and rotational quantities, the rotational quantity corresponding to tangential velocity $v$ is ____.",
     "type": "mcq",
-    "q": "When the angular velocity is increasing, what is the direction of the angular acceleration vector?",
-    "a": [
-      "In the same direction as the angular velocity.",
-      "In the opposite direction to the angular velocity.",
-      "Perpendicular to the angular velocity.",
-      "Always towards the center of rotation."
-    ],
-    "c": 0
+    "a": ["$\\theta$", "$\\omega$", "$\\alpha$", "$s$"],
+    "c": 1,
+    "e": "Angular velocity $\\omega$ corresponds to tangential velocity $v$."
   },
   {
+    "q": "In the relation between linear and rotational quantities, the rotational quantity corresponding to tangential acceleration $a_T$ is ____.",
     "type": "mcq",
-    "q": "When the angular velocity is decreasing, what is the direction of the angular acceleration vector?",
-    "a": [
-      "In the opposite direction to the angular velocity.",
-      "In the same direction as the angular velocity.",
-      "Perpendicular to the angular velocity.",
-      "Always towards the center of rotation."
-    ],
-    "c": 0
+    "a": ["$\\theta$", "$\\omega$", "$\\alpha$", "$v$"],
+    "c": 2,
+    "e": "Angular acceleration $\\alpha$ corresponds to tangential acceleration $a_T$."
   },
   {
+    "q": "The direction of the angular velocity vector is ____ to the plane of rotation.",
     "type": "mcq",
-    "q": "What does \"linear velocity\" refer to in the context of Key Words?",
-    "a": [
-      "The rate of change of linear displacement.",
-      "The rate of change of angular displacement.",
-      "The acceleration along a straight line.",
-      "The change in direction of motion."
-    ],
-    "c": 0
+    "a": ["parallel", "perpendicular", "tangential", "radial"],
+    "c": 1,
+    "e": "The angular velocity vector is perpendicular to the plane of rotation."
   },
   {
+    "q": "The direction of the angular velocity vector is perpendicular to the plane of rotation, and along the ____ of rotation.",
     "type": "mcq",
-    "q": "What does \"tangential acceleration\" refer to in the context of Key Words?",
-    "a": [
-      "The acceleration component tangent to the circular path.",
-      "The acceleration component radial to the circular path.",
-      "The rate of change of angular velocity.",
-      "The speed along the circumference."
-    ],
-    "c": 0
+    "a": ["radius", "circumference", "axis", "tangent"],
+    "c": 2,
+    "e": "The angular velocity vector lies along the axis of rotation."
+  },
+  {
+    "q": "The direction of angular velocity is usually specified by the ____ rule.",
+    "type": "mcq",
+    "a": ["left-hand", "right-hand", "thumb", "cross-product"],
+    "c": 1,
+    "e": "The right-hand rule is used to determine the direction of the angular velocity vector."
+  },
+  {
+    "q": "When using the right-hand rule, wrap the right hand around the axis of rotation so that the ____ are pointing in the direction of rotation.",
+    "type": "mcq",
+    "a": ["thumb", "palm", "fingers", "wrist"],
+    "c": 2,
+    "e": "The fingers must curl in the same direction as the object's rotation."
+  },
+  {
+    "q": "In the right-hand rule, the ____ points in the direction of the angular velocity vector.",
+    "type": "mcq",
+    "a": ["index finger", "thumb", "palm", "middle finger"],
+    "c": 1,
+    "e": "In the right-hand rule, the extended thumb indicates the direction of the angular velocity vector."
+  },
+  {
+    "q": "When the angular velocity is increasing, the angular acceleration vector points in the ____ direction as the angular velocity.",
+    "type": "mcq",
+    "a": ["opposite", "perpendicular", "same", "tangential"],
+    "c": 2,
+    "e": "An increasing angular velocity means the angular acceleration is in the same direction as the angular velocity."
+  },
+  {
+    "q": "When the angular velocity is decreasing, the angular acceleration vector points in the ____ to the angular velocity.",
+    "type": "mcq",
+    "a": ["same direction", "opposite", "perpendicular direction", "radial direction"],
+    "c": 1,
+    "e": "A decreasing angular velocity indicates that angular acceleration opposes the direction of angular velocity."
+  },
+  {
+    "q": "Which of the following is classified as a linear quantity in Table 1.2?",
+    "type": "mcq",
+    "a": ["$\\theta$", "$\\omega$", "$\\alpha$", "$s$"],
+    "c": 3,
+    "e": "Displacement $s$ is classified as a linear quantity."
+  },
+  {
+    "q": "Which of the following is classified as a rotational quantity in Table 1.2?",
+    "type": "mcq",
+    "a": ["$s$", "$v$", "$a_T$", "$\\omega$"],
+    "c": 3,
+    "e": "Angular velocity $\\omega$ is classified as a rotational quantity."
+  },
+  {
+    "q": "The relation $a_T = r\\alpha$ applies to the tangential acceleration and ____ acceleration.",
+    "type": "mcq",
+    "a": ["centripetal", "radial", "angular", "linear"],
+    "c": 2,
+    "e": "This equation relates tangential acceleration to angular acceleration."
+  },
+  {
+    "q": "If a rigid body undergoes rotational motion, the plane of the circular path of its particles is ____ to the axis of rotation.",
+    "type": "mcq",
+    "a": ["parallel", "perpendicular", "tangential", "radial"],
+    "c": 1,
+    "e": "The plane of the circular path is always perpendicular to the axis of rotation."
+  },
+  {
+    "q": "The linear distance measured along the arc is called ____.",
+    "type": "mcq",
+    "a": ["angular displacement", "arc length", "radius", "chord"],
+    "c": 1,
+    "e": "The distance measured along the circular path is the arc length."
+  },
+  {
+    "q": "The angle subtended by the arc at the origin is called ____.",
+    "type": "mcq",
+    "a": ["arc length", "linear displacement", "angular displacement", "tangential angle"],
+    "c": 2,
+    "e": "Angular displacement is the angle subtended by the arc at the origin."
+  },
+  {
+    "q": "The magnitude of linear velocity is directly proportional to the ____ of the particle from the axis.",
+    "type": "mcq",
+    "a": ["angle", "radius", "time", "acceleration"],
+    "c": 1,
+    "e": "According to $v = r\\omega$, linear velocity is directly proportional to the radius."
+  },
+  {
+    "q": "Tangential acceleration is produced when there is a change in the magnitude of ____.",
+    "type": "mcq",
+    "a": ["angular displacement", "angular velocity", "radius", "centripetal acceleration"],
+    "c": 1,
+    "e": "A change in angular velocity changes the linear velocity, producing tangential acceleration."
+  },
+  {
+    "q": "The standard unit of angular acceleration is ____.",
+    "type": "mcq",
+    "a": ["radian per second", "meter per second squared", "radian per second squared", "revolution per minute"],
+    "c": 2,
+    "e": "The unit for angular acceleration is radian per second squared."
   }
 ]
