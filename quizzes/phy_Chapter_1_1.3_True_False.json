@@ -1,202 +1,248 @@
 [
   {
+    "q": "An object that moves in a circle at constant speed $v$ is said to experience uniform circular motion.",
     "type": "tf",
-    "q": "Uniform circular motion occurs when an object moves in a circle at a constant speed.",
-    "c": true
+    "c": "true",
+    "e": "This is the exact definition of uniform circular motion provided in the textbook."
   },
   {
+    "q": "In uniform circular motion, the magnitude of the velocity remains constant.",
     "type": "tf",
-    "q": "In uniform circular motion, the magnitude of velocity changes continuously.",
-    "c": false
+    "c": "true",
+    "e": "The speed (magnitude of velocity) is constant in uniform circular motion."
   },
   {
+    "q": "In uniform circular motion, the direction of the velocity remains constant as the object moves around the circle.",
     "type": "tf",
-    "q": "The continuous change in the direction of velocity in circular motion does not constitute an acceleration.",
-    "c": false
+    "c": "false",
+    "e": "The direction of the velocity continuously changes as the object moves around the circle."
   },
   {
+    "q": "The change in direction of velocity in circular motion constitutes an acceleration.",
     "type": "tf",
-    "q": "An object revolving in a circle at constant speed is still continuously accelerating.",
-    "c": true
+    "c": "true",
+    "e": "Because velocity is a vector, a change in its direction means there is an acceleration."
   },
   {
+    "q": "An object revolving in a circle is continuously accelerated, even when the speed remains constant.",
     "type": "tf",
-    "q": "Average acceleration is defined as the change in velocity vector divided by the time interval.",
-    "c": true
+    "c": "true",
+    "e": "The continuous change in the direction of velocity means the object is continuously accelerated."
   },
   {
+    "q": "An object revolving in a circle at a constant speed has zero acceleration.",
     "type": "tf",
-    "q": "Instantaneous acceleration can be obtained when the time interval $\\Delta t$ approaches zero.",
-    "c": true
+    "c": "false",
+    "e": "Even at a constant speed, the changing direction of velocity means there is a centripetal acceleration."
   },
   {
+    "q": "Average acceleration is defined as $\\vec{a} = \\frac{\\Delta \\vec{v}}{\\Delta t}$.",
     "type": "tf",
-    "q": "In uniform circular motion, the change in the velocity vector $\\Delta \\vec{v}$ points away from the center of the circle.",
-    "c": false
+    "c": "true",
+    "e": "This is the standard definition of average acceleration."
   },
   {
+    "q": "Average acceleration is defined as $\\vec{a} = \\frac{\\Delta \\vec{s}}{\\Delta t}$.",
     "type": "tf",
-    "q": "Centripetal acceleration is also known as radial acceleration because it is directed along the radius towards the center.",
-    "c": true
+    "c": "false",
+    "e": "Average acceleration is the change in velocity over time, not the change in displacement."
   },
   {
+    "q": "When $\\Delta t$ approaches zero, the instantaneous acceleration can be obtained.",
     "type": "tf",
-    "q": "The centripetal acceleration $a_c$ is directly proportional to the radius $r$ and the square of the linear speed $v$.",
-    "c": false
+    "c": "true",
+    "e": "Taking the limit as the time interval approaches zero yields the instantaneous acceleration."
   },
   {
+    "q": "If $\\Delta t$ is very small, the change in the velocity vector $\\Delta \\vec{v}$ will be essentially perpendicular to the velocity vectors and points toward the centre of the circle.",
     "type": "tf",
-    "q": "The equation $a_c = \\frac{v^2}{r}$ expresses centripetal acceleration in terms of linear speed and radius.",
-    "c": true
+    "c": "true",
+    "e": "In uniform circular motion, the infinitesimal change in velocity points radially inward."
   },
   {
+    "q": "If $\\Delta t$ is very small, the change in the velocity vector $\\Delta \\vec{v}$ will be essentially parallel to the velocity vectors.",
     "type": "tf",
-    "q": "Substituting $v = r \\omega$ into the centripetal acceleration formula yields $a_c = r \\omega^2$.",
-    "c": true
+    "c": "false",
+    "e": "The change in velocity vector $\\Delta \\vec{v}$ points toward the centre of the circle, perpendicular to the velocity vectors."
   },
   {
+    "q": "The instantaneous acceleration in uniform circular motion points toward the centre of the circle.",
     "type": "tf",
-    "q": "In uniform circular motion, the centripetal acceleration vector is tangential to the path.",
-    "c": false
+    "c": "true",
+    "e": "This inward-pointing acceleration is known as centripetal acceleration."
   },
   {
+    "q": "The instantaneous acceleration in uniform circular motion points tangent to the circle.",
     "type": "tf",
-    "q": "The linear velocity vector in uniform circular motion is perpendicular to the circular path.",
-    "c": false
+    "c": "false",
+    "e": "The acceleration points toward the centre, while the velocity points tangent to the circle."
   },
   {
+    "q": "Acceleration directed toward the centre of the circle is called centripetal acceleration or radial acceleration.",
     "type": "tf",
-    "q": "Centripetal acceleration and linear velocity are perpendicular to each other at every point in the path.",
-    "c": true
+    "c": "true",
+    "e": "The textbook uses both terms to describe the inward-directed acceleration."
   },
   {
+    "q": "Centripetal acceleration is denoted by $a_T$.",
     "type": "tf",
-    "q": "Nonuniform circular motion occurs when an object moves in a circular path with a varying speed.",
-    "c": true
+    "c": "false",
+    "e": "Centripetal acceleration is denoted by $a_c$, while $a_T$ denotes tangential acceleration."
   },
   {
+    "q": "The magnitude of the centripetal acceleration can be determined by the equation $a_c = \\frac{v^2}{r}$.",
     "type": "tf",
-    "q": "In nonuniform circular motion, the angular speed of the object remains constant.",
-    "c": false
+    "c": "true",
+    "e": "This is the standard formula for the magnitude of centripetal acceleration."
   },
   {
+    "q": "The magnitude of the centripetal acceleration is given by $a_c = v^2 r$.",
     "type": "tf",
-    "q": "Angular acceleration gives rise to tangential acceleration in nonuniform circular motion.",
-    "c": true
+    "c": "false",
+    "e": "The correct formula divides $v^2$ by the radius: $a_c = \\frac{v^2}{r}$."
   },
   {
+    "q": "Substituting $v = r\\omega$ into the centripetal acceleration equation gives $a_c = r\\omega^2$.",
     "type": "tf",
-    "q": "In nonuniform circular motion, only centripetal acceleration is present.",
-    "c": false
+    "c": "true",
+    "e": "Replacing $v$ with $r\\omega$ in $a_c = \\frac{v^2}{r}$ yields $a_c = r\\omega^2$."
   },
   {
+    "q": "Substituting $v = r\\omega$ into the centripetal acceleration equation gives $a_c = \\frac{r}{\\omega^2}$.",
     "type": "tf",
-    "q": "The resultant acceleration in nonuniform circular motion is the scalar sum of centripetal and tangential accelerations.",
-    "c": false
+    "c": "false",
+    "e": "The correct substituted equation is $a_c = r\\omega^2$."
   },
   {
+    "q": "For uniform circular motion, the centripetal acceleration vector points towards the centre of the circular path.",
     "type": "tf",
-    "q": "The two acceleration vectors, $\\vec{a_c}$ and $\\vec{a_t}$, are always parallel to each other.",
-    "c": false
+    "c": "true",
+    "e": "Centripetal acceleration is always directed radially inward toward the centre."
   },
   {
+    "q": "For uniform circular motion, the linear velocity vector points towards the centre of the circular path.",
     "type": "tf",
-    "q": "The centripetal acceleration vector $\\vec{a_c}$ is in the tangential direction.",
-    "c": false
+    "c": "false",
+    "e": "The linear velocity vector is tangential to the path, not directed towards the centre."
   },
   {
+    "q": "In uniform circular motion, the centripetal acceleration and linear velocity are perpendicular to each other at every point in the path.",
     "type": "tf",
-    "q": "The tangential acceleration vector $\\vec{a_t}$ is in the radial direction.",
-    "c": false
+    "c": "true",
+    "e": "The radial direction of acceleration and tangential direction of velocity are always perpendicular."
   },
   {
+    "q": "In uniform circular motion, the centripetal acceleration and linear velocity are parallel to each other.",
     "type": "tf",
-    "q": "The magnitude of resultant acceleration $a$ is given by $a = \\sqrt{a_c^2 + a_t^2}$.",
-    "c": true
+    "c": "false",
+    "e": "They are perpendicular to each other at every point in the path."
   },
   {
+    "q": "In nonuniform circular motion, an object is moving in a circular path with a varying speed.",
     "type": "tf",
-    "q": "The direction of resultant acceleration $\\vec{a}$ is determined by $\\tan \\phi = \\frac{a_c}{a_t}$.",
-    "c": false
+    "c": "true",
+    "e": "Varying speed is the defining characteristic of nonuniform circular motion."
   },
   {
+    "q": "In nonuniform circular motion, the angular speed of the object is constant.",
     "type": "tf",
-    "q": "Centripetal acceleration is present only in nonuniform circular motion.",
-    "c": false
+    "c": "false",
+    "e": "Because the linear speed is varying, the angular speed is also changing."
   },
   {
+    "q": "In nonuniform circular motion, the object experiences an angular acceleration.",
     "type": "tf",
-    "q": "Tangential acceleration is present in both uniform and nonuniform circular motion.",
-    "c": false
+    "c": "true",
+    "e": "A changing angular speed means the object has an angular acceleration."
   },
   {
+    "q": "In nonuniform circular motion, the angular acceleration gives rise to the tangential acceleration.",
     "type": "tf",
-    "q": "If $\\Delta t$ approaches zero, $\\Delta s$ and $\\Delta \\theta$ also become very small.",
-    "c": true
+    "c": "true",
+    "e": "The angular acceleration is responsible for the change in the magnitude of the linear velocity, creating tangential acceleration."
   },
   {
+    "q": "In nonuniform circular motion, there is tangential acceleration in addition to centripetal acceleration.",
     "type": "tf",
-    "q": "When $\\Delta t$ approaches zero, $\\vec{v_2}$ will be almost perpendicular to $\\vec{v_1}$.",
-    "c": false
+    "c": "true",
+    "e": "Both centripetal acceleration (due to changing direction) and tangential acceleration (due to changing speed) are present."
   },
   {
+    "q": "In nonuniform circular motion, there is only centripetal acceleration and no tangential acceleration.",
     "type": "tf",
-    "q": "The acceleration vector $\\vec{a}$ points toward the center of the circle in uniform circular motion.",
-    "c": true
+    "c": "false",
+    "e": "Tangential acceleration is also present because the speed of the object is varying."
   },
   {
+    "q": "An object in nonuniform circular motion has a resultant acceleration that is the vector sum of the centripetal and tangential accelerations.",
     "type": "tf",
-    "q": "The limit of $\\frac{\\Delta s}{\\Delta t}$ as $\\Delta t \\to 0$ represents the linear speed $v$.",
-    "c": true
+    "c": "true",
+    "e": "The total linear acceleration is the vector sum $\\vec{a} = \\vec{a}_c + \\vec{a}_T$."
   },
   {
+    "q": "The resultant acceleration in nonuniform circular motion is given by the vector difference of centripetal and tangential accelerations.",
     "type": "tf",
-    "q": "The centripetal acceleration $a_c = r \\omega^2$ is only valid when the angular speed $\\omega$ is constant.",
-    "c": false
+    "c": "false",
+    "e": "The resultant acceleration is the vector sum, not the difference, of the two acceleration components."
   },
   {
+    "q": "Unlike tangential acceleration, centripetal acceleration is present in both uniform and nonuniform circular motion.",
     "type": "tf",
-    "q": "The resultant acceleration in nonuniform circular motion is always directed towards the center of the circle.",
-    "c": false
+    "c": "true",
+    "e": "Any circular motion requires centripetal acceleration to change the direction of velocity, but tangential acceleration is only present if speed changes."
   },
   {
+    "q": "Centripetal acceleration is only present in uniform circular motion, while tangential acceleration is only present in nonuniform circular motion.",
     "type": "tf",
-    "q": "The angular acceleration in nonuniform circular motion gives rise to the centripetal acceleration.",
-    "c": false
+    "c": "false",
+    "e": "Centripetal acceleration is present in both types of circular motion."
   },
   {
+    "q": "The two acceleration vectors $\\vec{a}_c$ and $\\vec{a}_T$ are perpendicular to each other.",
     "type": "tf",
-    "q": "If an object is in nonuniform circular motion, its tangential acceleration will be zero.",
-    "c": false
+    "c": "true",
+    "e": "Radial (centripetal) and tangential directions are always perpendicular."
   },
   {
+    "q": "The centripetal acceleration vector is in the tangential direction and the tangential acceleration vector is in the radial direction.",
     "type": "tf",
-    "q": "The direction of angular velocity can be specified using the right-hand rule.",
-    "c": true
+    "c": "false",
+    "e": "Centripetal acceleration is in the radial direction, and tangential acceleration is in the tangential direction."
   },
   {
+    "q": "The magnitude of resultant acceleration $a$ in nonuniform circular motion is $a = \\sqrt{a_c^2 + a_T^2}$.",
     "type": "tf",
-    "q": "The centripetal acceleration acts along the radius and points radially outward from the center of the circle.",
-    "c": false
+    "c": "true",
+    "e": "Because the two components are perpendicular, the Pythagorean theorem is used to find the magnitude."
   },
   {
+    "q": "The magnitude of resultant acceleration $a$ in nonuniform circular motion is $a = a_c + a_T$.",
     "type": "tf",
-    "q": "The magnitude of the resultant acceleration in nonuniform circular motion can be zero if $a_c$ and $a_t$ cancel each other out.",
-    "c": false
+    "c": "false",
+    "e": "Since they are perpendicular vectors, their magnitudes do not simply add algebraically."
   },
   {
+    "q": "The direction of resultant acceleration $a$ is given by $\\tan \\phi = \\frac{a_T}{a_c}$.",
     "type": "tf",
-    "q": "The relation $\\tan \\phi = \\frac{a_t}{a_c}$ provides the angle of the resultant acceleration vector relative to the centripetal acceleration vector.",
-    "c": true
+    "c": "true",
+    "e": "This trigonometric relationship defines the angle of the resultant acceleration vector relative to the radial direction."
   },
   {
+    "q": "The direction of resultant acceleration $a$ is given by $\\tan \\phi = \\frac{a_c}{a_T}$.",
     "type": "tf",
-    "q": "In a situation where an object's speed is constant, the only acceleration present is centripetal acceleration.",
-    "c": true
+    "c": "false",
+    "e": "The correct formula for the angle with the centripetal acceleration is $\\tan \\phi = \\frac{a_T}{a_c}$."
   },
   {
+    "q": "The resultant acceleration vector in nonuniform circular motion points at an angle between $\\vec{a}_c$ and $\\vec{a}_T$.",
     "type": "tf",
-    "q": "For an object to have tangential acceleration, its angular speed must be changing.",
-    "c": true
+    "c": "true",
+    "e": "As the vector sum of two perpendicular components, it points between them."
+  },
+  {
+    "q": "The resultant acceleration vector in nonuniform circular motion always points exactly towards the centre of the circle.",
+    "type": "tf",
+    "c": "false",
+    "e": "It only points exactly to the centre in uniform circular motion where tangential acceleration is zero."
   }
 ]
