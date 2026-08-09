@@ -1198,22 +1198,22 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 
 #question-box {
     flex-shrink: 0;
-    max-height: 130px;
-    overflow-y: auto;
-    margin-bottom: 12px;
+    height: 130px;          /* fixed length */
+    overflow-y: auto;       /* scroll only the question text */
+    margin-bottom: 8px;
     font-size: 1.1rem;
     text-align: center;
     line-height: 1.5;
-    padding: 0 5px;
+    padding: 8px;
+    box-sizing: border-box;
 }
 
-/* Options: natural height — NO forced min-height */
 #quiz-options {
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 6px;               /* tighter spacing */
+    margin-bottom: 8px;
 }
 
 /* Consistent option button height */
@@ -1222,6 +1222,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     display: flex !important;
     align-items: center;
     justify-content: center;
+    margin: 0 !important;   /* remove .btn default margin so only gap controls spacing */
 }
 
 /* Explanation panel (hidden by default) */
