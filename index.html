@@ -1198,22 +1198,22 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 
 #question-box {
     flex-shrink: 0;
-    height: 130px;          /* fixed length */
-    overflow-y: auto;       /* scroll only the question text */
-    margin-bottom: 8px;
+    max-height: 130px;
+    overflow-y: auto;
+    margin-bottom: 12px;
     font-size: 1.1rem;
     text-align: center;
     line-height: 1.5;
-    padding: 8px;
-    box-sizing: border-box;
+    padding: 0 5px;
 }
 
+/* Options: natural height — NO forced min-height */
 #quiz-options {
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 6px;               /* tighter spacing */
-    margin-bottom: 8px;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 /* Consistent option button height */
@@ -1222,7 +1222,6 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     display: flex !important;
     align-items: center;
     justify-content: center;
-    margin: 0 !important;   /* remove .btn default margin so only gap controls spacing */
 }
 
 /* Explanation panel (hidden by default) */
@@ -1269,9 +1268,6 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     padding-bottom: 10px;
 }
 
-	   .nav-hidden {
-    display: none !important;
-}
 </style>
 <base target="_blank">
 <base target="_blank">
@@ -1285,6 +1281,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
+<base target="_blank">
 </head>
 <body>
 
@@ -1592,7 +1589,9 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
     
-    <div id="question-box" style="font-size: 1.15rem; text-align: center; margin: 0 0 8px 0; line-height: 1.5; overflow-x: auto; max-width: 100%; box-sizing: border-box; padding: 8px; height: 130px; overflow-y: auto;"></div>
+    <div id="question-box" style="font-size: 1.15rem; text-align: center; margin: 0 0 15px 0; line-height: 1.5; overflow-x: auto; max-width: 100%; box-sizing: border-box; padding: 10px; min-height: 80px; max-height: 170px; overflow-y: auto;"></div>
+    
+    <div id="quiz-options"></div>
     
     <!-- Explanation appears here so it doesn't cover options -->
     <div id="explanation-box"></div>
@@ -4200,14 +4199,6 @@ function nextQuestion() {
     
     // Refresh old-question badge whenever screen changes
     updateOldQuestionBadges();
-
-		  const nav = document.querySelector('.nav');
-    const mainTabs = ['home', 'daily', 'middle', 'articles', 'profile'];
-    if (mainTabs.includes(id)) {
-        nav.classList.remove('nav-hidden');
-    } else {
-        nav.classList.add('nav-hidden');
-    }
 }
 
         function changeTab(id, el) {
