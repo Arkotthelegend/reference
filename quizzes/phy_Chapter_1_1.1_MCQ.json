@@ -1,442 +1,247 @@
 [
   {
+    "q": "In Grade 11, the angular displacement, angular velocity and angular ____ of an object in circular motion have been learnt.",
     "type": "mcq",
-    "q": "What did students learn in Grade 11 regarding an object in circular motion?",
-    "a": [
-      "Angular displacement, angular velocity, and angular acceleration.",
-      "Linear displacement, linear velocity, and linear acceleration.",
-      "Tangential velocity, tangential acceleration, and centripetal acceleration.",
-      "Rotational kinetic energy, torque, and angular momentum."
-    ],
-    "c": 0
+    "a": ["acceleration", "momentum", "force", "torque"],
+    "c": 0,
+    "e": "The textbook lists angular displacement, angular velocity, and angular acceleration as the rotational variables learnt in Grade 11."
   },
   {
+    "q": "In a circular motion, the object just moves in a ____.",
     "type": "mcq",
-    "q": "What concepts will be studied in this chapter for rotational motion?",
-    "a": [
-      "Constant angular acceleration and centripetal acceleration.",
-      "Moment of inertia and rotational kinetic energy.",
-      "Torque and angular momentum.",
-      "Precession and nutation."
-    ],
-    "c": 0
+    "a": ["straight line", "circle", "parabola", "spiral"],
+    "c": 1,
+    "e": "The textbook explicitly defines circular motion as an object just moving in a circle."
   },
   {
+    "q": "Which of the following is an example of circular motion?",
     "type": "mcq",
-    "q": "What is a key learning outcome for students in this chapter regarding types of motion?",
-    "a": [
-      "Differentiate between circular motion and rotational motion.",
-      "Differentiate between translational motion and vibrational motion.",
-      "Differentiate between projectile motion and parabolic motion.",
-      "Differentiate between simple harmonic motion and wave motion."
-    ],
-    "c": 0
+    "a": ["rotation of earth about its own axis", "motion of the blades of a fan", "artificial satellites going around the earth at a constant height", "motion of a Ferris wheel in an amusement park"],
+    "c": 2,
+    "e": "Artificial satellites orbiting the earth are given as an example of circular motion."
   },
   {
+    "q": "In rotational motion, the object rotates about an ____.",
     "type": "mcq",
-    "q": "Which aspect of rotational motion is expected for students to examine in this chapter?",
-    "a": [
-      "Rotational motion under constant angular acceleration.",
-      "Rotational motion with variable angular acceleration.",
-      "Rotational motion in non-inertial frames.",
-      "Rotational motion of deformable bodies."
-    ],
-    "c": 0
+    "a": ["axis", "origin", "circumference", "tangent"],
+    "c": 0,
+    "e": "Rotational motion is defined as an object rotating about an axis."
   },
   {
+    "q": "Which of the following is an example of rotational motion?",
     "type": "mcq",
-    "q": "What is another learning outcome related to quantities in this chapter?",
-    "a": [
-      "Deduce the relations between angular and linear quantities.",
-      "Deduce the relations between energy and momentum.",
-      "Deduce the relations between force and work.",
-      "Deduce the relations between power and efficiency."
-    ],
-    "c": 0
+    "a": ["artificial satellites going around the earth", "a car moving on a straight road", "rotation of earth about its own axis which creates the cycle of day and night", "a stone falling freely under gravity"],
+    "c": 2,
+    "e": "The earth's rotation about its axis is explicitly given as an example of rotational motion."
   },
   {
+    "q": "A rigid body is a body that does not ____ or change shape.",
     "type": "mcq",
-    "q": "What specific type of acceleration is a learning outcome for students to understand?",
-    "a": [
-      "Centripetal acceleration.",
-      "Coriolis acceleration.",
-      "Gravitational acceleration.",
-      "Fictitious acceleration."
-    ],
-    "c": 0
+    "a": ["rotate", "deform", "accelerate", "translate"],
+    "c": 1,
+    "e": "A rigid body is defined as a body that does not deform or change shape."
   },
   {
+    "q": "For a rigid body, no matter how the body moves, the ____ between any two particles within the body remains constant.",
     "type": "mcq",
-    "q": "What distinction are students expected to make regarding circular motion?",
-    "a": [
-      "Distinguish between uniform circular motion and nonuniform circular motion.",
-      "Distinguish between conservative and non-conservative forces in circular motion.",
-      "Distinguish between open and closed circular paths.",
-      "Distinguish between internal and external forces in circular motion."
-    ],
-    "c": 0
+    "a": ["velocity", "acceleration", "distance", "angle"],
+    "c": 2,
+    "e": "For a rigid body, the distance between any two particles remains constant regardless of its motion."
   },
   {
+    "q": "If a rigid body is in rotational motion, all the particles constituting it undergo ____ motion about a common axis.",
     "type": "mcq",
-    "q": "In circular motion, how does an object move?",
-    "a": [
-      "The object just moves in a circle.",
-      "The object rotates about an axis within itself.",
-      "The object oscillates back and forth along a circular arc.",
-      "The object moves in a helical path."
-    ],
-    "c": 0
+    "a": ["linear", "circular", "projectile", "oscillatory"],
+    "c": 1,
+    "e": "All particles of a rigid body in rotational motion undergo circular motion about a common axis."
   },
   {
+    "q": "When an object (rigid body) rotates, it can speed up or slow down. During these time intervals, its angular velocity is changing therefore it has an ____.",
     "type": "mcq",
-    "q": "What is an example of an object that moves in a circle at a constant height, as mentioned in the text?",
-    "a": [
-      "Artificial satellites going around the earth.",
-      "The rotation of the Earth about its own axis.",
-      "The blades of a fan.",
-      "A Ferris wheel."
-    ],
-    "c": 0
+    "a": ["angular displacement", "angular momentum", "angular acceleration", "angular speed"],
+    "c": 2,
+    "e": "A changing angular velocity means the object possesses an angular acceleration."
   },
   {
+    "q": "If its angular velocity changes at a constant rate, then we can say that the angular acceleration is constant and the motion is called the rotational motion under constant ____.",
     "type": "mcq",
-    "q": "In rotational motion, how does the object behave?",
-    "a": [
-      "The object rotates about an axis.",
-      "The object moves in a straight line.",
-      "The object oscillates without rotation.",
-      "The object maintains a fixed orientation in space."
-    ],
-    "c": 0
+    "a": ["angular velocity", "angular displacement", "angular acceleration", "linear acceleration"],
+    "c": 2,
+    "e": "Motion with a constant rate of change in angular velocity is called rotational motion under constant angular acceleration."
   },
   {
+    "q": "Rotational variables such as angular displacement, angular velocity, and angular acceleration are applied to analyze the rotational motion for a rigid body about a fixed ____.",
     "type": "mcq",
-    "q": "Which phenomenon is an example of rotational motion that creates the cycle of day and night?",
-    "a": [
-      "Rotation of earth about its own axis.",
-      "Artificial satellites orbiting the Earth.",
-      "Motion of the blades of a fan.",
-      "Motion of a Ferris wheel."
-    ],
-    "c": 0
+    "a": ["plane", "point", "axis", "radius"],
+    "c": 2,
+    "e": "The analysis in this section focuses on a rigid body rotating about a fixed axis."
   },
   {
+    "q": "For an object that rotates with a constant angular acceleration, the ____ equations for rotational motion can be derived.",
     "type": "mcq",
-    "q": "What defines a rigid body?",
-    "a": [
-      "A body that does not deform or change shape.",
-      "A body that always moves in a straight line.",
-      "A body whose mass changes during motion.",
-      "A body that can easily be compressed."
-    ],
-    "c": 0
+    "a": ["dynamic", "kinematic", "thermodynamic", "electrostatic"],
+    "c": 1,
+    "e": "Kinematic equations are derived for rotational motion under constant angular acceleration."
   },
   {
+    "q": "The initial angular speed is the magnitude of angular velocity of the object at $t = $ ____.",
     "type": "mcq",
-    "q": "What characteristic of a rigid body remains constant, regardless of how the body moves?",
-    "a": [
-      "The distance between any two particles within the body.",
-      "Its angular velocity.",
-      "Its linear momentum.",
-      "Its kinetic energy."
-    ],
-    "c": 0
+    "a": ["$0$", "$1$", "$10$", "$\\infty$"],
+    "c": 0,
+    "e": "Initial angular speed is defined at time $t=0$."
   },
   {
+    "q": "Which of the following is the correct equation for angular speed $\\omega$ at time $t$ under constant angular acceleration?",
     "type": "mcq",
-    "q": "When a rigid body is in rotational motion, what happens to all the particles constituting it?",
-    "a": [
-      "They undergo circular motion about a common axis.",
-      "They move in parallel straight lines.",
-      "They remain stationary.",
-      "They move randomly without a common pattern."
-    ],
-    "c": 0
+    "a": ["$\\omega = \\omega_0 + \\alpha t$", "$\\omega = \\omega_0 - \\alpha t$", "$\\omega = \\omega_0 + \\frac{1}{2} \\alpha t^2$", "$\\omega^2 = \\omega_0^2 + 2\\alpha \\theta$"],
+    "c": 0,
+    "e": "This is the kinematic equation relating final angular speed, initial angular speed, angular acceleration, and time."
   },
   {
+    "q": "Average angular speed is given by the expression ____.",
     "type": "mcq",
-    "q": "What occurs when an object (rigid body) rotates and speeds up or slows down?",
-    "a": [
-      "Its angular velocity is changing, leading to angular acceleration.",
-      "Its linear velocity is constant.",
-      "Its mass increases.",
-      "Its density changes."
-    ],
-    "c": 0
+    "a": ["$\\frac{\\omega - \\omega_0}{2}$", "$\\frac{\\omega + \\omega_0}{2}$", "$\\omega + \\omega_0$", "$\\omega \\times \\omega_0$"],
+    "c": 1,
+    "e": "The average angular speed is the arithmetic mean of the initial and final angular speeds."
   },
   {
+    "q": "Which of the following is the correct equation for angular displacement $\\theta$ for time interval $t$?",
     "type": "mcq",
-    "q": "What condition must be met for angular acceleration to be considered constant?",
-    "a": [
-      "If its angular velocity changes at a constant rate.",
-      "If its linear velocity changes at a constant rate.",
-      "If its acceleration is zero.",
-      "If its position changes linearly with time."
-    ],
-    "c": 0
+    "a": ["$\\theta = \\omega_0 t + \\alpha t^2$", "$\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2$", "$\\theta = \\omega t - \\frac{1}{2} \\alpha t^2$", "$\\theta = \\frac{1}{2} \\omega_0 t^2$"],
+    "c": 1,
+    "e": "This is the kinematic equation for angular displacement under constant angular acceleration."
   },
   {
+    "q": "Which of the following is the correct relation between angular speed and angular displacement?",
     "type": "mcq",
-    "q": "What is the motion called when an object's angular acceleration is constant?",
-    "a": [
-      "Rotational motion under constant angular acceleration.",
-      "Uniform circular motion.",
-      "Simple harmonic motion.",
-      "Translational motion."
-    ],
-    "c": 0
+    "a": ["$\\omega^2 = \\omega_0^2 + 2\\alpha \\theta$", "$\\omega^2 = \\omega_0^2 - 2\\alpha \\theta$", "$\\omega = \\omega_0 + 2\\alpha \\theta$", "$\\omega^2 = \\omega_0^2 + \\alpha \\theta$"],
+    "c": 0,
+    "e": "This is the time-independent kinematic equation for rotational motion."
   },
   {
+    "q": "The equations of motion for constant angular acceleration are the same as those for linear motion, with the angular quantities replaced with corresponding ____ ones.",
     "type": "mcq",
-    "q": "Which variables are considered rotational variables that were previously introduced?",
-    "a": [
-      "Angular displacement, angular velocity, and angular acceleration.",
-      "Linear displacement, linear velocity, and linear acceleration.",
-      "Force, mass, and time.",
-      "Energy, power, and work."
-    ],
-    "c": 0
+    "a": ["rotational", "linear", "tangential", "radial"],
+    "c": 1,
+    "e": "The rotational kinematic equations are direct analogues of the linear kinematic equations."
   },
   {
+    "q": "In the analogy between kinematic equations of linear and angular motion, linear displacement $s$ corresponds to ____.",
     "type": "mcq",
-    "q": "In this section, for what type of motion are rotational variables applied to analyze?",
-    "a": [
-      "Rotational motion for a rigid body about a fixed axis under a constant angular acceleration.",
-      "Rotational motion of a deformable body.",
-      "Translational motion of a point mass.",
-      "Oscillatory motion about a pivot."
-    ],
-    "c": 0
+    "a": ["$\\omega$", "$\\alpha$", "$\\theta$", "$t$"],
+    "c": 2,
+    "e": "Linear displacement and angular displacement are corresponding variables in the kinematic analogies."
   },
   {
+    "q": "In the analogy between kinematic equations of linear and angular motion, linear velocity $v$ corresponds to ____.",
     "type": "mcq",
-    "q": "What type of equations can be derived for an object that rotates with a constant angular acceleration?",
-    "a": [
-      "Kinematic equations for rotational motion.",
-      "Equations of motion for projectile trajectory.",
-      "Equations for elastic collisions.",
-      "Equations for fluid dynamics."
-    ],
-    "c": 0
+    "a": ["$\\theta$", "$\\omega$", "$\\alpha$", "$a$"],
+    "c": 1,
+    "e": "Linear velocity and angular velocity are corresponding variables in the kinematic analogies."
   },
   {
+    "q": "In the analogy between kinematic equations of linear and angular motion, linear acceleration $a$ corresponds to ____.",
     "type": "mcq",
-    "q": "Kinematic equations for rotational motion are expressed in terms of which quantities at any instant of time?",
-    "a": [
-      "Angular displacement, angular velocity, and angular acceleration.",
-      "Linear displacement, linear velocity, and linear acceleration.",
-      "Torque, moment of inertia, and angular momentum.",
-      "Frequency, period, and amplitude."
-    ],
-    "c": 0
+    "a": ["$\\theta$", "$\\omega$", "$\\alpha$", "$v$"],
+    "c": 2,
+    "e": "Linear acceleration and angular acceleration are corresponding variables in the kinematic analogies."
   },
   {
+    "q": "Which linear motion equation is analogous to $\\omega = \\omega_0 + \\alpha t$?",
     "type": "mcq",
-    "q": "If $\\omega_0$ is the initial angular speed at $t = 0$, how is angular speed $\\omega$ at time $t$ derived for constant angular acceleration?",
-    "a": [
-      "$\\omega = \\omega_0 + \\alpha t$",
-      "$\\omega = \\omega_0 - \\alpha t$",
-      "$\\omega = \\frac{\\omega_0}{\\alpha t}$",
-      "$\\omega = \\omega_0 \\alpha t$"
-    ],
-    "c": 0
+    "a": ["$s = v_0 t + \\frac{1}{2} a t^2$", "$v = v_0 + at$", "$v^2 = v_0^2 + 2as$", "$v = \\frac{v_0 + v}{2}$"],
+    "c": 1,
+    "e": "The linear equation for velocity under constant acceleration directly mirrors the angular equation."
   },
   {
+    "q": "Which linear motion equation is analogous to $\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2$?",
     "type": "mcq",
-    "q": "What is the formula for average angular speed?",
-    "a": [
-      "$\\bar{\\omega} = \\frac{\\omega + \\omega_0}{2}$",
-      "$\\bar{\\omega} = \\omega - \\omega_0$",
-      "$\\bar{\\omega} = \\omega \\omega_0$",
-      "$\\bar{\\omega} = \\frac{\\omega \\omega_0}{2}$"
-    ],
-    "c": 0
+    "a": ["$v = v_0 + at$", "$v^2 = v_0^2 + 2as$", "$s = v_0 t + \\frac{1}{2} a t^2$", "$s = \\frac{v + v_0}{2} t$"],
+    "c": 2,
+    "e": "The linear equation for displacement under constant acceleration directly mirrors the angular equation."
   },
   {
+    "q": "Which linear motion equation is analogous to $\\omega^2 = \\omega_0^2 + 2\\alpha \\theta$?",
     "type": "mcq",
-    "q": "The angular displacement for a time interval $t$ is initially expressed as $\\theta = \\bar{\\omega} t$. Which two equations are used to further express $\\theta$ and $\\omega$?",
-    "a": [
-      "Eq. (1.1) and Eq. (1.2).",
-      "Eq. (1.3) and Eq. (1.4).",
-      "Eq. (1.5) and Eq. (1.6).",
-      "Eq. (1.7) and Eq. (1.8)."
-    ],
-    "c": 0
+    "a": ["$v = v_0 + at$", "$s = v_0 t + \\frac{1}{2} a t^2$", "$v^2 = v_0^2 + 2as$", "$v = \\frac{v + v_0}{2}$"],
+    "c": 2,
+    "e": "The time-independent linear equation directly mirrors the time-independent angular equation."
   },
   {
+    "q": "The cycle of day and night is created by the ____ of earth about its own axis.",
     "type": "mcq",
-    "q": "Which kinematic equation relates angular displacement, initial angular speed, angular acceleration, and time?",
-    "a": [
-      "$\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2$",
-      "$\\omega = \\omega_0 + \\alpha t$",
-      "$\\omega^2 = \\omega_0^2 + 2 \\alpha \\theta$",
-      "$\\bar{\\omega} = \\frac{\\omega + \\omega_0}{2}$"
-    ],
-    "c": 0
+    "a": ["revolution", "rotation", "translation", "oscillation"],
+    "c": 1,
+    "e": "The textbook states that the rotation of earth about its own axis creates the cycle of day and night."
   },
   {
+    "q": "The motion of the blades of a fan is an example of ____ motion.",
     "type": "mcq",
-    "q": "Which kinematic equation relates final angular speed, initial angular speed, angular acceleration, and angular displacement?",
-    "a": [
-      "$\\omega^2 = \\omega_0^2 + 2 \\alpha \\theta$",
-      "$\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2$",
-      "$\\omega = \\omega_0 + \\alpha t$",
-      "$\\bar{\\omega} = \\frac{\\omega + \\omega_0}{2}$"
-    ],
-    "c": 0
+    "a": ["circular", "linear", "rotational", "projectile"],
+    "c": 2,
+    "e": "The motion of fan blades is listed as an example of rotational motion."
   },
   {
+    "q": "The motion of a Ferris wheel in an amusement park is an example of ____ motion.",
     "type": "mcq",
-    "q": "What is the relationship between the equations of motion for constant angular acceleration and those for linear motion?",
-    "a": [
-      "They are the same, with angular quantities replaced by corresponding linear ones.",
-      "They are inverse of each other.",
-      "They are completely unrelated.",
-      "They are only applicable under specific, different conditions."
-    ],
-    "c": 0
+    "a": ["rotational", "linear", "rectilinear", "translational"],
+    "c": 0,
+    "e": "A Ferris wheel in an amusement park is given as an example of rotational motion."
   },
   {
+    "q": "Artificial satellites going around the earth at a constant height is an example of ____ motion.",
     "type": "mcq",
-    "q": "What is the linear counterpart of angular displacement ($\\theta$)?",
-    "a": [
-      "Distance ($s$).",
-      "Velocity ($v$).",
-      "Acceleration ($a$).",
-      "Time ($t$)."
-    ],
-    "c": 0
+    "a": ["rotational", "circular", "linear", "oscillatory"],
+    "c": 1,
+    "e": "Artificial satellites orbiting the earth are given as an example of circular motion."
   },
   {
+    "q": "If a rigid body moves, the distance between any two particles within the body ____.",
     "type": "mcq",
-    "q": "What is the linear counterpart of angular velocity ($\\omega$)?",
-    "a": [
-      "Linear velocity ($v$).",
-      "Linear displacement ($s$).",
-      "Linear acceleration ($a$).",
-      "Mass ($m$)."
-    ],
-    "c": 0
+    "a": ["continuously increases", "continuously decreases", "remains constant", "becomes zero"],
+    "c": 2,
+    "e": "This is a key characteristic of a rigid body stated in the textbook."
   },
   {
+    "q": "Rotational variables are applied to analyze the rotational motion for a rigid body about a fixed axis under a ____.",
     "type": "mcq",
-    "q": "What is the linear counterpart of angular acceleration ($\\alpha$)?",
-    "a": [
-      "Linear acceleration ($a$).",
-      "Linear velocity ($v$).",
-      "Linear displacement ($s$).",
-      "Force ($F$)."
-    ],
-    "c": 0
+    "a": ["constant angular velocity", "constant linear acceleration", "constant angular acceleration", "varying angular displacement"],
+    "c": 2,
+    "e": "The analysis in this section focuses on a rigid body rotating about a fixed axis under constant angular acceleration."
   },
   {
+    "q": "The kinematic equations for rotational motion are derived in terms of the angular displacement, angular velocity and angular acceleration of the object at any ____.",
     "type": "mcq",
-    "q": "According to Table 1.1, what is the angular equivalent of the linear equation $v = v_0 + at$?",
-    "a": [
-      "$\\omega = \\omega_0 + \\alpha t$",
-      "$\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2$",
-      "$\\omega^2 = \\omega_0^2 + 2 \\alpha \\theta$",
-      "$\\bar{\\omega} = \\frac{\\omega + \\omega_0}{2}$"
-    ],
-    "c": 0
+    "a": ["instant of time", "average time", "half time", "full revolution"],
+    "c": 0,
+    "e": "The equations are derived for the variables at any instant of time."
   },
   {
+    "q": "In the equation $\\omega = \\omega_0 + \\alpha t$, the term $\\alpha$ represents the ____.",
     "type": "mcq",
-    "q": "According to Table 1.1, what is the angular equivalent of the linear equation $s = v_0 t + \\frac{1}{2} a t^2$?",
-    "a": [
-      "$\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2$",
-      "$\\omega = \\omega_0 + \\alpha t$",
-      "$\\omega^2 = \\omega_0^2 + 2 \\alpha \\theta$",
-      "$\\bar{\\omega} = \\frac{\\omega + \\omega_0}{2}$"
-    ],
-    "c": 0
+    "a": ["angular displacement", "angular speed", "angular acceleration", "average angular speed"],
+    "c": 2,
+    "e": "The symbol $\\alpha$ stands for angular acceleration."
   },
   {
+    "q": "In the equation $\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2$, the term $\\omega_0$ represents the ____.",
     "type": "mcq",
-    "q": "According to Table 1.1, what is the angular equivalent of the linear equation $v^2 = v_0^2 + 2as$?",
-    "a": [
-      "$\\omega^2 = \\omega_0^2 + 2 \\alpha \\theta$",
-      "$\\omega = \\omega_0 + \\alpha t$",
-      "$\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2$",
-      "$\\bar{\\omega} = \\frac{\\omega + \\omega_0}{2}$"
-    ],
-    "c": 0
+    "a": ["final angular speed", "initial angular speed", "average angular speed", "angular acceleration"],
+    "c": 1,
+    "e": "The symbol $\\omega_0$ stands for the initial angular speed."
   },
   {
+    "q": "In the equation $\\omega^2 = \\omega_0^2 + 2\\alpha \\theta$, the term $\\theta$ represents the ____.",
     "type": "mcq",
-    "q": "According to Table 1.1, what is the angular equivalent of the linear equation $\\bar{v} = \\frac{v + v_0}{2}$?",
-    "a": [
-      "$\\bar{\\omega} = \\frac{\\omega + \\omega_0}{2}$",
-      "$\\omega = \\omega_0 + \\alpha t$",
-      "$\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2$",
-      "$\\omega^2 = \\omega_0^2 + 2 \\alpha \\theta$"
-    ],
-    "c": 0
+    "a": ["angular velocity", "angular acceleration", "angular displacement", "time interval"],
+    "c": 2,
+    "e": "The symbol $\\theta$ stands for angular displacement."
   },
   {
+    "q": "The equations for constant angular acceleration in rotational motion are analogous to equations for constant acceleration in ____ motion.",
     "type": "mcq",
-    "q": "Under what condition is the angular acceleration of a rotating object equal to zero?",
-    "a": [
-      "When there is no change in angular velocity.",
-      "When the angular velocity is increasing.",
-      "When the angular velocity is decreasing.",
-      "When the object is at rest."
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The term \"rotational motion\" refers to an object's rotation about what?",
-    "a": [
-      "An axis.",
-      "A fixed point in space, without rotation.",
-      "A straight line path.",
-      "An oscillating pendulum."
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "\"Angular displacement\" is a key word referring to what?",
-    "a": [
-      "The angle through which an object rotates.",
-      "The linear distance an object moves.",
-      "The rate of change of angular position.",
-      "The rate of change of angular velocity."
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "\"Angular velocity\" is defined as what?",
-    "a": [
-      "The rate of change of angular displacement.",
-      "The rate of change of linear displacement.",
-      "The rate of change of angular acceleration.",
-      "The total angular distance covered."
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "\"Angular acceleration\" is defined as what?",
-    "a": [
-      "The rate of change of angular velocity.",
-      "The rate of change of linear velocity.",
-      "The total angular distance covered.",
-      "The linear distance covered over time."
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "Which of the following describes circular motion?",
-    "a": [
-      "An object just moves in a circle.",
-      "An object rotates about an axis.",
-      "An object moves in a straight line.",
-      "An object vibrates back and forth."
-    ],
-    "c": 0
+    "a": ["circular", "linear", "rotational", "oscillatory"],
+    "c": 1,
+    "e": "Table 1.1 shows the direct analogy between linear and angular kinematic equations."
   }
 ]
