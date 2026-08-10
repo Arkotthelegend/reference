@@ -346,13 +346,20 @@ input:checked + .slider:before {
     .timer-display { font-size: 1.1rem; color: var(--white); font-family: monospace; font-weight: 700; background: #000; padding: 6px 12px; border-radius: 8px; border: 1px solid #334155; display: none; }
 	
     .markcount { 
-    position: absolute; 
-    top: 5px; 
-    left: 15px; 
-    right: auto;
+    position: static; 
     margin: 0; 
     z-index: 50; 
     white-space: nowrap;
+}
+
+#quiz-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 	
     #score-display {
@@ -1586,10 +1593,17 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
             <button class="btn back-btn" onclick="showScreen('activity')">ထွက်မည်</button>
         </div>
 
-       <div id="quiz-screen" class="screen" style="position: relative; padding-top: 45px;">
+       <div id="quiz-screen" class="screen" style="position: relative; padding-top: 20px;">
     
-    <div class="markcount" id="markcount">
-        <span id="score-display"> ရမှတ်: 0</span>
+    <div id="quiz-top-bar">
+        <div class="markcount" id="markcount">
+            <span id="score-display"> ရမှတ်: 0</span>
+        </div>
+        <div class="timer-wrapper" id="timer-wrapper" style="margin-top: 0; gap: 8px;">
+            <span id="timer-display" class="timer-display">00:00</span>
+            <button id="timer-start-btn" class="timer-btn" onclick="toggleTimer()">⏱ အချိန်မှတ်မည်</button>
+            <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none;">🔄 ပြန်စမည်</button>
+        </div>
     </div>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
@@ -1602,12 +1616,6 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     
     <div id="quiz-footer">
         <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
-        
-        <div class="timer-wrapper" id="timer-wrapper" style="display: flex; align-items: center; justify-content: center; margin-top: 15px; gap: 10px;">
-            <span id="timer-display" class="timer-display">00:00</span>
-            <button id="timer-start-btn" class="timer-btn" onclick="toggleTimer()">⏱ အချိန်မှတ်မည်</button>
-            <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none;">🔄 ပြန်စမည်</button>
-        </div>
 
         <button class="btn back-btn" id="quiz-back-btn" style="margin-top: 15px;">ထွက်မည်</button>
     </div>
