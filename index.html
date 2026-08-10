@@ -1411,6 +1411,21 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 #quiz-top-bar .timer-btn:active {
     transform: scale(0.95);
 }
+
+	   /* Use this ONLY if the buttons still feel too wide */
+#quiz-top-bar .timer-btn {
+    font-size: 0.75rem;
+    padding: 0 8px;
+    height: 34px;
+}
+#quiz-top-bar .timer-wrapper > * {
+    height: 34px;
+    font-size: 0.75rem;
+}
+#quiz-top-bar .timer-display {
+    padding: 0 8px;
+    font-size: 0.9rem;
+}
 	   
 </style>
 <base target="_blank">
@@ -1748,8 +1763,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     
     <div id="quiz-footer">
         <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
-
-        <button class="btn back-btn" id="quiz-back-btn" style="margin-top: 15px;">ထွက်မည်</button>
+<button class="btn back-btn" id="quiz-back-btn" style="margin-top: 10px;">ထွက်မည်</button>
     </div>
 </div>
 
