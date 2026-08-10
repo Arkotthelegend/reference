@@ -4720,12 +4720,12 @@ function toggleFlashcardShuffle() {
     
     if (isFlashcardShuffled) {
         btn.classList.add('shuffle-active');
-        btn.innerText = "🔀 မွှေနှောက်";
+        btn.innerText = "🔀 Random";
         // မွှေနှောက်လိုက်မယ်
         flashCards = shuffleArray([...originalFlashCards]);
     } else {
         btn.classList.remove('shuffle-active');
-        btn.innerText = "🔄 ပုံမှန်";
+        btn.innerText = "🔄 Normal";
         // မူလအစီအစဉ်အတိုင်း ပြန်ထားမယ်
         flashCards = [...originalFlashCards];
     }
@@ -4746,13 +4746,13 @@ function toggleTimer() {
         // အချိန် ခဏရပ်မည်
         clearInterval(quizTimerInterval);
         isTimerRunning = false;
-        document.getElementById('timer-start-btn').innerText = "▶ ဆက်မှတ်မည်";
+        document.getElementById('timer-start-btn').innerText = "▶";
     } else {
         // အချိန် စမှတ်မည်
         isTimerRunning = true;
         document.getElementById('timer-display').style.display = 'inline';
         document.getElementById('timer-reset-btn').style.display = 'inline';
-        document.getElementById('timer-start-btn').innerText = "⏸ ခဏရပ်မည်";
+        document.getElementById('timer-start-btn').innerText = "⏸";
         
         quizTimerInterval = setInterval(() => {
             quizSeconds++;
