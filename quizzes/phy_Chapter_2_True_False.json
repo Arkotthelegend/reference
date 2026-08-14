@@ -1,0 +1,746 @@
+[
+  {
+    "q": "According to Newton's second law, an object that is accelerating must have a net force acting on it.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is a direct statement of Newton's second law as presented in the textbook."
+  },
+  {
+    "q": "According to Newton's second law, an object that is accelerating must have a net torque acting on it.",
+    "type": "tf",
+    "c": "false",
+    "e": "Newton's second law relates acceleration to a net force, not a net torque."
+  },
+  {
+    "q": "An object moving in a circle must have a force applied to it to keep it moving in the circle.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook states that a force is required to deviate an object from its straight-line path into a circle."
+  },
+  {
+    "q": "An object moving in a straight line must have a centripetal force applied to it to keep it moving.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centripetal force is required for circular motion; an object in straight-line motion requires no net force to maintain constant velocity."
+  },
+  {
+    "q": "The force applied to an object to keep it moving in a circle is known as the centripetal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the exact definition of centripetal force provided in the chapter introduction."
+  },
+  {
+    "q": "The force applied to an object to keep it moving in a circle is known as the centrifugal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "The inward force keeping an object in a circle is the centripetal force, while centrifugal force is an apparent outward force."
+  },
+  {
+    "q": "For uniform circular motion, the acceleration is centripetal acceleration which is directed towards the centre of the circle at any moment.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook explicitly defines the direction of centripetal acceleration as towards the centre."
+  },
+  {
+    "q": "For uniform circular motion, the acceleration is centripetal acceleration which is directed away from the centre of the circle at any moment.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centripetal acceleration is always directed towards the centre of the circle, not away from it."
+  },
+  {
+    "q": "In the absence of centripetal force, the object would not move along a circle but move in a straight line, according to Newton's first law.",
+    "type": "tf",
+    "c": "true",
+    "e": "Newton's first law dictates that without a net inward force, an object will travel in a straight line due to inertia."
+  },
+  {
+    "q": "In the absence of centripetal force, the object would continue moving along a circle, according to Newton's first law.",
+    "type": "tf",
+    "c": "false",
+    "e": "Without centripetal force, Newton's first law states the object would move in a straight line, not a circle."
+  },
+  {
+    "q": "Using Newton's second law, the magnitude of the centripetal force is $F_c = m a_c$.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the standard application of $F_{net} = ma$ to circular motion."
+  },
+  {
+    "q": "Using Newton's second law, the magnitude of the centripetal force is $F_c = \\frac{m}{a_c}$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The correct formula derived from Newton's second law is $F_c = m a_c$, not a division."
+  },
+  {
+    "q": "Substituting $v = r\\omega$ in the centripetal force equation gives $F_c = m r \\omega^2$.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook shows this exact substitution to express centripetal force in terms of angular velocity."
+  },
+  {
+    "q": "Substituting $v = r\\omega$ in the centripetal force equation gives $F_c = m r^2 \\omega$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The correct substitution yields $F_c = m r \\omega^2$, as $a_c = r\\omega^2$."
+  },
+  {
+    "q": "To swing a ball on the end of a string in a circle, the tension in the string provides the required centripetal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "The text uses this as a primary example of tension acting as a centripetal force."
+  },
+  {
+    "q": "To swing a ball on the end of a string in a horizontal circle, the weight of the ball provides the required centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "The tension in the string provides the centripetal force; weight acts downwards."
+  },
+  {
+    "q": "The gravitational force of the earth on the moon orbiting the earth is an example of a centripetal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "Gravity provides the necessary inward force to keep the moon in its circular orbit."
+  },
+  {
+    "q": "The gravitational force of the earth on the moon orbiting the earth is an example of a centrifugal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "Gravitational attraction acts as the real centripetal force in orbital mechanics."
+  },
+  {
+    "q": "The electric force acting on an electron orbiting the nucleus acts as the required centripetal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "The Coulomb attraction between the positive nucleus and negative electron provides the centripetal force."
+  },
+  {
+    "q": "The magnetic force acting on an electron orbiting the nucleus acts as the required centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "It is the electric (Coulomb) force, not the magnetic force, that acts as the centripetal force for an orbiting electron."
+  },
+  {
+    "q": "When whirling a body attached to a string, if the tension force is normal to the direction of motion, it causes the body to move in a circular path.",
+    "type": "tf",
+    "c": "true",
+    "e": "A force normal (perpendicular) to the velocity changes the direction of motion without changing speed, creating circular motion."
+  },
+  {
+    "q": "When whirling a body attached to a string, if the tension force is parallel to the direction of motion, it causes the body to move in a circular path.",
+    "type": "tf",
+    "c": "false",
+    "e": "A parallel force would change the speed of the body, not cause it to move in a circular path."
+  },
+  {
+    "q": "An attractive gravitational force exists between the sun and the earth in a direction perpendicular to the path of the earth.",
+    "type": "tf",
+    "c": "true",
+    "e": "This perpendicular gravitational attraction acts as the centripetal force for the earth's orbit."
+  },
+  {
+    "q": "An attractive gravitational force exists between the sun and the earth in a direction parallel to the path of the earth.",
+    "type": "tf",
+    "c": "false",
+    "e": "The gravitational force acts perpendicularly to the orbital path, providing centripetal acceleration."
+  },
+  {
+    "q": "The Coulomb attractive force between the nucleus and the electron acts as the required centripetal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook explicitly lists the Coulomb attractive force as the centripetal force in an atom."
+  },
+  {
+    "q": "The Coulomb repulsive force between the nucleus and the electron acts as the required centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "The force between the positively charged nucleus and negatively charged electron is attractive, not repulsive."
+  },
+  {
+    "q": "When a car turns in a circular path, a frictional force exists between the road and the car tires, acting normally to the direction of motion.",
+    "type": "tf",
+    "c": "true",
+    "e": "Static friction acts perpendicular to the car's forward velocity to provide the inward centripetal force."
+  },
+  {
+    "q": "When a car turns in a circular path, a frictional force exists between the road and the car tires, acting parallel to the direction of motion.",
+    "type": "tf",
+    "c": "false",
+    "e": "The frictional force providing the turn acts normally (perpendicularly) to the direction of motion."
+  },
+  {
+    "q": "When a car moves in a circular path which is inclined to the horizontal, the horizontal component of the normal force provides the required centripetal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "On a banked curve, resolving the normal force shows its horizontal component points towards the centre of the curve."
+  },
+  {
+    "q": "When a car moves in a circular path which is inclined to the horizontal, the vertical component of the normal force provides the required centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "The vertical component of the normal force balances gravity; it is the horizontal component that provides centripetal force."
+  },
+  {
+    "q": "The upward thrust (lifting force) on an aeroplane acts normally to the aeroplane body.",
+    "type": "tf",
+    "c": "true",
+    "e": "The lifting force generated by the wings acts perpendicular to the wing surface/body."
+  },
+  {
+    "q": "The upward thrust (lifting force) on an aeroplane acts parallel to the aeroplane body.",
+    "type": "tf",
+    "c": "false",
+    "e": "Lift acts normally (perpendicular) to the aeroplane body, not parallel to it."
+  },
+  {
+    "q": "When an aeroplane tilts, the horizontal component of the lifting force provides the centripetal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "Tilting the plane resolves the lift into a vertical component balancing weight and a horizontal component causing the turn."
+  },
+  {
+    "q": "When an aeroplane tilts, the vertical component of the lifting force provides the centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "The vertical component counteracts gravity, while the horizontal component provides the centripetal force."
+  },
+  {
+    "q": "On a flat unbanked road, the centripetal force for an automobile driving round a curve is supplied by friction between the tires and the road.",
+    "type": "tf",
+    "c": "true",
+    "e": "Without banking, friction is the sole horizontal force available to provide the necessary inward acceleration."
+  },
+  {
+    "q": "On a flat unbanked road, the centripetal force for an automobile driving round a curve is supplied by the normal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "On a flat road, the normal force acts strictly vertically and cannot provide horizontal centripetal force."
+  },
+  {
+    "q": "If the frictional force is not sufficient on an unbanked road, the car will skid out of the circular path.",
+    "type": "tf",
+    "c": "true",
+    "e": "When required centripetal force exceeds maximum static friction, the car's inertia carries it in a straighter line (skidding)."
+  },
+  {
+    "q": "If the normal force is not sufficient on an unbanked road, the car will skid out of the circular path.",
+    "type": "tf",
+    "c": "false",
+    "e": "It is the insufficiency of frictional force, not normal force, that causes a car to skid on a flat curve."
+  },
+  {
+    "q": "Banking of roads is raising the outer edge of the curved road higher than the inner edge.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the exact definition of banking provided in the textbook."
+  },
+  {
+    "q": "Banking of roads is raising the inner edge of the curved road higher than the outer edge.",
+    "type": "tf",
+    "c": "false",
+    "e": "Banking involves raising the outer edge, not the inner edge, to tilt the normal force inward."
+  },
+  {
+    "q": "The angle that the inclined track makes with the horizontal is called the angle of banking.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the standard definition of the angle of banking, denoted as $\\theta$."
+  },
+  {
+    "q": "The angle that the inclined track makes with the vertical is called the angle of banking.",
+    "type": "tf",
+    "c": "false",
+    "e": "The angle of banking is measured relative to the horizontal, not the vertical."
+  },
+  {
+    "q": "The normal force exerted by a banked road is perpendicular to the road.",
+    "type": "tf",
+    "c": "true",
+    "e": "By definition, a normal force always acts perpendicular to the surface exerting it."
+  },
+  {
+    "q": "The normal force exerted by a banked road is parallel to the road.",
+    "type": "tf",
+    "c": "false",
+    "e": "The normal force acts perpendicular to the road surface; friction acts parallel to it."
+  },
+  {
+    "q": "For every banked curve, there is a limiting speed at which the entire centripetal force is supplied by the horizontal component of the normal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "At this specific design speed, the horizontal component of the normal force exactly equals the required $mv^2/r$."
+  },
+  {
+    "q": "For every banked curve, there is a limiting speed at which the entire centripetal force is supplied by the vertical component of the normal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "The vertical component balances gravity; the horizontal component supplies the centripetal force."
+  },
+  {
+    "q": "At the limiting speed on a banked curve, the frictional force between the tires and the road is not required.",
+    "type": "tf",
+    "c": "true",
+    "e": "The track is banked specifically so that at the limiting speed, no friction is needed to negotiate the turn safely."
+  },
+  {
+    "q": "At the limiting speed on a banked curve, the frictional force between the tires and the road is at its maximum value.",
+    "type": "tf",
+    "c": "false",
+    "e": "At the limiting speed, friction is not required at all; it is zero."
+  },
+  {
+    "q": "According to the banking angle equation, $\\tan \\theta = \\frac{v^2}{rg}$.",
+    "type": "tf",
+    "c": "true",
+    "e": "This equation is derived by dividing the horizontal force equation by the vertical force equation."
+  },
+  {
+    "q": "According to the banking angle equation, $\\sin \\theta = \\frac{v^2}{rg}$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The correct trigonometric relationship derived from the force components is $\\tan \\theta = \\frac{v^2}{rg}$."
+  },
+  {
+    "q": "In the banking of roads, since there is no vertical motion, the net force on the car in the y direction is zero.",
+    "type": "tf",
+    "c": "true",
+    "e": "The car does not accelerate up or down, so the vertical forces (normal component and weight) must balance."
+  },
+  {
+    "q": "In the banking of roads, since there is no vertical motion, the net force on the car in the y direction is equal to the centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "The net force in the y direction is zero; the net force in the horizontal (x) direction is the centripetal force."
+  },
+  {
+    "q": "Centripetal force is the force acting towards the centre of the circular path around which the object is moving.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the fundamental definition of centripetal (centre-seeking) force."
+  },
+  {
+    "q": "Centripetal force is the force acting away from the centre of the circular path around which the object is moving.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centripetal force acts towards the centre; the apparent force acting away is centrifugal."
+  },
+  {
+    "q": "Centrifugal force appears to act in a direction pointing away from the centre of the circular path.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook defines centrifugal force as appearing to point radially outward."
+  },
+  {
+    "q": "Centrifugal force appears to act in a direction pointing towards the centre of the circular path.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centrifugal force appears to act away from the centre, not towards it."
+  },
+  {
+    "q": "According to Newton's third law, when a person whirls a ball on a string, the ball exerts a reaction force on the hand.",
+    "type": "tf",
+    "c": "true",
+    "e": "The inward pull on the ball is met by an equal and outward pull on the hand, per Newton's third law."
+  },
+  {
+    "q": "According to Newton's second law, when a person whirls a ball on a string, the ball exerts a reaction force on the hand.",
+    "type": "tf",
+    "c": "false",
+    "e": "Action-reaction pairs are described by Newton's third law, not the second law."
+  },
+  {
+    "q": "There is a misconception that the reaction force on the hand is the outward-directed centrifugal force acting on the ball.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook explicitly warns against confusing the reaction force on the hand with a centrifugal force on the ball."
+  },
+  {
+    "q": "The reaction force on the hand is the actual outward-directed centrifugal force acting on the ball.",
+    "type": "tf",
+    "c": "false",
+    "e": "The reaction force acts on the hand, while no real outward force acts on the ball itself."
+  },
+  {
+    "q": "Except centripetal force, there is no other force acting on the ball along the string.",
+    "type": "tf",
+    "c": "true",
+    "e": "The text clarifies that only the inward tension (centripetal force) acts on the ball along the string."
+  },
+  {
+    "q": "Except centripetal force, the centrifugal force is the other main force acting on the ball along the string.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centrifugal force is fictitious and does not act on the ball; only centripetal force acts along the string."
+  },
+  {
+    "q": "When a car is moving with constant velocity along a straight road, there is no net force on the person inside.",
+    "type": "tf",
+    "c": "true",
+    "e": "Constant velocity means zero acceleration, which by Newton's laws implies zero net force."
+  },
+  {
+    "q": "When a car is moving with constant velocity along a straight road, the person feels a strong centrifugal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "Without circular motion or acceleration, there is no centrifugal effect felt by the passenger."
+  },
+  {
+    "q": "When a car moves around a curve, the person inside feels an outward force exerted on him, which is the centrifugal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook describes this outward sensation in a turning car as the apparent centrifugal force."
+  },
+  {
+    "q": "When a car moves around a curve, the person inside feels an inward force exerted on him, which is the centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "The passenger feels an outward push (centrifugal effect) due to inertia, not an inward push."
+  },
+  {
+    "q": "The centrifugal force felt by a passenger in a turning car is caused by the effect of inertia.",
+    "type": "tf",
+    "c": "true",
+    "e": "Inertia makes the passenger's body tend to move in a straight line while the car turns inward, creating the sensation of an outward force."
+  },
+  {
+    "q": "The centrifugal force felt by a passenger in a turning car is caused by the effect of gravity.",
+    "type": "tf",
+    "c": "false",
+    "e": "The outward sensation during a turn is due to inertia, not gravity."
+  },
+  {
+    "q": "Actually, the centrifugal force is not a real force.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook explicitly classifies centrifugal force as an apparent or fictitious force."
+  },
+  {
+    "q": "Actually, the centrifugal force is a real fundamental force of nature.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centrifugal force is a fictitious force arising from the observer's rotating reference frame, not a fundamental force."
+  },
+  {
+    "q": "Centrifugal force is an apparent or fictitious force which is equal and opposite to the centripetal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "The text defines it as having the same magnitude but opposite direction to the real centripetal force."
+  },
+  {
+    "q": "Centrifugal force is an apparent or fictitious force which is equal and in the same direction as the centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centrifugal force acts radially outward, which is opposite to the inward centripetal force."
+  },
+  {
+    "q": "The concept of centrifugal force can be applied in rotating devices such as centrifuges.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook lists centrifuges among the practical applications of the centrifugal force concept."
+  },
+  {
+    "q": "The concept of centripetal force is exclusively applied in rotating devices such as centrifuges, while centrifugal force has no applications.",
+    "type": "tf",
+    "c": "false",
+    "e": "The text specifically notes that the concept of centrifugal force is applied in devices like centrifuges and washing machines."
+  },
+  {
+    "q": "A centrifuge is a piece of equipment that puts an object in rotation around a fixed axis.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the exact definition of a centrifuge provided in the text."
+  },
+  {
+    "q": "A centrifuge is a piece of equipment that puts an object in linear motion along a straight track.",
+    "type": "tf",
+    "c": "false",
+    "e": "A centrifuge operates by spinning an object in a circle around a fixed axis, not in linear motion."
+  },
+  {
+    "q": "In a laboratory centrifuge, the radial acceleration causes denser particles to settle to the bottom of the tube.",
+    "type": "tf",
+    "c": "true",
+    "e": "The rapid rotation creates a strong apparent outward force that pushes denser materials to the outer end (bottom) of the tube."
+  },
+  {
+    "q": "In a laboratory centrifuge, the radial acceleration causes denser particles to rise to the top of the tube.",
+    "type": "tf",
+    "c": "false",
+    "e": "Denser particles are forced to the bottom (outer edge), while less dense substances rise to the top."
+  },
+  {
+    "q": "In a laboratory centrifuge, low density substances rise to the top of the tube.",
+    "type": "tf",
+    "c": "true",
+    "e": "As denser particles are pushed outward, they displace lower density substances towards the inner end (top) of the tube."
+  },
+  {
+    "q": "In a laboratory centrifuge, low density substances settle to the bottom of the tube.",
+    "type": "tf",
+    "c": "false",
+    "e": "Low density substances are displaced to the top; it is the denser particles that settle to the bottom."
+  },
+  {
+    "q": "The effect where denser particles settle and low density substances rise in a centrifuge is known as the sedimentation principle.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook explicitly names this separation process the sedimentation principle."
+  },
+  {
+    "q": "The effect where denser particles settle and low density substances rise in a centrifuge is known as the sublimation principle.",
+    "type": "tf",
+    "c": "false",
+    "e": "The correct term for this separation process is the sedimentation principle, not sublimation."
+  },
+  {
+    "q": "A centrifugal pump converts mechanical energy into hydraulic energy by the use of centrifugal force acting on the fluid.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the stated function and energy conversion mechanism of a centrifugal pump."
+  },
+  {
+    "q": "A centrifugal pump converts hydraulic energy into mechanical energy by the use of centrifugal force acting on the fluid.",
+    "type": "tf",
+    "c": "false",
+    "e": "The pump does the reverse: it converts mechanical energy (from a motor) into hydraulic energy (pressure/flow)."
+  },
+  {
+    "q": "The rotating impeller in a centrifugal pump moves water or other fluids by using centrifugal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "The impeller spins, creating centrifugal force that pushes the fluid outward and through the pump."
+  },
+  {
+    "q": "The stationary volute in a centrifugal pump moves water or other fluids by using centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "It is the rotating impeller that moves the fluid using centrifugal force, not a stationary part using centripetal force."
+  },
+  {
+    "q": "The centrifugal action of a washing machine is used in spin drying the clothes.",
+    "type": "tf",
+    "c": "true",
+    "e": "The rapid spinning of the drum forces water out of the clothes through the drum's holes."
+  },
+  {
+    "q": "The centripetal action of a washing machine is used in agitating the clothes during the wash cycle.",
+    "type": "tf",
+    "c": "false",
+    "e": "The text specifically highlights the centrifugal action for spin drying, not centripetal action for agitation."
+  },
+  {
+    "q": "In a washing machine, excess water is removed completely with the help of centrifugal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "The apparent outward force pushes the water through the small holes in the spinning drum."
+  },
+  {
+    "q": "In a washing machine, excess water is removed completely with the help of centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "Water removal relies on the outward push of centrifugal force (inertia), not the inward centripetal force."
+  },
+  {
+    "q": "A centrifugal governor is a device used to measure and regulate the speed of a machine, such as an engine.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the primary function of the centrifugal governor as defined in the text."
+  },
+  {
+    "q": "A centrifugal governor is a device used to measure and regulate the temperature of a machine, such as an engine.",
+    "type": "tf",
+    "c": "false",
+    "e": "The governor regulates rotational speed, not temperature."
+  },
+  {
+    "q": "The centrifugal governors consist of two balls of equal mass, which are attached to the arms.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook describes the classic fly-ball governor design with two equal masses."
+  },
+  {
+    "q": "The centrifugal governors consist of two balls of unequal mass, which are attached to the spindle.",
+    "type": "tf",
+    "c": "false",
+    "e": "The balls must be of equal mass and are attached to arms, not directly to the spindle."
+  },
+  {
+    "q": "In a centrifugal governor, the balls revolve around the spindle at a certain speed and maintain a position due to the centrifugal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "As speed increases, the apparent outward centrifugal force raises the balls, adjusting the throttle."
+  },
+  {
+    "q": "In a centrifugal governor, the balls revolve around the spindle at a certain speed and maintain a position due to the centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "The text explicitly states the balls maintain their outward position due to centrifugal force."
+  },
+  {
+    "q": "Centripetal force in a circular motion is directed towards the axis of rotation or centre of curvature.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is a core summary point defining the direction of real centripetal force."
+  },
+  {
+    "q": "Centripetal force in a circular motion is directed radially away from the axis of rotation or centre of curvature.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centripetal force is always directed inward towards the centre, never away."
+  },
+  {
+    "q": "Centrifugal force in a circular motion acts radially away from the centre of the circle.",
+    "type": "tf",
+    "c": "true",
+    "e": "The summary explicitly states that centrifugal force acts radially away from the centre."
+  },
+  {
+    "q": "Centrifugal force in a circular motion acts radially towards the centre of the circle.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centrifugal force acts radially outward; the inward force is centripetal."
+  },
+  {
+    "q": "Centrifugal force results from the effect of inertia.",
+    "type": "tf",
+    "c": "true",
+    "e": "The textbook summary explicitly attributes the origin of centrifugal force to the effect of inertia."
+  },
+  {
+    "q": "Centrifugal force results from the effect of electromagnetic interaction.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centrifugal force is a fictitious force resulting from inertia, not a fundamental electromagnetic interaction."
+  },
+  {
+    "q": "If a car is travelling through a curve on a circular horizontal road, the centripetal force is provided by the force of friction between the tires and the road surface.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is listed in the comparison table as the classic example of friction providing centripetal force."
+  },
+  {
+    "q": "If a car is travelling through a curve on a circular horizontal road, the centripetal force is provided by the normal force of the road surface.",
+    "type": "tf",
+    "c": "false",
+    "e": "On a horizontal road, normal force is purely vertical; friction provides the horizontal centripetal force."
+  },
+  {
+    "q": "When a car in motion takes a sudden turn in a curved path, passengers in the car experience an outward push due to the centrifugal force acting on them.",
+    "type": "tf",
+    "c": "true",
+    "e": "The comparison table uses this exact scenario to illustrate the effect of centrifugal force on passengers."
+  },
+  {
+    "q": "When a car in motion takes a sudden turn in a curved path, passengers in the car experience an inward push due to the centripetal force acting on them.",
+    "type": "tf",
+    "c": "false",
+    "e": "Passengers experience an outward push (centrifugal effect), not an inward push."
+  },
+  {
+    "q": "A satellite orbiting a planet is supported by the centripetal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "The comparison table lists satellites as an example supported by real centripetal force (gravity)."
+  },
+  {
+    "q": "A satellite orbiting a planet is supported by the centrifugal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "Orbital motion is maintained by real centripetal force; centrifugal force is fictitious and does not support the orbit."
+  },
+  {
+    "q": "Removing the excess water by spin drying clothes in a washing machine is with the help of centrifugal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "The table correctly identifies spin drying as an application of centrifugal force."
+  },
+  {
+    "q": "Removing the excess water by spin drying clothes in a washing machine is with the help of centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "Water is expelled outward due to inertia (centrifugal effect), not pulled inward by centripetal force."
+  },
+  {
+    "q": "The horizontal component of the lifting force on an aeroplane provides the centripetal force when it tilts.",
+    "type": "tf",
+    "c": "true",
+    "e": "Tilting the wings resolves the lift vector so its horizontal component acts as the inward turning force."
+  },
+  {
+    "q": "The vertical component of the lifting force on an aeroplane provides the centripetal force when it tilts.",
+    "type": "tf",
+    "c": "false",
+    "e": "The vertical component opposes gravity; the horizontal component provides the centripetal force."
+  },
+  {
+    "q": "The frictional force acting upon the tires of a car on an unbanked road provides the required centripetal force for circular motion.",
+    "type": "tf",
+    "c": "true",
+    "e": "Without banking, static friction is the only horizontal force available to turn the car."
+  },
+  {
+    "q": "The normal force acting upon the tires of a car on an unbanked road provides the required centripetal force for circular motion.",
+    "type": "tf",
+    "c": "false",
+    "e": "On a flat road, normal force acts vertically upwards and cannot provide horizontal centripetal force."
+  },
+  {
+    "q": "The normal force exerted by a banked road is perpendicular to the road.",
+    "type": "tf",
+    "c": "true",
+    "e": "Normal forces, by definition, act perpendicular to the surface they originate from."
+  },
+  {
+    "q": "The normal force exerted by a banked road is parallel to the road.",
+    "type": "tf",
+    "c": "false",
+    "e": "The normal force is perpendicular to the banked surface; friction acts parallel to it."
+  },
+  {
+    "q": "The horizontal component of the normal force on a banked road provides the required centripetal force.",
+    "type": "tf",
+    "c": "true",
+    "e": "Resolving the tilted normal force yields a horizontal component pointing towards the centre of the curve."
+  },
+  {
+    "q": "The vertical component of the normal force on a banked road provides the required centripetal force.",
+    "type": "tf",
+    "c": "false",
+    "e": "The vertical component balances the car's weight, while the horizontal component provides centripetal force."
+  },
+  {
+    "q": "Centripetal force is the force acting on an object in circular motion which is directed towards the axis of rotation or centre of curvature.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the exact wording from the chapter summary defining centripetal force."
+  },
+  {
+    "q": "Centripetal force is the force acting on an object in linear motion which is directed towards the axis of rotation.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centripetal force specifically applies to objects in circular motion, not linear motion."
+  },
+  {
+    "q": "Centrifugal force in a circular motion is not a real force.",
+    "type": "tf",
+    "c": "true",
+    "e": "The summary explicitly reiterates that centrifugal force is not a real force."
+  },
+  {
+    "q": "Centrifugal force in a circular motion is a real force that can be measured with a spring balance in an inertial frame.",
+    "type": "tf",
+    "c": "false",
+    "e": "Centrifugal force is fictitious and does not exist as a real interaction in an inertial reference frame."
+  },
+  {
+    "q": "Centrifugal force acts radially away from the centre of the circle and results from the effect of inertia.",
+    "type": "tf",
+    "c": "true",
+    "e": "This perfectly matches the two key characteristics of centrifugal force listed in the summary."
+  },
+  {
+    "q": "Centrifugal force acts radially towards the centre of the circle and results from the effect of inertia.",
+    "type": "tf",
+    "c": "false",
+    "e": "While it results from inertia, centrifugal force acts radially away from the centre, not towards it."
+  }
+]
