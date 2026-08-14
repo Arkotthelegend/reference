@@ -1,0 +1,92 @@
+[
+  {
+    "q": "When two or more electromotive sources (batteries) are connected in series, the resultant emf is the algebraic sum of the individual emfs.",
+    "type": "tf",
+    "c": "true",
+    "e": "Series connections combine the voltages algebraically depending on their polarities."
+  },
+  {
+    "q": "In series aiding arrangement, the currents leaving the batteries are in opposite directions.",
+    "type": "tf",
+    "c": "false",
+    "e": "In series aiding arrangement, the currents leaving the batteries are in the same direction."
+  },
+  {
+    "q": "In series aiding, the resultant emf is $E_1 + E_2$.",
+    "type": "tf",
+    "c": "true",
+    "e": "The emfs add together because the batteries are connected with matching polarities in sequence."
+  },
+  {
+    "q": "The total internal resistance of two batteries in series aiding is $r_1 - r_2$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The total internal resistance of two batteries in series is $r_1 + r_2$."
+  },
+  {
+    "q": "Two batteries in series aiding can be regarded as a single battery having an emf $(E_1 + E_2)$ and internal resistance $(r_1 + r_2)$.",
+    "type": "tf",
+    "c": "true",
+    "e": "This equivalent circuit simplifies the analysis of series-aiding battery combinations."
+  },
+  {
+    "q": "In series opposing arrangement, the emfs of the batteries are in the same direction.",
+    "type": "tf",
+    "c": "false",
+    "e": "In series opposing arrangement, the emfs of the batteries are in opposition."
+  },
+  {
+    "q": "The resultant emf in series opposing is the sum of the individual emfs.",
+    "type": "tf",
+    "c": "false",
+    "e": "The resultant emf in series opposing is the difference between the individual emfs."
+  },
+  {
+    "q": "If $E_1$ is greater than $E_2$, the resultant emf of those two batteries in series opposing is $(E_1 - E_2)$.",
+    "type": "tf",
+    "c": "true",
+    "e": "The larger emf dominates, and the net emf is the difference between the two."
+  },
+  {
+    "q": "The total internal resistance of two batteries in series opposing is $r_1 - r_2$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The total internal resistance is still the sum, $r_1 + r_2$, regardless of the emf orientation."
+  },
+  {
+    "q": "In parallel connection of two identical batteries, the opposite polarity terminals of the batteries are connected together.",
+    "type": "tf",
+    "c": "false",
+    "e": "In parallel connection, the same polarity terminals of the batteries must be connected together."
+  },
+  {
+    "q": "The resultant emf of the parallel-combination of two identical batteries is just the emf $E$ of a single battery.",
+    "type": "tf",
+    "c": "true",
+    "e": "Connecting identical batteries in parallel does not increase the total voltage."
+  },
+  {
+    "q": "Since the internal resistances of two identical batteries are in parallel, the resultant internal resistance is $2r$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The resultant internal resistance of two identical resistors in parallel is $r/2$."
+  },
+  {
+    "q": "A parallel combination of two identical batteries can be regarded as a single battery having an emf $E$ and an internal resistance $r/2$.",
+    "type": "tf",
+    "c": "true",
+    "e": "This equivalent circuit provides the same voltage but with a lower internal resistance."
+  },
+  {
+    "q": "In parallel connection of batteries, care must be taken that the terminal of the same polarity should be connected together.",
+    "type": "tf",
+    "c": "true",
+    "e": "Connecting same polarities ensures the batteries work together rather than against each other."
+  },
+  {
+    "q": "If terminals of opposite polarity are connected together in parallel, batteries may be damaged.",
+    "type": "tf",
+    "c": "true",
+    "e": "Connecting opposite polarities in parallel creates a short circuit between the batteries, causing damage."
+  }
+]
