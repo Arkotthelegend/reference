@@ -1,0 +1,152 @@
+[
+  {
+    "q": "Several capacitors can be connected together to be used in a variety of applications.",
+    "type": "tf",
+    "c": "true",
+    "e": "Combinations allow for custom capacitance values and voltage ratings."
+  },
+  {
+    "q": "There are three types of capacitor combinations namely; parallel, series, and diagonal.",
+    "type": "tf",
+    "c": "false",
+    "e": "There are two types of combinations namely; parallel and series."
+  },
+  {
+    "q": "In capacitors connected in parallel, the plates connected together at one point have positive charges and at the other point have negative charges.",
+    "type": "tf",
+    "c": "true",
+    "e": "All positive plates are tied to one node, and all negative plates to another."
+  },
+  {
+    "q": "In a parallel combination, all the capacitors have different potential differences.",
+    "type": "tf",
+    "c": "false",
+    "e": "In a parallel combination, all the capacitors have the same potential difference."
+  },
+  {
+    "q": "In a parallel combination, all the capacitors carry the same amount of charge.",
+    "type": "tf",
+    "c": "false",
+    "e": "In a parallel combination, they carry different amounts of charges depending on their capacitance."
+  },
+  {
+    "q": "If the potential difference of each capacitor in parallel is V, the charge on a capacitor is $Q = \\frac{V}{C}$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The charge on an individual capacitor is $Q = CV$."
+  },
+  {
+    "q": "The total charge Q on capacitors in parallel is the sum of the individual charges: $Q = Q_1 + Q_2 + Q_3$.",
+    "type": "tf",
+    "c": "true",
+    "e": "The total charge supplied by the battery distributes among the parallel branches."
+  },
+  {
+    "q": "We can replace capacitors in parallel with a single equivalent capacitor provided it has the same total charge Q when the same potential difference V is applied.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the definition of equivalent capacitance for any network."
+  },
+  {
+    "q": "The equivalent capacitance of capacitors connected in parallel is the product of the individual capacitances.",
+    "type": "tf",
+    "c": "false",
+    "e": "The equivalent capacitance is the sum of the individual capacitances."
+  },
+  {
+    "q": "For n capacitors in parallel, the equivalent capacitance is $C = C_1 + C_2 + C_3 + ... + C_n$.",
+    "type": "tf",
+    "c": "true",
+    "e": "Adding capacitors in parallel effectively increases the total plate area."
+  },
+  {
+    "q": "The equivalent capacitance C of the parallel combination of n identical capacitors, each of capacitance C, is $C = \\frac{C}{n}$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The equivalent capacitance is $C = nC$."
+  },
+  {
+    "q": "In capacitors connected in series, the negatively charged plate of one capacitor is connected to the positively charged plate of the other.",
+    "type": "tf",
+    "c": "true",
+    "e": "This daisy-chain connection defines a series circuit."
+  },
+  {
+    "q": "Since the capacitors are connected in series, each capacitor has a different charge.",
+    "type": "tf",
+    "c": "false",
+    "e": "Since they are connected in series, each capacitor has the same charge."
+  },
+  {
+    "q": "In a series combination, the capacitors have different potential differences.",
+    "type": "tf",
+    "c": "true",
+    "e": "The total voltage divides among the capacitors inversely proportional to their capacitance."
+  },
+  {
+    "q": "The total potential difference V of a series capacitor combination is the sum of the individual potential differences: $V = V_1 + V_2 + V_3$.",
+    "type": "tf",
+    "c": "true",
+    "e": "Kirchhoff's voltage law applies to the series loop."
+  },
+  {
+    "q": "For capacitors in series, the potential difference across an individual capacitor is $V = QC$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The potential difference across an individual capacitor is $V = \\frac{Q}{C}$."
+  },
+  {
+    "q": "The charge of the equivalent capacitor in series is Q when the total potential difference V is applied.",
+    "type": "tf",
+    "c": "true",
+    "e": "The equivalent capacitor must store the same charge Q as the individual series capacitors."
+  },
+  {
+    "q": "When capacitors are connected in series, the reciprocal of the equivalent capacitance is the sum of the reciprocals of their individual capacitances.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the standard rule for calculating series equivalent capacitance."
+  },
+  {
+    "q": "The formula for equivalent capacitance of n capacitors in series is $C = \\frac{1}{C_1} + \\frac{1}{C_2} + ... + \\frac{1}{C_n}$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The correct formula is $\\frac{1}{C} = \\frac{1}{C_1} + \\frac{1}{C_2} + ... + \\frac{1}{C_n}$."
+  },
+  {
+    "q": "The equivalent capacitance $C_s$ of the series combination of n identical capacitors, each of capacitance C, is $C_s = \\frac{C}{n}$.",
+    "type": "tf",
+    "c": "true",
+    "e": "Adding identical capacitors in series divides the total capacitance by n."
+  },
+  {
+    "q": "In a series connection of capacitors, the total equivalent capacitance is always greater than the largest individual capacitance.",
+    "type": "tf",
+    "c": "false",
+    "e": "The total equivalent capacitance in series is always less than the smallest individual capacitance."
+  },
+  {
+    "q": "In a parallel connection of capacitors, the total equivalent capacitance is always greater than the largest individual capacitance.",
+    "type": "tf",
+    "c": "true",
+    "e": "Adding capacitances in parallel always results in a sum larger than any single component."
+  },
+  {
+    "q": "If two capacitors are connected in series, the magnitude of charge on the combination is received equally by the individual capacitors.",
+    "type": "tf",
+    "c": "true",
+    "e": "Charge is conserved and uniform throughout a series branch."
+  },
+  {
+    "q": "In a parallel circuit, the potential difference across each capacitor depends on its capacitance.",
+    "type": "tf",
+    "c": "false",
+    "e": "In a parallel circuit, the potential difference across each capacitor is the same."
+  },
+  {
+    "q": "The equivalent capacitance is defined as the capacitance of a single capacitor that can replace the combination without changing the total charge and potential difference.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the fundamental definition of an equivalent circuit component."
+  }
+]

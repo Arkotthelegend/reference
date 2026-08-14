@@ -1,0 +1,122 @@
+[
+  {
+    "q": "Electricity supplied to the house is a single-phase form of alternating current (AC).",
+    "type": "tf",
+    "c": "true",
+    "e": "Residential wiring typically uses single-phase AC power."
+  },
+  {
+    "q": "One of the wires entering a house is the live wire (L) and the other is the neutral wire (N).",
+    "type": "tf",
+    "c": "true",
+    "e": "A standard single-phase supply uses a live and a neutral wire."
+  },
+  {
+    "q": "The live wire (L) is usually at zero volt while the neutral wire (N) carries a high voltage.",
+    "type": "tf",
+    "c": "false",
+    "e": "The live wire carries a high voltage while the neutral wire is usually at zero volt."
+  },
+  {
+    "q": "The electricity is fed into the house through the main fuse, meter, main switch and then to the distribution box.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the correct sequential path of the main electrical supply entering a home."
+  },
+  {
+    "q": "From the distribution box there are normally three circuits: the lighting circuit, the power circuit (ring main circuit) and heating circuit.",
+    "type": "tf",
+    "c": "true",
+    "e": "These three circuits separate the loads based on their power requirements."
+  },
+  {
+    "q": "Three cables are colour coded with blue for live (L), brown for neutral (N), and striped green-yellow for earth (E).",
+    "type": "tf",
+    "c": "false",
+    "e": "The new colour code uses brown for live, blue for neutral, and striped green-yellow for earth."
+  },
+  {
+    "q": "The old colour code for wiring is red for live, black for neutral and green for earth.",
+    "type": "tf",
+    "c": "true",
+    "e": "This was the standard colour coding before the new harmonized colours were adopted."
+  },
+  {
+    "q": "In the lighting circuit, the light bulbs are arranged in parallel across the mains line.",
+    "type": "tf",
+    "c": "true",
+    "e": "Parallel arrangement ensures each bulb receives the full mains voltage and operates independently."
+  },
+  {
+    "q": "The lighting circuit differs from the other two in that there are three wires: live, neutral, and earth.",
+    "type": "tf",
+    "c": "false",
+    "e": "The lighting circuit differs in that there are only two wires, live and neutral."
+  },
+  {
+    "q": "A lighting circuit must be connected sequentially as live wire, fuse, switch, load and then to neutral wire.",
+    "type": "tf",
+    "c": "true",
+    "e": "The fuse and switch must be on the live wire side before the load for safety."
+  },
+  {
+    "q": "A power circuit is an electrical system in which distribution points are connected to the main supply in a continuous closed circuit.",
+    "type": "tf",
+    "c": "true",
+    "e": "This defines a ring main circuit used for domestic power sockets."
+  },
+  {
+    "q": "In a ring main circuit the live, neutral and earth wires form a loop of cable going from the consumer unit to all of the sockets in turn and then back to the consumer unit.",
+    "type": "tf",
+    "c": "true",
+    "e": "The ring topology allows current to reach sockets from two directions."
+  },
+  {
+    "q": "Power circuit is for the use of electric cookers, ovens, and washing machines.",
+    "type": "tf",
+    "c": "false",
+    "e": "Power circuits are for appliances consuming less power; high-power appliances use the heating circuit."
+  },
+  {
+    "q": "Since the current can flow to any particular socket by two ways in a ring main circuit, thinner wires can be used in the whole ring.",
+    "type": "tf",
+    "c": "true",
+    "e": "The current divides along the two paths of the ring, reducing the current load on any single wire segment."
+  },
+  {
+    "q": "Each main ring circuit uses a 30 A fuse.",
+    "type": "tf",
+    "c": "true",
+    "e": "A 30 A fuse is standard protection for a ring main circuit."
+  },
+  {
+    "q": "Heating circuit is for the utilization of appliances such as electric cookers, ovens, hot plates, washing machines and dryers.",
+    "type": "tf",
+    "c": "true",
+    "e": "These high-power appliances require their own dedicated heating circuits."
+  },
+  {
+    "q": "The fuse of each circuit must be connected in the neutral (N) lead to protect the appliances.",
+    "type": "tf",
+    "c": "false",
+    "e": "The fuse must be connected in the live (L) lead; a fuse in the neutral lead is pointless and unsafe."
+  },
+  {
+    "q": "A circuit breaker is an automatic switch which trips when the current rises above the specified value.",
+    "type": "tf",
+    "c": "true",
+    "e": "Circuit breakers provide resettable overcurrent protection."
+  },
+  {
+    "q": "Earthing of an electrical appliance is the most important safety precaution.",
+    "type": "tf",
+    "c": "true",
+    "e": "Earthing prevents the metal casing of appliances from becoming live and shocking the user."
+  },
+  {
+    "q": "In any electrical appliance the earth wire is always connected to the metal case.",
+    "type": "tf",
+    "c": "true",
+    "e": "Connecting the earth wire to the metal case provides a safe path for fault currents."
+  }
+]

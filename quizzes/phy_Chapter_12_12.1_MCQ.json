@@ -1,0 +1,321 @@
+[
+  {
+    "q": "The branch of physics and technology concerned with the design of circuits using transistors, integrated circuits and microchips, and also with the behaviour and movement of electrons in a semiconductor, conductor or vacuum is known as _____.",
+    "type": "mcq",
+    "a": [
+      "electronics",
+      "mechanics",
+      "thermodynamics"
+    ],
+    "c": 0,
+    "e": "Electronics is defined exactly as the branch of physics and technology concerned with the design of circuits and movement of electrons in semiconductors, conductors, or vacuums."
+  },
+  {
+    "q": "Active electrical components are vacuum tubes, transistors, diodes, ICs, TRIACs, SCRs, LEDs, etc. and requires a _____ source to operate.",
+    "type": "mcq",
+    "a": [
+      "voltage",
+      "power",
+      "current"
+    ],
+    "c": 1,
+    "e": "Active electrical components require an external power source to operate."
+  },
+  {
+    "q": "Passive electrical components are capable of operating without an _____ power source.",
+    "type": "mcq",
+    "a": [
+      "internal",
+      "alternating",
+      "external"
+    ],
+    "c": 2,
+    "e": "Passive components like resistors and capacitors can operate without an external power source."
+  },
+  {
+    "q": "Zener diode is a _____ doped semiconductor (silicon or germanium) pn junction diode.",
+    "type": "mcq",
+    "a": [
+      "heavily",
+      "lightly",
+      "moderately"
+    ],
+    "c": 0,
+    "e": "A zener diode is specifically designed to be heavily doped to achieve a narrow depletion layer."
+  },
+  {
+    "q": "When the voltage across the terminals of a zener diode is reversed and the potential reaches the zener voltage, the junction breaks down and the current flows in the _____ direction.",
+    "type": "mcq",
+    "a": [
+      "forward",
+      "reverse",
+      "lateral"
+    ],
+    "c": 1,
+    "e": "Zener diodes allow current to flow in the reverse direction when the breakdown voltage is reached."
+  },
+  {
+    "q": "When the potential reaches the zener voltage (breakdown voltage or _____ voltage), the junction breaks down.",
+    "type": "mcq",
+    "a": [
+      "peak",
+      "threshold",
+      "knee"
+    ],
+    "c": 2,
+    "e": "The breakdown voltage is also referred to as the knee voltage in zener diode characteristics."
+  },
+  {
+    "q": "Avalanche breakdown occurs at junctions which being lightly doped have _____ depletion layers.",
+    "type": "mcq",
+    "a": [
+      "wide",
+      "narrow",
+      "thin"
+    ],
+    "c": 0,
+    "e": "Lightly doped junctions have wide depletion layers, leading to avalanche breakdown."
+  },
+  {
+    "q": "Zener breakdown occurs at junctions which being heavily doped have _____ depletion layers.",
+    "type": "mcq",
+    "a": [
+      "wide",
+      "narrow",
+      "thick"
+    ],
+    "c": 1,
+    "e": "Heavily doped junctions have narrow depletion layers, resulting in zener breakdown."
+  },
+  {
+    "q": "The voltage drop across the zener diode always remains _____ irrespective of the applied voltage.",
+    "type": "mcq",
+    "a": [
+      "variable",
+      "zero",
+      "constant"
+    ],
+    "c": 2,
+    "e": "In the breakdown region, the voltage drop across a zener diode remains remarkably constant."
+  },
+  {
+    "q": "This feature of the zener diode makes it suitable for voltage regulation as _____ elements.",
+    "type": "mcq",
+    "a": [
+      "reference",
+      "active",
+      "passive"
+    ],
+    "c": 0,
+    "e": "Because of its constant voltage drop, it is used as a reference element in voltage regulators."
+  },
+  {
+    "q": "A LED is a semiconductor light source capable of emitting a fairly narrow bandwidth of visible (or) invisible light when its internal diode junction attains a forward-biased current (or) _____.",
+    "type": "mcq",
+    "a": [
+      "resistance",
+      "voltage",
+      "capacitance"
+    ],
+    "c": 1,
+    "e": "LEDs emit light when their internal junction attains a forward-biased current or voltage."
+  },
+  {
+    "q": "LEDs do not directly produce white light but use a blue LED with a phosphor coating to convert blue light to white light by a process called _____.",
+    "type": "mcq",
+    "a": [
+      "incandescence",
+      "phosphorescence",
+      "fluorescence"
+    ],
+    "c": 2,
+    "e": "White light in LEDs is produced via fluorescence using a phosphor coating."
+  },
+  {
+    "q": "A current limiting resistor should be connected in _____ with LED in the circuit to protect the LED.",
+    "type": "mcq",
+    "a": [
+      "series",
+      "parallel",
+      "series-parallel"
+    ],
+    "c": 0,
+    "e": "A series resistor limits the current to prevent damage to the LED."
+  },
+  {
+    "q": "Fast action and no warmup time is an advantage of LED, and the response time is about _____ ns.",
+    "type": "mcq",
+    "a": [
+      "50",
+      "10",
+      "100"
+    ],
+    "c": 1,
+    "e": "The response time of an LED is very fast, approximately 10 ns."
+  },
+  {
+    "q": "A photodiode is a semiconductor device that converts light into _____ current.",
+    "type": "mcq",
+    "a": [
+      "magnetic",
+      "thermal",
+      "electrical"
+    ],
+    "c": 2,
+    "e": "Photodiodes convert absorbed photons into electrical current."
+  },
+  {
+    "q": "Photodiodes work in _____ biased mode.",
+    "type": "mcq",
+    "a": [
+      "reverse",
+      "forward",
+      "zero"
+    ],
+    "c": 0,
+    "e": "Photodiodes are always operated in reverse bias to detect changes in minority carrier current."
+  },
+  {
+    "q": "When the photodiode is illuminated with light (photons) of energy $hv$ greater than the energy gap $E_g$ of the semiconductor, then _____ pairs are generated.",
+    "type": "mcq",
+    "a": [
+      "proton-neutron",
+      "electron-hole",
+      "ion-electron"
+    ],
+    "c": 1,
+    "e": "Absorption of photons generates electron-hole pairs in the depletion region."
+  },
+  {
+    "q": "A small amount of current, due to the flow of minority carriers, is also produced when no light is falling and is called _____ current.",
+    "type": "mcq",
+    "a": [
+      "bright",
+      "leakage",
+      "dark"
+    ],
+    "c": 2,
+    "e": "The small reverse bias current flowing in the absence of light is termed dark current."
+  },
+  {
+    "q": "A light dependent resistor (LDR) is a light controlled _____ resistor.",
+    "type": "mcq",
+    "a": [
+      "variable",
+      "fixed",
+      "linear"
+    ],
+    "c": 0,
+    "e": "LDRs act as variable resistors whose resistance changes with light intensity."
+  },
+  {
+    "q": "Special semiconductor crystal, such as cadmium sulfide (or) _____ sulfide is used to make photo resistors.",
+    "type": "mcq",
+    "a": [
+      "copper",
+      "zinc",
+      "lead"
+    ],
+    "c": 2,
+    "e": "Cadmium sulfide and lead sulfide are common materials for LDRs."
+  },
+  {
+    "q": "A thermistor is a temperature sensor that exhibits a large change in resistance proportional to a change in _____.",
+    "type": "mcq",
+    "a": [
+      "temperature",
+      "voltage",
+      "light"
+    ],
+    "c": 0,
+    "e": "Thermistors are specifically designed to change resistance with temperature variations."
+  },
+  {
+    "q": "In the Negative Temperature Coefficient (NTC) thermistor, the resistance _____ as the temperature increases.",
+    "type": "mcq",
+    "a": [
+      "increases",
+      "decreases",
+      "remains constant"
+    ],
+    "c": 1,
+    "e": "NTC thermistors exhibit a decrease in resistance as temperature rises."
+  },
+  {
+    "q": "In the Positive Temperature Coefficient (PTC) thermistor, the resistance increases as the temperature increases, and is used to break the circuit at _____ temperatures.",
+    "type": "mcq",
+    "a": [
+      "random",
+      "absolute",
+      "preset"
+    ],
+    "c": 2,
+    "e": "PTC thermistors act as resettable fuses, breaking the circuit at preset high temperatures."
+  },
+  {
+    "q": "A liquid crystal display (LCD) is a flat-panel display that uses the light-modulating properties of liquid crystals combined with _____.",
+    "type": "mcq",
+    "a": [
+      "polarizers",
+      "capacitors",
+      "inductors"
+    ],
+    "c": 0,
+    "e": "LCDs rely on polarizers to block or transmit light through the liquid crystal layer."
+  },
+  {
+    "q": "Liquid crystals do not emit light directly, instead using a backlight or _____ to produce images in color or monochrome.",
+    "type": "mcq",
+    "a": [
+      "absorber",
+      "reflector",
+      "emitter"
+    ],
+    "c": 1,
+    "e": "LCDs use a backlight or a reflector to provide the necessary illumination."
+  },
+  {
+    "q": "LCDs consume much less power than LEDs and gas-plasma displays because they work on the principle of _____ light rather than emitting it.",
+    "type": "mcq",
+    "a": [
+      "amplifying",
+      "refracting",
+      "blocking"
+    ],
+    "c": 2,
+    "e": "LCDs function by selectively blocking light from a backlight source."
+  },
+  {
+    "q": "The main difference between a zener diode and a normal diode lies in the passage of current, where a normal diode allows current to flow only in one direction while zener diode allows current to flow in both _____.",
+    "type": "mcq",
+    "a": [
+      "directions",
+      "polarities",
+      "phases"
+    ],
+    "c": 0,
+    "e": "Zener diodes conduct in both forward and reverse breakdown directions."
+  },
+  {
+    "q": "For normal operation of a zener diode, in breakdown region, the current through the diode should be limited by an external _____.",
+    "type": "mcq",
+    "a": [
+      "circuit",
+      "battery",
+      "capacitor"
+    ],
+    "c": 1,
+    "e": "An external series resistor (circuit) is required to limit current and prevent thermal runaway."
+  },
+  {
+    "q": "The voltage drop feature makes the zener diode suitable for voltage regulation as reference elements, surge suppressors, and in switching applications and _____ circuits.",
+    "type": "mcq",
+    "a": [
+      "amplifier",
+      "oscillator",
+      "clipper"
+    ],
+    "c": 2,
+    "e": "Zener diodes are frequently used to build clipper circuits due to their sharp breakdown voltage."
+  }
+]

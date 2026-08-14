@@ -1,0 +1,206 @@
+[
+  {
+    "q": "A parallel-plate capacitor is the simplest capacitor.",
+    "type": "tf",
+    "c": "true",
+    "e": "Its simple geometry makes it the fundamental model for studying capacitance."
+  },
+  {
+    "q": "A parallel-plate capacitor consists of two parallel metal plates separated by a conductor.",
+    "type": "tf",
+    "c": "false",
+    "e": "It consists of two parallel metal plates separated by air or other insulating material."
+  },
+  {
+    "q": "The surface charge density $\\sigma$ on each plate is expressed as $\\sigma = \\frac{A}{Q}$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The surface charge density is expressed as $\\sigma = \\frac{Q}{A}$."
+  },
+  {
+    "q": "If the plates of a parallel-plate capacitor are very close together, the electric field between the plates is uniform.",
+    "type": "tf",
+    "c": "true",
+    "e": "Edge effects are negligible when the separation distance is much smaller than the plate dimensions."
+  },
+  {
+    "q": "The value of the electric field between the plates can be expressed as $E = \\frac{\\sigma}{\\varepsilon}$.",
+    "type": "tf",
+    "c": "true",
+    "e": "This relates the electric field to the surface charge density and permittivity."
+  },
+  {
+    "q": "The electric field between the plates is expressed as $E = \\frac{Q}{\\varepsilon A}$.",
+    "type": "tf",
+    "c": "true",
+    "e": "Substituting $\\sigma = \\frac{Q}{A}$ into the electric field equation gives this result."
+  },
+  {
+    "q": "Because the electric field between the plates is uniform, the magnitude of the potential difference V between the plates equals $E / d$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The magnitude of the potential difference V equals $E \\times d$."
+  },
+  {
+    "q": "The potential difference V between the plates is given by $V = \\frac{Qd}{\\varepsilon A}$.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is derived by substituting E into the equation $V = Ed$."
+  },
+  {
+    "q": "The capacitance of the parallel plate capacitor is $C = \\frac{\\varepsilon A}{d}$.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the standard formula for the capacitance of a parallel-plate capacitor."
+  },
+  {
+    "q": "For a given insulating material, the capacitance of a parallel-plate capacitor is inversely proportional to the area of its plates.",
+    "type": "tf",
+    "c": "false",
+    "e": "The capacitance is directly proportional to the area of its plates."
+  },
+  {
+    "q": "The capacitance of a parallel-plate capacitor is inversely proportional to the separation of the plates.",
+    "type": "tf",
+    "c": "true",
+    "e": "Increasing the distance d decreases the capacitance C."
+  },
+  {
+    "q": "The permittivity $\\varepsilon$ of an insulating material is related to that of a vacuum $\\varepsilon_0$ as $\\varepsilon = \\frac{K}{\\varepsilon_0}$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The relationship is $\\varepsilon = K\\varepsilon_0$."
+  },
+  {
+    "q": "K is the dielectric constant or the relative permittivity of the insulating material.",
+    "type": "tf",
+    "c": "true",
+    "e": "K compares the material's permittivity to that of a vacuum."
+  },
+  {
+    "q": "For a vacuum, the dielectric constant K is equal to 0.",
+    "type": "tf",
+    "c": "false",
+    "e": "For a vacuum, the dielectric constant K is exactly 1."
+  },
+  {
+    "q": "For insulating materials other than vacuum, the dielectric constant K is greater than 1.",
+    "type": "tf",
+    "c": "true",
+    "e": "All dielectric materials have a relative permittivity greater than that of a vacuum."
+  },
+  {
+    "q": "The dielectric constant of an insulating material is the ratio of its permittivity to that of vacuum.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the definition of the dielectric constant K."
+  },
+  {
+    "q": "The dielectric constant K can be expressed as $K = \\frac{\\varepsilon_0}{\\varepsilon}$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The dielectric constant is expressed as $K = \\frac{\\varepsilon}{\\varepsilon_0}$."
+  },
+  {
+    "q": "The dielectric constant is defined as the ratio of the capacitance of a capacitor with an insulating material to the capacitance of that capacitor with a vacuum.",
+    "type": "tf",
+    "c": "true",
+    "e": "This provides a practical way to measure K using capacitance values."
+  },
+  {
+    "q": "When a charged capacitor is disconnected from a battery and a dielectric is inserted, the charge Q of the capacitor increases.",
+    "type": "tf",
+    "c": "false",
+    "e": "The charge Q of the capacitor does not change because it is isolated from the battery."
+  },
+  {
+    "q": "When a charged capacitor is disconnected from a battery and a dielectric is inserted, the potential difference of the capacitor is found to decrease.",
+    "type": "tf",
+    "c": "true",
+    "e": "Since C increases and Q is constant, V must decrease according to $V = \\frac{Q}{C}$."
+  },
+  {
+    "q": "Since the potential difference decreases when a dielectric is inserted into a disconnected charged capacitor, the capacitance of the capacitor increases.",
+    "type": "tf",
+    "c": "true",
+    "e": "A lower voltage for the same charge means a higher capacitance."
+  },
+  {
+    "q": "The dielectric constant K can be expressed as the ratio of potential differences $K = \\frac{V}{V_0}$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The dielectric constant is expressed as $K = \\frac{V_0}{V}$."
+  },
+  {
+    "q": "Insulating materials have values of dielectric constant K less than unity.",
+    "type": "tf",
+    "c": "false",
+    "e": "Insulating materials have values of dielectric constant K greater than unity."
+  },
+  {
+    "q": "A dielectric provides an increase in capacitance.",
+    "type": "tf",
+    "c": "true",
+    "e": "Inserting a dielectric multiplies the vacuum capacitance by K."
+  },
+  {
+    "q": "A dielectric decreases the maximum operating voltage of a capacitor.",
+    "type": "tf",
+    "c": "false",
+    "e": "A dielectric increases the maximum operating voltage of a capacitor."
+  },
+  {
+    "q": "A dielectric provides possible mechanical support between the plates.",
+    "type": "tf",
+    "c": "true",
+    "e": "Solid dielectrics keep the plates separated physically."
+  },
+  {
+    "q": "Mechanical support from a dielectric allows the plates to be close together without electrical contact.",
+    "type": "tf",
+    "c": "true",
+    "e": "This allows for a smaller distance d, which increases capacitance."
+  },
+  {
+    "q": "Decreasing the separation d between plates decreases the capacitance C.",
+    "type": "tf",
+    "c": "false",
+    "e": "Decreasing the separation d increases the capacitance C."
+  },
+  {
+    "q": "A dielectric increases the maximum operating voltage of a capacitor even though the physical size of the capacitor doesn't change.",
+    "type": "tf",
+    "c": "true",
+    "e": "Dielectrics generally have a higher dielectric strength than air."
+  },
+  {
+    "q": "The dielectric may be able to withstand a smaller electric field between the plates than air.",
+    "type": "tf",
+    "c": "false",
+    "e": "The dielectric may be able to withstand a larger electric field between the plates than air."
+  },
+  {
+    "q": "The permittivity of vacuum $\\varepsilon_0$ is $8.85 \\times 10^{-12}$ C$^2$ N$^{-1}$ m$^{-2}$.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the standard physical constant for vacuum permittivity."
+  },
+  {
+    "q": "The unit of permittivity of vacuum can also be written as F m$^{-1}$.",
+    "type": "tf",
+    "c": "true",
+    "e": "Farads per meter is an equivalent and commonly used unit for permittivity."
+  },
+  {
+    "q": "The dielectric constant of water at 18°C is 1.",
+    "type": "tf",
+    "c": "false",
+    "e": "The dielectric constant of water at 18°C is 81."
+  },
+  {
+    "q": "The dielectric constant of air at 1 atm is 1.0006.",
+    "type": "tf",
+    "c": "true",
+    "e": "Air's dielectric constant is very close to, but slightly greater than, that of a vacuum."
+  }
+]

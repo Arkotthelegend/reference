@@ -1,0 +1,332 @@
+[
+  {
+    "q": "Digital electronics is a field of electronics involving the study of digital signals and the engineering of devices that use or produce them, which is in contrast to _____ electronics.",
+    "type": "mcq",
+    "a": [
+      "analog",
+      "linear",
+      "continuous"
+    ],
+    "c": 0,
+    "e": "Digital electronics deals with discrete signals, contrasting directly with analog electronics."
+  },
+  {
+    "q": "An advantage of digital circuits when compared to analog circuits is that signals represented digitally can be transmitted without degradation caused by _____.",
+    "type": "mcq",
+    "a": [
+      "heat",
+      "noise",
+      "light"
+    ],
+    "c": 1,
+    "e": "Digital signals are highly immune to noise degradation during transmission."
+  },
+  {
+    "q": "An IC, sometimes called a chip (or) microchip, is a semiconductor wafer on which thousands (or) millions of tiny resistors, capacitors and _____ are fabricated.",
+    "type": "mcq",
+    "a": [
+      "inductors",
+      "diodes",
+      "transistors"
+    ],
+    "c": 2,
+    "e": "Integrated circuits primarily consist of microscopic transistors, resistors, and capacitors."
+  },
+  {
+    "q": "Linear ICs have continuously variable output that depends on the input signal level and are used as af (audio-frequency) and _____ amplifiers.",
+    "type": "mcq",
+    "a": [
+      "rf",
+      "dc",
+      "ac"
+    ],
+    "c": 0,
+    "e": "Linear ICs are commonly used as amplifiers for audio-frequency (af) and radio-frequency (rf) signals."
+  },
+  {
+    "q": "Digital ICs operate at only a few defined levels or states, rather than over a continuous range of signal _____.",
+    "type": "mcq",
+    "a": [
+      "frequencies",
+      "amplitudes",
+      "phases"
+    ],
+    "c": 1,
+    "e": "Digital ICs process discrete signal amplitudes (usually logic 0 and logic 1)."
+  },
+  {
+    "q": "The fundamental building blocks of digital ICs are logic gates, which work with binary data, that is, signals that have only two different states, called LOW (logic 0) and _____ (logic 1).",
+    "type": "mcq",
+    "a": [
+      "MEDIUM",
+      "ZERO",
+      "HIGH"
+    ],
+    "c": 2,
+    "e": "Binary logic states are universally referred to as LOW and HIGH."
+  },
+  {
+    "q": "There are two common types of logic IC package available, known as TTL (Transistor-Transistor Logic) and _____ (Complementary Metal Oxide Semiconductor).",
+    "type": "mcq",
+    "a": [
+      "CMOS",
+      "BJT",
+      "FET"
+    ],
+    "c": 0,
+    "e": "TTL and CMOS are the two dominant logic families in digital IC packaging."
+  },
+  {
+    "q": "The AND gate with inverted output is called a _____ gate.",
+    "type": "mcq",
+    "a": [
+      "NOR",
+      "NAND",
+      "XOR"
+    ],
+    "c": 1,
+    "e": "Adding an inverter to an AND gate creates a NAND (NOT-AND) gate."
+  },
+  {
+    "q": "In an XOR gate, the output is HIGH if one, and only one, of the inputs is _____.",
+    "type": "mcq",
+    "a": [
+      "LOW",
+      "ZERO",
+      "HIGH"
+    ],
+    "c": 2,
+    "e": "The Exclusive-OR (XOR) gate outputs HIGH exclusively when inputs differ (one is HIGH)."
+  },
+  {
+    "q": "The XOR gate produces a 0 when both inputs _____.",
+    "type": "mcq",
+    "a": [
+      "match",
+      "differ",
+      "invert"
+    ],
+    "c": 0,
+    "e": "If both inputs to an XOR gate are identical (both 0 or both 1), the output is 0."
+  },
+  {
+    "q": "Boolean algebra is a branch of mathematics where variables can have only two possible values: false and true, (or) logic values 0 and _____.",
+    "type": "mcq",
+    "a": [
+      "2",
+      "1",
+      "-1"
+    ],
+    "c": 1,
+    "e": "Boolean algebra operates strictly on the binary values 0 and 1."
+  },
+  {
+    "q": "Boolean algebra gives a more compact way to describe a combinational logic circuit than _____ alone.",
+    "type": "mcq",
+    "a": [
+      "flowcharts",
+      "truth tables",
+      "diagrams"
+    ],
+    "c": 2,
+    "e": "Algebraic expressions are more compact than enumerating all states in truth tables."
+  },
+  {
+    "q": "The commutative law of addition in Boolean algebra is expressed as $A+B =$ _____.",
+    "type": "mcq",
+    "a": [
+      "$B+A$",
+      "$A \\cdot B$",
+      "$A-B$"
+    ],
+    "c": 0,
+    "e": "The commutative law states that the order of variables in addition does not matter."
+  },
+  {
+    "q": "The distributive law in Boolean algebra is expressed as $A(B+C) =$ _____.",
+    "type": "mcq",
+    "a": [
+      "$A+BC$",
+      "$AB \\cdot C$",
+      "$AB+AC$"
+    ],
+    "c": 1,
+    "e": "Distributing A across the sum (B+C) yields AB + AC."
+  },
+  {
+    "q": "According to the basic rules of Boolean algebra, the expression $A \\cdot 1$ is equal to _____.",
+    "type": "mcq",
+    "a": [
+      "$1$",
+      "$0$",
+      "$A$"
+    ],
+    "c": 2,
+    "e": "ANDing any variable with logic 1 leaves the variable unchanged."
+  },
+  {
+    "q": "According to the basic rules of Boolean algebra, the expression $A + \\overline{A}$ is equal to _____.",
+    "type": "mcq",
+    "a": [
+      "$1$",
+      "$0$",
+      "$A$"
+    ],
+    "c": 0,
+    "e": "A variable ORed with its complement always results in logic 1."
+  },
+  {
+    "q": "De Morgan's first theorem states that the complement of two or more ANDed variables is equivalent to the OR of the _____ of the individual variables.",
+    "type": "mcq",
+    "a": [
+      "inverses",
+      "complements",
+      "reciprocals"
+    ],
+    "c": 1,
+    "e": "De Morgan's theorem replaces AND with OR and complements each individual variable."
+  },
+  {
+    "q": "The formula for expressing De Morgan's first theorem for two variables is $\\overline{AB} =$ _____.",
+    "type": "mcq",
+    "a": [
+      "$\\overline{A} \\cdot \\overline{B}$",
+      "$A+B$",
+      "$\\overline{A}+\\overline{B}$"
+    ],
+    "c": 2,
+    "e": "The complement of an AND operation equals the OR of the individual complements."
+  },
+  {
+    "q": "The formula for expressing De Morgan's second theorem for two variables is $\\overline{A+B} =$ _____.",
+    "type": "mcq",
+    "a": [
+      "$\\overline{A} \\cdot \\overline{B}$",
+      "$\\overline{A}+\\overline{B}$",
+      "$AB$"
+    ],
+    "c": 0,
+    "e": "The complement of an OR operation equals the AND of the individual complements."
+  },
+  {
+    "q": "In a fire alarm system, the fire extinguisher will be set to operate if both smoke and _____ are detected.",
+    "type": "mcq",
+    "a": [
+      "heat",
+      "light",
+      "sound"
+    ],
+    "c": 1,
+    "e": "The textbook fire alarm logic triggers the extinguisher only when both smoke and heat detectors are active."
+  },
+  {
+    "q": "In a street lighting system, the OR gate gives a 1 output when either or both of its inputs are _____.",
+    "type": "mcq",
+    "a": [
+      "0",
+      "HIGH",
+      "1"
+    ],
+    "c": 2,
+    "e": "An OR gate outputs 1 if any or all of its inputs are 1."
+  },
+  {
+    "q": "Complex devices may have simple electronic representations of Boolean logic functions, and digital electronic circuits are usually made from large assemblies of logic gates often packaged in integrated _____.",
+    "type": "mcq",
+    "a": [
+      "circuits",
+      "boards",
+      "wires"
+    ],
+    "c": 0,
+    "e": "Logic gates are packaged into Integrated Circuits (ICs)."
+  },
+  {
+    "q": "Linear ICs have continuously variable output that theoretically capable of attaining an infinite number of states and the output signal level is a linear function of the input signal _____.",
+    "type": "mcq",
+    "a": [
+      "level",
+      "frequency",
+      "phase"
+    ],
+    "c": 1,
+    "e": "The output of a linear IC is directly proportional to its input signal level."
+  },
+  {
+    "q": "These logic ICs are usually supplied in plastic DIL packages containing several logic gates of the same type, where DIL stands for dual in _____.",
+    "type": "mcq",
+    "a": [
+      "layer",
+      "loop",
+      "line"
+    ],
+    "c": 2,
+    "e": "DIL stands for Dual In-Line package."
+  },
+  {
+    "q": "An XNOR gate is an XOR gate with inverted _____.",
+    "type": "mcq",
+    "a": [
+      "output",
+      "input",
+      "power"
+    ],
+    "c": 0,
+    "e": "An XNOR gate is simply an XOR gate followed by an inverter on its output."
+  },
+  {
+    "q": "Boolean algebra is also called Binary algebra or Logical algebra and is used to analyze and simplify the digital logic _____.",
+    "type": "mcq",
+    "a": [
+      "circuits",
+      "signals",
+      "waves"
+    ],
+    "c": 1,
+    "e": "The primary purpose of Boolean algebra is the analysis and simplification of digital logic circuits."
+  },
+  {
+    "q": "The commutative law of multiplication in Boolean algebra is expressed as $AB =$ _____.",
+    "type": "mcq",
+    "a": [
+      "$A+B$",
+      "$A-B$",
+      "$BA$"
+    ],
+    "c": 2,
+    "e": "The order of variables in a logical AND operation does not change the result."
+  },
+  {
+    "q": "The associative law of addition in Boolean algebra is expressed as $A+(B+C) =$ _____.",
+    "type": "mcq",
+    "a": [
+      "$(A+B)+C$",
+      "$A \\cdot (B+C)$",
+      "$AB+C$"
+    ],
+    "c": 0,
+    "e": "Grouping of variables in an OR operation does not affect the final sum."
+  },
+  {
+    "q": "According to the basic rules of Boolean algebra, the expression $A \\cdot A$ is equal to _____.",
+    "type": "mcq",
+    "a": [
+      "$1$",
+      "$A$",
+      "$0$"
+    ],
+    "c": 1,
+    "e": "ANDing a variable with itself yields the original variable."
+  },
+  {
+    "q": "According to the basic rules of Boolean algebra, the expression $A \\cdot \\overline{A}$ is equal to _____.",
+    "type": "mcq",
+    "a": [
+      "$A$",
+      "$1$",
+      "$0$"
+    ],
+    "c": 2,
+    "e": "ANDing a variable with its logical complement always results in 0."
+  }
+]

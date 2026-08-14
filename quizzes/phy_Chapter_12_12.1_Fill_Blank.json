@@ -1,0 +1,278 @@
+[
+  {
+    "q": "The branch of physics and technology concerned with the design of circuits using transistors, integrated circuits and microchips, and also with the behaviour and movement of electrons in a semiconductor, conductor or vacuum is known as ____.",
+    "type": "blank",
+    "c": "electronics",
+    "e": "Electronics is the field dealing with electronic circuits and electron movement in various media."
+  },
+  {
+    "q": "Electronic devices contain circuitry that involve ____ electrical components and associated passive interconnection technologies.",
+    "type": "blank",
+    "c": "active",
+    "e": "Active components require a power source to operate, unlike passive components."
+  },
+  {
+    "q": "Active electrical components are vacuum tubes, transistors, diodes, ICs, TRIACs, SCRs, LEDs, etc. and requires a ____ to operate.",
+    "type": "blank",
+    "c": "power source",
+    "e": "Active components rely on an external power source to function and amplify signals."
+  },
+  {
+    "q": "Passive electrical components are capable of operating without an ____.",
+    "type": "blank",
+    "c": "external power source",
+    "e": "Passive components like resistors and capacitors do not need external power to operate."
+  },
+  {
+    "q": "Zener diode is a ____ doped semiconductor pn junction diode.",
+    "type": "blank",
+    "c": "heavily",
+    "e": "Heavy doping allows the zener diode to operate safely in the reverse breakdown region."
+  },
+  {
+    "q": "It makes the current flow in the backward direction when ____ biased.",
+    "type": "blank",
+    "c": "reverse",
+    "e": "Zener diodes are specifically designed to conduct current in the reverse bias direction once the breakdown voltage is reached."
+  },
+  {
+    "q": "It operates like the normal diode when in the forward-bias mode, and has a turn-on voltage of between ____.",
+    "type": "blank",
+    "c": "0.3 and 0.7 V",
+    "e": "In forward bias, a zener diode behaves identically to a standard pn junction diode."
+  },
+  {
+    "q": "When the voltage across the terminals of a zener diode is reversed and the potential reaches the ____, the junction breaks down and the current flows in the reverse direction.",
+    "type": "blank",
+    "c": "zener voltage",
+    "e": "The zener voltage is the specific reverse potential at which breakdown occurs."
+  },
+  {
+    "q": "This effect is known as the ____ effect.",
+    "type": "blank",
+    "c": "zener",
+    "e": "The zener effect describes the reverse breakdown mechanism in heavily doped junctions."
+  },
+  {
+    "q": "The main difference between a zener diode and a normal diode lies in the ____ of current.",
+    "type": "blank",
+    "c": "passage",
+    "e": "Normal diodes block reverse current, while zener diodes allow it under specific conditions."
+  },
+  {
+    "q": "A normal diode allows current to flow only in one direction while zener diode allows current to flow in ____.",
+    "type": "blank",
+    "c": "both directions",
+    "e": "Zener diodes conduct in forward bias and also in reverse bias beyond the breakdown voltage."
+  },
+  {
+    "q": "There are two types of reverse breakdown regions in a zener diode: ____ breakdown and zener breakdown.",
+    "type": "blank",
+    "c": "avalanche",
+    "e": "Avalanche breakdown occurs in lightly doped junctions, while zener breakdown occurs in heavily doped ones."
+  },
+  {
+    "q": "Avalanche breakdown occurs at junctions which being lightly doped have ____ depletion layers.",
+    "type": "blank",
+    "c": "wide",
+    "e": "Light doping results in a wider depletion region, leading to avalanche multiplication."
+  },
+  {
+    "q": "Zener breakdown occurs at junctions which being heavily doped have ____ depletion layers.",
+    "type": "blank",
+    "c": "narrow",
+    "e": "Heavy doping creates a very narrow depletion layer, allowing quantum tunneling (zener effect)."
+  },
+  {
+    "q": "The voltage drop across the zener diode always remains ____ irrespective of the applied voltage.",
+    "type": "blank",
+    "c": "constant",
+    "e": "This constant voltage drop in the breakdown region makes zener diodes ideal for voltage regulation."
+  },
+  {
+    "q": "This feature of the zener diode makes it suitable for ____ as reference elements, surge suppressors, and in switching applications and clipper circuits.",
+    "type": "blank",
+    "c": "voltage regulation",
+    "e": "Zener diodes maintain a stable output voltage despite variations in input voltage or load current."
+  },
+  {
+    "q": "A LED is a semiconductor light source that emits light when ____ flows through it.",
+    "type": "blank",
+    "c": "current",
+    "e": "LEDs emit photons when forward-biased current recombines electrons and holes in the semiconductor."
+  },
+  {
+    "q": "A modern light source that requires ____ is the light emitting diode (LED).",
+    "type": "blank",
+    "c": "low voltages",
+    "e": "LEDs are highly efficient and operate safely on low DC voltages."
+  },
+  {
+    "q": "The LEDs are made from exotic semiconductor compounds such as ____.",
+    "type": "blank",
+    "c": "Gallium Arsenide",
+    "e": "Compounds like GaAs, GaP, and GaAsP are used to produce specific wavelengths of light."
+  },
+  {
+    "q": "Using a blue LED with a phosphor coating to convert blue light to white light by a process called ____.",
+    "type": "blank",
+    "c": "fluorescence",
+    "e": "Fluorescence allows the conversion of higher-energy blue photons into a broad spectrum of white light."
+  },
+  {
+    "q": "A current limiting resistor should be connected in ____ with LED in the circuit to protect the LED.",
+    "type": "blank",
+    "c": "series",
+    "e": "A series resistor limits the forward current to prevent the LED from burning out."
+  },
+  {
+    "q": "A photodiode is a semiconductor device that converts light into ____.",
+    "type": "blank",
+    "c": "electrical current",
+    "e": "Photodiodes generate a current proportional to the incident light intensity."
+  },
+  {
+    "q": "Photodiodes work in ____ biased mode.",
+    "type": "blank",
+    "c": "reverse",
+    "e": "Reverse biasing widens the depletion layer, allowing photogenerated carriers to be collected efficiently."
+  },
+  {
+    "q": "When the photodiode is illuminated with light of energy $h\nu$ greater than the energy gap $E_g$ of the semiconductor, then ____ pairs are generated due to absorption of photons.",
+    "type": "blank",
+    "c": "electron-hole",
+    "e": "Photon absorption excites electrons across the bandgap, creating mobile electron-hole pairs."
+  },
+  {
+    "q": "This current is called ____.",
+    "type": "blank",
+    "c": "photocurrent",
+    "e": "Photocurrent is the flow of charge carriers generated by incident light."
+  },
+  {
+    "q": "The magnitude of the photocurrent depends on the ____ of incident light.",
+    "type": "blank",
+    "c": "intensity",
+    "e": "Higher light intensity produces more electron-hole pairs, increasing the photocurrent."
+  },
+  {
+    "q": "A small amount of current (____ current), due to the flow of minority carriers, is also produced when no light is falling.",
+    "type": "blank",
+    "c": "dark",
+    "e": "Dark current is the small reverse saturation current that flows even in total darkness."
+  },
+  {
+    "q": "____ is most often used to fabricate photodiodes, though germanium and gallium arsenide can also be used.",
+    "type": "blank",
+    "c": "Silicon",
+    "e": "Silicon is preferred for visible and near-infrared photodiodes due to its favorable bandgap."
+  },
+  {
+    "q": "Photodiodes are used as ____ in compact disc (CD) players, televisions, air conditioners and many other electronics devices.",
+    "type": "blank",
+    "c": "photosensors",
+    "e": "As photosensors, photodiodes detect optical signals for remote controls and data reading."
+  },
+  {
+    "q": "A light dependent resistor (LDR) is a light controlled ____ resistor.",
+    "type": "blank",
+    "c": "variable",
+    "e": "An LDR's resistance varies dynamically based on the ambient light level."
+  },
+  {
+    "q": "In the dark or in dim light, the material of the disc has a relatively small number of ____ in it.",
+    "type": "blank",
+    "c": "free electrons",
+    "e": "Few free electrons in the dark result in high electrical resistance."
+  },
+  {
+    "q": "As light level increases, the LDR resistance ____.",
+    "type": "blank",
+    "c": "decreases",
+    "e": "More light frees more charge carriers, thereby lowering the electrical resistance."
+  },
+  {
+    "q": "Special semiconductor crystal, such as ____ or lead sulfide is used to make photo resistors.",
+    "type": "blank",
+    "c": "cadmium sulfide",
+    "e": "Cadmium sulfide is a common photoconductive material used in visible light LDRs."
+  },
+  {
+    "q": "LDRs are used as ____ switches in burglar alarm, alarm clock, light intensity meters, etc.",
+    "type": "blank",
+    "c": "light activated relay",
+    "e": "LDRs can trigger relays to turn circuits on or off based on changes in light intensity."
+  },
+  {
+    "q": "A thermistor is a temperature sensor that exhibits a large change in resistance proportional to a change in ____.",
+    "type": "blank",
+    "c": "temperature",
+    "e": "Thermistors are highly sensitive to temperature variations compared to standard resistors."
+  },
+  {
+    "q": "It contains semiconducting metallic oxides whose resistance decreases when the temperature raises either due to heating the thermistor directly or to passing a ____ through it.",
+    "type": "blank",
+    "c": "current",
+    "e": "Self-heating from current flow can also alter the thermistor's resistance."
+  },
+  {
+    "q": "The most commonly used is the Negative Temperature Coefficient (____) thermistor.",
+    "type": "blank",
+    "c": "NTC",
+    "e": "NTC thermistors decrease in resistance as temperature increases."
+  },
+  {
+    "q": "The NTC's resistance ____ as the temperature increases, and vice versa.",
+    "type": "blank",
+    "c": "decreases",
+    "e": "This inverse relationship makes NTC thermistors ideal for temperature sensing and compensation."
+  },
+  {
+    "q": "In the Positive Temperature Coefficient (PTC) thermistor, the resistance increases as the temperature increases, and is used to break the circuit at ____ temperatures.",
+    "type": "blank",
+    "c": "preset",
+    "e": "PTC thermistors act as resettable fuses by sharply increasing resistance at a specific threshold."
+  },
+  {
+    "q": "Liquid crystals are a state of matter which has properties between those of conventional liquids and those of ____ crystals.",
+    "type": "blank",
+    "c": "solid",
+    "e": "Liquid crystals flow like liquids but have molecules oriented in a structured way like solid crystals."
+  },
+  {
+    "q": "A liquid crystal display (LCD) is a flat-panel display or other electronically modulated optical device that uses the light-modulating properties of liquid crystals combined with ____.",
+    "type": "blank",
+    "c": "polarizers",
+    "e": "Polarizers are essential in LCDs to block or transmit light modulated by the liquid crystals."
+  },
+  {
+    "q": "Liquid crystals do not emit light directly, instead using a ____ or reflector to produce images in color or monochrome.",
+    "type": "blank",
+    "c": "backlight",
+    "e": "LCDs require an external light source since the liquid crystals only modulate existing light."
+  },
+  {
+    "q": "LCDs consume much less power than LEDs and gas-plasma displays because they work on the principle of ____ light rather than emitting it.",
+    "type": "blank",
+    "c": "blocking",
+    "e": "By selectively blocking light, LCDs achieve high energy efficiency."
+  },
+  {
+    "q": "LCDs allowed displays to be much thinner than ____ (CRT) technology.",
+    "type": "blank",
+    "c": "cathode ray tube",
+    "e": "CRT technology required bulky vacuum tubes, whereas LCDs are flat-panel devices."
+  },
+  {
+    "q": "LCDs have begun being replaced by new display technologies such as ____ (OLEDs).",
+    "type": "blank",
+    "c": "organic light-emitting diodes",
+    "e": "OLEDs emit their own light, eliminating the need for a backlight and allowing for thinner displays."
+  },
+  {
+    "q": "A polarizer is an optical device that can convert an unpolarized light wave into a ____ light wave by blocking all other vibrations.",
+    "type": "blank",
+    "c": "polarize",
+    "e": "Polarizers filter light waves so that only those vibrating in a specific plane pass through."
+  }
+]
