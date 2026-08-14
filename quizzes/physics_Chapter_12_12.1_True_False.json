@@ -1,0 +1,290 @@
+[
+  {
+    "q": "The branch of physics and technology concerned with the design of circuits using transistors, integrated circuits and microchips, and also with the behaviour and movement of electrons in a semiconductor, conductor or vacuum is known as electronics.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the exact textbook definition of electronics."
+  },
+  {
+    "q": "Active electrical components are capable of operating without an external power source.",
+    "type": "tf",
+    "c": "false",
+    "e": "Passive electrical components are capable of operating without an external power source, while active components require a power source."
+  },
+  {
+    "q": "Passive electrical components are resistors, capacitors, inductors, transformers, LDR, transducer, etc.",
+    "type": "tf",
+    "c": "true",
+    "e": "These are the exact examples of passive electrical components listed in the textbook."
+  },
+  {
+    "q": "A zener diode is a lightly doped semiconductor pn junction diode.",
+    "type": "tf",
+    "c": "false",
+    "e": "A zener diode is a heavily doped semiconductor pn junction diode."
+  },
+  {
+    "q": "A zener diode makes the current flow in the backward direction when reverse biased.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the primary distinguishing function of a zener diode compared to a normal diode."
+  },
+  {
+    "q": "A zener diode operates like the normal diode when in the forward-bias mode, and has a turn-on voltage of between 0.3 and 0.7 V.",
+    "type": "tf",
+    "c": "true",
+    "e": "In forward-bias, it behaves exactly like a standard pn junction diode."
+  },
+  {
+    "q": "When the voltage across the terminals of a zener diode is reversed and the potential reaches the zener voltage, the junction breaks down and the current flows in the forward direction.",
+    "type": "tf",
+    "c": "false",
+    "e": "The current flows in the reverse direction during zener breakdown."
+  },
+  {
+    "q": "The zener voltage is also known as the breakdown voltage or knee voltage.",
+    "type": "tf",
+    "c": "true",
+    "e": "These are the accepted alternative terms for the zener voltage."
+  },
+  {
+    "q": "Avalanche breakdown occurs at junctions which being heavily doped have narrow depletion layers.",
+    "type": "tf",
+    "c": "false",
+    "e": "Avalanche breakdown occurs at lightly doped junctions with wide depletion layers."
+  },
+  {
+    "q": "Zener breakdown occurs at junctions which being heavily doped have narrow depletion layers.",
+    "type": "tf",
+    "c": "true",
+    "e": "Heavy doping creates the narrow depletion layer necessary for the zener effect."
+  },
+  {
+    "q": "The voltage drop across the zener diode always remains constant irrespective of the applied voltage.",
+    "type": "tf",
+    "c": "true",
+    "e": "This constant voltage drop in the breakdown region is what makes it useful for voltage regulation."
+  },
+  {
+    "q": "The constant voltage drop feature of the zener diode makes it suitable for current regulation as reference elements and surge suppressors.",
+    "type": "tf",
+    "c": "false",
+    "e": "It is suitable for voltage regulation, not current regulation."
+  },
+  {
+    "q": "A normal diode allows current to flow only in one direction while zener diode allows current to flow in both directions.",
+    "type": "tf",
+    "c": "true",
+    "e": "The zener diode conducts in reverse bias once the breakdown voltage is reached."
+  },
+  {
+    "q": "A LED is a semiconductor light source that emits light when current flows through it.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the fundamental definition of a Light Emitting Diode."
+  },
+  {
+    "q": "A light emitting diode emits a fairly narrow bandwidth of visible or invisible light when its internal diode junction attains a reverse-biased current.",
+    "type": "tf",
+    "c": "false",
+    "e": "An LED emits light when its internal diode junction attains a forward-biased current."
+  },
+  {
+    "q": "The visible lights that an LED emits are usually orange, red, yellow, or green.",
+    "type": "tf",
+    "c": "true",
+    "e": "These are the standard visible colors produced by typical LED semiconductor compounds."
+  },
+  {
+    "q": "The commonly used invisible light for LED is ultraviolet light.",
+    "type": "tf",
+    "c": "false",
+    "e": "The commonly used invisible light for LED is infrared light."
+  },
+  {
+    "q": "LEDs do not directly produce white light, but use a blue LED with a phosphor coating to convert blue light to white light by a process called fluorescence.",
+    "type": "tf",
+    "c": "true",
+    "e": "White LEDs are actually blue LEDs coated with a phosphor that fluoresces to create broad-spectrum white light."
+  },
+  {
+    "q": "Very low voltage (1 to 2 V) and current (5 to 20 mA) are enough to drive the LED.",
+    "type": "tf",
+    "c": "true",
+    "e": "LEDs are highly efficient and require very little power to operate."
+  },
+  {
+    "q": "The response time of an LED is about 10 ms.",
+    "type": "tf",
+    "c": "false",
+    "e": "The response time of an LED is extremely fast, about 10 ns."
+  },
+  {
+    "q": "An LED has a much narrower bandwidth (wavelength spread) compared to the laser.",
+    "type": "tf",
+    "c": "false",
+    "e": "An LED has a much wider bandwidth compared to a laser."
+  },
+  {
+    "q": "A photodiode is a semiconductor device that converts light into electrical current.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the primary function of a photodiode."
+  },
+  {
+    "q": "Photodiodes work in forward biased mode.",
+    "type": "tf",
+    "c": "false",
+    "e": "Photodiodes work in reverse biased mode to detect light-generated current."
+  },
+  {
+    "q": "When the photodiode is illuminated with light of energy $hv$ greater than the energy gap $E_g$ of the semiconductor, electron-hole pairs are generated.",
+    "type": "tf",
+    "c": "true",
+    "e": "Absorption of photons with sufficient energy creates the charge carriers necessary for photocurrent."
+  },
+  {
+    "q": "The magnitude of the photocurrent depends on the frequency of incident light.",
+    "type": "tf",
+    "c": "false",
+    "e": "The magnitude of the photocurrent depends on the intensity of the incident light."
+  },
+  {
+    "q": "A small amount of current called dark current is produced when no light is falling due to the flow of majority carriers.",
+    "type": "tf",
+    "c": "false",
+    "e": "Dark current is due to the flow of minority carriers."
+  },
+  {
+    "q": "Silicon is most often used to fabricate photodiodes, though germanium and gallium arsenide can also be used.",
+    "type": "tf",
+    "c": "true",
+    "e": "These are the standard semiconductor materials used for photodiode fabrication."
+  },
+  {
+    "q": "A light dependent resistor (LDR) is a temperature controlled variable resistor.",
+    "type": "tf",
+    "c": "false",
+    "e": "An LDR is a light controlled variable resistor."
+  },
+  {
+    "q": "Special semiconductor crystals, such as cadmium sulfide or lead sulfide, are used to make photo resistors.",
+    "type": "tf",
+    "c": "true",
+    "e": "These compounds exhibit the necessary photoconductive properties for LDRs."
+  },
+  {
+    "q": "When an LDR is exposed to light, it takes a few milliseconds to lower its resistance.",
+    "type": "tf",
+    "c": "true",
+    "e": "The response to light is relatively quick, though returning to dark resistance takes longer."
+  },
+  {
+    "q": "A thermistor is a light sensor that exhibits a large change in resistance proportional to a change in light intensity.",
+    "type": "tf",
+    "c": "false",
+    "e": "A thermistor is a temperature sensor that exhibits a large change in resistance proportional to a change in temperature."
+  },
+  {
+    "q": "In the Negative Temperature Coefficient (NTC) thermistor, the resistance decreases as the temperature increases.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the defining characteristic of an NTC thermistor."
+  },
+  {
+    "q": "In the Positive Temperature Coefficient (PTC) thermistor, the resistance decreases as the temperature increases.",
+    "type": "tf",
+    "c": "false",
+    "e": "In a PTC thermistor, the resistance increases as the temperature increases."
+  },
+  {
+    "q": "A liquid crystal display (LCD) is a flat-panel display that uses the light-modulating properties of liquid crystals combined with polarizers.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the exact definition of an LCD provided in the text."
+  },
+  {
+    "q": "Liquid crystals emit light directly to produce images in color or monochrome.",
+    "type": "tf",
+    "c": "false",
+    "e": "Liquid crystals do not emit light directly; they use a backlight or reflector."
+  },
+  {
+    "q": "In an LCD, a polarizing glass filter is placed in front and behind all the pixels, with the front filter placed at 45 degrees.",
+    "type": "tf",
+    "c": "false",
+    "e": "The front polarizing filter is placed at 90 degrees relative to the back filter."
+  },
+  {
+    "q": "LCDs consume much less power than LEDs and gas-plasma displays because they work on the principle of blocking light rather than emitting it.",
+    "type": "tf",
+    "c": "true",
+    "e": "Blocking a constant backlight requires less energy than actively generating light at each pixel."
+  },
+  {
+    "q": "Active electrical components require a power source to operate.",
+    "type": "tf",
+    "c": "true",
+    "e": "Components like transistors and ICs need external power to amplify or switch signals."
+  },
+  {
+    "q": "A TRIAC is a three terminal AC switch and is considered a passive electrical component.",
+    "type": "tf",
+    "c": "false",
+    "e": "A TRIAC is an active electrical component because it requires power to operate and control current."
+  },
+  {
+    "q": "Zener diodes are used as surge suppressors and in clipper circuits.",
+    "type": "tf",
+    "c": "true",
+    "e": "Their constant voltage breakdown makes them ideal for clipping voltage spikes."
+  },
+  {
+    "q": "LEDs are typically used as ON/OFF indicator lights in electrical appliances such as televisions and computers.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is one of the most common everyday applications of LEDs."
+  },
+  {
+    "q": "The energy in an LED is radiated in the form of heat.",
+    "type": "tf",
+    "c": "false",
+    "e": "The energy in an LED is radiated in the form of light."
+  },
+  {
+    "q": "A current limiting resistor should be connected in parallel with an LED in the circuit to protect it.",
+    "type": "tf",
+    "c": "false",
+    "e": "A current limiting resistor must be connected in series with the LED."
+  },
+  {
+    "q": "Photodiodes can be used as photosensors in compact disc (CD) players and televisions.",
+    "type": "tf",
+    "c": "true",
+    "e": "They detect optical signals in these and many other consumer electronics."
+  },
+  {
+    "q": "An LDR becomes a good conductor of electric current in the dark.",
+    "type": "tf",
+    "c": "false",
+    "e": "An LDR becomes a poor conductor in the dark and a good conductor in bright light."
+  },
+  {
+    "q": "Thermistors contain semiconducting metallic oxides whose resistance changes with temperature.",
+    "type": "tf",
+    "c": "true",
+    "e": "These metallic oxides provide the sensitive temperature-resistance relationship."
+  },
+  {
+    "q": "PTC thermistors are used to break the circuit at preset temperatures.",
+    "type": "tf",
+    "c": "true",
+    "e": "Their sharply increasing resistance at high temperatures makes them useful as resettable fuses."
+  },
+  {
+    "q": "LCDs have begun being replaced by new display technologies such as organic light-emitting diodes (OLEDs).",
+    "type": "tf",
+    "c": "true",
+    "e": "OLEDs offer better contrast and do not require a backlight, making them the newer standard."
+  }
+]

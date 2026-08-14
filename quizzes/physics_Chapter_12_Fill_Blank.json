@@ -1,0 +1,680 @@
+[
+  {
+    "q": "The branch of physics and technology concerned with the design of circuits using transistors, integrated circuits and microchips, and also with the behaviour and movement of electrons in a semiconductor, conductor or vacuum is known as ____.",
+    "type": "blank",
+    "c": "electronics",
+    "e": "Electronics is the field dealing with electronic circuits and electron movement in various media."
+  },
+  {
+    "q": "Electronic devices contain circuitry that involve ____ electrical components and associated passive interconnection technologies.",
+    "type": "blank",
+    "c": "active",
+    "e": "Active components require a power source to operate, unlike passive components."
+  },
+  {
+    "q": "Active electrical components are vacuum tubes, transistors, diodes, ICs, TRIACs, SCRs, LEDs, etc. and requires a ____ to operate.",
+    "type": "blank",
+    "c": "power source",
+    "e": "Active components rely on an external power source to function and amplify signals."
+  },
+  {
+    "q": "Passive electrical components are capable of operating without an ____.",
+    "type": "blank",
+    "c": "external power source",
+    "e": "Passive components like resistors and capacitors do not need external power to operate."
+  },
+  {
+    "q": "Zener diode is a ____ doped semiconductor pn junction diode.",
+    "type": "blank",
+    "c": "heavily",
+    "e": "Heavy doping allows the zener diode to operate safely in the reverse breakdown region."
+  },
+  {
+    "q": "It makes the current flow in the backward direction when ____ biased.",
+    "type": "blank",
+    "c": "reverse",
+    "e": "Zener diodes are specifically designed to conduct current in the reverse bias direction once the breakdown voltage is reached."
+  },
+  {
+    "q": "It operates like the normal diode when in the forward-bias mode, and has a turn-on voltage of between ____.",
+    "type": "blank",
+    "c": "0.3 and 0.7 V",
+    "e": "In forward bias, a zener diode behaves identically to a standard pn junction diode."
+  },
+  {
+    "q": "When the voltage across the terminals of a zener diode is reversed and the potential reaches the ____, the junction breaks down and the current flows in the reverse direction.",
+    "type": "blank",
+    "c": "zener voltage",
+    "e": "The zener voltage is the specific reverse potential at which breakdown occurs."
+  },
+  {
+    "q": "This effect is known as the ____ effect.",
+    "type": "blank",
+    "c": "zener",
+    "e": "The zener effect describes the reverse breakdown mechanism in heavily doped junctions."
+  },
+  {
+    "q": "The main difference between a zener diode and a normal diode lies in the ____ of current.",
+    "type": "blank",
+    "c": "passage",
+    "e": "Normal diodes block reverse current, while zener diodes allow it under specific conditions."
+  },
+  {
+    "q": "A normal diode allows current to flow only in one direction while zener diode allows current to flow in ____.",
+    "type": "blank",
+    "c": "both directions",
+    "e": "Zener diodes conduct in forward bias and also in reverse bias beyond the breakdown voltage."
+  },
+  {
+    "q": "There are two types of reverse breakdown regions in a zener diode: ____ breakdown and zener breakdown.",
+    "type": "blank",
+    "c": "avalanche",
+    "e": "Avalanche breakdown occurs in lightly doped junctions, while zener breakdown occurs in heavily doped ones."
+  },
+  {
+    "q": "Avalanche breakdown occurs at junctions which being lightly doped have ____ depletion layers.",
+    "type": "blank",
+    "c": "wide",
+    "e": "Light doping results in a wider depletion region, leading to avalanche multiplication."
+  },
+  {
+    "q": "Zener breakdown occurs at junctions which being heavily doped have ____ depletion layers.",
+    "type": "blank",
+    "c": "narrow",
+    "e": "Heavy doping creates a very narrow depletion layer, allowing quantum tunneling (zener effect)."
+  },
+  {
+    "q": "The voltage drop across the zener diode always remains ____ irrespective of the applied voltage.",
+    "type": "blank",
+    "c": "constant",
+    "e": "This constant voltage drop in the breakdown region makes zener diodes ideal for voltage regulation."
+  },
+  {
+    "q": "This feature of the zener diode makes it suitable for ____ as reference elements, surge suppressors, and in switching applications and clipper circuits.",
+    "type": "blank",
+    "c": "voltage regulation",
+    "e": "Zener diodes maintain a stable output voltage despite variations in input voltage or load current."
+  },
+  {
+    "q": "A LED is a semiconductor light source that emits light when ____ flows through it.",
+    "type": "blank",
+    "c": "current",
+    "e": "LEDs emit photons when forward-biased current recombines electrons and holes in the semiconductor."
+  },
+  {
+    "q": "A modern light source that requires ____ is the light emitting diode (LED).",
+    "type": "blank",
+    "c": "low voltages",
+    "e": "LEDs are highly efficient and operate safely on low DC voltages."
+  },
+  {
+    "q": "The LEDs are made from exotic semiconductor compounds such as ____.",
+    "type": "blank",
+    "c": "Gallium Arsenide",
+    "e": "Compounds like GaAs, GaP, and GaAsP are used to produce specific wavelengths of light."
+  },
+  {
+    "q": "Using a blue LED with a phosphor coating to convert blue light to white light by a process called ____.",
+    "type": "blank",
+    "c": "fluorescence",
+    "e": "Fluorescence allows the conversion of higher-energy blue photons into a broad spectrum of white light."
+  },
+  {
+    "q": "A current limiting resistor should be connected in ____ with LED in the circuit to protect the LED.",
+    "type": "blank",
+    "c": "series",
+    "e": "A series resistor limits the forward current to prevent the LED from burning out."
+  },
+  {
+    "q": "A photodiode is a semiconductor device that converts light into ____.",
+    "type": "blank",
+    "c": "electrical current",
+    "e": "Photodiodes generate a current proportional to the incident light intensity."
+  },
+  {
+    "q": "Photodiodes work in ____ biased mode.",
+    "type": "blank",
+    "c": "reverse",
+    "e": "Reverse biasing widens the depletion layer, allowing photogenerated carriers to be collected efficiently."
+  },
+  {
+    "q": "When the photodiode is illuminated with light of energy $h\nu$ greater than the energy gap $E_g$ of the semiconductor, then ____ pairs are generated due to absorption of photons.",
+    "type": "blank",
+    "c": "electron-hole",
+    "e": "Photon absorption excites electrons across the bandgap, creating mobile electron-hole pairs."
+  },
+  {
+    "q": "This current is called ____.",
+    "type": "blank",
+    "c": "photocurrent",
+    "e": "Photocurrent is the flow of charge carriers generated by incident light."
+  },
+  {
+    "q": "The magnitude of the photocurrent depends on the ____ of incident light.",
+    "type": "blank",
+    "c": "intensity",
+    "e": "Higher light intensity produces more electron-hole pairs, increasing the photocurrent."
+  },
+  {
+    "q": "A small amount of current (____ current), due to the flow of minority carriers, is also produced when no light is falling.",
+    "type": "blank",
+    "c": "dark",
+    "e": "Dark current is the small reverse saturation current that flows even in total darkness."
+  },
+  {
+    "q": "____ is most often used to fabricate photodiodes, though germanium and gallium arsenide can also be used.",
+    "type": "blank",
+    "c": "Silicon",
+    "e": "Silicon is preferred for visible and near-infrared photodiodes due to its favorable bandgap."
+  },
+  {
+    "q": "Photodiodes are used as ____ in compact disc (CD) players, televisions, air conditioners and many other electronics devices.",
+    "type": "blank",
+    "c": "photosensors",
+    "e": "As photosensors, photodiodes detect optical signals for remote controls and data reading."
+  },
+  {
+    "q": "A light dependent resistor (LDR) is a light controlled ____ resistor.",
+    "type": "blank",
+    "c": "variable",
+    "e": "An LDR's resistance varies dynamically based on the ambient light level."
+  },
+  {
+    "q": "In the dark or in dim light, the material of the disc has a relatively small number of ____ in it.",
+    "type": "blank",
+    "c": "free electrons",
+    "e": "Few free electrons in the dark result in high electrical resistance."
+  },
+  {
+    "q": "As light level increases, the LDR resistance ____.",
+    "type": "blank",
+    "c": "decreases",
+    "e": "More light frees more charge carriers, thereby lowering the electrical resistance."
+  },
+  {
+    "q": "Special semiconductor crystal, such as ____ or lead sulfide is used to make photo resistors.",
+    "type": "blank",
+    "c": "cadmium sulfide",
+    "e": "Cadmium sulfide is a common photoconductive material used in visible light LDRs."
+  },
+  {
+    "q": "LDRs are used as ____ switches in burglar alarm, alarm clock, light intensity meters, etc.",
+    "type": "blank",
+    "c": "light activated relay",
+    "e": "LDRs can trigger relays to turn circuits on or off based on changes in light intensity."
+  },
+  {
+    "q": "A thermistor is a temperature sensor that exhibits a large change in resistance proportional to a change in ____.",
+    "type": "blank",
+    "c": "temperature",
+    "e": "Thermistors are highly sensitive to temperature variations compared to standard resistors."
+  },
+  {
+    "q": "It contains semiconducting metallic oxides whose resistance decreases when the temperature raises either due to heating the thermistor directly or to passing a ____ through it.",
+    "type": "blank",
+    "c": "current",
+    "e": "Self-heating from current flow can also alter the thermistor's resistance."
+  },
+  {
+    "q": "The most commonly used is the Negative Temperature Coefficient (____) thermistor.",
+    "type": "blank",
+    "c": "NTC",
+    "e": "NTC thermistors decrease in resistance as temperature increases."
+  },
+  {
+    "q": "The NTC's resistance ____ as the temperature increases, and vice versa.",
+    "type": "blank",
+    "c": "decreases",
+    "e": "This inverse relationship makes NTC thermistors ideal for temperature sensing and compensation."
+  },
+  {
+    "q": "In the Positive Temperature Coefficient (PTC) thermistor, the resistance increases as the temperature increases, and is used to break the circuit at ____ temperatures.",
+    "type": "blank",
+    "c": "preset",
+    "e": "PTC thermistors act as resettable fuses by sharply increasing resistance at a specific threshold."
+  },
+  {
+    "q": "Liquid crystals are a state of matter which has properties between those of conventional liquids and those of ____ crystals.",
+    "type": "blank",
+    "c": "solid",
+    "e": "Liquid crystals flow like liquids but have molecules oriented in a structured way like solid crystals."
+  },
+  {
+    "q": "A liquid crystal display (LCD) is a flat-panel display or other electronically modulated optical device that uses the light-modulating properties of liquid crystals combined with ____.",
+    "type": "blank",
+    "c": "polarizers",
+    "e": "Polarizers are essential in LCDs to block or transmit light modulated by the liquid crystals."
+  },
+  {
+    "q": "Liquid crystals do not emit light directly, instead using a ____ or reflector to produce images in color or monochrome.",
+    "type": "blank",
+    "c": "backlight",
+    "e": "LCDs require an external light source since the liquid crystals only modulate existing light."
+  },
+  {
+    "q": "LCDs consume much less power than LEDs and gas-plasma displays because they work on the principle of ____ light rather than emitting it.",
+    "type": "blank",
+    "c": "blocking",
+    "e": "By selectively blocking light, LCDs achieve high energy efficiency."
+  },
+  {
+    "q": "LCDs allowed displays to be much thinner than ____ (CRT) technology.",
+    "type": "blank",
+    "c": "cathode ray tube",
+    "e": "CRT technology required bulky vacuum tubes, whereas LCDs are flat-panel devices."
+  },
+  {
+    "q": "LCDs have begun being replaced by new display technologies such as ____ (OLEDs).",
+    "type": "blank",
+    "c": "organic light-emitting diodes",
+    "e": "OLEDs emit their own light, eliminating the need for a backlight and allowing for thinner displays."
+  },
+  {
+    "q": "A polarizer is an optical device that can convert an unpolarized light wave into a ____ light wave by blocking all other vibrations.",
+    "type": "blank",
+    "c": "polarize",
+    "e": "Polarizers filter light waves so that only those vibrating in a specific plane pass through."
+  },
+  {
+    "q": "Digital electronics is a field of electronics involving the study of ____ signals and the engineering of devices that use or produce them.",
+    "type": "blank",
+    "c": "digital",
+    "e": "Digital electronics focuses on discrete binary signals rather than continuous analog waveforms."
+  },
+  {
+    "q": "An advantage of digital circuits when compared to analog circuits is that signals represented digitally can be transmitted without degradation caused by ____.",
+    "type": "blank",
+    "c": "noise",
+    "e": "Digital signals are highly immune to noise, allowing for error-free data transmission over long distances."
+  },
+  {
+    "q": "An IC (integrated circuit), sometimes called a chip or microchip, is a semiconductor wafer on which thousands or millions of tiny resistors, capacitors and ____ are fabricated.",
+    "type": "blank",
+    "c": "transistors",
+    "e": "Transistors are the primary active switching and amplifying components within an integrated circuit."
+  },
+  {
+    "q": "Linear ICs have continuously variable output that depends on the input ____ level.",
+    "type": "blank",
+    "c": "signal",
+    "e": "Linear ICs process analog signals where the output is directly proportional to the continuous input."
+  },
+  {
+    "q": "Linear ICs are used as af (audio-frequency) and rf (radio-frequency) ____.",
+    "type": "blank",
+    "c": "amplifiers",
+    "e": "Linear ICs like operational amplifiers are widely used to boost audio and radio frequency signals."
+  },
+  {
+    "q": "Digital ICs operate at only a few defined levels or states, rather than over a continuous range of signal ____.",
+    "type": "blank",
+    "c": "amplitudes",
+    "e": "Digital circuits use discrete voltage levels, typically representing logic 0 and logic 1."
+  },
+  {
+    "q": "The fundamental building blocks of digital ICs are ____, which work with binary data.",
+    "type": "blank",
+    "c": "logic gates",
+    "e": "Logic gates perform basic Boolean operations on binary inputs to produce digital outputs."
+  },
+  {
+    "q": "These logic ICs are usually supplied in plastic DIL (____) packages containing several logic gates of the same type.",
+    "type": "blank",
+    "c": "dual in line",
+    "e": "DIL packages have two parallel rows of pins for through-hole mounting on circuit boards."
+  },
+  {
+    "q": "There are two common types of package available, known as TTL (Transistor-Transistor Logic) and ____ (Complementary Metal Oxide Semiconductor).",
+    "type": "blank",
+    "c": "CMOS",
+    "e": "CMOS technology is favored for its low power consumption compared to TTL."
+  },
+  {
+    "q": "The AND gate with inverted output is called a ____ gate.",
+    "type": "blank",
+    "c": "NAND",
+    "e": "A NAND gate outputs a LOW only when all its inputs are HIGH."
+  },
+  {
+    "q": "The OR gate with inverted output is called a ____ gate.",
+    "type": "blank",
+    "c": "NOR",
+    "e": "A NOR gate outputs a HIGH only when all its inputs are LOW."
+  },
+  {
+    "q": "The inverted connection (inverted gate) is indicated by a ____.",
+    "type": "blank",
+    "c": "bubble",
+    "e": "In logic circuit schematics, a small circle or bubble denotes logical inversion (NOT)."
+  },
+  {
+    "q": "In an XOR gate, the output is HIGH if one, and only one, of the inputs is ____.",
+    "type": "blank",
+    "c": "HIGH",
+    "e": "The Exclusive OR gate acts as an inequality detector, outputting HIGH when inputs differ."
+  },
+  {
+    "q": "Boolean algebra is a branch of mathematics where variables can have only two possible values: false and true, or logic values ____.",
+    "type": "blank",
+    "c": "0 and 1",
+    "e": "Binary logic uses 0 and 1 to represent the false and true states respectively."
+  },
+  {
+    "q": "Boolean algebra is used to analyze and ____ the digital (logic) circuits.",
+    "type": "blank",
+    "c": "simplify",
+    "e": "Simplifying Boolean expressions reduces the number of logic gates needed in a circuit."
+  },
+  {
+    "q": "The commutative, associative and distributive laws for addition and multiplication are the same as in ____ algebra.",
+    "type": "blank",
+    "c": "ordinary",
+    "e": "Many fundamental rules of standard algebra apply directly to Boolean logic operations."
+  },
+  {
+    "q": "Logic gates can be used as ____ in electronic control systems.",
+    "type": "blank",
+    "c": "processors",
+    "e": "Combinations of logic gates process input conditions to make automated control decisions."
+  },
+  {
+    "q": "The fire alarm will turn on when either smoke or ____ is detected.",
+    "type": "blank",
+    "c": "heat",
+    "e": "An OR logic function triggers the alarm if either the smoke or heat sensor is activated."
+  },
+  {
+    "q": "If both smoke and heat are detected, the ____ will also be set to operate.",
+    "type": "blank",
+    "c": "fire extinguisher",
+    "e": "An AND logic function ensures the extinguisher only activates when multiple severe conditions are met."
+  },
+  {
+    "q": "A system is required which allows the street lights either to be turned on manually by a switch at any time or automatically by a ____ when it is dark.",
+    "type": "blank",
+    "c": "light sensor",
+    "e": "A light sensor provides the automated input to the logic circuit based on ambient darkness."
+  },
+  {
+    "q": "In general, an electronic communication system is composed of the transmission, reception, and processing of information between two or more locations with the use of ____.",
+    "type": "blank",
+    "c": "electronic circuits",
+    "e": "Electronic circuits form the hardware basis for modulating, transmitting, and demodulating signals."
+  },
+  {
+    "q": "The basic components of an electronic communication system are the transmitter, communication channel or medium receiver and ____.",
+    "type": "blank",
+    "c": "noise",
+    "e": "Noise is an inherent disturbance in the channel that degrades the transmitted signal."
+  },
+  {
+    "q": "Information source - It is a device that generates information (messages or data) to be ____.",
+    "type": "blank",
+    "c": "transmitted",
+    "e": "The source originates the message, such as a microphone converting voice into an electrical signal."
+  },
+  {
+    "q": "Transmitter - It is the arrangement that ____ the message signal into an appropriate form for transmission and subsequent reception.",
+    "type": "blank",
+    "c": "processes",
+    "e": "The transmitter modifies the baseband signal, often via modulation, for efficient channel propagation."
+  },
+  {
+    "q": "Channel - It is the ____ that connects transmitter and receiver to convey the information.",
+    "type": "blank",
+    "c": "medium",
+    "e": "The physical or wireless medium carries the electromagnetic or optical signal between endpoints."
+  },
+  {
+    "q": "Noise - Noise is an ____ signal that disturbs, interferes and affects the transmitted signal.",
+    "type": "blank",
+    "c": "unwanted",
+    "e": "Unwanted random signals add to the message, reducing the clarity and reliability of communication."
+  },
+  {
+    "q": "The measure of noise is usually expressed in terms of SNR (____).",
+    "type": "blank",
+    "c": "signal to noise ratio",
+    "e": "SNR quantifies the strength of the desired signal relative to the background noise."
+  },
+  {
+    "q": "Digital signals are more ____ to noise than analog signals.",
+    "type": "blank",
+    "c": "immune",
+    "e": "Digital signals can be regenerated perfectly, making them highly resistant to noise accumulation."
+  },
+  {
+    "q": "Receiver - The receiver is to ____ the transmitted signal and delivers it to the destination called user of information.",
+    "type": "blank",
+    "c": "reconstruct",
+    "e": "The receiver extracts and restores the original baseband message from the received carrier wave."
+  },
+  {
+    "q": "Receivers contain amplifiers, oscillators, mixers, tuned circuits, filters and a ____ (detector).",
+    "type": "blank",
+    "c": "demodulator",
+    "e": "The demodulator reverses the modulation process to recover the original information signal."
+  },
+  {
+    "q": "There are two basic modes of communication: point-to-point and ____.",
+    "type": "blank",
+    "c": "broadcast",
+    "e": "Broadcast mode involves one transmitter sending data to multiple simultaneous receivers."
+  },
+  {
+    "q": "In point-to-point mode, communication takes place over a link between a ____ transmitter and a receiver.",
+    "type": "blank",
+    "c": "single",
+    "e": "Point-to-point communication establishes a dedicated link between exactly two nodes."
+  },
+  {
+    "q": "Telephony is an example of ____ communication.",
+    "type": "blank",
+    "c": "point-to-point",
+    "e": "Traditional telephone calls connect one specific caller directly to one specific receiver."
+  },
+  {
+    "q": "In the broadcast mode, there are a large number of receivers corresponding to a single ____.",
+    "type": "blank",
+    "c": "transmitter",
+    "e": "Radio and TV stations broadcast signals from one central tower to thousands of home receivers."
+  },
+  {
+    "q": "Analog communication uses an analog signal which varies in amplitude, ____, or some other property with time.",
+    "type": "blank",
+    "c": "phase",
+    "e": "Continuous variations in amplitude, frequency, or phase carry the analog information."
+  },
+  {
+    "q": "Transfer of data occurs in the form of digital ____, i.e. 0 or 1 over a point-to-point transmission medium.",
+    "type": "blank",
+    "c": "bit stream",
+    "e": "Digital communication transmits data as a continuous sequence of discrete binary bits."
+  },
+  {
+    "q": "Data can be broken into ____ as discrete messages which is not allowed in analog communication.",
+    "type": "blank",
+    "c": "packets",
+    "e": "Packetization allows digital networks to route, error-check, and reassemble data efficiently."
+  },
+  {
+    "q": "With digital communication, transmission errors can be detected and ____.",
+    "type": "blank",
+    "c": "corrected",
+    "e": "Error-correcting codes enable digital systems to identify and fix bit errors introduced by noise."
+  },
+  {
+    "q": "In line communication, there is a physical connection between source and ____.",
+    "type": "blank",
+    "c": "destination",
+    "e": "Wired communication requires a tangible conductive or optical path between the two ends."
+  },
+  {
+    "q": "The wired connections between two points are known as transmission ____.",
+    "type": "blank",
+    "c": "lines",
+    "e": "Transmission lines guide electromagnetic waves from the transmitter to the receiver with minimal loss."
+  },
+  {
+    "q": "The wires that are most popular for wired communication are: co-axial, parallel wire lines, ____ cables and optical fibre.",
+    "type": "blank",
+    "c": "twisted pair",
+    "e": "Twisted pair cables are widely used in telecommunications and Ethernet networking to reduce interference."
+  },
+  {
+    "q": "A transmitter encodes a message onto electromagnetic waves through ____, which changes properties of the wave to represent the data.",
+    "type": "blank",
+    "c": "modulation",
+    "e": "Modulation impresses the low-frequency message onto a high-frequency carrier wave for transmission."
+  },
+  {
+    "q": "A transducer is a device for converting a non-electrical input into an ____ signal or vice versa.",
+    "type": "blank",
+    "c": "electrical",
+    "e": "Transducers bridge the physical and electronic domains, such as microphones converting sound to voltage."
+  },
+  {
+    "q": "The process of converting energy from one form to another is known as ____.",
+    "type": "blank",
+    "c": "transduction",
+    "e": "Transduction is the fundamental operating principle of all sensors and actuators."
+  },
+  {
+    "q": "Transducer contains two parts that are closely related to each other, i.e. the sensing element and ____ element.",
+    "type": "blank",
+    "c": "transduction",
+    "e": "The sensing element detects the physical change, while the transduction element converts it to an electrical output."
+  },
+  {
+    "q": "The sensing element is called the ____.",
+    "type": "blank",
+    "c": "sensor",
+    "e": "A sensor specifically responds to measurable changes in physical environmental conditions."
+  },
+  {
+    "q": "Sensor is a device which produces a measurable response due to a change in ____ conditions.",
+    "type": "blank",
+    "c": "physical",
+    "e": "Physical conditions like temperature, pressure, or light trigger the sensor's response."
+  },
+  {
+    "q": "The process of changing some characteristics of a carrier wave in accordance with the intensity of the signal is known as ____.",
+    "type": "blank",
+    "c": "modulation",
+    "e": "Modulation maps the baseband signal's amplitude variations onto the carrier wave's parameters."
+  },
+  {
+    "q": "The resultant wave is called ____ wave, and contains the audio signal.",
+    "type": "blank",
+    "c": "modulated",
+    "e": "The modulated wave carries the information payload through the communication channel."
+  },
+  {
+    "q": "In modulation, the sound wave is electrically impressed on an ____ wave.",
+    "type": "blank",
+    "c": "electromagnetic",
+    "e": "Radio frequency electromagnetic waves act as the carrier for audio signals in wireless broadcasting."
+  },
+  {
+    "q": "Modulation permits the transmission to occur at ____ frequency while it simultaneously allows the carrying of the audio signal.",
+    "type": "blank",
+    "c": "high",
+    "e": "High-frequency carriers allow for smaller antennas and prevent overlapping of different broadcast signals."
+  },
+  {
+    "q": "When the amplitude of high frequency carrier wave is changed in accordance with the intensity of the signal, it is called ____ modulation.",
+    "type": "blank",
+    "c": "amplitude",
+    "e": "In AM, the carrier's amplitude fluctuates while its frequency remains constant."
+  },
+  {
+    "q": "In amplitude modulation, only the amplitude of the carrier wave is changed in accordance with the intensity of the signal but the ____ of the modulated wave remains the same.",
+    "type": "blank",
+    "c": "frequency",
+    "e": "The carrier frequency dictates the assigned broadcast channel and does not vary in AM."
+  },
+  {
+    "q": "It is commonly used to transmit information in portable two-way radios, VHF, ____ radios and in computer modems.",
+    "type": "blank",
+    "c": "aircraft",
+    "e": "AM is preferred in aviation because it allows multiple signals on the same frequency to be heard simultaneously without capture effect."
+  },
+  {
+    "q": "When the frequency of carrier wave is changed in accordance with the intensity of the signal, it is called ____ modulation.",
+    "type": "blank",
+    "c": "frequency",
+    "e": "In FM, the carrier's frequency shifts based on the modulating signal's amplitude."
+  },
+  {
+    "q": "In frequency modulation, only the frequency of the carrier wave is changed in accordance with the signal but the ____ of the modulated wave remains the same.",
+    "type": "blank",
+    "c": "amplitude",
+    "e": "Constant amplitude in FM makes it highly resistant to amplitude-based noise and interference."
+  },
+  {
+    "q": "FM is widely used for broadcasting music and speech, two-way radio systems, ____ systems and some video-transmission systems.",
+    "type": "blank",
+    "c": "magnetic tape-recording",
+    "e": "FM's high fidelity made it the standard for high-quality audio recording and broadcasting."
+  },
+  {
+    "q": "Phase modulation is a modulation pattern that encodes information as variations in the instantaneous ____ of a carrier wave.",
+    "type": "blank",
+    "c": "phase",
+    "e": "PM alters the phase angle of the carrier wave proportionally to the modulating signal."
+  },
+  {
+    "q": "It is used for signal and waveform generation in digital ____.",
+    "type": "blank",
+    "c": "synthesizers",
+    "e": "Digital synthesizers use phase modulation techniques to create complex audio waveforms."
+  },
+  {
+    "q": "AM radio ranges from 535 to 1705 ____.",
+    "type": "blank",
+    "c": "kHz",
+    "e": "The standard AM broadcast band occupies the medium frequency spectrum in kilohertz."
+  },
+  {
+    "q": "The process of recovering the audio signal from the modulated wave is known as demodulation or ____.",
+    "type": "blank",
+    "c": "detection",
+    "e": "Detection is the receiver's task of extracting the original baseband information from the carrier."
+  },
+  {
+    "q": "A demodulator is an electronic circuit that is used to ____ the information content from the modulated carrier wave.",
+    "type": "blank",
+    "c": "recover",
+    "e": "The demodulator strips away the high-frequency carrier to reveal the underlying message signal."
+  },
+  {
+    "q": "The radio receiver comprises roughly six pieces: antenna, tuner, rf amplifier, diode detector, af amplifier and ____.",
+    "type": "blank",
+    "c": "speaker",
+    "e": "The speaker acts as the final transducer, converting the amplified audio electrical signal back into sound."
+  },
+  {
+    "q": "The receiving antenna picks up the radio signals which is coupled to tuning circuit and by adjusting a ____, a particular radio frequency can be selected.",
+    "type": "blank",
+    "c": "variable capacitor",
+    "e": "Adjusting the variable capacitor changes the resonant frequency of the LC circuit to tune into different stations."
+  },
+  {
+    "q": "The input signal contains an rf component, the carrier, and an af component, the ____ signal.",
+    "type": "blank",
+    "c": "sound",
+    "e": "The audio frequency (af) component represents the actual sound information being broadcast."
+  },
+  {
+    "q": "During each carrier cycle, the diode turns on briefly and charges the capacitor in the detection circuit to the ____ voltage of the particular cycle.",
+    "type": "blank",
+    "c": "peak",
+    "e": "The diode rectifier captures the peak amplitude of the RF envelope to trace the audio waveform."
+  },
+  {
+    "q": "But, by making the time constant ____ greater than the period of the carrier wave, there is a slight discharge between cycles.",
+    "type": "blank",
+    "c": "$RC$",
+    "e": "An appropriate $RC$ time constant smooths the rectified RF pulses into a continuous audio signal."
+  }
+]

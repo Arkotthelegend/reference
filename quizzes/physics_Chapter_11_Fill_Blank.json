@@ -1,0 +1,860 @@
+[
+  {
+    "q": "The effect is called ____ and it is the physics behind the generators that provide the electricity used in our modern society.",
+    "type": "blank",
+    "c": "electromagnetic induction",
+    "e": "Electromagnetic induction is the phenomenon where a changing magnetic field produces an electric current."
+  },
+  {
+    "q": "The discovery of electromagnetic induction was made in ____ by Michael Faraday and Joseph Henry working independently at the same time.",
+    "type": "blank",
+    "c": "1831",
+    "e": "Both scientists independently discovered the principles of electromagnetic induction in the year 1831."
+  },
+  {
+    "q": "Electric current can be classified as two types: direct current (DC) and ____.",
+    "type": "blank",
+    "c": "alternating current (AC)",
+    "e": "The two main classifications of electric current are direct current and alternating current."
+  },
+  {
+    "q": "The direct current is a steady ____ current.",
+    "type": "blank",
+    "c": "unidirectional",
+    "e": "Direct current flows steadily in one single direction."
+  },
+  {
+    "q": "In a direct current the electrons flow steadily in the same direction all the ____.",
+    "type": "blank",
+    "c": "time",
+    "e": "Unlike AC, the electron flow in DC does not reverse."
+  },
+  {
+    "q": "An alternating current is a current that reverses its direction at regular time ____.",
+    "type": "blank",
+    "c": "intervals",
+    "e": "AC periodically changes its direction of flow at set intervals."
+  },
+  {
+    "q": "In the alternating current the direction of the flow of electrons changes ____.",
+    "type": "blank",
+    "c": "periodically",
+    "e": "The flow of electrons in an AC circuit continuously alternates back and forth."
+  },
+  {
+    "q": "In Japan and in the most of America, the voltage is between 100 V and ____ V.",
+    "type": "blank",
+    "c": "120",
+    "e": "Household AC voltage in Japan and most of America ranges from 100 V to 120 V."
+  },
+  {
+    "q": "Europe and most other countries in the world (including Myanmar) use a voltage between 220V and ____ V.",
+    "type": "blank",
+    "c": "240",
+    "e": "The standard household voltage in Europe and Myanmar is between 220 V and 240 V."
+  },
+  {
+    "q": "The frequency of AC current is 50 Hz/60 Hz in Japan, 60 Hz in US and ____ Hz in Europe and most other parts of the world.",
+    "type": "blank",
+    "c": "50",
+    "e": "The standard AC frequency in Europe and most other regions is 50 Hz."
+  },
+  {
+    "q": "When a coil of wire having quite a few turns is rotated a few cycles per second continuously in a ____ field, an emf is induced in the coil.",
+    "type": "blank",
+    "c": "magnetic",
+    "e": "Rotating a coil within a magnetic field is the fundamental method for inducing an electromotive force."
+  },
+  {
+    "q": "The waveform of the emf shown in Figure 11.3 is called a ____ wave.",
+    "type": "blank",
+    "c": "sine",
+    "e": "The periodic variation of induced emf in a rotating coil produces a sine wave."
+  },
+  {
+    "q": "The angular velocity $\\omega$ is equal to $2 \\pi f$, where $f$ is the ____ of the emf.",
+    "type": "blank",
+    "c": "frequency",
+    "e": "Frequency represents the number of complete cycles generated in one second."
+  },
+  {
+    "q": "Therefore, a rotating coil in a magnetic field is the basic of an ____ generator.",
+    "type": "blank",
+    "c": "AC",
+    "e": "An AC generator relies on a rotating coil within a magnetic field to produce alternating current."
+  },
+  {
+    "q": "The magnitude of an alternating current at any instant varies precisely the same way as shown by Eq. (11.1) and is given by $I = $ ____.",
+    "type": "blank",
+    "c": "$I_m \\sin \\omega t$",
+    "e": "The instantaneous alternating current is calculated using the peak current and the sine of the angular velocity over time."
+  },
+  {
+    "q": "The alternating current is universally used for household lighting, heating, cooking and other domestic ____.",
+    "type": "blank",
+    "c": "functions",
+    "e": "AC is the standard current type supplied to homes for various domestic appliances."
+  },
+  {
+    "q": "The advantage of alternating current is that it is relatively easy to change the ____ of the current.",
+    "type": "blank",
+    "c": "voltage",
+    "e": "Transformers allow AC voltage to be easily stepped up or down."
+  },
+  {
+    "q": "The inevitable loss of energy that occurs when current is distributed over long distances is far smaller with alternating current (at high voltage and low current) than with ____ current.",
+    "type": "blank",
+    "c": "direct",
+    "e": "DC suffers from much higher energy losses over long distances compared to high-voltage AC."
+  },
+  {
+    "q": "In 1831, Joseph Henry and Michael Faraday independently discovered the methods of producing electric current from ____ field.",
+    "type": "blank",
+    "c": "magnetic",
+    "e": "Electromagnetic induction involves generating electric current using a magnetic field."
+  },
+  {
+    "q": "That is, a current flows through a loop of wire whenever there is a ____ in the magnetic lines of force through the loop.",
+    "type": "blank",
+    "c": "change",
+    "e": "A static magnetic field does not induce current; the magnetic flux must be changing."
+  },
+  {
+    "q": "This phenomenon is called electromagnetic ____.",
+    "type": "blank",
+    "c": "induction",
+    "e": "The production of an induced current by a changing magnetic field is termed electromagnetic induction."
+  },
+  {
+    "q": "This current is called an induced current and the electromotive force (emf) which causes the induced current to flow is called an induced ____.",
+    "type": "blank",
+    "c": "emf",
+    "e": "The voltage that drives the induced current is known as the induced electromotive force."
+  },
+  {
+    "q": "Again, a ____ current flows through the second loop when the first loop carrying a current is moved abruptly towards or away from the second loop.",
+    "type": "blank",
+    "c": "momentary",
+    "e": "The induced current only exists while the magnetic flux is actively changing."
+  },
+  {
+    "q": "Moreover, the same thing happens when a ____, instead of the current-carrying first loop, is moved abruptly towards or away from the second loop.",
+    "type": "blank",
+    "c": "magnet",
+    "e": "Moving a permanent magnet relative to a wire loop also changes the magnetic flux and induces a current."
+  },
+  {
+    "q": "The magnetic flux density or magnetic induction B is the number of magnetic lines of force passing perpendicularly through a unit ____ of material.",
+    "type": "blank",
+    "c": "area",
+    "e": "Magnetic flux density measures the concentration of magnetic field lines per unit area."
+  },
+  {
+    "q": "Magnetic flux density B is related to magnetic field strength (magnetic field intensity) H by $B = $ ____.",
+    "type": "blank",
+    "c": "$\\mu H$",
+    "e": "The permeability of the medium links the magnetic field strength to the magnetic flux density."
+  },
+  {
+    "q": "where $\\mu$ is the permeability of the medium in which the magnetic field ____.",
+    "type": "blank",
+    "c": "exists",
+    "e": "Permeability depends on the specific material or vacuum where the magnetic field is present."
+  },
+  {
+    "q": "The SI unit of magnetic flux density is ____ which is equivalent to weber per metre squared.",
+    "type": "blank",
+    "c": "tesla (T)",
+    "e": "The tesla is the standard SI unit for measuring magnetic flux density."
+  },
+  {
+    "q": "Magnetic flux $\\Phi_B$ is a measurement of the total magnetic lines of force which passes through a surface ____.",
+    "type": "blank",
+    "c": "area",
+    "e": "Magnetic flux calculates the total field passing through a given surface area."
+  },
+  {
+    "q": "If the magnetic field is uniform over a plane area A, the magnetic flux $\\Phi_B$ passing through that area A is simply $\\Phi_B = $ ____.",
+    "type": "blank",
+    "c": "$BA \\cos \\theta$",
+    "e": "The flux depends on the magnetic field strength, the area, and the angle between them."
+  },
+  {
+    "q": "When the field is perpendicular to the surface area, $\\theta = 0^\\circ$. Hence, $\\Phi_B = $ ____.",
+    "type": "blank",
+    "c": "$BA$",
+    "e": "Maximum magnetic flux occurs when the field lines are perpendicular to the surface area."
+  },
+  {
+    "q": "When the field is parallel to the surface area, $\\theta = 90^\\circ$. Hence, $\\Phi_B = $ ____.",
+    "type": "blank",
+    "c": "$0$",
+    "e": "No magnetic flux passes through the surface when the field lines run perfectly parallel to it."
+  },
+  {
+    "q": "The SI unit of magnetic flux is the ____.",
+    "type": "blank",
+    "c": "weber (Wb)",
+    "e": "The weber is the standard unit for measuring total magnetic flux."
+  },
+  {
+    "q": "The weber is named after the German physicist Wilhelm Eduard ____.",
+    "type": "blank",
+    "c": "Weber",
+    "e": "The unit of magnetic flux honors the physicist Wilhelm Eduard Weber."
+  },
+  {
+    "q": "Magnetic field strength and magnetic flux density are vector quantities whereas magnetic flux is a ____ quantity.",
+    "type": "blank",
+    "c": "scalar",
+    "e": "Magnetic flux has magnitude but no specific direction, making it a scalar."
+  },
+  {
+    "q": "The magnitude of induced emf in a wire loop is directly proportional to the rate of change of magnetic ____ through that loop.",
+    "type": "blank",
+    "c": "flux",
+    "e": "Faraday's law states that the induced voltage depends on how quickly the magnetic flux changes."
+  },
+  {
+    "q": "For a wire loop with N identical turns, $E = $ ____.",
+    "type": "blank",
+    "c": "$-N \\frac{d\\Phi_B}{dt}$",
+    "e": "The total induced emf is multiplied by the number of turns in the coil."
+  },
+  {
+    "q": "In the above equation, the minus sign gives the ____ of the induced emf.",
+    "type": "blank",
+    "c": "direction",
+    "e": "The negative sign mathematically represents Lenz's law regarding the direction of the induced current."
+  },
+  {
+    "q": "If the wire loop is not moving (or) is moving parallel to the magnetic field lines, there is no induced emf (or) induced ____.",
+    "type": "blank",
+    "c": "current",
+    "e": "Without a change in magnetic flux, no current can be induced in the loop."
+  },
+  {
+    "q": "Faraday's law gives the magnitude of the induced emf and ____ law gives its direction.",
+    "type": "blank",
+    "c": "Lenz's",
+    "e": "Lenz's law is used to determine the specific directional flow of the induced current."
+  },
+  {
+    "q": "An induced emf is always in a direction that opposes the change in the original magnetic ____ that causes it.",
+    "type": "blank",
+    "c": "flux",
+    "e": "Lenz's law dictates that the induced magnetic field will always fight the change in the original flux."
+  },
+  {
+    "q": "The direction of induced current can be found by applying ____ law.",
+    "type": "blank",
+    "c": "Lenz's",
+    "e": "Applying Lenz's law allows one to deduce whether the induced current flows clockwise or counter-clockwise."
+  },
+  {
+    "q": "The change in magnetic flux is, in fact, a decrease or an increase in the magnetic lines of ____.",
+    "type": "blank",
+    "c": "force",
+    "e": "Magnetic flux changes when the number of magnetic lines of force passing through a loop increases or decreases."
+  },
+  {
+    "q": "Lenz's law is a good example of the principle of conservation of ____.",
+    "type": "blank",
+    "c": "energy",
+    "e": "The opposition to motion in Lenz's law ensures that mechanical work is converted into electrical energy, conserving total energy."
+  },
+  {
+    "q": "It shows how the energy from the mechanical work done against the opposing force experienced by the moving magnet or rotating coil is transformed into ____ energy.",
+    "type": "blank",
+    "c": "electrical",
+    "e": "The mechanical effort required to overcome the opposing magnetic force generates electrical energy."
+  },
+  {
+    "q": "When a magnet is moved towards the coil, the magnetic flux through the coil ____.",
+    "type": "blank",
+    "c": "increases",
+    "e": "Bringing a magnet closer to a coil increases the number of magnetic field lines passing through it."
+  },
+  {
+    "q": "The induced current in the coil must produce a magnetic field which opposes an ____ in the original magnetic flux.",
+    "type": "blank",
+    "c": "increase",
+    "e": "To oppose an increasing flux, the coil generates a magnetic field pointing in the opposite direction."
+  },
+  {
+    "q": "Therefore, the current in the coil must be flowing in a counter clockwise direction if viewed from the magnet according to right-hand ____.",
+    "type": "blank",
+    "c": "rule",
+    "e": "The right-hand rule helps determine the direction of the magnetic field produced by the induced current."
+  },
+  {
+    "q": "One of the useful applications of electromagnetic induction is an induction coil or ____ spark coil.",
+    "type": "blank",
+    "c": "Ruhmkorff",
+    "e": "The Ruhmkorff spark coil is a specific type of induction coil used to generate high-voltage sparks."
+  },
+  {
+    "q": "In 1851, a German instrument maker named Heinrich Ruhmkorff showed how an electric spark 30 cm long could be produced by using a battery of only a few ____.",
+    "type": "blank",
+    "c": "volts",
+    "e": "The induction coil can step up a low-voltage battery input into a massive high-voltage spark."
+  },
+  {
+    "q": "It consists of a core of soft iron wires around which is wrapped a coil of a few turns of thick insulated wire called the ____.",
+    "type": "blank",
+    "c": "primary",
+    "e": "The primary coil in an induction coil has few turns of thick wire and receives the initial battery current."
+  },
+  {
+    "q": "Around the primary is wound the secondary coil which has many turns of ____ insulated wire.",
+    "type": "blank",
+    "c": "thin",
+    "e": "The secondary coil requires many turns of thin wire to induce a very high voltage."
+  },
+  {
+    "q": "As the current flows through the primary, the soft iron core becomes an electromagnet which attracts a soft iron armature mounted on the ____.",
+    "type": "blank",
+    "c": "spring",
+    "e": "The spring returns the armature to its original position once the electromagnet demagnetizes."
+  },
+  {
+    "q": "A capacitor is connected across the contacts to prevent sparking and wearing away of ____.",
+    "type": "blank",
+    "c": "contacts",
+    "e": "The capacitor absorbs the electrical surge that would otherwise damage the platinum contacts."
+  },
+  {
+    "q": "When the primary is connected to a ____ battery a voltage of about 30 000V can develop across the terminals A and B.",
+    "type": "blank",
+    "c": "6V",
+    "e": "A standard 6V battery can yield tens of thousands of volts across the secondary terminals of an induction coil."
+  },
+  {
+    "q": "The induction coil is used in the ignition system of motor cars and the secondary is connected to a sparking ____.",
+    "type": "blank",
+    "c": "plug",
+    "e": "The high voltage from the induction coil ignites the gas mixture via the engine's spark plug."
+  },
+  {
+    "q": "A generator is an electromagnetic device which converts mechanical energy into ____ energy.",
+    "type": "blank",
+    "c": "electrical",
+    "e": "Generators use mechanical rotation to produce electricity."
+  },
+  {
+    "q": "Most generators give out alternating current. AC generators are also called ____.",
+    "type": "blank",
+    "c": "alternators",
+    "e": "Alternators are the specific term for generators that produce alternating current."
+  },
+  {
+    "q": "AC generators work on the principle of Faraday's law of electromagnetic ____.",
+    "type": "blank",
+    "c": "induction",
+    "e": "Faraday's law of electromagnetic induction is the foundational principle behind all AC generators."
+  },
+  {
+    "q": "It consists of a rectangular coil mounted on an axle which is fixed between the poles of a permanent ____.",
+    "type": "blank",
+    "c": "magnet",
+    "e": "The stationary magnetic field is typically provided by a permanent magnet in a simple AC generator."
+  },
+  {
+    "q": "This induced current flows through the two ____ rings and then through the external load.",
+    "type": "blank",
+    "c": "slip",
+    "e": "Slip rings maintain continuous electrical contact with the rotating coil in an AC generator."
+  },
+  {
+    "q": "The two slip rings each make sliding contact with two fixed carbon ____.",
+    "type": "blank",
+    "c": "brushes",
+    "e": "Carbon brushes press against the slip rings to transfer the generated current to the external circuit."
+  },
+  {
+    "q": "Every time the coil turns through $180^\\circ$ the current reverses its direction.",
+    "type": "blank",
+    "c": "$180^\\circ$",
+    "e": "A half-rotation of the coil causes the induced current to flow in the opposite direction."
+  },
+  {
+    "q": "If the speed of rotating coil is doubled, both the frequency of the alternating current and the rate of cutting of the magnetic lines of force will be ____.",
+    "type": "blank",
+    "c": "doubled",
+    "e": "Faster rotation directly increases both the AC frequency and the maximum induced voltage."
+  },
+  {
+    "q": "The induced electromotive force of a generator can be increased by increasing the area, the number of turns in the coil, and using stronger ____.",
+    "type": "blank",
+    "c": "magnets",
+    "e": "A stronger magnetic field increases the total magnetic flux, resulting in a higher induced emf."
+  },
+  {
+    "q": "The shaft (axle) of the coil is rotated by an external force such as falling water or an ____.",
+    "type": "blank",
+    "c": "engine",
+    "e": "Mechanical energy from sources like engines or turbines is required to spin the generator coil."
+  },
+  {
+    "q": "There is no structural difference between a generator and an electric ____.",
+    "type": "blank",
+    "c": "motor",
+    "e": "Both devices share similar physical components but convert energy in opposite directions."
+  },
+  {
+    "q": "Different electrical appliances need different working ____.",
+    "type": "blank",
+    "c": "voltages",
+    "e": "Appliances require specific voltage levels to operate safely and correctly."
+  },
+  {
+    "q": "A transformer is used to change the ____ of an alternating current.",
+    "type": "blank",
+    "c": "voltage",
+    "e": "Transformers step AC voltage up or down without changing its frequency."
+  },
+  {
+    "q": "The core of a transformer is built up of thin iron sheets of high resistance, called ____.",
+    "type": "blank",
+    "c": "lamination",
+    "e": "Lamination prevents large eddy currents from forming within the transformer's iron core."
+  },
+  {
+    "q": "Two coils, each consisting of many turns of wire, are wound on the ____.",
+    "type": "blank",
+    "c": "core",
+    "e": "The magnetic flux is channeled through the shared core to link the primary and secondary coils."
+  },
+  {
+    "q": "One of these coils connected to an alternating voltage source is called the primary coil and the other coil S, called the secondary coil, is connected to an electrical device to which electrical power is to be ____.",
+    "type": "blank",
+    "c": "supplied",
+    "e": "The secondary coil delivers the transformed electrical power to the load or appliance."
+  },
+  {
+    "q": "The voltage in the secondary and the voltage in the primary have the same ____.",
+    "type": "blank",
+    "c": "frequency",
+    "e": "A transformer changes voltage and current levels, but the AC frequency remains constant."
+  },
+  {
+    "q": "The use of laminated iron (mumetal) core is to minimize the power loss due to the induced current flowing in the ____.",
+    "type": "blank",
+    "c": "core",
+    "e": "Eddy currents induced in the core cause heating and energy loss, which lamination reduces."
+  },
+  {
+    "q": "In a systematically constructed transformer, the power losses are so small that the power input can be assumed to be equal to the power ____.",
+    "type": "blank",
+    "c": "output",
+    "e": "In an ideal transformer, the conservation of energy dictates that input power equals output power."
+  },
+  {
+    "q": "As the product of voltage and current is the same on both coils of a transformer, it follows that a transformer which increases the voltage will reduce the ____ in the same proportion.",
+    "type": "blank",
+    "c": "current",
+    "e": "Stepping up the voltage inherently steps down the current to maintain constant power."
+  },
+  {
+    "q": "The emf in each coil is proportional to the number of ____ in the coil.",
+    "type": "blank",
+    "c": "turns",
+    "e": "The ratio of the voltages in a transformer is directly equal to the ratio of the coil turns."
+  },
+  {
+    "q": "If the secondary has more turns than the primary, the voltage obtained from the secondary is greater than the voltage applied to the primary, such a transformer is called a step-up ____.",
+    "type": "blank",
+    "c": "transformer",
+    "e": "A step-up transformer increases the AC voltage from the primary side to the secondary side."
+  },
+  {
+    "q": "In a transformer, the changing magnetic field not only induces currents in the secondary coil, but also currents in the iron core itself called ____ currents.",
+    "type": "blank",
+    "c": "eddy",
+    "e": "Eddy currents circulate within the core material and cause unwanted heating."
+  },
+  {
+    "q": "The efficiency of a transformer is the ratio of the output power to the ____ power.",
+    "type": "blank",
+    "c": "input",
+    "e": "Efficiency measures how much of the supplied input power is successfully delivered as output."
+  },
+  {
+    "q": "Most of the transformers have full load efficiency from 95% to ____%.",
+    "type": "blank",
+    "c": "98.5",
+    "e": "Modern transformers are highly efficient, typically losing very little power under full load."
+  },
+  {
+    "q": "Because of power losses, there is no ideal transformer with 100% ____.",
+    "type": "blank",
+    "c": "efficiency",
+    "e": "Real-world factors like heat and eddy currents ensure that no transformer is perfectly efficient."
+  },
+  {
+    "q": "Soft magnetic material should be used to make the ____.",
+    "type": "blank",
+    "c": "core",
+    "e": "Soft magnetic materials easily magnetize and demagnetize, reducing hysteresis losses in the core."
+  },
+  {
+    "q": "A laminated core should be used to reduce the flow of ____ current.",
+    "type": "blank",
+    "c": "eddy",
+    "e": "Insulating layers between laminations break up the paths of eddy currents."
+  },
+  {
+    "q": "Low-resistance copper wires should be used as coils to reduce energy loss in the form of ____.",
+    "type": "blank",
+    "c": "heat",
+    "e": "Copper's low resistance minimizes $I^2R$ heating losses in the transformer windings."
+  },
+  {
+    "q": "Transformers work on AC, but not on ____.",
+    "type": "blank",
+    "c": "DC",
+    "e": "Direct current does not create a changing magnetic flux, which is required to induce a secondary voltage."
+  },
+  {
+    "q": "Note that, a transformer connected to a DC supply can be damaged as the high current flowed through the input coil can make it ____.",
+    "type": "blank",
+    "c": "overheat",
+    "e": "Without inductive reactance to limit DC current, the primary coil will draw excessive current and overheat."
+  },
+  {
+    "q": "The electricity generated at the power station is transmitted to the consumers through the power ____.",
+    "type": "blank",
+    "c": "cables",
+    "e": "Power cables form the physical network for transmitting electricity over distances."
+  },
+  {
+    "q": "Power loss is one of the main problems in the long distance ____ of electricity.",
+    "type": "blank",
+    "c": "transmission",
+    "e": "Transmitting electricity over long distances inevitably results in energy loss due to cable resistance."
+  },
+  {
+    "q": "If it is transmitted through the power cables, which may have a resistance of 1 ohm per kilometre, then the amount of electrical power lost as ____ in 1 km of transmission line will be given by Power loss = $I^2 R$.",
+    "type": "blank",
+    "c": "heat",
+    "e": "Electrical resistance in the cables converts lost electrical power into thermal energy (heat)."
+  },
+  {
+    "q": "One way to reduce power loss is to use very thick cables of low ____.",
+    "type": "blank",
+    "c": "resistance",
+    "e": "Thicker cables have less electrical resistance, thereby reducing $I^2R$ power losses."
+  },
+  {
+    "q": "A more practical way would be to reduce the magnitude of the transmission current by stepping up the ____.",
+    "type": "blank",
+    "c": "voltage",
+    "e": "Increasing transmission voltage allows the same power to be delivered with a much lower current."
+  },
+  {
+    "q": "The national grid system is used to distribute ____ around the country.",
+    "type": "blank",
+    "c": "electricity",
+    "e": "The national grid is the interconnected network that delivers electricity from suppliers to consumers."
+  },
+  {
+    "q": "An advantage of the grid system is power stations in areas where the demand is low can be used to supply areas where the demand is ____.",
+    "type": "blank",
+    "c": "high",
+    "e": "The grid allows surplus power from one region to be redirected to areas experiencing high demand."
+  },
+  {
+    "q": "First, an alternating current is generated at high voltage from the power station, the voltage is then stepped up for transmission and finally stepped down at the ____ in stages.",
+    "type": "blank",
+    "c": "substations",
+    "e": "Substations contain transformers that reduce the high transmission voltage to safer levels for local use."
+  },
+  {
+    "q": "This process can be carried out with the help of ____.",
+    "type": "blank",
+    "c": "transformers",
+    "e": "Transformers are the essential devices used to step voltage up and down across the power grid."
+  },
+  {
+    "q": "Electricity supplied to the house is a ____ form of alternating current, carried by a thick cable which contains two wires which are well insulated from each other.",
+    "type": "blank",
+    "c": "single-phase",
+    "e": "Residential homes are typically supplied with single-phase AC power."
+  },
+  {
+    "q": "One of these wires is the live wire (L) and the other is the ____ wire.",
+    "type": "blank",
+    "c": "neutral",
+    "e": "The neutral wire completes the circuit and provides the return path for the current."
+  },
+  {
+    "q": "The current enters the house through one wire and returns to the local substation through the ____.",
+    "type": "blank",
+    "c": "other",
+    "e": "The alternating current flows in through the live wire and out through the neutral wire."
+  },
+  {
+    "q": "The live wire (L) is a dangerous wire as it carries a high voltage while the neutral wire (N) is usually at ____ volt.",
+    "type": "blank",
+    "c": "zero",
+    "e": "The neutral wire is grounded at the substation, keeping its potential near zero volts."
+  },
+  {
+    "q": "The electricity is fed into the house through the main fuse, meter, main switch and then to the distribution ____.",
+    "type": "blank",
+    "c": "box",
+    "e": "The distribution box splits the main electrical supply into separate circuits for the house."
+  },
+  {
+    "q": "From the distribution box there are normally ____ circuits: namely the lighting circuit, the power circuit (ring main circuit) and heating circuit.",
+    "type": "blank",
+    "c": "three",
+    "e": "House wiring is generally divided into three main types of circuits based on power requirements."
+  },
+  {
+    "q": "Three cables are colour coded with brown for live, blue for neutral, striped green-yellow for ____.",
+    "type": "blank",
+    "c": "earth",
+    "e": "The green-yellow striped wire is the safety earth wire."
+  },
+  {
+    "q": "The old colour code: ____ for live, black for neutral and green for earth, is also still in use.",
+    "type": "blank",
+    "c": "red",
+    "e": "In older wiring systems, the live wire was identified by a red insulation color."
+  },
+  {
+    "q": "In the lighting circuit, the light bulbs are arranged in ____ across the mains line.",
+    "type": "blank",
+    "c": "parallel",
+    "e": "Wiring lights in parallel ensures each receives the full mains voltage independently."
+  },
+  {
+    "q": "Each bulb has a potential difference of 240 V when connected to the mains line of ____ V.",
+    "type": "blank",
+    "c": "240",
+    "e": "Parallel components share the same potential difference as the main supply line."
+  },
+  {
+    "q": "Since the bulbs are connected in parallel, the other bulbs are not affected when one bulb is switched ON or ____.",
+    "type": "blank",
+    "c": "OFF",
+    "e": "Switching off one parallel branch does not break the circuit for the remaining branches."
+  },
+  {
+    "q": "A lighting circuit must be connected sequentially as live wire, fuse, switch, load and then to ____ wire.",
+    "type": "blank",
+    "c": "neutral",
+    "e": "The circuit must eventually return to the neutral wire to complete the electrical loop."
+  },
+  {
+    "q": "A power circuit is an electrical system in which distribution points are connected to the main supply in a continuous closed ____.",
+    "type": "blank",
+    "c": "circuit",
+    "e": "A ring main circuit forms a continuous loop starting and ending at the consumer unit."
+  },
+  {
+    "q": "In a ring main circuit the live, neutral and earth wires form a loop of cable going from the consumer unit to all of the sockets in turn and then back to the consumer ____.",
+    "type": "blank",
+    "c": "unit",
+    "e": "The ring main returns to the consumer unit, allowing current to flow to sockets from two directions."
+  },
+  {
+    "q": "Power circuit is for the use of radios, computers, televisions, table lamps and other appliances that consume less power than heating ____.",
+    "type": "blank",
+    "c": "appliances",
+    "e": "Standard wall sockets are designed for general electronics, not high-draw heating devices."
+  },
+  {
+    "q": "Since the current can flow to any particular socket by two ways, thinner wires can be used in the whole ____.",
+    "type": "blank",
+    "c": "ring",
+    "e": "The dual-path nature of a ring circuit reduces the current load on any single segment of wire."
+  },
+  {
+    "q": "Each main ring circuit also use a ____ A fuse.",
+    "type": "blank",
+    "c": "30",
+    "e": "A 30 A fuse is standard for protecting a domestic ring main circuit from overcurrent."
+  },
+  {
+    "q": "____ sockets and three-pin plugs are used in the ring main circuit.",
+    "type": "blank",
+    "c": "Three-pin",
+    "e": "Three-pin connections provide live, neutral, and the essential earth safety connection."
+  },
+  {
+    "q": "Heating circuit is for the utilization of appliances such as electric cookers, ovens, hot plates, washing machines and ____.",
+    "type": "blank",
+    "c": "dryers",
+    "e": "High-power appliances like dryers require their own dedicated heating circuits."
+  },
+  {
+    "q": "Appliances connected in heating circuits use relatively large amounts of power so that they have their own ____.",
+    "type": "blank",
+    "c": "circuits",
+    "e": "Dedicated circuits prevent high-power appliances from overloading standard wall socket wiring."
+  },
+  {
+    "q": "Whatever the type of circuit uses, care must be taken not to be ____.",
+    "type": "blank",
+    "c": "overloaded",
+    "e": "Drawing too much current through a circuit causes dangerous overheating."
+  },
+  {
+    "q": "The fuse of each circuit must be connected in the live lead and must never be in the ____ lead.",
+    "type": "blank",
+    "c": "neutral",
+    "e": "Fusing the live wire ensures the appliance is completely disconnected from high voltage when the fuse blows."
+  },
+  {
+    "q": "A fuse connected in the neutral lead is pointless; it will in no way protect the appliances used in the ____.",
+    "type": "blank",
+    "c": "circuit",
+    "e": "A blown neutral fuse leaves the appliance dangerously connected to the high-voltage live wire."
+  },
+  {
+    "q": "A circuit breaker is an automatic switch which trips when the current rises above the specified ____.",
+    "type": "blank",
+    "c": "value",
+    "e": "Circuit breakers monitor current and automatically open the circuit if it exceeds safe limits."
+  },
+  {
+    "q": "Earthing of an electrical appliance is the most important safety ____.",
+    "type": "blank",
+    "c": "precaution",
+    "e": "Earthing prevents the metal casing of appliances from becoming lethally electrified."
+  },
+  {
+    "q": "An earthing system connects specific parts of an electric power system with the ground, typically the earth's conductive surface, for safety and functional ____.",
+    "type": "blank",
+    "c": "purposes",
+    "e": "Grounding serves both to protect users from shock and to stabilize system voltages."
+  },
+  {
+    "q": "In any electrical appliance the earth wire is always connected to the metal ____.",
+    "type": "blank",
+    "c": "case",
+    "e": "Connecting the earth wire to the outer casing ensures any stray voltage is safely grounded."
+  },
+  {
+    "q": "If the insulation inside the iron breaks down or the live wire becomes ____, the case of the iron would become live at high voltage of the mains supply.",
+    "type": "blank",
+    "c": "loose",
+    "e": "A loose live wire touching the metal casing creates a severe electrocution hazard."
+  },
+  {
+    "q": "With proper earthing, the current would pass directly into the earth through the earth wire, which has much smaller ____ than human being.",
+    "type": "blank",
+    "c": "resistance",
+    "e": "Current takes the path of least resistance, flowing through the earth wire instead of a person."
+  },
+  {
+    "q": "Electrical faults in appliances or circuits can cause fires, electric shocks, as well as ____ to users.",
+    "type": "blank",
+    "c": "electrocution",
+    "e": "Severe electric shocks can lead to fatal electrocution."
+  },
+  {
+    "q": "dangers of electricity can be traced to three possible causes: damaged insulation, overheating of cables and ____ conditions.",
+    "type": "blank",
+    "c": "damp",
+    "e": "Moisture significantly increases the risk of electrical conductivity and shock."
+  },
+  {
+    "q": "All electrical appliances require two wires, the live and neutral wires to form a complete ____.",
+    "type": "blank",
+    "c": "circuit",
+    "e": "A complete loop is necessary for electrical current to flow and power the device."
+  },
+  {
+    "q": "The live wire is the dangerous wire because it carries a high voltage while the neutral wire is close to ____ voltage.",
+    "type": "blank",
+    "c": "zero",
+    "e": "The potential difference between the live wire and ground is what makes it dangerous."
+  },
+  {
+    "q": "These two wires are insulated in vulcanised rubber and they are housed together in either a circular PVC sheathed cable or a circular braided rubber-insulated ____.",
+    "type": "blank",
+    "c": "cable",
+    "e": "Protective outer sheathing keeps the live and neutral wires safely separated and insulated."
+  },
+  {
+    "q": "Insulating materials ____ with time and use.",
+    "type": "blank",
+    "c": "deteriorate",
+    "e": "Constant bending and aging cause wire insulation to crack and fail."
+  },
+  {
+    "q": "This will cause the electrical insulation to crack and break, thus exposing the conducting ____ inside.",
+    "type": "blank",
+    "c": "wires",
+    "e": "Exposed bare wires pose a direct risk of short circuits and electric shock."
+  },
+  {
+    "q": "If the vulcanised rubber covering the live wire is also damaged, the exposed live wire can cause a severe electric shock to the user if the user touches it ____.",
+    "type": "blank",
+    "c": "accidentally",
+    "e": "Unintentional contact with exposed live parts completes the circuit through the human body."
+  },
+  {
+    "q": "The overheating of cables is due to the extremely large current flowing in the conducting wires under certain conditions such as a short circuit or ____.",
+    "type": "blank",
+    "c": "overloading",
+    "e": "Drawing more current than the wire is rated for causes excessive resistive heating."
+  },
+  {
+    "q": "A short circuit can result when the live wire makes electrical contact with the neutral wire due to damaged ____ between them.",
+    "type": "blank",
+    "c": "insulation",
+    "e": "Failed insulation allows live and neutral wires to touch, creating a massive, uncontrolled current surge."
+  },
+  {
+    "q": "This will produce a large current and the large amount of heat generated can melt the insulation, and start a ____.",
+    "type": "blank",
+    "c": "fire",
+    "e": "The intense heat from a short circuit easily ignites surrounding materials."
+  },
+  {
+    "q": "Overuse of extension cords and multiple plug adapters on the same circuit are typical causes of an electrical ____.",
+    "type": "blank",
+    "c": "overload",
+    "e": "Plugging too many devices into a single outlet draws more current than the circuit can safely handle."
+  },
+  {
+    "q": "Overload also occurs when an equipment draws an ____ current from the supply which leads to overheating of the cables.",
+    "type": "blank",
+    "c": "excess",
+    "e": "Faulty or overworked equipment can pull dangerously high currents from the mains."
+  },
+  {
+    "q": "Many electrical accidents occur in damp conditions in a wet ____.",
+    "type": "blank",
+    "c": "bathroom",
+    "e": "Bathrooms combine water and electrical appliances, creating a high-risk environment."
+  },
+  {
+    "q": "If water from the wet floor touches the live wire, it provides a ____ path for a large amount of current to flow through it and through the body of the person in the bath tub.",
+    "type": "blank",
+    "c": "conducting",
+    "e": "Water contains ions that make it an excellent conductor of electricity."
+  },
+  {
+    "q": "The human body can only withstand up to about 50 mA but the current in this case is very much higher due to the sharp decrease in the ____ of the wet body.",
+    "type": "blank",
+    "c": "resistance",
+    "e": "Wet skin drastically lowers the body's natural electrical resistance, allowing lethal currents to pass."
+  },
+  {
+    "q": "Table 11.2 gives the possible ____ effects of an electric current passing through the body.",
+    "type": "blank",
+    "c": "physiological",
+    "e": "The severity of an electric shock depends on the current's physiological impact on muscles and the heart."
+  },
+  {
+    "q": "Since water can conduct electric current, one should never operate an electrical appliance with wet ____.",
+    "type": "blank",
+    "c": "hands",
+    "e": "Wet hands lower skin resistance and greatly increase the risk of a severe electrical shock."
+  }
+]

@@ -1,0 +1,644 @@
+[
+  {
+    "q": "When a potential difference is set up between the two ends of a conductor, a ____ flows through it.",
+    "type": "blank",
+    "c": "current",
+    "e": "A potential difference provides the driving force that causes charges to flow as a current."
+  },
+  {
+    "q": "A steady current will flow through the conductor if a steady ____ is maintained between its ends by using batteries and generators.",
+    "type": "blank",
+    "c": "potential difference",
+    "e": "A continuous potential difference is required to maintain a steady flow of charge."
+  },
+  {
+    "q": "Batteries and generators are called sources of ____.",
+    "type": "blank",
+    "c": "electromotive force",
+    "e": "These devices provide the energy per unit charge needed to drive current through a circuit."
+  },
+  {
+    "q": "The sources of electromotive force convert energy from some other forms into ____ form.",
+    "type": "blank",
+    "c": "electrical",
+    "e": "Sources of emf act as transducers, converting chemical, mechanical, or other energy into electrical energy."
+  },
+  {
+    "q": "For example, a battery converts ____ energy into electrical energy to provide electrical power.",
+    "type": "blank",
+    "c": "chemical",
+    "e": "Batteries rely on chemical reactions to generate an electromotive force."
+  },
+  {
+    "q": "In an electric generator, ____ energy is converted into electrical energy.",
+    "type": "blank",
+    "c": "mechanical",
+    "e": "Generators use electromagnetic induction to convert mechanical rotation into electrical power."
+  },
+  {
+    "q": "A source of electromotive force has a positive terminal and a ____ terminal as shown in Figure 10.1.",
+    "type": "blank",
+    "c": "negative",
+    "e": "Every DC source of emf has two distinct terminals with opposite polarities."
+  },
+  {
+    "q": "The positive charges are sent from the negative terminal to the ____ terminal within the source.",
+    "type": "blank",
+    "c": "positive",
+    "e": "Inside the source, non-electrostatic forces move positive charges against the electric field to the higher potential terminal."
+  },
+  {
+    "q": "Alternately, it can be said that the main function of the source is to send negative charges from the positive terminal to the ____ terminal within the source.",
+    "type": "blank",
+    "c": "negative",
+    "e": "Moving electrons to the negative terminal maintains the potential difference across the terminals."
+  },
+  {
+    "q": "Electromotive force, abbreviated as emf, is the amount of energy provided by the battery per unit charge to move round the ____ circuit.",
+    "type": "blank",
+    "c": "complete",
+    "e": "Emf represents the total energy per coulomb supplied to drive charge through both the external and internal circuit."
+  },
+  {
+    "q": "It is measured in unit of volt($V$), equivalent to joule per ____ of electric charge($JC^{-1}$)",
+    "type": "blank",
+    "c": "coulomb",
+    "e": "One volt is defined as one joule of energy per coulomb of charge."
+  },
+  {
+    "q": "Despite its name, electromotive force is not actually a ____.",
+    "type": "blank",
+    "c": "force",
+    "e": "Emf is a measure of energy per unit charge (potential), not a mechanical push measured in newtons."
+  },
+  {
+    "q": "Generally, a source of electromotive force has an ____ resistance.",
+    "type": "blank",
+    "c": "internal",
+    "e": "Real batteries and generators possess inherent resistance to current flow within their own materials."
+  },
+  {
+    "q": "The internal resistance of a battery depends on its size, chemical properties, life time, and ____.",
+    "type": "blank",
+    "c": "temperature",
+    "e": "Factors like temperature affect the mobility of ions and electrons inside the battery, altering its internal resistance."
+  },
+  {
+    "q": "This means that a resistor of resistance $r$ must be regarded as being connected in ____ to the battery.",
+    "type": "blank",
+    "c": "series",
+    "e": "Internal resistance acts in series with the external load, meaning the same current flows through both."
+  },
+  {
+    "q": "By Ohm's law, the potential difference across the resistor is $V=$____.",
+    "type": "blank",
+    "c": "$IR$",
+    "e": "The voltage drop across the external load is the product of current and external resistance."
+  },
+  {
+    "q": "Similarly, the work done in moving a unit positive charge from one end to another of the internal resistance $r$ of the battery is ____.",
+    "type": "blank",
+    "c": "$Ir$",
+    "e": "This represents the 'lost volts' or energy dissipated as heat inside the battery per coulomb of charge."
+  },
+  {
+    "q": "The total work done in moving a unit positive charge round the complete circuit is $IR+Ir$, which is the ____ $E$ of the battery.",
+    "type": "blank",
+    "c": "emf",
+    "e": "The total energy per unit charge supplied equals the sum of the external and internal voltage drops."
+  },
+  {
+    "q": "The equation $E=IR+Ir$ is called the ____ equation.",
+    "type": "blank",
+    "c": "circuit",
+    "e": "This fundamental equation relates the emf, current, external resistance, and internal resistance of a complete circuit."
+  },
+  {
+    "q": "Hence, the potential difference between the terminals of a battery when it is connected to an external circuit is given by $V=$____.",
+    "type": "blank",
+    "c": "$E-Ir$",
+    "e": "The terminal voltage equals the emf minus the voltage lost across the internal resistance."
+  },
+  {
+    "q": "When a battery having an internal resistance is used in an electric circuit, the potential difference between the terminals of the battery is always ____ than its emf.",
+    "type": "blank",
+    "c": "less",
+    "e": "Because some voltage is dropped internally ($Ir$), the available terminal voltage is always lower than the ideal emf."
+  },
+  {
+    "q": "The potential difference across the terminals of a battery connected to an external circuit is called the ____ voltage (or available voltage) of the battery.",
+    "type": "blank",
+    "c": "terminal",
+    "e": "This is the actual voltage measured across the battery's physical terminals when current is flowing."
+  },
+  {
+    "q": "Hence, electromotive force (emf) is the potential difference between the two terminals of a battery or cell in an ____ circuit (when no current flows) as shown in Figure 10.3 (a).",
+    "type": "blank",
+    "c": "open",
+    "e": "With zero current, the internal voltage drop is zero, so terminal voltage perfectly equals the emf."
+  },
+  {
+    "q": "Terminal voltage(available voltage) is the potential difference between the two terminals of a battery or cell in a ____ circuit as shown in Figure 10.3 (b).",
+    "type": "blank",
+    "c": "closed",
+    "e": "In a closed circuit, current flows, causing an internal voltage drop that reduces the terminal voltage."
+  },
+  {
+    "q": "Thus, emf is an open-circuit voltage and terminal voltage is a ____-circuit voltage.",
+    "type": "blank",
+    "c": "closed",
+    "e": "This succinctly distinguishes the ideal maximum voltage (emf) from the practical operating voltage (terminal)."
+  },
+  {
+    "q": "Charging a battery means the chemical energy of the battery which has been used up is now supplied back by ____ energy from some external source (battery charger) shown in Figure 10.4.",
+    "type": "blank",
+    "c": "electrical",
+    "e": "An external electrical source forces current backward through the battery to reverse its chemical reactions."
+  },
+  {
+    "q": "Therefore, in charging a battery, the potential difference between the terminals is equal to $E$ ____ $Ir$.",
+    "type": "blank",
+    "c": "+",
+    "e": "The charger must supply enough voltage to overcome the battery's emf plus the internal voltage drop."
+  },
+  {
+    "q": "The terminal voltage of a battery when (i) discharging (in use) $V=E-Ir$, $V$____$E$.",
+    "type": "blank",
+    "c": "<",
+    "e": "During discharge, the internal voltage drop subtracts from the emf, making terminal voltage less than emf."
+  },
+  {
+    "q": "The terminal voltage of a battery when (ii) open circuit(not in use) $V=$____.",
+    "type": "blank",
+    "c": "$E$",
+    "e": "With no current flowing, there is no internal drop, so terminal voltage exactly equals the emf."
+  },
+  {
+    "q": "The terminal voltage of a battery when (iii) charging $V=E+Ir$, $V$____$E$.",
+    "type": "blank",
+    "c": ">",
+    "e": "During charging, the applied voltage must exceed the emf to push current through the internal resistance."
+  },
+  {
+    "q": "When two or more electromotive sources (batteries) are connected in series, the resultant emf is the algebraic ____ of the individual emfs.",
+    "type": "blank",
+    "c": "sum",
+    "e": "Series connections add the voltage contributions of each battery together."
+  },
+  {
+    "q": "In series aiding arrangement the currents leaving the batteries are in the ____ direction so that the resultant emf is $E_1+E_2$.",
+    "type": "blank",
+    "c": "same",
+    "e": "When connected positive-to-negative, the batteries assist each other, maximizing the total emf."
+  },
+  {
+    "q": "A connection of batteries where currents leave in the same direction is called series ____.",
+    "type": "blank",
+    "c": "aiding",
+    "e": "This configuration is used when a higher total voltage is required from multiple cells."
+  },
+  {
+    "q": "The total internal resistance of those two batteries in series is $(r_1$____$r_2)$.",
+    "type": "blank",
+    "c": "+",
+    "e": "Internal resistances in series simply add together, increasing the total internal resistance of the pack."
+  },
+  {
+    "q": "They can be regarded as a single battery having an emf $(E_1+E_2)$ and internal resistance $(r_1+r_2)$ in ____ aiding.",
+    "type": "blank",
+    "c": "series",
+    "e": "The entire series-aiding combination behaves mathematically like one larger battery."
+  },
+  {
+    "q": "In Figure 10.6 (a) two batteries are connected in series ____.",
+    "type": "blank",
+    "c": "opposing",
+    "e": "This occurs when batteries are connected positive-to-positive or negative-to-negative."
+  },
+  {
+    "q": "In series opposing, the emfs of the batteries are in ____.",
+    "type": "blank",
+    "c": "opposition",
+    "e": "The batteries push current in opposite directions, effectively fighting each other."
+  },
+  {
+    "q": "In series opposing, the resultant emf is the ____ between the individual emfs.",
+    "type": "blank",
+    "c": "difference",
+    "e": "The larger emf subtracts the smaller emf, yielding a reduced net voltage."
+  },
+  {
+    "q": "If $E_1$ is greater than $E_2$, the resultant emf of those two batteries in series opposing is $(E_1$____$E_2)$.",
+    "type": "blank",
+    "c": "-",
+    "e": "The net driving force is the mathematical difference between the two opposing voltage sources."
+  },
+  {
+    "q": "In series opposing, their total internal resistance is still $(r_1$____$r_2)$.",
+    "type": "blank",
+    "c": "+",
+    "e": "Even though the emfs oppose, the physical resistances still add in series."
+  },
+  {
+    "q": "Two batteries having equal emfs and equal internal resistances can be connected in ____.",
+    "type": "blank",
+    "c": "parallel",
+    "e": "Parallel connections join all positive terminals together and all negative terminals together."
+  },
+  {
+    "q": "In parallel connection, it should be noticed that the same ____ terminals of the batteries are connected together.",
+    "type": "blank",
+    "c": "polarity",
+    "e": "Connecting identical polarities ensures the batteries do not short-circuit each other."
+  },
+  {
+    "q": "The resultant emf of the parallel-combination of identical batteries is just the emf $E$ of a ____ battery.",
+    "type": "blank",
+    "c": "single",
+    "e": "Parallel identical batteries do not increase the voltage; the output emf remains equal to one cell."
+  },
+  {
+    "q": "Since the internal resistances of identical batteries are in parallel, the resultant internal resistance is ____.",
+    "type": "blank",
+    "c": "$\\frac{r}{2}$",
+    "e": "Placing identical internal resistances in parallel halves the total internal resistance."
+  },
+  {
+    "q": "This parallel combination can be regarded as a single battery having an emf $E$ and an internal resistance ____.",
+    "type": "blank",
+    "c": "$\\frac{r}{2}$",
+    "e": "The lower internal resistance allows the parallel bank to deliver higher currents without excessive voltage drop."
+  },
+  {
+    "q": "In parallel connection of batteries, care must be taken that the terminal of the same ____ should be connected together.",
+    "type": "blank",
+    "c": "polarity",
+    "e": "Mismatched polarities in parallel will cause a massive short-circuit current between the batteries."
+  },
+  {
+    "q": "If terminals of opposite polarity are connected together in parallel, batteries may be ____.",
+    "type": "blank",
+    "c": "damaged",
+    "e": "The resulting high circulating current can overheat and destroy the cells."
+  },
+  {
+    "q": "Electrical energy is energy associated with the flow of ____ through any part of circuit.",
+    "type": "blank",
+    "c": "charge",
+    "e": "Moving charges carry energy from the source to the load."
+  },
+  {
+    "q": "Electrical energy can be generated from source of emf such as batteries, generators, dynamos and ____ cells.",
+    "type": "blank",
+    "c": "photovoltaic",
+    "e": "Photovoltaic cells convert light energy directly into electrical energy."
+  },
+  {
+    "q": "Electrical energy can be stored in other forms for future application using fuel cells, batteries, capacitors and ____.",
+    "type": "blank",
+    "c": "inductors",
+    "e": "Inductors store energy temporarily in the form of a magnetic field."
+  },
+  {
+    "q": "As the current $I$ flows through $R$, the potential at the point A is ____ than that at the point B.",
+    "type": "blank",
+    "c": "higher",
+    "e": "Current flows from higher to lower potential through a passive resistor."
+  },
+  {
+    "q": "By the definition of potential difference, the work done in bringing a unit positive charge from A to B is ____.",
+    "type": "blank",
+    "c": "$V$",
+    "e": "Voltage is literally defined as the work done (or energy transferred) per unit charge."
+  },
+  {
+    "q": "Therefore, the work done $W$ in bringing the amount of charge $Q$ from A to B is $W=$____.",
+    "type": "blank",
+    "c": "$QV$",
+    "e": "Total work is the product of the total charge moved and the potential difference."
+  },
+  {
+    "q": "The work done $W$ by the battery in taking the charge $Q$ from A to B is, in fact, the ____ energy supplied by the battery.",
+    "type": "blank",
+    "c": "electrical",
+    "e": "The work done by the electric field equals the electrical energy delivered to the component."
+  },
+  {
+    "q": "This electrical energy is transformed into ____ energy in the resistor $R$.",
+    "type": "blank",
+    "c": "heat",
+    "e": "Resistors dissipate electrical energy as thermal energy due to electron collisions."
+  },
+  {
+    "q": "Heat energy is produced because the electrons ____ with the atoms in the resistor $R$ when they pass through it.",
+    "type": "blank",
+    "c": "collide",
+    "e": "These collisions transfer kinetic energy from electrons to the atomic lattice, raising its temperature."
+  },
+  {
+    "q": "Since $V=IR$, the electrical energy $W$ produced by the battery can be written as $W=$____.",
+    "type": "blank",
+    "c": "$VIt$",
+    "e": "Substituting $Q=It$ into $W=QV$ yields the standard formula for electrical energy."
+  },
+  {
+    "q": "The electrical energy $W$ can also be written as $W=$____$Rt$.",
+    "type": "blank",
+    "c": "$I^2$",
+    "e": "Substituting $V=IR$ into $W=VIt$ gives the $I^2Rt$ formula, useful when current is known."
+  },
+  {
+    "q": "The electrical energy $W$ can also be written as $W=\\frac{V^2}{R}$____.",
+    "type": "blank",
+    "c": "$t$",
+    "e": "Substituting $I=\\frac{V}{R}$ into $W=VIt$ gives this formula, useful when voltage is fixed."
+  },
+  {
+    "q": "The practical unit of electrical energy is kilowatt hour ($____$).",
+    "type": "blank",
+    "c": "$kWh$",
+    "e": "Utility companies use the kilowatt-hour to measure household energy consumption."
+  },
+  {
+    "q": "$1kWh$ is equivalent to $3.60 \\times 10^6$ ____.",
+    "type": "blank",
+    "c": "$J$",
+    "e": "One kilowatt-hour equals 1000 watts multiplied by 3600 seconds, yielding 3.6 million joules."
+  },
+  {
+    "q": "Electrical power is the rate of transfer of ____ energy.",
+    "type": "blank",
+    "c": "electrical",
+    "e": "Power measures how fast electrical energy is being consumed or generated."
+  },
+  {
+    "q": "If the electrical energy $W$ is transferred in the time $t$, then the electrical power $P$ is $P=$____.",
+    "type": "blank",
+    "c": "$\\frac{W}{t}$",
+    "e": "Power is defined as energy divided by the time interval over which it is transferred."
+  },
+  {
+    "q": "The unit of electrical power $P$ is the ____.",
+    "type": "blank",
+    "c": "watt",
+    "e": "One watt represents one joule of energy transferred per second."
+  },
+  {
+    "q": "If 1 joule ($J$) of electrical energy is transferred in 1 second ($s$), the electrical power is 1 joule per ____.",
+    "type": "blank",
+    "c": "second",
+    "e": "This is the fundamental definition of the watt in terms of base SI units."
+  },
+  {
+    "q": "1 joule per second is equivalent to 1 ____.",
+    "type": "blank",
+    "c": "watt",
+    "e": "The unit $Js^{-1}$ is simply renamed the watt in honor of James Watt."
+  },
+  {
+    "q": "When electric current passes through a conductor, the electrons in the conductor are accelerated due to ____ field.",
+    "type": "blank",
+    "c": "electric",
+    "e": "The potential difference creates an electric field that exerts a force on the free electrons."
+  },
+  {
+    "q": "The electrons collide with the other atoms and lose their kinetic energy which appears as ____ energy.",
+    "type": "blank",
+    "c": "heat",
+    "e": "The kinetic energy gained from the field is randomized into thermal vibrations of the lattice."
+  },
+  {
+    "q": "The electrical energy $W$ supplied by the battery is transformed into heat energy $H$ in the ____ $R$.",
+    "type": "blank",
+    "c": "resistor",
+    "e": "The resistor is the specific component designed to impede current and generate heat."
+  },
+  {
+    "q": "The electrical energy $W$ is measured in joule and the amount of heat $H$ is measured in ____.",
+    "type": "blank",
+    "c": "calorie",
+    "e": "Historically, heat was measured in calories while work was measured in joules."
+  },
+  {
+    "q": "The relation between electrical energy and heat energy is $W=$____$H$.",
+    "type": "blank",
+    "c": "$J$",
+    "e": "$J$ acts as the conversion factor between mechanical/electrical work units and heat units."
+  },
+  {
+    "q": "In the equation $W=JH$, $J$ is a constant called Joule's mechanical equivalent of ____.",
+    "type": "blank",
+    "c": "heat",
+    "e": "This constant defines how many joules of work are equivalent to one calorie of heat."
+  },
+  {
+    "q": "The value of Joule's mechanical equivalent of heat $J$ is ____ $Jcal^{-1}$.",
+    "type": "blank",
+    "c": "$4.2$",
+    "e": "It takes approximately 4.2 joules of energy to raise the temperature of 1 gram of water by 1 degree Celsius."
+  },
+  {
+    "q": "When $W=I^2Rt$ is substituted in $W=JH$, the equation for heat $H$ is $H=$____.",
+    "type": "blank",
+    "c": "$\\frac{I^2Rt}{J}$",
+    "e": "This formula calculates the heat generated in calories given the current, resistance, and time."
+  },
+  {
+    "q": "Joule's law states that the amount of heat produced in a resistor is directly proportional to the ____ of the current.",
+    "type": "blank",
+    "c": "square",
+    "e": "Doubling the current will quadruple the amount of heat generated."
+  },
+  {
+    "q": "Joule's law states that heat is directly proportional to the value of ____ and the time taken.",
+    "type": "blank",
+    "c": "resistance",
+    "e": "Higher resistance causes more collisions per unit charge, increasing heat production for a given current."
+  },
+  {
+    "q": "Heat $H$ can also be written as $H=\\frac{VIt}{____}$.",
+    "type": "blank",
+    "c": "$J$",
+    "e": "This alternative form uses voltage and current instead of current and resistance."
+  },
+  {
+    "q": "Heat $H$ can also be written as $H=\\frac{V^2 t}{R \\times ____}$.",
+    "type": "blank",
+    "c": "$J$",
+    "e": "This form is particularly useful for parallel circuits where voltage is constant across components."
+  },
+  {
+    "q": "In general, most of the electrical energy supplied to a resistor in an electric circuit is converted into ____.",
+    "type": "blank",
+    "c": "heat",
+    "e": "Resistance inherently causes energy dissipation in the form of thermal energy."
+  },
+  {
+    "q": "The heating effect of electric current has special applications in ____ appliances.",
+    "type": "blank",
+    "c": "domestic",
+    "e": "Many household devices rely intentionally on resistive heating to function."
+  },
+  {
+    "q": "An electric light bulb is made of a glass bulb consisting a ____ filament.",
+    "type": "blank",
+    "c": "tungsten",
+    "e": "Tungsten is used because it can glow white-hot without melting immediately."
+  },
+  {
+    "q": "The tungsten filament has a high melting point of approximately ____ $^\\circ C$.",
+    "type": "blank",
+    "c": "$3000$",
+    "e": "This extreme melting point allows the filament to reach temperatures necessary for bright illumination."
+  },
+  {
+    "q": "A small amount of ____, an inert gas, is added to the light bulb after the air is removed.",
+    "type": "blank",
+    "c": "argon",
+    "e": "Argon prevents the hot tungsten filament from oxidizing and burning up."
+  },
+  {
+    "q": "The tungsten filament becomes hot when a ____ flows through it.",
+    "type": "blank",
+    "c": "current",
+    "e": "The flow of electrons encountering resistance generates the necessary heat."
+  },
+  {
+    "q": "At a temperature of $1800^\\circ C$ the tungsten filament emits ____ light.",
+    "type": "blank",
+    "c": "white",
+    "e": "Incandescence at this high temperature produces a broad spectrum of visible white light."
+  },
+  {
+    "q": "Because the inert gas is added, the light bulb can be used safely up to the temperature ____ $^\\circ C$.",
+    "type": "blank",
+    "c": "$2500$",
+    "e": "The pressurized inert gas suppresses evaporation, allowing higher and safer operating temperatures."
+  },
+  {
+    "q": "The inert gas in the light bulb also reduces ____ of the filament.",
+    "type": "blank",
+    "c": "evaporation",
+    "e": "Slowing evaporation extends the operational lifespan of the light bulb."
+  },
+  {
+    "q": "The electric light bulb converts most of the electrical energy into heat and ____ energy.",
+    "type": "blank",
+    "c": "light",
+    "e": "Incandescent bulbs are actually mostly heaters, converting a small fraction of energy into visible light."
+  },
+  {
+    "q": "In an electric iron, a ____ sheet is wound around the nichrome wire.",
+    "type": "blank",
+    "c": "mica",
+    "e": "Mica acts as a structural and electrical barrier between the heating element and the metal casing."
+  },
+  {
+    "q": "Mica is a good electrical ____ and can withstand very high temperature.",
+    "type": "blank",
+    "c": "insulator",
+    "e": "It prevents the user from being shocked while enduring the intense heat of the nichrome wire."
+  },
+  {
+    "q": "When a current flows through the nichrome wire in an electric iron, it produces ____ energy.",
+    "type": "blank",
+    "c": "heat",
+    "e": "Nichrome has high resistivity and does not oxidize easily, making it ideal for heating elements."
+  },
+  {
+    "q": "The heating element in an electric iron is controlled by a ____ that switches the current on and off.",
+    "type": "blank",
+    "c": "thermostat",
+    "e": "A bimetallic strip thermostat breaks the circuit when the target temperature is reached."
+  },
+  {
+    "q": "The thermostat maintains the ____ temperature in an electric iron.",
+    "type": "blank",
+    "c": "selected",
+    "e": "Users can adjust the thermostat to choose the appropriate heat level for different fabrics."
+  },
+  {
+    "q": "In an electric stove, a coil of nichrome wire is placed in the groove of the ____-resistant material.",
+    "type": "blank",
+    "c": "heat",
+    "e": "The supporting material must endure continuous high temperatures without degrading or catching fire."
+  },
+  {
+    "q": "A fuse is a thin short wire of tin-____ alloy.",
+    "type": "blank",
+    "c": "lead",
+    "e": "Tin-lead alloys have a low melting point, allowing them to melt quickly during a current surge."
+  },
+  {
+    "q": "A fuse is used in electric circuits to prevent electrical appliances from being damaged if ____ current flows through them.",
+    "type": "blank",
+    "c": "excessive",
+    "e": "Fuses act as sacrificial safety devices that fail before the wiring or appliances can overheat."
+  },
+  {
+    "q": "The fuse wire is fitted in a glass tube called a ____ or on a porcelain block.",
+    "type": "blank",
+    "c": "cartridge",
+    "e": "The cartridge contains any arcing or hot metal fragments when the fuse wire melts."
+  },
+  {
+    "q": "When a current greater than the fuse rating flows in the circuit, the fuse becomes so hot that it will ____ and break the circuit.",
+    "type": "blank",
+    "c": "melt",
+    "e": "Melting creates an open circuit, instantly stopping the dangerous flow of electrons."
+  },
+  {
+    "q": "When the fuse melts, the current stops flowing and the electrical appliance is not ____.",
+    "type": "blank",
+    "c": "damaged",
+    "e": "By interrupting the current, the fuse prevents catastrophic overheating and potential fires."
+  },
+  {
+    "q": "For an appliance rated as 700 W or less, a ____ A fuse should be fitted.",
+    "type": "blank",
+    "c": "$3$",
+    "e": "At 220V, a 700W appliance draws roughly 3.2A, making a 3A fuse appropriate for slightly lower wattages or standard protection."
+  },
+  {
+    "q": "For appliances above 700 W, a ____ A fuse should be fitted.",
+    "type": "blank",
+    "c": "$13$",
+    "e": "High-power appliances like heaters require a higher rated fuse to operate normally without blowing."
+  },
+  {
+    "q": "Electromotive force is the amount of energy provided by the battery per unit charge to move round the ____ circuit.",
+    "type": "blank",
+    "c": "complete",
+    "e": "Emf accounts for the energy required to push charge through both the external and internal paths."
+  },
+  {
+    "q": "The potential difference across the terminals of a battery connected to an external circuit is called the ____ voltage.",
+    "type": "blank",
+    "c": "terminal",
+    "e": "This is the practical, measurable voltage available to the external load."
+  },
+  {
+    "q": "Electrical energy is energy associated with the flow of charge through any part of ____.",
+    "type": "blank",
+    "c": "circuit",
+    "e": "It represents the capacity to do work via the movement of electrons."
+  },
+  {
+    "q": "Electrical power is the rate of transfer of electrical ____.",
+    "type": "blank",
+    "c": "energy",
+    "e": "Power dictates how quickly a device consumes or delivers electrical work."
+  },
+  {
+    "q": "Joule's law states that heat produced is directly proportional to the square of the current, the value of resistance and the ____ taken.",
+    "type": "blank",
+    "c": "time",
+    "e": "The longer the current flows, the more total heat energy accumulates in the resistor."
+  },
+  {
+    "q": "A fuse is a thin short wire of tin-lead alloy used to prevent appliances from damage if ____ current flows.",
+    "type": "blank",
+    "c": "excessive",
+    "e": "It is the primary safety mechanism against short circuits and overloads."
+  }
+]
