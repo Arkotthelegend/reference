@@ -1,0 +1,818 @@
+[
+  {
+    "q": "Every reaction has a rate, or speed, at which it proceeds.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is a fundamental concept in chemical kinetics."
+  },
+  {
+    "q": "Different chemical reactions occur at the same rate.",
+    "type": "tf",
+    "c": "false",
+    "e": "Different chemical reactions occur at different rates; some are fast and some are very slow."
+  },
+  {
+    "q": "An explosion of dynamite takes within a second.",
+    "type": "tf",
+    "c": "true",
+    "e": "Explosions and striking a match are examples of very fast reactions."
+  },
+  {
+    "q": "Weathering of rocks happens within a second.",
+    "type": "tf",
+    "c": "false",
+    "e": "Weathering of rocks is a very slow process that happens over years."
+  },
+  {
+    "q": "Depletion of the ozone layer depends on the relative rates of reactions that produce and destroy ozone molecules.",
+    "type": "tf",
+    "c": "true",
+    "e": "Environmental processes like ozone depletion rely heavily on reaction kinetics."
+  },
+  {
+    "q": "Enzyme action is essential in food preservatives.",
+    "type": "tf",
+    "c": "true",
+    "e": "Biological and chemical kinetics are crucial in food processing and preservation."
+  },
+  {
+    "q": "The economical synthesis of ammonia depends on the rate at which gaseous nitrogen and hydrogen can be converted to ammonia.",
+    "type": "tf",
+    "c": "true",
+    "e": "Industrial processes like fertilizer production depend on optimizing reaction rates."
+  },
+  {
+    "q": "Knowledge of reaction rates is required in drug design, pollution control, and food processing.",
+    "type": "tf",
+    "c": "true",
+    "e": "Chemical kinetics has wide applications in medicine, environment, and industry."
+  },
+  {
+    "q": "The study of reaction rate is known as chemical thermodynamics.",
+    "type": "tf",
+    "c": "false",
+    "e": "The study of reaction rate is known as chemical kinetics."
+  },
+  {
+    "q": "Rate is a measure of how fast or how slow the reaction is.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the basic definition of a reaction rate."
+  },
+  {
+    "q": "To describe the quantitative measurement of a reaction rate, it is necessary to specify how fast the reactants are used up or the products are formed.",
+    "type": "tf",
+    "c": "true",
+    "e": "Quantitative rate measurements track the change in amount of reactants or products over time."
+  },
+  {
+    "q": "An iron nail reacts rapidly in the air as it rusts.",
+    "type": "tf",
+    "c": "false",
+    "e": "An iron nail reacts slowly in the air as it rusts."
+  },
+  {
+    "q": "White phosphorus bursts into flames when exposed to air.",
+    "type": "tf",
+    "c": "true",
+    "e": "White phosphorus undergoes a very fast combustion reaction with oxygen in the air."
+  },
+  {
+    "q": "Candle wax burns only after the wick of the candle is lighted.",
+    "type": "tf",
+    "c": "true",
+    "e": "This provides the necessary activation energy for the combustion reaction to proceed."
+  },
+  {
+    "q": "The rate of reaction means measuring the change in the amount of a product produced or a reactant used up in the time taken for that change.",
+    "type": "tf",
+    "c": "true",
+    "e": "Reaction rate is defined by the change in amount per unit of time."
+  },
+  {
+    "q": "The reaction rate is usually expressed as the change in the amount of a reactant used up or the product formed in a unit of volume.",
+    "type": "tf",
+    "c": "false",
+    "e": "The reaction rate is usually expressed as the change in amount in a unit of time."
+  },
+  {
+    "q": "Magnesium reacts with dilute hydrochloric acid giving off oxygen gas.",
+    "type": "tf",
+    "c": "false",
+    "e": "Magnesium reacts with dilute hydrochloric acid giving off hydrogen gas."
+  },
+  {
+    "q": "The rate of disappearance of $Mg$ is expressed as mass of $Mg$ reacted divided by time.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is a valid way to express the rate in terms of the solid reactant."
+  },
+  {
+    "q": "The rate of formation of $H_2$ is expressed as volume of $H_2$ collected divided by time.",
+    "type": "tf",
+    "c": "true",
+    "e": "Gas evolution is commonly measured by volume collected over time."
+  },
+  {
+    "q": "If the substance is a gas, the amount consumed or formed is expressed in pressure units or as measured in volume.",
+    "type": "tf",
+    "c": "true",
+    "e": "Gases can be quantitatively measured via pressure or volume changes."
+  },
+  {
+    "q": "Concentration units are used if the reactant or product is in the gaseous state.",
+    "type": "tf",
+    "c": "false",
+    "e": "Concentration units are typically used if the reactant or product is in solution."
+  },
+  {
+    "q": "The time measurement is expressed in whatever units fit the reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "Time units can range from seconds to years depending on the speed of the reaction."
+  },
+  {
+    "q": "Generally, the rate of a reaction in solution is measured in terms of a decrease in the concentration of the reactant per unit time at a constant temperature.",
+    "type": "tf",
+    "c": "true",
+    "e": "Tracking concentration decrease over time at a constant temperature is standard for solutions."
+  },
+  {
+    "q": "The rate of reactant used up is expressed as $+\\frac{\\Delta[\\text{reactant}]}{\\Delta t}$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The rate of reactant used up is expressed with a minus sign as $-\\frac{\\Delta[\\text{reactant}]}{\\Delta t}$ to indicate a decrease."
+  },
+  {
+    "q": "The rate of product formed is expressed as $+\\frac{\\Delta[\\text{product}]}{\\Delta t}$.",
+    "type": "tf",
+    "c": "true",
+    "e": "The plus sign indicates an increase in the concentration of the product."
+  },
+  {
+    "q": "The delta ($\\Delta$) means change and the square bracket $[]$ represents molar concentration.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the standard chemical notation for change in molarity."
+  },
+  {
+    "q": "The minus sign in the rate expression means an increase in the concentration of the reactant.",
+    "type": "tf",
+    "c": "false",
+    "e": "The minus sign means a decrease in the concentration of the reactant."
+  },
+  {
+    "q": "Rate is expressed as a positive quantity.",
+    "type": "tf",
+    "c": "true",
+    "e": "Reaction rates are always written as positive values."
+  },
+  {
+    "q": "For a general chemical reaction $aA + bB \\rightarrow cC + dD$, the rate is $-\\frac{1}{a}\\frac{\\Delta[A]}{\\Delta t}$.",
+    "type": "tf",
+    "c": "true",
+    "e": "The rate expression divides the change in concentration by the stoichiometric coefficient."
+  },
+  {
+    "q": "The rate constant $k$ explains the relationship between the molar concentration of the reactants and the rate of a chemical reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "The rate constant links concentration to the observed reaction rate."
+  },
+  {
+    "q": "The mole ratios from the balanced chemical equation cannot be used to determine the rates of change in concentrations of products and reactants.",
+    "type": "tf",
+    "c": "false",
+    "e": "The mole ratios from the balanced equation are used to determine the relative rates of change."
+  },
+  {
+    "q": "In the reaction $Zn(s) + 2HCl(aq) \\rightarrow ZnCl_2(aq) + H_2(g)$, the rate of disappearance of $HCl$ is half the rate of disappearance of $Zn$.",
+    "type": "tf",
+    "c": "false",
+    "e": "The rate of disappearance of $HCl$ is twice the rate of disappearance of $Zn$ due to the 2:1 stoichiometric ratio."
+  },
+  {
+    "q": "Rate of a reaction is measured in terms of the change in amount of a reactant or a product per unit of time.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the core definition of reaction rate."
+  },
+  {
+    "q": "Rusting of an iron pipe happens within a second.",
+    "type": "tf",
+    "c": "false",
+    "e": "Rusting of an iron pipe is a slow process that happens over months or years."
+  },
+  {
+    "q": "Striking of a match takes within a second.",
+    "type": "tf",
+    "c": "true",
+    "e": "Striking a match is a fast chemical reaction."
+  },
+  {
+    "q": "Collision theory explains how chemical reactions occur.",
+    "type": "tf",
+    "c": "true",
+    "e": "Collision theory is the fundamental model for understanding reaction mechanisms and rates."
+  },
+  {
+    "q": "Collision theory is based on the kinetic molecular theory of solids.",
+    "type": "tf",
+    "c": "false",
+    "e": "Collision theory is based on the kinetic molecular theory of gases."
+  },
+  {
+    "q": "Reactant particles moving in random directions possess kinetic energy.",
+    "type": "tf",
+    "c": "true",
+    "e": "Particle motion is directly related to their kinetic energy."
+  },
+  {
+    "q": "When reactant particles frequently collide with one another, the energy is transferred as a result of the collision.",
+    "type": "tf",
+    "c": "true",
+    "e": "Collisions facilitate the transfer of kinetic energy between particles."
+  },
+  {
+    "q": "All collisions between reactant particles result in the formation of reaction products.",
+    "type": "tf",
+    "c": "false",
+    "e": "Not all collisions result in products; only successful collisions do."
+  },
+  {
+    "q": "For a reaction to occur, colliding particles must possess a certain minimum energy known as an activation energy.",
+    "type": "tf",
+    "c": "true",
+    "e": "Activation energy is the threshold energy required for a reaction."
+  },
+  {
+    "q": "During a collision, the spatial orientation of the reactant molecules is unimportant to determine whether or not a reaction occurs.",
+    "type": "tf",
+    "c": "false",
+    "e": "The spatial orientation of the reactant molecules is crucial for a successful collision."
+  },
+  {
+    "q": "If the colliding particles have the incorrect orientation, they will bounce off each other.",
+    "type": "tf",
+    "c": "true",
+    "e": "Incorrect orientation prevents the formation of the activated complex."
+  },
+  {
+    "q": "The unsuccessful collisions with insufficient energy produce a reaction.",
+    "type": "tf",
+    "c": "false",
+    "e": "Unsuccessful collisions with insufficient energy do not produce a reaction."
+  },
+  {
+    "q": "When the particles collide with the correct orientation, they must have enough energy for a successful collision to produce a reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "Both correct orientation and sufficient energy are required for an effective collision."
+  },
+  {
+    "q": "The rate of reaction depends on the rate of successful collisions between reactant particles.",
+    "type": "tf",
+    "c": "true",
+    "e": "More successful collisions per unit time lead to a faster reaction rate."
+  },
+  {
+    "q": "Reacting particles must collide with sufficient energy to form the activated complex.",
+    "type": "tf",
+    "c": "true",
+    "e": "The activated complex forms at the peak of the energy barrier."
+  },
+  {
+    "q": "An activated complex is a permanent species formed by the reactant particles as a result of the collision.",
+    "type": "tf",
+    "c": "false",
+    "e": "An activated complex is a temporary, unstable species formed before products are made."
+  },
+  {
+    "q": "The more successful collisions there are, the faster the rate of a reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "The frequency of effective collisions dictates the overall reaction speed."
+  },
+  {
+    "q": "Chemical reactions depend on the collisions between the reacting particles such as atoms, molecules or ions.",
+    "type": "tf",
+    "c": "true",
+    "e": "Collision theory applies to all these types of reacting particles."
+  },
+  {
+    "q": "Reacting particles must collide in the correct orientation with sufficient energy to overcome the energy barrier to react.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the core statement of the collision theory."
+  },
+  {
+    "q": "According to the collision theory, a reaction will speed up if the frequency of collision decreases.",
+    "type": "tf",
+    "c": "false",
+    "e": "A reaction will speed up if the frequency of collision increases."
+  },
+  {
+    "q": "A reaction will speed up if the proportion of particles with energy that is greater than the activation energy increases.",
+    "type": "tf",
+    "c": "true",
+    "e": "More particles overcoming the barrier leads to a faster rate."
+  },
+  {
+    "q": "Collision theory can be used to explain the main factors such as concentration, temperature, pressure, and particle size.",
+    "type": "tf",
+    "c": "true",
+    "e": "These factors all influence collision frequency or energy."
+  },
+  {
+    "q": "For a chemical reaction to occur, the colliding molecules must possess at least a certain minimum energy necessary to rearrange the original bonds breaking or new bonds forming.",
+    "type": "tf",
+    "c": "true",
+    "e": "Bond breaking requires an input of energy equal to or greater than the activation energy."
+  },
+  {
+    "q": "The activation energy ($E_a$) is the maximum energy that reactant particles must possess for a successful collision.",
+    "type": "tf",
+    "c": "false",
+    "e": "The activation energy ($E_a$) is the minimum energy required for a successful collision."
+  },
+  {
+    "q": "During the progress of a reaction, an unstable intermediate which is known as an activated complex is formed before producing a product.",
+    "type": "tf",
+    "c": "true",
+    "e": "The activated complex represents the transition state of the reaction."
+  },
+  {
+    "q": "A hydrogen molecule and an iodine molecule collide to form an unstable intermediate $[H_2I_2]$.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the specific activated complex for the formation of hydrogen iodide."
+  },
+  {
+    "q": "In order to get the product $HI$, the reactants must pass through a short-lived, high-energy transition state.",
+    "type": "tf",
+    "c": "true",
+    "e": "The transition state is highly energetic and unstable."
+  },
+  {
+    "q": "The minimum energy that needs to be reached in the transition state is equal to the activation energy ($E_a$) for that reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "The energy barrier corresponds exactly to the activation energy."
+  },
+  {
+    "q": "The activation energy represents an energy barrier for the reaction, and it has the same value in all reactions.",
+    "type": "tf",
+    "c": "false",
+    "e": "The activation energy has a different value for different reactions."
+  },
+  {
+    "q": "In the reaction between $H_2$ gas and $I_2$ gas to form $HI$, the final product has less energy than the reactants, so the reaction is exothermic.",
+    "type": "tf",
+    "c": "true",
+    "e": "A net release of energy characterizes an exothermic reaction."
+  },
+  {
+    "q": "Some energy is absorbed when the activated complex leads to the formation of the products in an exothermic reaction.",
+    "type": "tf",
+    "c": "false",
+    "e": "Some energy is released when the activated complex leads to the formation of products in an exothermic reaction."
+  },
+  {
+    "q": "When there is sufficient energy to overcome the energy barrier, the formation of the product is favourable.",
+    "type": "tf",
+    "c": "true",
+    "e": "Overcoming the barrier allows the reaction to proceed forward."
+  },
+  {
+    "q": "If the energy is not enough to overcome the energy barrier, the decomposition of the product back to reactants will occur.",
+    "type": "tf",
+    "c": "true",
+    "e": "Without enough energy, the activated complex falls apart back into reactants."
+  },
+  {
+    "q": "A high $E_a$ means that relatively few collisions have the required energy to produce the activated complex, and hence, the reaction rate is fast.",
+    "type": "tf",
+    "c": "false",
+    "e": "A high $E_a$ means the reaction rate is slow because fewer collisions are successful."
+  },
+  {
+    "q": "With a low $E_a$, more collisions have sufficient energy to react, and the reaction rate is fast.",
+    "type": "tf",
+    "c": "true",
+    "e": "A lower barrier allows a greater proportion of collisions to be effective."
+  },
+  {
+    "q": "A successful collision is a collision that causes a chemical reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is also known as an effective collision."
+  },
+  {
+    "q": "Transition state is also known as an intermediate state and is a highly energetic state that would be highly unstable.",
+    "type": "tf",
+    "c": "true",
+    "e": "The transition state exists only momentarily at the peak of the energy profile."
+  },
+  {
+    "q": "The activated complex may form products or break apart to reform the reactants.",
+    "type": "tf",
+    "c": "true",
+    "e": "Because it is unstable, it can proceed forward or reverse."
+  },
+  {
+    "q": "The controlled burning of fuel in an internal combustion engine is required to avoid fire or explosion.",
+    "type": "tf",
+    "c": "true",
+    "e": "Controlling reaction rates is essential for safety in engines."
+  },
+  {
+    "q": "Undesirable reactions, such as the spoiling of food, need to take place more rapidly.",
+    "type": "tf",
+    "c": "false",
+    "e": "Undesirable reactions like food spoiling need to take place more slowly."
+  },
+  {
+    "q": "For many reactions involving liquids or gases, increasing the concentrations of the reactants increases the rate of reactions.",
+    "type": "tf",
+    "c": "true",
+    "e": "Higher concentration leads to more frequent collisions."
+  },
+  {
+    "q": "The effect of concentration on the rate of reaction can be explained by the collision theory.",
+    "type": "tf",
+    "c": "true",
+    "e": "More particles in a given volume increase the collision frequency."
+  },
+  {
+    "q": "If more molecules or ions of the reactants are in the reaction area, there is a greater chance of more effective collisions per unit time.",
+    "type": "tf",
+    "c": "true",
+    "e": "Crowded particles collide more often."
+  },
+  {
+    "q": "Zinc granule reacts fairly slowly with $1.0 \\text{ mol dm}^{-3}$ dilute hydrochloric acid but much faster with $6.0 \\text{ mol dm}^{-3}$ hydrochloric acid.",
+    "type": "tf",
+    "c": "true",
+    "e": "This demonstrates the direct effect of reactant concentration on rate."
+  },
+  {
+    "q": "The higher the concentration of reactant hydrochloric acid, fewer collisions on the surface of the zinc will occur.",
+    "type": "tf",
+    "c": "false",
+    "e": "The higher the concentration, more collisions on the surface of the zinc will occur."
+  },
+  {
+    "q": "In reactions involving solids, a reaction occurs at the boundary surface between reactants.",
+    "type": "tf",
+    "c": "true",
+    "e": "Solid reactants can only react at their exposed surfaces."
+  },
+  {
+    "q": "The rate of a reaction involving a solid reactant is increased by decreasing the surface area of the solid.",
+    "type": "tf",
+    "c": "false",
+    "e": "The rate is increased by increasing the surface area of the solid."
+  },
+  {
+    "q": "The smaller the particle size, the larger the surface area will be.",
+    "type": "tf",
+    "c": "true",
+    "e": "Crushing a solid exposes more total surface area."
+  },
+  {
+    "q": "If the surface is larger, it will be hit by fewer moving reacting particles per unit time.",
+    "type": "tf",
+    "c": "false",
+    "e": "A larger surface area will be hit by more moving reacting particles per unit time."
+  },
+  {
+    "q": "Aluminium foil reacts moderately with sodium hydroxide solution only when warmed, but powdered aluminium of the same mass reacts rapidly in the cold.",
+    "type": "tf",
+    "c": "true",
+    "e": "Powdered aluminium has a vastly larger surface area than foil."
+  },
+  {
+    "q": "Reducing the size of particles increases the surface area, increases the number of collisions per second, and thus increases the rate of reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the mechanistic explanation for the particle size effect."
+  },
+  {
+    "q": "Large pieces of wood are easy to ignite whereas small pieces burn more slowly.",
+    "type": "tf",
+    "c": "false",
+    "e": "Large pieces of wood are difficult to ignite whereas small pieces burn more rapidly."
+  },
+  {
+    "q": "Changing the pressure does not affect the rate of reaction that only involves solids or liquids.",
+    "type": "tf",
+    "c": "true",
+    "e": "Solids and liquids are largely incompressible, so pressure changes don't affect their concentration."
+  },
+  {
+    "q": "Pressure affects the rate of a reaction involving gases.",
+    "type": "tf",
+    "c": "true",
+    "e": "Increasing pressure compresses gases, increasing their concentration."
+  },
+  {
+    "q": "Increasing the pressure decreases the speed of the reaction.",
+    "type": "tf",
+    "c": "false",
+    "e": "Increasing the pressure increases the speed of the reaction for gases."
+  },
+  {
+    "q": "The pressure is inversely proportional to the volume of a gas at a constant temperature.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is Boyle's Law, which explains why higher pressure means smaller volume and higher concentration."
+  },
+  {
+    "q": "At low pressure, the volume becomes larger, the number of collisions of gaseous molecules is smaller, and the rate of reaction is slower.",
+    "type": "tf",
+    "c": "true",
+    "e": "Expanded volume leads to fewer collisions."
+  },
+  {
+    "q": "At high pressure, the volume becomes smaller, the number of collisions is greater, and the rate of reaction is faster.",
+    "type": "tf",
+    "c": "true",
+    "e": "Compressed volume forces gas molecules to collide more frequently."
+  },
+  {
+    "q": "Food can cook faster in a pressure cooker than in a pot because trapped steam becomes hotter as the pressure increases.",
+    "type": "tf",
+    "c": "true",
+    "e": "Higher pressure raises the boiling point of water, increasing the cooking temperature and rate."
+  },
+  {
+    "q": "Most chemical reactions react faster at a low temperature than at a high temperature.",
+    "type": "tf",
+    "c": "false",
+    "e": "Most chemical reactions react faster at a high temperature than at a low temperature."
+  },
+  {
+    "q": "The kinetic energy of a gas is directly proportional to the temperature.",
+    "type": "tf",
+    "c": "true",
+    "e": "Heating a gas increases the average kinetic energy of its particles."
+  },
+  {
+    "q": "Increasing the temperature increases the kinetic energy, which means that the molecules move faster and collide more frequently with sufficient activation energy.",
+    "type": "tf",
+    "c": "true",
+    "e": "Temperature increases both collision frequency and the energy of collisions."
+  },
+  {
+    "q": "The number of effective collisions per second of the reacting particles decreases when temperature increases.",
+    "type": "tf",
+    "c": "false",
+    "e": "The number of effective collisions per second increases when temperature increases."
+  },
+  {
+    "q": "The time required to hard-boil an egg in water is much shorter at $100^\\circ\\text{C}$ than at $80^\\circ\\text{C}$.",
+    "type": "tf",
+    "c": "true",
+    "e": "Higher temperatures speed up the chemical reactions involved in cooking."
+  },
+  {
+    "q": "Foods are cooled or frozen to speed up the chemical reactions that result in the spoiling of food.",
+    "type": "tf",
+    "c": "false",
+    "e": "Foods are cooled or frozen to slow down the chemical reactions that result in spoiling."
+  },
+  {
+    "q": "The effect of temperature on reaction rates can be explained by using the Boltzmann distribution curve.",
+    "type": "tf",
+    "c": "true",
+    "e": "The Maxwell-Boltzmann distribution shows how molecular energies are distributed."
+  },
+  {
+    "q": "The area under the distribution curve represents the number of particles within a certain energy range.",
+    "type": "tf",
+    "c": "true",
+    "e": "The total area represents the total number of particles."
+  },
+  {
+    "q": "The shaded area under the Boltzmann distribution curve shows the number of particles with energy less than the activation energy.",
+    "type": "tf",
+    "c": "false",
+    "e": "The shaded area shows the number of particles with energy greater than the activation energy."
+  },
+  {
+    "q": "Chemical reactions take place only if the collided particles possess activation energy, $E_a$.",
+    "type": "tf",
+    "c": "true",
+    "e": "Particles must meet or exceed this energy threshold to react."
+  },
+  {
+    "q": "The area under the distribution curve at temperature $T$ gives the fraction of the number of molecules having particular energy.",
+    "type": "tf",
+    "c": "true",
+    "e": "The curve maps the probability of molecules having specific kinetic energies."
+  },
+  {
+    "q": "When the temperature is increased, the shape of the distribution curve sharpens and narrows.",
+    "type": "tf",
+    "c": "false",
+    "e": "When the temperature is increased, the shape of the distribution curve flattens and spreads out."
+  },
+  {
+    "q": "The fraction of molecules with energy greater than $E_a$ is much larger at the higher temperature.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the primary reason why higher temperatures drastically increase reaction rates."
+  },
+  {
+    "q": "Generally, for a ten degrees rise in temperature, the area under the curve approximately doubles as does the rate of reactions.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is a common rule of thumb for the temperature dependence of reaction rates."
+  },
+  {
+    "q": "A catalyst is defined as a substance which alters the rate of a chemical reaction but remains chemically unchanged at the end of the reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "Catalysts are not consumed in the overall reaction."
+  },
+  {
+    "q": "Most catalysts make chemical reactions go slower and are known as positive catalysts.",
+    "type": "tf",
+    "c": "false",
+    "e": "Most catalysts make chemical reactions go faster and are known as positive catalysts."
+  },
+  {
+    "q": "Iron is used as a positive catalyst in the Haber Process for manufacturing ammonia.",
+    "type": "tf",
+    "c": "true",
+    "e": "Iron is the standard heterogeneous catalyst for this industrial process."
+  },
+  {
+    "q": "Vanadium(V) oxide is used in the Contact Process for manufacturing sulphur trioxide.",
+    "type": "tf",
+    "c": "true",
+    "e": "Vanadium(V) oxide catalyses the oxidation of sulphur dioxide."
+  },
+  {
+    "q": "Manganese(IV) oxide is used in the preparation of oxygen from hydrogen peroxide.",
+    "type": "tf",
+    "c": "true",
+    "e": "Manganese(IV) oxide acts as a catalyst to speed up the decomposition of hydrogen peroxide."
+  },
+  {
+    "q": "Sometimes, a chemical reaction needs to go more slowly or suppress unwanted reactions.",
+    "type": "tf",
+    "c": "true",
+    "e": "Negative catalysts or inhibitors are used for this purpose."
+  },
+  {
+    "q": "Alcohol acts as a catalyst to speed up the oxidation of sodium sulphite to sodium sulphate.",
+    "type": "tf",
+    "c": "false",
+    "e": "Alcohol acts as a negative catalyst to slow down the oxidation of sodium sulphite."
+  },
+  {
+    "q": "A catalyst that decreases the rate of a chemical reaction is known as a negative catalyst.",
+    "type": "tf",
+    "c": "true",
+    "e": "Negative catalysts are also called inhibitors."
+  },
+  {
+    "q": "Generally, the catalysts provide an alternative pathway for the reaction with higher activation energy.",
+    "type": "tf",
+    "c": "false",
+    "e": "Catalysts provide an alternative pathway with a lower activation energy."
+  },
+  {
+    "q": "The activation energy of a catalysed reaction is less than that of an uncatalysed reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "Lowering the barrier allows more particles to react."
+  },
+  {
+    "q": "Catalysts may be homogeneous or heterogeneous.",
+    "type": "tf",
+    "c": "true",
+    "e": "These are the two main physical classifications of catalysts."
+  },
+  {
+    "q": "Homogeneous catalysts are in different phases from the reactants.",
+    "type": "tf",
+    "c": "false",
+    "e": "Homogeneous catalysts are uniformly mixed with the reactants and are in the same phase."
+  },
+  {
+    "q": "Heterogeneous catalysts are in different phases from the reactants.",
+    "type": "tf",
+    "c": "true",
+    "e": "Typically, a solid catalyst is used with gaseous or liquid reactants."
+  },
+  {
+    "q": "Homogeneous catalysts most often catalyse the gaseous and aqueous reactions to increase their reaction rates.",
+    "type": "tf",
+    "c": "true",
+    "e": "They mix completely within the fluid reaction medium."
+  },
+  {
+    "q": "In the Lead chamber process of sulphuric acid, nitrogen oxide acts as a catalyst in the oxidation of sulphur dioxide.",
+    "type": "tf",
+    "c": "true",
+    "e": "Nitrogen oxide is a homogeneous catalyst in this specific process."
+  },
+  {
+    "q": "Most heterogeneous catalysts are liquids that catalyse either gaseous or liquid reactants.",
+    "type": "tf",
+    "c": "false",
+    "e": "Most heterogeneous catalysts are solids that catalyse gaseous or liquid reactants."
+  },
+  {
+    "q": "In heterogeneous catalysis, the reactions take place on the surface of the solid catalyst to speed up.",
+    "type": "tf",
+    "c": "true",
+    "e": "Adsorption onto the solid surface is a key step in heterogeneous catalysis."
+  },
+  {
+    "q": "In the ammonia oxidation process (Ostwald process), Pt - Rh catalyst speeds up the reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "Platinum-rhodium gauze is the heterogeneous catalyst used in the Ostwald process."
+  },
+  {
+    "q": "Enzymes act as biocatalysts for specific biochemical reactions in living systems.",
+    "type": "tf",
+    "c": "true",
+    "e": "Enzymes are highly specific biological catalysts."
+  },
+  {
+    "q": "Ptyalin in saliva and pepsin in gastric juice catalyse to hasten the breakdown of large molecules into simpler molecules.",
+    "type": "tf",
+    "c": "true",
+    "e": "These are digestive enzymes that break down starch and protein."
+  },
+  {
+    "q": "The reaction rate using enzymes is much slower than inorganic catalysts.",
+    "type": "tf",
+    "c": "false",
+    "e": "The reaction rate using enzymes is much faster than inorganic catalysts."
+  },
+  {
+    "q": "Some chemical reactions obtain the energy they need from light.",
+    "type": "tf",
+    "c": "true",
+    "e": "Light provides the activation energy for these specific reactions."
+  },
+  {
+    "q": "Reactions that are initiated by light are called thermochemical reactions.",
+    "type": "tf",
+    "c": "false",
+    "e": "Reactions initiated by light are called photochemical reactions."
+  },
+  {
+    "q": "The brighter the light, the slower is the reaction.",
+    "type": "tf",
+    "c": "false",
+    "e": "The brighter the light, the faster is the photochemical reaction."
+  },
+  {
+    "q": "If the intensity of light is greater, the more reactant molecules gain the energy to react.",
+    "type": "tf",
+    "c": "true",
+    "e": "Higher light intensity means more photons are available to be absorbed."
+  },
+  {
+    "q": "Photosynthesis in green plants is a photochemical reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "Photosynthesis requires light energy to proceed."
+  },
+  {
+    "q": "The decomposition of silver bromide in photographic films is a photochemical reaction.",
+    "type": "tf",
+    "c": "true",
+    "e": "Light causes the silver bromide to decompose, creating the photographic image."
+  },
+  {
+    "q": "The reaction between hydrogen and chlorine is extremely slow in the dark, but it becomes explosive when exposed to intense sunlight.",
+    "type": "tf",
+    "c": "true",
+    "e": "Sunlight initiates a rapid free-radical chain reaction between the gases."
+  },
+  {
+    "q": "A phase is a portion of a physical state that is homogeneous throughout, and can be separated physically from other phases.",
+    "type": "tf",
+    "c": "true",
+    "e": "This is the definition of a phase in chemistry."
+  },
+  {
+    "q": "Volatile corrosion inhibitors (VCI) such as morpholine or hydrazine prevent corrosion in boilers.",
+    "type": "tf",
+    "c": "true",
+    "e": "VCIs are used to protect industrial equipment from rust and corrosion."
+  },
+  {
+    "q": "Wrapping metals in volatile corrosion inhibitor-coated paper is common for short-term protection against moisture and humidity.",
+    "type": "tf",
+    "c": "true",
+    "e": "The volatile compounds create a protective layer on the metal surface."
+  }
+]
