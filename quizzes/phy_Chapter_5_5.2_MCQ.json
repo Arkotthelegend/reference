@@ -1,0 +1,332 @@
+[
+  {
+    "q": "Thermodynamics is the study of systems involving energy in the form of _____.",
+    "type": "mcq",
+    "a": [
+      "heat and mass",
+      "heat and work",
+      "work and volume"
+    ],
+    "c": 1,
+    "e": "Thermodynamics focuses on the relationship and conversion of heat and work."
+  },
+  {
+    "q": "When two systems are in thermal equilibrium, there is no net _____ between them.",
+    "type": "mcq",
+    "a": [
+      "heat transfer",
+      "work done",
+      "temperature change"
+    ],
+    "c": 0,
+    "e": "Thermal equilibrium implies temperatures are equal, halting net heat transfer."
+  },
+  {
+    "q": "The Zeroth Law states that if two objects are in equilibrium with a third, they are in equilibrium with _____.",
+    "type": "mcq",
+    "a": [
+      "each other",
+      "the environment",
+      "a fourth object"
+    ],
+    "c": 2,
+    "e": "The Zeroth Law establishes the transitive property of thermal equilibrium."
+  },
+  {
+    "q": "The first law of thermodynamics is an application of the conservation of _____ for thermodynamic processes.",
+    "type": "mcq",
+    "a": [
+      "momentum",
+      "energy",
+      "mass"
+    ],
+    "c": 1,
+    "e": "The first law is fundamentally the principle of conservation of energy."
+  },
+  {
+    "q": "In the equation $\\Delta U = Q - W$, $W$ is positive if work is done _____ the system.",
+    "type": "mcq",
+    "a": [
+      "by",
+      "on",
+      "against"
+    ],
+    "c": 0,
+    "e": "Work done BY the system (expansion) is considered positive in this convention."
+  },
+  {
+    "q": "The internal energy of an ideal gas depends only on _____.",
+    "type": "mcq",
+    "a": [
+      "volume and pressure",
+      "mass and density",
+      "temperature"
+    ],
+    "c": 2,
+    "e": "For an ideal gas, internal energy is a function solely of absolute temperature."
+  },
+  {
+    "q": "The internal energy of an ideal monoatomic gas is given by the formula $U = $ _____.",
+    "type": "mcq",
+    "a": [
+      "$\\frac{1}{2} n R T$",
+      "$\\frac{3}{2} n R T$",
+      "$\\frac{5}{2} n R T$"
+    ],
+    "c": 1,
+    "e": "A monoatomic ideal gas has three translational degrees of freedom, yielding $\\frac{3}{2} n R T$."
+  },
+  {
+    "q": "Heat transfer and work are both energy in _____.",
+    "type": "mcq",
+    "a": [
+      "transit",
+      "storage",
+      "equilibrium"
+    ],
+    "c": 0,
+    "e": "Heat and work represent energy moving across boundaries, not stored energy."
+  },
+  {
+    "q": "A thermodynamic process may be defined as a change from one _____ state of a system to another.",
+    "type": "mcq",
+    "a": [
+      "dynamic",
+      "static",
+      "equilibrium"
+    ],
+    "c": 2,
+    "e": "Processes connect initial and final equilibrium states."
+  },
+  {
+    "q": "A quasi-static process happens slowly enough for the system to remain in internal physical thermodynamic _____.",
+    "type": "mcq",
+    "a": [
+      "kinetic",
+      "equilibrium",
+      "potential"
+    ],
+    "c": 1,
+    "e": "Quasi-static processes maintain continuous internal equilibrium."
+  },
+  {
+    "q": "An isobaric process occurs at constant _____.",
+    "type": "mcq",
+    "a": [
+      "pressure",
+      "volume",
+      "temperature"
+    ],
+    "c": 0,
+    "e": "Isobaric means the pressure of the system remains unchanged."
+  },
+  {
+    "q": "In an isobaric process, the work done by the system is equal to the pressure multiplied by the change in _____.",
+    "type": "mcq",
+    "a": [
+      "temperature",
+      "mass",
+      "volume"
+    ],
+    "c": 2,
+    "e": "Work at constant pressure is calculated as $W = p \\Delta V$."
+  },
+  {
+    "q": "An isochoric process occurs at constant _____.",
+    "type": "mcq",
+    "a": [
+      "pressure",
+      "volume",
+      "temperature"
+    ],
+    "c": 1,
+    "e": "Isochoric (or isovolumetric) means the volume is held rigid and constant."
+  },
+  {
+    "q": "In an isochoric process, the work done by the system is _____.",
+    "type": "mcq",
+    "a": [
+      "zero",
+      "one",
+      "infinity"
+    ],
+    "c": 0,
+    "e": "Since $\\Delta V = 0$, no pressure-volume work can be performed."
+  },
+  {
+    "q": "For an isochoric process, the change in internal energy is expressed as $\\Delta U = $ _____.",
+    "type": "mcq",
+    "a": [
+      "$n C_p \\Delta T$",
+      "$p \\Delta V$",
+      "$n C_v \\Delta T$"
+    ],
+    "c": 2,
+    "e": "At constant volume, all heat added goes into internal energy via $n C_v \\Delta T$."
+  },
+  {
+    "q": "An isothermal process occurs at a constant _____.",
+    "type": "mcq",
+    "a": [
+      "pressure",
+      "temperature",
+      "volume"
+    ],
+    "c": 1,
+    "e": "Isothermal means the temperature of the system does not change."
+  },
+  {
+    "q": "For an ideal gas undergoing an isothermal process, $\\Delta U$ is equal to _____.",
+    "type": "mcq",
+    "a": [
+      "zero",
+      "maximum",
+      "minimum"
+    ],
+    "c": 0,
+    "e": "Since internal energy depends only on temperature, constant $T$ means $\\Delta U = 0$."
+  },
+  {
+    "q": "The work done in an isothermal process can be calculated using the formula $W = $ _____.",
+    "type": "mcq",
+    "a": [
+      "$p \\Delta V$",
+      "$n C_v \\Delta T$",
+      "$n R T \\ln(\\frac{V_f}{V_i})$"
+    ],
+    "c": 2,
+    "e": "Integration of $p dV$ using the ideal gas law yields the logarithmic work formula."
+  },
+  {
+    "q": "In an adiabatic process, the heat transfer $Q$ is _____.",
+    "type": "mcq",
+    "a": [
+      "1",
+      "0",
+      "-1"
+    ],
+    "c": 1,
+    "e": "Adiabatic processes are perfectly insulated or occur too fast for heat exchange, so $Q=0$."
+  },
+  {
+    "q": "In an adiabatic process, the first law of thermodynamics reduces to $\\Delta U = $ _____.",
+    "type": "mcq",
+    "a": [
+      "$-W$",
+      "$W$",
+      "$Q$"
+    ],
+    "c": 0,
+    "e": "With $Q=0$, the change in internal energy equals the negative of the work done."
+  },
+  {
+    "q": "The ratio of the heat capacities $\\gamma$ is defined as $\\gamma = $ _____.",
+    "type": "mcq",
+    "a": [
+      "$C_v / C_p$",
+      "$C_p + C_v$",
+      "$C_p / C_v$"
+    ],
+    "c": 2,
+    "e": "The heat capacity ratio is the specific heat at constant pressure divided by that at constant volume."
+  },
+  {
+    "q": "A good example of a thermodynamic system is gas confined by a _____ in a cylinder.",
+    "type": "mcq",
+    "a": [
+      "valve",
+      "piston",
+      "spring"
+    ],
+    "c": 1,
+    "e": "A movable piston allows the gas to do work by expanding."
+  },
+  {
+    "q": "Systems at the same temperature will be in thermal _____ with each other.",
+    "type": "mcq",
+    "a": [
+      "equilibrium",
+      "motion",
+      "reaction"
+    ],
+    "c": 0,
+    "e": "Equal temperatures define the state of thermal equilibrium."
+  },
+  {
+    "q": "The simple definition of thermodynamic equilibrium is provided by the _____ Law of Thermodynamics.",
+    "type": "mcq",
+    "a": [
+      "First",
+      "Second",
+      "Zeroth"
+    ],
+    "c": 2,
+    "e": "The Zeroth Law establishes the foundational concept of thermal equilibrium."
+  },
+  {
+    "q": "In the first law of thermodynamics, $Q$ is negative if heat is _____ from the system.",
+    "type": "mcq",
+    "a": [
+      "added",
+      "removed",
+      "constant"
+    ],
+    "c": 1,
+    "e": "Heat leaving the system decreases its internal energy, hence $Q$ is negative."
+  },
+  {
+    "q": "The internal energy $U$ of a system is defined as the sum of the energies of all the constituent _____.",
+    "type": "mcq",
+    "a": [
+      "particles",
+      "molecules",
+      "electrons"
+    ],
+    "c": 0,
+    "e": "Internal energy accounts for the microscopic kinetic and potential energies of all particles."
+  },
+  {
+    "q": "The internal energy of an ideal gas is _____ proportional to the absolute temperature.",
+    "type": "mcq",
+    "a": [
+      "inversely",
+      "exponentially",
+      "directly"
+    ],
+    "c": 2,
+    "e": "Higher absolute temperature means greater average kinetic energy of particles."
+  },
+  {
+    "q": "Neither heat nor work is _____ as such in a system; both can change the internal energy.",
+    "type": "mcq",
+    "a": [
+      "created",
+      "stored",
+      "destroyed"
+    ],
+    "c": 1,
+    "e": "Heat and work are transient energy transfers, not stored properties like internal energy."
+  },
+  {
+    "q": "During a thermodynamic process, a system passes through various _____ states to a final state.",
+    "type": "mcq",
+    "a": [
+      "quasistatic",
+      "adiabatic",
+      "isobaric"
+    ],
+    "c": 0,
+    "e": "A slow process allows the system to pass through continuous quasistatic equilibrium states."
+  },
+  {
+    "q": "A quasi-static process happens _____ enough for the system to remain in internal equilibrium.",
+    "type": "mcq",
+    "a": [
+      "rapidly",
+      "instantly",
+      "slowly"
+    ],
+    "c": 2,
+    "e": "Slowness ensures uniform properties and continuous equilibrium throughout the system."
+  }
+]
