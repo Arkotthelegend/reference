@@ -1,0 +1,608 @@
+[
+  {
+    "q": "Sound is a sequence of ____ waves which propagates through compressible media such as air or water.",
+    "type": "blank",
+    "c": "pressure",
+    "e": "Sound propagates as longitudinal pressure waves through a medium."
+  },
+  {
+    "q": "Sound is a sequence of pressure waves which propagates through ____ media such as air or water.",
+    "type": "blank",
+    "c": "compressible",
+    "e": "Sound requires a compressible medium to propagate."
+  },
+  {
+    "q": "During their propagation, waves can be reflected, ____ or attenuated by the medium.",
+    "type": "blank",
+    "c": "refracted",
+    "e": "Sound waves undergo reflection, refraction, and attenuation during propagation."
+  },
+  {
+    "q": "During their propagation, waves can be reflected, refracted or ____ by the medium.",
+    "type": "blank",
+    "c": "attenuated",
+    "e": "Attenuation is the reduction in intensity of sound waves as they travel through a medium."
+  },
+  {
+    "q": "A relationship between density and pressure, affected by ____, determines the speed of sound within the medium.",
+    "type": "blank",
+    "c": "temperature",
+    "e": "Temperature affects the density and pressure relationship, which in turn determines the speed of sound."
+  },
+  {
+    "q": "The ____ of the medium determines the rate at which sound is attenuated.",
+    "type": "blank",
+    "c": "viscosity",
+    "e": "Viscosity causes energy loss in the medium, leading to sound attenuation."
+  },
+  {
+    "q": "For many media, such as air or water, attenuation due to ____ is negligible.",
+    "type": "blank",
+    "c": "viscosity",
+    "e": "In common media like air and water, viscosity does not significantly attenuate sound."
+  },
+  {
+    "q": "Speed of a sound wave can also be affected by the density, temperature, and ____ of the medium through which the sound waves travel.",
+    "type": "blank",
+    "c": "elasticity",
+    "e": "Elasticity, along with density and temperature, determines the speed of sound in a medium."
+  },
+  {
+    "q": "In a solid medium, the speed of sound depends on Young's modulus and the ____ of the solid material.",
+    "type": "blank",
+    "c": "density",
+    "e": "The speed of sound in solids is determined by Young's modulus and density."
+  },
+  {
+    "q": "In liquids, the velocity of sound depends on the ____ modulus and density of liquid.",
+    "type": "blank",
+    "c": "bulk",
+    "e": "Bulk modulus represents the elasticity of liquids and determines sound speed alongside density."
+  },
+  {
+    "q": "In gases, the velocity of sound depends on the ____ constant of gas, pressure in gas and its density.",
+    "type": "blank",
+    "c": "adiabatic",
+    "e": "The adiabatic constant is a key factor in calculating the speed of sound in gases."
+  },
+  {
+    "q": "Longitudinal sound waves travel faster in ____ than they do in liquids than they do in gases.",
+    "type": "blank",
+    "c": "solids",
+    "e": "Sound travels fastest in solids due to their high elasticity and closely packed particles."
+  },
+  {
+    "q": "Young's modulus and the bulk modulus are ____ properties of the medium.",
+    "type": "blank",
+    "c": "elasticity",
+    "e": "Both moduli measure the elastic response of a material to deformation."
+  },
+  {
+    "q": "The SI units of Young's modulus and the bulk modulus are ____.",
+    "type": "blank",
+    "c": "$N m^{-2}$",
+    "e": "Both moduli are measured in Newtons per square meter, or Pascals."
+  },
+  {
+    "q": "The level of intensity of a sound is measured relative to a reference intensity value $I_0$, taken as ____ which correspond to the minimum intensity of sound that can be heard.",
+    "type": "blank",
+    "c": "$10^{-12} W m^{-2}$",
+    "e": "This value represents the threshold of hearing for the human ear."
+  },
+  {
+    "q": "The minimum intensity of sound that can be heard is also known as the threshold of ____ or minimum audible intensity.",
+    "type": "blank",
+    "c": "hearing",
+    "e": "The threshold of hearing is the quietest sound a normal human ear can detect."
+  },
+  {
+    "q": "The ____ (dB) is the unit used for measuring sound intensity (intensity level of sound).",
+    "type": "blank",
+    "c": "decibel",
+    "e": "The decibel is a logarithmic unit used to express sound intensity level."
+  },
+  {
+    "q": "For every 10 dB added to the sound level, the loudness of the sound is increased by ____ times.",
+    "type": "blank",
+    "c": "10",
+    "e": "A 10 dB increase corresponds to a tenfold increase in perceived loudness."
+  },
+  {
+    "q": "A 120 dB sound will be ____ times louder than a 100 dB sound.",
+    "type": "blank",
+    "c": "100",
+    "e": "A 20 dB difference means the sound is 10 times 10, or 100 times louder."
+  },
+  {
+    "q": "Sound intensity is a direct measure of the ____ reaching an eardrum measured in $W m^{-2}$.",
+    "type": "blank",
+    "c": "power",
+    "e": "Intensity is defined as the sound power per unit area."
+  },
+  {
+    "q": "According to Table 6.1, the intensity level of sound of a jet plane taking off is ____ dB.",
+    "type": "blank",
+    "c": "120",
+    "e": "A jet plane taking off produces a very high sound intensity level of 120 dB."
+  },
+  {
+    "q": "The intensity level of sound at the threshold of hearing is ____ dB.",
+    "type": "blank",
+    "c": "0",
+    "e": "The threshold of hearing is defined as the zero point on the decibel scale."
+  },
+  {
+    "q": "Echoes are produced where a sound wave is ____ from a large and hard surface.",
+    "type": "blank",
+    "c": "reflected",
+    "e": "Echoes are the result of sound waves bouncing off hard, reflective surfaces."
+  },
+  {
+    "q": "An echo is ____ of sound due to the reflection of sound.",
+    "type": "blank",
+    "c": "repetition",
+    "e": "An echo is heard as a distinct repetition of the original sound."
+  },
+  {
+    "q": "The echo or the reflected sound can be heard separately from the original sound if the source of the sound is much closer to the observer than to the ____ surface.",
+    "type": "blank",
+    "c": "reflecting",
+    "e": "The distance to the reflecting surface must be large enough for the brain to distinguish the echo."
+  },
+  {
+    "q": "Reflection of sound obeys the laws of ____.",
+    "type": "blank",
+    "c": "reflection",
+    "e": "Sound waves follow the same laws of reflection as light waves."
+  },
+  {
+    "q": "To reduce the effect of echo in buildings, walls are covered up with padding and the floors are covered with rugs and ____.",
+    "type": "blank",
+    "c": "carpets",
+    "e": "Soft materials like carpets absorb sound and prevent echoes."
+  },
+  {
+    "q": "These materials ____ the incident sound and reduce the amount of sound reflecting off wall and floor surfaces.",
+    "type": "blank",
+    "c": "absorb",
+    "e": "Sound-absorbing materials convert sound energy into heat, reducing reflections."
+  },
+  {
+    "q": "Echo can also be used to determine the ____ between a source of sound and the reflecting surface.",
+    "type": "blank",
+    "c": "distance",
+    "e": "By measuring the time delay of an echo, the distance to the object can be calculated."
+  },
+  {
+    "q": "Some animals such as bats are known to use ____ to navigate and locate their prey.",
+    "type": "blank",
+    "c": "echolocation",
+    "e": "Bats emit sounds and listen for echoes to map their surroundings."
+  },
+  {
+    "q": "Echolocation is the special ability of emitting sounds and interpreting the ____.",
+    "type": "blank",
+    "c": "echoes",
+    "e": "Interpreting the returning echoes allows animals to determine the location of objects."
+  },
+  {
+    "q": "A ____ is a reflection of light or sound waves, or a wide reaching impact of an action.",
+    "type": "blank",
+    "c": "reverberation",
+    "e": "Reverberation is the prolongation of sound due to multiple reflections."
+  },
+  {
+    "q": "An example of a reverberation is the sound bouncing around in a large ____.",
+    "type": "blank",
+    "c": "speaker",
+    "e": "Large enclosures or speakers can cause sound to reverberate."
+  },
+  {
+    "q": "Audibility means the ability to be heard or capability of detecting sounds in certain range of ____.",
+    "type": "blank",
+    "c": "frequencies",
+    "e": "Audibility is defined by the specific frequency range an organism can detect."
+  },
+  {
+    "q": "The range of frequencies a person can hear is known as the range of ____.",
+    "type": "blank",
+    "c": "audibility",
+    "e": "This range defines the limits of human hearing."
+  },
+  {
+    "q": "For humans with normal hearing, the lower limit of audibility is ____ Hz.",
+    "type": "blank",
+    "c": "20",
+    "e": "Humans typically cannot hear sounds with frequencies below 20 Hz."
+  },
+  {
+    "q": "For humans with normal hearing, the upper limit of audibility is about ____ Hz.",
+    "type": "blank",
+    "c": "20000",
+    "e": "The upper limit of human hearing is generally around 20,000 Hz."
+  },
+  {
+    "q": "These limits of hearing are known as the limit of ____.",
+    "type": "blank",
+    "c": "audibility",
+    "e": "The lower and upper frequency thresholds define the limits of audibility."
+  },
+  {
+    "q": "Low frequency sounds which are under the lower limit of audibility (20 Hz) are called ____ and cannot be heard by human.",
+    "type": "blank",
+    "c": "infrasound",
+    "e": "Infrasound refers to sound waves with frequencies below the human hearing range."
+  },
+  {
+    "q": "A vibrating ruler can be seen but not heard its vibrating sound because the sound produced is below the lower limit of audibility of the human ____.",
+    "type": "blank",
+    "c": "ear",
+    "e": "The human ear cannot detect the low-frequency vibrations of a ruler."
+  },
+  {
+    "q": "High frequency sounds which are above the upper limit of audibility (20 000 Hz) are called ____ which cannot be heard by human ear.",
+    "type": "blank",
+    "c": "ultrasound",
+    "e": "Ultrasound consists of sound waves with frequencies above 20,000 Hz."
+  },
+  {
+    "q": "Bats and whales use ____ in echolocation and most sonar technologies use it as well.",
+    "type": "blank",
+    "c": "ultrasound",
+    "e": "High-frequency ultrasound is ideal for echolocation due to its short wavelength."
+  },
+  {
+    "q": "If you blow a dog whistle, a dog may bark in response, because the frequency of the sound produced is above the upper limit of audibility of humans but within that of ____.",
+    "type": "blank",
+    "c": "dogs",
+    "e": "Dogs have a higher upper limit of audibility than humans."
+  },
+  {
+    "q": "By using a frequency ____, the audible frequency range can be determined.",
+    "type": "blank",
+    "c": "generator",
+    "e": "A frequency generator produces specific sound frequencies to test hearing limits."
+  },
+  {
+    "q": "Some portable sound frequency generator can create sound with frequencies 0 Hz to about ____ kHz.",
+    "type": "blank",
+    "c": "22",
+    "e": "Portable generators typically cover the human hearing range and slightly beyond, up to 22 kHz."
+  },
+  {
+    "q": "The frequency recorded when you start hearing the sound while tuning gradually from 0 Hz is the ____ limit of audibility.",
+    "type": "blank",
+    "c": "lower",
+    "e": "This marks the lowest frequency the ear can detect."
+  },
+  {
+    "q": "Manufacturers of concrete use ultrasound to check for cracks or ____.",
+    "type": "blank",
+    "c": "cavities",
+    "e": "Ultrasound can detect internal flaws like cavities in solid materials."
+  },
+  {
+    "q": "Ultrasound can also be used to inspect metal pipes and measure the ____ of the wooden boards.",
+    "type": "blank",
+    "c": "thickness",
+    "e": "The time it takes for an echo to return helps measure material thickness."
+  },
+  {
+    "q": "A prenatal ultrasound test uses high-frequency sound waves transmitted through the abdomen via a device called a ____.",
+    "type": "blank",
+    "c": "transducer",
+    "e": "A transducer emits and receives ultrasound waves during medical imaging."
+  },
+  {
+    "q": "With prenatal ultrasound, the echoes are recorded and transformed into video or photographic images of the ____.",
+    "type": "blank",
+    "c": "baby",
+    "e": "Prenatal ultrasound is used to visualize the developing fetus."
+  },
+  {
+    "q": "Ultrasonic scalers use ultrasound to remove calculus(____) deposits from the teeth.",
+    "type": "blank",
+    "c": "plaque",
+    "e": "Calculus is hardened dental plaque that ultrasonic scalers remove."
+  },
+  {
+    "q": "Ultrasonic scalers work mechanically using high frequency ultrasound that effectively blasts ____.",
+    "type": "blank",
+    "c": "calculus",
+    "e": "The mechanical vibrations break apart calculus deposits."
+  },
+  {
+    "q": "The plaque bacteria and calculus can be flushed from the teeth by a small jet of water or antibacterial ____ which is ejected from the top of the scaler.",
+    "type": "blank",
+    "c": "mouthwash",
+    "e": "A fluid jet helps wash away the debris removed by the scaler."
+  },
+  {
+    "q": "The transmission of high energy ultrasound may result in the creation of ____ bubbles.",
+    "type": "blank",
+    "c": "cavitation",
+    "e": "High-energy ultrasound causes rapid pressure changes that form cavitation bubbles."
+  },
+  {
+    "q": "Cavitation bubbles are created at sites of ____.",
+    "type": "blank",
+    "c": "rarefaction",
+    "e": "Rarefaction is the low-pressure phase of the sound wave where bubbles form."
+  },
+  {
+    "q": "These cavitation bubbles may displace ____ from surfaces.",
+    "type": "blank",
+    "c": "contaminant",
+    "e": "The collapse of cavitation bubbles generates forces that remove contaminants."
+  },
+  {
+    "q": "Cavitation bubbles effect allows fresh ____ to come into contact with the contaminant remaining on the surface to be removed.",
+    "type": "blank",
+    "c": "chemicals",
+    "e": "Ultrasonic cleaning enhances the chemical action of cleaning solutions."
+  },
+  {
+    "q": "Ultrasonic cleaning is especially effective in the cleaning of irregular surfaces or internal ____ and passageways.",
+    "type": "blank",
+    "c": "cavities",
+    "e": "Cavitation bubbles can reach into tiny crevices that manual cleaning cannot."
+  },
+  {
+    "q": "The sonar (sound navigation and ranging) is a type of technology that works based on ____.",
+    "type": "blank",
+    "c": "echoes",
+    "e": "Sonar relies on the reflection of sound waves to detect objects."
+  },
+  {
+    "q": "Sonar is used by the ships for navigation at sea and to detect the position of other ____.",
+    "type": "blank",
+    "c": "vessels",
+    "e": "Ships use sonar to avoid collisions and locate other watercraft."
+  },
+  {
+    "q": "In sonar technology, the depth of the sea or the position of the shoals of ____ can be found by sending out a signal.",
+    "type": "blank",
+    "c": "fish",
+    "e": "Fishermen use sonar to locate schools of fish underwater."
+  },
+  {
+    "q": "The depth of the sea can be found by sending out a signal from a ____ and noting the time interval for the reflected signal.",
+    "type": "blank",
+    "c": "transducer",
+    "e": "The transducer acts as both the transmitter and receiver in sonar systems."
+  },
+  {
+    "q": "Infrasound waves ($f < 20 Hz$) have long ____, and are thus able to travel distances.",
+    "type": "blank",
+    "c": "wavelengths",
+    "e": "Lower frequency corresponds to longer wavelengths, which diffract around obstacles."
+  },
+  {
+    "q": "Infrasound waves which have lower frequency and longer wavelengths are able to travel longer distances with less ____.",
+    "type": "blank",
+    "c": "attenuation",
+    "e": "Longer wavelengths are less easily absorbed or scattered by the medium."
+  },
+  {
+    "q": "A rhinoceros uses infrasound frequencies down to ____ Hz.",
+    "type": "blank",
+    "c": "10",
+    "e": "Rhinoceroses can communicate using very low-frequency infrasound."
+  },
+  {
+    "q": "A piezoelectric ____ produces ultrasound at a frequency of 10 MHz.",
+    "type": "blank",
+    "c": "transducer",
+    "e": "Piezoelectric materials convert electrical energy into mechanical ultrasound waves."
+  },
+  {
+    "q": "The Doppler effect or Doppler shift is the change in ____ of a wave related to an observer due to the relative motion between the source and observer.",
+    "type": "blank",
+    "c": "frequency",
+    "e": "Relative motion causes the observed frequency to differ from the emitted frequency."
+  },
+  {
+    "q": "The Doppler effect is named after the Austrian physicist Christian ____, who described the phenomenon in 1842.",
+    "type": "blank",
+    "c": "Doppler",
+    "e": "Christian Doppler first proposed the effect that now bears his name."
+  },
+  {
+    "q": "Usually, only the motion of the source and the observer directly towards or away from each other in the reference frame in which the wave medium is considered at ____ is considered.",
+    "type": "blank",
+    "c": "rest",
+    "e": "The standard Doppler equation assumes the medium itself is stationary."
+  },
+  {
+    "q": "A common example of Doppler shift is the change of frequency(____) heard when a vehicle sounding a horn approach and recedes from an observer.",
+    "type": "blank",
+    "c": "pitch",
+    "e": "Pitch is the subjective perception of sound frequency."
+  },
+  {
+    "q": "+v is used in the Doppler equation when the observer moves ____ the source.",
+    "type": "blank",
+    "c": "towards",
+    "e": "Moving towards the source increases the observed frequency."
+  },
+  {
+    "q": "-v is used in the Doppler equation when the observer moves ____ from the source.",
+    "type": "blank",
+    "c": "away",
+    "e": "Moving away from the source decreases the observed frequency."
+  },
+  {
+    "q": "-v is used in the Doppler equation when the source moves ____ the observer.",
+    "type": "blank",
+    "c": "towards",
+    "e": "A source moving towards the observer compresses the wavefronts, increasing frequency."
+  },
+  {
+    "q": "+v is used in the Doppler equation when source the moves ____ from the observer.",
+    "type": "blank",
+    "c": "away",
+    "e": "A source moving away stretches the wavefronts, decreasing frequency."
+  },
+  {
+    "q": "The wavelength of light from a star observed from the earth shifts due to Doppler effect towards the red end of the spectrum when the earth and star are moving ____ from each other.",
+    "type": "blank",
+    "c": "away",
+    "e": "Receding motion stretches the light waves, shifting them to longer, redder wavelengths."
+  },
+  {
+    "q": "The phenomenon of light shifting towards the red end of the spectrum is called ____ shift.",
+    "type": "blank",
+    "c": "red",
+    "e": "Red shift indicates that an astronomical object is moving away from the observer."
+  },
+  {
+    "q": "The velocity of the astronomical body moving away from the earth can be determined from the fractional change in ____.",
+    "type": "blank",
+    "c": "wavelength",
+    "e": "The magnitude of the red shift is proportional to the object's recessional velocity."
+  },
+  {
+    "q": "If the star were approaching the earth the spectral lines would shift towards the ____ end.",
+    "type": "blank",
+    "c": "blue",
+    "e": "Approaching motion compresses light waves, causing a blue shift."
+  },
+  {
+    "q": "Radar (radio detection and ranging) is a form of echolocation that uses ____ waves instead of sound.",
+    "type": "blank",
+    "c": "electromagnetic",
+    "e": "Radar uses radio waves, which are a type of electromagnetic radiation."
+  },
+  {
+    "q": "The Doppler effect is used in some types of radar, to measure the ____ of detected objects.",
+    "type": "blank",
+    "c": "velocity",
+    "e": "Doppler radar calculates the speed of objects based on the frequency shift of the returned signal."
+  },
+  {
+    "q": "Police radar, air traffic control radar and ____ radar are examples of Doppler effect applications.",
+    "type": "blank",
+    "c": "weather",
+    "e": "Weather radar uses the Doppler effect to track the movement of precipitation and wind."
+  },
+  {
+    "q": "Doppler ultrasound is a technique that is used to examine blood ____.",
+    "type": "blank",
+    "c": "flow",
+    "e": "Medical Doppler ultrasound measures the speed and direction of blood flow."
+  },
+  {
+    "q": "Blood flow rates can be found by measuring Doppler shift in frequency of ultrasound reflected by red blood cell (known as ____).",
+    "type": "blank",
+    "c": "angiodynography",
+    "e": "Angiodynography is the specific medical term for mapping blood flow using ultrasound."
+  },
+  {
+    "q": "This technique can help reveal blockage to blood flow, show the formation of ____ in arteries and provide detailed information on the heartbeat of the fetus.",
+    "type": "blank",
+    "c": "plaque",
+    "e": "Plaque buildup restricts blood flow and can be detected via Doppler ultrasound."
+  },
+  {
+    "q": "Doppler ultrasound can provide detailed information on the heartbeat of the ____ during labor and delivery.",
+    "type": "blank",
+    "c": "fetus",
+    "e": "Monitoring the fetal heartbeat is a critical application of Doppler ultrasound."
+  },
+  {
+    "q": "Doppler ultrasound can also be used to examine organ such as heart(____) and kidney.",
+    "type": "blank",
+    "c": "echocardiography",
+    "e": "Echocardiography uses ultrasound to create images of the heart's structures and blood flow."
+  },
+  {
+    "q": "The pitch of the note (how high it is) is determined by its ____.",
+    "type": "blank",
+    "c": "frequency",
+    "e": "Higher frequencies are perceived as higher pitches."
+  },
+  {
+    "q": "The greater the frequency, the ____ is the pitch.",
+    "type": "blank",
+    "c": "higher",
+    "e": "Pitch and frequency are directly proportional."
+  },
+  {
+    "q": "The loudness of the note depends upon the ____ of the wave that produces it.",
+    "type": "blank",
+    "c": "amplitude",
+    "e": "Larger wave amplitudes carry more energy and produce louder sounds."
+  },
+  {
+    "q": "The greater the amplitude, the louder the note, because more ____ is used to produce a larger amplitude.",
+    "type": "blank",
+    "c": "energy",
+    "e": "Sound energy is proportional to the square of the wave's amplitude."
+  },
+  {
+    "q": "If the amplitude of a sound wave is doubled, the loudness is ____ times greater.",
+    "type": "blank",
+    "c": "four",
+    "e": "Since energy is proportional to the square of the amplitude, doubling the amplitude quadruples the energy."
+  },
+  {
+    "q": "Quality of a sound is the characteristic which distinguishes the two sounds of the same loudness and same pitch but emitted by two different ____.",
+    "type": "blank",
+    "c": "instruments",
+    "e": "Timbre allows us to tell a piano from a violin even when they play the same note."
+  },
+  {
+    "q": "The notes produced by the violin richer than others because it has more ____.",
+    "type": "blank",
+    "c": "overtones",
+    "e": "The presence and relative strength of overtones give an instrument its unique timbre."
+  },
+  {
+    "q": "Notes of the same pitch played upon different musical instruments are distinguished from each other by their ____.",
+    "type": "blank",
+    "c": "quality",
+    "e": "Sound quality, or timbre, is determined by the complex waveform of the note."
+  },
+  {
+    "q": "The timbre of a sound depends on its waveform, which varies with the number of overtones or ____.",
+    "type": "blank",
+    "c": "harmonics",
+    "e": "Harmonics are integer multiples of the fundamental frequency that enrich the sound."
+  },
+  {
+    "q": "The intensity of the sound at a place is the energy transmitted per second per unit ____ held normally to direction of sound.",
+    "type": "blank",
+    "c": "area",
+    "e": "Intensity is defined as power per unit area perpendicular to the wave's propagation."
+  },
+  {
+    "q": "According to the Eq. (6.7), the intensity of a wave is directly proportional to the ____ of the amplitude of the wave.",
+    "type": "blank",
+    "c": "square",
+    "e": "Sound intensity is proportional to the square of the displacement amplitude."
+  },
+  {
+    "q": "Loudness is a sensation and hence, unlike intensity, it depends on the ____.",
+    "type": "blank",
+    "c": "observer",
+    "e": "Loudness is a subjective psychological perception, whereas intensity is an objective physical quantity."
+  },
+  {
+    "q": "To the human ears, the loudness of the sound is ____.",
+    "type": "blank",
+    "c": "subjective",
+    "e": "Different individuals may perceive the same physical intensity as having different loudness."
+  },
+  {
+    "q": "For a particular volume of sound, some may find it loud, while others finding it ____.",
+    "type": "blank",
+    "c": "soft",
+    "e": "Subjective hearing sensitivity varies from person to person."
+  },
+  {
+    "q": "Normally the greater the intensity, the greater the ____ of the sound is.",
+    "type": "blank",
+    "c": "loudness",
+    "e": "While subjective, loudness generally increases as physical intensity increases."
+  }
+]
