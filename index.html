@@ -1262,6 +1262,10 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     padding-top: 5px;
     padding-bottom: 10px;
 }
+	   /* Old Question Timer Colors */
+.timer-btn.old-timer { background: #4C1D95 !important; color: #C084FC !important; border-color: #A855F7 !important; }
+.timer-display.old-timer { color: #C084FC !important; background: #000 !important; border-color: #A855F7 !important; }
+	   
 
 	   .nav-hidden {
     display: none !important;
@@ -2660,6 +2664,8 @@ function createOldBtn(txt, parent, act) {
 
 function setOldQuestionContext(active) {
     isOldQuestionFlow = active;
+    document.getElementById('timer-start-btn').classList.toggle('old-timer', active);
+    document.getElementById('timer-display').classList.toggle('old-timer', active);
 }
 
 function updateOldQuestionBadges() {
@@ -3977,10 +3983,13 @@ function loadQuestion() {
 
     if (q.type === 'math_show') {
         const showBtn = document.createElement('button');
-        showBtn.className = 'btn';
+                showBtn.className = 'btn';
         showBtn.innerText = "အဖြေကြည့်ရန်";
         showBtn.style.maxWidth = "280px";
         showBtn.style.margin = "0 auto";
+        showBtn.style.background = "#22C55E";
+        showBtn.style.color = "#FFFFFF";
+        showBtn.style.border = "none";
         showBtn.onclick = function() {
             showScreen('math-solution');
             document.getElementById('math-solution-content').innerHTML = q.c;
