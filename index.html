@@ -4207,6 +4207,12 @@ function nextQuestion() {
     
     // Refresh old-question badge whenever screen changes
     updateOldQuestionBadges();
+		      // Toggle old-question purple theme on quiz screen
+    const quizScreen = document.getElementById('quiz-screen');
+    if (quizScreen) {
+        if (isOldQuestionFlow) quizScreen.classList.add('quiz-old-mode');
+        else quizScreen.classList.remove('quiz-old-mode');
+    }
 		  
 		   const nav = document.querySelector('.nav');
     const mainTabs = ['home', 'daily', 'middle', 'articles', 'profile'];
