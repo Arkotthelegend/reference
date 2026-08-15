@@ -1266,6 +1266,11 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 	   .nav-hidden {
     display: none !important;
 }
+
+	   /* Old Question Mode — purple accents instead of the badge */
+.quiz-old-mode #quiz-progress { color: #C084FC !important; }
+.quiz-old-mode .next-btn-styled, 
+.quiz-old-mode .next-btn { background: linear-gradient(135deg, #A855F7, #7C3AED) !important; color: #fff !important; }
 	   
 </style>
 <base target="_blank">
@@ -2663,15 +2668,6 @@ function updateOldQuestionBadges() {
     
     if (!isOldQuestionFlow) return;
     
-    // Quiz screen
-    const quizScreen = document.getElementById('quiz-screen');
-    if (quizScreen && quizScreen.classList.contains('active-screen')) {
-        const badge = document.createElement('div');
-        badge.className = 'old-question-badge';
-        badge.innerText = '📜 မေးခွန်းဟောင်း';
-        badge.style.cssText = 'position:absolute; top:5px; right:10px; background:linear-gradient(135deg,#A855F7,#7C3AED); color:#fff; padding:3px 10px; border-radius:10px; font-size:0.7rem; font-weight:700; z-index:40; border:1px solid rgba(255,255,255,0.2); pointer-events:none;';
-        quizScreen.appendChild(badge);
-    }
     
     // Flashcard screen
     const flashScreen = document.getElementById('flashcard-screen');
