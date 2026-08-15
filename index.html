@@ -1263,9 +1263,9 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     padding-bottom: 10px;
 }
 	   /* Old Question Timer Colors */
-.timer-btn.old-timer { background: #4C1D95 !important; color: #C084FC !important; border-color: #A855F7 !important; }
-.timer-display.old-timer { color: #C084FC !important; background: #000 !important; border-color: #A855F7 !important; }
-	   
+/* Old Question Timer Colors */
+.timer-btn.old-timer, #timer-reset-btn.old-timer { background: #4C1D95 !important; color: #C084FC !important; border-color: #A855F7 !important; }
+.timer-display.old-timer { color: #C084FC !important; background: #000 !important; border-color: #A855F7 !important; }	   
 
 	   .nav-hidden {
     display: none !important;
@@ -2666,6 +2666,7 @@ function setOldQuestionContext(active) {
     isOldQuestionFlow = active;
     document.getElementById('timer-start-btn').classList.toggle('old-timer', active);
     document.getElementById('timer-display').classList.toggle('old-timer', active);
+    document.getElementById('timer-reset-btn').classList.toggle('old-timer', active);
 }
 
 function updateOldQuestionBadges() {
@@ -3983,13 +3984,13 @@ function loadQuestion() {
 
     if (q.type === 'math_show') {
         const showBtn = document.createElement('button');
-                showBtn.className = 'btn';
+                        showBtn.className = 'btn';
         showBtn.innerText = "အဖြေကြည့်ရန်";
         showBtn.style.maxWidth = "280px";
         showBtn.style.margin = "0 auto";
-        showBtn.style.background = "#22C55E";
-        showBtn.style.color = "#FFFFFF";
-        showBtn.style.border = "none";
+        showBtn.style.background = isOldQuestionFlow ? '#7C3AED' : '#22C55E';
+        showBtn.style.color = '#FFFFFF';
+        showBtn.style.border = 'none';
         showBtn.onclick = function() {
             showScreen('math-solution');
             document.getElementById('math-solution-content').innerHTML = q.c;
@@ -3997,9 +3998,16 @@ function loadQuestion() {
             document.getElementById('math-solution-screen').scrollTop = 0;
             window.scrollTo(0, 0);
 
-            document.getElementById('math-prev-btn').onclick = () => showScreen('quiz');
+                        document.getElementById('math-prev-btn').onclick = () => showScreen('quiz');
+            const btnBg = isOldQuestionFlow ? '#7C3AED' : '#22C55E';
+            document.getElementById('math-prev-btn').style.background = btnBg;
+            document.getElementById('math-prev-btn').style.color = '#FFFFFF';
+            document.getElementById('math-prev-btn').style.border = 'none';
 
             const mathNextBtn = document.getElementById('math-next-btn');
+            mathNextBtn.style.background = btnBg;
+            mathNextBtn.style.color = '#FFFFFF';
+            mathNextBtn.style.border = 'none';
             if (currentIdx < currentQuestions.length - 1) {
                 mathNextBtn.style.display = 'block';
                 mathNextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ➡️';
