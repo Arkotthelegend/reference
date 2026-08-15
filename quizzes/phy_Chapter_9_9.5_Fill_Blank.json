@@ -1,0 +1,92 @@
+[
+  {
+    "q": "Several capacitors can be ____ together to be used in a variety of applications.",
+    "type": "blank",
+    "c": "connected",
+    "e": "Combining capacitors allows for custom capacitance values not available as single components."
+  },
+  {
+    "q": "There are two types of combination namely; parallel and ____.",
+    "type": "blank",
+    "c": "series",
+    "e": "These are the two fundamental ways to wire multiple components in a circuit."
+  },
+  {
+    "q": "In a parallel combination, all the capacitors have the same potential ____.",
+    "type": "blank",
+    "c": "difference",
+    "e": "Because their terminals are connected to the same two common nodes, the voltage across each is identical."
+  },
+  {
+    "q": "When capacitors are connected in parallel, they carry ____ amounts of charges.",
+    "type": "blank",
+    "c": "different",
+    "e": "If the capacitances are different, the charge stored on each ($Q=CV$) will also differ."
+  },
+  {
+    "q": "If Q is the total charge on three capacitors in parallel, then Q = ____.",
+    "type": "blank",
+    "c": "$Q_1 + Q_2 + Q_3$",
+    "e": "The total charge supplied by the battery is distributed among the parallel branches."
+  },
+  {
+    "q": "We can replace the three capacitors in parallel with a ____ capacitor provided it has the same total charge Q.",
+    "type": "blank",
+    "c": "single",
+    "e": "An equivalent capacitor simplifies circuit analysis by behaving identically to the entire network."
+  },
+  {
+    "q": "The equivalent capacitance of capacitors connected in parallel is the ____ of the individual capacitances.",
+    "type": "blank",
+    "c": "sum",
+    "e": "Connecting in parallel effectively increases the total surface area of the plates."
+  },
+  {
+    "q": "The equivalent capacitance C of the parallel combination of n identical capacitors, each of capacitance $C_1$, is C = ____.",
+    "type": "blank",
+    "c": "$n C_1$",
+    "e": "Adding identical capacitors in parallel simply multiplies the single capacitance value by the number of components."
+  },
+  {
+    "q": "In a series combination, the negatively charged plate of one capacitor is connected to the ____ charged plate of the other.",
+    "type": "blank",
+    "c": "positively",
+    "e": "This daisy-chain connection forces the same charge displacement through the entire string."
+  },
+  {
+    "q": "Since the capacitors are connected in series each capacitor has the same ____.",
+    "type": "blank",
+    "c": "charge",
+    "e": "Electrostatic induction ensures that the exact same magnitude of charge accumulates on every plate in the series string."
+  },
+  {
+    "q": "When capacitors are connected in series, they have ____ potential differences.",
+    "type": "blank",
+    "c": "different",
+    "e": "Unless the capacitances are identical, the voltage divides unequally across the components ($V=Q/C$)."
+  },
+  {
+    "q": "Suppose that V is the ____ potential difference of the series capacitor combination.",
+    "type": "blank",
+    "c": "total",
+    "e": "The sum of the individual voltage drops equals the total applied voltage."
+  },
+  {
+    "q": "We can replace the three capacitors in series with an ____ capacitor.",
+    "type": "blank",
+    "c": "equivalent",
+    "e": "This single component represents the overall capacitive effect of the series network."
+  },
+  {
+    "q": "When connected in series, the ____ of the equivalent capacitance is the sum of the reciprocals of their individual capacitances.",
+    "type": "blank",
+    "c": "reciprocal",
+    "e": "This mathematical relationship arises because voltages add while charge remains constant."
+  },
+  {
+    "q": "The equivalent capacitance $C_s$ of the series combination of n identical capacitors, each of capacitance C, is $C_s = $ ____.",
+    "type": "blank",
+    "c": "$C/n$",
+    "e": "Placing identical capacitors in series divides the total capacitance by the number of components."
+  }
+]

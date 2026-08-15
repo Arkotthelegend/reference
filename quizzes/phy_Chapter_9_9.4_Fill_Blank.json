@@ -1,0 +1,110 @@
+[
+  {
+    "q": "A capacitor stores electrical energy in the form of an electric ____.",
+    "type": "blank",
+    "c": "field",
+    "e": "The energy is physically located in the stressed electric field between the charged plates."
+  },
+  {
+    "q": "When the capacitor is charged, the process can be viewed as the apparent ____ of charge between two conductors.",
+    "type": "blank",
+    "c": "transfer",
+    "e": "Electrons are moved from one plate to the other, leaving one positive and the other negative."
+  },
+  {
+    "q": "The charge has been transferred from a conductor at lower potential to a conductor at ____ potential.",
+    "type": "blank",
+    "c": "higher",
+    "e": "Work must be done to push positive charge against the electric field toward the higher potential plate."
+  },
+  {
+    "q": "The energy stored by the capacitor can be analyzed from the ____ graph.",
+    "type": "blank",
+    "c": "Q-V",
+    "e": "Plotting charge against voltage yields a straight line where the area under the curve represents work done."
+  },
+  {
+    "q": "The work done in charging the capacitor is given by the shaded ____ under the curve.",
+    "type": "blank",
+    "c": "area",
+    "e": "The integral of V with respect to Q gives the total energy stored."
+  },
+  {
+    "q": "This work done is equal to ____ which is the energy stored by the capacitor.",
+    "type": "blank",
+    "c": "$\\frac{1}{2} QV$",
+    "e": "The area of the triangle on a Q-V graph is one-half base times height."
+  },
+  {
+    "q": "Before a capacitor is charged, the potential difference between its two conductors is ____.",
+    "type": "blank",
+    "c": "zero",
+    "e": "An uncharged capacitor has no separation of charge, hence no voltage."
+  },
+  {
+    "q": "Suppose that after charging, each conductor receives a charge of ____ Q and the potential difference is V.",
+    "type": "blank",
+    "c": "magnitude",
+    "e": "Both plates hold the exact same amount of charge, just with opposite signs."
+  },
+  {
+    "q": "The average potential difference of the capacitor before and after it is charged is $\\frac{0+V}{2}$ which equals ____.",
+    "type": "blank",
+    "c": "$\\frac{V}{2}$",
+    "e": "Because the voltage rises linearly with charge, the average voltage during charging is half the final voltage."
+  },
+  {
+    "q": "This amount of work is, in fact, the electrical ____ stored by the capacitor.",
+    "type": "blank",
+    "c": "energy",
+    "e": "The work done by the battery is conserved as potential energy in the electric field."
+  },
+  {
+    "q": "Therefore the energy of the capacitor is ____.",
+    "type": "blank",
+    "c": "$\\frac{1}{2} VQ$",
+    "e": "Total work equals total charge multiplied by the average voltage during the charging process."
+  },
+  {
+    "q": "Since C=Q/V, the energy W of the capacitor can be expressed as W = ____.",
+    "type": "blank",
+    "c": "$\\frac{1}{2} C V^2$",
+    "e": "Substituting Q = CV into the energy equation yields this common formula."
+  },
+  {
+    "q": "Placing a ____ in the charging circuit slows down the charging process.",
+    "type": "blank",
+    "c": "resistor",
+    "e": "Resistance limits the current flow, increasing the time required to charge the capacitor."
+  },
+  {
+    "q": "The greater the values of resistance and capacitance, the ____ it takes to charge the capacitor.",
+    "type": "blank",
+    "c": "longer",
+    "e": "Both higher resistance and higher capacitance increase the RC time constant."
+  },
+  {
+    "q": "The product of the resistance R and the capacitance C is called the time ____ of the process.",
+    "type": "blank",
+    "c": "constant",
+    "e": "The time constant ($\\tau$) represents the time required to charge the capacitor to about 63.2% of its final voltage."
+  },
+  {
+    "q": "The time constant of an RC circuit is measured in ____.",
+    "type": "blank",
+    "c": "seconds",
+    "e": "Ohms multiplied by farads mathematically reduces to the SI unit of time, seconds."
+  },
+  {
+    "q": "The voltage rises with time according to the equation $V_c = $ ____.",
+    "type": "blank",
+    "c": "$V_0(1 - e^{-t/RC})$",
+    "e": "This exponential equation describes the asymptotic approach of the capacitor voltage toward the supply voltage."
+  },
+  {
+    "q": "The voltage of the capacitor falls off with time according to the equation $V_c = $ ____.",
+    "type": "blank",
+    "c": "$V_0 e^{-t/RC}$",
+    "e": "This equation models the exponential decay of voltage as the capacitor discharges through a resistor."
+  }
+]
