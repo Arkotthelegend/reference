@@ -1044,9 +1044,9 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     margin-top: 15px;
     font-weight: bold;
     font-size: 1rem;
-    background: var(--profile-stat-btn-bg, linear-gradient(135deg, #3B82F6, #06B6D4)) !important;
-    color: var(--profile-stat-btn-text, #fff) !important;
-    box-shadow: 0 4px 15px var(--profile-stat-btn-shadow, rgba(59, 130, 246, 0.3)) !important;
+    background: var(--profile-stat-btn-bg, linear-gradient(135deg, #00B8D9, #00D5FF)) !important;
+    color: var(--profile-stat-btn-text, #000) !important;
+    box-shadow: 0 4px 15px var(--profile-stat-btn-shadow, rgba(0, 213, 255, 0.28)) !important;
 }
 .grade-picker {
     margin-top: 15px;
@@ -1082,6 +1082,146 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     background: var(--accent);
     color: #000;
     opacity: 1;
+}
+
+.rank-snapshot {
+    background: var(--card-bg);
+    border: 1px solid var(--accent);
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin: 12px 0 4px;
+    cursor: pointer;
+    text-align: left;
+}
+.rank-snapshot-home {
+    margin: 0 5px 16px;
+}
+.rank-snapshot-kicker {
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    margin-bottom: 4px;
+}
+.rank-snapshot-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+}
+.rank-snapshot-rank {
+    color: var(--white);
+    font-size: 1.35rem;
+    font-weight: 800;
+    font-family: monospace;
+}
+.rank-snapshot-meta {
+    color: #94A3B8;
+    font-size: 0.8rem;
+    text-align: right;
+    line-height: 1.4;
+}
+.rank-filters label {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 6px;
+}
+.rank-period-toggle {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.rank-period-btn {
+    flex: 1;
+    background: #1E293B !important;
+    color: var(--white) !important;
+    border: 1px solid #334155 !important;
+    border-radius: 12px !important;
+    padding: 10px 8px !important;
+    margin: 0 !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    opacity: 0.75;
+}
+.rank-period-btn.active {
+    background: var(--accent) !important;
+    color: #000 !important;
+    border-color: var(--accent) !important;
+    opacity: 1;
+}
+.rank-select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--accent);
+    background: var(--card-bg);
+    color: var(--white);
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.stat-card {
+    border-top: 3px solid var(--accent);
+}
+.stat-insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 0 0 14px;
+}
+.stat-insight {
+    background: var(--card-bg);
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 12px;
+    text-align: left;
+}
+.stat-insight.strong { border-left: 4px solid #10B981; }
+.stat-insight.weak { border-left: 4px solid #F59E0B; }
+.stat-insight.week { border-left: 4px solid var(--accent); }
+.stat-insight-label {
+    color: #94A3B8;
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.stat-insight-value {
+    color: var(--white);
+    font-size: 0.92rem;
+    font-weight: 800;
+    line-height: 1.35;
+}
+.stat-insight-sub {
+    color: #64748B;
+    font-size: 0.72rem;
+    margin-top: 3px;
+}
+.rank-match-badge {
+    display: none;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    background: #1E293B;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: 5px 12px;
+    margin: 0 auto 10px;
+    width: fit-content;
+    max-width: 100%;
+}
+.rank-copy-btn {
+    width: auto !important;
+    display: inline-block !important;
+    margin: 8px 0 0 !important;
+    padding: 8px 12px !important;
+    font-size: 0.78rem !important;
+    background: #1E293B !important;
+    color: var(--accent) !important;
+    border: 1px solid var(--accent) !important;
 }
 
 /* --- Stats Screen Content --- */
@@ -1347,6 +1487,7 @@ body.showing-articles .container {
     <button id="home-tab-current" class="btn" style="flex:1; background: var(--accent); color: #000;" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
     <button id="home-tab-old" class="btn" style="flex:1; background: #1E293B; color: var(--white); opacity: 0.6;" onclick="switchHomeTab('old')">မေးခွန်းဟောင်းများ</button>
 </div>
+    <div id="home-rank-teaser" class="rank-snapshot rank-snapshot-home" onclick="showStatsScreen('leaderboard')"></div>
     
     <!-- Current Subjects Section -->
        <!-- Current Subjects Section -->
@@ -1502,7 +1643,7 @@ body.showing-articles .container {
         <span style="font-size: 1.2rem;">⚙️</span>
         <b style="color: var(--accent); font-size: 1.1rem;">မေးခွန်းဖြေဆိုမှု ပုံစံ</b>
     </div>
-    <p style="color: #94A3B8; font-size: 0.85rem; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">မေးခွန်းများကို အစဉ်လိုက်ဖြေဆိုမည်လား၊ ကျပန်း (Random) ဖြေဆိုမည်လား ရွေးချယ်ပါ။</p>
+    <p style="color: #94A3B8; font-size: 0.85rem; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">ကျပန်း (Random) + Timer ဖွင့်မှ Rank Match ဖြစ်ပြီး ရမှတ်စာရင်းဝင်ပါသည်။</p>
     
     <div class="quiz-mode-toggle-inner">
     <span class="toggle-label">အစဉ်လိုက်</span>
@@ -1545,6 +1686,18 @@ body.showing-articles .container {
                     <div class="stat-row-item"><b id="stat-total-c">0</b><br><span>မှန်သောအဖြေ</span></div>
                 </div>
             </div>
+            <div class="stat-insight-grid">
+                <div class="stat-insight week">
+                    <div class="stat-insight-label">ဒီအပတ် vs အရင်အပတ်</div>
+                    <div class="stat-insight-value" id="stat-week-compare">—</div>
+                    <div class="stat-insight-sub" id="stat-week-compare-sub"></div>
+                </div>
+                <div class="stat-insight" id="stat-focus-card">
+                    <div class="stat-insight-label">အာရုံစိုက်ရန်</div>
+                    <div class="stat-insight-value" id="stat-focus-value">—</div>
+                    <div class="stat-insight-sub" id="stat-focus-sub"></div>
+                </div>
+            </div>
             <div class="stat-subject-header">ဘာသာရပ်အလိုက်</div>
             <div id="stat-subjects" style="margin-bottom: 20px;"></div>
         </div>
@@ -1562,9 +1715,19 @@ body.showing-articles .container {
         </div>
 		<!-- Leaderboard Tab -->
 <div id="stats-tab-leaderboard" style="display: none;">
-    <div style="margin-bottom: 15px;">
-        <label style="color: var(--accent); font-size: 0.85rem; font-weight: bold; display: block; margin-bottom: 6px;">ဘာသာရပ်ရွေးချယ်ပါ</label>
-        <select id="leaderboard-subject" onchange="loadLeaderboard()" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--card-bg); color: var(--white); font-size: 1rem; outline: none; cursor: pointer;">
+    <div class="rank-filters">
+        <div class="rank-period-toggle">
+            <button type="button" class="rank-period-btn active" id="rank-period-week" onclick="setRankPeriod('week')">ဒီအပတ်</button>
+            <button type="button" class="rank-period-btn" id="rank-period-all" onclick="setRankPeriod('all')">စုစုပေါင်း</button>
+        </div>
+        <label>Grade</label>
+        <select id="leaderboard-grade" class="rank-select" onchange="loadLeaderboard()">
+            <option value="12">Grade 12</option>
+            <option value="11">Grade 11</option>
+            <option value="10">Grade 10</option>
+        </select>
+        <label>ဘာသာရပ်ရွေးချယ်ပါ</label>
+        <select id="leaderboard-subject" class="rank-select" onchange="loadLeaderboard()">
             <option value="all">စုစုပေါင်း</option>
             <option value="mm">မြန်မာစာ</option>
             <option value="en">အင်္ဂလိပ်စာ</option>
@@ -1578,11 +1741,10 @@ body.showing-articles .container {
     
         <!-- Legend -->
     <div style="background: var(--card-bg); padding: 10px; border-radius: 10px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">
-        <b style="color: var(--accent); font-weight: 800;">🏅အဆင့်သတ်မှတ်ခြင်း (Fair Rank System)</b><br>
-        ① မေးခွန်းအရေအတွက် (40%) — များများဖြေထားရင် ပိုကောင်းသည်<br>
-        ② အဖြေမှန်နှုန်း (40%) — မှန်နှုန်းမြင့်ရင် ပိုကောင်းသည်<br>
-        ③ အချိန်မြန်မှု (20%) — တစ်ပုဒ်ချင်းအချိန်နည်းရင် ပိုကောင်းသည်<br>
-        <span style="color: var(--accent);">⚠️ Daily Quiz ဖြေဆိုထားသူများ Rank ထဲမပါပါ</span>
+        <b style="color: var(--accent); font-weight: 800;">🏅 Rank — Grade အလိုက်</b><br>
+        ဒီအပတ် = တနင်္လာနေ့မှ စ၍ ရမှတ် · စုစုပေါင်း = အမြဲတမ်း<br>
+        ① မေးခွန်းအရေအတွက် (40%) ② အဖြေမှန်နှုန်း (40%) ③ အချိန်မြန်မှု (20%)<br>
+        <span style="color: var(--accent);">⚠️ Daily Quiz မပါ · ကျပန်း + Timer ဖွင့်မှ Rank တက်သည်</span>
     </div>
     
     <div id="leaderboard-loading" style="text-align: center; color: #94A3B8; padding: 30px; display: none;">ဆွဲယူနေသည်...</div>
@@ -1642,6 +1804,7 @@ body.showing-articles .container {
             <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none; margin: 0;">🔄</button>
         </div>
     </div>
+    <div id="rank-match-badge" class="rank-match-badge">🏅 Rank Match</div>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
     
@@ -1713,7 +1876,7 @@ body.showing-articles .container {
     <div class="nav-item" onclick="changeTab('profile', this)">👤</div>
 </div>
 
-    <script src="./grades.js?v=4"></script>
+    <script src="./grades.js?v=5"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -1910,6 +2073,88 @@ function fastMath(scope) {
 		const ADMIN_ID = 8432363664;
 		const CB = '?v=2'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
+        const RANK_TZ = 'Asia/Yangon';
+        let rankPeriod = 'week';
+        let pendingStatsTab = 'summary';
+        let leaderboardCache = { at: 0, rows: null };
+        let lastRankSnapshot = null;
+
+function ymdInTz(date, tz) {
+    return new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(date);
+}
+function addDaysYmd(ymd, days) {
+    const ms = Date.parse(ymd + 'T12:00:00+06:30') + days * 86400000;
+    return ymdInTz(new Date(ms), RANK_TZ);
+}
+function mondayYmd(ymd) {
+    const day = new Date(ymd + 'T12:00:00+06:30').getUTCDay();
+    const back = (day + 6) % 7;
+    return addDaysYmd(ymd, -back);
+}
+function currentWeekMonday() {
+    return mondayYmd(ymdInTz(new Date(), RANK_TZ));
+}
+function lastWeekMonday() {
+    return addDaysYmd(currentWeekMonday(), -7);
+}
+function rowDateValue(row) {
+    return row.date || row.savedAt || row.timestamp || '';
+}
+function ymdFromValue(value) {
+    if (!value) return '';
+    const d = value instanceof Date ? value : new Date(value);
+    if (isNaN(d.getTime())) return String(value).slice(0, 10);
+    return ymdInTz(d, RANK_TZ);
+}
+function isYmdInWeek(ymd, weekMonday) {
+    if (!ymd) return false;
+    const next = addDaysYmd(weekMonday, 7);
+    return ymd >= weekMonday && ymd < next;
+}
+function scoreGrade(row) {
+    const g = parseInt(row.grade, 10);
+    if (g === 10 || g === 11 || g === 12) return g;
+    return (typeof gradeFromQuizFile === 'function') ? gradeFromQuizFile(row.quizFile || '') : 12;
+}
+function isRankableQuizFile(fileName) {
+    if (!fileName) return false;
+    if (fileName.startsWith('daily_')) return false;
+    if (isMyanmarIndividualQuiz(fileName)) return false;
+    if (isSubChapter(fileName)) return false;
+    return true;
+}
+function isRankMatchActive() {
+    const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
+    return isRandom && isTimerRunning && isRankableQuizFile(currentQuizFile);
+}
+function updateRankMatchBadge() {
+    const badge = document.getElementById('rank-match-badge');
+    if (!badge) return;
+    const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
+    if (!isRankableQuizFile(currentQuizFile) || !isRandom) {
+        badge.style.display = 'none';
+        return;
+    }
+    if (currentQuizFile && (currentQuizFile.includes('2_Marks') || currentQuizFile.includes('3_Marks'))) {
+        badge.style.display = 'none';
+        return;
+    }
+    badge.style.display = 'block';
+    badge.innerText = isTimerRunning
+        ? '🏅 Rank Match — ဒီရမှတ် Rank ထဲဝင်မည်'
+        : '🏅 Rank Match — ⏱ Timer ဖွင့်ပါ';
+}
+function setRankPeriod(period) {
+    rankPeriod = period === 'all' ? 'all' : 'week';
+    const weekBtn = document.getElementById('rank-period-week');
+    const allBtn = document.getElementById('rank-period-all');
+    if (weekBtn) weekBtn.classList.toggle('active', rankPeriod === 'week');
+    if (allBtn) allBtn.classList.toggle('active', rankPeriod === 'all');
+    loadLeaderboard();
+}
+function invalidateLeaderboardCache() {
+    leaderboardCache = { at: 0, rows: null };
+}
 
 		// ─── Quiz File Parser ───
 // ─── Quiz File Parser ───
@@ -2090,7 +2335,8 @@ async function submitScore(timeTaken = 0) {
         total: finalTotal,
         timeTaken: timeTaken,
         date: now,
-        isOld: meta.isOld
+        isOld: meta.isOld,
+        grade: getSelectedGrade()
     });
     if (localStats.history.length > 100) localStats.history = localStats.history.slice(0, 100);
     
@@ -2126,7 +2372,9 @@ async function submitScore(timeTaken = 0) {
         score: String(finalScore),
         total: String(finalTotal),
         isOld: meta.isOld ? 'true' : 'false',
-        timeTaken: String(timeTaken)
+        timeTaken: String(timeTaken),
+        grade: String(getSelectedGrade()),
+        savedAt: now
     });
     
     const url = `${STATS_GAS_URL}?${params.toString()}`;
@@ -2139,6 +2387,7 @@ async function submitScore(timeTaken = 0) {
         
         const data = JSON.parse(text);
         if (data.status === 'ok') {
+            invalidateLeaderboardCache();
             if (data.action === 'replaced') {
                 console.log(`🏆 Record replaced: ${data.oldScore} → ${data.newScore}`);
             } else if (data.action === 'inserted') {
@@ -2270,7 +2519,7 @@ async function loadUserStats() {
     renderBestScores(bestScoresToRender, 'stat-old-scores', true);
 
     document.getElementById('stats-loading').style.display = 'none';
-    switchStatsTab('summary');
+    switchStatsTab(pendingStatsTab || 'summary');
 }
 
 		function renderSummary(bestScoresObj) {
@@ -2296,6 +2545,7 @@ async function loadUserStats() {
         let timeDiv = document.getElementById('stat-total-time');
         if (timeDiv) timeDiv.innerText = '⏱ 00:00';
         container.innerHTML = '<div class="stat-empty">ဒေတာမရှိသေးပါ</div>';
+        renderStatInsights(bestScoresObj, {});
         return;
     }
 
@@ -2353,9 +2603,90 @@ async function loadUserStats() {
         `;
         container.appendChild(div);
     });
+    renderStatInsights(bestScoresObj, bySubject);
 }
 		
-function showStatsScreen() {
+function renderStatInsights(bestScoresObj, bySubject) {
+    const weekEl = document.getElementById('stat-week-compare');
+    const weekSub = document.getElementById('stat-week-compare-sub');
+    const focusEl = document.getElementById('stat-focus-value');
+    const focusSub = document.getElementById('stat-focus-sub');
+    const focusCard = document.getElementById('stat-focus-card');
+    if (!weekEl || !focusEl) return;
+    weekEl.style.color = '';
+    if (!focusCard) return;
+
+    const localStats = getLocalStats();
+    const attempts = [];
+    (localStats.history || []).forEach(function (h) { attempts.push(h); });
+    Object.keys(bestScoresObj || {}).forEach(function (key) {
+        const b = bestScoresObj[key];
+        if (b && b.date) attempts.push({ ...b, quizFile: b.quizFile || key });
+    });
+
+    function periodAcc(weekStart) {
+        let scoreSum = 0, totalSum = 0;
+        attempts.forEach(function (a) {
+            const file = a.quizFile || '';
+            if (!isRankableQuizFile(file) && file) return;
+            if (a.isOld || String(file).startsWith('old_') || String(file).startsWith('daily_')) return;
+            const ymd = ymdFromValue(a.date);
+            if (!isYmdInWeek(ymd, weekStart)) return;
+            scoreSum += (a.score || 0);
+            totalSum += (a.total || 0);
+        });
+        return { acc: totalSum > 0 ? Math.round((scoreSum / totalSum) * 100) : null, total: totalSum };
+    }
+
+    const thisWeek = periodAcc(currentWeekMonday());
+    const prevWeek = periodAcc(lastWeekMonday());
+    if (thisWeek.acc === null && prevWeek.acc === null) {
+        weekEl.innerText = 'ဒေတာမရှိသေးပါ';
+        weekSub.innerText = 'Rank Match ဖြေပြီးမှ ဒီအပတ် မှန်နှုန်းပေါ်မည်';
+    } else if (thisWeek.acc === null) {
+        weekEl.innerText = 'ဒီအပတ် မဖြေရသေး';
+        weekSub.innerText = 'အရင်အပတ် ' + prevWeek.acc + '%';
+    } else if (prevWeek.acc === null) {
+        weekEl.innerText = thisWeek.acc + '%';
+        weekSub.innerText = 'ဒီအပတ် ပထမဆုံး ရမှတ်';
+    } else {
+        const diff = thisWeek.acc - prevWeek.acc;
+        const arrow = diff > 0 ? '▲' : (diff < 0 ? '▼' : '●');
+        weekEl.innerText = thisWeek.acc + '%  ' + arrow + ' ' + Math.abs(diff) + '%';
+        weekEl.style.color = diff > 0 ? '#10B981' : (diff < 0 ? '#F59E0B' : 'var(--white)');
+        weekSub.innerText = 'အရင်အပတ် ' + prevWeek.acc + '%';
+    }
+
+    const subs = Object.keys(bySubject || {});
+    if (subs.length === 0) {
+        focusCard.className = 'stat-insight';
+        focusEl.innerText = '—';
+        focusSub.innerText = '';
+        return;
+    }
+    let weakest = subs[0], strongest = subs[0];
+    subs.forEach(function (sub) {
+        const a = bySubject[sub].total > 0 ? bySubject[sub].score / bySubject[sub].total : 0;
+        const w = bySubject[weakest].total > 0 ? bySubject[weakest].score / bySubject[weakest].total : 0;
+        const s = bySubject[strongest].total > 0 ? bySubject[strongest].score / bySubject[strongest].total : 0;
+        if (a < w) weakest = sub;
+        if (a > s) strongest = sub;
+    });
+    const weakAcc = Math.round((bySubject[weakest].score / bySubject[weakest].total) * 100);
+    const strongAcc = Math.round((bySubject[strongest].score / bySubject[strongest].total) * 100);
+    focusCard.className = 'stat-insight ' + (subs.length > 1 && weakest !== strongest ? 'weak' : 'strong');
+    if (subs.length === 1 || weakest === strongest) {
+        focusEl.innerText = getSubjectName(strongest);
+        focusSub.innerText = 'အကောင်းဆုံး · ' + strongAcc + '%';
+        focusCard.className = 'stat-insight strong';
+    } else {
+        focusEl.innerText = getSubjectName(weakest);
+        focusSub.innerText = 'အားနည်း · ' + weakAcc + '%  · အကောင်းဆုံး ' + getSubjectName(strongest);
+    }
+}
+
+function showStatsScreen(tabName) {
+    pendingStatsTab = (tabName === 'leaderboard' || tabName === 'best' || tabName === 'old') ? tabName : 'summary';
     showScreen('stats');
     document.getElementById('stats-loading').style.display = 'block';
     document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
@@ -2365,14 +2696,21 @@ function showStatsScreen() {
     document.getElementById('stats-tab-old').style.display = 'none';
     document.getElementById('stats-tab-leaderboard').style.display = 'none';
 
-    // Reset all tabs to inactive first
     ['summary', 'best', 'old', 'leaderboard'].forEach(t => {
         const btn = document.getElementById('tab-' + t);
-        if (btn) btn.classList.remove('stats-tab-active');
+        if (btn) {
+            btn.classList.remove('stats-tab-active');
+            btn.classList.add('stats-tab-inactive');
+        }
     });
-    // Set summary as active by default
-    const summaryBtn = document.getElementById('tab-summary');
-    if (summaryBtn) summaryBtn.classList.add('stats-tab-active');
+    const activeBtn = document.getElementById('tab-' + pendingStatsTab);
+    if (activeBtn) {
+        activeBtn.classList.remove('stats-tab-inactive');
+        activeBtn.classList.add('stats-tab-active');
+    }
+
+    const gradeSel = document.getElementById('leaderboard-grade');
+    if (gradeSel) gradeSel.value = String(getSelectedGrade());
 
     loadUserStats();
 }
@@ -3863,6 +4201,7 @@ function loadQuestion() {
         } else {
             timerArea.style.display = 'flex';
         }
+    updateRankMatchBadge();
 
     const q = currentQuestions[currentIdx];
     document.getElementById('quiz-progress').innerHTML = `${currentIdx + 1} / ${currentQuestions.length}`;
@@ -4147,6 +4486,7 @@ function nextQuestion() {
         renderSubjects();
         if (getGradeCfg().showOldQuestions) backToOldSubjects();
         switchHomeTab('current');
+        refreshRankSnapshot();
     }
     if(id === 'profile') renderProfileData();
 			    if(id === 'articles') loadArticlesIndex();
@@ -4244,7 +4584,9 @@ function renderProfileData() {
         </div>
     </div>
     <button class="btn profile-stats-btn" onclick="showStatsScreen()">📊 My Statistics</button>
+    <div id="profile-rank-card" class="rank-snapshot" onclick="showStatsScreen('leaderboard')"></div>
 `;
+    refreshRankSnapshot();
 }
 
 function applyGradeUI() {
@@ -4270,6 +4612,9 @@ function setSelectedGrade(grade) {
     localStorage.setItem('selectedGrade', String(grade));
     applyGradeUI();
     renderProfileData();
+    const gradeSel = document.getElementById('leaderboard-grade');
+    if (gradeSel) gradeSel.value = String(grade);
+    refreshRankSnapshot();
     tg.showAlert(getGradeCfg().label + ' ကို ရွေးလိုက်ပါပြီ');
 }
 
@@ -4451,6 +4796,8 @@ window.onload = () => {
     if (randomSwitch) {
         randomSwitch.checked = savedRandomSetting;
     }
+    fillRankSnapshotCard(document.getElementById('home-rank-teaser'), null);
+    refreshRankSnapshot();
 };
        
 		// နေ့စဉ် Quote ပြောင်းလဲရန် Logic
@@ -4625,6 +4972,7 @@ currentQuizFile = 'daily_' + subId;
 function updateRandomizeSetting() {
     const isRandom = document.getElementById('random-switch').checked;
     localStorage.setItem('randomQuizSetting', isRandom ? 'true' : 'false');
+    updateRankMatchBadge();
 }
 
 // Flashcard မူလဒေတာကို သိမ်းထားရန်
@@ -4712,6 +5060,7 @@ function toggleTimer() {
             document.getElementById('timer-display').innerText = `${m}:${s}`;
         }, 1000);
     }
+    updateRankMatchBadge();
 }
 		
 // ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
@@ -4735,6 +5084,7 @@ function resetTimer() {
     // 🎯 ရမှတ်ကို ၀ ပြန်ပြောင်းပြီး Screen ပေါ်မှာ ပြန်ပြင်ပေးရန်
     score = 0;
     document.getElementById('score-display').innerText = "ရမှတ်: 0";
+    updateRankMatchBadge();
 }
 function switchStatsTab(tabName) {
     ['summary', 'best', 'old', 'leaderboard'].forEach(t => {
@@ -4800,8 +5150,127 @@ function sortLeaderboard(entries) {
     });
 }
 		
+function buildRankEntries(rows, opts) {
+    const subject = opts.subject || 'all';
+    const grade = parseInt(opts.grade, 10) || 12;
+    const period = opts.period || 'all';
+    const weekMonday = currentWeekMonday();
+    let datedCount = 0;
+    const filteredRows = (rows || []).filter(function (row) {
+        const qf = row.quizFile || '';
+        if (qf.startsWith('daily_')) return false;
+        if (isMyanmarIndividualQuiz(qf)) return false;
+        if (isSubChapter(qf)) return false;
+        if (subject !== 'all' && row.subject !== subject) return false;
+        if (scoreGrade(row) !== grade) return false;
+        const ymd = ymdFromValue(rowDateValue(row));
+        if (ymd) datedCount++;
+        if (period === 'week') {
+            if (!ymd || !isYmdInWeek(ymd, weekMonday)) return false;
+        }
+        return true;
+    });
+    const userMap = {};
+    filteredRows.forEach(function (row) {
+        const uid = row.userId || 'unknown';
+        const uname = row.userName || 'Anonymous';
+        if (!userMap[uid]) {
+            userMap[uid] = { userId: uid, userName: uname, totalScore: 0, totalPossible: 0, totalTime: 0, quizCount: 0 };
+        }
+        userMap[uid].totalScore += parseInt(row.score || 0, 10);
+        userMap[uid].totalPossible += parseInt(row.total || 0, 10);
+        userMap[uid].totalTime += parseInt(row.timeTaken || 0, 10);
+        userMap[uid].quizCount += 1;
+    });
+    const entries = sortLeaderboard(Object.values(userMap)
+        .map(function (u) { return Object.assign({}, u, { rankData: calculateRankScore(u.totalScore, u.totalPossible, u.totalTime) }); })
+        .filter(function (e) { return e.totalPossible > 0; }));
+    return { entries: entries, datedCount: datedCount, weekMonday: weekMonday };
+}
+
+async function fetchAllLeaderboardRows() {
+    if (leaderboardCache.rows && (Date.now() - leaderboardCache.at) < 60000) return leaderboardCache.rows;
+    const url = STATS_GAS_URL + '?action=getLeaderboard&subject=all';
+    const res = await fetch(url);
+    const text = await res.text();
+    const data = JSON.parse(text);
+    if (data.status !== 'ok') throw new Error(data.message || 'Leaderboard error');
+    leaderboardCache = { at: Date.now(), rows: data.rows || [] };
+    return leaderboardCache.rows;
+}
+
+function percentileForRank(rank, total) {
+    if (!rank || !total) return null;
+    return Math.max(1, Math.ceil((rank / total) * 100));
+}
+
+function fillRankSnapshotCard(el, snap) {
+    if (!el) return;
+    if (!snap) {
+        el.innerHTML = '<div class="rank-snapshot-kicker">🏅 ဒီအပတ် Rank</div><div class="rank-snapshot-row"><div class="rank-snapshot-rank">—</div><div class="rank-snapshot-meta">ရမှတ်မရှိသေးပါ</div></div>';
+        return;
+    }
+    const periodLabel = snap.period === 'week' ? 'ဒီအပတ်' : 'စုစုပေါင်း';
+    const rankText = snap.myRank ? ('#' + snap.myRank) : '—';
+    const pctText = snap.percentile ? ('Top ' + snap.percentile + '%') : 'Rank စာရင်းထဲ မဝင်သေးပါ';
+    el.innerHTML = '<div class="rank-snapshot-kicker">🏅 ' + periodLabel + ' · Grade ' + snap.grade + '</div>' +
+        '<div class="rank-snapshot-row"><div class="rank-snapshot-rank">' + rankText + '</div>' +
+        '<div class="rank-snapshot-meta">' + pctText + '<br>' + (snap.acc != null ? snap.acc + '% မှန်' : 'Rank ကြည့်ရန်') + '</div></div>';
+}
+
+async function refreshRankSnapshot() {
+    try {
+        const rows = await fetchAllLeaderboardRows();
+        const grade = getSelectedGrade();
+        let period = 'week';
+        let built = buildRankEntries(rows, { subject: 'all', grade: grade, period: period });
+        if (built.entries.length === 0) {
+            period = 'all';
+            built = buildRankEntries(rows, { subject: 'all', grade: grade, period: period });
+        }
+        const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
+        const idx = built.entries.findIndex(function (e) { return e.userId === currentUserId; });
+        const myRank = idx === -1 ? null : idx + 1;
+        const me = idx === -1 ? null : built.entries[idx];
+        lastRankSnapshot = {
+            grade: grade,
+            period: period,
+            myRank: myRank,
+            total: built.entries.length,
+            percentile: percentileForRank(myRank, built.entries.length),
+            acc: me ? Math.round(me.rankData.acc * 100) : null,
+            name: me ? me.userName : '',
+            quizCount: me ? me.quizCount : 0
+        };
+        fillRankSnapshotCard(document.getElementById('home-rank-teaser'), lastRankSnapshot);
+        fillRankSnapshotCard(document.getElementById('profile-rank-card'), lastRankSnapshot);
+    } catch (e) {
+        console.error('Rank snapshot failed', e);
+        fillRankSnapshotCard(document.getElementById('home-rank-teaser'), null);
+        fillRankSnapshotCard(document.getElementById('profile-rank-card'), null);
+    }
+}
+
+function copyRankCard() {
+    const snap = lastRankSnapshot;
+    if (!snap || !snap.myRank) {
+        tg.showAlert('Rank ရမှတ် မရှိသေးပါ');
+        return;
+    }
+    const periodLabel = snap.period === 'week' ? 'ဒီအပတ်' : 'စုစုပေါင်း';
+    const text = '🏅 REED Rank\nGrade ' + snap.grade + ' · ' + periodLabel + '\n#' + snap.myRank + ' · Top ' + snap.percentile + '%\nမှန်နှုန်း ' + (snap.acc != null ? snap.acc + '%' : '-');
+    navigator.clipboard.writeText(text).then(function () {
+        tg.showAlert('Rank ကို Copy ကူးပြီးပါပြီ ✅');
+    }).catch(function () {
+        tg.showAlert(text);
+    });
+}
+
 async function loadLeaderboard() {
-    const subject = document.getElementById('leaderboard-subject').value;
+    const subjectEl = document.getElementById('leaderboard-subject');
+    const gradeEl = document.getElementById('leaderboard-grade');
+    const subject = subjectEl ? subjectEl.value : 'all';
+    const grade = gradeEl ? gradeEl.value : String(getSelectedGrade());
     const listDiv = document.getElementById('leaderboard-list');
     const loadingDiv = document.getElementById('leaderboard-loading');
     const emptyDiv = document.getElementById('leaderboard-empty');
@@ -4811,66 +5280,30 @@ async function loadLeaderboard() {
     if (emptyDiv) emptyDiv.style.display = 'none';
     
     try {
-        const url = `${STATS_GAS_URL}?action=getLeaderboard&subject=${encodeURIComponent(subject)}`;
-        const res = await fetch(url);
-        const text = await res.text();
-        
-        let data;
-        try { data = JSON.parse(text); } catch(e) { 
-            console.error("Bad response:", text);
-            throw new Error("Server returned invalid data");
-        }
-        
-        if (data.status !== 'ok') {
-            if (loadingDiv) loadingDiv.style.display = 'none';
-            if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'Error: ' + (data.message || 'Unknown'); emptyDiv.style.color = 'var(--text-muted)'; }
-            return;
-        }
-        
-        if (!data.rows || data.rows.length === 0) {
-            if (loadingDiv) loadingDiv.style.display = 'none';
-            if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'ဒေတာမရှိသေးပါ'; emptyDiv.style.color = 'var(--text-muted)'; }
-            return;
-        }
-        
-        const userMap = {};
+        const rows = await fetchAllLeaderboardRows();
         const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
-        
-         const filteredRows = data.rows.filter(row => {
-            const qf = row.quizFile || '';
-            // Exclude Daily Quiz
-            if (qf.startsWith('daily_')) return false;
-            // 🆕 Exclude Myanmar individual chapter/title quizzes
-            if (isMyanmarIndividualQuiz(qf)) return false;
-            return true;
-        });
+        const built = buildRankEntries(rows, { subject: subject, grade: grade, period: rankPeriod });
+        const entries = built.entries;
 
-
-        filteredRows.forEach(row => {
-            const uid = row.userId || 'unknown';
-            const uname = row.userName || 'Anonymous';
-            if (!userMap[uid]) {
-                userMap[uid] = { userId: uid, userName: uname, totalScore: 0, totalPossible: 0, totalTime: 0, quizCount: 0 };
-            }
-            userMap[uid].totalScore += parseInt(row.score || 0);
-            userMap[uid].totalPossible += parseInt(row.total || 0);
-            userMap[uid].totalTime += parseInt(row.timeTaken || 0);
-            userMap[uid].quizCount += 1;
-        });
-        
-        let entries = Object.values(userMap)
-            .map(u => ({ ...u, rankData: calculateRankScore(u.totalScore, u.totalPossible, u.totalTime) }))
-            .filter(e => e.totalPossible > 0);
-        
+        if (loadingDiv) loadingDiv.style.display = 'none';
         if (entries.length === 0) {
-            if (loadingDiv) loadingDiv.style.display = 'none';
-            if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'ဒေတာမရှိသေးပါ'; emptyDiv.style.color = 'var(--text-muted)'; }
+            if (emptyDiv) {
+                emptyDiv.style.display = 'block';
+                emptyDiv.style.color = 'var(--text-muted)';
+                if (rankPeriod === 'week' && built.datedCount === 0) {
+                    emptyDiv.innerHTML = 'ဒီအပတ် Rank အတွက် ရက်စွဲ မပါသေးပါ။<br>စုစုပေါင်း Rank ကို ကြည့်ပါ (သို့) Rank Match ဖြေပါ။';
+                } else if (rankPeriod === 'week') {
+                    emptyDiv.innerHTML = 'ဒီအပတ် Grade ' + grade + ' အတွက် ရမှတ်မရှိသေးပါ။<br>ကျပန်း + Timer ဖွင့်ပြီး quiz ဖြေပါ။';
+                } else {
+                    emptyDiv.innerText = 'ဒေတာမရှိသေးပါ';
+                }
+            }
+            renderLeaderboard([], currentUserId, subject, grade);
             return;
         }
-        
-        entries = sortLeaderboard(entries);
-        if (loadingDiv) loadingDiv.style.display = 'none';
-        renderLeaderboard(entries, currentUserId, subject);
+
+        if (emptyDiv) emptyDiv.style.display = 'none';
+        renderLeaderboard(entries, currentUserId, subject, grade);
         
     } catch (e) {
         console.error("Leaderboard error:", e);
@@ -4879,7 +5312,7 @@ async function loadLeaderboard() {
     }
 }
 		
-function renderLeaderboard(entries, currentUserId, subject) {
+function renderLeaderboard(entries, currentUserId, subject, grade) {
     const listDiv = document.getElementById('leaderboard-list');
     listDiv.innerHTML = '';
     
@@ -4889,6 +5322,20 @@ function renderLeaderboard(entries, currentUserId, subject) {
     let myRank = -1;
     const myEntryIndex = entries.findIndex(e => e.userId === currentUserId);
     if (myEntryIndex !== -1) myRank = myEntryIndex + 1;
+    const myPct = percentileForRank(myRank, entries.length);
+    if (myRank !== -1) {
+        const meSnap = entries[myEntryIndex];
+        lastRankSnapshot = {
+            grade: parseInt(grade, 10) || getSelectedGrade(),
+            period: rankPeriod,
+            myRank: myRank,
+            total: entries.length,
+            percentile: myPct,
+            acc: Math.round(meSnap.rankData.acc * 100),
+            name: meSnap.userName,
+            quizCount: meSnap.quizCount
+        };
+    }
     
     const topEntries = entries.slice(0, TOP_N);
     
@@ -4920,7 +5367,7 @@ function renderLeaderboard(entries, currentUserId, subject) {
             </div>
             <div class="leaderboard-score-box">
                 <div class="leaderboard-acc">${acc}%</div>
-                <div class="leaderboard-detail">${entry.quizCount} quizzes</div>
+                <div class="leaderboard-detail">${entry.quizCount} quizzes${isMe && myPct ? ' · Top ' + myPct + '%' : ''}</div>
             </div>
             <div class="leaderboard-medal">${medal}</div>
         `;
@@ -4951,7 +5398,7 @@ function renderLeaderboard(entries, currentUserId, subject) {
             <div class="leaderboard-info">
                 <div class="leaderboard-name">${displayName}</div>
                 <div class="leaderboard-meta">
-                    ${me.totalPossible} Qs · ${acc}% correct · ⏱ ${totalTimeStr}
+                    ${me.totalPossible} Qs · ${acc}% correct · ⏱ ${totalTimeStr}${myPct ? ' · Top ' + myPct + '%' : ''}
                 </div>
             </div>
             <div class="leaderboard-score-box">
@@ -4973,13 +5420,20 @@ function renderLeaderboard(entries, currentUserId, subject) {
             <div class="leaderboard-avatar" style="background: var(--card-bg); color: var(--text-muted);">?</div>
             <div class="leaderboard-info">
                 <div class="leaderboard-name" style="color: var(--text-muted);">You (No data)</div>
-                <div class="leaderboard-meta">ဒီဘာသာရပ်အတွက် မေးခွန်းမဖြေဆိုရသေးပါ (Daily Quiz မပါ)</div>
+                <div class="leaderboard-meta">ဒီ Grade / ဘာသာရပ်အတွက် Rank Match မဖြေရသေးပါ</div>
             </div>
             <div class="leaderboard-score-box">
                 <div class="leaderboard-acc" style="color: var(--text-muted);">-%</div>
             </div>
         `;
         listDiv.appendChild(div);
+    }
+    if (myRank !== -1) {
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'btn rank-copy-btn';
+        copyBtn.innerText = '📋 Rank ကို Copy ကူးမည်';
+        copyBtn.onclick = copyRankCard;
+        listDiv.appendChild(copyBtn);
     }
 }
 		function copyTelegram() {
