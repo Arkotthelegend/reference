@@ -69,6 +69,9 @@ html {
     }
     
     :root {
+    --tg-safe-top: 0px;
+    --tg-safe-bottom: 0px;
+    --tg-viewport-stable-height: 100vh;
     --bg: #0B0F19;
     --card-bg: #162235;
     --white: #FFFFFF;
@@ -109,8 +112,9 @@ html {
         background-color: var(--bg); 
         color: var(--white); 
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-        margin: 0; padding: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden;
+        margin: 0; padding: 0; height: var(--tg-viewport-stable-height, 100vh); display: flex; flex-direction: column; overflow: hidden;
         overscroll-behavior: none;
+        padding-top: var(--tg-safe-top, 0px);
     }
     html { overscroll-behavior: none; }
 
@@ -378,7 +382,7 @@ input:checked + .slider:before {
 	/* --- 7. Floating Nav --- */
 .nav { 
     position: fixed; 
-    bottom: 20px; 
+    bottom: calc(12px + var(--tg-safe-bottom, 0px)); 
     left: 5%; 
     width: 90%; 
     height: 70px; 
@@ -2289,7 +2293,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=12'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=13'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -3102,7 +3106,36 @@ async function openArticleDetail(articleId) {
 }
 		
         const tg = window.Telegram.WebApp;
-        tg.ready(); tg.expand();
+        (function setupTelegramViewport(app) {
+            var color = '#0B0F19';
+            try { app.ready(); } catch (e) {}
+            try { app.expand(); } catch (e) {}
+            try { if (app.setHeaderColor) app.setHeaderColor(color); } catch (e) {}
+            try { if (app.setBackgroundColor) app.setBackgroundColor(color); } catch (e) {}
+            try { if (app.setBottomBarColor) app.setBottomBarColor(color); } catch (e) {}
+            try { if (app.disableVerticalSwipes) app.disableVerticalSwipes(); } catch (e) {}
+            function applySafeArea() {
+                var s = app.safeAreaInset || {};
+                var c = app.contentSafeAreaInset || {};
+                var top = (Number(s.top) || 0) + (Number(c.top) || 0);
+                var bottom = (Number(s.bottom) || 0) + (Number(c.bottom) || 0);
+                document.documentElement.style.setProperty('--tg-safe-top', top + 'px');
+                document.documentElement.style.setProperty('--tg-safe-bottom', bottom + 'px');
+                var h = app.viewportStableHeight || app.viewportHeight || window.innerHeight;
+                if (h) document.documentElement.style.setProperty('--tg-viewport-stable-height', Math.round(h) + 'px');
+                document.body.classList.toggle('tg-fullscreen', !!app.isFullscreen);
+            }
+            applySafeArea();
+            if (app.onEvent) {
+                app.onEvent('viewportChanged', applySafeArea);
+                app.onEvent('fullscreenChanged', applySafeArea);
+                app.onEvent('safeAreaChanged', applySafeArea);
+                app.onEvent('contentSafeAreaChanged', applySafeArea);
+            }
+            try {
+                if (typeof app.requestFullscreen === 'function') app.requestFullscreen();
+            } catch (e) {}
+        })(tg);
 
       let paidUsers = {}; 
         let userBought = {}; // const အစား let ပြောင်းပေးရမည်
