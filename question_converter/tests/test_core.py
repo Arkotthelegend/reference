@@ -103,6 +103,18 @@ class ParseTests(unittest.TestCase):
         self.assertEqual(set(parts), {"1.1", "1.2"})
         self.assertNotIn("1.496", parts)
 
+    def test_ocr_spaced_and_later_sections(self):
+        text = "9.1 Heat\nIntro\n9 . 2 Current\nMore\n9.3 Power\nEnd\n"
+        parts = split_text_by_sections(text, 9)
+        self.assertEqual(set(parts), {"9.1", "9.2", "9.3"})
+
+    def test_skips_figure_labels(self):
+        text = "9.1 Intro\nFigure 9.2 A graph\n9.2 Real section\n"
+        parts = split_text_by_sections(text, 9)
+        self.assertIn("9.1", parts)
+        self.assertIn("9.2", parts)
+        self.assertIn("Real section", parts["9.2"])
+
     def test_chunk_text(self):
         text = "aaa\n\nbbb\n\nccc"
         chunks = chunk_text(text, 7)

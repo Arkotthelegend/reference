@@ -126,7 +126,8 @@ def looks_like_json_payload(text: str) -> bool:
 
 
 def parent_section(number: str) -> str:
-    parts = number.strip().split(".")
+    parts = re.split(r"[.\-–]", number.strip())
+    parts = [p for p in parts if p]
     if len(parts) >= 2:
         return f"{parts[0]}.{parts[1]}"
     return number.strip()
@@ -144,25 +145,68 @@ def is_real_section(chapter: int, key: str) -> bool:
     return ch == chapter and 1 <= sub <= 30
 
 
+_BAD_BEFORE = re.compile(
+    r"(?i)(figure|fig\.?|table|example|equation|eq\.?|page|see|problem)\s*$"
+)
+
+
+def _is_heading_match(text: str, start: int) -> bool:
+    before = text[max(0, start - 24) : start]
+    if _BAD_BEFORE.search(before):
+        return False
+    return True
+
+
+def find_section_marks(text: str, chapter: int) -> list[tuple[int, str]]:
+    """Return (index, '9.2') marks for real sub-chapter headings, including OCR spacing."""
+    text = text or ""
+    patterns = [
+        re.compile(
+            rf"(?m)^\s*(?:section\s+)?({chapter})\s*[.\-–]\s*(\d{{1,2}})(?:\s*[.\-–]\s*\d{{1,2}})*\b"
+        ),
+        re.compile(
+            rf"(?m)(?:^|\n)\s*({chapter})\s*[.\-–]\s*(\d{{1,2}})\s+(?:[A-Z(]|\d)"
+        ),
+    ]
+    marks: list[tuple[int, str]] = []
+    seen_at: set[tuple[int, str]] = set()
+    for pattern in patterns:
+        for m in pattern.finditer(text):
+            key = f"{m.group(1)}.{m.group(2)}"
+            if not is_real_section(chapter, key):
+                continue
+            if not _is_heading_match(text, m.start()):
+                continue
+            item = (m.start(), key)
+            if item in seen_at:
+                continue
+            seen_at.add(item)
+            marks.append(item)
+    marks.sort()
+    # Keep first occurrence of each section in textbook order.
+    ordered: list[tuple[int, str]] = []
+    used: set[str] = set()
+    for pos, key in marks:
+        if key in used:
+            continue
+        used.add(key)
+        ordered.append((pos, key))
+    return ordered
+
+
 def split_text_by_sections(text: str, chapter: int) -> dict[str, str]:
     """Split textbook text into one-level sections (1.1, 1.2). Deeper ids merge up."""
-    # Line-start headings only, 1-2 digits (1.1 .. 1.30). Ignores values like 1.496.
-    pattern = re.compile(
-        rf"(?m)^\s*({chapter}\.\d{{1,2}})(?:\.\d{{1,2}})*\b"
-    )
-    matches = [m for m in pattern.finditer(text or "") if is_real_section(chapter, parent_section(m.group(1)))]
-    if not matches:
-        return {"all": (text or "").strip()}
+    text = text or ""
+    marks = find_section_marks(text, chapter)
+    if not marks:
+        return {"all": text.strip()}
 
     grouped: dict[str, list[str]] = {}
-    for i, m in enumerate(matches):
-        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
-        key = parent_section(m.group(1))
-        if not is_real_section(chapter, key):
-            continue
-        chunk = text[m.start() : end].strip()
-        grouped.setdefault(key, []).append(chunk)
-
+    for i, (pos, key) in enumerate(marks):
+        end = marks[i + 1][0] if i + 1 < len(marks) else len(text)
+        chunk = text[pos:end].strip()
+        if chunk:
+            grouped.setdefault(key, []).append(chunk)
     return {k: "\n\n".join(v) for k, v in grouped.items() if v}
 
 

@@ -60,27 +60,37 @@ def generate_science_book(client: AIClient, book, mapping: dict, skip_existing: 
             print(scan_help())
             continue
 
-        section_texts: dict[str, str] = {}
+        # Always split the whole chapter text. A saved map that only lists
+        # 9.1 / 10.1 must not hide 9.2, 9.3, ...
+        section_texts = split_text_by_sections(text, num)
+        section_texts.pop("all", None)
         if ch.get("sections"):
             for sec in ch["sections"]:
+                sid = str(sec.get("id", ""))
+                if not is_real_section(num, sid):
+                    continue
                 s, e = sec["pages"]
-                section_texts[sec["id"]] = extract_pages(pdf, s, e)
-        else:
-            section_texts = split_text_by_sections(text, num)
-            if list(section_texts.keys()) == ["all"]:
-                section_texts = {f"{num}.1": text}
-        section_texts = {
-            sid: body
-            for sid, body in section_texts.items()
-            if sid == "all" or is_real_section(num, sid)
-        }
+                extra = extract_pages(pdf, s, e)
+                split_extra = split_text_by_sections(extra, num)
+                split_extra.pop("all", None)
+                if split_extra:
+                    for key, body in split_extra.items():
+                        if key not in section_texts or len(body) > len(section_texts.get(key, "")):
+                            section_texts[key] = body
+                elif extra and sid not in section_texts:
+                    section_texts[sid] = extra
         if not section_texts:
+            print(f"  ! Chapter {num}: no sub-headings found; using whole chapter as {num}.1")
             section_texts = {f"{num}.1": text}
+        else:
+            labels = ", ".join(sorted(section_texts, key=lambda x: tuple(int(p) for p in x.split("."))))
+            print(f"  Chapter {num} sub-chapters: {labels}")
 
         chapter_chars = sum(len(v) for v in section_texts.values()) or len(text)
 
         for kind in ("tf", "blank", "mcq"):
             by_section: dict[str, list[dict]] = {}
+            wrote_any = False
             for sid, sec_text in section_texts.items():
                 fname = science_section_filename(subject, num, sid, KIND_FILE[kind])
                 dest = output_file(grade, fname)
@@ -97,10 +107,11 @@ def generate_science_book(client: AIClient, book, mapping: dict, skip_existing: 
                 by_section[sid] = items
                 write_science(grade, subject, num, sid, KIND_FILE[kind], items)
                 print(f"  wrote {fname} ({len(items)} items)")
+                wrote_any = True
 
             combined_name = science_section_filename(subject, num, None, KIND_FILE[kind])
             combined_dest = output_file(grade, combined_name)
-            if skip_existing and combined_dest.exists():
+            if skip_existing and combined_dest.exists() and not wrote_any:
                 print(f"  skip {combined_dest.name}")
                 continue
             combined = []
