@@ -2617,6 +2617,7 @@ function createOldBtn(txt, parent, act) {
 }
 
 		let isOldQuestionFlow = false;
+		let isTrialFlow = false;
 
 function setOldQuestionContext(active) {
     isOldQuestionFlow = active;
@@ -2741,12 +2742,10 @@ function showOldENGrammarOptions() {
 
     oldENGrammarTopics.forEach(topic => {
         createOldBtn(topic.title, list, () => {
-            initFlashcards(`old_${topic.id}`, topic.title);
-            const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-            flashExitBtn.onclick = () => {
+            initFlashcards(`old_${topic.id}`, topic.title, () => {
                 showScreen('old-menu');
                 showOldENGrammarOptions();
-            };
+            });
         });
     });
 }
@@ -2890,7 +2889,8 @@ function unlockCard(div, sub) {
 }
 
 function openSubjectMenu(sub) {
-	setOldQuestionContext(false);  
+	setOldQuestionContext(false);
+    isTrialFlow = false;  
 
     if (!checkAccess(sub.id)) {
         tg.showAlert("တစ်ဘာသာလုံးကို‌လေ့ကျင့်ဖို့ ဒီဘာသာရပ်ကိုဝယ်ယူလိုက်ပါ");
@@ -3046,13 +3046,10 @@ function showGrammarMenu(topicId, topicTitle) {
 
     // လေ့ကျင့်ရန် ခလုတ်
     createBtn("✏️ လေ့ကျင့်ရန်", content, () => {
-        initFlashcards(topicId, topicTitle);
-        // Flashcard ထွက်ရင် Grammar Menu ကို ပြန်သွား
-        const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-        flashExitBtn.onclick = () => {
+        initFlashcards(topicId, topicTitle, () => {
             showScreen('activity');
             showGrammarMenu(topicId, topicTitle);
-        };
+        });
     });
 }
 
@@ -3080,7 +3077,9 @@ async function loadGrammarNote(topicId, topicTitle) {
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
   document.getElementById('activity-back-btn').onclick = () => {
-    if (checkAccess(currentSubject.id)) {
+    if (isTrialFlow) {
+        openTrialMenu();
+    } else if (checkAccess(currentSubject.id)) {
         openSubjectMenu(currentSubject);
     } else {
         openTrialMenu();
@@ -3335,17 +3334,21 @@ function showSubMenu(typeName, cat, titles) {
 
     if (typeName === "အလင်္ကာ") {
         // အလင်္ကာအတွက် သီးသန့်ခွဲထားသော ခလုတ် (၅) ခု
-        createBtn("ဥပမာအလင်္ကာ", content, () => initFlashcards("mm_ဥပမာအလင်္ကာ"));
-        createBtn("ရူပကအလင်္ကာ", content, () => initFlashcards("mm_ရူပကအလင်္ကာ"));
-        createBtn("ဝင်္ကဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_ဝင်္ကဝုတ္တိအလင်္ကာ"));
-        createBtn("အတိယဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_အတိသယဝုတ္တိအလင်္ကာ"));
-        createBtn("မြည်သံစွဲအလင်္ကာ", content, () => initFlashcards("mm_မြည်သံစွဲအလင်္ကာ"));
+        const backToAlinkar = () => { showScreen('activity'); showMMFlashcardOptions(typeName); };
+        createBtn("ဥပမာအလင်္ကာ", content, () => initFlashcards("mm_ဥပမာအလင်္ကာ", "Flashcard", backToAlinkar));
+        createBtn("ရူပကအလင်္ကာ", content, () => initFlashcards("mm_ရူပကအလင်္ကာ", "Flashcard", backToAlinkar));
+        createBtn("ဝင်္ကဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_ဝင်္ကဝုတ္တိအလင်္ကာ", "Flashcard", backToAlinkar));
+        createBtn("အတိယဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_အတိသယဝုတ္တိအလင်္ကာ", "Flashcard", backToAlinkar));
+        createBtn("မြည်သံစွဲအလင်္ကာ", content, () => initFlashcards("mm_မြည်သံစွဲအလင်္ကာ", "Flashcard", backToAlinkar));
 
     } else {
         // ကျန်တဲ့ စကားပြေ၊ ကဗျာ၊ ရေသည် များအတွက် မူလအတိုင်း
         createBtn("စကားပြေ", content, () => showMMSubTopics(typeName, "စကားပြေ"));
         createBtn("ကဗျာ", content, () => showMMSubTopics(typeName, "ကဗျာ"));
-        createBtn("ရေသည်", content, () => initFlashcards("mm_ရေသည်_ခက်ဆစ်"));
+        createBtn("ရေသည်", content, () => initFlashcards("mm_ရေသည်_ခက်ဆစ်", "Flashcard", () => {
+            showScreen('activity');
+            showMMFlashcardOptions(typeName);
+        }));
     }
 }
 
@@ -3365,7 +3368,10 @@ function showSubMenu(typeName, cat, titles) {
             topics.forEach(t => {
                 createBtn(t, content, () => {
                     const fName = `${currentSubject.id}_${category}_${typeName}_${t}`.replace(/ /g, "_");
-                    initFlashcards(fName);
+                    initFlashcards(fName, "Flashcard", () => {
+                        showScreen('activity');
+                        showMMSubTopics(typeName, category);
+                    });
                 });
             });
         }
@@ -3378,7 +3384,9 @@ function showSubChaptersMenu(subId, chapterName) {
     content.innerHTML = '';
     
     document.getElementById('activity-back-btn').onclick = () => {
-        if (checkAccess(subId)) {
+        if (isTrialFlow) {
+            openTrialMenu();
+        } else if (checkAccess(subId)) {
             openSubjectMenu(currentSubject);
         } else {
             openTrialMenu();
@@ -3616,13 +3624,16 @@ async function loadFormulas(subId, chapterName) {
 
 function openTrialMenu() {
 	setOldQuestionContext(false);
+    isTrialFlow = true;
     showScreen('activity');
     document.getElementById('activity-title').innerText = "Free Trial (စမ်းသုံးရန်)";
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
     
-    // ပင်မစာမျက်နှာသို့ ပြန်သွားရန်
-    document.getElementById('activity-back-btn').onclick = () => showScreen('home');
+    document.getElementById('activity-back-btn').onclick = () => {
+        isTrialFlow = false;
+        showScreen('home');
+    };
 
     subjects.forEach(sub => {
         createBtn(`${sub.name} (Trial)`, content, () => {
@@ -3632,52 +3643,46 @@ function openTrialMenu() {
                 showMyanmarTrialParts();
             } else if (sub.id === 'en') {
                 showENPoemOptions();
-                // Back Button ကို Trial Menu သို့ ပြန်လှည့်
-                document.getElementById('activity-back-btn').onclick = () => openTrialMenu();
-            } else {
-            if (sub.id === 'math') {
+            } else if (sub.id === 'math') {
                 showGeneralActivities(sub.id, 'Chapter 1');
             } else {
                 showSubChaptersMenu(sub.id, 'Chapter 1');
             }
-            // back btn onclick ကို ဒီမှာ ထပ်မရေးတော့ပါ။ အတွင်းမှ function က အလိုအလျောက် Trial ကို ပြန်ပို့ပေးပါမည်။
-        }
         });
     });
 }
 
 function showMyanmarTrialParts() {
+    showScreen('activity');
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
-    document.getElementById('activity-title').innerText = "မြန်မာစာ ခက်ဆစ် (Trial)";
+    document.getElementById('activity-title').innerText = "မြန်မာစာ အပြော (Trial)";
     document.getElementById('activity-back-btn').onclick = () => openTrialMenu();
 
-    const mmTrialItems = [
-       { name: "စကားပြေ (ညောင်ရမ်းကြီးသမီး)", file: "mm_စကားပြေ_ခက်ဆစ်_ညောင်ရမ်းကြီးသမီး" },
-         { name: "စကားပြေ (သစ္စာနှင့်ပညာ)", file: "mm_စကားပြေ_ခက်ဆစ်_သစ္စာနှင့်ပညာ" },
-         { name: "စကားပြေ (ခေတ်)", file: "mm_စကားပြေ_ခက်ဆစ်_ခေတ်" },
-          { name: "ကဗျာ (ပေါ်နွေလလျှင်)", file: "mm_ကဗျာ_ခက်ဆစ်_ပေါ်နွေလလျှင်" },
-          { name: "ကဗျာ (ငါ့ကိုလွယ်အမယ်ကြီးနှင့်)", file: "mm_ကဗျာ_ခက်ဆစ်_ငါ့ကိုလွယ်အမယ်ကြီးနှင့်" },
-          { name: "ကဗျာ (ဩဝါဒထူးပျို့)", file: "mm_ကဗျာ_ခက်ဆစ်_ဩဝါဒထူးပျို့" },
-        { name: "ရေသည်ပြဇာတ် (ခက်ဆစ်)", file: "mm_ရေသည်ပြဇာတ်_ခက်ဆစ်_ရေသည်" }
-    ];
+    ['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး'].forEach(typeName => {
+        createBtn(typeName, content, () => showMyanmarTrialChapters(typeName));
+    });
+}
 
-    mmTrialItems.forEach(item => {
-        createBtn(item.name, content, () => {
-            initFlashcards(item.file);
-            // Flashcard ထဲက ထွက်ရင် မြန်မာစာ Trial menu ကို ပြန်လာရန်
-            const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-            flashExitBtn.onclick = () => {
-                showScreen('activity');
-                showMyanmarTrialParts();
-            };
+function showMyanmarTrialChapters(typeName) {
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = `အပြော (${typeName})`;
+    const content = document.getElementById('activity-content');
+    content.innerHTML = '';
+    document.getElementById('activity-back-btn').onclick = () => showMyanmarTrialParts();
+
+    ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
+        createBtn(chapter, content, () => {
+            const fileName = `mm_အပြော_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+            initQuiz(fileName);
+            document.getElementById('quiz-back-btn').onclick = () => showMyanmarTrialChapters(typeName);
         });
     });
 }
         // --- Flashcard Engine ---
   let currentFlashMark = ""; // ခေါင်းစဉ်မှတ်ရန် variable အသစ်
 
-async function initFlashcards(fileName, markTitle = "Flashcard") {
+async function initFlashcards(fileName, markTitle = "Flashcard", onBack = null) {
     currentFlashMark = markTitle; // လက်ရှိနှိပ်လိုက်တဲ့ Mark နာမည်ကို သိမ်းမယ်
     fileName = withGradePrefix(fileName);
     try {
@@ -3686,6 +3691,13 @@ async function initFlashcards(fileName, markTitle = "Flashcard") {
         flashCards = await res.json();
         flashIdx = 0;
         showScreen('flashcard');
+        const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
+        if (flashExitBtn) {
+            flashExitBtn.onclick = () => {
+                if (typeof onBack === 'function') onBack();
+                else showScreen('activity');
+            };
+        }
         updateFlashUI();
     } catch (e) { tg.showAlert("ဖိုင်မတွေ့သေးပါ- " + fileName); }
 }
@@ -3732,7 +3744,9 @@ function updateFlashUI() {
         if (parentChapter) {
             showSubChaptersMenu(subId, parentChapter);
         } else {
-            if (checkAccess(subId)) {
+            if (isTrialFlow) {
+                openTrialMenu();
+            } else if (checkAccess(subId)) {
                 openSubjectMenu(currentSubject);
             } else {
                 openTrialMenu();
@@ -3761,9 +3775,7 @@ function updateFlashUI() {
                 const fileName = `${subId}_${partName}_${type}`.replace(/ /g, "_");
                 
                 if (type === 'Definition') {
-                    initFlashcards(fileName, "Definition");
-                    const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
-                    flashExitBtn.onclick = () => { showScreen('activity'); showGeneralActivities(subId, partName, parentChapter); };
+                    initFlashcards(fileName, "Definition", () => { showScreen('activity'); showGeneralActivities(subId, partName, parentChapter); });
                 } else {
                     initQuiz(fileName);
                     document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName, parentChapter);
@@ -4164,7 +4176,8 @@ function nextQuestion() {
     document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('nav-active'));
     el.classList.add('nav-active');
     if(id === 'home') {
-		setOldQuestionContext(false); 
+		setOldQuestionContext(false);
+        isTrialFlow = false; 
         renderSubjects();
         if (getGradeCfg().showOldQuestions) backToOldSubjects();
         switchHomeTab('current');
@@ -4656,7 +4669,7 @@ let originalFlashCards = [];
 let isFlashcardShuffled = false;
 
 // မူလ initFlashcards function ကို အောက်ပါအတိုင်း အစားထိုးပါ
-async function initFlashcards(fileName, markTitle = "Flashcard") {
+async function initFlashcards(fileName, markTitle = "Flashcard", onBack = null) {
     currentFlashMark = markTitle; 
     fileName = withGradePrefix(fileName);
     try {
@@ -4675,6 +4688,13 @@ async function initFlashcards(fileName, markTitle = "Flashcard") {
         
         flashIdx = 0;
         showScreen('flashcard');
+        const flashExitBtn = document.querySelector('#flashcard-screen .back-btn');
+        if (flashExitBtn) {
+            flashExitBtn.onclick = () => {
+                if (typeof onBack === 'function') onBack();
+                else showScreen('activity');
+            };
+        }
         updateFlashUI();
     } catch (e) { 
         tg.showAlert("ဖိုင်မတွေ့သေးပါ- " + fileName); 
