@@ -5103,6 +5103,7 @@ function applyGradeUI() {
     if (currentBtn) {
         currentBtn.innerText = cfg.label + ' ဘာသာရပ်များ';
         currentBtn.style.pointerEvents = cfg.showOldQuestions ? '' : 'none';
+        currentBtn.style.cursor = cfg.showOldQuestions ? '' : 'default';
         if (!cfg.showOldQuestions) {
             currentBtn.style.opacity = '1';
             currentBtn.style.background = 'var(--accent)';
