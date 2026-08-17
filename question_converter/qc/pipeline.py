@@ -55,7 +55,6 @@ def run(
     provider: str = DEFAULT_PROVIDER,
     model: str = DEFAULT_MODEL,
     budget: float = DEFAULT_BUDGET_USD,
-    install: bool = True,
     skip_existing: bool = True,
     setup_only: bool = False,
     force_setup: bool = False,
@@ -65,8 +64,8 @@ def run(
     books = books if books is not None else discover_pdfs()
     if not books:
         print("No textbooks found. Put PDFs in:")
-        print("  question_converter/pdfs/G10/   en.pdf math.pdf phy.pdf chem.pdf bio.pdf")
-        print("  question_converter/pdfs/G11/   (same names)")
+        print("  pdfs/G10/   en.pdf math.pdf phy.pdf chem.pdf bio.pdf")
+        print("  pdfs/G11/   (same names)")
         print("Filenames can also be like Grade10_Physics.pdf")
         return 1
 
@@ -79,7 +78,7 @@ def run(
             return 1
 
     if dry_run:
-        print(f"\nCheap model: {provider} / {model}")
+        print(f"\nChatGPT model: {model}")
         print(f"Budget cap: ${budget:.2f}")
         for book in books:
             mapping = load_map(book)
@@ -100,11 +99,12 @@ def run(
         return 0
 
     total_est = sum(estimate_book_cost(m, model) for _, m in maps)
-    print(f"\nCheap model: {provider} / {model}")
+    print(f"\nChatGPT model: {model}")
     print(f"Budget cap: ${budget:.2f}")
     print(f"Rough cost if nothing is cached: ~${total_est:.2f}")
-    print("PDF text is extracted on your Mac (free). API is used only to write questions.")
+    print("PDF text is extracted on your Mac (free). ChatGPT is used only to write questions.")
     print("Re-runs reuse cache/ so you do not pay twice for the same chapter.")
+    print("Do one subject at a time with --only so $10 lasts.")
 
     client = AIClient(provider=provider, model=model, budget_usd=budget)
     print(f"Already spent (saved): ${client.spent_usd:.4f}")
@@ -114,22 +114,20 @@ def run(
         subject = mapping["subject"]
         try:
             if subject in {"phy", "chem", "bio"}:
-                generate_science_book(client, book, mapping, install, skip_existing)
+                generate_science_book(client, book, mapping, skip_existing)
             elif subject == "math":
-                generate_math_book(client, book, mapping, install, skip_existing)
+                generate_math_book(client, book, mapping, skip_existing)
             else:
-                generate_english_book(client, book, mapping, install, skip_existing)
-        except BudgetExceeded as exc:
-            print(f"  {exc}")
+                generate_english_book(client, book, mapping, skip_existing)
+        except BudgetExceeded as extra:
+            print(f"  {extra}")
             break
         except Exception as extra:
             print(f"  stopped {book.label}: {extra}")
             break
 
-    print(f"\nDone. API spend this machine: ${client.spent_usd:.4f} across {client.calls} calls")
-    print(f"JSON files: {OUTPUT_DIR}")
-    if install:
-        print("Also copied into quizzes/G10 and quizzes/G11 for the app.")
+    print(f"\nDone. ChatGPT spend this machine: ${client.spent_usd:.4f} across {client.calls} calls")
+    print(f"JSON files: {OUTPUT_DIR}/G10 and {OUTPUT_DIR}/G11")
     print(
         "Science targets "
         f"{SCIENCE_CHAPTER_TARGET[0]}-{SCIENCE_CHAPTER_TARGET[1]} items/chapter; "

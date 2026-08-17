@@ -12,15 +12,13 @@ from .pipeline import run
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="convert.py",
-        description="Turn Grade 10/11 textbook PDFs into quiz JSON files (cheap API usage).",
+        description="Turn Grade 10/11 textbook PDFs into quiz JSON files using ChatGPT.",
     )
     p.add_argument("--setup-only", action="store_true", help="Ask chapter/page map, do not call the API")
     p.add_argument("--force-setup", action="store_true", help="Re-ask chapter pages even if a map exists")
     p.add_argument("--dry-run", action="store_true", help="Show PDFs and cost estimate only")
-    p.add_argument("--provider", default=DEFAULT_PROVIDER, choices=("gemini", "openai", "groq"))
-    p.add_argument("--model", default=DEFAULT_MODEL, help="Default: gemini-2.5-flash-lite (cheap)")
-    p.add_argument("--budget", type=float, default=DEFAULT_BUDGET_USD, help="Hard USD stop (default 8)")
-    p.add_argument("--no-install", action="store_true", help="Write only to question_converter/output")
+    p.add_argument("--model", default=DEFAULT_MODEL, help="Default: gpt-4o-mini (cheap ChatGPT)")
+    p.add_argument("--budget", type=float, default=DEFAULT_BUDGET_USD, help="Hard USD stop (default 10)")
     p.add_argument("--force", action="store_true", help="Regenerate even if output JSON already exists")
     p.add_argument("--only", nargs="+", help="Limit to keys like G10_phy G11_en")
     p.add_argument("--reset-spend", action="store_true", help="Forget saved API spend counter in cache/")
@@ -40,10 +38,9 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     try:
         return run(
-            provider=args.provider,
+            provider=DEFAULT_PROVIDER,
             model=args.model,
             budget=args.budget,
-            install=not args.no_install,
             skip_existing=not args.force,
             setup_only=args.setup_only,
             force_setup=args.force_setup,

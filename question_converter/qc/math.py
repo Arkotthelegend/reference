@@ -9,10 +9,8 @@ from .config import (
     MATH_1_MARK_COUNT,
     MATH_2_MARK_COUNT,
     MATH_3_MARK_COUNT,
-    OUTPUT_DIR,
-    grade_folder,
-    grade_prefix,
     math_filename,
+    output_file,
 )
 from .parse import chunk_text, parse_sectioned_questions
 from .pdf_io import extract_pages
@@ -21,7 +19,7 @@ from .validate import flatten_grouped, validate_math_show, validate_mcq
 from .writers import write_math
 
 
-def generate_math_book(client: AIClient, book, mapping: dict, install: bool, skip_existing: bool) -> None:
+def generate_math_book(client: AIClient, book, mapping: dict, skip_existing: bool) -> None:
     pdf = Path(mapping["pdf"])
     grade = mapping["grade"]
     jobs = [
@@ -37,13 +35,13 @@ def generate_math_book(client: AIClient, book, mapping: dict, install: bool, ski
             continue
         for marks, bounds, prompt_name, kind in jobs:
             fname = math_filename(num, marks)
-            dest = OUTPUT_DIR / grade_folder(grade) / (grade_prefix(grade) + fname)
+            dest = output_file(grade, fname)
             if skip_existing and dest.exists():
                 print(f"  skip {dest.name}")
                 continue
             target = (bounds[0] + bounds[1]) // 2
             items = _generate(client, prompt_name, kind, marks, text, target)
-            write_math(grade, num, marks, items, install)
+            write_math(grade, num, marks, items)
             print(f"  wrote {fname} ({len(items)} items)")
 
 

@@ -12,7 +12,6 @@ sys.path.insert(0, str(ROOT))
 from qc.balance import answer_index_report, shuffle_mcq_answers  # noqa: E402
 from qc.config import (  # noqa: E402
     english_filename,
-    grade_prefix,
     math_filename,
     science_section_filename,
 )
@@ -106,8 +105,6 @@ class FilenameTests(unittest.TestCase):
         self.assertEqual(math_filename(3, 3), "math_Chapter_3_3_Marks.json")
         self.assertEqual(english_filename(5, "initial_letter"), "en_unit5_initial_letter.json")
         self.assertEqual(english_filename(5, "mcq"), "en_unit5_mcq.json")
-        self.assertEqual(grade_prefix(10) + "phy_Chapter_1_MCQ.json", "G10_phy_Chapter_1_MCQ.json")
-        self.assertEqual(grade_prefix(11) + "en_unit1_mcq.json", "G11_en_unit1_mcq.json")
 
 
 class ValidateTests(unittest.TestCase):

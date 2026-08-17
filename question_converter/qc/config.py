@@ -8,7 +8,6 @@ MAPS_DIR = ROOT / "maps"
 CACHE_DIR = ROOT / "cache"
 OUTPUT_DIR = ROOT / "output"
 PROMPTS_DIR = ROOT / "prompts"
-QUIZZES_DIR = ROOT.parent / "quizzes"
 
 SUBJECT_ALIASES = {
     "en": "en",
@@ -43,39 +42,19 @@ SCIENCE_QUIZ_TYPES = (
 
 # Per 1M tokens (USD). Used only for estimates / hard budget stop.
 MODEL_PRICES = {
-    "gemini-2.5-flash-lite": (0.10, 0.40),
-    "gemini-2.0-flash-lite": (0.075, 0.30),
-    "gemini-2.0-flash": (0.10, 0.40),
-    "gemini-2.5-flash": (0.30, 2.50),
-    "gemini-1.5-flash": (0.075, 0.30),
     "gpt-4o-mini": (0.15, 0.60),
-    "gpt-4.1-mini": (0.40, 1.60),
     "gpt-4.1-nano": (0.10, 0.40),
-    "llama-3.3-70b-versatile": (0.59, 0.79),
+    "gpt-4.1-mini": (0.40, 1.60),
+    "gpt-4o": (2.50, 10.00),
 }
 
-DEFAULT_MODELS = {
-    "gemini": "gemini-2.5-flash-lite",
-    "openai": "gpt-4o-mini",
-    "groq": "llama-3.3-70b-versatile",
-}
+DEFAULT_PROVIDER = "openai"
+DEFAULT_MODEL = "gpt-4o-mini"
+DEFAULT_BUDGET_USD = 10.0
+BUDGET_RESERVE_USD = 0.50
 
-GEMINI_FALLBACKS = (
-    "gemini-2.5-flash-lite",
-    "gemini-2.0-flash-lite",
-    "gemini-2.0-flash",
-    "gemini-1.5-flash",
-)
-
-# Cheap defaults that still follow long exam prompts.
-DEFAULT_PROVIDER = "gemini"
-DEFAULT_MODEL = DEFAULT_MODELS[DEFAULT_PROVIDER]
-DEFAULT_BUDGET_USD = 8.0
-# Stop a little early so retries cannot blow the last cents.
-BUDGET_RESERVE_USD = 0.40
-
-MAX_CHARS_PER_CALL = 14000
-MAX_OUTPUT_TOKENS = 16384
+MAX_CHARS_PER_CALL = 12000
+MAX_OUTPUT_TOKENS = 8000
 
 MATH_1_MARK_COUNT = (40, 50)
 MATH_2_MARK_COUNT = (20, 28)
@@ -85,20 +64,16 @@ EN_MCQ_COUNT = 80
 SCIENCE_CHAPTER_TARGET = (100, 200)
 
 
-def grade_prefix(grade: int) -> str:
-    if grade == 10:
-        return "G10_"
-    if grade == 11:
-        return "G11_"
-    return ""
-
-
 def grade_folder(grade: int) -> str:
     if grade == 10:
         return "G10"
     if grade == 11:
         return "G11"
     return ""
+
+
+def output_file(grade: int, filename: str) -> Path:
+    return OUTPUT_DIR / grade_folder(grade) / filename
 
 
 def math_mark_suffix(marks: int) -> str:

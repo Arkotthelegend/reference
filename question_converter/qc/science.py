@@ -5,7 +5,7 @@ from pathlib import Path
 
 from .ai import AIClient
 from .balance import dedupe_questions, shuffle_mcq_answers
-from .config import MAX_CHARS_PER_CALL, SCIENCE_CHAPTER_TARGET
+from .config import MAX_CHARS_PER_CALL, SCIENCE_CHAPTER_TARGET, output_file, science_section_filename
 from .parse import chunk_text, parse_sectioned_questions, split_text_by_sections
 from .pdf_io import extract_pages
 from .prompts import render
@@ -45,8 +45,7 @@ def _read_json(path: Path) -> list:
         return []
 
 
-def generate_science_book(client: AIClient, book, mapping: dict, install: bool, skip_existing: bool) -> None:
-    from .config import OUTPUT_DIR, grade_folder, grade_prefix, science_section_filename
+def generate_science_book(client: AIClient, book, mapping: dict, skip_existing: bool) -> None:
 
     subject = mapping["subject"]
     grade = mapping["grade"]
@@ -76,18 +75,18 @@ def generate_science_book(client: AIClient, book, mapping: dict, install: bool, 
             by_section: dict[str, list[dict]] = {}
             for sid, sec_text in section_texts.items():
                 fname = science_section_filename(subject, num, sid, KIND_FILE[kind])
-                dest = OUTPUT_DIR / grade_folder(grade) / (grade_prefix(grade) + fname)
+                dest = output_file(grade, fname)
                 if skip_existing and dest.exists():
                     print(f"  skip {dest.name}")
                     by_section[sid] = _read_json(dest)
                     continue
                 items = _generate_kind(client, kind, sid, sec_text, chapter_chars)
                 by_section[sid] = items
-                write_science(grade, subject, num, sid, KIND_FILE[kind], items, install)
+                write_science(grade, subject, num, sid, KIND_FILE[kind], items)
                 print(f"  wrote {fname} ({len(items)} items)")
 
             combined_name = science_section_filename(subject, num, None, KIND_FILE[kind])
-            combined_dest = OUTPUT_DIR / grade_folder(grade) / (grade_prefix(grade) + combined_name)
+            combined_dest = output_file(grade, combined_name)
             if skip_existing and combined_dest.exists():
                 print(f"  skip {combined_dest.name}")
                 continue
@@ -97,10 +96,10 @@ def generate_science_book(client: AIClient, book, mapping: dict, install: bool, 
             combined = dedupe_questions(combined)
             if kind == "mcq":
                 combined = shuffle_mcq_answers(combined)
-            write_science(grade, subject, num, None, KIND_FILE[kind], combined, install)
+            write_science(grade, subject, num, None, KIND_FILE[kind], combined)
             print(f"  wrote {combined_name} ({len(combined)} items)")
 
-        _write_reference(client, mapping, num, text, install, skip_existing)
+        _write_reference(client, mapping, num, text, skip_existing)
 
 
 def _generate_kind(
@@ -132,8 +131,7 @@ def _generate_kind(
     return collected
 
 
-def _write_reference(client, mapping, chapter, text, install, skip_existing) -> None:
-    from .config import OUTPUT_DIR, grade_folder, grade_prefix
+def _write_reference(client, mapping, chapter, text, skip_existing) -> None:
     from .parse import loads_json
 
     subject = mapping["subject"]
@@ -145,7 +143,7 @@ def _write_reference(client, mapping, chapter, text, install, skip_existing) -> 
     chunks = chunk_text(text, MAX_CHARS_PER_CALL)
     for kind, prompt_name, validator in jobs:
         fname = f"{subject}_Chapter_{chapter}_{kind}.json"
-        dest = OUTPUT_DIR / grade_folder(grade) / (grade_prefix(grade) + fname)
+        dest = output_file(grade, fname)
         if skip_existing and dest.exists():
             print(f"  skip {dest.name}")
             continue
@@ -174,5 +172,5 @@ def _write_reference(client, mapping, chapter, text, install, skip_existing) -> 
                 continue
             seen.add(key)
             unique.append(it)
-        write_quiz(grade, fname, unique, install)
+        write_quiz(grade, fname, unique)
         print(f"  wrote {fname} ({len(unique)} items)")
