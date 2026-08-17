@@ -567,6 +567,42 @@ input:checked + .slider:before {
     font-size: 0.95rem !important;
 }
 
+/* Math 2/3-mark answers: one page scroll, not per-formula strips */
+#math-solution-screen {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+}
+#math-solution-content {
+    overflow: visible !important;
+    max-width: 100%;
+    word-break: break-word;
+    line-height: 1.8;
+}
+#math-solution-content .math-scroll-container {
+    overflow: visible !important;
+    white-space: normal !important;
+    max-width: 100%;
+}
+#math-solution-content .math-scroll-container p {
+    display: block;
+    white-space: normal;
+}
+#math-solution-content [style*="nowrap"],
+#math-solution-content [style*="overflow-x"] {
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+}
+#math-solution-content .mjx-container,
+#math-solution-content mjx-container {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    max-width: 100% !important;
+}
+
 mjx-mtable {
     margin: 5px 0 !important;
     max-width: 100% !important;
@@ -1029,13 +1065,30 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 /* --- Tabs --- */
 .stats-tab-btn {
     flex: 1;
-    font-size: 0.8rem;
-    padding: 10px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-size: 0.68rem;
+    padding: 8px 2px;
+    min-height: 52px;
+    margin: 0;
     border: none;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0;
+}
+.stats-tab-ico {
+    font-size: 1.05rem;
+    line-height: 1;
+}
+.stats-tab-lbl {
+    font-size: 0.68rem;
+    font-weight: 700;
 }
 .stats-tab-active {
     background: var(--stats-tab-active-bg, var(--t-accent, #00D5FF)) !important;
@@ -1392,7 +1445,38 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     display: flex !important;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     margin: 0 !important;   /* remove .btn default margin so only gap controls spacing */
+}
+.opt-key {
+    display: none;
+}
+.quiz-keys-hint {
+    display: none;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 6px;
+    line-height: 1.4;
+}
+@media (hover: hover) and (pointer: fine) {
+    .opt-key {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        background: rgba(0, 213, 255, 0.15);
+        border: 1px solid rgba(0, 213, 255, 0.4);
+        color: var(--accent, #00D5FF);
+        font-size: 0.75rem;
+        font-weight: 800;
+        flex-shrink: 0;
+    }
+    .quiz-keys-hint {
+        display: block;
+    }
 }
 
 /* Explanation panel (hidden by default) */
@@ -1686,10 +1770,10 @@ body.showing-articles .container {
     
     <!-- Tab Buttons -->
                          <div style="display: flex; gap: 6px; padding: 0 10px; margin-bottom: 15px;">
-        <button class="btn stats-tab-btn stats-tab-active" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">🏅</button>
-        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-summary" onclick="switchStatsTab('summary')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">📈</button>
-        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-best" onclick="switchStatsTab('best')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">🏆</button>
-        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-old" onclick="switchStatsTab('old')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">📜</button>
+        <button class="btn stats-tab-btn stats-tab-active" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')"><span class="stats-tab-ico">🏅</span><span class="stats-tab-lbl">Rank</span></button>
+        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-summary" onclick="switchStatsTab('summary')"><span class="stats-tab-ico">📈</span><span class="stats-tab-lbl">Summary</span></button>
+        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-best" onclick="switchStatsTab('best')"><span class="stats-tab-ico">🏆</span><span class="stats-tab-lbl">Best</span></button>
+        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-old" onclick="switchStatsTab('old')"><span class="stats-tab-ico">📜</span><span class="stats-tab-lbl">Old</span></button>
     </div>
     
     <div id="stats-content" style="padding: 15px;">
@@ -1808,6 +1892,7 @@ body.showing-articles .container {
     
    <div id="question-box" style="font-size: 1.15rem; text-align: center; margin: 0 0 8px 0; line-height: 1.5; overflow-x: auto; max-width: 100%; box-sizing: border-box; padding: 8px; height: 130px; overflow-y: auto;"></div> 
     <div id="quiz-options"></div>
+    <div id="quiz-keys-hint" class="quiz-keys-hint"></div>
     
     <!-- Explanation appears here so it doesn't cover options -->
     <div id="explanation-box"></div>
@@ -1823,11 +1908,12 @@ body.showing-articles .container {
     <h3 style="text-align: center; color: var(--accent);">အဖြေနှင့် တွက်နည်း</h3>
     
     <!-- ဤနေရာက အဖြေ Box ဖြစ်သည် -->
-   <div id="math-solution-content" style="background: var(--detail-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--detail-border); margin-bottom: 20px; min-height: 200px; color: var(--detail-text); overflow-x: auto; max-width: 100%; box-sizing: border-box;"></div>
+   <div id="math-solution-content" style="background: var(--detail-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--detail-border); margin-bottom: 20px; min-height: 200px; color: var(--detail-text); max-width: 100%; box-sizing: border-box;"></div>
     
     <div style="display: flex; gap: 10px; flex-direction: column;">
         <button class="btn" id="math-prev-btn">⬅️ မေးခွန်းသို့ ပြန်သွားရန်</button>
         <button class="btn" id="math-next-btn" style="background: #22C55E;">နောက်တစ်ပုဒ်သို့ ➡️</button>
+        <div class="quiz-keys-hint">Laptop: Space = Next</div>
     </div>
 </div>
 
@@ -2068,9 +2154,33 @@ function fastMath(scope) {
         MathJax.typesetPromise(scope ? [scope] : undefined);
     }
 }
+
+function unwrapMathSolutionScroll(root) {
+    if (!root) return;
+    root.querySelectorAll('div, span, p').forEach(function(el) {
+        var st = el.getAttribute('style') || '';
+        if (/overflow-x\s*:\s*auto/i.test(st) || /white-space\s*:\s*nowrap/i.test(st)) {
+            el.style.overflow = 'visible';
+            el.style.overflowX = 'visible';
+            el.style.overflowY = 'visible';
+            el.style.whiteSpace = 'normal';
+            el.style.maxWidth = '100%';
+        }
+    });
+    root.querySelectorAll('.math-scroll-container').forEach(function(el) {
+        el.style.overflow = 'visible';
+        el.style.overflowX = 'visible';
+        el.style.whiteSpace = 'normal';
+    });
+}
+
+function setQuizKeysHint(text) {
+    var hint = document.getElementById('quiz-keys-hint');
+    if (hint) hint.textContent = text || '';
+}
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=8'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=9'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -4241,10 +4351,19 @@ function loadQuestion() {
         showBtn.style.background = isOldQuestionFlow ? '#7C3AED' : '#22C55E';
         showBtn.style.color = '#FFFFFF';
         showBtn.style.border = 'none';
+        showBtn.id = 'math-sol-btn';
         showBtn.onclick = function() {
             showScreen('math-solution');
-            document.getElementById('math-solution-content').innerHTML = q.c;
-                fastMath();
+            const solBox = document.getElementById('math-solution-content');
+            solBox.innerHTML = q.c;
+            unwrapMathSolutionScroll(solBox);
+            if (window.MathJax && MathJax.typesetPromise) {
+                MathJax.typesetPromise([solBox]).then(function() {
+                    unwrapMathSolutionScroll(solBox);
+                });
+            } else {
+                fastMath(solBox);
+            }
             document.getElementById('math-solution-screen').scrollTop = 0;
             window.scrollTo(0, 0);
 
@@ -4277,6 +4396,7 @@ function loadQuestion() {
             }
         };
         optDiv.appendChild(showBtn);
+        setQuizKeysHint('Laptop: Space = Next');
     }
     else if (q.type === 'mcq' || q.type === 'tf') {
         let opts = [];
@@ -4303,7 +4423,14 @@ function loadQuestion() {
         opts.forEach((a, i) => {
             const btn = document.createElement('button');
             btn.className = 'btn option-btn';
-            btn.innerHTML = a;
+            btn.type = 'button';
+            const keyBadge = document.createElement('span');
+            keyBadge.className = 'opt-key';
+            keyBadge.textContent = String(i + 1);
+            const label = document.createElement('span');
+            label.innerHTML = a;
+            btn.appendChild(keyBadge);
+            btn.appendChild(label);
 
             btn.onclick = () => {
                 if(isAnswered) return;
@@ -4338,6 +4465,9 @@ function loadQuestion() {
             };
             optDiv.appendChild(btn);
         });
+        setQuizKeysHint(q.type === 'tf'
+            ? 'Laptop: 1 = True · 2 = False · Space = Next'
+            : 'Laptop: 1 2 3 to choose · Space = Next');
     }
     else if (q.type === 'blank') {
         const input = document.createElement('input');
@@ -4388,6 +4518,9 @@ function loadQuestion() {
             nextBtnStyled.innerText = 'နောက်တစ်ပုဒ်သို့ ⮕';
         };
         optDiv.append(input, sBtn);
+        setQuizKeysHint('Laptop: Space = Next');
+    } else {
+        setQuizKeysHint('');
     }
 
     if (window.MathJax) MathJax.typesetPromise();
@@ -5459,6 +5592,41 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
 	function openChannel() {
     tg.openTelegramLink('https://t.me/REED_education');
 }
+
+document.addEventListener('keydown', function(e) {
+    const tag = (e.target && e.target.tagName) || '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
+    if (e.ctrlKey || e.altKey || e.metaKey) return;
+    if (e.repeat) return;
+
+    const quizOn = document.getElementById('quiz-screen')?.classList.contains('active-screen');
+    const mathOn = document.getElementById('math-solution-screen')?.classList.contains('active-screen');
+    if (!quizOn && !mathOn) return;
+
+    if (e.key === ' ' || e.code === 'Space') {
+        e.preventDefault();
+        if (mathOn) {
+            const mathNext = document.getElementById('math-next-btn');
+            if (mathNext && mathNext.style.display !== 'none' && !mathNext.disabled) mathNext.click();
+            return;
+        }
+        const next = document.getElementById('next-btn');
+        if (next && next.style.display !== 'none' && !next.disabled) {
+            next.click();
+        }
+        return;
+    }
+
+    if (!quizOn || isAnswered) return;
+    if (e.key === '1' || e.key === '2' || e.key === '3') {
+        const idx = parseInt(e.key, 10) - 1;
+        const btns = document.querySelectorAll('#quiz-options .option-btn');
+        if (btns[idx] && !btns[idx].disabled) {
+            e.preventDefault();
+            btns[idx].click();
+        }
+    }
+});
     </script>
 	
 </body>
