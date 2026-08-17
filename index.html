@@ -1048,17 +1048,40 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     color: var(--profile-stat-btn-text, #fff) !important;
     box-shadow: 0 4px 15px var(--profile-stat-btn-shadow, rgba(59, 130, 246, 0.3)) !important;
 }
-.profile-theme-btn {
-    width: 100%;
-    border: none;
-    padding: 15px;
-    border-radius: 14px;
-    margin-top: 10px;
+.grade-picker {
+    margin-top: 15px;
+    padding: 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--accent);
+    border-radius: 16px;
+    text-align: center;
+}
+.grade-picker-label {
+    color: var(--accent);
     font-weight: bold;
-    font-size: 1rem;
-    background: var(--profile-theme-btn-bg, linear-gradient(135deg, #8B5CF6, #EC4899)) !important;
-    color: var(--profile-theme-btn-text, #fff) !important;
-    box-shadow: 0 4px 15px var(--profile-theme-btn-shadow, rgba(139, 92, 246, 0.3)) !important;
+    display: block;
+    margin-bottom: 12px;
+}
+.grade-picker-row {
+    display: flex;
+    gap: 8px;
+}
+.grade-btn {
+    flex: 1;
+    border: none;
+    padding: 12px 6px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    background: #1E293B;
+    color: var(--white);
+    opacity: 0.7;
+}
+.grade-btn.active {
+    background: var(--accent);
+    color: #000;
+    opacity: 1;
 }
 
 /* --- Stats Screen Content --- */
@@ -1297,7 +1320,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     <div class="container">
         <div id="home-screen" class="screen active-screen">
     <!-- Two Tabs -->
-  <div style="display: flex; gap: 10px; margin-bottom: 20px; padding: 0 5px;">
+  <div id="home-tabs-row" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 0 5px;">
     <button id="home-tab-current" class="btn" style="flex:1; background: var(--accent); color: #000;" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
     <button id="home-tab-old" class="btn" style="flex:1; background: #1E293B; color: var(--white); opacity: 0.6;" onclick="switchHomeTab('old')">မေးခွန်းဟောင်းများ</button>
 </div>
@@ -1332,7 +1355,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
         </div>
 		
 		<div id="daily-screen" class="screen">
-    <h2 style="text-align: center; color: var(--accent);">Daily Quiz (Free)</h2>
+    <h2 id="daily-quiz-title" style="text-align: center; color: var(--accent);">Daily Quiz (Free)</h2>
     <p style="text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top:-10px; margin-bottom: 20px;">နေ့စဉ် မေးခွန်းသစ် ၃ ခုကို ကျပန်းဖြေဆိုနိုင်ပါသည်။</p>
     
     <div style="padding: 15px;">
@@ -1473,13 +1496,6 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 			<div id="dynamic-content-area"></div>
         </div>
 		
-		<div id="theme-shop-screen" class="screen">
-    <h2 style="text-align: center; color: var(--accent);">🎨 Theme Shop</h2>
-    <p style="text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top:-10px; margin-bottom: 20px;">သင့်အကြိုက်ဆုံး အရောင်ကို ရွေးချယ်ပါ</p>
-    <div id="theme-list" style="padding: 0 10px;"></div>
-    <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
-</div>
-
 		<!-- Statistics Screen -->
 <!-- Statistics Screen -->
 <div id="stats-screen" class="screen">
@@ -1670,6 +1686,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     <div class="nav-item" onclick="changeTab('profile', this)">👤</div>
 </div>
 
+    <script src="./grades.js?v=2"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -1865,64 +1882,7 @@ function fastMath(scope) {
 		
 		const ADMIN_ID = 8432363664;
 		const CB = '?v=2'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
-const specialUsers = [5593040432,1709037573,5186599374];
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
-// --- School Exclusive Themes (ဈေးမရောင်းဘဲ အထူးပေးသုံး) ---
-const exclusiveThemeUsers = {
-'mmpn': [8432363664, 987654321, 5593040432], // ဒီကျောင်းသား Telegram ID များ
-'joker':[8432363664,5593040432],
-'itachi':[8432363664,5593040432],
-'heaven':[8432363664,5593040432],
-'infinity':[8432363664,5593040432]
-};
-
-// --- Sub-Chapter Configuration ---
-// အခန်းခွဲများကို မိမိစိတ်ကြိုက် ဤနေရာတွင် ပြင်ဆင်/ထပ်ထည့်နိုင်ပါသည်။
-const subChapterConfig = {
-    'phy': {
-        'Chapter 1': ['1.1', '1.2','1.3'],
-        'Chapter 2': ['2.1', '2.2'],
-		'Chapter 3': ['3.1','3.2','3.3','3.4','3.5','3.6'],
-        'Chapter 4': ['4.1','4.2','4.3','4.4','4.5'],
-		'Chapter 5': ['5.1', '5.2','5.3'],
-        'Chapter 6': ['6.1','6.2','6.3','6.4','6.5'],
-		'Chapter 7': ['7.1','7.2','7.3','7.4','7.5','7.6','7.7','7.8'],
-        'Chapter 8': ['8.1','8.2','8.3','8.4'],
-		'Chapter 9': ['9.1','9.2','9.3','9.4','9.5'],
-        'Chapter 10': ['10.1','10.2','10.3','10.4','10.5'],
-		'Chapter 11': ['11.1','11.2','11.3','11.4','11.5','11.6','11.7'],
-		'Chapter 12': ['12.1', '12.2','12.3'],
-        'Chapter 13': ['13.1','13.2','13.3','13.4']
-    },
-    'chem': {
-        'Chapter 1': ['1.1', '1.2','1.3','1.4','1.5'],
-        'Chapter 2': ['2.1', '2.2','2.3'],
-		'Chapter 3': ['3.1','3.2','3.3'],
-        'Chapter 4': ['4.1', '4.2','4.3'],
-		'Chapter 5': ['5.1','5.2','5.3','5.4','5.5'],
-        'Chapter 6': ['6.1', '6.2','6.3'],
-		'Chapter 7': ['7.1','7.2','7.3','7.4'],
-        'Chapter 8': ['8.1','8.2','8.3']
-    },
-    'bio': {
-        'Chapter 1': ['1.1', '1.2'],
-        'Chapter 2': ['2.1', '2.2','2.3','2.4'],
-		'Chapter 3': ['3.1','3.2','3.3','3.4','3.5','3.6','3.7','3.8'],
-        'Chapter 4': ['4.1', '4.2'],
-		'Chapter 5': ['5.1','5.2','5.3','5.4','5.5'],
-        'Chapter 6': ['6.1', '6.2','6.3','6.4']
-		
-    },
-    'eco': {
-        'Chapter 1': [],
-        'Chapter 2': [],
-		'Chapter 3': [],
-        'Chapter 4': [],
-		'Chapter 5': [],
-		'Chapter 7': [],
-        'Chapter 8': []
-    }
-	};
 
 		// ─── Quiz File Parser ───
 // ─── Quiz File Parser ───
@@ -1934,6 +1894,10 @@ function parseQuizFile(fileName) {
     
     if (name.startsWith('old_')) {
         isOld = true;
+        name = name.substring(4);
+    }
+
+    if (name.startsWith('g11_') || name.startsWith('g10_')) {
         name = name.substring(4);
     }
     
@@ -2591,15 +2555,7 @@ async function fetchPaidUsers() {
     }
 }
 
-        const subjects = [
-    { id: 'mm', name: 'မြန်မာစာ' },
-    { id: 'en', name: 'အင်္ဂလိပ်စာ' },
-    { id: 'math', name: 'သင်္ချာ', chapters: 11 }, // သင်္ချာကို ပြန်ထည့်ထားသည်
-    { id: 'phy', name: 'ရူပဗေဒ', chapters: 13 },
-    { id: 'chem', name: 'ဓာတုဗေဒ', chapters: 8 },
-    { id: 'bio', name: 'ဇီဝဗေဒ', chapters: 6 },
-    { id: 'eco', name: 'ဘောဂဗေဒ', chapters: 8 }
-];
+        refreshSubjectsFromGrade();
 
         let currentSubject = null;
         let currentQuestions = [];
@@ -2705,16 +2661,10 @@ function updateOldQuestionBadges() {
     list.innerHTML = '';
 
     subjects.forEach(sub => {
-        const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || "0";
-        const isSpecial = specialUsers.map(String).includes(currentUserId);
         let isPaid = checkAccess(sub.id);
 
-        if (isSpecial && (['mm', 'en', 'phy', 'chem', 'math'].includes(sub.id) || sub.id === 'bio' || sub.id === 'eco')) {
-            isPaid = true;
-        }
-
         const card = document.createElement('div');
-        card.className = `subject-card ${isPaid ? '' : 'locked'} ${isSpecial && isPaid ? 'premium-card' : ''}`;
+        card.className = `subject-card ${isPaid ? '' : 'locked'}`;
         card.innerHTML = `<span>${sub.name} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
 
         card.onclick = () => {
@@ -2904,9 +2854,9 @@ function checkAccess(subId) {
         return expiryDate >= today;
     }
 
-    // ၃။ 'all' သို့မဟုတ် သက်ဆိုင်ရာ 'subId' ကို စစ်ဆေးခြင်း
-    if (isValid(userBought['all'])) return true;
-    if (isValid(userBought[subId])) return true;
+    const prefix = (getGradeCfg().sheetPrefix) || '';
+    if (isValid(userBought[prefix + 'all'])) return true;
+    if (isValid(userBought[prefix + subId])) return true;
 
     return false;
 }
@@ -2923,24 +2873,12 @@ function unlockCard(div, sub) {
         function renderSubjects() {
     const list = document.getElementById('subject-list');
     list.innerHTML = '';
-    
-    // specialUsers ကို အပေါ်မှာ Global ထားခဲ့ပြီးဖြစ်လို့ ဒီမှာ ထပ်ကြေညာစရာမလိုပါ
-    const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || "0";
-    const isSpecial = specialUsers.map(String).includes(currentUserId);
 
     subjects.forEach(sub => {
         let isPaid = checkAccess(sub.id);
 
-        // Special User ဆိုလျှင် ၆ ဘာသာ ပွင့်ပေးမည်
-        if (isSpecial) {
-            const fiveSubjects = ['mm', 'en', 'math', 'phy', 'chem'];
-            if (fiveSubjects.includes(sub.id) || sub.id === 'bio' || sub.id === 'eco') {
-                isPaid = true;
-            }
-        }
-
         const div = document.createElement('div');
-        div.className = `subject-card ${isPaid ? '' : 'locked'} ${isSpecial && isPaid ? 'premium-card' : ''}`;
+        div.className = `subject-card ${isPaid ? '' : 'locked'}`;
         div.innerHTML = `<span>${sub.name} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
         
                 div.onclick = () => {
@@ -2953,16 +2891,8 @@ function unlockCard(div, sub) {
 
 function openSubjectMenu(sub) {
 	setOldQuestionContext(false);  
-    const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || "0";
-    const isSpecial = specialUsers.map(String).includes(currentUserId);
 
-    // ပုံမှန်ဝယ်ထားသူလား (သို့မဟုတ်) Special User ဖြစ်ပြီး ၆ ဘာသာထဲက တစ်ခုလား စစ်ဆေးခြင်း
-    const isPaidInCode = checkAccess(sub.id);
-    const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(sub.id) || sub.id === 'bio' || sub.id === 'eco');
-    
-    const canAccess = isPaidInCode || isSpecialSubject;
-
-    if (!canAccess) {
+    if (!checkAccess(sub.id)) {
         tg.showAlert("တစ်ဘာသာလုံးကို‌လေ့ကျင့်ဖို့ ဒီဘာသာရပ်ကိုဝယ်ယူလိုက်ပါ");
         showScreen('home');
         return;
@@ -2973,6 +2903,7 @@ function openSubjectMenu(sub) {
     document.getElementById('menu-title').innerText = sub.name;
     const content = document.getElementById('menu-content');
     content.innerHTML = '';
+    const skip = sub.skipChapters || [];
 
     if (sub.id === 'en') {
         ['Initial Letter', 'MCQ', 'Grammar', 'Poem'].forEach(type => {
@@ -2991,11 +2922,12 @@ function openSubjectMenu(sub) {
         });
     } else if (sub.id === 'phy' || sub.id === 'chem') {
         for(let i=1; i<=sub.chapters; i++) {
+            if (skip.includes(i)) continue;
             createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
         }
     } else {
         for(let i=1; i<=sub.chapters; i++) {
-            if (sub.id === 'eco' && i === 6) continue;
+            if (skip.includes(i)) continue;
             
             if (sub.id === 'math') {
                 createBtn(`Chapter ${i}`, content, () => showGeneralActivities(sub.id, `Chapter ${i}`));
@@ -3014,7 +2946,8 @@ function openSubjectMenu(sub) {
             const content = document.getElementById('activity-content');
             content.innerHTML = '';
             document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
-            for (let i = 1; i <= 12; i++) {
+            const unitCount = (currentSubject && currentSubject.units) || getGradeCfg().enUnits || 12;
+            for (let i = 1; i <= unitCount; i++) {
                 createBtn(`Unit ${i}`, content, () => {
                     initQuiz(`en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`);
                     document.getElementById('quiz-back-btn').onclick = () => showENUnits(typeName);
@@ -3147,15 +3080,7 @@ async function loadGrammarNote(topicId, topicTitle) {
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
   document.getElementById('activity-back-btn').onclick = () => {
-    const userId = tg.initDataUnsafe?.user?.id || 0;
-    const isSpecial = specialUsers.includes(userId);
-    
-    // ပြင်ဆင်ချက်: subId အစား currentSubject.id ကို အသုံးပြုထားပါသည်
-    const currentId = currentSubject.id; 
-    const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(currentId) || currentId === 'bio' || currentId === 'eco');
-
-    // checkAccess ကိုလည်း currentId ဖြင့်သာ စစ်ဆေးပါမည်
-    if (checkAccess(currentId) || isSpecialSubject) {
+    if (checkAccess(currentSubject.id)) {
         openSubjectMenu(currentSubject);
     } else {
         openTrialMenu();
@@ -3302,7 +3227,7 @@ function showMMQuizOptions(typeName) {
     // Back button နှိပ်ပါက Subject Menu သို့ ပြန်သွားရန်
     document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
     
-    ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'ရေသည်', 'အရေး',].forEach(cat => {
+    (getGradeCfg().mmCategories || ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'ရေသည်', 'အရေး']).forEach(cat => {
         createBtn(cat, content, () => {
             if (cat === 'စကားပြေ') {
                 // စကားပြေကို ရွေးချယ်ပါက စကားပြေ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
@@ -3350,7 +3275,7 @@ function showMMChapters(typeName, cat) {
     };
     content.appendChild(allBtn);
 
-    ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
+    (getGradeCfg().mmChapters || ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃']).forEach(chapter => {
         createBtn(chapter, content, () => {
             const fileName = `mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
             initQuiz(fileName);
@@ -3453,11 +3378,7 @@ function showSubChaptersMenu(subId, chapterName) {
     content.innerHTML = '';
     
     document.getElementById('activity-back-btn').onclick = () => {
-        const userId = tg.initDataUnsafe?.user?.id || 0;
-        const isSpecial = specialUsers.includes(userId);
-        const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(subId) || subId === 'bio' || subId === 'eco');
-        
-        if (checkAccess(subId) || isSpecialSubject) {
+        if (checkAccess(subId)) {
             openSubjectMenu(currentSubject);
         } else {
             openTrialMenu();
@@ -3523,7 +3444,7 @@ function showQuizSubChapters(subId, chapterName, quizType) {
     };
     content.appendChild(fullBtn);
 
-    const subChapters = (subChapterConfig[subId] && subChapterConfig[subId][chapterName]) || [];
+    const subChapters = (getGradeCfg().subChapters[subId] && getGradeCfg().subChapters[subId][chapterName]) || [];
     subChapters.forEach(subChap => {
         createBtn(subChap, content, () => {
             const activityPartName = `${chapterName}_${subChap}`;
@@ -3537,7 +3458,7 @@ function showQuizSubChapters(subId, chapterName, quizType) {
 async function loadDefinitions(subId, chapterName) {
     try {
         const fileName = `${subId}_${chapterName}_definition`.replace(/ /g, "_");
-        const res = await fetch(`./quizzes/${fileName}.json`);
+        const res = await fetch(`./quizzes/${withGradePrefix(fileName)}.json`);
         if (!res.ok) throw new Error();
         const data = await res.json();
         
@@ -3573,7 +3494,7 @@ function showDefinitionDetail(subId, chapterName, data, index) {
 async function loadKeyTerms(subId, chapterName) {
     try {
         const fileName = `${subId}_${chapterName}_definition`.replace(/ /g, "_");
-        const res = await fetch(`./quizzes/${fileName}.json`);
+        const res = await fetch(`./quizzes/${withGradePrefix(fileName)}.json`);
         if (!res.ok) throw new Error();
         const data = await res.json();
         
@@ -3620,7 +3541,7 @@ function showKeyTermDetail(subId, chapterName, data, index) {
 async function loadFormulas(subId, chapterName) {
     try {
         const fileName = `${subId}_${chapterName}_formula`.replace(/ /g, "_");
-        const res = await fetch(`./quizzes/${fileName}.json`);
+        const res = await fetch(`./quizzes/${withGradePrefix(fileName)}.json`);
         if (!res.ok) throw new Error();
         const data = await res.json();
         
@@ -3758,6 +3679,7 @@ function showMyanmarTrialParts() {
 
 async function initFlashcards(fileName, markTitle = "Flashcard") {
     currentFlashMark = markTitle; // လက်ရှိနှိပ်လိုက်တဲ့ Mark နာမည်ကို သိမ်းမယ်
+    fileName = withGradePrefix(fileName);
     try {
         const res = await fetch(`./quizzes/${fileName}.json`);
         if(!res.ok) throw new Error();
@@ -3810,11 +3732,7 @@ function updateFlashUI() {
         if (parentChapter) {
             showSubChaptersMenu(subId, parentChapter);
         } else {
-            const userId = tg.initDataUnsafe?.user?.id || 0;
-            const isSpecial = specialUsers.includes(userId);
-            const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(subId) || subId === 'bio' || subId === 'eco');
-            
-            if (checkAccess(subId) || isSpecialSubject) {
+            if (checkAccess(subId)) {
                 openSubjectMenu(currentSubject);
             } else {
                 openTrialMenu();
@@ -3855,6 +3773,7 @@ function updateFlashUI() {
     }
 }
        async function initQuiz(fileName) {
+    fileName = withGradePrefix(fileName);
     currentQuizFile = fileName;
     try {
         // 🆕 Cache-bust so updated JSON files are never stale
@@ -4247,7 +4166,7 @@ function nextQuestion() {
     if(id === 'home') {
 		setOldQuestionContext(false); 
         renderSubjects();
-        backToOldSubjects();
+        if (getGradeCfg().showOldQuestions) backToOldSubjects();
         switchHomeTab('current');
     }
     if(id === 'profile') renderProfileData();
@@ -4255,6 +4174,7 @@ function nextQuestion() {
 }
 
 function switchHomeTab(tab) {
+    if (tab === 'old' && !getGradeCfg().showOldQuestions) tab = 'current';
     const currentSection = document.getElementById('home-current-section');
     const oldSection = document.getElementById('home-old-section');
     const currentBtn = document.getElementById('home-tab-current');
@@ -4280,12 +4200,10 @@ function switchHomeTab(tab) {
         currentBtn.style.color = 'var(--white)';
     }
 }
-// Special Users ID များစာရင်း (ဒီမှာ ID ထည့်ရုံနဲ့ Premium ဖြစ်ပြီး ၆ ဘာသာပွင့်ပါမယ်)
-
 function renderProfileData() {
     const userId = tg.initDataUnsafe?.user?.id || 0;
     const userName = tg.initDataUnsafe?.user?.first_name || "Scholar";
-    const isSpecial = specialUsers.includes(userId);
+    const selectedGrade = getSelectedGrade();
     
     // Local Storage ကနေ Streak ကို ယူမယ်
     let currentStreak = parseInt(localStorage.getItem('streak_count')) || updateStreak();
@@ -4305,29 +4223,19 @@ function renderProfileData() {
             console.error('Copy failed', err);
         });
     };
-    
-    // Premium ဖြစ်ပါက Body ကို class ထည့်ပြီး အရောင်ပြောင်းရန်
-    if (isSpecial) {
-        document.body.classList.add('premium-bg');
-    } else {
-        document.body.classList.remove('premium-bg');
-    }
+
+    document.body.classList.remove('premium-bg');
 
     // ဝယ်ယူထားသည့် ဘာသာရပ်ကွက် (Bought Badges) ပြသခြင်း
     const container = document.getElementById('bought-items-container');
     container.innerHTML = ''; 
     
-    const bought = subjects.filter(s => {
-        const isPaidInCode = checkAccess(s.id);
-        const isSpecialSubject = isSpecial && (['mm', 'en', 'math', 'phy', 'chem'].includes(s.id) || s.id === 'bio' || s.id === 'eco');
-        return isPaidInCode || isSpecialSubject;
-    });
+    const bought = subjects.filter(s => checkAccess(s.id));
 
     if(bought.length > 0) {
         bought.forEach(s => {
             const span = document.createElement('span');
             span.className = 'bought-badge';
-            if (isSpecial) span.style.border = "1px solid #F59E0B"; 
             span.innerText = s.name;
             container.appendChild(span);
         });
@@ -4346,15 +4254,47 @@ function renderProfileData() {
     }
     streakBadge.innerHTML = `🔥 ${currentStreak} Day${currentStreak > 1 ? 's' : ''}`;
 
-    // Dynamic Area ထဲကို UI တွေ ထည့်မယ်
-        const dynamicArea = document.getElementById('dynamic-content-area');
-        dynamicArea.innerHTML = `
+    const dynamicArea = document.getElementById('dynamic-content-area');
+    dynamicArea.innerHTML = `
+    <div class="grade-picker">
+        <span class="grade-picker-label">Grade ရွေးချယ်ပါ</span>
+        <div class="grade-picker-row">
+            <button class="grade-btn ${selectedGrade === 12 ? 'active' : ''}" onclick="setSelectedGrade(12)">Grade 12</button>
+            <button class="grade-btn ${selectedGrade === 11 ? 'active' : ''}" onclick="setSelectedGrade(11)">Grade 11</button>
+            <button class="grade-btn ${selectedGrade === 10 ? 'active' : ''}" onclick="setSelectedGrade(10)">Grade 10</button>
+        </div>
+    </div>
     <button class="btn profile-stats-btn" onclick="showStatsScreen()">📊 My Statistics</button>
-    <button class="btn profile-theme-btn" onclick="openThemeShop()">🎨 Theme Shop</button>
 	<button class="btn" style="background: #1E293B; border: 1px solid #A855F7; color: #A855F7; margin-top: 10px;" onclick="openChannel()">
         📢 Join Telegram Channel
     </button>
 `;
+}
+
+function applyGradeUI() {
+    refreshSubjectsFromGrade();
+    if (!document.getElementById('subject-list')) return;
+    const cfg = getGradeCfg();
+    const tabsRow = document.getElementById('home-tabs-row');
+    const oldBtn = document.getElementById('home-tab-old');
+    const currentBtn = document.getElementById('home-tab-current');
+    const dailyTitle = document.getElementById('daily-quiz-title');
+
+    if (currentBtn) currentBtn.innerText = cfg.label + ' ဘာသာရပ်များ';
+    if (oldBtn) oldBtn.style.display = cfg.showOldQuestions ? '' : 'none';
+    if (tabsRow) tabsRow.style.display = cfg.showOldQuestions ? 'flex' : 'none';
+    if (dailyTitle) dailyTitle.innerText = 'Daily Quiz (Free) — ' + cfg.label;
+
+    if (!cfg.showOldQuestions) switchHomeTab('current');
+    renderSubjects();
+    initOldSubjects();
+}
+
+function setSelectedGrade(grade) {
+    localStorage.setItem('selectedGrade', String(grade));
+    applyGradeUI();
+    renderProfileData();
+    tg.showAlert(getGradeCfg().label + ' ကို ရွေးလိုက်ပါပြီ');
 }
 
         // --- Init ---
@@ -4362,7 +4302,7 @@ function renderProfileData() {
             document.getElementById('gender-switch').checked = true;
             updateAvatar();
         }
-        renderSubjects();
+        applyGradeUI();
 
 
 // ၂။ Checkbox အားလုံးကို Save လုပ်ခြင်း
@@ -4513,6 +4453,7 @@ function loadThemeCSS(themeId) {
 }
 
 window.onload = () => {
+    applyGradeUI();
     loadGoals(); 
     updateCountdown(); 
     updateStreak();
@@ -4601,37 +4542,31 @@ function seededRandom(seed) {
 // သက်ဆိုင်ရာ ဘာသာရပ်အလိုက် JSON ဖိုင်နာမည်များ စုစည်းပေးမည့် Function
 function getFileNamesForSubject(subId) {
     let fileNames = [];
+    const cfg = getGradeCfg();
+    const sub = subjects.find(s => s.id === subId);
+    const skip = (sub && sub.skipChapters) || [];
     
     if (subId === 'phy' || subId === 'chem' || subId === 'bio' || subId === 'eco') {
-        // Physics, Chem, Bio, Eco အတွက် (ဥပမာ- phy_Chapter_1_MCQ မှ 13 အထိ)
-        const sub = subjects.find(s => s.id === subId);
         const maxChap = sub ? sub.chapters : 10;
         for (let i = 1; i <= maxChap; i++) {
+            if (skip.includes(i)) continue;
             fileNames.push(`${subId}_Chapter_${i}_MCQ`);
         }
     } 
     else if (subId === 'math') {
-        // သင်္ချာအတွက် (ဥပမာ- math_Chapter_1_1_Mark မှ 11 ထိ)
-        for (let i = 1; i <= 11; i++) { 
+        const maxChap = sub ? sub.chapters : 11;
+        for (let i = 1; i <= maxChap; i++) { 
             fileNames.push(`math_Chapter_${i}_1_Mark`);
         }
     }
     else if (subId === 'en') {
-        // English အတွက် (ဥပမာ- en_unit1_mcq)
-        for (let i = 1; i <= 12; i++) {
+        const unitCount = (sub && sub.units) || cfg.enUnits || 12;
+        for (let i = 1; i <= unitCount; i++) {
             fileNames.push(`en_unit${i}_mcq`);
         }
     }
     else if (subId === 'mm') {
-        // မြန်မာစာအတွက်က ဖိုင်နာမည် ကွဲပြားလွန်းသဖြင့် အမှန်ရွေးဖိုင်များကို သီးသန့်ထည့်ပေးရမည်
-        fileNames = [
-            "mm_အပြော_အမှန်ရွေး",
-            "mm_စကားပြေ_အမှန်ရွေး",
-            "mm_ကဗျာ_အမှန်ရွေး",
-			"mm_အဖတ်_အမှန်ရွေး"
-			
-            // လိုအပ်လျှင် မြန်မာစာ ဖိုင်နာမည်များကို ဤနေရာတွင် ထပ်တိုးပါ
-        ];
+        fileNames = (cfg.mmDailyFiles || []).slice();
     }
     
     return fileNames;
@@ -4657,7 +4592,7 @@ currentQuizFile = 'daily_' + subId;
 
     try {
         let fetchPromises = filesToFetch.map(fileName => {
-            return fetch(`./quizzes/${fileName}.json`)
+            return fetch(`./quizzes/${withGradePrefix(fileName)}.json`)
                 .then(res => res.ok ? res.json() : []) 
                 .catch(() => []); 
         });
@@ -4723,6 +4658,7 @@ let isFlashcardShuffled = false;
 // မူလ initFlashcards function ကို အောက်ပါအတိုင်း အစားထိုးပါ
 async function initFlashcards(fileName, markTitle = "Flashcard") {
     currentFlashMark = markTitle; 
+    fileName = withGradePrefix(fileName);
     try {
         const res = await fetch(`./quizzes/${fileName}.json`);
         if(!res.ok) throw new Error();
@@ -4817,132 +4753,6 @@ function resetTimer() {
     score = 0;
     document.getElementById('score-display').innerText = "ရမှတ်: 0";
 }
-// --- Theme Shop System ---
-const themes = [
-    { id: 'default', name: 'Ocean Dark Theme', price: 0, color: '#00D5FF', preview: 'linear-gradient(135deg, #0B0F19, #162235)' },
-    { id: 'joker', name: 'Jocker Theme', price: -1, color: '#BF00FF', preview: 'linear-gradient(135deg, #0F0718, #1E1035)' , lockedText: 'Locked'},
-	{ id: 'heaven', name: 'Heaven Theme', price: -1, color: '#FFFFFF', preview: 'linear-gradient(135deg, FFFFFF, #CCCCCC)' , lockedText: 'Locked'},
-	{ id: 'itachi', name: 'Itachi Theme', price: -1, color: '#DC2626', preview: 'linear-gradient(135deg, #140303, #351010)' , lockedText: 'Locked'},
-	{ id: 'infinity', name: 'Void Theme', price: -1, color: '#000000', preview: 'linear-gradient(135deg, #FFFFFF, #7D7D7D)' , lockedText: 'Locked'}
-];
-
-// --- { id: 'mmpn', name: 'MMPN', price: -1, color: '#F59E0B', preview: 'linear-gradient(135deg, #1a1000, #3d2800)', exclusive: true, schoolName: "MMPN students onnly" } ---
-
-function checkThemeAccess(themeId) {
-    if (themeId === 'default') return true;
-    
-    // 🆕 ၁။ Hardcoded List (VIP, School, Special) ထဲမှာ ရှိရင် အရင်ခွင့်ပြု
-    // ဒါက theme ဘယ်လိုအမျိုးအစားဖြစ်ဖြစ် စစ်ပေးမယ်
-    if (checkExclusiveAccess(themeId)) return true;
-    
-    // ၂။ Google Sheet (Paid) မှ ဝယ်ထားရင် ခွင့်ပြု
-    return checkAccess('theme_' + themeId);
-}
-
-function checkExclusiveAccess(themeId) {
-    // ၁။ Hardcoded List ထဲမှာလား စစ်မယ်
-    const uid = tg.initDataUnsafe?.user?.id?.toString();
-    const allowed = exclusiveThemeUsers[themeId] || [];
-    if (allowed.map(String).includes(uid)) return true;
-    
-    // ၂။ Google Sheet ကနေ ယူထားတဲ့ Theme List ထဲမှာလား စစ်မယ်
-    if (window.userThemes && window.userThemes.includes(themeId)) return true;
-    
-    return false;
-}
-
-
-function setTheme(themeId) {
-    // 🆕 CSS file load မယ် (ရှေ့က load ထားရင် auto skip လုပ်မယ်)
-    loadThemeCSS(themeId);
-    
-    // 🆕 Default theme သို့ ပြန်သွားရင် ရှေ့က load ထားသော theme CSS files အားလုံး ဖယ်ရှားမယ်
-    if (themeId === 'default') {
-        document.querySelectorAll('link[rel="stylesheet"][href^="./theme-"]').forEach(link => {
-            link.remove();
-            const fileName = link.getAttribute('href').replace('./', '');
-            loadedThemeCSS.delete(fileName);
-        });
-    }
-    
-    document.body.setAttribute('data-theme', themeId);
-    localStorage.setItem('activeTheme', themeId);
-    tg.showAlert(themes.find(t => t.id === themeId).name + " theme သုံးပါပြီ ✅");
-    
-    // Theme Shop ကို refresh
-    if (document.getElementById('theme-shop-screen').classList.contains('active-screen')) {
-        openThemeShop();
-    }
-}
-    
-    document.body.setAttribute('data-theme', themeId);
-
-function openThemeShop() {
-    showScreen('theme-shop');
-    const list = document.getElementById('theme-list');
-    list.innerHTML = '';
-    
-    // Make sure body has the current theme attribute
-    const currentTheme = localStorage.getItem('activeTheme') || 'default';
-    document.body.setAttribute('data-theme', currentTheme);
-    
-    themes.forEach(t => {
-        const isOwned = checkThemeAccess(t.id);
-        const isActive = currentTheme === t.id;
-        
-        const div = document.createElement('div');
-div.className = 'theme-shop-card';
-div.style.cssText = `border: 2px solid ${t.color}; border-radius: 16px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;`;
-        
-        let btnHtml = '';
-        if (isActive) {
-            btnHtml = `<span class="theme-btn-active">✓ သုံးနေသည်</span>`;
-        } else if (isOwned) {
-            btnHtml = `<button class="btn theme-btn theme-btn-use" onclick="setTheme('${t.id}')">သုံးမည်</button>`;
-                } else {
-    // 🏫 Exclusive Theme (School)
-    if (t.exclusive) {
-        btnHtml = `<span class="theme-badge-exclusive">🏫 ${t.schoolName}</span>`;
-    } 
-    // 🔒 ဝယ်လို့မရတဲ့ Theme (VIP, Event, etc...)
-    else if (t.lockedText) {
-        btnHtml = `<span class="theme-btn-buy" style="border: 1px solid ${t.color}; color: ${t.color}; padding: 4px 10px; border-radius: 8px; font-size: 0.8rem;">${t.lockedText}</span>`;
-    } 
-    // 💰 ဝယ်လို့ရတဲ့ Theme (အခမဲ့မဟုတ်၊ ဝယ်မည်ခလုတ်ပဲထားမယ်)
-    else if (t.price > 0) {
-    btnHtml = `<button class="btn theme-btn theme-btn-buy" onclick="buyThemePrompt('${t.id}')">ဝယ်မည်</button>`;
-}
-}
-        
-        div.innerHTML = `
-    <div style="display: flex; align-items: center; gap: 12px;">
-        <div class="theme-preview-box" style="width: 44px; height: 44px; border-radius: 12px; background: ${t.preview}; border: 2px solid ${t.color}; flex-shrink: 0;"></div>
-        <div>
-            <div class="theme-card-name">${t.name}</div>
-            <div class="theme-card-price">
-                ${isActive 
-                    ? '✓ သုံးနေသည်' 
-                    : (isOwned 
-                        ? 'သုံးရန်' 
-                    : (t.price === 0 
-                            ? 'Free' 
-                            : (t.price > 0 
-                                ? 'Premium' 
-                                : (t.lockedText || 'Locked'))))}
-            </div>
-        </div>
-    </div>
-    <div style="flex-shrink: 0; margin-left: 8px;">${btnHtml}</div>
-`;
-        list.appendChild(div);
-    });
-}
-
-function buyThemePrompt(themeId) {
-    const t = themes.find(x => x.id === themeId);
-    tg.showAlert("🎨 " + t.name + " ဝယ်ယူရန် @minaphayarkot ကို ဆက်သွယ်ပါ။\n\nသင့် ID: " + userId + "\n(Theme: " + themeId + ")");
-}
-
 function switchStatsTab(tabName) {
     ['summary', 'best', 'old', 'leaderboard'].forEach(t => {
         const el = document.getElementById('stats-tab-' + t);
