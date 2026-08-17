@@ -3,16 +3,17 @@
 GRADE / CHAPTER CONFIG  —  edit this file when you add content
 ============================================================
 
-Quiz JSON file names (put files in /quizzes):
-  Grade 12:  phy_Chapter_1_MCQ.json
-  Grade 11:  g11_phy_Chapter_1_MCQ.json
-  Grade 10:  g10_phy_Chapter_1_MCQ.json
+Quiz JSON files — keep grades in separate folders:
+
+  Grade 12:  quizzes/phy_Chapter_1_MCQ.json
+  Grade 11:  quizzes/G11/G11_phy_Chapter_1_MCQ.json
+  Grade 10:  quizzes/G10/G10_en_unit1_mcq.json
 
 Same pattern for every subject:
-  math_Chapter_1_1_Mark.json     →  g11_math_Chapter_1_1_Mark.json
-  en_unit1_mcq.json              →  g11_en_unit1_mcq.json
-  mm_အပြော_အမှန်ရွေး.json          →  g11_mm_အပြော_အမှန်ရွေး.json
-  phy_Chapter_1_1.1_MCQ.json     →  g11_phy_Chapter_1_1.1_MCQ.json
+  math_Chapter_1_1_Mark.json     →  quizzes/G11/G11_math_Chapter_1_1_Mark.json
+  en_unit1_mcq.json              →  quizzes/G10/G10_en_unit1_mcq.json
+  mm_အပြော_အမှန်ရွေး.json          →  quizzes/G11/G11_mm_အပြော_အမှန်ရွေး.json
+  phy_Chapter_1_1.1_MCQ.json     →  quizzes/G11/G11_phy_Chapter_1_1.1_MCQ.json
 
 HOW TO CHANGE CHAPTERS
   1. Change the numbers in subjectsList({ math: ?, phy: ?, ... })
@@ -54,6 +55,7 @@ const GRADE_CONFIG = {
     12: {
         label: 'Grade 12',
         filePrefix: '',
+        quizFolder: '',
         sheetPrefix: '',
         showOldQuestions: true,
         enUnits: 12,
@@ -112,10 +114,11 @@ const GRADE_CONFIG = {
         }
     },
 
-    // ---------- GRADE 11  (copied from Grade 12, files start with g11_) ----------
+    // ---------- GRADE 11  (files in quizzes/G11/ named G11_...) ----------
     11: {
         label: 'Grade 11',
-        filePrefix: 'g11_',
+        filePrefix: 'G11_',
+        quizFolder: 'G11',
         sheetPrefix: 'g11_',
         showOldQuestions: false,
         enUnits: 12,
@@ -174,10 +177,11 @@ const GRADE_CONFIG = {
         }
     },
 
-    // ---------- GRADE 10  (copied from Grade 12, files start with g10_) ----------
+    // ---------- GRADE 10  (files in quizzes/G10/ named G10_...) ----------
     10: {
         label: 'Grade 10',
-        filePrefix: 'g10_',
+        filePrefix: 'G10_',
+        quizFolder: 'G10',
         sheetPrefix: 'g10_',
         showOldQuestions: false,
         enUnits: 12,
@@ -252,15 +256,27 @@ function refreshSubjectsFromGrade() {
     subjects = getGradeCfg().subjects;
 }
 
+function stripGradeFilePrefix(fileName) {
+    return String(fileName || '').replace(/^(g10_|g11_|G10_|G11_)/, '');
+}
+
 function withGradePrefix(fileName) {
     if (!fileName) return fileName;
+    if (fileName.startsWith('old_') || fileName.startsWith('daily_')) return fileName;
     const prefix = getGradeCfg().filePrefix || '';
-    if (!prefix) return fileName;
-    if (fileName.startsWith(prefix)) return fileName;
-    if (fileName.startsWith('old_')) return fileName;
-    if (fileName.startsWith('daily_')) return fileName;
-    if (fileName.startsWith('g10_') || fileName.startsWith('g11_')) return fileName;
-    return prefix + fileName;
+    const base = stripGradeFilePrefix(fileName);
+    if (!prefix) return base;
+    if (base.startsWith('old_') || base.startsWith('daily_')) return fileName;
+    return prefix + base;
+}
+
+function quizUrl(fileName) {
+    const prefixed = withGradePrefix(fileName);
+    const folder = getGradeCfg().quizFolder || '';
+    if (!folder || prefixed.startsWith('old_') || prefixed.startsWith('daily_')) {
+        return './quizzes/' + prefixed + '.json';
+    }
+    return './quizzes/' + folder + '/' + prefixed + '.json';
 }
 
 refreshSubjectsFromGrade();
