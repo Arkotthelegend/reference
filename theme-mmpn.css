@@ -23,8 +23,8 @@ body[data-theme="mmpn"] #motivation-box,
 body[data-theme="mmpn"] #plan-screen > div > div:first-child,
 body[data-theme="mmpn"] #middle-screen > div > div:first-child {
     background: rgba(255, 255, 255, 0.03) !important; /* Super transparent */
-    backdrop-filter: blur(16px) !important;           /* Glass Blur Effect */
-    -webkit-backdrop-filter: blur(16px) !important;
+    backdrop-filter: none !important;           /* Glass Blur Effect */
+    -webkit-backdrop-filter: none !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 24px !important;                   /* Extra rounded */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
@@ -58,7 +58,7 @@ body[data-theme="mmpn"] .next-btn {
 body[data-theme="mmpn"] .back-btn,
 body[data-theme="mmpn"] .option-btn { 
     background: rgba(255, 255, 255, 0.05) !important; 
-    backdrop-filter: blur(10px) !important;
+    backdrop-filter: none !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important; 
     color: #FFFFFF !important; 
     border-radius: 50px !important; 
@@ -111,4 +111,4 @@ body[data-theme="mmpn"] .shuffle-btn { background: rgba(255,255,255,0.05) !impor
 body[data-theme="mmpn"] .shuffle-active { background: var(--t-brand-purple) !important; color: #FFFFFF !important; border: none !important;}
 
 body[data-theme="mmpn"] .contact-btn { background: rgba(0, 210, 106, 0.1) !important; color: var(--t-brand-green) !important; border: 1px solid var(--t-brand-green) !important; border-radius: 50px !important;}
-body[data-theme="mmpn"] #quiz-mode-box { background: rgba(255,255,255,0.03) !important; backdrop-filter: blur(10px) !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 24px !important;}
+body[data-theme="mmpn"] #quiz-mode-box { background: rgba(255,255,255,0.03) !important; backdrop-filter: none !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 24px !important;}
