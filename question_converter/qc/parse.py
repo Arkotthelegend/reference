@@ -113,6 +113,18 @@ def _normalize_question_payload(data: Any) -> dict[str, list[dict]]:
     raise ValueError("Unexpected JSON shape")
 
 
+def looks_like_json_payload(text: str) -> bool:
+    try:
+        parse_sectioned_questions(text)
+        return True
+    except Exception:
+        try:
+            loads_json(text)
+            return True
+        except Exception:
+            return False
+
+
 def parent_section(number: str) -> str:
     parts = number.strip().split(".")
     if len(parts) >= 2:

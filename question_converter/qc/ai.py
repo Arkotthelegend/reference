@@ -16,6 +16,7 @@ from .config import (
     MAX_OUTPUT_TOKENS,
     MODEL_PRICES,
 )
+from .parse import looks_like_json_payload
 
 
 class BudgetExceeded(RuntimeError):
@@ -89,7 +90,10 @@ class AIClient:
         key = self._cache_key(system, user)
         cache_file = self.cache_dir / f"{key}.txt"
         if cache_file.exists():
-            return cache_file.read_text(encoding="utf-8")
+            cached = cache_file.read_text(encoding="utf-8")
+            if not json_mode or looks_like_json_payload(cached):
+                return cached
+            cache_file.unlink()
 
         est_in = _approx_tokens(system + user)
         est_out = min(MAX_OUTPUT_TOKENS, 4000)
@@ -110,8 +114,18 @@ class AIClient:
         self.completion_tokens += ct
         self.spent_usd += self.estimate_cost(pt, ct)
         self.calls += 1
+        if json_mode and not looks_like_json_payload(text):
+            extra = user + "\n\nYour previous reply was not valid JSON. Reply with one JSON object only."
+            text2, usage2 = self._openai(system, extra, json_mode)
+            pt2, ct2 = usage2
+            self.prompt_tokens += pt2
+            self.completion_tokens += ct2
+            self.spent_usd += self.estimate_cost(pt2, ct2)
+            self.calls += 1
+            text = text2
         self._save_spend()
-        cache_file.write_text(text, encoding="utf-8")
+        if (not json_mode) or looks_like_json_payload(text):
+            cache_file.write_text(text, encoding="utf-8")
         return text
 
     def _openai(self, system: str, user: str, json_mode: bool) -> tuple[str, tuple[int, int]]:

@@ -123,8 +123,8 @@ def run(
             print(f"  {extra}")
             break
         except Exception as extra:
-            print(f"  stopped {book.label}: {extra}")
-            break
+            print(f"  warning {book.label}: {extra} (continuing)")
+            continue
 
     print(f"\nDone. ChatGPT spend this machine: ${client.spent_usd:.4f} across {client.calls} calls")
     print(f"JSON files: {OUTPUT_DIR}/G10 and {OUTPUT_DIR}/G11")

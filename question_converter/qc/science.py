@@ -88,7 +88,12 @@ def generate_science_book(client: AIClient, book, mapping: dict, skip_existing: 
                     print(f"  skip {dest.name}")
                     by_section[sid] = _read_json(dest)
                     continue
-                items = _generate_kind(client, kind, sid, sec_text, chapter_chars)
+                try:
+                    items = _generate_kind(client, kind, sid, sec_text, chapter_chars)
+                except Exception as extra:
+                    print(f"  ! failed {fname}: {extra}")
+                    by_section[sid] = []
+                    continue
                 by_section[sid] = items
                 write_science(grade, subject, num, sid, KIND_FILE[kind], items)
                 print(f"  wrote {fname} ({len(items)} items)")
@@ -128,7 +133,17 @@ def _generate_kind(
             f"Generate about {target} {kind} questions.\n\n{chunk}"
         )
         raw = client.complete(system, user, json_mode=True)
-        grouped = parse_sectioned_questions(raw)
+        try:
+            grouped = parse_sectioned_questions(raw)
+        except ValueError:
+            smaller = max(6, target // 2)
+            system = render(KIND_PROMPT[kind], section=section, target=smaller)
+            user = (
+                f"Grade textbook extract for sub-chapter {section}. "
+                f"Generate {smaller} {kind} questions. Valid JSON only.\n\n{chunk[:8000]}"
+            )
+            raw = client.complete(system, user, json_mode=True)
+            grouped = parse_sectioned_questions(raw)
         for item in flatten_grouped(grouped):
             clean = validator(item)
             if clean:
