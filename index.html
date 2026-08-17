@@ -250,7 +250,7 @@ html {
 
     /* --- 5. Profile & Settings --- */
     #profile-avatar { width: 100px; height: 100px; margin: 0 auto; display: block; }
-    .profile-info-card, #profile-screen div[style*="background: var(--card)"], #exam-countdown, #middle-screen > div > div:first-child { 
+    .profile-info-card, #profile-screen div[style*="background: var(--card)"], #exam-countdown, #plan-screen > div > div:first-child, #middle-screen > div > div:first-child { 
         background: linear-gradient(145deg, #0F172A, #162235) !important; 
         padding: 20px; border-radius: 16px; text-align: center; margin-top: 20px; 
         border: 1px solid #00D5FF !important; box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important; 
@@ -386,19 +386,38 @@ input:checked + .slider:before {
 }
 
 .nav-item { 
-    font-size: 1.35rem; 
-    filter: grayscale(100%); 
-    opacity: 0.4; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-width: 56px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    filter: none; 
+    opacity: 0.42; 
     cursor: pointer; 
-    transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
-    color: var(--nav-icon-inactive);  /* 🆕 Inactive icon အရောင် */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    color: var(--nav-icon-inactive);
+    line-height: 1.1;
+}
+.nav-ico {
+    font-size: 1.2rem;
+    line-height: 1;
+    filter: grayscale(100%);
+}
+.nav-lbl {
+    letter-spacing: 0;
 }
 
 .nav-active { 
-    filter: grayscale(0%) !important; 
+    filter: none !important; 
     opacity: 1 !important; 
-    transform: scale(1.2) translateY(-8px) !important;
-    color: var(--nav-icon-active) !important;  /* 🆕 Active icon အရောင် */
+    transform: translateY(-4px) scale(1.06) !important;
+    color: var(--nav-icon-active) !important;
+}
+.nav-active .nav-ico {
+    filter: grayscale(0%);
 }
 	/* ============================================================
            📱 GRID LAYOUT FIX (ဘာသာရပ်များကို ၂ ကော်လံ ခွဲပြသရန်)
@@ -462,11 +481,14 @@ input:checked + .slider:before {
         }
 
         /* ၃။ Daily Motivation Box ကို သေးငယ်စေခြင်း */
+        #plan-screen > div > div:first-child,
         #middle-screen > div > div:first-child {
             padding: 12px 15px !important;
             margin-bottom: 15px !important;
         }
+        #plan-screen > div > div:first-child span,
         #middle-screen > div > div:first-child span { font-size: 1.2rem !important; }
+        #plan-screen > div > div:first-child h4,
         #middle-screen > div > div:first-child h4 { font-size: 0.95rem !important; margin: 5px 0 !important; }
         #daily-quote { font-size: 0.85rem !important; line-height: 1.4 !important; }
 
@@ -1558,6 +1580,52 @@ body.showing-articles .container {
 .quiz-old-mode #quiz-progress { color: #C084FC !important; }
 .quiz-old-mode .next-btn-styled, 
 .quiz-old-mode .next-btn { background: linear-gradient(135deg, #A855F7, #7C3AED) !important; color: #fff !important; }
+
+.plan-jump {
+    background: var(--card-bg, #162235);
+    border: 1px solid var(--accent);
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+}
+.plan-jump-title { color: var(--white); font-weight: 800; font-size: 0.95rem; }
+.plan-jump-sub { color: var(--text-muted); font-size: 0.78rem; margin-top: 3px; }
+.tt-box {
+    background: var(--card-bg, #162235);
+    border: 1px solid var(--accent);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 18px;
+}
+.tt-box h3 { color: var(--accent); text-align: center; margin: 0 0 6px 0; font-size: 1.05rem; }
+.tt-sub { text-align: center; color: var(--text-muted); font-size: 0.78rem; margin: 0 0 14px 0; }
+.tt-q { color: var(--white); font-weight: 700; font-size: 1rem; text-align: center; margin-bottom: 12px; line-height: 1.45; }
+.tt-opts { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.tt-opt {
+    background: #0B0F19;
+    border: 1px solid #334155;
+    color: #fff;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+.tt-opt.on { border-color: var(--accent); background: rgba(0, 213, 255, 0.12); color: var(--accent); }
+.tt-next-btn { margin-top: 12px; }
+.tt-img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    display: block;
+    margin: 8px 0 12px;
+}
+.tt-lock { text-align: center; color: #94A3B8; font-size: 0.9rem; line-height: 1.5; padding: 8px 4px 4px; }
 	   
 </style>
 <base target="_blank">
@@ -1615,6 +1683,7 @@ body.showing-articles .container {
         </div>
 		
 		<div id="daily-screen" class="screen">
+    <button class="btn back-btn" onclick="goTab('plan')" style="width: auto; display: inline-block; margin: 0 0 8px 10px;">← နောက်သို့</button>
     <h2 id="daily-quiz-title" style="text-align: center; color: var(--accent);">Daily Quiz (Free)</h2>
     <p style="text-align: center; color: #94A3B8; font-size: 0.9rem; margin-top:-10px; margin-bottom: 20px;">နေ့စဉ် မေးခွန်းသစ် ၃ ခုကို ကျပန်းဖြေဆိုနိုင်ပါသည်။</p>
     
@@ -1645,8 +1714,34 @@ body.showing-articles .container {
 
 		
 		
-    <div id="middle-screen" class="screen">
+    <div id="plan-screen" class="screen">
     <div style="padding: 20px;">
+
+        <div id="tt-box" class="tt-box">
+            <h3>📅 Weekly Plan</h3>
+            <p class="tt-sub">Paid · one timetable each week</p>
+            <div id="tt-locked" class="tt-lock" style="display:none;">
+                Subscribe to unlock. Answer 4 short questions and get this week’s study timetable.
+            </div>
+            <div id="tt-flow" style="display:none;">
+                <div id="tt-q" class="tt-q"></div>
+                <div id="tt-opts" class="tt-opts"></div>
+                <button type="button" class="btn tt-next-btn" id="tt-step-btn" onclick="ttNextStep()">Next</button>
+            </div>
+            <div id="tt-done" style="display:none;">
+                <img id="tt-img" class="tt-img" alt="This week timetable">
+                <button type="button" class="btn" onclick="saveTimetableImage()">Save image</button>
+                <p class="tt-sub" id="tt-next-note"></p>
+            </div>
+        </div>
+
+        <div class="plan-jump" onclick="showScreen('daily')">
+            <div>
+                <div class="plan-jump-title">📝 Daily Quiz (Free)</div>
+                <div class="plan-jump-sub">3 new questions every day</div>
+            </div>
+            <span>➔</span>
+        </div>
         
         <div id="motivation-box" style="margin-bottom: 25px; text-align: center; padding: 20px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent); border-radius: 20px;">
 		
@@ -1750,6 +1845,7 @@ body.showing-articles .container {
     <span class="toggle-label">ကျပန်း</span>
 </div>
 					 </div>
+					<button type="button" class="btn" onclick="openNewsFromProfile()" style="margin-top: 12px; background: #1E293B; border: 1px solid #A855F7; color: #A855F7;">📰 News</button>
 					 </div>
 					 
             </div> 
@@ -1932,6 +2028,7 @@ body.showing-articles .container {
 
 <!-- Articles List Screen -->
 <div id="articles-screen" class="screen">
+    <button class="btn back-btn" onclick="goTab('profile')" style="width: auto; display: inline-block; margin: 0 0 10px 10px;">← နောက်သို့</button>
     <h2 style="text-align: center; color: var(--accent);">📰 News</h2>
     <div id="articles-list" style="padding: 15px;">
         <div style="text-align: center; color: var(--text-muted); padding: 40px;">ဆွဲယူနေသည်...</div>
@@ -1953,12 +2050,10 @@ body.showing-articles .container {
 </div>
 		
    <div class="nav">
-    <div class="nav-item nav-active" data-tab="home" onclick="changeTab('home', this)">🏠</div>
-    <div class="nav-item" data-tab="daily" onclick="changeTab('daily', this)">📝</div>
-    <div class="nav-item" data-tab="middle" onclick="changeTab('middle', this)">⏳</div>
-    <div class="nav-item" data-tab="stats" onclick="changeTab('stats', this)">🏅</div>
-    <div class="nav-item" data-tab="articles" onclick="changeTab('articles', this)">📰</div>
-    <div class="nav-item" data-tab="profile" onclick="changeTab('profile', this)">👤</div>
+    <div class="nav-item nav-active" data-tab="home" onclick="changeTab('home', this)"><span class="nav-ico">🏠</span><span class="nav-lbl">Study</span></div>
+    <div class="nav-item" data-tab="plan" onclick="changeTab('plan', this)"><span class="nav-ico">📅</span><span class="nav-lbl">Plan</span></div>
+    <div class="nav-item" data-tab="stats" onclick="changeTab('stats', this)"><span class="nav-ico">🏅</span><span class="nav-lbl">Rank</span></div>
+    <div class="nav-item" data-tab="profile" onclick="changeTab('profile', this)"><span class="nav-ico">👤</span><span class="nav-lbl">Me</span></div>
 </div>
 
     <script src="./grades.js?v=7"></script>
@@ -2180,7 +2275,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=9'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=10'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -4615,7 +4710,7 @@ function nextQuestion() {
     }
 		  
 		   const nav = document.querySelector('.nav');
-    const mainTabs = ['home', 'daily', 'middle', 'stats', 'articles', 'profile'];
+    const mainTabs = ['home', 'plan', 'stats', 'profile'];
     if (mainTabs.includes(id)) {
         nav.classList.remove('nav-hidden');
     } else {
@@ -4624,10 +4719,16 @@ function nextQuestion() {
     document.body.classList.toggle('showing-articles', id === 'articles');
 }
 
+function goTab(id) {
+    const el = document.querySelector('.nav-item[data-tab="' + id + '"]');
+    if (el) changeTab(id, el);
+    else showScreen(id);
+}
+
         function changeTab(id, el) {
     showScreen(id);
     document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('nav-active'));
-    el.classList.add('nav-active');
+    if (el) el.classList.add('nav-active');
     if(id === 'home') {
 		setOldQuestionContext(false);
         isTrialFlow = false; 
@@ -4637,6 +4738,11 @@ function nextQuestion() {
     }
     if(id === 'profile') renderProfileData();
     if(id === 'articles') loadArticlesIndex();
+    if(id === 'plan') {
+        loadGoals();
+        updateCountdown();
+        initWeeklyTimetable();
+    }
     if(id === 'stats') {
         pendingStatsTab = 'leaderboard';
         syncStatsGradePicker(getSelectedGrade());
@@ -5570,6 +5676,288 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
         listDiv.appendChild(copyBtn);
     }
 }
+
+function openNewsFromProfile() {
+    showScreen('articles');
+    loadArticlesIndex();
+}
+
+const TT_META = {
+    mm: { name: 'Myanmar', color: '#F472B6' },
+    en: { name: 'English', color: '#60A5FA' },
+    math: { name: 'Math', color: '#00D5FF' },
+    phy: { name: 'Physics', color: '#A78BFA' },
+    chem: { name: 'Chemistry', color: '#34D399' },
+    bio: { name: 'Biology', color: '#FBBF24' },
+    eco: { name: 'Economics', color: '#FB923C' }
+};
+const TT_DAYS = [
+    { id: 'mon', label: 'MON' },
+    { id: 'tue', label: 'TUE' },
+    { id: 'wed', label: 'WED' },
+    { id: 'thu', label: 'THU' },
+    { id: 'fri', label: 'FRI' },
+    { id: 'sat', label: 'SAT' },
+    { id: 'sun', label: 'SUN' }
+];
+let ttDraft = { step: 0, hours: 2, when: 'evening', focus: [], rest: 'sun' };
+
+function ttStorageKey() {
+    const uid = (typeof tg !== 'undefined' && tg.initDataUnsafe && tg.initDataUnsafe.user && tg.initDataUnsafe.user.id) || 'guest';
+    return 'ttplan_' + uid + '_' + currentWeekMonday();
+}
+
+function hasAnyPaidAccess() {
+    try {
+        const uid = typeof tg !== 'undefined' && tg.initDataUnsafe && tg.initDataUnsafe.user && tg.initDataUnsafe.user.id;
+        if (uid && String(uid) === String(ADMIN_ID)) return true;
+        if (checkAccess('all')) return true;
+        return ['mm', 'en', 'math', 'phy', 'chem', 'bio', 'eco'].some(function (id) { return checkAccess(id); });
+    } catch (e) {
+        return false;
+    }
+}
+
+function ttSubjectList() {
+    if (typeof subjects !== 'undefined' && subjects && subjects.length) {
+        return subjects.map(function (s) { return { id: s.id, name: s.name }; });
+    }
+    return Object.keys(TT_META).map(function (id) { return { id: id, name: TT_META[id].name }; });
+}
+
+function ttSlotLabels(when, hours) {
+    const am = ['6:00 am', '7:00 am', '8:00 am', '9:00 am'];
+    const pm = ['6:00 pm', '7:00 pm', '8:00 pm', '9:00 pm'];
+    if (when === 'morning') return am.slice(0, hours);
+    if (when === 'evening') return pm.slice(0, hours);
+    const m = Math.ceil(hours / 2);
+    return am.slice(0, m).concat(pm.slice(0, hours - m));
+}
+
+function buildWeekPlan(ans) {
+    const restIdx = ans.rest === 'sat' ? 5 : ans.rest === 'sun' ? 6 : -1;
+    const focus = (ans.focus && ans.focus.length) ? ans.focus.slice(0, 2) : ['math'];
+    const all = ttSubjectList().map(function (s) { return s.id; });
+    const others = all.filter(function (id) { return focus.indexOf(id) === -1; });
+    let oi = 0;
+    const times = ttSlotLabels(ans.when, ans.hours);
+    return TT_DAYS.map(function (d, i) {
+        if (i === restIdx) return { label: d.label, slots: [{ time: 'Rest', id: 'rest' }] };
+        const slots = [];
+        for (let s = 0; s < ans.hours; s++) {
+            let sub;
+            if (s === 0) sub = focus[i % focus.length];
+            else if (s === 1 && focus.length > 1) sub = focus[(i + 1) % focus.length];
+            else {
+                sub = others.length ? others[oi % others.length] : focus[0];
+                oi++;
+            }
+            slots.push({ time: times[s], id: sub });
+        }
+        return { label: d.label, slots: slots };
+    });
+}
+
+function drawWeeklyTimetable(ans) {
+    const days = buildWeekPlan(ans);
+    const W = 900;
+    const pad = 36;
+    const headerH = 150;
+    const rowH = 132;
+    const H = headerH + days.length * rowH + pad;
+    const canvas = document.createElement('canvas');
+    canvas.width = W;
+    canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#0B1220';
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#00D5FF';
+    ctx.fillRect(0, 0, W, 8);
+    ctx.fillStyle = '#00D5FF';
+    ctx.font = '800 42px system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('THIS WEEK', W / 2, 58);
+    ctx.fillStyle = '#94A3B8';
+    ctx.font = '600 22px system-ui, sans-serif';
+    const mon = currentWeekMonday();
+    const sun = addDaysYmd(mon, 6);
+    const grade = (typeof getSelectedGrade === 'function') ? getSelectedGrade() : 12;
+    ctx.fillText(mon.slice(5) + '  →  ' + sun.slice(5) + '    ·    Grade ' + grade, W / 2, 92);
+    ctx.fillStyle = '#64748B';
+    ctx.font = '600 18px system-ui, sans-serif';
+    ctx.fillText('1 plan per week  ·  long-press to save', W / 2, 122);
+
+    days.forEach(function (day, i) {
+        const y = headerH + i * rowH;
+        ctx.fillStyle = i % 2 ? '#101A2C' : '#0E1726';
+        ctx.fillRect(pad, y, W - pad * 2, rowH - 10);
+        ctx.fillStyle = '#00D5FF';
+        ctx.font = '800 20px system-ui, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(day.label, pad + 16, y + 28);
+        const slotW = (W - pad * 2 - 24) / Math.max(day.slots.length, 1);
+        day.slots.forEach(function (slot, si) {
+            const sx = pad + 12 + si * slotW;
+            const sy = y + 40;
+            const sw = slotW - 10;
+            const sh = 70;
+            const meta = slot.id === 'rest' ? { name: 'Rest day', color: '#334155' } : (TT_META[slot.id] || { name: slot.id, color: '#334155' });
+            ctx.fillStyle = meta.color;
+            ctx.globalAlpha = 0.18;
+            ctx.fillRect(sx, sy, sw, sh);
+            ctx.globalAlpha = 1;
+            ctx.strokeStyle = meta.color;
+            ctx.lineWidth = 2;
+            ctx.strokeRect(sx, sy, sw, sh);
+            ctx.fillStyle = '#E2E8F0';
+            ctx.font = '700 16px system-ui, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(slot.time, sx + sw / 2, sy + 26);
+            ctx.fillStyle = meta.color;
+            ctx.font = '800 20px system-ui, sans-serif';
+            ctx.fillText(meta.name, sx + sw / 2, sy + 52);
+        });
+    });
+    return canvas.toDataURL('image/png');
+}
+
+function showTtDone(ans) {
+    document.getElementById('tt-locked').style.display = 'none';
+    document.getElementById('tt-flow').style.display = 'none';
+    document.getElementById('tt-done').style.display = 'block';
+    document.getElementById('tt-img').src = drawWeeklyTimetable(ans);
+    const nextMon = addDaysYmd(currentWeekMonday(), 7);
+    document.getElementById('tt-next-note').textContent = 'New plan unlocks next Monday (' + nextMon + ')';
+}
+
+function renderTtStep() {
+    const qEl = document.getElementById('tt-q');
+    const optsEl = document.getElementById('tt-opts');
+    const btn = document.getElementById('tt-step-btn');
+    const step = ttDraft.step;
+    optsEl.innerHTML = '';
+    btn.style.display = 'none';
+
+    if (step === 0) {
+        qEl.textContent = '1 / 4  ·  How many hours will you study each day?';
+        [1, 2, 3, 4].forEach(function (h) {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'tt-opt' + (ttDraft.hours === h ? ' on' : '');
+            b.textContent = h + (h === 1 ? ' hour' : ' hours');
+            b.onclick = function () { ttDraft.hours = h; ttDraft.step = 1; renderTtStep(); };
+            optsEl.appendChild(b);
+        });
+        return;
+    }
+    if (step === 1) {
+        qEl.textContent = '2 / 4  ·  When do you usually study?';
+        [['morning', 'Morning'], ['evening', 'Evening'], ['both', 'Both']].forEach(function (pair) {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'tt-opt' + (ttDraft.when === pair[0] ? ' on' : '');
+            b.textContent = pair[1];
+            b.onclick = function () { ttDraft.when = pair[0]; ttDraft.step = 2; renderTtStep(); };
+            optsEl.appendChild(b);
+        });
+        return;
+    }
+    if (step === 2) {
+        qEl.textContent = '3 / 4  ·  Which subject needs extra time? (pick 1 or 2)';
+        ttSubjectList().forEach(function (s) {
+            const b = document.createElement('button');
+            b.type = 'button';
+            const on = ttDraft.focus.indexOf(s.id) !== -1;
+            b.className = 'tt-opt' + (on ? ' on' : '');
+            b.textContent = s.name;
+            b.onclick = function () {
+                const idx = ttDraft.focus.indexOf(s.id);
+                if (idx !== -1) ttDraft.focus.splice(idx, 1);
+                else if (ttDraft.focus.length < 2) ttDraft.focus.push(s.id);
+                renderTtStep();
+            };
+            optsEl.appendChild(b);
+        });
+        btn.style.display = 'block';
+        btn.textContent = 'Next';
+        btn.disabled = ttDraft.focus.length < 1;
+        return;
+    }
+    qEl.textContent = '4 / 4  ·  Which day is rest day?';
+    [['sun', 'Sunday'], ['sat', 'Saturday'], ['none', 'No rest day']].forEach(function (pair) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'tt-opt' + (ttDraft.rest === pair[0] ? ' on' : '');
+        b.textContent = pair[1];
+        b.onclick = function () {
+            ttDraft.rest = pair[0];
+            finishWeeklyTimetable();
+        };
+        optsEl.appendChild(b);
+    });
+}
+
+function ttNextStep() {
+    if (ttDraft.step === 2 && ttDraft.focus.length) {
+        ttDraft.step = 3;
+        renderTtStep();
+    }
+}
+
+function finishWeeklyTimetable() {
+    const ans = {
+        hours: ttDraft.hours,
+        when: ttDraft.when,
+        focus: ttDraft.focus.slice(),
+        rest: ttDraft.rest,
+        week: currentWeekMonday()
+    };
+    try { localStorage.setItem(ttStorageKey(), JSON.stringify(ans)); } catch (e) {}
+    showTtDone(ans);
+}
+
+function initWeeklyTimetable() {
+    const locked = document.getElementById('tt-locked');
+    const flow = document.getElementById('tt-flow');
+    const done = document.getElementById('tt-done');
+    if (!locked || !flow || !done) return;
+    if (!hasAnyPaidAccess()) {
+        locked.style.display = 'block';
+        flow.style.display = 'none';
+        done.style.display = 'none';
+        return;
+    }
+    locked.style.display = 'none';
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(ttStorageKey()) || 'null'); } catch (e) { saved = null; }
+    if (saved && saved.week === currentWeekMonday()) {
+        showTtDone(saved);
+        return;
+    }
+    ttDraft = { step: 0, hours: 2, when: 'evening', focus: [], rest: 'sun' };
+    done.style.display = 'none';
+    flow.style.display = 'block';
+    renderTtStep();
+}
+
+function saveTimetableImage() {
+    const img = document.getElementById('tt-img');
+    if (!img || !img.src) return;
+    if (navigator.share) {
+        fetch(img.src).then(function (r) { return r.blob(); }).then(function (blob) {
+            const file = new File([blob], 'weekly-plan.png', { type: 'image/png' });
+            return navigator.share({ files: [file], title: 'Weekly Plan' });
+        }).catch(function () {
+            if (window.tg && tg.showAlert) tg.showAlert('Long-press the image to save it.');
+        });
+        return;
+    }
+    const a = document.createElement('a');
+    a.href = img.src;
+    a.download = 'weekly-plan.png';
+    a.click();
+}
+
 		function copyTelegram() {
     const username = "@minaphayarkot";
     tg.showPopup({
