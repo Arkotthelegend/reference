@@ -173,8 +173,8 @@ body.page-no-nav .container {
     /* Tab Colors */
     #subject-list .subject-card { border: 2px solid #00D5FF !important; }
     #subject-list .subject-card span:last-child { color: #00D5FF !important; }
-    #old-subject-list .subject-card { border: 2px solid #A855F7 !important; color: var(--white) !important; }
-    #old-subject-list .subject-card span:last-child { color: #A855F7 !important; }
+    #old-subject-list .subject-card { border: 2px solid #00D5FF !important; color: var(--white) !important; }
+    #old-subject-list .subject-card span:last-child { color: #00D5FF !important; }
     #daily-screen .subject-card { border: 2px solid #22C55E !important; }
     #daily-screen .subject-card span:last-child { color: #22C55E !important; }
 
@@ -265,7 +265,7 @@ body.page-no-nav .container {
         padding: 20px; border-radius: 16px; text-align: center; margin-top: 20px; 
         border: 1px solid #00D5FF !important; box-shadow: 0 4px 20px rgba(0, 213, 255, 0.1) !important; 
     }
-    #exam-countdown { border-color: #A855F7 !important; box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1) !important; display: flex; justify-content: center; gap: 15px; padding: 12px; margin-bottom: 25px; }
+    #exam-countdown { border-color: #00D5FF !important; box-shadow: 0 4px 20px rgba(0, 213, 255, 0.18) !important; display: flex; justify-content: center; gap: 15px; padding: 12px; margin-bottom: 25px; }
     
     .bought-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
     .bought-badge { background: #1E293B; color: #00D5FF; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #00D5FF; font-weight: 700; }
@@ -1025,6 +1025,52 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     color: var(--text-muted);
     padding: 20px;
 }
+.stat-graph-hint {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    margin: 0 0 16px 0;
+}
+.stat-bar-row {
+    margin-bottom: 14px;
+}
+.stat-bar-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.stat-bar-name {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.stat-bar-pct {
+    color: var(--accent);
+    font-family: monospace;
+    font-weight: 800;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+.stat-bar-track {
+    height: 12px;
+    background: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 999px;
+    overflow: hidden;
+}
+.stat-bar-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #0891B2, #00D5FF);
+    border-radius: 999px;
+}
+.stat-bar-meta {
+    color: #64748B;
+    font-size: 0.72rem;
+    margin-top: 4px;
+}
 
 /* Leaderboard theme fixes */
 .leaderboard-item {
@@ -1166,7 +1212,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 }
 .grade-btn {
     flex: 1;
-    border: none;
+    border: 1px solid #00D5FF;
     padding: 12px 6px;
     border-radius: 12px;
     font-weight: 700;
@@ -1174,12 +1220,13 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     cursor: pointer;
     background: #1E293B;
     color: var(--white);
-    opacity: 0.7;
+    opacity: 0.85;
 }
 .grade-btn.active {
     background: var(--accent);
     color: #000;
     opacity: 1;
+    border: 1px solid var(--accent);
 }
 
 .rank-snapshot {
@@ -1397,23 +1444,22 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     margin-bottom: 0;
 }
 
-	   /* ===== OLD QUESTIONS BUTTON THEME ===== */
+	   /* ===== OLD QUESTIONS — cyan on dark ===== */
 .old-btn {
-    background: #7C3AED !important;        /* Violet */
-    border: 1px solid #A855F7 !important;  /* Purple border */
-    color: #FFFFFF !important;
-    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.25) !important;
+    background: #162235 !important;
+    border: 1px solid #00D5FF !important;
+    color: #00D5FF !important;
+    box-shadow: 0 4px 15px rgba(0, 213, 255, 0.16) !important;
 }
 .old-btn:active {
     transform: scale(0.97);
-    background: #6D28D9 !important;
+    background: #0B3A4A !important;
 }
 
-/* Old-menu back button also tinted purple */
 #old-menu-screen .back-btn {
-    background: linear-gradient(135deg, #4C1D95, #7C3AED) !important;
-    border-color: #A855F7 !important;
-    color: #FFFFFF !important;
+    background: #1E293B !important;
+    border-color: #00D5FF !important;
+    color: #00D5FF !important;
 }
 	   /* Article Images */
 #article-detail-body img {
@@ -1556,8 +1602,8 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 }
 	   /* Old Question Timer Colors */
 /* Old Question Timer Colors */
-.timer-btn.old-timer, #timer-reset-btn.old-timer { background: #4C1D95 !important; color: #C084FC !important; border-color: #A855F7 !important; }
-.timer-display.old-timer { color: #C084FC !important; background: #000 !important; border-color: #A855F7 !important; }	   
+.timer-btn.old-timer, #timer-reset-btn.old-timer { background: #0B3A4A !important; color: #00D5FF !important; border-color: #00D5FF !important; }
+.timer-display.old-timer { color: #00D5FF !important; background: #000 !important; border-color: #00D5FF !important; }	   
 
 	   .nav-hidden {
     display: none !important;
@@ -1582,14 +1628,14 @@ body.showing-articles .container {
     width: 100%;
     margin: 0;
     background: #1E293B;
-    border: 1px solid #A855F7;
-    color: #A855F7;
+    border: 1px solid #22C55E;
+    color: #22C55E;
 }
 
 	   /* Old Question Mode — purple accents instead of the badge */
-.quiz-old-mode #quiz-progress { color: #C084FC !important; }
+.quiz-old-mode #quiz-progress { color: #00D5FF !important; }
 .quiz-old-mode .next-btn-styled, 
-.quiz-old-mode .next-btn { background: linear-gradient(135deg, #A855F7, #7C3AED) !important; color: #fff !important; }
+.quiz-old-mode .next-btn { background: linear-gradient(135deg, #00D5FF, #0891B2) !important; color: #000 !important; }
 
 .plan-jump {
     background: var(--card-bg, #162235);
@@ -1610,13 +1656,13 @@ body.showing-articles .container {
     overflow: hidden;
     overscroll-behavior: none;
 }
-#daily-screen .daily-head {
+.mini-head {
     display: flex;
     align-items: center;
     gap: 10px;
     margin: 0 0 10px 0;
 }
-#daily-screen .daily-back {
+.mini-back {
     width: 42px !important;
     max-width: 42px !important;
     min-width: 42px !important;
@@ -1632,6 +1678,25 @@ body.showing-articles .container {
     font-weight: 700;
     line-height: 42px;
     text-align: center;
+}
+.mini-head h2 {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.25;
+    text-align: left;
+    color: var(--accent);
+    flex: 1;
+}
+.trial-outline-btn {
+    background: transparent !important;
+    border: 1px solid #22C55E !important;
+    color: #22C55E !important;
+    box-shadow: none !important;
+}
+.news-outline-btn {
+    background: #1E293B !important;
+    border: 1px solid #22C55E !important;
+    color: #22C55E !important;
 }
 #daily-screen .daily-head-text {
     min-width: 0;
@@ -1701,7 +1766,7 @@ body.showing-articles .container {
 
     <!-- Free Trial Button (visible on both tabs now) -->
     <div style="padding: 20px; margin-top: 10px;">
-        <button class="btn" style="background: linear-gradient(135deg, #10B981, #059669); font-weight: bold; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);" onclick="openTrialMenu()">
+        <button class="btn trial-outline-btn" onclick="openTrialMenu()">
             🎁 ဘာသာရပ်များကို အစမ်းသုံးရန်
         </button>
 		    
@@ -1710,14 +1775,14 @@ body.showing-articles .container {
     </div>
 </div>
 		<div id="old-menu-screen" class="screen">
-            <h2 id="old-menu-title" style="text-align: center; color: #C084FC; margin-bottom: 20px;"></h2>
+            <h2 id="old-menu-title" style="text-align: center; color: var(--accent); margin-bottom: 20px;"></h2>
             <div id="old-menu-content" style="padding: 0 10px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; grid-auto-rows: 1fr;"></div>
             <button class="btn back-btn" id="old-menu-back-btn" style="margin-top: 20px;">နောက်သို့</button>
         </div>
 		
 		<div id="daily-screen" class="screen">
-    <div class="daily-head">
-        <button type="button" class="daily-back" onclick="goTab('plan')" aria-label="Back">←</button>
+    <div class="mini-head">
+        <button type="button" class="mini-back" onclick="goTab('plan')" aria-label="Back">←</button>
         <div class="daily-head-text">
             <h2 id="daily-quiz-title">Daily Quiz (Free)</h2>
             <p class="daily-sub">နေ့စဉ် မေးခွန်းသစ် ၃ ခု</p>
@@ -1863,7 +1928,7 @@ body.showing-articles .container {
     <span class="toggle-label">ကျပန်း</span>
 </div>
 					 </div>
-					<button type="button" class="btn" onclick="openNewsFromProfile()" style="margin-top: 12px; background: #1E293B; border: 1px solid #A855F7; color: #A855F7;">📰 News</button>
+					<button type="button" class="btn news-outline-btn" onclick="openNewsFromProfile()" style="margin-top: 12px;">📰 News</button>
 					 </div>
 					 
             </div> 
@@ -2046,8 +2111,10 @@ body.showing-articles .container {
 
 <!-- Articles List Screen -->
 <div id="articles-screen" class="screen">
-    <button class="btn back-btn" onclick="goTab('profile')" style="width: auto; display: inline-block; margin: 0 0 10px 10px;">← နောက်သို့</button>
-    <h2 style="text-align: center; color: var(--accent);">📰 News</h2>
+    <div class="mini-head">
+        <button type="button" class="mini-back" onclick="goTab('profile')" aria-label="Back">←</button>
+        <h2>📰 News</h2>
+    </div>
     <div id="articles-list" style="padding: 15px;">
         <div style="text-align: center; color: var(--text-muted); padding: 40px;">ဆွဲယူနေသည်...</div>
     </div>
@@ -2056,8 +2123,10 @@ body.showing-articles .container {
 <!-- Article Detail Screen -->
 <div id="article-detail-screen" class="screen">
     <div style="padding: 20px; padding-bottom: 100px;">
-        <button class="btn back-btn" onclick="showScreen('articles')" style="margin-bottom: 15px; width: auto; display: inline-block;">← နောက်သို့</button>
-        <h2 id="article-detail-title" style="color: var(--accent); margin-bottom: 10px; font-size: 1.2rem; line-height: 1.4;"></h2>
+        <div class="mini-head">
+            <button type="button" class="mini-back" onclick="showScreen('articles')" aria-label="Back">←</button>
+            <h2 id="article-detail-title" style="color: var(--accent); margin: 0; font-size: 1.05rem; line-height: 1.35;"></h2>
+        </div>
         <div id="article-detail-date" style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 20px;"></div>
         <div id="article-detail-body" style="background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--accent); line-height: 1.8; color: var(--white); font-size: 0.95rem;"></div>
     </div>
@@ -2293,7 +2362,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=13'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=14'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -2663,15 +2732,13 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
 
     let keys = Object.keys(bestScoresObj);
 
-    // Filter Old vs New
-       keys = keys.filter(key => {
+    keys = keys.filter(key => {
         const item = bestScoresObj[key];
         const isOld = item.isOld || key.startsWith('old_');
         const isDaily = key.startsWith('daily_');
         if (filterOld) return isOld;
         return !isOld && !isDaily;
     });
-    // Hide sub-chapters and Myanmar individual title/chapter quizzes
     keys = keys.filter(key => !isSubChapter(key) && !isMyanmarIndividualQuiz(key) && scoreBelongsToGrade(bestScoresObj[key], key, getStatsGrade()));
 
     if (keys.length === 0) {
@@ -2683,39 +2750,40 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
     keys.forEach(key => {
         const b = bestScoresObj[key];
         const sub = b.subject || 'unknown';
-        if (!bySubject[sub]) bySubject[sub] = [];
-        bySubject[sub].push({ key, ...b });
+        if (!bySubject[sub]) bySubject[sub] = { score: 0, total: 0, count: 0 };
+        bySubject[sub].score += Number(b.score) || 0;
+        bySubject[sub].total += Number(b.total) || 0;
+        bySubject[sub].count += 1;
     });
 
-    Object.keys(bySubject).forEach(sub => {
-        bySubject[sub].forEach(b => {
-            const div = document.createElement('div');
-            div.className = 'stat-score-item';
-			
-            const timeStr = b.timeTaken ? formatTime(b.timeTaken) : '-';
-            const percent = b.total > 0 ? Math.round((b.score / b.total) * 100) : 0;
-            const dateStr = b.date ? new Date(b.date).toLocaleDateString() : '';
-            
-            const displayName = getStatDisplayName(b.key, b);
-            const cleanKey = b.key.replace(/^old_/, '');
-            const isMyanmarAll = cleanKey.includes('_all_') && b.subject === 'mm';
-            const isMyanmarYadaya = b.subject === 'mm' && cleanKey.includes('_ရေသည်_');
-            const typeLine = (isMyanmarAll || isMyanmarYadaya) ? '' : (b.type || '');
-            const title = typeLine ? displayName + ' · ' + typeLine : displayName;
+    const order = ['mm', 'en', 'math', 'phy', 'chem', 'bio', 'eco'];
+    const rows = Object.keys(bySubject).map(function (sub) {
+        const s = bySubject[sub];
+        const pct = s.total > 0 ? Math.round((s.score / s.total) * 100) : 0;
+        return { sub: sub, pct: pct, count: s.count, score: s.score, total: s.total };
+    }).sort(function (a, b) {
+        const ia = order.indexOf(a.sub);
+        const ib = order.indexOf(b.sub);
+        if (ia !== -1 || ib !== -1) return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+        return b.pct - a.pct;
+    });
 
-            div.innerHTML = `
-                <div class="stat-score-subject">${getSubjectNameEn(sub)}</div>
-                <div class="stat-score-top">
-                    <span class="stat-score-name">${title}</span>
-                    <span class="stat-score-value">${b.score}/${b.total} (${percent}%)</span>
-                </div>
-                <div class="stat-score-meta">
-                    <span>${timeStr}</span>
-                    <span>${dateStr}</span>
-                </div>
-            `;
-            container.appendChild(div);
-        });
+    const hint = document.createElement('p');
+    hint.className = 'stat-graph-hint';
+    hint.textContent = filterOld ? 'Old-question accuracy by subject' : 'Best accuracy by subject';
+    container.appendChild(hint);
+
+    rows.forEach(function (row) {
+        const wrap = document.createElement('div');
+        wrap.className = 'stat-bar-row';
+        wrap.innerHTML =
+            '<div class="stat-bar-label">' +
+                '<span class="stat-bar-name">' + getSubjectNameEn(row.sub) + '</span>' +
+                '<span class="stat-bar-pct">' + row.pct + '%</span>' +
+            '</div>' +
+            '<div class="stat-bar-track"><div class="stat-bar-fill" style="width:' + row.pct + '%"></div></div>' +
+            '<div class="stat-bar-meta">' + row.score + '/' + row.total + ' · ' + row.count + (row.count === 1 ? ' quiz' : ' quizzes') + '</div>';
+        container.appendChild(wrap);
     });
 }
 // ─── Load Statistics ───
@@ -3272,7 +3340,7 @@ function updateOldQuestionBadges() {
         const wrap = document.createElement('div');
         wrap.className = 'old-question-badge';
         wrap.style.cssText = 'text-align:center; margin-bottom:8px;';
-        wrap.innerHTML = '<span style="display:inline-block; background:linear-gradient(135deg,#A855F7,#7C3AED); color:#fff; padding:4px 12px; border-radius:12px; font-size:0.75rem; font-weight:700; pointer-events:none;">📜 မေးခွန်းဟောင်း</span>';
+        wrap.innerHTML = '<span style="display:inline-block; background:#162235; color:#00D5FF; padding:4px 12px; border-radius:12px; font-size:0.75rem; font-weight:700; pointer-events:none; border:1px solid #00D5FF;">📜 မေးခွန်းဟောင်း</span>';
         const firstDiv = flashScreen.querySelector('div');
         if (firstDiv) flashScreen.insertBefore(wrap, firstDiv);
         else flashScreen.prepend(wrap);
@@ -3284,7 +3352,7 @@ function updateOldQuestionBadges() {
         const badge = document.createElement('div');
         badge.className = 'old-question-badge';
         badge.innerText = '📜 မေးခွန်းဟောင်း';
-        badge.style.cssText = 'position:absolute; top:10px; right:10px; background:linear-gradient(135deg,#A855F7,#7C3AED); color:#fff; padding:3px 10px; border-radius:10px; font-size:0.7rem; font-weight:700; z-index:40; border:1px solid rgba(255,255,255,0.2); pointer-events:none;';
+        badge.style.cssText = 'position:absolute; top:10px; right:10px; background:#162235; color:#00D5FF; padding:3px 10px; border-radius:10px; font-size:0.7rem; font-weight:700; z-index:40; border:1px solid #00D5FF; pointer-events:none;';
         mathScreen.appendChild(badge);
     }
 }
@@ -3324,8 +3392,8 @@ function backToOldSubjects() {
 
 function showOldMenu(sub) {
     document.getElementById('old-menu-title').innerHTML = 
-        `<div style="font-size:0.85rem;color:#A855F7;margin-bottom:4px;">📜 မေးခွန်းဟောင်း</div>` +
-        `<div style="color:#C084FC;">${sub.name}</div>`;
+        `<div style="font-size:0.85rem;color:#00D5FF;margin-bottom:4px;">📜 မေးခွန်းဟောင်း</div>` +
+        `<div style="color:#00D5FF;">${sub.name}</div>`;
     const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
     document.getElementById('old-menu-back-btn').onclick = backToOldSubjects;
@@ -4490,8 +4558,8 @@ function loadQuestion() {
         showBtn.innerText = "အဖြေကြည့်ရန်";
         showBtn.style.maxWidth = "280px";
         showBtn.style.margin = "0 auto";
-        showBtn.style.background = isOldQuestionFlow ? '#7C3AED' : '#22C55E';
-        showBtn.style.color = '#FFFFFF';
+        showBtn.style.background = isOldQuestionFlow ? '#00D5FF' : '#22C55E';
+        showBtn.style.color = isOldQuestionFlow ? '#000000' : '#FFFFFF';
         showBtn.style.border = 'none';
         showBtn.id = 'math-sol-btn';
         showBtn.onclick = function() {
@@ -4510,14 +4578,14 @@ function loadQuestion() {
             window.scrollTo(0, 0);
 
                         document.getElementById('math-prev-btn').onclick = () => showScreen('quiz');
-            const btnBg = isOldQuestionFlow ? '#7C3AED' : '#22C55E';
+            const btnBg = isOldQuestionFlow ? '#00D5FF' : '#22C55E';
             document.getElementById('math-prev-btn').style.background = btnBg;
-            document.getElementById('math-prev-btn').style.color = '#FFFFFF';
+            document.getElementById('math-prev-btn').style.color = isOldQuestionFlow ? '#000000' : '#FFFFFF';
             document.getElementById('math-prev-btn').style.border = 'none';
 
             const mathNextBtn = document.getElementById('math-next-btn');
             mathNextBtn.style.background = btnBg;
-            mathNextBtn.style.color = '#FFFFFF';
+            mathNextBtn.style.color = isOldQuestionFlow ? '#000000' : '#FFFFFF';
             mathNextBtn.style.border = 'none';
             if (currentIdx < currentQuestions.length - 1) {
                 mathNextBtn.style.display = 'block';
@@ -4915,7 +4983,6 @@ function setSelectedGrade(grade) {
     localStorage.setItem('selectedGrade', String(grade));
     applyGradeUI();
     renderProfileData();
-    tg.showAlert(getGradeCfg().label + ' ကို ရွေးလိုက်ပါပြီ');
 }
 
         // --- Init ---
