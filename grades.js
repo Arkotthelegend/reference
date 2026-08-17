@@ -32,6 +32,12 @@ GOOGLE SHEET (paid users)
   If your Apps Script maps columns by header name automatically, adding
   the columns is enough. If it has a hardcoded subject list, add these
   new names there too.
+
+ENGLISH GRAMMAR (shared for Grade 10, 11, and 12)
+  All grades use the same topic list and the same files:
+    quizzes/past_simple.json
+    notes/grammar_past_simple.json
+  Do not put G10_/G11_ prefixes or G10/G11 folders on grammar files.
 ============================================================
 */
 
@@ -241,6 +247,65 @@ const GRADE_CONFIG = {
     }
 };
 
+// Shared by Grade 10, 11, and 12. Files live in quizzes/ with no grade prefix.
+const EN_GRAMMAR_TOPICS = [
+    { title: "Past Simple", id: "past_simple" },
+    { title: "Present Simple", id: "present_simple" },
+    { title: "Present Continuous", id: "present_continuous" },
+    { title: "Past Continuous", id: "past_continuous" },
+    { title: "Present Perfect", id: "present_perfect" },
+    { title: "Present Perfect Continuous", id: "present_perfect_continuous" },
+    { title: "Future Simple", id: "future_simple" },
+    { title: "Going To/Will Be", id: "going_to" },
+    { title: "Future Continuous", id: "future_continuous" },
+    { title: "Used To", id: "used_to" },
+    { title: "Modal Auxiliaries", id: "modal_auxiliaries" },
+    { title: "Nouns In Apposition", id: "nouns_in_apposition" },
+    { title: "Not + Any = No", id: "not_any_no" },
+    { title: "Active Voice To Passive Voice", id: "active_passive_voice" },
+    { title: "Passive Voice To Active Voice", id: "passive_active_voice" },
+    { title: "Impersonal Passive", id: "impersonal_passive" },
+    { title: "Zero Conditional", id: "zero_conditional" },
+    { title: "First Conditional", id: "first_conditional" },
+    { title: "Second Conditional", id: "second_conditional" },
+    { title: "Third Conditional", id: "third_conditional" },
+    { title: "Subordinating Conjunction", id: "subordinating_conjunction" },
+    { title: "Clauses Of Contact", id: "clauses_of_contact" },
+    { title: "As If / As Though", id: "as_if_as_though" },
+    { title: "Preposition and Conjunction for Purposes", id: "preposition_conjunction_purpose" },
+    { title: "Verbs of Cause and Effect", id: "verbs_cause_effect" },
+    { title: "Linking Words to Show Cause and Effect", id: "linking_words_cause_effect" },
+    { title: "As soon as To No sooner", id: "as_soon_as_no_sooner" },
+    { title: "No sooner To As soon as", id: "no_sooner_as_soon_as" },
+    { title: "Both ... and", id: "both_and" },
+    { title: "Not only ... But also", id: "not_only_but_also" },
+    { title: "Neither ... nor", id: "neither_nor" },
+    { title: "Either ... or", id: "either_or" },
+    { title: "So and Neither", id: "so_and_neither" },
+    { title: "So that", id: "so_that" },
+    { title: "Such that", id: "such_that" },
+    { title: "Too ... to / Enough to", id: "too_to_enough_to" },
+    { title: "Before + V-ing", id: "before_ving" },
+    { title: "After + V-ing", id: "after_ving" },
+    { title: "Without + V-ing", id: "without_ving" },
+    { title: "By + V-ing", id: "by_ving" },
+    { title: "Introductory Phrases", id: "introductory_phrases" },
+    { title: "Participle Phrases", id: "participle_phrases" },
+    { title: "Gerund and Infinitive with 'to'", id: "gerund_infinitive" },
+    { title: "Verbs followed by a noun group", id: "verbs_followed_by_noun_group" },
+    { title: "Joining Sentences Using Relative Pronouns", id: "joining_relative_pronouns" },
+    { title: "Omission Of Relative Pronouns", id: "omission_relative_pronouns" },
+    { title: "It is / It was", id: "it_is_it_was" },
+    { title: "Double Negative Structure", id: "double_negative_structure" },
+    { title: "No Matter", id: "no_matter" },
+    { title: "Omission of Verbs", id: "omission_of_verbs" },
+    { title: "The more / The less", id: "the_more_the_less" },
+    { title: "As ... As", id: "as_as" },
+    { title: "Not as ... as", id: "not_as_as" },
+    { title: "Inversion (Full Verb Before Subject)", id: "inversion_full_verb" },
+    { title: "As and Like", id: "as_and_like" }
+];
+
 let subjects = [];
 
 function getSelectedGrade() {
@@ -260,9 +325,15 @@ function stripGradeFilePrefix(fileName) {
     return String(fileName || '').replace(/^(g10_|g11_|G10_|G11_)/, '');
 }
 
+function isSharedEnGrammarFile(fileName) {
+    const id = stripGradeFilePrefix(fileName).replace(/\.json$/i, '');
+    return EN_GRAMMAR_TOPICS.some(function (t) { return t.id === id; });
+}
+
 function withGradePrefix(fileName) {
     if (!fileName) return fileName;
     if (fileName.startsWith('old_') || fileName.startsWith('daily_')) return fileName;
+    if (isSharedEnGrammarFile(fileName)) return stripGradeFilePrefix(fileName);
     const prefix = getGradeCfg().filePrefix || '';
     const base = stripGradeFilePrefix(fileName);
     if (!prefix) return base;
@@ -271,6 +342,10 @@ function withGradePrefix(fileName) {
 }
 
 function quizUrl(fileName) {
+    if (isSharedEnGrammarFile(fileName)) {
+        const base = stripGradeFilePrefix(fileName).replace(/\.json$/i, '');
+        return './quizzes/' + base + '.json';
+    }
     const prefixed = withGradePrefix(fileName);
     const folder = getGradeCfg().quizFolder || '';
     if (!folder || prefixed.startsWith('old_') || prefixed.startsWith('daily_')) {

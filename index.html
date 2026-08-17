@@ -1294,6 +1294,29 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     display: none !important;
 }
 
+.articles-channel-bar {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    left: 5%;
+    width: 90%;
+    z-index: 99;
+    box-sizing: border-box;
+}
+body.showing-articles .articles-channel-bar {
+    display: block;
+}
+body.showing-articles .container {
+    padding-bottom: 180px;
+}
+.articles-channel-bar .btn {
+    width: 100%;
+    margin: 0;
+    background: #1E293B;
+    border: 1px solid #A855F7;
+    color: #A855F7;
+}
+
 	   /* Old Question Mode — purple accents instead of the badge */
 .quiz-old-mode #quiz-progress { color: #C084FC !important; }
 .quiz-old-mode .next-btn-styled, 
@@ -1677,6 +1700,10 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
         <div id="article-detail-body" style="background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--accent); line-height: 1.8; color: var(--white); font-size: 0.95rem;"></div>
     </div>
 </div>
+
+<div id="articles-channel-bar" class="articles-channel-bar">
+    <button class="btn" onclick="openChannel()">📢 Join Telegram Channel</button>
+</div>
 		
    <div class="nav">
     <div class="nav-item nav-active" onclick="changeTab('home', this)">🏠</div>
@@ -1686,7 +1713,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     <div class="nav-item" onclick="changeTab('profile', this)">👤</div>
 </div>
 
-    <script src="./grades.js?v=3"></script>
+    <script src="./grades.js?v=4"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -2963,70 +2990,7 @@ function openSubjectMenu(sub) {
     content.innerHTML = '';
     document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
 
-    // လူကြီးမင်း ပေးထားသော Grammar ခေါင်းစဉ်အသစ်များအားလုံး၏ စာရင်း
-    const grammarTopics = [
-        { title: "Past Simple", id: "past_simple" },
-        { title: "Present Simple", id: "present_simple" },
-        { title: "Present Continuous", id: "present_continuous" },
-        { title: "Past Continuous", id: "past_continuous" },
-        { title: "Present Perfect", id: "present_perfect" },
-        { title: "Present Perfect Continuous", id: "present_perfect_continuous" },
-        { title: "Future Simple", id: "future_simple" },
-        { title: "Going To/Will Be", id: "going_to" },
-        { title: "Future Continuous", id: "future_continuous" },
-        { title: "Used To", id: "used_to" },
-        { title: "Modal Auxiliaries", id: "modal_auxiliaries" },
-        { title: "Nouns In Apposition", id: "nouns_in_apposition" },
-        { title: "Not + Any = No", id: "not_any_no" },
-        { title: "Active Voice To Passive Voice", id: "active_passive_voice" },
-		{ title: "Passive Voice To Active Voice", id: "passive_active_voice" },
-        { title: "Impersonal Passive", id: "impersonal_passive" },
-        
-        // Conditional ၄ မျိုး ခွဲခြားထားခြင်း
-        { title: "Zero Conditional", id: "zero_conditional" },
-        { title: "First Conditional", id: "first_conditional" },
-        { title: "Second Conditional", id: "second_conditional" },
-        { title: "Third Conditional", id: "third_conditional" },
-        
-        { title: "Subordinating Conjunction", id: "subordinating_conjunction" },
-        { title: "Clauses Of Contact", id: "clauses_of_contact" },
-        { title: "As If / As Though", id: "as_if_as_though" },
-        { title: "Preposition and Conjunction for Purposes", id: "preposition_conjunction_purpose" },
-        { title: "Verbs of Cause and Effect", id: "verbs_cause_effect" },
-        { title: "Linking Words to Show Cause and Effect", id: "linking_words_cause_effect" },
-        { title: "As soon as To No sooner", id: "as_soon_as_no_sooner" },
-		{ title: "No sooner To As soon as", id: "no_sooner_as_soon_as" },
-        { title: "Both ... and", id: "both_and" },
-        { title: "Not only ... But also", id: "not_only_but_also" },
-        { title: "Neither ... nor", id: "neither_nor" },
-        { title: "Either ... or", id: "either_or" },
-        { title: "So and Neither", id: "so_and_neither" },
-        { title: "So that", id: "so_that" },
-        { title: "Such that", id: "such_that" },
-        { title: "Too ... to / Enough to", id: "too_to_enough_to" },
-        { title: "Before + V-ing", id: "before_ving" },
-        { title: "After + V-ing", id: "after_ving" },
-        { title: "Without + V-ing", id: "without_ving" },
-        { title: "By + V-ing", id: "by_ving" },
-        { title: "Introductory Phrases", id: "introductory_phrases" },
-        { title: "Participle Phrases", id: "participle_phrases" },
-        { title: "Gerund and Infinitive with 'to'", id: "gerund_infinitive" },
-        { title: "Verbs followed by a noun group", id: "verbs_followed_by_noun_group" },
-        { title: "Joining Sentences Using Relative Pronouns", id: "joining_relative_pronouns" },
-        { title: "Omission Of Relative Pronouns", id: "omission_relative_pronouns" },
-        { title: "It is / It was", id: "it_is_it_was" },
-        { title: "Double Negative Structure", id: "double_negative_structure" },
-        { title: "No Matter", id: "no_matter" },
-        { title: "Omission of Verbs", id: "omission_of_verbs" },
-        { title: "The more / The less", id: "the_more_the_less" },
-        { title: "As ... As", id: "as_as" },
-        { title: "Not as ... as", id: "not_as_as" },
-        { title: "Inversion (Full Verb Before Subject)", id: "inversion_full_verb" },
-        { title: "As and Like", id: "as_and_like" }
-    ];
-
-    // ခလုတ်များ အလိုအလျောက် တည်ဆောက်ပြီး openFlashcard သို့ ချိတ်ဆက်ပေးခြင်း
-        grammarTopics.forEach(topic => {
+    EN_GRAMMAR_TOPICS.forEach(topic => {
         createBtn(topic.title, content, () => showGrammarMenu(topic.id, topic.title));
     });
 }
@@ -4170,6 +4134,7 @@ function nextQuestion() {
     } else {
         nav.classList.add('nav-hidden');
     }
+    document.body.classList.toggle('showing-articles', id === 'articles');
 }
 
         function changeTab(id, el) {
@@ -4279,9 +4244,6 @@ function renderProfileData() {
         </div>
     </div>
     <button class="btn profile-stats-btn" onclick="showStatsScreen()">📊 My Statistics</button>
-	<button class="btn" style="background: #1E293B; border: 1px solid #A855F7; color: #A855F7; margin-top: 10px;" onclick="openChannel()">
-        📢 Join Telegram Channel
-    </button>
 `;
 }
 
