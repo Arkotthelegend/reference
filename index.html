@@ -115,6 +115,7 @@ html {
         margin: 0; padding: 0; height: var(--tg-viewport-stable-height, 100vh); display: flex; flex-direction: column; overflow: hidden;
         overscroll-behavior: none;
         padding-top: var(--tg-safe-top, 0px);
+        padding-bottom: var(--tg-safe-bottom, 0px);
     }
     html { overscroll-behavior: none; }
 
@@ -150,7 +151,7 @@ html {
     margin-right: auto !important;
 }
 body.page-no-nav .container {
-    padding-bottom: 16px;
+    padding-bottom: 48px;
 }
 
 /* Images won't explode on big screens */
@@ -617,7 +618,7 @@ input:checked + .slider:before {
     bottom: 0 !important;
     height: auto !important;
     width: 100% !important;
-    padding: 16px !important;
+    padding: 16px 16px calc(28px + var(--tg-safe-bottom, 0px)) !important;
     overflow: hidden !important;
     overflow-x: hidden !important;
     box-sizing: border-box !important;
@@ -1557,7 +1558,7 @@ body.old-question-flow .old-q-slot {
 }
 body.math-expand-page .container {
     overflow: hidden;
-    padding: 8px 12px;
+    padding: 8px 12px 48px;
     display: flex;
     flex-direction: column;
 }
@@ -1590,7 +1591,7 @@ body.math-expand-page .container {
     align-items: stretch;
     gap: 8px;
     padding-top: 8px;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
 }
 #quiz-screen.math-expand #quiz-footer .btn,
 #quiz-screen.math-expand #quiz-footer .next-btn,
@@ -1741,8 +1742,8 @@ body.math-expand-page .container {
 #quiz-footer {
     flex-shrink: 0;
     margin-top: auto;
-    padding-top: 5px;
-    padding-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 16px;
 }
 	   /* Old Question Timer Colors */
 /* Old Question Timer Colors */
@@ -2516,7 +2517,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=16'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=17'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
