@@ -12,7 +12,7 @@ from .config import (
     output_file,
 )
 from .parse import chunk_text, parse_sectioned_questions
-from .pdf_io import extract_pages
+from .pdf_io import extract_pages, scan_help
 from .prompts import render
 from .validate import flatten_grouped, validate_english_initial, validate_mcq
 from .writers import write_english
@@ -26,6 +26,7 @@ def generate_english_book(client: AIClient, book, mapping: dict, skip_existing: 
         text = extract_pages(pdf, ch["pages"][0], ch["pages"][1])
         if not text:
             print(f"  ! English unit {unit}: no text extracted")
+            print(scan_help())
             continue
         _one(client, grade, unit, text, "initial_letter", "english_initial.txt", EN_INITIAL_COUNT, skip_existing)
         _one(client, grade, unit, text, "mcq", "english_mcq.txt", EN_MCQ_COUNT, skip_existing)

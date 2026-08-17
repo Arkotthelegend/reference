@@ -13,7 +13,7 @@ from .config import (
     output_file,
 )
 from .parse import chunk_text, parse_sectioned_questions
-from .pdf_io import extract_pages
+from .pdf_io import extract_pages, scan_help
 from .prompts import render
 from .validate import flatten_grouped, validate_math_show, validate_mcq
 from .writers import write_math
@@ -32,6 +32,7 @@ def generate_math_book(client: AIClient, book, mapping: dict, skip_existing: boo
         text = extract_pages(pdf, ch["pages"][0], ch["pages"][1])
         if not text:
             print(f"  ! Math chapter {num}: no text extracted")
+            print(scan_help())
             continue
         for marks, bounds, prompt_name, kind in jobs:
             fname = math_filename(num, marks)

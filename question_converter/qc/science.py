@@ -7,7 +7,7 @@ from .ai import AIClient
 from .balance import dedupe_questions, shuffle_mcq_answers
 from .config import MAX_CHARS_PER_CALL, SCIENCE_CHAPTER_TARGET, output_file, science_section_filename
 from .parse import chunk_text, parse_sectioned_questions, split_text_by_sections
-from .pdf_io import extract_pages
+from .pdf_io import extract_pages, scan_help
 from .prompts import render
 from .validate import (
     flatten_grouped,
@@ -56,7 +56,8 @@ def generate_science_book(client: AIClient, book, mapping: dict, skip_existing: 
         start, end = ch["pages"]
         text = extract_pages(pdf, start, end)
         if not text:
-            print(f"  ! {book.label} chapter {num}: no text extracted (scanned PDF?)")
+            print(f"  ! {book.label} chapter {num}: no text extracted")
+            print(scan_help())
             continue
 
         section_texts: dict[str, str] = {}
