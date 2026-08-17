@@ -386,7 +386,7 @@ input:checked + .slider:before {
 }
 
 .nav-item { 
-    font-size: 1.5rem; 
+    font-size: 1.35rem; 
     filter: grayscale(100%); 
     opacity: 0.4; 
     cursor: pointer; 
@@ -1487,7 +1487,6 @@ body.showing-articles .container {
     <button id="home-tab-current" class="btn" style="flex:1; background: var(--accent); color: #000;" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
     <button id="home-tab-old" class="btn" style="flex:1; background: #1E293B; color: var(--white); opacity: 0.6;" onclick="switchHomeTab('old')">မေးခွန်းဟောင်းများ</button>
 </div>
-    <div id="home-rank-teaser" class="rank-snapshot rank-snapshot-home" onclick="showStatsScreen('leaderboard')"></div>
     
     <!-- Current Subjects Section -->
        <!-- Current Subjects Section -->
@@ -1643,7 +1642,7 @@ body.showing-articles .container {
         <span style="font-size: 1.2rem;">⚙️</span>
         <b style="color: var(--accent); font-size: 1.1rem;">မေးခွန်းဖြေဆိုမှု ပုံစံ</b>
     </div>
-    <p style="color: #94A3B8; font-size: 0.85rem; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">ကျပန်း (Random) + Timer ဖွင့်မှ Rank Match ဖြစ်ပြီး ရမှတ်စာရင်းဝင်ပါသည်။</p>
+    <p style="color: #94A3B8; font-size: 0.85rem; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">ကျပန်းနှင့် Timer ဖွင့်မှ အဆင့်ဝင်သည်။</p>
     
     <div class="quiz-mode-toggle-inner">
     <span class="toggle-label">အစဉ်လိုက်</span>
@@ -1663,14 +1662,21 @@ body.showing-articles .container {
 		<!-- Statistics Screen -->
 <!-- Statistics Screen -->
 <div id="stats-screen" class="screen">
-    <h2 style="text-align: center; color: var(--accent);">📊 My Statistics</h2>
+    <h2 style="text-align: center; color: var(--accent);">🏅 အဆင့်</h2>
+    <div class="grade-picker" style="margin: 0 10px 12px;">
+        <div class="grade-picker-row" id="stats-grade-row">
+            <button type="button" class="grade-btn" data-grade="12" onclick="onStatsGradeClick(12)">12</button>
+            <button type="button" class="grade-btn" data-grade="11" onclick="onStatsGradeClick(11)">11</button>
+            <button type="button" class="grade-btn" data-grade="10" onclick="onStatsGradeClick(10)">10</button>
+        </div>
+    </div>
     
     <!-- Tab Buttons -->
                          <div style="display: flex; gap: 6px; padding: 0 10px; margin-bottom: 15px;">
-        <button class="btn stats-tab-btn stats-tab-active" id="tab-summary" onclick="switchStatsTab('summary')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">📈 Summary</button>
-        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-best" onclick="switchStatsTab('best')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">🏆 Best</button>
-        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-old" onclick="switchStatsTab('old')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">📜 Old</button>
-        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">🏅 Rank</button>
+        <button class="btn stats-tab-btn stats-tab-active" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">🏅</button>
+        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-summary" onclick="switchStatsTab('summary')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">📈</button>
+        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-best" onclick="switchStatsTab('best')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">🏆</button>
+        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-old" onclick="switchStatsTab('old')" style="flex: 1; font-size: 0.8rem; padding: 10px 4px;">📜</button>
     </div>
     
     <div id="stats-content" style="padding: 15px;">
@@ -1704,31 +1710,24 @@ body.showing-articles .container {
         
         <!-- Best Scores Tab -->
         <div id="stats-tab-best" style="display: none;">
-            <h4 style="color: var(--accent); margin-bottom: 10px;">🏆 အကောင်းဆုံးရမှတ်များ</h4>
+            <h4 style="color: var(--accent); margin-bottom: 10px;">🏆</h4>
             <div id="stat-best-scores"></div>
         </div>
         
                 <!-- Old Questions Tab -->
         <div id="stats-tab-old" style="display: none;">
-            <h4 style="color: var(--accent); margin-bottom: 10px;">📜 မေးခွန်းဟောင်းများအကောင်းဆုံးရမှတ်များ</h4>
+            <h4 style="color: var(--accent); margin-bottom: 10px;">📜</h4>
             <div id="stat-old-scores"></div>
         </div>
 		<!-- Leaderboard Tab -->
 <div id="stats-tab-leaderboard" style="display: none;">
     <div class="rank-filters">
         <div class="rank-period-toggle">
-            <button type="button" class="rank-period-btn active" id="rank-period-week" onclick="setRankPeriod('week')">ဒီအပတ်</button>
-            <button type="button" class="rank-period-btn" id="rank-period-all" onclick="setRankPeriod('all')">စုစုပေါင်း</button>
+            <button type="button" class="rank-period-btn active" id="rank-period-week" onclick="setRankPeriod('week')">အပတ်</button>
+            <button type="button" class="rank-period-btn" id="rank-period-all" onclick="setRankPeriod('all')">အားလုံး</button>
         </div>
-        <label>Grade</label>
-        <select id="leaderboard-grade" class="rank-select" onchange="loadLeaderboard()">
-            <option value="12">Grade 12</option>
-            <option value="11">Grade 11</option>
-            <option value="10">Grade 10</option>
-        </select>
-        <label>ဘာသာရပ်ရွေးချယ်ပါ</label>
         <select id="leaderboard-subject" class="rank-select" onchange="loadLeaderboard()">
-            <option value="all">စုစုပေါင်း</option>
+            <option value="all">အားလုံး</option>
             <option value="mm">မြန်မာစာ</option>
             <option value="en">အင်္ဂလိပ်စာ</option>
             <option value="math">သင်္ချာ</option>
@@ -1739,23 +1738,12 @@ body.showing-articles .container {
         </select>
     </div>
     
-        <!-- Legend -->
-    <div style="background: var(--card-bg); padding: 10px; border-radius: 10px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; color: var(--text-muted); line-height: 1.5;">
-        <b style="color: var(--accent); font-weight: 800;">🏅 Rank — Grade အလိုက်</b><br>
-        ဒီအပတ် = တနင်္လာနေ့မှ စ၍ ရမှတ် · စုစုပေါင်း = အမြဲတမ်း<br>
-        ① မေးခွန်းအရေအတွက် (40%) ② အဖြေမှန်နှုန်း (40%) ③ အချိန်မြန်မှု (20%)<br>
-        <span style="color: var(--accent);">⚠️ Daily Quiz မပါ · ကျပန်း + Timer ဖွင့်မှ Rank တက်သည်</span>
-    </div>
-    
     <div id="leaderboard-loading" style="text-align: center; color: #94A3B8; padding: 30px; display: none;">ဆွဲယူနေသည်...</div>
-    <div id="leaderboard-empty" style="text-align: center; color: #64748B; padding: 30px; display: none;">ဒေတာမရှိသေးပါ</div>
+    <div id="leaderboard-empty" style="text-align: center; color: #64748B; padding: 30px; display: none;">ရမှတ်မရှိသေးပါ</div>
     <div id="leaderboard-list"></div>
 </div>
         
         </div>
-    
-    <!-- ADD THIS BUTTON HERE -->
-    <button class="btn back-btn" onclick="showScreen('profile')">နောက်သို့</button>
 </div>
 
         <div id="menu-screen" class="screen">
@@ -1869,14 +1857,15 @@ body.showing-articles .container {
 </div>
 		
    <div class="nav">
-    <div class="nav-item nav-active" onclick="changeTab('home', this)">🏠</div>
-    <div class="nav-item" onclick="changeTab('daily', this)">📝</div>
-    <div class="nav-item" onclick="changeTab('middle', this)">⏳</div>
-    <div class="nav-item" onclick="changeTab('articles', this)">📰</div>
-    <div class="nav-item" onclick="changeTab('profile', this)">👤</div>
+    <div class="nav-item nav-active" data-tab="home" onclick="changeTab('home', this)">🏠</div>
+    <div class="nav-item" data-tab="daily" onclick="changeTab('daily', this)">📝</div>
+    <div class="nav-item" data-tab="middle" onclick="changeTab('middle', this)">⏳</div>
+    <div class="nav-item" data-tab="stats" onclick="changeTab('stats', this)">🏅</div>
+    <div class="nav-item" data-tab="articles" onclick="changeTab('articles', this)">📰</div>
+    <div class="nav-item" data-tab="profile" onclick="changeTab('profile', this)">👤</div>
 </div>
 
-    <script src="./grades.js?v=5"></script>
+    <script src="./grades.js?v=6"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -2071,13 +2060,14 @@ function fastMath(scope) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=2'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=7'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
-        let pendingStatsTab = 'summary';
+        let pendingStatsTab = 'leaderboard';
         let leaderboardCache = { at: 0, rows: null };
         let lastRankSnapshot = null;
+        let statsBestScores = {};
 
 function ymdInTz(date, tz) {
     return new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(date);
@@ -2112,9 +2102,39 @@ function isYmdInWeek(ymd, weekMonday) {
     return ymd >= weekMonday && ymd < next;
 }
 function scoreGrade(row) {
-    const g = parseInt(row.grade, 10);
+    const g = parseInt(row && row.grade, 10);
     if (g === 10 || g === 11 || g === 12) return g;
-    return (typeof gradeFromQuizFile === 'function') ? gradeFromQuizFile(row.quizFile || '') : 12;
+    return (typeof gradeFromQuizFile === 'function') ? gradeFromQuizFile((row && row.quizFile) || '') : 12;
+}
+function scoreBelongsToGrade(item, key, grade) {
+    const g = parseInt(item && item.grade, 10);
+    if (g === 10 || g === 11 || g === 12) return g === grade;
+    return scoreGrade({ quizFile: (item && item.quizFile) || key, grade: item && item.grade }) === grade;
+}
+function getStatsGrade() {
+    const active = document.querySelector('#stats-grade-row .grade-btn.active');
+    const g = parseInt(active && active.getAttribute('data-grade'), 10);
+    if (g === 10 || g === 11 || g === 12) return g;
+    return getSelectedGrade();
+}
+function syncStatsGradePicker(grade) {
+    grade = parseInt(grade, 10) || getSelectedGrade();
+    document.querySelectorAll('#stats-grade-row .grade-btn').forEach(function (btn) {
+        btn.classList.toggle('active', parseInt(btn.getAttribute('data-grade'), 10) === grade);
+    });
+    const oldBtn = document.getElementById('tab-old');
+    if (oldBtn) oldBtn.style.display = grade === 12 ? '' : 'none';
+}
+function onStatsGradeClick(grade) {
+    syncStatsGradePicker(grade);
+    if (grade !== 12) {
+        const oldTab = document.getElementById('stats-tab-old');
+        if (oldTab && oldTab.style.display === 'block') switchStatsTab('leaderboard');
+    }
+    renderSummary(statsBestScores);
+    renderBestScores(statsBestScores, 'stat-best-scores', false);
+    renderBestScores(statsBestScores, 'stat-old-scores', true);
+    loadLeaderboard();
 }
 function isRankableQuizFile(fileName) {
     if (!fileName) return false;
@@ -2140,9 +2160,7 @@ function updateRankMatchBadge() {
         return;
     }
     badge.style.display = 'block';
-    badge.innerText = isTimerRunning
-        ? '🏅 Rank Match — ဒီရမှတ် Rank ထဲဝင်မည်'
-        : '🏅 Rank Match — ⏱ Timer ဖွင့်ပါ';
+    badge.innerText = isTimerRunning ? '🏅' : '⏱ 🏅';
 }
 function setRankPeriod(period) {
     rankPeriod = period === 'all' ? 'all' : 'week';
@@ -2421,7 +2439,7 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
         return !isOld && !isDaily;
     });
     // Hide sub-chapters and Myanmar individual title/chapter quizzes
-    keys = keys.filter(key => !isSubChapter(key) && !isMyanmarIndividualQuiz(key));
+    keys = keys.filter(key => !isSubChapter(key) && !isMyanmarIndividualQuiz(key) && scoreBelongsToGrade(bestScoresObj[key], key, getStatsGrade()));
 
     if (keys.length === 0) {
         container.innerHTML = '<div class="stat-empty">ဒေတာမရှိသေးပါ</div>';
@@ -2482,6 +2500,8 @@ async function loadUserStats() {
     document.getElementById('stats-tab-summary').style.display = 'none';
     document.getElementById('stats-tab-best').style.display = 'none';
     document.getElementById('stats-tab-old').style.display = 'none';
+    const lbTab = document.getElementById('stats-tab-leaderboard');
+    if (lbTab) lbTab.style.display = 'none';
 
     let bestScoresToRender = {};
 
@@ -2514,6 +2534,7 @@ async function loadUserStats() {
     });
 
     // 4. Render final merged data
+    statsBestScores = bestScoresToRender;
     renderSummary(bestScoresToRender);
     renderBestScores(bestScoresToRender, 'stat-best-scores', false);
     renderBestScores(bestScoresToRender, 'stat-old-scores', true);
@@ -2531,7 +2552,7 @@ async function loadUserStats() {
         const item = bestScoresObj[key];
         const isOld = item.isOld || key.startsWith('old_');
         const isDaily = key.startsWith('daily_');
-        return !isOld && !isDaily && !isSubChapter(key) && !isMyanmarIndividualQuiz(key);
+        return !isOld && !isDaily && !isSubChapter(key) && !isMyanmarIndividualQuiz(key) && scoreBelongsToGrade(item, key, getStatsGrade());
     });
 
     // Overall card elements
@@ -2630,6 +2651,7 @@ function renderStatInsights(bestScoresObj, bySubject) {
             const file = a.quizFile || '';
             if (!isRankableQuizFile(file) && file) return;
             if (a.isOld || String(file).startsWith('old_') || String(file).startsWith('daily_')) return;
+            if (!scoreBelongsToGrade(a, file, getStatsGrade())) return;
             const ymd = ymdFromValue(a.date);
             if (!isYmdInWeek(ymd, weekStart)) return;
             scoreSum += (a.score || 0);
@@ -2686,33 +2708,14 @@ function renderStatInsights(bestScoresObj, bySubject) {
 }
 
 function showStatsScreen(tabName) {
-    pendingStatsTab = (tabName === 'leaderboard' || tabName === 'best' || tabName === 'old') ? tabName : 'summary';
-    showScreen('stats');
-    document.getElementById('stats-loading').style.display = 'block';
-    document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
-    document.getElementById('stats-loading').style.color = 'var(--text-muted)';
-    document.getElementById('stats-tab-summary').style.display = 'none';
-    document.getElementById('stats-tab-best').style.display = 'none';
-    document.getElementById('stats-tab-old').style.display = 'none';
-    document.getElementById('stats-tab-leaderboard').style.display = 'none';
-
-    ['summary', 'best', 'old', 'leaderboard'].forEach(t => {
-        const btn = document.getElementById('tab-' + t);
-        if (btn) {
-            btn.classList.remove('stats-tab-active');
-            btn.classList.add('stats-tab-inactive');
-        }
-    });
-    const activeBtn = document.getElementById('tab-' + pendingStatsTab);
-    if (activeBtn) {
-        activeBtn.classList.remove('stats-tab-inactive');
-        activeBtn.classList.add('stats-tab-active');
+    pendingStatsTab = (tabName === 'summary' || tabName === 'best' || tabName === 'old') ? tabName : 'leaderboard';
+    const navItem = document.querySelector('.nav-item[data-tab="stats"]');
+    if (navItem) changeTab('stats', navItem);
+    else {
+        showScreen('stats');
+        syncStatsGradePicker(getSelectedGrade());
+        loadUserStats();
     }
-
-    const gradeSel = document.getElementById('leaderboard-grade');
-    if (gradeSel) gradeSel.value = String(getSelectedGrade());
-
-    loadUserStats();
 }
 
 function getSubjectName(id) {
@@ -4467,7 +4470,7 @@ function nextQuestion() {
     }
 		  
 		   const nav = document.querySelector('.nav');
-    const mainTabs = ['home', 'daily', 'middle', 'articles', 'profile'];
+    const mainTabs = ['home', 'daily', 'middle', 'stats', 'articles', 'profile'];
     if (mainTabs.includes(id)) {
         nav.classList.remove('nav-hidden');
     } else {
@@ -4486,10 +4489,14 @@ function nextQuestion() {
         renderSubjects();
         if (getGradeCfg().showOldQuestions) backToOldSubjects();
         switchHomeTab('current');
-        refreshRankSnapshot();
     }
     if(id === 'profile') renderProfileData();
-			    if(id === 'articles') loadArticlesIndex();
+    if(id === 'articles') loadArticlesIndex();
+    if(id === 'stats') {
+        pendingStatsTab = 'leaderboard';
+        syncStatsGradePicker(getSelectedGrade());
+        loadUserStats();
+    }
 }
 
 function switchHomeTab(tab) {
@@ -4583,10 +4590,7 @@ function renderProfileData() {
             <button class="grade-btn ${selectedGrade === 10 ? 'active' : ''}" onclick="setSelectedGrade(10)">Grade 10</button>
         </div>
     </div>
-    <button class="btn profile-stats-btn" onclick="showStatsScreen()">📊 My Statistics</button>
-    <div id="profile-rank-card" class="rank-snapshot" onclick="showStatsScreen('leaderboard')"></div>
 `;
-    refreshRankSnapshot();
 }
 
 function applyGradeUI() {
@@ -4612,9 +4616,6 @@ function setSelectedGrade(grade) {
     localStorage.setItem('selectedGrade', String(grade));
     applyGradeUI();
     renderProfileData();
-    const gradeSel = document.getElementById('leaderboard-grade');
-    if (gradeSel) gradeSel.value = String(grade);
-    refreshRankSnapshot();
     tg.showAlert(getGradeCfg().label + ' ကို ရွေးလိုက်ပါပြီ');
 }
 
@@ -4796,8 +4797,6 @@ window.onload = () => {
     if (randomSwitch) {
         randomSwitch.checked = savedRandomSetting;
     }
-    fillRankSnapshotCard(document.getElementById('home-rank-teaser'), null);
-    refreshRankSnapshot();
 };
        
 		// နေ့စဉ် Quote ပြောင်းလဲရန် Logic
@@ -5254,13 +5253,12 @@ async function refreshRankSnapshot() {
 function copyRankCard() {
     const snap = lastRankSnapshot;
     if (!snap || !snap.myRank) {
-        tg.showAlert('Rank ရမှတ် မရှိသေးပါ');
+        tg.showAlert('ရမှတ်မရှိသေးပါ');
         return;
     }
-    const periodLabel = snap.period === 'week' ? 'ဒီအပတ်' : 'စုစုပေါင်း';
-    const text = '🏅 REED Rank\nGrade ' + snap.grade + ' · ' + periodLabel + '\n#' + snap.myRank + ' · Top ' + snap.percentile + '%\nမှန်နှုန်း ' + (snap.acc != null ? snap.acc + '%' : '-');
+    const text = '🏅 G' + snap.grade + ' #' + snap.myRank + (snap.percentile ? ' · ' + snap.percentile + '%' : '') + (snap.acc != null ? '\n' + snap.acc + '%' : '');
     navigator.clipboard.writeText(text).then(function () {
-        tg.showAlert('Rank ကို Copy ကူးပြီးပါပြီ ✅');
+        tg.showAlert('ကူးယူပြီးပါပြီ ✅');
     }).catch(function () {
         tg.showAlert(text);
     });
@@ -5268,9 +5266,8 @@ function copyRankCard() {
 
 async function loadLeaderboard() {
     const subjectEl = document.getElementById('leaderboard-subject');
-    const gradeEl = document.getElementById('leaderboard-grade');
     const subject = subjectEl ? subjectEl.value : 'all';
-    const grade = gradeEl ? gradeEl.value : String(getSelectedGrade());
+    const grade = getStatsGrade();
     const listDiv = document.getElementById('leaderboard-list');
     const loadingDiv = document.getElementById('leaderboard-loading');
     const emptyDiv = document.getElementById('leaderboard-empty');
@@ -5290,13 +5287,7 @@ async function loadLeaderboard() {
             if (emptyDiv) {
                 emptyDiv.style.display = 'block';
                 emptyDiv.style.color = 'var(--text-muted)';
-                if (rankPeriod === 'week' && built.datedCount === 0) {
-                    emptyDiv.innerHTML = 'ဒီအပတ် Rank အတွက် ရက်စွဲ မပါသေးပါ။<br>စုစုပေါင်း Rank ကို ကြည့်ပါ (သို့) Rank Match ဖြေပါ။';
-                } else if (rankPeriod === 'week') {
-                    emptyDiv.innerHTML = 'ဒီအပတ် Grade ' + grade + ' အတွက် ရမှတ်မရှိသေးပါ။<br>ကျပန်း + Timer ဖွင့်ပြီး quiz ဖြေပါ။';
-                } else {
-                    emptyDiv.innerText = 'ဒေတာမရှိသေးပါ';
-                }
+                emptyDiv.innerText = 'ရမှတ်မရှိသေးပါ';
             }
             renderLeaderboard([], currentUserId, subject, grade);
             return;
@@ -5354,7 +5345,6 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
         
         let displayName = entry.userName || 'Anonymous';
         if (displayName.length > 15) displayName = displayName.substring(0, 14) + '…';
-        if (isMe) displayName += ' (You)';
         
         div.innerHTML = `
             <div class="leaderboard-rank ${rankClass}">${rank}</div>
@@ -5362,12 +5352,12 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
             <div class="leaderboard-info">
                 <div class="leaderboard-name">${displayName}</div>
                 <div class="leaderboard-meta">
-                    ${entry.totalPossible} Qs · ${acc}% correct · ⏱ ${totalTimeStr}
+                    ${acc}% · ${totalTimeStr}${isMe && myPct ? ' · ' + myPct + '%' : ''}
                 </div>
             </div>
             <div class="leaderboard-score-box">
                 <div class="leaderboard-acc">${acc}%</div>
-                <div class="leaderboard-detail">${entry.quizCount} quizzes${isMe && myPct ? ' · Top ' + myPct + '%' : ''}</div>
+                <div class="leaderboard-detail">${entry.totalPossible}</div>
             </div>
             <div class="leaderboard-medal">${medal}</div>
         `;
@@ -5384,7 +5374,6 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
         
         let displayName = me.userName || 'Anonymous';
         if (displayName.length > 15) displayName = displayName.substring(0, 14) + '…';
-        displayName += ' (You)';
         
         const div = document.createElement('div');
         div.className = 'leaderboard-item is-me';
@@ -5398,12 +5387,12 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
             <div class="leaderboard-info">
                 <div class="leaderboard-name">${displayName}</div>
                 <div class="leaderboard-meta">
-                    ${me.totalPossible} Qs · ${acc}% correct · ⏱ ${totalTimeStr}${myPct ? ' · Top ' + myPct + '%' : ''}
+                    ${acc}% · ${totalTimeStr}${myPct ? ' · ' + myPct + '%' : ''}
                 </div>
             </div>
             <div class="leaderboard-score-box">
                 <div class="leaderboard-acc">${acc}%</div>
-                <div class="leaderboard-detail">${me.quizCount} quizzes</div>
+                <div class="leaderboard-detail">${me.totalPossible}</div>
             </div>
         `;
         listDiv.appendChild(div);
@@ -5419,8 +5408,8 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
             <div class="leaderboard-rank rank-other">-</div>
             <div class="leaderboard-avatar" style="background: var(--card-bg); color: var(--text-muted);">?</div>
             <div class="leaderboard-info">
-                <div class="leaderboard-name" style="color: var(--text-muted);">You (No data)</div>
-                <div class="leaderboard-meta">ဒီ Grade / ဘာသာရပ်အတွက် Rank Match မဖြေရသေးပါ</div>
+                <div class="leaderboard-name" style="color: var(--text-muted);">—</div>
+                <div class="leaderboard-meta"></div>
             </div>
             <div class="leaderboard-score-box">
                 <div class="leaderboard-acc" style="color: var(--text-muted);">-%</div>
@@ -5431,7 +5420,7 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
     if (myRank !== -1) {
         const copyBtn = document.createElement('button');
         copyBtn.className = 'btn rank-copy-btn';
-        copyBtn.innerText = '📋 Rank ကို Copy ကူးမည်';
+        copyBtn.innerText = '📋';
         copyBtn.onclick = copyRankCard;
         listDiv.appendChild(copyBtn);
     }
