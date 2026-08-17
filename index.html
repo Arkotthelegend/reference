@@ -1584,14 +1584,44 @@ body.math-expand-page .container {
 #quiz-screen.math-expand #quiz-options {
     display: none !important;
 }
-#quiz-screen.math-expand #math-sol-footer-btn {
-    display: block !important;
+#quiz-screen.math-expand #quiz-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 #quiz-screen.math-expand #quiz-footer .btn,
 #quiz-screen.math-expand #quiz-footer .next-btn,
 #quiz-screen.math-expand #quiz-footer .back-btn {
-    margin-top: 6px !important;
-    margin-bottom: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    min-width: 0;
+    padding: 12px 8px !important;
+    font-size: 0.82rem !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+}
+#quiz-screen.math-expand #quiz-back-btn {
+    flex: 0.9 1 0;
+    order: 1;
+    background: #1E293B !important;
+    border: 1px solid #64748B !important;
+    color: #fff !important;
+}
+#quiz-screen.math-expand #math-sol-footer-btn {
+    display: flex !important;
+    flex: 1.7 1 0;
+    order: 2;
+}
+#quiz-screen.math-expand #next-btn {
+    flex: 1 1 0;
+    order: 3;
 }
 #math-sol-footer-btn {
     display: none;
@@ -2486,7 +2516,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=15'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=16'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -4629,6 +4659,7 @@ function loadQuestion() {
     const quizScreen = document.getElementById('quiz-screen');
     if (quizScreen) quizScreen.classList.toggle('math-expand', isMathExpand);
     document.body.classList.toggle('math-expand-page', isMathExpand);
+    if (isMathExpand) nextBtn.innerText = 'နောက်သို့ →';
 
     const scoreDisplay = document.getElementById('score-display');
     if (isMath2Or3Mark) {
@@ -5069,9 +5100,18 @@ function applyGradeUI() {
     const currentBtn = document.getElementById('home-tab-current');
     const dailyTitle = document.getElementById('daily-quiz-title');
 
-    if (currentBtn) currentBtn.innerText = cfg.label + ' ဘာသာရပ်များ';
+    if (currentBtn) {
+        currentBtn.innerText = cfg.label + ' ဘာသာရပ်များ';
+        currentBtn.style.pointerEvents = cfg.showOldQuestions ? '' : 'none';
+        currentBtn.style.cursor = cfg.showOldQuestions ? '' : 'default';
+        if (!cfg.showOldQuestions) {
+            currentBtn.style.opacity = '1';
+            currentBtn.style.background = 'var(--accent)';
+            currentBtn.style.color = '#000';
+        }
+    }
     if (oldBtn) oldBtn.style.display = cfg.showOldQuestions ? '' : 'none';
-    if (tabsRow) tabsRow.style.display = cfg.showOldQuestions ? 'flex' : 'none';
+    if (tabsRow) tabsRow.style.display = 'flex';
     if (dailyTitle) dailyTitle.innerText = 'Daily Quiz (Free) — ' + cfg.label;
 
     if (!cfg.showOldQuestions) switchHomeTab('current');
