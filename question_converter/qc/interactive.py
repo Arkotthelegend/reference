@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from .chapter_detect import detect_chapter_starts, starts_to_ranges
 from .config import MAPS_DIR, SUBJECT_NAMES
 from .detect import TextbookPdf
 from .pdf_io import page_count
@@ -64,35 +65,55 @@ def setup_book(book: TextbookPdf, force: bool = False) -> dict:
     print(f"{book.label}")
     print(f"PDF: {book.path}")
     print(f"Pages in this file (PDF viewer numbers): {pages}")
-    print("Use the page numbers you see in Preview / Chrome, not printed textbook numbers.")
+    print("Use the page numbers you see in Preview, not printed textbook numbers.")
     print("=" * 60)
 
-    n = _ask_int(f"How many {unit_word} are in this textbook?")
-    print(
-        f"\nYou can paste every {unit_word[:-1]} on its own line, e.g.\n"
-        "  1: 5-28\n"
-        "  2: 29-51\n"
-        "Or press Enter to be asked one by one."
-    )
-    block = []
-    print(f"Paste {unit_word} page ranges (blank line to finish):")
-    while True:
-        line = input()
-        if not line.strip():
-            break
-        block.append(line)
-    chapters: list[dict] = []
+    guessed = starts_to_ranges(detect_chapter_starts(book.path), pages)
     parsed: dict[int, tuple[int, int]] = {}
-    if block:
-        parsed = parse_chapter_block("\n".join(block), pages)
+    if guessed:
+        print(f"\nI found these {unit_word} in the PDF:")
+        for num, (start, end) in guessed.items():
+            print(f"  {num}: {start}-{end}")
+        if _ask_yes("Use these pages?", True):
+            parsed = guessed
 
+    if not parsed:
+        n = _ask_int(
+            f"How many {unit_word} are in this textbook?",
+            default=max(guessed) if guessed else None,
+        )
+        print(
+            f"\nPaste each {unit_word[:-1]} on its own line.\n"
+            "You can type the first page only:\n"
+            "  1: 17\n"
+            "  2: 45\n"
+            "or a full range:\n"
+            "  1: 17-44\n"
+            "Blank line when finished."
+        )
+        block: list[str] = []
+        print(f"Paste {unit_word} pages (blank line to finish):")
+        while True:
+            line = input()
+            if not line.strip():
+                break
+            block.append(line)
+        if block:
+            try:
+                parsed = parse_chapter_block("\n".join(block), pages)
+            except ValueError as extra:
+                print(f"  {extra}")
+                print("  Example: 1: 17   or   1: 17-44")
+                parsed = {}
+        if not parsed:
+            parsed = _ask_each_chapter(n, book.subject, pages)
+
+    n = max(parsed) if parsed else 0
+    chapters: list[dict] = []
     for num in range(1, n + 1):
-        if num in parsed:
-            start, end = parsed[num]
-        else:
-            label = "Unit" if book.subject == "en" else "Chapter"
-            raw = _ask(f"{label} {num} page range (e.g. 12-35)")
-            start, end = parse_page_range(raw, pages)
+        if num not in parsed:
+            continue
+        start, end = parsed[num]
         item = {"number": num, "pages": [start, end], "sections": []}
         if book.subject in {"phy", "chem", "bio"}:
             raw_sec = _ask(
@@ -101,8 +122,11 @@ def setup_book(book: TextbookPdf, force: bool = False) -> dict:
                 "",
             )
             if raw_sec.strip():
-                for sid, rng in parse_section_ranges(raw_sec, pages).items():
-                    item["sections"].append({"id": sid, "pages": list(rng)})
+                try:
+                    for sid, rng in parse_section_ranges(raw_sec, pages).items():
+                        item["sections"].append({"id": sid, "pages": list(rng)})
+                except ValueError as extra:
+                    print(f"  {extra}  (I'll auto-detect instead.)")
         chapters.append(item)
 
     data = {
@@ -117,3 +141,22 @@ def setup_book(book: TextbookPdf, force: bool = False) -> dict:
     path = save_map(book, data)
     print(f"Saved chapter map → {path}")
     return data
+
+
+def _ask_each_chapter(n: int, subject: str, pages: int) -> dict[int, tuple[int, int]]:
+    parsed: dict[int, tuple[int, int]] = {}
+    for num in range(1, n + 1):
+        label = "Unit" if subject == "en" else "Chapter"
+        while True:
+            raw = _ask(f"{label} {num} pages (e.g. 12-35 or just the first page 12)")
+            try:
+                parsed[num] = parse_page_range(raw, pages)
+                break
+            except ValueError as extra:
+                print(f"  {extra}")
+    starts_only = {k: v[0] for k, v in parsed.items() if v[0] == v[1]}
+    if len(starts_only) == n and n > 1:
+        from .ranges import _fill_from_starts
+
+        return _fill_from_starts(starts_only, pages)
+    return parsed

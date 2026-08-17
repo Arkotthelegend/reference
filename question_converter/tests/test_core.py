@@ -53,6 +53,12 @@ class RangeTests(unittest.TestCase):
         self.assertEqual(block[1], (5, 28))
         self.assertEqual(block[2], (29, 50))
 
+    def test_start_pages_only(self):
+        block = parse_chapter_block("1: 17\n2: 45\n3: 80\n", 100)
+        self.assertEqual(block[1], (17, 44))
+        self.assertEqual(block[2], (45, 79))
+        self.assertEqual(block[3], (80, 100))
+
     def test_sections(self):
         secs = parse_section_ranges("1.1:12-18, 1.2:19-28", 40)
         self.assertEqual(secs["1.1"], (12, 18))
