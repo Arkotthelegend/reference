@@ -901,42 +901,55 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 }
 
 .stat-subject-header {
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 1.05rem;
-    margin: 15px 0 8px 0;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #334155;
+    display: none;
 }
 
 .stat-score-item {
     background: var(--card-bg);
-    padding: 12px 15px;
-    border-radius: 12px;
-    margin-bottom: 8px;
+    padding: 14px 15px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #334155;
     border-left: 4px solid var(--accent);
+}
+
+.stat-score-subject {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 0.3px;
+    margin-bottom: 6px;
+}
+
+.stat-score-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 .stat-score-name {
     font-weight: 600;
     color: var(--white);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.35;
 }
 
 .stat-score-value {
     font-family: monospace;
-    font-weight: bold;
-    color: var(--accent);
+    font-weight: 800;
+    color: #F59E0B;
+    font-size: 0.95rem;
+    white-space: nowrap;
 }
 
 .stat-score-meta {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-}
-
-.stat-score-time {
-    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    color: #64748B;
     font-size: 0.75rem;
+    margin-top: 8px;
 }
 
 .stat-empty {
@@ -1662,7 +1675,7 @@ body.showing-articles .container {
 		<!-- Statistics Screen -->
 <!-- Statistics Screen -->
 <div id="stats-screen" class="screen">
-    <h2 style="text-align: center; color: var(--accent);">🏅 အဆင့်</h2>
+    <h2 style="text-align: center; color: var(--accent);">🏅 Rank</h2>
     <div class="grade-picker" style="margin: 0 10px 12px;">
         <div class="grade-picker-row" id="stats-grade-row">
             <button type="button" class="grade-btn" data-grade="12" onclick="onStatsGradeClick(12)">12</button>
@@ -1680,66 +1693,63 @@ body.showing-articles .container {
     </div>
     
     <div id="stats-content" style="padding: 15px;">
-        <div id="stats-loading" style="text-align: center; color: var(--text-muted); padding: 40px;">ဆွဲယူနေသည်...</div>
+        <div id="stats-loading" style="text-align: center; color: var(--text-muted); padding: 40px;">Loading...</div>
         
         <!-- Summary Tab -->
         <div id="stats-tab-summary" style="display: none;">
             <div class="stat-card">
                 <div class="stat-big-number" id="stat-overall-acc">0%</div>
-                <div class="stat-label">စုစုပေါင်း အဖြေမှန်နှုန်း</div>
+                <div class="stat-label">Accuracy</div>
                 <div class="stat-row">
-                    <div class="stat-row-item"><b id="stat-total-q">0</b><br><span>မေးခွန်းပေါင်း</span></div>
-                    <div class="stat-row-item"><b id="stat-total-c">0</b><br><span>မှန်သောအဖြေ</span></div>
+                    <div class="stat-row-item"><b id="stat-total-q">0</b><br><span>Questions</span></div>
+                    <div class="stat-row-item"><b id="stat-total-c">0</b><br><span>Correct</span></div>
                 </div>
             </div>
             <div class="stat-insight-grid">
                 <div class="stat-insight week">
-                    <div class="stat-insight-label">ဒီအပတ် vs အရင်အပတ်</div>
+                    <div class="stat-insight-label">This week</div>
                     <div class="stat-insight-value" id="stat-week-compare">—</div>
                     <div class="stat-insight-sub" id="stat-week-compare-sub"></div>
                 </div>
                 <div class="stat-insight" id="stat-focus-card">
-                    <div class="stat-insight-label">အာရုံစိုက်ရန်</div>
+                    <div class="stat-insight-label">Focus</div>
                     <div class="stat-insight-value" id="stat-focus-value">—</div>
                     <div class="stat-insight-sub" id="stat-focus-sub"></div>
                 </div>
             </div>
-            <div class="stat-subject-header">ဘာသာရပ်အလိုက်</div>
             <div id="stat-subjects" style="margin-bottom: 20px;"></div>
         </div>
         
         <!-- Best Scores Tab -->
         <div id="stats-tab-best" style="display: none;">
-            <h4 style="color: var(--accent); margin-bottom: 10px;">🏆</h4>
             <div id="stat-best-scores"></div>
         </div>
         
                 <!-- Old Questions Tab -->
         <div id="stats-tab-old" style="display: none;">
-            <h4 style="color: var(--accent); margin-bottom: 10px;">📜</h4>
             <div id="stat-old-scores"></div>
         </div>
 		<!-- Leaderboard Tab -->
 <div id="stats-tab-leaderboard" style="display: none;">
     <div class="rank-filters">
         <div class="rank-period-toggle">
-            <button type="button" class="rank-period-btn active" id="rank-period-week" onclick="setRankPeriod('week')">အပတ်</button>
-            <button type="button" class="rank-period-btn" id="rank-period-all" onclick="setRankPeriod('all')">အားလုံး</button>
+            <button type="button" class="rank-period-btn active" id="rank-period-week" onclick="setRankPeriod('week')">Week</button>
+            <button type="button" class="rank-period-btn" id="rank-period-all" onclick="setRankPeriod('all')">All</button>
         </div>
         <select id="leaderboard-subject" class="rank-select" onchange="loadLeaderboard()">
-            <option value="all">အားလုံး</option>
-            <option value="mm">မြန်မာစာ</option>
-            <option value="en">အင်္ဂလိပ်စာ</option>
-            <option value="math">သင်္ချာ</option>
-            <option value="phy">ရူပဗေဒ</option>
-            <option value="chem">ဓာတုဗေဒ</option>
-            <option value="bio">ဇီဝဗေဒ</option>
-            <option value="eco">ဘောဂဗေဒ</option>
+            <option value="all">All</option>
+            <option value="mm">Myanmar</option>
+            <option value="en">English</option>
+            <option value="math">Math</option>
+            <option value="phy">Physics</option>
+            <option value="chem">Chemistry</option>
+            <option value="bio">Biology</option>
+            <option value="eco">Economics</option>
         </select>
     </div>
     
-    <div id="leaderboard-loading" style="text-align: center; color: #94A3B8; padding: 30px; display: none;">ဆွဲယူနေသည်...</div>
-    <div id="leaderboard-empty" style="text-align: center; color: #64748B; padding: 30px; display: none;">ရမှတ်မရှိသေးပါ</div>
+    <div id="leaderboard-loading" style="text-align: center; color: #94A3B8; padding: 30px; display: none;">Loading...</div>
+    <div id="leaderboard-empty" style="text-align: center; color: #64748B; padding: 30px; display: none;">No scores yet</div>
     <div id="leaderboard-list"></div>
 </div>
         
@@ -1865,7 +1875,7 @@ body.showing-articles .container {
     <div class="nav-item" data-tab="profile" onclick="changeTab('profile', this)">👤</div>
 </div>
 
-    <script src="./grades.js?v=6"></script>
+    <script src="./grades.js?v=7"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -2060,7 +2070,7 @@ function fastMath(scope) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=7'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=8'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -2442,7 +2452,7 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
     keys = keys.filter(key => !isSubChapter(key) && !isMyanmarIndividualQuiz(key) && scoreBelongsToGrade(bestScoresObj[key], key, getStatsGrade()));
 
     if (keys.length === 0) {
-        container.innerHTML = '<div class="stat-empty">ဒေတာမရှိသေးပါ</div>';
+        container.innerHTML = '<div class="stat-empty">No scores yet</div>';
         return;
     }
 
@@ -2455,33 +2465,29 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
     });
 
     Object.keys(bySubject).forEach(sub => {
-        const header = document.createElement('div');
-        header.className = 'stat-subject-header';
-        header.innerText = getSubjectName(sub);
-        container.appendChild(header);
-
         bySubject[sub].forEach(b => {
             const div = document.createElement('div');
-                    div.style.cssText = 'background: var(--card-bg); border-radius: 14px; margin-bottom: 8px; border: 1px solid #334155; overflow: hidden; cursor: pointer; transition: transform 0.1s ease;';
+            div.className = 'stat-score-item';
 			
             const timeStr = b.timeTaken ? formatTime(b.timeTaken) : '-';
             const percent = b.total > 0 ? Math.round((b.score / b.total) * 100) : 0;
             const dateStr = b.date ? new Date(b.date).toLocaleDateString() : '';
             
-            // 🆕 Use clean display name for Myanmar "_all_" quizzes
             const displayName = getStatDisplayName(b.key, b);
             const cleanKey = b.key.replace(/^old_/, '');
             const isMyanmarAll = cleanKey.includes('_all_') && b.subject === 'mm';
             const isMyanmarYadaya = b.subject === 'mm' && cleanKey.includes('_ရေသည်_');
+            const typeLine = (isMyanmarAll || isMyanmarYadaya) ? '' : (b.type || '');
+            const title = typeLine ? displayName + ' · ' + typeLine : displayName;
 
             div.innerHTML = `
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                    <span style="font-weight:600;color:var(--white);font-size:0.9rem;">${displayName}</span>
-                    <span style="font-family:monospace;font-weight:bold;color:#F59E0B;">${b.score}/${b.total} (${percent}%)</span>
+                <div class="stat-score-subject">${getSubjectNameEn(sub)}</div>
+                <div class="stat-score-top">
+                    <span class="stat-score-name">${title}</span>
+                    <span class="stat-score-value">${b.score}/${b.total} (${percent}%)</span>
                 </div>
-                ${(isMyanmarAll || isMyanmarYadaya) ? '' : `<div style="color:#94A3B8;font-size:0.8rem;">${b.type || ''}</div>`}
-                <div style="display:flex;justify-content:space-between;color:#64748B;font-size:0.75rem;margin-top:4px;">
-                    <span>⏱ ${timeStr}</span>
+                <div class="stat-score-meta">
+                    <span>${timeStr}</span>
                     <span>${dateStr}</span>
                 </div>
             `;
@@ -2495,7 +2501,7 @@ async function loadUserStats() {
 
     // 1. Show loading first (no stale local data shown yet)
     document.getElementById('stats-loading').style.display = 'block';
-    document.getElementById('stats-loading').innerText = 'ဆွဲယူနေသည်...';
+    document.getElementById('stats-loading').innerText = 'Loading...';
     document.getElementById('stats-loading').style.color = 'var(--text-muted)';
     document.getElementById('stats-tab-summary').style.display = 'none';
     document.getElementById('stats-tab-best').style.display = 'none';
@@ -2565,7 +2571,7 @@ async function loadUserStats() {
         document.getElementById('stat-total-c').innerText = '0';
         let timeDiv = document.getElementById('stat-total-time');
         if (timeDiv) timeDiv.innerText = '⏱ 00:00';
-        container.innerHTML = '<div class="stat-empty">ဒေတာမရှိသေးပါ</div>';
+        container.innerHTML = '<div class="stat-empty">No scores yet</div>';
         renderStatInsights(bestScoresObj, {});
         return;
     }
@@ -2602,7 +2608,7 @@ async function loadUserStats() {
         timeDiv.style.cssText = 'margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.1);font-family:monospace;color:var(--text-muted);font-size:0.85rem;text-align:center;';
         card.appendChild(timeDiv);
     }
-    timeDiv.innerText = '⏱ စုစုပေါင်းအချိန်: ' + formatTime(overallTime);
+    timeDiv.innerText = 'Time  ' + formatTime(overallTime);
 
     // Render per-subject rows
     Object.keys(bySubject).forEach(sub => {
@@ -2611,11 +2617,12 @@ async function loadUserStats() {
         const timeStr = formatTime(s.time);
 
         const div = document.createElement('div');
-        div.style.cssText = 'background:var(--card-bg);padding:12px 15px;border-radius:12px;margin-bottom:8px;border-left:4px solid var(--accent);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;';
+        div.className = 'stat-score-item';
+        div.style.cssText = 'display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;';
         div.innerHTML = `
             <div style="flex:1;min-width:120px;">
-                <div style="font-weight:600;color:var(--white);font-size:0.95rem;">${getSubjectName(sub)}</div>
-                <div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">⏱ ${timeStr} · ${s.count} ခု</div>
+                <div class="stat-score-name">${getSubjectNameEn(sub)}</div>
+                <div class="stat-score-meta" style="margin-top:4px;display:block;">${timeStr} · ${s.count} quizzes</div>
             </div>
             <div style="text-align:right;">
                 <div style="font-family:monospace;color:var(--accent);font-weight:bold;font-size:1rem;">${acc}%</div>
@@ -2663,20 +2670,20 @@ function renderStatInsights(bestScoresObj, bySubject) {
     const thisWeek = periodAcc(currentWeekMonday());
     const prevWeek = periodAcc(lastWeekMonday());
     if (thisWeek.acc === null && prevWeek.acc === null) {
-        weekEl.innerText = 'ဒေတာမရှိသေးပါ';
-        weekSub.innerText = 'Rank Match ဖြေပြီးမှ ဒီအပတ် မှန်နှုန်းပေါ်မည်';
+        weekEl.innerText = 'No data yet';
+        weekSub.innerText = 'Take a ranked quiz';
     } else if (thisWeek.acc === null) {
-        weekEl.innerText = 'ဒီအပတ် မဖြေရသေး';
-        weekSub.innerText = 'အရင်အပတ် ' + prevWeek.acc + '%';
+        weekEl.innerText = 'No scores';
+        weekSub.innerText = 'Last week ' + prevWeek.acc + '%';
     } else if (prevWeek.acc === null) {
         weekEl.innerText = thisWeek.acc + '%';
-        weekSub.innerText = 'ဒီအပတ် ပထမဆုံး ရမှတ်';
+        weekSub.innerText = 'First score this week';
     } else {
         const diff = thisWeek.acc - prevWeek.acc;
         const arrow = diff > 0 ? '▲' : (diff < 0 ? '▼' : '●');
         weekEl.innerText = thisWeek.acc + '%  ' + arrow + ' ' + Math.abs(diff) + '%';
         weekEl.style.color = diff > 0 ? '#10B981' : (diff < 0 ? '#F59E0B' : 'var(--white)');
-        weekSub.innerText = 'အရင်အပတ် ' + prevWeek.acc + '%';
+        weekSub.innerText = 'Last week ' + prevWeek.acc + '%';
     }
 
     const subs = Object.keys(bySubject || {});
@@ -2698,12 +2705,12 @@ function renderStatInsights(bestScoresObj, bySubject) {
     const strongAcc = Math.round((bySubject[strongest].score / bySubject[strongest].total) * 100);
     focusCard.className = 'stat-insight ' + (subs.length > 1 && weakest !== strongest ? 'weak' : 'strong');
     if (subs.length === 1 || weakest === strongest) {
-        focusEl.innerText = getSubjectName(strongest);
-        focusSub.innerText = 'အကောင်းဆုံး · ' + strongAcc + '%';
+        focusEl.innerText = getSubjectNameEn(strongest);
+        focusSub.innerText = 'Strongest · ' + strongAcc + '%';
         focusCard.className = 'stat-insight strong';
     } else {
-        focusEl.innerText = getSubjectName(weakest);
-        focusSub.innerText = 'အားနည်း · ' + weakAcc + '%  · အကောင်းဆုံး ' + getSubjectName(strongest);
+        focusEl.innerText = getSubjectNameEn(weakest);
+        focusSub.innerText = 'Weakest · ' + weakAcc + '%  · Best ' + getSubjectNameEn(strongest);
     }
 }
 
@@ -2720,6 +2727,11 @@ function showStatsScreen(tabName) {
 
 function getSubjectName(id) {
     const map = { mm: 'မြန်မာစာ', en: 'အင်္ဂလိပ်စာ', math: 'သင်္ချာ', phy: 'ရူပဗေဒ', chem: 'ဓာတုဗေဒ', bio: 'ဇီဝဗေဒ', eco: 'ဘောဂဗေဒ', unknown: 'အခြား' };
+    return map[id] || id;
+}
+
+function getSubjectNameEn(id) {
+    const map = { mm: 'Myanmar', en: 'English', math: 'Math', phy: 'Physics', chem: 'Chemistry', bio: 'Biology', eco: 'Economics', unknown: 'Other' };
     return map[id] || id;
 }
 		
@@ -5253,12 +5265,12 @@ async function refreshRankSnapshot() {
 function copyRankCard() {
     const snap = lastRankSnapshot;
     if (!snap || !snap.myRank) {
-        tg.showAlert('ရမှတ်မရှိသေးပါ');
+        tg.showAlert('No scores yet');
         return;
     }
     const text = '🏅 G' + snap.grade + ' #' + snap.myRank + (snap.percentile ? ' · ' + snap.percentile + '%' : '') + (snap.acc != null ? '\n' + snap.acc + '%' : '');
     navigator.clipboard.writeText(text).then(function () {
-        tg.showAlert('ကူးယူပြီးပါပြီ ✅');
+        tg.showAlert('Copied');
     }).catch(function () {
         tg.showAlert(text);
     });
@@ -5287,7 +5299,7 @@ async function loadLeaderboard() {
             if (emptyDiv) {
                 emptyDiv.style.display = 'block';
                 emptyDiv.style.color = 'var(--text-muted)';
-                emptyDiv.innerText = 'ရမှတ်မရှိသေးပါ';
+                emptyDiv.innerText = 'No scores yet';
             }
             renderLeaderboard([], currentUserId, subject, grade);
             return;
@@ -5299,7 +5311,7 @@ async function loadLeaderboard() {
     } catch (e) {
         console.error("Leaderboard error:", e);
         if (loadingDiv) loadingDiv.style.display = 'none';
-        if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'ဆွဲယူမှားနေပါသည်'; emptyDiv.style.color = 'var(--text-muted)'; }
+        if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'Could not load'; emptyDiv.style.color = 'var(--text-muted)'; }
     }
 }
 		
