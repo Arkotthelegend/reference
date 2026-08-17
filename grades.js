@@ -325,6 +325,13 @@ function stripGradeFilePrefix(fileName) {
     return String(fileName || '').replace(/^(g10_|g11_|G10_|G11_)/, '');
 }
 
+function gradeFromQuizFile(fileName) {
+    const base = String(fileName || '').replace(/^old_/, '');
+    if (/^(g10_|G10_)/.test(base)) return 10;
+    if (/^(g11_|G11_)/.test(base)) return 11;
+    return 12;
+}
+
 function isSharedEnGrammarFile(fileName) {
     const id = stripGradeFilePrefix(fileName).replace(/\.json$/i, '');
     return EN_GRAMMAR_TOPICS.some(function (t) { return t.id === id; });
