@@ -3,9 +3,8 @@ from __future__ import annotations
 import argparse
 import sys
 
-from dotenv import load_dotenv
-
 from .config import DEFAULT_BUDGET_USD, DEFAULT_MODEL, DEFAULT_PROVIDER, ROOT
+from .envload import load_env_file
 from .pipeline import run
 
 
@@ -26,7 +25,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    load_dotenv(ROOT / ".env")
+    load_env_file(ROOT / ".env")
     args = build_parser().parse_args(argv)
     if args.reset_spend:
         spend = ROOT / "cache" / "api" / "spend.json"
