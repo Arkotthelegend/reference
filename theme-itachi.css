@@ -362,7 +362,7 @@ body[data-theme="itachi"] #motivation-box {
     background: linear-gradient(145deg, rgba(12, 12, 20, 0.9), rgba(18, 18, 28, 0.9)) !important; 
     border: 1px solid #27272F !important; 
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important; 
-    backdrop-filter: blur(12px);
+    backdrop-filter: none;
 }
 
 /* === CONTACT & QUIZ MODE === */
@@ -411,7 +411,7 @@ body[data-theme="itachi"] select:focus {
 body[data-theme="itachi"] .modal-overlay,
 body[data-theme="itachi"] .overlay {
     background: rgba(3, 3, 5, 0.93) !important;
-    backdrop-filter: blur(12px);
+    backdrop-filter: none;
 }
 
 /* === DIVIDERS === */
