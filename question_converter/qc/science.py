@@ -6,7 +6,7 @@ from pathlib import Path
 from .ai import AIClient
 from .balance import dedupe_questions, shuffle_mcq_answers
 from .config import MAX_CHARS_PER_CALL, SCIENCE_CHAPTER_TARGET, output_file, science_section_filename
-from .parse import chunk_text, parse_sectioned_questions, split_text_by_sections
+from .parse import chunk_text, is_real_section, parse_sectioned_questions, split_text_by_sections
 from .pdf_io import extract_pages, scan_help
 from .prompts import render
 from .validate import (
@@ -69,6 +69,13 @@ def generate_science_book(client: AIClient, book, mapping: dict, skip_existing: 
             section_texts = split_text_by_sections(text, num)
             if list(section_texts.keys()) == ["all"]:
                 section_texts = {f"{num}.1": text}
+        section_texts = {
+            sid: body
+            for sid, body in section_texts.items()
+            if sid == "all" or is_real_section(num, sid)
+        }
+        if not section_texts:
+            section_texts = {f"{num}.1": text}
 
         chapter_chars = sum(len(v) for v in section_texts.values()) or len(text)
 

@@ -120,12 +120,25 @@ def parent_section(number: str) -> str:
     return number.strip()
 
 
+def is_real_section(chapter: int, key: str) -> bool:
+    """Textbook sections are like 1.1 or 7.12, not measurements such as 1.496."""
+    parts = key.strip().split(".")
+    if len(parts) != 2:
+        return False
+    try:
+        ch, sub = int(parts[0]), int(parts[1])
+    except ValueError:
+        return False
+    return ch == chapter and 1 <= sub <= 30
+
+
 def split_text_by_sections(text: str, chapter: int) -> dict[str, str]:
     """Split textbook text into one-level sections (1.1, 1.2). Deeper ids merge up."""
+    # Line-start headings only, 1-2 digits (1.1 .. 1.30). Ignores values like 1.496.
     pattern = re.compile(
-        rf"(?m)(?<![\d.])({chapter}\.\d+)(?:\.\d+)*\b"
+        rf"(?m)^\s*({chapter}\.\d{{1,2}})(?:\.\d{{1,2}})*\b"
     )
-    matches = list(pattern.finditer(text or ""))
+    matches = [m for m in pattern.finditer(text or "") if is_real_section(chapter, parent_section(m.group(1)))]
     if not matches:
         return {"all": (text or "").strip()}
 
@@ -133,6 +146,8 @@ def split_text_by_sections(text: str, chapter: int) -> dict[str, str]:
     for i, m in enumerate(matches):
         end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
         key = parent_section(m.group(1))
+        if not is_real_section(chapter, key):
+            continue
         chunk = text[m.start() : end].strip()
         grouped.setdefault(key, []).append(chunk)
 

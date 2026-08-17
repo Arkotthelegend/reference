@@ -97,6 +97,12 @@ class ParseTests(unittest.TestCase):
         self.assertIn("1.2", parts)
         self.assertIn("More", parts["1.2"])
 
+    def test_ignores_decimal_measurements(self):
+        text = "1.1 Heat\n1.496 extra from OCR\nThe density is 1.496.\n1.2 Light\n"
+        parts = split_text_by_sections(text, 1)
+        self.assertEqual(set(parts), {"1.1", "1.2"})
+        self.assertNotIn("1.496", parts)
+
     def test_chunk_text(self):
         text = "aaa\n\nbbb\n\nccc"
         chunks = chunk_text(text, 7)
