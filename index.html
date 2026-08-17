@@ -1686,7 +1686,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     <div class="nav-item" onclick="changeTab('profile', this)">👤</div>
 </div>
 
-    <script src="./grades.js?v=2"></script>
+    <script src="./grades.js?v=3"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -1897,7 +1897,7 @@ function parseQuizFile(fileName) {
         name = name.substring(4);
     }
 
-    if (name.startsWith('g11_') || name.startsWith('g10_')) {
+    if (/^(g10_|g11_|G10_|G11_)/.test(name)) {
         name = name.substring(4);
     }
     
@@ -1942,12 +1942,13 @@ function parseQuizFile(fileName) {
 function isMyanmarIndividualQuiz(fileName) {
     if (!fileName || typeof fileName !== 'string') return false;
     // 🆕 Catch both current (mm_) and old (old_mm_) Myanmar quizzes
-    const isMm = fileName.startsWith('mm_') || fileName.startsWith('old_mm_');
+    const baseName = stripGradeFilePrefix(fileName);
+    const isMm = baseName.startsWith('mm_') || baseName.startsWith('old_mm_');
     if (!isMm) return false;
     // ✅ Allow combined "all" quizzes (e.g. mm_စကားပြေ_all_မှား_မှန်)
-    if (fileName.includes('_all_')) return false;
+    if (baseName.includes('_all_')) return false;
     // ✅ Allow ရေသည် (no sub-chapters)
-    if (fileName.includes('_ရေသည်_')) return false;
+    if (baseName.includes('_ရေသည်_')) return false;
     // ❌ Everything else is individual chapter/title → skip from rank/stats
     return true;
 }
@@ -1981,7 +1982,7 @@ function isSubChapter(quizFile) {
 // mm_စကားပြေ_all_မှား_မှန်  →  "စကားပြေ မှားမှန်"
 // mm_အပြော_all_အမှန်ရွေး    →  "အပြော အမှန်ရွေး"
 function getStatDisplayName(key, item) {
-    const cleanKey = key.replace(/^old_/, '');
+    const cleanKey = stripGradeFilePrefix(key.replace(/^old_/, ''));
     if (cleanKey.includes('_all_') && item.subject === 'mm') {
         const parts = cleanKey.split('_');
         if (parts.length >= 4 && parts[0] === 'mm') {
@@ -3466,7 +3467,7 @@ function showQuizSubChapters(subId, chapterName, quizType) {
 async function loadDefinitions(subId, chapterName) {
     try {
         const fileName = `${subId}_${chapterName}_definition`.replace(/ /g, "_");
-        const res = await fetch(`./quizzes/${withGradePrefix(fileName)}.json`);
+        const res = await fetch(quizUrl(fileName));
         if (!res.ok) throw new Error();
         const data = await res.json();
         
@@ -3502,7 +3503,7 @@ function showDefinitionDetail(subId, chapterName, data, index) {
 async function loadKeyTerms(subId, chapterName) {
     try {
         const fileName = `${subId}_${chapterName}_definition`.replace(/ /g, "_");
-        const res = await fetch(`./quizzes/${withGradePrefix(fileName)}.json`);
+        const res = await fetch(quizUrl(fileName));
         if (!res.ok) throw new Error();
         const data = await res.json();
         
@@ -3549,7 +3550,7 @@ function showKeyTermDetail(subId, chapterName, data, index) {
 async function loadFormulas(subId, chapterName) {
     try {
         const fileName = `${subId}_${chapterName}_formula`.replace(/ /g, "_");
-        const res = await fetch(`./quizzes/${withGradePrefix(fileName)}.json`);
+        const res = await fetch(quizUrl(fileName));
         if (!res.ok) throw new Error();
         const data = await res.json();
         
@@ -3686,7 +3687,7 @@ async function initFlashcards(fileName, markTitle = "Flashcard", onBack = null) 
     currentFlashMark = markTitle; // လက်ရှိနှိပ်လိုက်တဲ့ Mark နာမည်ကို သိမ်းမယ်
     fileName = withGradePrefix(fileName);
     try {
-        const res = await fetch(`./quizzes/${fileName}.json`);
+        const res = await fetch(quizUrl(fileName));
         if(!res.ok) throw new Error();
         flashCards = await res.json();
         flashIdx = 0;
@@ -3790,7 +3791,7 @@ function updateFlashUI() {
     try {
         // 🆕 Cache-bust so updated JSON files are never stale
         const cb = Date.now();
-        const res = await fetch(`./quizzes/${fileName}.json?cb=${cb}`);
+        const res = await fetch(quizUrl(fileName) + `?cb=${cb}`);
         if(!res.ok) throw new Error();
         let data = await res.json();
         
@@ -4605,7 +4606,7 @@ currentQuizFile = 'daily_' + subId;
 
     try {
         let fetchPromises = filesToFetch.map(fileName => {
-            return fetch(`./quizzes/${withGradePrefix(fileName)}.json`)
+            return fetch(quizUrl(fileName))
                 .then(res => res.ok ? res.json() : []) 
                 .catch(() => []); 
         });
@@ -4673,7 +4674,7 @@ async function initFlashcards(fileName, markTitle = "Flashcard", onBack = null) 
     currentFlashMark = markTitle; 
     fileName = withGradePrefix(fileName);
     try {
-        const res = await fetch(`./quizzes/${fileName}.json`);
+        const res = await fetch(quizUrl(fileName));
         if(!res.ok) throw new Error();
         
         const data = await res.json();
