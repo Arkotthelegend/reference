@@ -72,6 +72,7 @@ html {
     --tg-safe-top: 0px;
     --tg-safe-bottom: 0px;
     --tg-viewport-stable-height: 100vh;
+    --app-max: 600px;
     --bg: #0B0F19;
     --card-bg: #162235;
     --white: #FFFFFF;
@@ -146,7 +147,7 @@ html {
     overflow-y: auto; 
     overscroll-behavior: none;
     padding-bottom: 110px;
-    max-width: 600px !important;  /* ⬅️ Prevents stretching on laptop */
+    max-width: var(--app-max) !important;  /* ⬅️ Prevents stretching on laptop */
     margin-left: auto !important;  /* ⬅️ Centers the content */
     margin-right: auto !important;
 }
@@ -393,8 +394,9 @@ input:checked + .slider:before {
 .nav { 
     position: fixed; 
     bottom: calc(12px + var(--tg-safe-bottom, 0px)); 
-    left: 5%; 
-    width: 90%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(var(--app-max), calc(100% - 24px));
     height: 70px; 
     background: var(--nav-bg);        /* 🆕 Variable သုံးလိုက်တယ် */
     display: flex; 
@@ -613,11 +615,12 @@ input:checked + .slider:before {
 #math-solution-screen {
     position: fixed !important;
     top: var(--tg-safe-top, 0px) !important;
-    left: 0 !important;
-    right: 0 !important;
+    left: 50% !important;
+    right: auto !important;
     bottom: 0 !important;
     height: auto !important;
-    width: 100% !important;
+    width: min(var(--app-max), 100%) !important;
+    transform: translateX(-50%);
     padding: 16px 16px calc(28px + var(--tg-safe-bottom, 0px)) !important;
     overflow: hidden !important;
     overflow-x: hidden !important;
@@ -1768,8 +1771,9 @@ body.math-expand-page .container {
     display: none;
     position: fixed;
     bottom: 100px;
-    left: 5%;
-    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(var(--app-max), calc(100% - 24px));
     z-index: 99;
     box-sizing: border-box;
 }
@@ -1876,6 +1880,68 @@ body.showing-articles .container {
     min-height: 48px;
     font-size: 0.88rem !important;
 }
+
+/* Laptop / wide window: keep the Mini App as a centered phone column */
+@media (min-width: 768px) {
+    #quiz-screen.active-screen {
+        min-height: 0;
+    }
+    #quiz-footer {
+        margin-top: 20px;
+    }
+    body.math-expand-page .container {
+        overflow-y: auto;
+        justify-content: flex-start;
+    }
+    #quiz-screen.active-screen.math-expand {
+        flex: 0 1 auto;
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+        justify-content: flex-start;
+    }
+    #quiz-screen.math-expand #question-box {
+        flex: 0 1 auto !important;
+        max-height: min(52vh, 420px) !important;
+        margin-bottom: 16px;
+    }
+    #quiz-screen.math-expand #quiz-footer,
+    #math-solution-actions {
+        margin-top: 16px;
+    }
+    #math-solution-screen {
+        bottom: auto !important;
+        height: auto !important;
+        max-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-top, 0px));
+        overflow: hidden !important;
+    }
+    #math-solution-content {
+        flex: 0 1 auto;
+        max-height: min(58vh, 520px);
+    }
+    #math-solution-actions {
+        margin-top: 16px !important;
+    }
+    #grammar-note-screen {
+        left: 50% !important;
+        right: auto !important;
+        width: min(var(--app-max), 100%) !important;
+        transform: translateX(-50%);
+        height: auto !important;
+        max-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-top, 0px));
+    }
+    body.showing-articles .articles-channel-bar {
+        position: static;
+        transform: none;
+        width: 100%;
+        margin: 12px auto 0;
+        bottom: auto;
+    }
+    body.showing-articles .container {
+        padding-bottom: 24px;
+    }
+}
+	   
 .ld-glow-bg,
 .ld-logo,
 .ld-logo-fallback,
@@ -2528,7 +2594,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=18'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=19'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
