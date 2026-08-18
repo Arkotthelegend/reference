@@ -648,12 +648,6 @@ input:checked + .slider:before {
 #math-solution-actions {
     flex-shrink: 0;
     margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-#math-solution-actions .btn {
-    margin: 0 !important;
 }
 #math-solution-content .math-scroll-container {
     overflow: visible !important;
@@ -1585,46 +1579,62 @@ body.math-expand-page .container {
 #quiz-screen.math-expand #quiz-options {
     display: none !important;
 }
-#quiz-screen.math-expand #quiz-footer {
+#quiz-screen.math-expand #quiz-footer,
+#math-solution-actions {
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    gap: 8px;
+    gap: 10px;
     padding-top: 8px;
     padding-bottom: 12px;
 }
 #quiz-screen.math-expand #quiz-footer .btn,
 #quiz-screen.math-expand #quiz-footer .next-btn,
-#quiz-screen.math-expand #quiz-footer .back-btn {
+#quiz-screen.math-expand #quiz-footer .back-btn,
+#math-solution-actions .btn,
+#math-solution-actions .next-btn,
+#math-solution-actions .back-btn {
     width: auto !important;
     max-width: none !important;
     margin: 0 !important;
     min-width: 0;
-    padding: 12px 8px !important;
-    font-size: 0.82rem !important;
+    min-height: 54px;
+    padding: 16px 10px !important;
+    font-size: 0.95rem !important;
+    font-weight: 800 !important;
     white-space: nowrap !important;
     display: flex !important;
     align-items: center;
     justify-content: center;
     line-height: 1.2;
+    border-radius: 14px !important;
 }
-#quiz-screen.math-expand #quiz-back-btn {
+#quiz-screen.math-expand #quiz-back-btn,
+#math-quit-btn {
     flex: 0.9 1 0;
     order: 1;
     background: #1E293B !important;
     border: 1px solid #64748B !important;
     color: #fff !important;
 }
-#quiz-screen.math-expand #math-sol-footer-btn {
+#quiz-screen.math-expand #math-sol-footer-btn,
+#math-prev-btn {
     display: flex !important;
     flex: 1.7 1 0;
     order: 2;
+    background: #00D5FF !important;
+    color: #000 !important;
+    border: none !important;
 }
-#quiz-screen.math-expand #next-btn {
+#quiz-screen.math-expand #next-btn,
+#math-next-btn {
     flex: 1 1 0;
     order: 3;
 }
 #math-sol-footer-btn {
+    display: none;
+}
+#math-solution-actions .quiz-keys-hint {
     display: none;
 }
 
@@ -2245,8 +2255,9 @@ body.showing-articles .container {
    <div id="math-solution-content" style="background: var(--detail-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--detail-border); color: var(--detail-text); max-width: 100%; box-sizing: border-box;"></div>
     
     <div id="math-solution-actions">
-        <button class="btn" id="math-prev-btn">⬅️ မေးခွန်းသို့ ပြန်သွားရန်</button>
-        <button class="btn next-btn" id="math-next-btn">နောက်တစ်ပုဒ်သို့ ➡️</button>
+        <button class="btn back-btn" id="math-quit-btn" type="button">ထွက်မည်</button>
+        <button class="btn" id="math-prev-btn" type="button">မေးခွန်းသို့</button>
+        <button class="btn next-btn" id="math-next-btn" type="button">နောက်သို့ →</button>
         <div class="quiz-keys-hint">Laptop: Space = Next</div>
     </div>
 </div>
@@ -2517,7 +2528,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=17'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=18'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -4717,12 +4728,16 @@ function loadQuestion() {
             window.scrollTo(0, 0);
 
             document.getElementById('math-prev-btn').onclick = () => showScreen('quiz');
+            const mathQuitBtn = document.getElementById('math-quit-btn');
+            if (mathQuitBtn) {
+                mathQuitBtn.onclick = () => document.getElementById('quiz-back-btn').click();
+            }
 
             const mathNextBtn = document.getElementById('math-next-btn');
             mathNextBtn.className = 'btn next-btn';
-            mathNextBtn.style.display = 'block';
+            mathNextBtn.style.display = 'flex';
             if (currentIdx < currentQuestions.length - 1) {
-                mathNextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ➡️';
+                mathNextBtn.innerText = 'နောက်သို့ →';
                 mathNextBtn.onclick = () => {
                     currentIdx++;
                     showScreen('quiz');
