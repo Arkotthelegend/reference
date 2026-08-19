@@ -1,176 +1,321 @@
 [
   {
+    "q": "Which electrical component is used to control the brightness of street lamps? (2026)",
     "type": "mcq",
-    "q": "Which electrical component is used to control the brightness of street lamps?",
-    "a": ["LED,", "LDR,", "thermistor"],
-    "c": 1
+    "a": [
+      "LED",
+      "LDR",
+      "thermistor"
+    ],
+    "c": 1,
+    "e": "An LDR (Light Dependent Resistor) is used to control street light brightness based on ambient light level."
   },
   {
+    "q": "What is the main function of NOT gate in digital logic? (2026)",
     "type": "mcq",
-    "q": "What is the main function of NOT gate in digital logic?",
-    "a": ["Performs the digital AND operation,", "Inverts the input signal,", "Executes addition)"],
-    "c": 1
+    "a": [
+      "Performs the digital AND operation",
+      "Inverts the input signal",
+      "Executes addition"
+    ],
+    "c": 1,
+    "e": "A NOT gate acts as an inverter, reversing the binary state of its input."
   },
   {
+    "q": "What is the output of XNOR gate if both inputs are the same? (2026)",
     "type": "mcq",
-    "q": "What is the output of XNOR gate if both inputs are the same?",
-    "a": ["0,", "2,", "1"],
-    "c": 2
+    "a": [
+      "0",
+      "2",
+      "1"
+    ],
+    "c": 2,
+    "e": "An XNOR gate produces a high output (1) when all its inputs are identical."
   },
   {
+    "q": "_____ is used to control the brightness of the night lamp. (2025)",
     "type": "mcq",
-    "q": "_______ is used to control the brightness of the night lamp.",
-    "a": ["LED,", "LDR,", "LCD"],
-    "c": 1
+    "a": [
+      "LED",
+      "LDR",
+      "LCD"
+    ],
+    "c": 1,
+    "e": "An LDR controls night lamp brightness by sensing ambient light levels."
   },
   {
+    "q": "A photodiode converts _____ into electrical current. (2026)",
     "type": "mcq",
-    "q": "A photodiode converts _______ into electrical current.",
-    "a": ["light,", "resistance,", "temperature"],
-    "c": 0
+    "a": [
+      "light",
+      "resistance",
+      "temperature"
+    ],
+    "c": 0,
+    "e": "A photodiode is a semiconductor device that converts light energy into electrical current."
   },
   {
+    "q": "There are _____ types of reverse breakdown regions in a zener diode. (2026)",
     "type": "mcq",
-    "q": "There are _______ types of reverse breakdown regions in a zener diode.",
-    "a": ["one,", "two,", "three"],
-    "c": 1
+    "a": [
+      "one",
+      "two",
+      "three"
+    ],
+    "c": 1,
+    "e": "Zener diodes experience two reverse breakdown mechanisms: avalanche breakdown and Zener breakdown."
   },
   {
+    "q": "What semiconductor device that converts light into electrical current? (2026)",
     "type": "mcq",
-    "q": "What semiconductor device that converts light into electrical current?",
-    "a": ["LED", "light dependent resistor", "photodiode"],
-    "c": 2
+    "a": [
+      "LED",
+      "light dependent resistor",
+      "photodiode"
+    ],
+    "c": 2,
+    "e": "Photodiodes convert light directly into electrical current when operating under reverse bias."
   },
   {
+    "q": "The photodiode can be used as a photodetector to detect the _____ signals. (2026)",
     "type": "mcq",
-    "q": "The photodiode can be used as a photodetector to detect the _______ signals.",
-    "a": ["optical", "heat", "chemical"],
-    "c": 0
+    "a": [
+      "optical",
+      "heat",
+      "chemical"
+    ],
+    "c": 0,
+    "e": "Photodiodes are used as photodetectors to sense optical (light) signals."
   },
   {
+    "q": "The OR gate with inverted output is called a _____ gate. (2025)",
     "type": "mcq",
-    "q": "The OR gate with inverted output is called a _______ gate.",
-    "a": ["XOR", "XNOR", "NOR"],
-    "c": 2
+    "a": [
+      "XOR",
+      "XNOR",
+      "NOR"
+    ],
+    "c": 2,
+    "e": "A NOR gate is a combination of an OR gate followed by an inverter (NOT gate)."
   },
   {
+    "q": "A photodiode converts _____ into electrical current. (2025)",
     "type": "mcq",
-    "q": "A photodiode converts _______ into electrical current.",
-    "a": ["light", "sound", "heat"],
-    "c": 0
+    "a": [
+      "light",
+      "sound",
+      "heat"
+    ],
+    "c": 0,
+    "e": "Photodiodes convert incident light into electric current."
   },
   {
+    "q": "What should be the biasing of the LED? (2025)",
     "type": "mcq",
-    "q": "What should be the biasing of the LED?",
-    "a": ["forward bias", "reverse bias", "no biasing required"],
-    "c": 0
+    "a": [
+      "forward bias",
+      "reverse bias",
+      "no biasing required"
+    ],
+    "c": 0,
+    "e": "An LED must be forward biased so that electron-hole recombination can emit light."
   },
   {
+    "q": "A _____ is a device that transforms a signal from one energy form to another energy form. (2025)",
     "type": "mcq",
-    "q": "A _______ is a device that transforms a signal from one energy form to another energy form.",
-    "a": ["transducer", "capacitor", "resistor"],
-    "c": 0
+    "a": [
+      "transducer",
+      "capacitor",
+      "resistor"
+    ],
+    "c": 0,
+    "e": "A transducer converts signals from one physical form of energy into another."
   },
   {
+    "q": "What is the primary application of a Zener diode? (2025)",
     "type": "mcq",
-    "q": "What is the primary application of a Zener diode?",
-    "a": ["As a voltage regulator", "As a rectifier", "As an amplifier"],
-    "c": 0
+    "a": [
+      "As a voltage regulator",
+      "As a rectifier",
+      "As an amplifier"
+    ],
+    "c": 0,
+    "e": "Zener diodes maintain a constant voltage when operating in reverse breakdown, making them voltage regulators."
   },
   {
+    "q": "In _____ modulation the amplitude of carrier wave remains constant with modulation. (2025)",
     "type": "mcq",
-    "q": "In _______ modulation the amplitude of carrier wave remains constant with modulation.",
-    "a": ["phase", "amplitude", "frequency"],
-    "c": 2
+    "a": [
+      "phase",
+      "amplitude",
+      "frequency"
+    ],
+    "c": 2,
+    "e": "In frequency modulation (FM), the amplitude of the carrier wave stays constant while its frequency varies."
   },
   {
+    "q": "_____ gate produces a '1' when both inputs match. (2025)",
     "type": "mcq",
-    "q": "_______ gate produces a ‘1’ when both inputs match.",
-    "a": ["NOR", "XOR", "XNOR"],
-    "c": 2
+    "a": [
+      "NOR",
+      "XOR",
+      "XNOR"
+    ],
+    "c": 2,
+    "e": "An XNOR gate outputs logic 1 when all input values match."
   },
   {
+    "q": "What happens to the resistance of an LDR as the light intensity increases? (2025)",
     "type": "mcq",
-    "q": "What happens to the resistance of an LDR as the light intensity increases?",
-    "a": ["The resistance increases", "The resistance decreases", "The resistance remains the same"],
-    "c": 1
+    "a": [
+      "The resistance increases",
+      "The resistance decreases",
+      "The resistance remains the same"
+    ],
+    "c": 1,
+    "e": "As light intensity increases, more charge carriers are generated in an LDR, decreasing its resistance."
   },
   {
+    "q": "As light level increases, the LDR resistance _____. (2025)",
     "type": "mcq",
-    "q": "As light level increases, the LDR resistance _______.",
-    "a": ["is empty", "increases", "decreases"],
-    "c": 2
+    "a": [
+      "is empty",
+      "increases",
+      "decreases"
+    ],
+    "c": 2,
+    "e": "Increasing light level generates more electron-hole pairs, reducing the LDR's resistance."
   },
   {
+    "q": "A _____ is a semiconductor light source that emits light when current flows through it. (2025)",
     "type": "mcq",
-    "q": "A _______ is a semiconductor light source that emits light when current flows through it.",
-    "a": ["LED", "photodiode", "zener diode"],
-    "c": 0
+    "a": [
+      "LED",
+      "photodiode",
+      "zener diode"
+    ],
+    "c": 0,
+    "e": "A Light Emitting Diode (LED) emits light when an electric current flows through it in forward bias."
   },
   {
+    "q": "What are the fundamental building blocks of digital ICs? (2025)",
     "type": "mcq",
-    "q": "What are the fundamental building blocks of digital ICs?",
-    "a": ["logic gates", "resistors", "transistors"],
-    "c": 0
+    "a": [
+      "logic gates",
+      "resistors",
+      "transistors"
+    ],
+    "c": 0,
+    "e": "Logic gates are the basic building blocks used to construct digital integrated circuits (ICs)."
   },
   {
+    "q": "Which gate produces a high output when one and only one of its inputs is high? (2025)",
     "type": "mcq",
-    "q": "Which gate produces a high output when one and only one of its inputs is high?",
-    "a": ["XOR", "XNOR", "NOR"],
-    "c": 0
+    "a": [
+      "XOR",
+      "XNOR",
+      "NOR"
+    ],
+    "c": 0,
+    "e": "An XOR (Exclusive OR) gate yields a high output (1) only when its inputs are different."
   },
   {
+    "q": "Radio and television are examples of _____ mode of communication. (2025)",
     "type": "mcq",
-    "q": "Radio and television are examples of _______ mode of communication.",
-    "a": ["broadcast", "point to point", "telephony"],
-    "c": 0
+    "a": [
+      "broadcast",
+      "point to point",
+      "telephony"
+    ],
+    "c": 0,
+    "e": "Radio and television transmit signals from a single transmitter to many receivers in broadcast mode."
   },
   {
+    "q": "_____ is a device which produces a measurable response due to a change in physical conditions. (2025)",
     "type": "mcq",
-    "q": "_______ is a device which produces a measurable response due to a change in physical conditions.",
-    "a": ["Transducer,", "Modulator,", "Sensor"],
-    "c": 2
+    "a": [
+      "Transducer",
+      "Modulator",
+      "Sensor"
+    ],
+    "c": 2,
+    "e": "A sensor detects changes in physical conditions and produces a measurable output signal."
   },
   {
+    "q": "By using basic rules of Boolean algebra, the output of (A · 0) and (A · A) is equal to _____ (2021)",
     "type": "mcq",
-    "q": "By using basic rules of Boolean algebra, the output of (A · 0) and (A · Ā) is equal to",
-    "a": ["0 (zero)", "1 (one)", "A"],
-    "c": 0
+    "a": [
+      "0 (zero)",
+      "1 (one)",
+      "A"
+    ],
+    "c": 0,
+    "e": "In Boolean algebra, A · 0 = 0 and A · A = A."
   },
   {
+    "q": "In the Negative Temperature Coefficient (NTC) thermistor, the resistance _____ as the temperature increases. (2025)",
     "type": "mcq",
-    "q": "In the Negative Temperature Coefficient (NTC) thermistor, the resistance _______ as the temperature increases.",
-    "a": ["increases", "zero", "decreases"],
-    "c": 2
+    "a": [
+      "increases",
+      "zero",
+      "decreases"
+    ],
+    "c": 2,
+    "e": "For an NTC thermistor, resistance decreases as temperature increases."
   },
   {
+    "q": "A _____ is a device for converting a non-electrical input into an electrical signal (or) vice versa. (2025)",
     "type": "mcq",
-    "q": "A _______ is a device for converting a non-electrical input into an electrical signal (or) vice versa.",
-    "a": ["transducer", "transmitter", "receiver"],
-    "c": 0
+    "a": [
+      "transducer",
+      "transmitter",
+      "receiver"
+    ],
+    "c": 0,
+    "e": "A transducer converts non-electrical quantities into electrical signals or vice versa."
   },
   {
+    "q": "The fire alarm system consists of two logic gates, OR gate and _____. (2025)",
     "type": "mcq",
-    "q": "The fire alarm system consists of two logic gates, OR gate and _______.",
-    "a": ["NOR", "NAND", "AND"],
-    "c": 2
+    "a": [
+      "NOR",
+      "NAND",
+      "AND"
+    ],
+    "c": 2,
+    "e": "A basic fire alarm control circuit uses an OR gate and an AND gate."
   },
   {
+    "q": "LDR consists of a disc of _____ material on its surface with two electrodes. (2026)",
     "type": "mcq",
-    "q": "LDR consists of a disc of _______ material on its surface with two electrodes.",
-    "a": ["insulator", "semiconductor", "conductor"],
-    "c": 1
+    "a": [
+      "insulator",
+      "semiconductor",
+      "conductor"
+    ],
+    "c": 1,
+    "e": "An LDR is made of photoconductive semiconductor material deposited on an insulating substrate."
   },
   {
+    "q": "LEDs do not directly produce _____ light. (2026)",
     "type": "mcq",
-    "q": "LEDs do not directly produce _______ light.",
-    "a": ["red", "blue", "white"],
-    "c": 2
+    "a": [
+      "red",
+      "blue",
+      "white"
+    ],
+    "c": 2,
+    "e": "LEDs emit light at specific narrow wavelengths and do not directly produce white light."
   },
   {
+    "q": "Which of the following is NOT listed as one of the six main pieces that comprise a radio receiver? (2026)",
     "type": "mcq",
-    "q": "Which of the following is NOT listed as one of the six main pieces that comprise a radio receiver?",
-    "a": ["Antenna", "Diode detector", "Frequency modulator"],
-    "c": 2
+    "a": [
+      "Antenna",
+      "Diode detector",
+      "Frequency modulator"
+    ],
+    "c": 2,
+    "e": "A frequency modulator belongs to a transmitter circuit rather than a receiver."
   }
 ]
