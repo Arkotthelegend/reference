@@ -1,102 +1,122 @@
 [
-    {
-        "type": "tf",
-        "q": "A transformer is used to change the voltage of an alternating current. 2024",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "In Myanmar, the prevalent AC line frequency is 50 Hz, while the standard voltage utilized for residential and commercial applications falls within the voltage of 220 V to 240 V. 2024",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "A transformer is used to change the voltage of an alternating current. 2024",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "The currents flow in little circles in the iron core are eddy currents. 2024",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "Current flowing in power transmission line is alternating current. 2024",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "Magnetic field strength is vector quantity. 2024",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "A transformer is used to change the voltage of an alternating current. 2025",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "A transformer is used to change the voltage of a direct current. 2025",
-        "c": false
-    },
-    {
-        "type": "tf",
-        "q": "In an AC (alternating current) circuit, the current changes direction periodically. 2025",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "The current from the outlet of telephone charger is DC (direct current). 2025",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "According to Lenz's law, the direction of induced current resists the change causing it. 2025",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "Transformers work on AC, but not on DC. 2025",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "The frequency of AC current is 50 Hz in US and 60 Hz in Europe. 2025",
-        "c": false
-    },
-    {
-        "type": "tf",
-        "q": "A transformer is used to change the voltage of an alternating current. 2026",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "Only high current can be dangerous to human. 2026",
-        "c": false
-    },
-    {
-        "type": "tf",
-        "q": "The direct current is a steady unidirectional current. 2026",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "Lenz's law gives the direction of the induced emf. 2026",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "The lamps are connected in parallel in the lighting circuit. 2026",
-        "c": true
-    },
-    {
-        "type": "tf",
-        "q": "The SI unit of magnetic flux density is the weber (Wb). 2026",
-        "c": false
-    },
-    {
-        "type": "tf",
-        "q": "A great industrial current is known as direct current. 2026",
-        "c": false
-    }
+  {
+    "q": "A transformer is used to change the voltage of an alternating current. (2024)",
+    "type": "tf",
+    "c": "true",
+    "e": "A transformer steps up or steps down the voltage of an alternating current through electromagnetic induction."
+  },
+  {
+    "q": "In Myanmar, the prevalent AC line frequency is 50 Hz, while the standard voltage utilized for residential and commercial applications falls within the voltage of 220 V to 240 V. (2024)",
+    "type": "tf",
+    "c": "true",
+    "e": "Standard residential and commercial AC power in Myanmar operates at 50 Hz and 220 V to 240 V."
+  },
+  {
+    "q": "A transformer is used to change the voltage of an alternating current. (2024)",
+    "type": "tf",
+    "c": "true",
+    "e": "Transformers function specifically to alter the voltage of alternating current."
+  },
+  {
+    "q": "The currents flow in little circles in the iron core are eddy currents. (2024)",
+    "type": "tf",
+    "c": "true",
+    "e": "Eddy currents are circulating loops of electrical current induced within conductor cores."
+  },
+  {
+    "q": "Current flowing in power transmission line is alternating current. (2024)",
+    "type": "tf",
+    "c": "true",
+    "e": "Power grid transmission lines utilize alternating current for efficient long-distance voltage transformation."
+  },
+  {
+    "q": "Magnetic field strength is vector quantity. (2024)",
+    "type": "tf",
+    "c": "true",
+    "e": "Magnetic field strength possesses both magnitude and direction, making it a vector quantity."
+  },
+  {
+    "q": "A transformer is used to change the voltage of an alternating current. (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "A transformer alters AC voltage levels using mutual induction."
+  },
+  {
+    "q": "A transformer is used to change the voltage of a direct current. (2021)",
+    "type": "tf",
+    "c": "false",
+    "e": "A transformer operates only on alternating current (AC) because direct current (DC) does not create a continuously changing magnetic flux."
+  },
+  {
+    "q": "In an AC (alternating current) circuit, the current changes direction periodically. (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "Alternating current continuously reverses its direction of flow at regular intervals."
+  },
+  {
+    "q": "The current from the outlet of telephone charger is DC (direct current). (2021)",
+    "type": "tf",
+    "c": "true",
+    "e": "Phone chargers convert AC input from the wall power supply into DC output required by device batteries."
+  },
+  {
+    "q": "According to Lenz's law, the direction of induced current resists the change causing it. (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "Lenz's law dictates that an induced current always flows to oppose the magnetic flux change that produced it."
+  },
+  {
+    "q": "Transformers work on AC, but not on DC. (2021)",
+    "type": "tf",
+    "c": "true",
+    "e": "Transformers require time-varying magnetic fields produced by AC to induce voltage."
+  },
+  {
+    "q": "The frequency of AC current is 50 Hz in US and 60 Hz in Europe. (2025)",
+    "type": "tf",
+    "c": "false",
+    "e": "The standard frequency of AC current is 60 Hz in the United States and 50 Hz in Europe."
+  },
+  {
+    "q": "A transformer is used to change the voltage of an alternating current. (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "A transformer changes the magnitude of alternating voltage."
+  },
+  {
+    "q": "Only high current can be dangerous to human. (2025)",
+    "type": "tf",
+    "c": "false",
+    "e": "Both high current and high voltage present dangerous electrical hazards to humans."
+  },
+  {
+    "q": "The direct current is a steady unidirectional current. (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "Direct current maintains a constant direction of flow over time."
+  },
+  {
+    "q": "Lenz's law gives the direction of the induced emf. (2025, 2026)",
+    "type": "tf",
+    "c": "true",
+    "e": "Lenz's law determines the direction/polarity of induced electromotive force."
+  },
+  {
+    "q": "The lamps are connected in parallel in the lighting circuit. (2026)",
+    "type": "tf",
+    "c": "true",
+    "e": "Parallel connections allow each lamp to operate independently at full supply voltage."
+  },
+  {
+    "q": "The SI unit of magnetic flux density is the weber (Wb). (2026)",
+    "type": "tf",
+    "c": "false",
+    "e": "The SI unit of magnetic flux density is the tesla (T); the weber (Wb) is the unit of magnetic flux."
+  },
+  {
+    "q": "A great industrial current is known as direct current. (2026)",
+    "type": "tf",
+    "c": "false",
+    "e": "Alternating current (AC) is predominantly used for large-scale industrial electrical power."
+  }
 ]
