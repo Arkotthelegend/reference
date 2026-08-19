@@ -2675,7 +2675,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=23'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=24'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -3847,11 +3847,7 @@ function isPaidUnlock(subId) {
 function isVolunteerUnlock(subId) {
     const vol = volunteerMap();
     const prefix = (getGradeCfg().sheetPrefix) || '';
-    if (isExpiryValid(vol[prefix + 'all']) || isExpiryValid(vol[prefix + subId])) return true;
-    if (isExpiryValid(vol['all']) || isExpiryValid(vol[subId])) return true;
-    if (isExpiryValid(vol['g11_all']) || isExpiryValid(vol['g11_' + subId])) return true;
-    if (isExpiryValid(vol['g10_all']) || isExpiryValid(vol['g10_' + subId])) return true;
-    return false;
+    return isExpiryValid(vol[prefix + 'all']) || isExpiryValid(vol[prefix + subId]);
 }
 
 function applyVolunteerChrome() {
