@@ -1,34 +1,194 @@
 [
-  {"type": "blank", "q": "The capacitors are connected in _______ each capacitor has the same charge. 2024", "c": "series"},
-  {"type": "blank", "q": "In the SI system, the unit of capacitance is _______. 2024", "c": "farad (F)"},
-  {"type": "blank", "q": "_______ is required to control the current and facilitate gradual charging or discharging in a capacitor circuit. 2024", "c": "Resistor"},
-  {"type": "blank", "q": "In the series connection of the capacitors, each capacitor has the same _______. 2024", "c": "charge"},
-  {"type": "blank", "q": "The SI unit of capacitance is _______. 2024", "c": "farad (F)"},
-  {"type": "blank", "q": "Electrolytic capacitors use the oxide layer as the _______ material. 2024", "c": "dielectric"},
-  {"type": "blank", "q": "The energy stored by the capacitor is W = _______. 2024 2025", "c": "1/2 QV (or) 1/2 CV^2 (or) 1/2 Q^2/C"},
-  {"type": "blank", "q": "The product of the resistance R and the capacitance C is called _______ of a capacitor charging or discharging process. 2024", "c": "the time constant"},
-  {"type": "blank", "q": "Film capacitors use _______ film as the dielectric medium. 2024", "c": "plastic"},
-  {"type": "blank", "q": "If the potential difference of the capacitor is 1 V when it is given a charge 1 C, its capacitance is _______. 2025", "c": "1 F (one farad)"},
-  {"type": "blank", "q": "In practice, typical devices have capacitances ranging from _______. 2025", "c": "microfarad (μF) to picofarad (pF)"},
-  {"type": "blank", "q": "Electrolytic capacitor has a wide _______ capacity. 2025", "c": "tolerance"},
-  {"type": "blank", "q": "The final current is equal to _______ when the capacitor is fully charged. 2025", "c": "zero"},
-  {"type": "blank", "q": "The energy stored in a capacitor is directly proportional to the square of the _______ across its plates. 2025", "c": "potential difference (or) voltage"},
-  {"type": "blank", "q": "The dielectric may be able to withstand a _______ electric field between the plates than air. 2025", "c": "larger"},
-  {"type": "blank", "q": "_______ capacitors are used in radio tuning applications. 2025", "c": "Variable"},
-  {"type": "blank", "q": "The ability of a capacitor to store an electric charge is measured in _______. 2025", "c": "capacitance"},
-  {"type": "blank", "q": "The formula that represents the energy stored in a capacitor is _______. 2025", "c": "W = 1/2 QV (or) W = 1/2 CV^2 (or) W = 1/2 Q^2/C"},
-  {"type": "blank", "q": "The equivalent unit of farad is _______. 2025", "c": "coulomb per volt (CV^-1)"},
-  {"type": "blank", "q": "The dielectric constant of vacuum or air is taken as _______. 2025", "c": "one (1)"},
-  {"type": "blank", "q": "The capacitor was originally known as a _______. 2025", "c": "condenser"},
-  {"type": "blank", "q": "The capacitor is similar to a _______ battery. 2025", "c": "rechargeable"},
-  {"type": "blank", "q": "The capacitance of a capacitor depends on the nature of the _______ between the two conductors. 2025", "c": "insulating material (or) dielectrics"},
-  {"type": "blank", "q": "A capacitor stores _______ energy in the form of an electric field. 2025", "c": "electrical"},
-  {"type": "blank", "q": "The working voltage of the film capacitors are up to _______ V. 2025", "c": "1500"},
-  {"type": "blank", "q": "The charge of a capacitor is directly proportional to its _______. 2025", "c": "potential difference"},
-  {"type": "blank", "q": "For a vacuum κ = 1 and for other media _______. 2025", "c": "k > 1"},
-  {"type": "blank", "q": "The capacitors are connected in series each capacitor has the _______ charge. 2025", "c": "same"},
-  {"type": "blank", "q": "Variable capacitors mostly use air as the _______ medium. 2026", "c": "dielectric"},
-  {"type": "blank", "q": "The equivalent capacitance of the capacitors connected in _______ is the sum of the capacitances of the individual capacitors. 2026", "c": "parallel"},
-  {"type": "blank", "q": "The electrical energy W stored in the capacitor is given, in terms of charge Q and potential difference V, by _______. 2026", "c": "W = 1/2 QV"},
-  {"type": "blank", "q": "Placing a resistor in the charging circuit _______ the charging process. 2026", "c": "slows down"}
+  {
+    "q": "The capacitors are connected in ____ each capacitor has the same charge. (2024)",
+    "type": "blank",
+    "c": "series",
+    "e": "In a series connection of capacitors, the same charge accumulates on each capacitor."
+  },
+  {
+    "q": "In the SI system, the unit of capacitance is ____. (2024)",
+    "type": "blank",
+    "c": "farad (F)",
+    "e": "The standard SI unit for measuring capacitance is the farad (F)."
+  },
+  {
+    "q": "____ is required to control the current and facilitate gradual charging or discharging in a capacitor circuit. (2024)",
+    "type": "blank",
+    "c": "Resistor",
+    "e": "A resistor regulates the flow of current, allowing controlled charging or discharging of a capacitor."
+  },
+  {
+    "q": "In the series connection of the capacitors, each capacitor has the same ____. (2025)",
+    "type": "blank",
+    "c": "charge",
+    "e": "Capacitors connected in series hold equal electric charge across their plates."
+  },
+  {
+    "q": "The SI unit of capacitance is ____. (2025)",
+    "type": "blank",
+    "c": "farad (F)",
+    "e": "In the SI system, capacitance is expressed in farads (F)."
+  },
+  {
+    "q": "Electrolytic capacitors use the oxide layer as the ____ material. (2026)",
+    "type": "blank",
+    "c": "dielectric",
+    "e": "In electrolytic capacitors, a thin layer of oxide functions as the dielectric medium."
+  },
+  {
+    "q": "The energy stored by the capacitor is W = ____. (2025, 2026)",
+    "type": "blank",
+    "c": "1/2 QV (or) 1/2 CV^2 (or) 1/2 Q^2/C",
+    "e": "The potential energy stored in a capacitor can be calculated using these equivalent formulas."
+  },
+  {
+    "q": "The product of the resistance R and the capacitance C is called ____ of a capacitor charging or discharging process. (2024)",
+    "type": "blank",
+    "c": "the time constant",
+    "e": "The product RC gives the time constant, which characterizes the speed of charging or discharging."
+  },
+  {
+    "q": "Film capacitors use ____ film as the dielectric medium. (2024)",
+    "type": "blank",
+    "c": "plastic",
+    "e": "Film capacitors utilize a thin plastic film as an effective dielectric layer."
+  },
+  {
+    "q": "If the potential difference of the capacitor is 1 V when it is given a charge 1 C, its capacitance is ____. (2025)",
+    "type": "blank",
+    "c": "1 F (one farad)",
+    "e": "Capacitance C = Q / V, so 1 Coulomb at 1 Volt equals 1 Farad."
+  },
+  {
+    "q": "In practice, typical devices have capacitances ranging from ____. (2025)",
+    "type": "blank",
+    "c": "microfarad (µF) to picofarad (pF)",
+    "e": "Standard practical capacitors usually range in value from microfarads down to picofarads."
+  },
+  {
+    "q": "Electrolytic capacitor has a wide ____ capacity. (2025)",
+    "type": "blank",
+    "c": "tolerance",
+    "e": "Electrolytic capacitors generally possess a broad tolerance range in capacitance manufacturing."
+  },
+  {
+    "q": "The final current is equal to ____ when the capacitor is fully charged. (2025)",
+    "type": "blank",
+    "c": "zero",
+    "e": "When fully charged, the capacitor opposes the voltage source and current drops to zero."
+  },
+  {
+    "q": "The energy stored in a capacitor is directly proportional to the square of the ____ across its plates. (2025)",
+    "type": "blank",
+    "c": "potential difference (or) voltage",
+    "e": "Energy stored is given by W = 1/2 C V^2, which depends on the square of the voltage."
+  },
+  {
+    "q": "The dielectric may be able to withstand a ____ electric field between the plates than air. (2025)",
+    "type": "blank",
+    "c": "larger",
+    "e": "Dielectric materials can endure higher electric field strengths before experiencing breakdown compared to air."
+  },
+  {
+    "q": "____ capacitors are used in radio tuning applications. (2025)",
+    "type": "blank",
+    "c": "Variable",
+    "e": "Variable capacitors allow manual tuning of capacitance to align radio receiver frequencies."
+  },
+  {
+    "q": "The ability of a capacitor to store an electric charge is measured in ____. (2025)",
+    "type": "blank",
+    "c": "capacitance",
+    "e": "Capacitance is defined as the measure of electric charge stored per unit potential difference."
+  },
+  {
+    "q": "The formula that represents the energy stored in a capacitor is ____. (2025)",
+    "type": "blank",
+    "c": "W = 1/2 QV (or) W = 1/2 CV^2 (or) W = 1/2 Q^2/C",
+    "e": "These standard equations express the energy stored in the electric field of a capacitor."
+  },
+  {
+    "q": "The equivalent unit of farad is ____. (2025)",
+    "type": "blank",
+    "c": "coulomb per volt (CV^-1)",
+    "e": "From C = Q / V, one Farad equals one Coulomb per Volt."
+  },
+  {
+    "q": "The dielectric constant of vacuum or air is taken as ____. (2025)",
+    "type": "blank",
+    "c": "one (1)",
+    "e": "The relative permittivity (dielectric constant) of air or vacuum is defined as 1."
+  },
+  {
+    "q": "The capacitor was originally known as a ____. (2025)",
+    "type": "blank",
+    "c": "condenser",
+    "e": "Historically, early capacitive storage devices were called condensers."
+  },
+  {
+    "q": "The capacitor is similar to a ____ battery. (2025)",
+    "type": "blank",
+    "c": "rechargeable",
+    "e": "A capacitor stores electrical energy temporarily and releases it rapidly, akin to a rechargeable battery."
+  },
+  {
+    "q": "The capacitance of a capacitor depends on the nature of the ____ between the two conductors. (2025)",
+    "type": "blank",
+    "c": "insulating material (or) dielectrics",
+    "e": "The dielectric material placed between the plates affects how much charge the capacitor can store."
+  },
+  {
+    "q": "A capacitor stores ____ energy in the form of an electric field. (2025)",
+    "type": "blank",
+    "c": "electrical",
+    "e": "Capacitors store potential energy as an electric field established between their plates."
+  },
+  {
+    "q": "The working voltage of the film capacitors are up to ____ V. (2025)",
+    "type": "blank",
+    "c": "1500",
+    "e": "Film capacitors can be designed to withstand high working voltages up to 1500 V."
+  },
+  {
+    "q": "The charge of a capacitor is directly proportional to its ____. (2025)",
+    "type": "blank",
+    "c": "potential difference",
+    "e": "Charge Q is directly proportional to the potential difference V across the plates (Q = CV)."
+  },
+  {
+    "q": "For a vacuum κ = 1 and for other media ____. (2025)",
+    "type": "blank",
+    "c": "k > 1",
+    "e": "Dielectric materials other than a vacuum increase capacitance, so their dielectric constant k > 1."
+  },
+  {
+    "q": "The capacitors are connected in series each capacitor has the ____ charge. (2025)",
+    "type": "blank",
+    "c": "same",
+    "e": "In series arrangements, every capacitor acquires the exact same amount of electric charge."
+  },
+  {
+    "q": "Variable capacitors mostly use air as the ____ medium. (2026)",
+    "type": "blank",
+    "c": "dielectric",
+    "e": "Air is commonly used as the dielectric in variable capacitors due to low loss at radio frequencies."
+  },
+  {
+    "q": "The equivalent capacitance of the capacitors connected in ____ is the sum of the capacitances of the individual capacitors. (2026)",
+    "type": "blank",
+    "c": "parallel",
+    "e": "When connected in parallel, individual capacitances add up directly to give equivalent capacitance."
+  },
+  {
+    "q": "The electrical energy W stored in the capacitor is given, in terms of charge Q and potential difference V, by ____. (2026)",
+    "type": "blank",
+    "c": "W = 1/2 QV",
+    "e": "In terms of Q and V, the stored electrical energy equation is W = 1/2 QV."
+  },
+  {
+    "q": "Placing a resistor in the charging circuit ____ the charging process. (2026)",
+    "type": "blank",
+    "c": "slows down",
+    "e": "Resistors restrict current flow, increasing the time constant and slowing down the charging process."
+  }
 ]
