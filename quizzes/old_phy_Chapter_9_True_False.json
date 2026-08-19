@@ -1,24 +1,134 @@
 [
-  {"type": "tf", "q": "For a vacuum, κ = 1 and for other insulating materials κ > 1.", "c": true},
-  {"type": "tf", "q": "When one side of a capacitor holds a positive charge, the other side holds an equal negative charge.", "c": true},
-  {"type": "tf", "q": "Variable capacitor is used as tuning capacitor.", "c": true},
-  {"type": "tf", "q": "A capacitor is an electrical device that stores electrical energy in the form of a magnetic field.", "c": false},
-  {"type": "tf", "q": "A capacitor stores electrical energy in the form of a magnetic field.", "c": false},
-  {"type": "tf", "q": "Variable capacitors mostly use air as the dielectric medium.", "c": true},
-  {"type": "tf", "q": "A capacitor stores electrical energy in the form of magnetic field.", "c": false},
-  {"type": "tf", "q": "Film capacitors and ceramic capacitors have positive and negative terminals.", "c": false},
-  {"type": "tf", "q": "If one conductor of a capacitor has a charge + Q the other has a – Q.", "c": true},
-  {"type": "tf", "q": "The total capacitance of capacitors in parallel is equal to the sum of their individual capacitances.", "c": true},
-  {"type": "tf", "q": "The capacitance of a capacitor depends on the nature of the insulator between the two conductors of that capacitor.", "c": true},
-  {"type": "tf", "q": "Capacitors in parallel have the same charge on each capacitor.", "c": false},
-  {"type": "tf", "q": "A supercapacitor (SC) is also called an ultracapacitor.", "c": true},
-  {"type": "tf", "q": "The dielectric strength of insulating materials is smaller than that of air.", "c": false},
-  {"type": "tf", "q": "Variable capacitors mostly use air as the dielectric medium.", "c": true},
-  {"type": "tf", "q": "Capacitors can also be used in a time-dependent circuit (timer circuit). 2024", "c": true},
-  {"type": "tf", "q": "When capacitors having different capacitances are connected in parallel, they have the same charge. 2024", "c": false},
-  {"type": "tf", "q": "A capacitor stores electrical energy in the form of an electric field. 2024", "c": true},
-  {"type": "tf", "q": "The potential difference of the capacitor is twice the potential difference between two conductors of the capacitor. 2024", "c": false},
-  {"type": "tf", "q": "A capacitor consists of two conductors separated by a small distance. 2024", "c": true},
-  {"type": "tf", "q": "The dielectric constant of water is larger than that of vacuum. 2024", "c": true},
-  {"type": "tf", "q": "Charging a capacitor means connecting the capacitor to a resistor. 2024", "c": false}
+  {
+    "q": "For a vacuum, κ = 1 and for other insulating materials κ > 1. (2024)",
+    "type": "tf",
+    "c": "true",
+    "e": "The dielectric constant of a vacuum is defined as 1, while for all other insulating materials, it is strictly greater than 1."
+  },
+  {
+    "q": "When one side of a capacitor holds a positive charge, the other side holds an equal negative charge. (2024)",
+    "type": "tf",
+    "c": "true",
+    "e": "The two conductors of a capacitor always carry equal and opposite charges (+Q and -Q)."
+  },
+  {
+    "q": "Variable capacitor is used as tuning capacitor. (2024)",
+    "type": "tf",
+    "c": "true",
+    "e": "Variable capacitors are commonly used in radio receiver circuits as tuning capacitors to adjust resonant frequencies."
+  },
+  {
+    "q": "A capacitor is an electrical device that stores electrical energy in the form of a magnetic field. (2024)",
+    "type": "tf",
+    "c": "false",
+    "e": "A capacitor stores electrical energy in the form of an electric field, whereas an inductor stores energy in a magnetic field."
+  },
+  {
+    "q": "A capacitor stores electrical energy in the form of a magnetic field. (2024)",
+    "type": "tf",
+    "c": "false",
+    "e": "Capacitors store electrical energy within an electric field between their plates, not a magnetic field."
+  },
+  {
+    "q": "Variable capacitors mostly use air as the dielectric medium. (2024)",
+    "type": "tf",
+    "c": "true",
+    "e": "Air is the standard and most commonly used dielectric medium in variable capacitors."
+  },
+  {
+    "q": "A capacitor stores electrical energy in the form of magnetic field. (2025)",
+    "type": "tf",
+    "c": "false",
+    "e": "Electrical energy in a capacitor is stored electrostatic ally in an electric field."
+  },
+  {
+    "q": "Film capacitors and ceramic capacitors have positive and negative terminals. (2025)",
+    "type": "tf",
+    "c": "false",
+    "e": "Film and ceramic capacitors are non-polarized and do not possess fixed positive or negative terminals."
+  },
+  {
+    "q": "If one conductor of a capacitor has a charge + Q the other has a - Q. (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "By definition, the charges on the two conductors of a capacitor are equal in magnitude and opposite in polarity (+Q and -Q)."
+  },
+  {
+    "q": "The total capacitance of capacitors in parallel is equal to the sum of their individual capacitances. (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "For parallel combination, total capacitance is given by the formula C_total = C_1 + C_2 + ... + C_n."
+  },
+  {
+    "q": "The capacitance of a capacitor depends on the nature of the insulator between the two conductors of that capacitor. (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "Capacitance depends directly on the dielectric constant of the insulating material placed between the conductors."
+  },
+  {
+    "q": "Capacitors in parallel have the same charge on each capacitor. (2025)",
+    "type": "tf",
+    "c": "false",
+    "e": "Capacitors in parallel share the same potential difference (voltage), but hold different charges if their capacitances differ."
+  },
+  {
+    "q": "A supercapacitor (SC) is also called an ultracapacitor. (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "Supercapacitors are high-capacity electrochemical capacitors frequently referred to as ultracapacitors."
+  },
+  {
+    "q": "The dielectric strength of insulating materials is smaller than that of air. (2025)",
+    "type": "tf",
+    "c": "false",
+    "e": "Most solid insulating materials have a higher dielectric strength than air, allowing them to withstand higher electric fields without breakdown."
+  },
+  {
+    "q": "Variable capacitors mostly use air as the dielectric medium. (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "Air is typically used as the dielectric medium in variable capacitors."
+  },
+  {
+    "q": "Capacitors can also be used in a time-dependent circuit (timer circuit). (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "Because of their charging and discharging behavior over time, capacitors are key components in timer circuits."
+  },
+  {
+    "q": "When capacitors having different capacitances are connected in parallel, they have the same charge. (2025)",
+    "type": "tf",
+    "c": "false",
+    "e": "In parallel connections, the voltage across each capacitor is identical, but charges vary directly with individual capacitances (Q = CV)."
+  },
+  {
+    "q": "A capacitor stores electrical energy in the form of an electric field. (2025)",
+    "type": "tf",
+    "c": "true",
+    "e": "Energy is stored electrostatically in the electric field established between the capacitor plates."
+  },
+  {
+    "q": "The potential difference of the capacitor is twice the potential difference between two conductors of the capacitor. (2025)",
+    "type": "tf",
+    "c": "false",
+    "e": "The potential difference of a capacitor is simply equal to the potential difference existing between its two conductors."
+  },
+  {
+    "q": "A capacitor consists of two conductors separated by a small distance. (2026)",
+    "type": "tf",
+    "c": "true",
+    "e": "A basic capacitor consists of two conductive surfaces separated by a small insulating distance or dielectric gap."
+  },
+  {
+    "q": "The dielectric constant of water is larger than that of vacuum. (2026)",
+    "type": "tf",
+    "c": "true",
+    "e": "The dielectric constant of water is approximately 80, which is significantly larger than that of a vacuum (1)."
+  },
+  {
+    "q": "Charging a capacitor means connecting the capacitor to a resistor. (2026)",
+    "type": "tf",
+    "c": "false",
+    "e": "Charging a capacitor requires connecting it across a voltage source (such as a battery) to supply charge, not simply connecting a resistor."
+  }
 ]
