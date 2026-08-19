@@ -280,7 +280,7 @@ body.page-no-nav .container {
     
     .bought-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
     .bought-badge { background: #1E293B; color: #00D5FF; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #00D5FF; font-weight: 700; }
-    .bought-badge.vol-badge { color: #E8B84A; border-color: #E8B84A; }
+    .bought-badge.vol-badge { color: #C9B37A; border-color: #C9B37A; background: transparent; }
     
     .streak-mini-badge {
         position: absolute; top: 5px; left: 50%; transform: translateX(-120px); 
@@ -1944,80 +1944,70 @@ body.showing-articles .container {
 }
 	   
 #subject-list .subject-card.vol-unlocked,
-#old-subject-list .subject-card.vol-unlocked { border-color: #E8B84A !important; }
+#old-subject-list .subject-card.vol-unlocked {
+    border-color: #C9B37A !important;
+    background: #121821 !important;
+}
 #subject-list .subject-card.vol-unlocked span:last-child,
-#old-subject-list .subject-card.vol-unlocked span:last-child { color: #E8B84A !important; }
+#old-subject-list .subject-card.vol-unlocked span:last-child { color: #C9B37A !important; }
+.vol-card-mark {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    font-weight: 700;
+    color: #C9B37A;
+    margin-left: 8px;
+}
 
-.volunteer-banner {
-    display: none;
-    margin: 0 5px 16px;
-    padding: 14px 14px 12px;
-    border: 1px solid #E8B84A;
-    border-radius: 14px;
-    background: #162235;
-    text-align: center;
+body.volunteer-role {
+    --vol-gold: #C9B37A;
 }
-body.volunteer-role .volunteer-banner { display: block; }
-.volunteer-banner-kicker {
-    color: #E8B84A;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
+body.volunteer-role #profile-avatar circle,
+body.volunteer-role #profile-avatar line,
+body.volunteer-role #profile-avatar path {
+    stroke: #C9B37A;
 }
-.volunteer-banner-title {
-    color: #E8B84A;
-    font-size: 1.15rem;
-    font-weight: 800;
-    margin: 0 0 6px;
+body.volunteer-role #user-name {
+    color: #F4EFE4;
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
-.volunteer-banner-copy {
-    color: #CBD5E1;
-    font-size: 0.86rem;
-    line-height: 1.5;
-    margin: 0;
+body.volunteer-role .profile-info-card {
+    border: 1px solid #C9B37A !important;
+    background: #121821 !important;
 }
+body.volunteer-role #quiz-mode-box {
+    border-color: #C9B37A !important;
+}
+body.volunteer-role .buy-btn {
+    display: none !important;
+}
+
 .vol-chip {
     display: none;
     margin: 0 auto 10px;
     width: fit-content;
-    color: #E8B84A;
-    border: 1px solid #E8B84A;
+    color: #C9B37A;
+    border: 1px solid #C9B37A;
     border-radius: 999px;
-    padding: 4px 12px;
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
+    padding: 5px 14px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: transparent;
 }
 body.volunteer-role .vol-chip { display: inline-block; }
-.volunteer-mission {
-    display: none;
-    margin: 12px 0 14px;
-    padding: 12px;
-    border: 1px solid #E8B84A;
-    border-radius: 12px;
-    text-align: left;
-}
-body.volunteer-role .volunteer-mission { display: block; }
-.volunteer-mission b { color: #E8B84A; }
-.volunteer-mission p { color: #CBD5E1; font-size: 0.85rem; line-height: 1.5; margin: 6px 0 0; }
-.volunteer-mission .vol-count {
-    margin-top: 10px;
-    color: #E8B84A;
-    font-weight: 800;
-    font-size: 0.95rem;
-}
 .vol-report-link {
     display: none !important;
     width: 100% !important;
     background: none !important;
     border: none !important;
-    color: #E8B84A !important;
+    color: #C9B37A !important;
     text-align: center;
-    font-size: 0.82rem !important;
-    font-weight: 700;
-    text-decoration: underline;
+    font-size: 0.78rem !important;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
     cursor: pointer;
     padding: 8px 0 0 !important;
     margin: 0 !important;
@@ -2059,11 +2049,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
     <div class="container">
         <div id="home-screen" class="screen active-screen">
-    <div id="volunteer-banner" class="volunteer-banner">
-        <div class="volunteer-banner-kicker">Cannot be bought</div>
-        <div class="volunteer-banner-title">REED Volunteer</div>
-        <p class="volunteer-banner-copy">ဒီအဆင့်ကို ငွေနဲ့ ဝယ်လို့မရပါ။ သင်က မေးခွန်းအမှားကို ရှာဖွေပေးနေတဲ့ အထူးအဖွဲ့ဝင်ပါ။ ကျောင်းသား ထောင်ပေါင်းများစွာ ဖြေမယ့် မေးခွန်းတွေကို သင်က ကာကွယ်ပေးနေပါတယ်။</p>
-    </div>
     <!-- Two Tabs -->
   <div id="home-tabs-row" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 0 5px;">
     <button id="home-tab-current" class="btn" style="flex:1; background: var(--accent); color: #000;" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
@@ -2230,7 +2215,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 </div>
 
                 <div class="profile-info-card">
-                    <div id="volunteer-mission" class="volunteer-mission"></div>
                     <b id="bought-subjects-heading" style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
                     <button class="btn buy-btn" onclick="copyTelegram()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
@@ -2373,7 +2357,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <button class="btn" onclick="nextFlash()">နောက်သို့ ➡️</button>
             </div>
             <button class="btn back-btn" onclick="showScreen('activity')">ထွက်မည်</button>
-            <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">မေးခွန်းအမှား တင်ပြရန်</button>
+            <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">Report a mistake</button>
         </div>
 
               <div id="quiz-screen" class="screen" style="position: relative;">
@@ -2405,7 +2389,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
         <button class="btn back-btn" id="quiz-back-btn" style="margin-top: 10px;">ထွက်မည်</button>
     </div>
-    <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">မေးခွန်းအမှား တင်ပြရန်</button>
+    <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">Report a mistake</button>
 </div>
 
 <!-- ပြင်ဆင်ထားသည့် Math Solution Screen -->
@@ -2422,7 +2406,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         <button class="btn next-btn" id="math-next-btn" type="button">နောက်သို့ →</button>
         <div class="quiz-keys-hint">Laptop: Space = Next</div>
     </div>
-    <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">မေးခွန်းအမှား တင်ပြရန်</button>
+    <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">Report a mistake</button>
 </div>
 
 <!-- Grammar Note Screen -->
@@ -2691,7 +2675,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=22'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=23'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -3670,7 +3654,8 @@ function setOldMenuTitle(text) {
         const card = document.createElement('div');
         card.className = `subject-card ${isPaid ? '' : 'locked'}`;
         if (isPaid && isVolunteerUnlock(sub.id) && !isPaidUnlock(sub.id)) card.classList.add('vol-unlocked');
-        card.innerHTML = `<span>${sub.name} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
+        const volMark = (isPaid && isVolunteerUnlock(sub.id) && !isPaidUnlock(sub.id)) ? '<span class="vol-card-mark">VOL</span>' : '';
+        card.innerHTML = `<span>${sub.name}${volMark} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
 
         card.onclick = () => {
             if (isPaid) {
@@ -3932,7 +3917,8 @@ function unlockCard(div, sub) {
         const div = document.createElement('div');
         div.className = `subject-card ${isPaid ? '' : 'locked'}`;
         if (isPaid && isVolunteerUnlock(sub.id) && !isPaidUnlock(sub.id)) div.classList.add('vol-unlocked');
-        div.innerHTML = `<span>${sub.name} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
+        const volMark = (isPaid && isVolunteerUnlock(sub.id) && !isPaidUnlock(sub.id)) ? '<span class="vol-card-mark">VOL</span>' : '';
+        div.innerHTML = `<span>${sub.name}${volMark} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
         
                 div.onclick = () => {
             setOldQuestionContext(false);      // ⬅️ ADD THIS LINE
@@ -5284,23 +5270,14 @@ function renderProfileData() {
 
     const heading = document.getElementById('bought-subjects-heading');
     if (heading) {
-        heading.innerText = volunteer ? 'ယုံကြည်အပ်နှင်းထားသော ဘာသာရပ်များ' : 'ဝယ်ယူပြီးသော ဘာသာရပ်များ';
-        heading.style.color = volunteer ? '#E8B84A' : '';
+        heading.innerText = volunteer ? 'Subjects' : 'ဝယ်ယူပြီးသော ဘာသာရပ်များ';
+        heading.style.color = volunteer ? '#C9B37A' : '';
     }
 
-    const mission = document.getElementById('volunteer-mission');
-    if (mission) {
-        const reports = Number(userBought && userBought.volReports) || 0;
-        mission.innerHTML = `
-            <b>သင့်မျက်စိတစ်စုံက REED ကို ကာကွယ်ပေးနေပါတယ်</b>
-            <p>ငွေနဲ့ ဝယ်လို့မရတဲ့ အခန်းကဏ္ဍပါ။ မေးခွန်းအမှားကို ရှာပြီး Owner ဆီ တင်ပြပေးပါ။ ကျောင်းသား ထောင်ပေါင်းများစွာ အဲဒီမေးခွန်းတွေကို ဖြေကြမှာပါ။</p>
-            <div class="vol-count">Mistakes found: ${reports}</div>
-            <p>စာရင်းကို Owner ကသာ ထည့်ပေးပါတယ်။ တင်ပြပြီးတာနဲ့ စိတ်ချပါ။</p>
-        `;
-    }
+    const subjectEn = { mm: 'Myanmar', en: 'English', math: 'Math', phy: 'Physics', chem: 'Chemistry', bio: 'Biology', eco: 'Economics' };
 
     const buyBtn = document.querySelector('#profile-screen .buy-btn');
-    if (buyBtn) buyBtn.innerText = volunteer ? 'Owner ကို ဆက်သွယ်ရန်' : 'ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်';
+    if (buyBtn) buyBtn.style.display = volunteer ? 'none' : '';
 
     // ဝယ်ယူထားသည့် ဘာသာရပ်ကွက် (Bought Badges) ပြသခြင်း
     const container = document.getElementById('bought-items-container');
@@ -5313,7 +5290,8 @@ function renderProfileData() {
             const span = document.createElement('span');
             const volOnly = isVolunteerUnlock(s.id) && !isPaidUnlock(s.id);
             span.className = 'bought-badge' + (volOnly ? ' vol-badge' : '');
-            span.innerText = volOnly ? (s.name + ' · Vol') : s.name;
+            const label = volunteer ? (subjectEn[s.id] || s.name) : s.name;
+            span.innerText = volOnly ? (label + ' · Vol') : label;
             container.appendChild(span);
         });
     }
