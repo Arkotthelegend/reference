@@ -2691,7 +2691,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=21'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=22'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -3541,7 +3541,7 @@ async function openArticleDetail(articleId) {
 
         function loadFromCache() {
     try {
-        const cached = localStorage.getItem('cached_paid_users');
+        const cached = localStorage.getItem('cached_paid_users_v22');
         if (cached) {
             paidUsers = JSON.parse(cached);
             userBought = paidUsers[userId] || {};
@@ -3560,7 +3560,7 @@ async function fetchPaidUsers() {
     const sheetURL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
     
     try {
-        const response = await fetch(sheetURL + "?action=getUsers");
+        const response = await fetch(sheetURL + "?action=getUsers&cb=" + Date.now());
         const newData = await response.json();
         
         if (newData.success === false) {
@@ -3568,20 +3568,14 @@ async function fetchPaidUsers() {
             return;
         }
         
-        const cachedStr = localStorage.getItem('cached_paid_users');
-        const newStr = JSON.stringify(newData);
-        
-        // ဒေတာ တကယ်ပြောင်းမှ ပြန်သိမ်းပြီး Re-render လုပ်မယ်
-        if (cachedStr !== newStr) {
-            localStorage.setItem('cached_paid_users', newStr);
-            paidUsers = newData;
-            userBought = paidUsers[userId] || {};
-            applyVolunteerChrome();
-            renderSubjects();
-            initOldSubjects();
-            renderProfileData();
-            console.log("✅ Data synced from server");
-        }
+        paidUsers = newData;
+        userBought = paidUsers[userId] || {};
+        localStorage.setItem('cached_paid_users_v22', JSON.stringify(newData));
+        applyVolunteerChrome();
+        renderSubjects();
+        initOldSubjects();
+        renderProfileData();
+        console.log("✅ Data synced from server");
     } catch (e) {
         console.error("❌ Background sync failed:", e);
         // Fail ရင် Cache ကို အရင်အတိုင်းထားခဲ့မယ် (User ကို မကြောက်စရာလိုဘူး)
@@ -3866,9 +3860,13 @@ function isPaidUnlock(subId) {
 }
 
 function isVolunteerUnlock(subId) {
-    const prefix = (getGradeCfg().sheetPrefix) || '';
     const vol = volunteerMap();
-    return isExpiryValid(vol[prefix + 'all']) || isExpiryValid(vol[prefix + subId]);
+    const prefix = (getGradeCfg().sheetPrefix) || '';
+    if (isExpiryValid(vol[prefix + 'all']) || isExpiryValid(vol[prefix + subId])) return true;
+    if (isExpiryValid(vol['all']) || isExpiryValid(vol[subId])) return true;
+    if (isExpiryValid(vol['g11_all']) || isExpiryValid(vol['g11_' + subId])) return true;
+    if (isExpiryValid(vol['g10_all']) || isExpiryValid(vol['g10_' + subId])) return true;
+    return false;
 }
 
 function applyVolunteerChrome() {
