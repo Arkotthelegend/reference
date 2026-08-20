@@ -15,14 +15,17 @@
         bio: ['Notes / Diagram', 'ကျက်စာ / Review'],
         eco: ['Notes / MCQ', 'Essay']
     };
+    var INK = '#111111';
+    var PAPER = '#FFFFFF';
+    var FILL = '#E6E6E6';
     var COLORS = {
-        school: '#C5E38A',
-        rest: '#9FD4F0',
-        brk: '#7EDCE2',
-        tuition: '#B7E0C2',
-        study: '#FFD7B5',
-        dinner: '#B8D4C8',
-        homework: '#E6D4F5'
+        school: FILL,
+        rest: PAPER,
+        brk: PAPER,
+        tuition: FILL,
+        study: PAPER,
+        dinner: PAPER,
+        homework: PAPER
     };
 
     function pad(n) { return (n < 10 ? '0' : '') + n; }
@@ -266,57 +269,64 @@
         while (t.length > 2 && ctx.measureText(t + '…').width > maxW) t = t.slice(0, -1);
         return t + '…';
     }
-    function drawLogo(ctx, cx, cy, r, grade) {
+    function drawLogo(ctx, cx, cy, s) {
+        s = s || 56;
         ctx.save();
+        ctx.translate(cx, cy);
+        ctx.strokeStyle = INK;
+        ctx.fillStyle = INK;
+        ctx.lineWidth = Math.max(2.4, s * 0.052);
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        var w = s * 0.92;
+        var h = s * 0.68;
         ctx.beginPath();
-        ctx.arc(cx, cy, r, 0, Math.PI * 2);
-        ctx.fillStyle = '#1E3A4C';
-        ctx.fill();
-        ctx.lineWidth = 7;
-        ctx.strokeStyle = '#C9A24A';
+        ctx.moveTo(0, -h * 0.46);
+        ctx.lineTo(-w * 0.5, -h * 0.4);
+        ctx.lineTo(-w * 0.5, h * 0.34);
+        ctx.quadraticCurveTo(-w * 0.22, h * 0.5, 0, h * 0.4);
+        ctx.moveTo(0, -h * 0.46);
+        ctx.lineTo(w * 0.5, -h * 0.4);
+        ctx.lineTo(w * 0.5, h * 0.34);
+        ctx.quadraticCurveTo(w * 0.22, h * 0.5, 0, h * 0.4);
         ctx.stroke();
         ctx.beginPath();
-        ctx.arc(cx, cy, r - 14, 0, Math.PI * 2);
-        ctx.strokeStyle = '#E8D48A';
-        ctx.lineWidth = 2;
+        ctx.moveTo(0, -h * 0.46);
+        ctx.lineTo(0, h * 0.4);
         ctx.stroke();
-        ctx.fillStyle = '#F7E27A';
+
         ctx.beginPath();
-        ctx.arc(cx, cy - r * 0.22, 7, 0, Math.PI * 2);
+        ctx.moveTo(0, h * 0.4);
+        ctx.bezierCurveTo(w * 0.22, h * 0.08, w * 0.58, -h * 0.12, w * 0.28, -h * 0.62);
+        ctx.bezierCurveTo(-0.02 * w, -h * 1.12, -w * 0.82, -h * 0.72, -w * 0.52, -h * 0.08);
+        ctx.bezierCurveTo(-w * 0.32, h * 0.32, w * 0.12, h * 0.02, w * 0.42, -h * 0.28);
+        ctx.stroke();
+
+        ctx.save();
+        ctx.translate(w * 0.44, -h * 0.3);
+        ctx.rotate(-0.55);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(s * 0.07, -s * 0.035);
+        ctx.lineTo(s * 0.2, 0);
+        ctx.lineTo(s * 0.07, s * 0.035);
+        ctx.closePath();
         ctx.fill();
-        ctx.fillStyle = '#FFFFFF';
-        ctx.font = '800 ' + Math.round(r * 0.42) + 'px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText('G' + grade, cx, cy + 6);
+        ctx.beginPath();
+        ctx.moveTo(s * 0.04, 0);
+        ctx.lineTo(s * 0.14, 0);
+        ctx.lineWidth = Math.max(1.2, s * 0.02);
+        ctx.stroke();
         ctx.restore();
-    }
-    function deco(ctx, w, h) {
-        var blobs = [
-            [0, 80, 140, 'rgba(244,184,200,0.45)'],
-            [w, 40, 160, 'rgba(90,120,170,0.18)'],
-            [40, h - 40, 90, 'rgba(197,227,138,0.35)'],
-            [w - 30, h * 0.55, 70, 'rgba(255,215,181,0.4)']
-        ];
-        blobs.forEach(function (b) {
-            ctx.beginPath();
-            ctx.fillStyle = b[3];
-            ctx.arc(b[0], b[1], b[2], 0, Math.PI * 2);
-            ctx.fill();
-        });
-        ctx.strokeStyle = 'rgba(90,74,138,0.18)';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(w * 0.72, 28);
-        ctx.quadraticCurveTo(w * 0.82, 70, w * 0.9, 36);
-        ctx.stroke();
+        ctx.restore();
     }
 
     function tableHeight(rows, rowH) {
         return 48 + rows.length * rowH;
     }
 
-    function drawTable(ctx, x, y, w, dayIdxs, weekDays, headerColor, rowH) {
+    function drawTable(ctx, x, y, w, dayIdxs, weekDays, rowH) {
         var bounds = uniqueBounds(weekDays, dayIdxs);
         var rows = [];
         for (var i = 0; i < bounds.length - 1; i++) {
@@ -328,19 +338,19 @@
         var headerH = 46;
         var h = headerH + rows.length * rowH;
 
-        rr(ctx, x, y, w, h, 16);
-        ctx.fillStyle = '#FFFFFF';
+        rr(ctx, x, y, w, h, 12);
+        ctx.fillStyle = PAPER;
         ctx.fill();
-        ctx.strokeStyle = '#B9C6D2';
-        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = INK;
+        ctx.lineWidth = 1.6;
         ctx.stroke();
 
-        ctx.fillStyle = headerColor;
-        rr(ctx, x, y, w, headerH, 16);
+        ctx.fillStyle = INK;
+        rr(ctx, x, y, w, headerH, 12);
         ctx.fill();
-        ctx.fillRect(x, y + 16, w, headerH - 16);
+        ctx.fillRect(x, y + 12, w, headerH - 12);
 
-        ctx.fillStyle = '#FFF';
+        ctx.fillStyle = PAPER;
         ctx.font = '800 22px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -351,16 +361,18 @@
 
         rows.forEach(function (row, ri) {
             var ry = y + headerH + ri * rowH;
-            ctx.fillStyle = ri % 2 ? '#F7FBFE' : '#FFFDF8';
+            ctx.fillStyle = PAPER;
             ctx.fillRect(x, ry, w, rowH);
-            ctx.strokeStyle = '#D5DEE6';
+            ctx.strokeStyle = INK;
+            ctx.globalAlpha = 0.18;
             ctx.beginPath();
             ctx.moveTo(x, ry);
             ctx.lineTo(x + w, ry);
             ctx.stroke();
-            ctx.fillStyle = '#EEDCC3';
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = FILL;
             ctx.fillRect(x, ry, timeW, rowH);
-            ctx.fillStyle = '#3A2A1A';
+            ctx.fillStyle = INK;
             ctx.font = '700 15px sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText(fitText(ctx, rangeLabel(row.start, row.end), timeW - 12, 15), x + timeW / 2, ry + rowH / 2);
@@ -380,16 +392,15 @@
                 var cx = x + timeW + ci * colW;
                 var cw = colW * span;
                 if (cell) {
-                    ctx.fillStyle = cell.color || COLORS.study;
-                    ctx.fillRect(cx + 2, ry + 2, cw - 4, rowH - 4);
-                    ctx.fillStyle = '#1E293B';
+                    ctx.fillStyle = cell.color || PAPER;
+                    ctx.fillRect(cx + 1, ry + 1, cw - 2, rowH - 2);
+                    ctx.fillStyle = INK;
                     ctx.textAlign = 'center';
                     ctx.font = '800 16px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
                     var main = fitText(ctx, cell.label, cw - 10, 16);
                     if (cell.sub && rowH >= 44 && span >= 1) {
                         ctx.fillText(main, cx + cw / 2, ry + rowH / 2 - 8);
                         ctx.font = '600 12px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-                        ctx.fillStyle = '#334155';
                         ctx.fillText(fitText(ctx, '(' + cell.sub + ')', cw - 10, 12), cx + cw / 2, ry + rowH / 2 + 10);
                     } else {
                         ctx.fillText(main, cx + cw / 2, ry + rowH / 2);
@@ -401,8 +412,10 @@
         ctx.beginPath();
         ctx.moveTo(x + timeW, y);
         ctx.lineTo(x + timeW, y + h);
-        ctx.strokeStyle = '#C5D0DA';
+        ctx.strokeStyle = INK;
+        ctx.globalAlpha = 0.35;
         ctx.stroke();
+        ctx.globalAlpha = 1;
         return h;
     }
 
@@ -424,43 +437,49 @@
         canvas.width = w;
         canvas.height = h;
         var ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#D9EEF8';
+        ctx.fillStyle = PAPER;
         ctx.fillRect(0, 0, w, h);
-        deco(ctx, w, h);
 
-        ctx.fillStyle = '#1A2330';
-        ctx.font = '800 54px sans-serif';
+        ctx.fillStyle = INK;
+        ctx.font = '800 58px sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'alphabetic';
-        ctx.fillText('G' + meta.grade + ' Learning Hub', pad, 78);
+        ctx.fillText('Reed', pad, 78);
+        ctx.font = '600 22px sans-serif';
+        ctx.fillText('Grade ' + meta.grade + ' timetable', pad, 108);
 
         var name = meta.name || 'Student';
-        ctx.font = '700 26px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-        var nw = Math.min(innerW - 180, Math.max(220, ctx.measureText(name).width + 48));
-        rr(ctx, pad, 96, nw, 48, 24);
-        ctx.fillStyle = '#F4B8C8';
-        ctx.fill();
-        ctx.fillStyle = '#3B1F2A';
+        ctx.font = '700 24px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
+        var nw = Math.min(innerW - 180, Math.max(200, ctx.measureText(name).width + 40));
+        rr(ctx, pad, 122, nw, 42, 21);
+        ctx.strokeStyle = INK;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.fillStyle = INK;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText(fitText(ctx, name, nw - 24, 26), pad + nw / 2, 120);
+        ctx.fillText(fitText(ctx, name, nw - 24, 24), pad + nw / 2, 143);
 
-        drawLogo(ctx, w - pad - 70, 92, 62, meta.grade);
+        drawLogo(ctx, w - pad - 58, 88, 70);
 
-        ctx.fillStyle = '#5B6B7C';
+        ctx.fillStyle = INK;
+        ctx.globalAlpha = 0.55;
         ctx.font = '600 18px sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'alphabetic';
-        ctx.fillText(meta.weekLabel || '', pad, 168);
+        ctx.fillText(meta.weekLabel || '', pad, 186);
+        ctx.globalAlpha = 1;
 
-        var y = 190;
-        y += drawTable(ctx, pad, y, innerW, weekdayIdx, weekDays, '#C9956A', rowH) + 28;
-        y += drawTable(ctx, pad, y, innerW, weekendIdx, weekDays, '#5B4B8A', rowH) + 24;
+        var y = 206;
+        y += drawTable(ctx, pad, y, innerW, weekdayIdx, weekDays, rowH) + 28;
+        y += drawTable(ctx, pad, y, innerW, weekendIdx, weekDays, rowH) + 24;
 
-        ctx.fillStyle = '#5B6B7C';
+        ctx.fillStyle = INK;
+        ctx.globalAlpha = 0.55;
         ctx.font = '600 16px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('REED Planner · a fresh mix every week · screenshot or Save to keep this poster', w / 2, y + 8);
+        ctx.fillText('Reed · a fresh mix every week · long-press or Save to keep this poster', w / 2, y + 8);
+        ctx.globalAlpha = 1;
         return canvas;
     }
 
