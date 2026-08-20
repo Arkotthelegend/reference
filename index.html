@@ -357,6 +357,12 @@ input:checked + .slider:before {
     .poem-para-card { background: #0B0F19; border: 1px solid #334155; border-left: 3px solid #00D5FF; border-radius: 12px; padding: 12px 14px; text-align: left; }
     .poem-para-lines { color: #E2E8F0; font-style: italic; line-height: 1.55; white-space: pre-line; margin: 0 0 8px; font-size: 0.95rem; }
     .poem-para-mean { color: #94A3B8; line-height: 1.6; margin: 0; font-size: 0.9rem; border-top: 1px solid #1E293B; padding-top: 8px; }
+    .en-qa-wrap { margin-top: 4px; text-align: left; grid-column: 1 / -1; }
+    .en-qa-list { display: flex; flex-direction: column; gap: 10px; }
+    .en-qa-card { background: #0B0F19; border: 1px solid #334155; border-left: 3px solid #00D5FF; border-radius: 12px; padding: 12px 14px; text-align: left; }
+    .en-qa-q { color: #E2E8F0; line-height: 1.55; margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; }
+    .en-qa-a { color: #94A3B8; line-height: 1.6; margin: 0; font-size: 0.9rem; border-top: 1px solid #1E293B; padding-top: 8px; }
+    .en-qa-a.opinion { color: #00D5FF; font-weight: 800; }
     @media (min-width: 768px) {
         .poem-para-card { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
         .poem-para-lines { margin: 0; }
@@ -2898,7 +2904,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=40'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=41'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -4165,11 +4171,15 @@ function openSubjectMenu(sub) {
     const skip = sub.skipChapters || [];
 
     if (sub.id === 'en') {
-        ['Initial Letter', 'MCQ', 'Grammar', 'Poem'].forEach(type => {
+        const types = ['Initial Letter', 'MCQ', 'Grammar', 'Poem', 'Dialogue'];
+        if (getSelectedGrade() === 12) types.push('Q & A');
+        types.forEach(type => {
             createBtn(type, content, () => {
                 if (type === 'Initial Letter' || type === 'MCQ') showENUnits(type);
                 else if (type === 'Grammar') showENGrammarOptions();
                 else if (type === 'Poem') showENPoemOptions();
+                else if (type === 'Dialogue') showENDialogues();
+                else if (type === 'Q & A') showENQAUnits();
             });
         });
     } else if (sub.id === 'mm') {
@@ -4212,6 +4222,74 @@ function openSubjectMenu(sub) {
                     document.getElementById('quiz-back-btn').onclick = () => showENUnits(typeName);
                 });
             }
+        }
+
+        async function showENDialogues() {
+            showScreen('activity');
+            document.getElementById('activity-title').innerText = 'Dialogue';
+            const content = document.getElementById('activity-content');
+            content.innerHTML = '';
+            document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
+            try {
+                const res = await fetch(quizUrl('en_dialogues') + CB);
+                if (!res.ok) throw new Error();
+                const data = await res.json();
+                data.forEach((item, index) => {
+                    createBtn(item.title, content, () => showENDialogueDetail(data, index));
+                });
+            } catch (e) {
+                tg.showAlert('Dialogue ဖိုင်မတွေ့သေးပါ။');
+            }
+        }
+
+        function showENDialogueDetail(data, index) {
+            showScreen('activity');
+            document.getElementById('activity-title').innerText = data[index].title;
+            const content = document.getElementById('activity-content');
+            content.innerHTML = '';
+            document.getElementById('activity-back-btn').onclick = () => showENDialogues();
+            const div = document.createElement('div');
+            div.style.cssText = 'grid-column: 1 / -1; background: var(--detail-bg); padding: 25px; border-radius: 16px; border: 1px solid var(--detail-border); line-height: 1.8; color: var(--detail-text); white-space: pre-wrap; font-size: 1.05rem; text-align: left; box-sizing: border-box; width: 100%;';
+            div.innerText = data[index].content;
+            content.appendChild(div);
+        }
+
+        async function showENQAUnits() {
+            showScreen('activity');
+            document.getElementById('activity-title').innerText = 'Q & A';
+            const content = document.getElementById('activity-content');
+            content.innerHTML = '';
+            document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
+            try {
+                const res = await fetch('./quizzes/en_qa.json' + CB);
+                if (!res.ok) throw new Error();
+                const data = await res.json();
+                data.forEach((unit, index) => {
+                    createBtn(unit.title, content, () => showENQAList(data, index));
+                });
+            } catch (e) {
+                tg.showAlert('Q & A ဖိုင်မတွေ့သေးပါ။');
+            }
+        }
+
+        function showENQAList(data, index) {
+            const unit = data[index];
+            showScreen('activity');
+            document.getElementById('activity-title').innerText = unit.title;
+            const content = document.getElementById('activity-content');
+            content.innerHTML = '';
+            document.getElementById('activity-back-btn').onclick = () => showENQAUnits();
+            const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const wrap = document.createElement('div');
+            wrap.className = 'en-qa-wrap';
+            wrap.innerHTML = `<div class="en-qa-list">${(unit.items || []).map((item) => {
+                const opinion = item.a === 'Your Opinion';
+                return `<div class="en-qa-card">
+                    <p class="en-qa-q">${esc(item.q)}</p>
+                    <p class="en-qa-a${opinion ? ' opinion' : ''}">${esc(item.a)}</p>
+                </div>`;
+            }).join('')}</div>`;
+            content.appendChild(wrap);
         }
 
         function showENGrammarOptions() {
