@@ -178,7 +178,7 @@
         }
 
         var free = gaps(dayStart, dayEnd, blocks);
-        var slot = dayIndex >= 5 ? 3 : 0;
+        var slot = dayIndex;
         function pushStudy(a, b) {
             if (b - a < 15) return;
             var metaC = subjectMeta(cycle[slot % cycle.length], seed, slot);
@@ -480,15 +480,13 @@
         ctx.fillStyle = INK;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        var isBand = cell.type === 'school' || cell.type === 'tuition' || cell.type === 'rest' || cell.type === 'dinner' || cell.type === 'brk';
-        var mainSize = isBand ? 28 : 24;
-        if (cw < 120) mainSize = 18;
-        ctx.font = (isBand ? '800 ' : '800 ') + mainSize + 'px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-        var main = fitText(ctx, cell.label, cw - 16, mainSize);
-        if (cell.sub && rh >= 70) {
-            ctx.fillText(main, cx + cw / 2, cy - 12);
-            ctx.font = '600 16px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-            ctx.fillText(fitText(ctx, '(' + cell.sub + ')', cw - 16, 16), cx + cw / 2, cy + 16);
+        var size = 18;
+        if (cw < 110) size = 16;
+        ctx.font = '700 ' + size + 'px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
+        var main = fitText(ctx, cell.label, cw - 12, size);
+        if (cell.sub) {
+            ctx.fillText(main, cx + cw / 2, cy - size * 0.7);
+            ctx.fillText(fitText(ctx, '(' + cell.sub + ')', cw - 12, size), cx + cw / 2, cy + size * 0.75);
         } else {
             ctx.fillText(main, cx + cw / 2, cy);
         }
@@ -521,8 +519,8 @@
         ctx.fillStyle = TIMECOL;
         ctx.fillRect(x, ty + headerH, timeW, bodyH);
 
-        ctx.fillStyle = INK;
-        ctx.font = '800 22px sans-serif';
+        ctx.fillStyle = PAPER;
+        ctx.font = '700 18px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         dayIdxs.forEach(function (di, i) {
@@ -541,23 +539,13 @@
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             var timeLabel = rangeLabel(row.start, row.end);
-            var timeSize = timeLabel.length > 18 ? 15 : 17;
-            ctx.font = '800 ' + timeSize + 'px sans-serif';
-            ctx.fillText(fitText(ctx, timeLabel, timeW - 10, timeSize), x + timeW / 2, ry + rh / 2);
+            ctx.font = '700 18px sans-serif';
+            ctx.fillText(fitText(ctx, timeLabel, timeW - 10, 18), x + timeW / 2, ry + rh / 2);
 
-            var skip = {};
             dayIdxs.forEach(function (di, ci) {
-                if (skip[ci]) return;
                 var cell = cellAt(weekDays[di], row.start, row.end);
-                var span = 1;
-                while (ci + span < dayIdxs.length) {
-                    var next = cellAt(weekDays[dayIdxs[ci + span]], row.start, row.end);
-                    if (cell && next && cell.label === next.label && cell.type === next.type && (cell.sub || '') === (next.sub || '')) span++;
-                    else break;
-                }
-                for (var k = 1; k < span; k++) skip[ci + k] = 1;
                 var cx = x + timeW + ci * colW;
-                var cw = colW * span;
+                var cw = colW;
                 ctx.fillStyle = (cell && cell.color) ? cell.color : PAPER;
                 ctx.fillRect(cx, ry, cw, rh);
                 strokeCell(ctx, cx, ry, cw, rh);
