@@ -3,13 +3,13 @@
     var DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     var DAY_FULL = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     var SHORT = {
-        mm: 'Myan', en: 'Eng', math: 'Math', phy: 'Phys',
-        chem: 'Chem', bio: 'Bio', eco: 'Eco'
+        mm: 'Myan', en: 'English', math: 'Maths', phy: 'Physics',
+        chem: 'Chemistry', bio: 'Biology', eco: 'Eco'
     };
     var FOCUS = {
-        en: ['Grammar / Text', 'Essay / letter', 'Text / Poem', 'Questions / Essay'],
-        mm: ['စကားပြေ / ကဗျာ', 'ရေးသည် / ခက်ဆစ်', 'စာစီစာကုံး / အဆို'],
-        math: ['Practice', 'Past paper', 'Formula drill'],
+        en: ['Text / Poem / Grammar', 'Questions / Essay / letter', 'Grammar / Text', 'Essay / letter'],
+        mm: ['စကားပြေ / ကဗျာ', 'ရေသည် / ခက်ဆစ် / အရေး', 'စာစီစာကုံး / အဆို'],
+        math: ['Practice', 'Past paper', 'Formula'],
         phy: ['ကျက်စာ / တွက်စာ', 'Notes / Calculating'],
         chem: ['ကျက်စာ / တွက်စာ', 'Memorizing / Calculating'],
         bio: ['Notes / Diagram', 'ကျက်စာ / Review'],
@@ -17,16 +17,22 @@
     };
     var INK = '#111111';
     var PAPER = '#FFFFFF';
-    var FILL = '#E6E6E6';
+    var HEADER = '#245C43';
+    var TIMECOL = '#7CB87A';
+    var SCHOOL = '#F6E56B';
+    var PAUSE = '#B7E7EA';
+    var DINNER = '#C8E89A';
     var COLORS = {
-        school: FILL,
-        rest: PAPER,
-        brk: PAPER,
-        tuition: FILL,
+        school: SCHOOL,
+        rest: PAUSE,
+        brk: PAUSE,
+        tuition: PAUSE,
         study: PAPER,
-        dinner: PAPER,
+        dinner: DINNER,
         homework: PAPER
     };
+    var LOGO_SRC = './logo.jpg';
+    var logoCache = { tried: false, canvas: null };
 
     function pad(n) { return (n < 10 ? '0' : '') + n; }
     function minsToLabel(m) {
@@ -45,8 +51,8 @@
         var bAp = (b >= 24 * 60 ? 'AM' : (b >= 12 * 60 ? 'PM' : 'AM'));
         if (b === 1440 || b === 0) { bAp = 'AM'; }
         var right = minsToLabel(b === 1440 ? 0 : b).replace(' AM', '').replace(' PM', '');
-        if (aAp === bAp) return left + ' – ' + right + ' ' + bAp;
-        return minsToLabel(a) + ' – ' + minsToLabel(b === 1440 ? 0 : b);
+        if (aAp === bAp) return left + '–' + right + ' ' + bAp;
+        return minsToLabel(a).replace(' ', '\u00a0') + '–' + minsToLabel(b === 1440 ? 0 : b);
     }
     function parseTime(v) {
         var n = parseInt(v, 10);
@@ -144,32 +150,105 @@
         if (tuitionOn) addTuition(answers.tuitionStart, answers.tuitionEnd);
         if (tuitionOn && answers.hasTuition2) addTuition(answers.tuition2Start, answers.tuition2End);
 
-        if (schoolOn) {
-            var schoolLen = answers.schoolEnd - answers.schoolStart;
-            var afterMins = schoolLen >= 5 * 60 ? 60 : 30;
-            var after = clip({ start: answers.schoolEnd, end: answers.schoolEnd + afterMins, type: 'rest', label: 'Rest', color: COLORS.rest }, dayStart, dayEnd);
-            if (after) {
-                var busySchool = blocks.map(function (b) { return { start: b.start, end: b.end }; });
-                gaps(after.start, after.end, busySchool).forEach(function (g) {
-                    if (g.end - g.start >= 15) {
-                        blocks.push({ start: g.start, end: g.end, type: 'rest', label: 'Rest', sub: '', color: COLORS.rest });
-                    }
-                });
-            }
+        var lastTu = 0;
+        if (tuitionOn) lastTu = answers.tuitionEnd;
+        if (tuitionOn && answers.hasTuition2) lastTu = Math.max(lastTu, answers.tuition2End);
+        var restStart = answers.restStart;
+        var restEnd = answers.restEnd;
+        var restLabel = answers.restLabel || 'Dinner + Rest';
+        if (lastTu && restStart < lastTu) {
+            restStart = lastTu;
+            restEnd = lastTu + 30;
+            restLabel = 'Dinner + Rest';
         }
 
-        var rest = clip({ start: answers.restStart, end: answers.restEnd, type: 'rest', label: answers.restLabel || 'Rest', color: COLORS.dinner }, dayStart, dayEnd);
+        if (schoolOn && !tuitionOn) {
+            var lunch = clip({ start: answers.schoolEnd, end: answers.schoolEnd + 60, type: 'rest', label: 'Lunch + Rest', color: COLORS.rest }, dayStart, dayEnd);
+            if (lunch) blocks.push(lunch);
+        }
+
+        var rest = clip({ start: restStart, end: restEnd, type: 'rest', label: restLabel, color: COLORS.dinner }, dayStart, dayEnd);
         if (rest) {
             var busyNow = blocks.map(function (b) { return { start: b.start, end: b.end }; });
             gaps(rest.start, rest.end, busyNow).forEach(function (g) {
                 if (g.end - g.start >= 15) {
-                    blocks.push({ start: g.start, end: g.end, type: 'rest', label: answers.restLabel || 'Rest', sub: '', color: COLORS.dinner });
+                    blocks.push({ start: g.start, end: g.end, type: 'rest', label: restLabel, sub: '', color: COLORS.dinner });
                 }
             });
         }
 
+        var compact = schoolOn && tuitionOn;
         var free = gaps(dayStart, dayEnd, blocks);
         var slot = dayIndex * 7;
+        function pushStudy(a, b) {
+            if (b - a < 20) {
+                if (b - a >= 10) blocks.push({ start: a, end: b, type: 'brk', label: 'Break', sub: '', color: COLORS.brk });
+                return;
+            }
+            var metaC = subjectMeta(cycle[(seed + slot) % cycle.length], seed, slot);
+            slot++;
+            blocks.push({ start: a, end: b, type: 'study', label: metaC.label, sub: metaC.sub, color: COLORS.study });
+        }
+        function fillDetailed(a, b) {
+            if (b - a < 20) {
+                if (b - a >= 10) blocks.push({ start: a, end: b, type: 'brk', label: 'Break', sub: '', color: COLORS.brk });
+                return;
+            }
+            var t = a;
+            var firstBreak = true;
+            while (b - t >= 20) {
+                var left = b - t;
+                if (left < 35) {
+                    blocks.push({ start: t, end: b, type: 'brk', label: left <= 20 ? 'Break' : 'Rest', sub: '', color: COLORS.brk });
+                    break;
+                }
+                var studyLen = 90;
+                if (left <= 60) studyLen = left;
+                else if (left < 90) studyLen = left;
+                else if (left <= 120) studyLen = 90;
+                var meta = subjectMeta(cycle[(seed + slot) % cycle.length], seed, slot);
+                slot++;
+                blocks.push({
+                    start: t,
+                    end: t + studyLen,
+                    type: 'study',
+                    label: meta.label,
+                    sub: meta.sub,
+                    color: COLORS.study
+                });
+                t += studyLen;
+                if (b - t >= 40) {
+                    var br = firstBreak && b - t >= 90 ? 30 : 15;
+                    if (b - t <= 45) br = Math.min(30, b - t);
+                    if (b - t - br < 25 && b - t <= 40) br = b - t;
+                    blocks.push({ start: t, end: t + br, type: 'brk', label: br >= 25 ? 'Rest' : 'Break', sub: '', color: COLORS.brk });
+                    t += br;
+                    firstBreak = false;
+                }
+            }
+        }
+        function fill(a, b) {
+            if (compact) {
+                pushStudy(a, b);
+                return;
+            }
+            if (schoolOn && b === answers.schoolStart && b - a >= 90) {
+                var restLen = 30;
+                var studyEnd = b - restLen;
+                if (studyEnd - a >= 30) {
+                    var studySpan = studyEnd - a;
+                    if (studySpan > 90) {
+                        pushStudy(a, studyEnd - 90);
+                        pushStudy(studyEnd - 90, studyEnd);
+                    } else {
+                        pushStudy(a, studyEnd);
+                    }
+                    blocks.push({ start: studyEnd, end: b, type: 'brk', label: 'Rest', sub: '', color: COLORS.brk });
+                    return;
+                }
+            }
+            fillDetailed(a, b);
+        }
         free.forEach(function (gap) {
             var start = gap.start;
             var end = gap.end;
@@ -181,37 +260,6 @@
             if (!schoolOn && start <= 11 * 60 && end >= 14 * 60) {
                 lunch = { start: 12 * 60, end: 13 * 60 };
             }
-            function fill(a, b) {
-                var t = a;
-                while (b - t >= 20) {
-                    var left = b - t;
-                    if (left < 35) {
-                        blocks.push({ start: t, end: b, type: 'brk', label: left <= 20 ? 'Break' : 'Rest', sub: '', color: left <= 20 ? COLORS.brk : COLORS.rest });
-                        break;
-                    }
-                    var studyLen = 90;
-                    if (left < 90) studyLen = left;
-                    else if (left <= 110) studyLen = left;
-                    else if (left < 120) studyLen = left - 15;
-                    var meta = subjectMeta(cycle[(seed + slot) % cycle.length], seed, slot);
-                    slot++;
-                    var isHw = (slot + seed) % 9 === 0;
-                    blocks.push({
-                        start: t,
-                        end: t + studyLen,
-                        type: 'study',
-                        label: isHw ? (meta.label + ' + HW') : meta.label,
-                        sub: meta.sub,
-                        color: isHw ? COLORS.homework : COLORS.study
-                    });
-                    t += studyLen;
-                    if (b - t >= 45) {
-                        var br = Math.min(15, b - t - 30);
-                        blocks.push({ start: t, end: t + br, type: 'brk', label: 'Break', sub: '', color: COLORS.brk });
-                        t += br;
-                    }
-                }
-            }
             if (lunch && lunch.start > start && lunch.end < end) {
                 fill(start, lunch.start);
                 blocks.push({ start: lunch.start, end: lunch.end, type: 'rest', label: 'Lunch + Rest', sub: '', color: COLORS.rest });
@@ -222,7 +270,16 @@
         });
 
         blocks.sort(function (a, b) { return a.start - b.start; });
-        return blocks;
+        var merged = [];
+        blocks.forEach(function (b) {
+            var last = merged[merged.length - 1];
+            if (last && last.end === b.start && last.type === b.type && last.label === b.label && (last.sub || '') === (b.sub || '')) {
+                last.end = b.end;
+            } else {
+                merged.push(b);
+            }
+        });
+        return merged;
     }
 
     function buildWeek(answers, seed) {
@@ -270,112 +327,225 @@
         return t + '…';
     }
     function drawLogo(ctx, cx, cy, s) {
-        s = s || 56;
+        s = s || 88;
         ctx.save();
         ctx.translate(cx, cy);
+        var sc = s / 110;
+        ctx.scale(sc, sc);
         ctx.strokeStyle = INK;
         ctx.fillStyle = INK;
-        ctx.lineWidth = Math.max(2.4, s * 0.052);
+        ctx.lineWidth = 5;
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
 
-        var w = s * 0.92;
-        var h = s * 0.68;
         ctx.beginPath();
-        ctx.moveTo(0, -h * 0.46);
-        ctx.lineTo(-w * 0.5, -h * 0.4);
-        ctx.lineTo(-w * 0.5, h * 0.34);
-        ctx.quadraticCurveTo(-w * 0.22, h * 0.5, 0, h * 0.4);
-        ctx.moveTo(0, -h * 0.46);
-        ctx.lineTo(w * 0.5, -h * 0.4);
-        ctx.lineTo(w * 0.5, h * 0.34);
-        ctx.quadraticCurveTo(w * 0.22, h * 0.5, 0, h * 0.4);
+        ctx.moveTo(0, -26);
+        ctx.lineTo(-32, -30);
+        ctx.lineTo(-32, 18);
         ctx.stroke();
         ctx.beginPath();
-        ctx.moveTo(0, -h * 0.46);
-        ctx.lineTo(0, h * 0.4);
+        ctx.moveTo(0, -26);
+        ctx.lineTo(32, -30);
+        ctx.lineTo(32, 18);
         ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0, -26);
+        ctx.lineTo(0, 20);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(-34, 22);
+        ctx.quadraticCurveTo(-16, 30, 0, 24);
+        ctx.quadraticCurveTo(16, 30, 34, 22);
+        ctx.lineWidth = 6;
+        ctx.stroke();
+        ctx.lineWidth = 5;
 
         ctx.beginPath();
-        ctx.moveTo(0, h * 0.4);
-        ctx.bezierCurveTo(w * 0.22, h * 0.08, w * 0.58, -h * 0.12, w * 0.28, -h * 0.62);
-        ctx.bezierCurveTo(-0.02 * w, -h * 1.12, -w * 0.82, -h * 0.72, -w * 0.52, -h * 0.08);
-        ctx.bezierCurveTo(-w * 0.32, h * 0.32, w * 0.12, h * 0.02, w * 0.42, -h * 0.28);
+        ctx.moveTo(0, 22);
+        ctx.bezierCurveTo(10, 10, 28, -2, 26, -18);
+        ctx.bezierCurveTo(24, -36, 4, -48, -18, -46);
+        ctx.bezierCurveTo(-44, -44, -52, -18, -40, 2);
+        ctx.bezierCurveTo(-30, 16, -8, 10, 18, -8);
+        ctx.bezierCurveTo(30, -16, 38, -24, 44, -32);
         ctx.stroke();
 
         ctx.save();
-        ctx.translate(w * 0.44, -h * 0.3);
-        ctx.rotate(-0.55);
+        ctx.translate(44, -32);
+        ctx.rotate(-0.78);
         ctx.beginPath();
         ctx.moveTo(0, 0);
-        ctx.lineTo(s * 0.07, -s * 0.035);
-        ctx.lineTo(s * 0.2, 0);
-        ctx.lineTo(s * 0.07, s * 0.035);
+        ctx.lineTo(6, -5);
+        ctx.lineTo(22, 0);
+        ctx.lineTo(6, 5);
         ctx.closePath();
         ctx.fill();
+        ctx.strokeStyle = '#F4F1E8';
         ctx.beginPath();
-        ctx.moveTo(s * 0.04, 0);
-        ctx.lineTo(s * 0.14, 0);
-        ctx.lineWidth = Math.max(1.2, s * 0.02);
+        ctx.moveTo(4, 0);
+        ctx.lineTo(16, 0);
+        ctx.lineWidth = 1.6;
         ctx.stroke();
         ctx.restore();
         ctx.restore();
     }
 
-    function tableHeight(rows, rowH) {
-        return 48 + rows.length * rowH;
+    function punchLogo(img) {
+        var tmp = document.createElement('canvas');
+        tmp.width = img.naturalWidth || img.width;
+        tmp.height = img.naturalHeight || img.height;
+        var t = tmp.getContext('2d');
+        t.drawImage(img, 0, 0);
+        try {
+            var data = t.getImageData(0, 0, tmp.width, tmp.height);
+            var px = data.data;
+            for (var i = 0; i < px.length; i += 4) {
+                var avg = (px[i] + px[i + 1] + px[i + 2]) / 3;
+                if (avg > 228 && Math.abs(px[i] - px[i + 1]) < 22) {
+                    px[i + 3] = avg > 246 ? 0 : Math.max(0, Math.round((246 - avg) * 14));
+                }
+            }
+            t.putImageData(data, 0, 0);
+        } catch (e) {}
+        return tmp;
     }
 
-    function drawTable(ctx, x, y, w, dayIdxs, weekDays, rowH) {
+    function loadLogo(done) {
+        if (logoCache.canvas) return done(logoCache.canvas);
+        if (logoCache.tried) return done(null);
+        if (typeof Image === 'undefined') {
+            logoCache.tried = true;
+            return done(null);
+        }
+        var img = new Image();
+        img.onload = function () {
+            logoCache.tried = true;
+            try { logoCache.canvas = punchLogo(img); }
+            catch (e) { logoCache.canvas = img; }
+            done(logoCache.canvas);
+        };
+        img.onerror = function () {
+            logoCache.tried = true;
+            done(null);
+        };
+        img.src = LOGO_SRC;
+    }
+
+    function drawBrandLogo(ctx, cx, cy, s, logoCanvas) {
+        if (logoCanvas) {
+            ctx.drawImage(logoCanvas, cx - s / 2, cy - s / 2, s, s);
+            return;
+        }
+        drawLogo(ctx, cx, cy, s);
+    }
+
+    function drawLeaf(ctx, x, y, rot, sc, alpha) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(rot);
+        ctx.scale(sc, sc);
+        ctx.fillStyle = 'rgba(47,107,79,' + (alpha || 0.16) + ')';
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(22, -28, 0, -62);
+        ctx.quadraticCurveTo(-22, -28, 0, 0);
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(47,107,79,' + ((alpha || 0.16) + 0.08) + ')';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(0, -4);
+        ctx.lineTo(0, -54);
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function busyKey(blocks) {
+        return (blocks || []).filter(function (b) {
+            return b.type === 'school' || b.type === 'tuition';
+        }).map(function (b) { return b.type + ':' + b.start + '-' + b.end; }).join('|');
+    }
+
+    function groupDays(days) {
+        var groups = [];
+        var i = 0;
+        while (i < 7) {
+            var key = busyKey(days[i]);
+            var g = [i];
+            while (i + 1 < 7 && busyKey(days[i + 1]) === key) {
+                i++;
+                g.push(i);
+            }
+            groups.push(g);
+            i++;
+        }
+        return groups;
+    }
+
+    function tableRows(weekDays, dayIdxs) {
         var bounds = uniqueBounds(weekDays, dayIdxs);
         var rows = [];
         for (var i = 0; i < bounds.length - 1; i++) {
             if (bounds[i + 1] - bounds[i] >= 10) rows.push({ start: bounds[i], end: bounds[i + 1] });
         }
-        if (!rows.length) return 0;
-        var timeW = 168;
-        var colW = (w - timeW) / dayIdxs.length;
-        var headerH = 46;
-        var h = headerH + rows.length * rowH;
+        return rows;
+    }
 
-        rr(ctx, x, y, w, h, 12);
-        ctx.fillStyle = PAPER;
-        ctx.fill();
+    function rowHFor(row) {
+        var d = row.end - row.start;
+        if (d >= 360) return 72;
+        if (d >= 180) return 58;
+        if (d >= 90) return 50;
+        if (d >= 45) return 46;
+        return 40;
+    }
+
+    function strokeCell(ctx, x, y, w, h) {
         ctx.strokeStyle = INK;
-        ctx.lineWidth = 1.6;
-        ctx.stroke();
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(x, y, w, h);
+    }
+
+    function drawTable(ctx, x, y, w, dayIdxs, weekDays) {
+        var rows = tableRows(weekDays, dayIdxs);
+        if (!rows.length) return 0;
+        var heights = rows.map(rowHFor);
+        var timeW = dayIdxs.length === 1 ? 210 : 168;
+        var colW = (w - timeW) / dayIdxs.length;
+        var headerH = 44;
+        var bodyH = heights.reduce(function (a, b) { return a + b; }, 0);
+        var h = headerH + bodyH;
+
+        ctx.fillStyle = PAPER;
+        ctx.fillRect(x, y, w, h);
+        ctx.fillStyle = HEADER;
+        ctx.fillRect(x, y, w, headerH);
+        ctx.fillStyle = TIMECOL;
+        ctx.fillRect(x, y + headerH, timeW, bodyH);
 
         ctx.fillStyle = INK;
-        rr(ctx, x, y, w, headerH, 12);
-        ctx.fill();
-        ctx.fillRect(x, y + 12, w, headerH - 12);
-
-        ctx.fillStyle = PAPER;
-        ctx.font = '800 22px sans-serif';
+        ctx.font = '800 20px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText('Time', x + timeW / 2, y + headerH / 2);
         dayIdxs.forEach(function (di, i) {
-            ctx.fillText(dayIdxs.length > 2 ? DAYS[di] : DAY_FULL[di], x + timeW + colW * i + colW / 2, y + headerH / 2);
+            var label = dayIdxs.length <= 4 ? DAY_FULL[di] : DAYS[di];
+            ctx.fillText(label, x + timeW + colW * i + colW / 2, y + headerH / 2);
+        });
+        strokeCell(ctx, x, y, timeW, headerH);
+        dayIdxs.forEach(function (_di, i) {
+            strokeCell(ctx, x + timeW + colW * i, y, colW, headerH);
         });
 
+        var ry = y + headerH;
         rows.forEach(function (row, ri) {
-            var ry = y + headerH + ri * rowH;
-            ctx.fillStyle = PAPER;
-            ctx.fillRect(x, ry, w, rowH);
-            ctx.strokeStyle = INK;
-            ctx.globalAlpha = 0.18;
-            ctx.beginPath();
-            ctx.moveTo(x, ry);
-            ctx.lineTo(x + w, ry);
-            ctx.stroke();
-            ctx.globalAlpha = 1;
-            ctx.fillStyle = FILL;
-            ctx.fillRect(x, ry, timeW, rowH);
+            var rh = heights[ri];
+            strokeCell(ctx, x, ry, timeW, rh);
             ctx.fillStyle = INK;
-            ctx.font = '700 15px sans-serif';
+            ctx.font = '700 14px sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText(fitText(ctx, rangeLabel(row.start, row.end), timeW - 12, 15), x + timeW / 2, ry + rowH / 2);
+            ctx.textBaseline = 'middle';
+            var timeLabel = rangeLabel(row.start, row.end);
+            var timeSize = timeLabel.length > 18 ? 12 : 14;
+            ctx.font = '700 ' + timeSize + 'px sans-serif';
+            ctx.fillText(fitText(ctx, timeLabel, timeW - 10, timeSize), x + timeW / 2, ry + rh / 2);
 
             var skip = {};
             dayIdxs.forEach(function (di, ci) {
@@ -384,105 +554,104 @@
                 var span = 1;
                 while (ci + span < dayIdxs.length) {
                     var next = cellAt(weekDays[dayIdxs[ci + span]], row.start, row.end);
-                    if (!cell && !next) { span++; continue; }
                     if (cell && next && cell.label === next.label && cell.type === next.type) span++;
                     else break;
                 }
                 for (var k = 1; k < span; k++) skip[ci + k] = 1;
                 var cx = x + timeW + ci * colW;
                 var cw = colW * span;
+                ctx.fillStyle = (cell && cell.color) ? cell.color : PAPER;
+                ctx.fillRect(cx, ry, cw, rh);
+                strokeCell(ctx, cx, ry, cw, rh);
                 if (cell) {
-                    ctx.fillStyle = cell.color || PAPER;
-                    ctx.fillRect(cx + 1, ry + 1, cw - 2, rowH - 2);
                     ctx.fillStyle = INK;
                     ctx.textAlign = 'center';
-                    ctx.font = '800 16px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-                    var main = fitText(ctx, cell.label, cw - 10, 16);
-                    if (cell.sub && rowH >= 44 && span >= 1) {
-                        ctx.fillText(main, cx + cw / 2, ry + rowH / 2 - 8);
+                    var big = rh >= 54 && !cell.sub;
+                    ctx.font = (cell.type === 'school' || cell.type === 'tuition' ? '800 ' : '700 ') + (big ? '20' : '15') + 'px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
+                    var main = fitText(ctx, cell.label, cw - 10, big ? 20 : 15);
+                    if (cell.sub && rh >= 44) {
+                        ctx.fillText(main, cx + cw / 2, ry + rh / 2 - 8);
                         ctx.font = '600 12px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-                        ctx.fillText(fitText(ctx, '(' + cell.sub + ')', cw - 10, 12), cx + cw / 2, ry + rowH / 2 + 10);
+                        ctx.fillText(fitText(ctx, '(' + cell.sub + ')', cw - 10, 12), cx + cw / 2, ry + rh / 2 + 10);
                     } else {
-                        ctx.fillText(main, cx + cw / 2, ry + rowH / 2);
+                        ctx.fillText(main, cx + cw / 2, ry + rh / 2);
                     }
                 }
             });
+            ry += rh;
         });
 
-        ctx.beginPath();
-        ctx.moveTo(x + timeW, y);
-        ctx.lineTo(x + timeW, y + h);
         ctx.strokeStyle = INK;
-        ctx.globalAlpha = 0.35;
-        ctx.stroke();
-        ctx.globalAlpha = 1;
+        ctx.lineWidth = 2;
+        ctx.strokeRect(x, y, w, h);
         return h;
     }
 
-    function drawPoster(canvas, model, meta) {
+    function drawPoster(canvas, model, meta, logoCanvas) {
         var weekDays = model.days;
-        var weekdayIdx = [0, 1, 2, 3, 4];
-        var weekendIdx = [5, 6];
+        var groups = groupDays(weekDays);
         var w = 1080;
         var pad = 48;
         var innerW = w - pad * 2;
-        function countRows(idxs) {
-            var b = uniqueBounds(weekDays, idxs);
-            var n = 0;
-            for (var i = 0; i < b.length - 1; i++) if (b[i + 1] - b[i] >= 10) n++;
-            return Math.max(n, 1);
-        }
-        var rowH = 48;
-        var h = 210 + 48 + countRows(weekdayIdx) * rowH + 28 + 48 + countRows(weekendIdx) * rowH + 80;
+        var tableHs = groups.map(function (g) {
+            var rows = tableRows(weekDays, g);
+            var body = rows.reduce(function (a, r) { return a + rowHFor(r); }, 0);
+            return 44 + body;
+        });
+        var tablesH = tableHs.reduce(function (a, b) { return a + b + 28; }, 0);
+        var h = 200 + tablesH + 40;
         canvas.width = w;
         canvas.height = h;
         var ctx = canvas.getContext('2d');
-        ctx.fillStyle = PAPER;
+        ctx.fillStyle = '#F4F1E8';
         ctx.fillRect(0, 0, w, h);
+        drawLeaf(ctx, 8, 90, -0.5, 1.6, 0.14);
+        drawLeaf(ctx, 48, 110, 0.4, 1.1, 0.12);
+        drawLeaf(ctx, w - 20, h - 30, 2.6, 1.8, 0.14);
+        drawLeaf(ctx, w - 70, h - 10, 3.3, 1.15, 0.1);
+
+        drawBrandLogo(ctx, pad + 44, 78, 92, logoCanvas);
 
         ctx.fillStyle = INK;
-        ctx.font = '800 58px sans-serif';
+        ctx.font = '800 56px sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'alphabetic';
-        ctx.fillText('Reed', pad, 78);
-        ctx.font = '600 22px sans-serif';
-        ctx.fillText('Grade ' + meta.grade + ' timetable', pad, 108);
+        ctx.fillText('Reed', pad + 96, 72);
+        ctx.font = '600 20px sans-serif';
+        ctx.fillText('Grade ' + meta.grade + ' timetable', pad + 96, 100);
 
         var name = meta.name || 'Student';
-        ctx.font = '700 24px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-        var nw = Math.min(innerW - 180, Math.max(200, ctx.measureText(name).width + 40));
-        rr(ctx, pad, 122, nw, 42, 21);
+        ctx.font = '700 22px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
+        var nw = Math.min(innerW - 220, Math.max(180, ctx.measureText(name).width + 36));
+        rr(ctx, pad + 96, 112, nw, 38, 19);
         ctx.strokeStyle = INK;
         ctx.lineWidth = 2;
         ctx.stroke();
         ctx.fillStyle = INK;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText(fitText(ctx, name, nw - 24, 24), pad + nw / 2, 143);
-
-        drawLogo(ctx, w - pad - 58, 88, 70);
+        ctx.fillText(fitText(ctx, name, nw - 20, 22), pad + 96 + nw / 2, 131);
 
         ctx.fillStyle = INK;
-        ctx.globalAlpha = 0.55;
-        ctx.font = '600 18px sans-serif';
+        ctx.globalAlpha = 0.6;
+        ctx.font = '600 16px sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'alphabetic';
-        ctx.fillText(meta.weekLabel || '', pad, 186);
+        ctx.fillText(meta.weekLabel || '', pad + 96, 170);
         ctx.globalAlpha = 1;
 
-        var y = 206;
-        y += drawTable(ctx, pad, y, innerW, weekdayIdx, weekDays, rowH) + 28;
-        y += drawTable(ctx, pad, y, innerW, weekendIdx, weekDays, rowH) + 24;
-
+        var y = 188;
+        groups.forEach(function (g) {
+            y += drawTable(ctx, pad, y, innerW, g, weekDays) + 26;
+        });
         ctx.fillStyle = INK;
         ctx.globalAlpha = 0.55;
-        ctx.font = '600 16px sans-serif';
+        ctx.font = '600 15px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Reed · a fresh mix every week · long-press or Save to keep this poster', w / 2, y + 8);
+        ctx.fillText('Reed · a fresh mix every week', w / 2, y + 4);
         ctx.globalAlpha = 1;
         return canvas;
     }
-
     function weekLabel(mondayYmd) {
         if (!mondayYmd) return '';
         var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -547,7 +716,7 @@
         }).join('');
     }
 
-    function makePoster(api, answers) {
+    function makePoster(api, answers, logoCanvas) {
         var grade = api.getGrade();
         var monday = api.monday();
         var seed = hashStr(String(api.userId) + ':' + monday + ':' + grade);
@@ -557,27 +726,29 @@
             grade: grade,
             name: answers.name,
             weekLabel: weekLabel(monday)
-        });
+        }, logoCanvas);
         return canvas;
     }
 
     function showResult(api, answers, thinking) {
-        var canvas = makePoster(api, answers);
-        var img = document.getElementById('tt-preview');
-        var weekEl = document.getElementById('tt-week-note');
-        if (weekEl) weekEl.textContent = weekLabel(api.monday()) + ' · subjects reshuffle every Monday';
-        canvas.toBlob(function (blob) {
-            if (!blob) {
-                img.src = canvas.toDataURL('image/png');
-            } else {
-                if (img._url) URL.revokeObjectURL(img._url);
-                img._url = URL.createObjectURL(blob);
-                img.src = img._url;
-                img._blob = blob;
-            }
-            showPanel('tt-result');
-        }, 'image/png');
         if (thinking) showPanel('tt-think');
+        loadLogo(function (logoCanvas) {
+            var canvas = makePoster(api, answers, logoCanvas);
+            var img = document.getElementById('tt-preview');
+            var weekEl = document.getElementById('tt-week-note');
+            if (weekEl) weekEl.textContent = weekLabel(api.monday()) + ' · subjects reshuffle every Monday';
+            canvas.toBlob(function (blob) {
+                if (!blob) {
+                    img.src = canvas.toDataURL('image/png');
+                } else {
+                    if (img._url) URL.revokeObjectURL(img._url);
+                    img._url = URL.createObjectURL(blob);
+                    img.src = img._url;
+                    img._blob = blob;
+                }
+                showPanel('tt-result');
+            }, 'image/png');
+        });
     }
 
     function openAsk(api, draft) {
