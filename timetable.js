@@ -4,17 +4,9 @@
     var DAY_FULL = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     var SHORT = {
         mm: 'Myan', en: 'English', math: 'Maths', phy: 'Physics',
-        chem: 'Chemistry', bio: 'Biology', eco: 'Eco'
+        chem: 'Chemistry', bio: 'Biology',         eco: 'Eco'
     };
-    var FOCUS = {
-        en: ['Text / Poem / Grammar', 'Questions / Essay / letter', 'Grammar / Text', 'Essay / letter'],
-        mm: ['စကားပြေ / ကဗျာ', 'ရေသည် / ခက်ဆစ် / အရေး', 'စာစီစာကုံး / အဆို'],
-        math: ['Practice', 'Past paper', 'Formula'],
-        phy: ['ကျက်စာ / တွက်စာ', 'Notes / Calculating'],
-        chem: ['ကျက်စာ / တွက်စာ', 'Memorizing / Calculating'],
-        bio: ['Notes / Diagram', 'ကျက်စာ / Review'],
-        eco: ['Notes / MCQ', 'Essay']
-    };
+    var MIN_SUBJECTS = 6;
     var INK = '#111111';
     var PAPER = '#FFFFFF';
     var HEADER = '#245C43';
@@ -113,11 +105,8 @@
         if (t < dayEnd) g.push({ start: t, end: dayEnd });
         return g;
     }
-    function subjectMeta(id, seed, slot) {
-        var focus = FOCUS[id] || ['Review'];
-        var label = SHORT[id] || id;
-        var sub = focus[(seed + slot) % focus.length];
-        return { label: label, sub: sub, color: COLORS.study };
+    function subjectMeta(id) {
+        return { label: SHORT[id] || id, sub: '', color: COLORS.study };
     }
 
     function buildDay(answers, dayIndex, cycle, seed) {
@@ -181,7 +170,7 @@
         var slot = dayIndex;
         function pushStudy(a, b) {
             if (b - a < 15) return;
-            var metaC = subjectMeta(cycle[slot % cycle.length], seed, slot);
+            var metaC = subjectMeta(cycle[slot % cycle.length]);
             slot++;
             blocks.push({ start: a, end: b, type: 'study', label: metaC.label, sub: metaC.sub, color: COLORS.study });
         }
@@ -483,13 +472,7 @@
         var size = 18;
         if (cw < 110) size = 16;
         ctx.font = '700 ' + size + 'px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-        var main = fitText(ctx, cell.label, cw - 12, size);
-        if (cell.sub) {
-            ctx.fillText(main, cx + cw / 2, cy - size * 0.7);
-            ctx.fillText(fitText(ctx, '(' + cell.sub + ')', cw - 12, size), cx + cw / 2, cy + size * 0.75);
-        } else {
-            ctx.fillText(main, cx + cw / 2, cy);
-        }
+        ctx.fillText(fitText(ctx, cell.label, cw - 12, size), cx + cw / 2, cy);
     }
 
     function drawTable(ctx, x, y, w, dayIdxs, weekDays, title) {
@@ -801,7 +784,7 @@
                     '<div class="tt-times"><label>Start<select id="tt-rest-start">' + timeSelectHtml(16 * 60, 23 * 60, answers.restStart) + '</select></label>' +
                     '<label>End<select id="tt-rest-end">' + timeSelectHtml(17 * 60, 24 * 60, answers.restEnd) + '</select></label></div>';
             } else if (cur.id === 'subjects') {
-                html = '<p class="tt-help">ဝယ်ထားသော ဘာသာရပ်ထဲက အနည်းဆုံး ၃ ခု ရွေးပါ။</p><div class="tt-subs" id="tt-subs">' +
+                html = '<p class="tt-help">ဘာသာရပ် ၆ ခု ရွေးပါ။</p><div class="tt-subs" id="tt-subs">' +
                     paidSubjects(api).map(function (s) {
                         var on = answers.subjects.indexOf(s.id) !== -1;
                         return '<button type="button" class="tt-chip' + (on ? ' on' : '') + '" data-sub="' + s.id + '">' + s.name + '</button>';
@@ -889,7 +872,7 @@
                 answers.subjects = Array.prototype.map.call(document.querySelectorAll('#tt-subs .tt-chip.on'), function (ch) {
                     return ch.getAttribute('data-sub');
                 });
-                if (answers.subjects.length < 3) { api.alert('ဘာသာရပ် အနည်းဆုံး ၃ ခု ရွေးပါ။'); return false; }
+                if (answers.subjects.length < MIN_SUBJECTS) { api.alert('ဘာသာရပ် ၆ ခု ရွေးပါ။'); return false; }
             }
             return true;
         }
@@ -935,13 +918,13 @@
     function openTab(api) {
         var grade = api.getGrade();
         var paid = paidSubjects(api);
-        if (paid.length < 3 && !api.isPaid('all')) {
+        if (paid.length < MIN_SUBJECTS && !api.isPaid('all')) {
             document.getElementById('tt-lock-count').textContent = String(paid.length);
             showPanel('tt-lock');
             return;
         }
         var saved = loadAnswers(grade);
-        if (saved && saved.subjects && saved.subjects.length >= 3) {
+        if (saved && saved.subjects && saved.subjects.length >= MIN_SUBJECTS) {
             showResult(api, saved, false);
             return;
         }
