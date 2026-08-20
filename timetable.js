@@ -177,77 +177,33 @@
             });
         }
 
-        var compact = schoolOn && tuitionOn;
         var free = gaps(dayStart, dayEnd, blocks);
-        var slot = dayIndex * 7;
+        var slot = dayIndex >= 5 ? 3 : 0;
         function pushStudy(a, b) {
-            if (b - a < 20) {
-                if (b - a >= 10) blocks.push({ start: a, end: b, type: 'brk', label: 'Break', sub: '', color: COLORS.brk });
-                return;
-            }
-            var metaC = subjectMeta(cycle[(seed + slot) % cycle.length], seed, slot);
+            if (b - a < 15) return;
+            var metaC = subjectMeta(cycle[slot % cycle.length], seed, slot);
             slot++;
             blocks.push({ start: a, end: b, type: 'study', label: metaC.label, sub: metaC.sub, color: COLORS.study });
         }
-        function fillDetailed(a, b) {
+        function fill(a, b) {
             if (b - a < 20) {
                 if (b - a >= 10) blocks.push({ start: a, end: b, type: 'brk', label: 'Break', sub: '', color: COLORS.brk });
                 return;
             }
             var t = a;
-            var firstBreak = true;
             while (b - t >= 20) {
                 var left = b - t;
-                if (left < 35) {
-                    blocks.push({ start: t, end: b, type: 'brk', label: left <= 20 ? 'Break' : 'Rest', sub: '', color: COLORS.brk });
-                    break;
-                }
-                var studyLen = 90;
-                if (left <= 60) studyLen = left;
-                else if (left < 90) studyLen = left;
-                else if (left <= 120) studyLen = 90;
-                var meta = subjectMeta(cycle[(seed + slot) % cycle.length], seed, slot);
-                slot++;
-                blocks.push({
-                    start: t,
-                    end: t + studyLen,
-                    type: 'study',
-                    label: meta.label,
-                    sub: meta.sub,
-                    color: COLORS.study
-                });
-                t += studyLen;
-                if (b - t >= 40) {
-                    var br = firstBreak && b - t >= 90 ? 30 : 15;
-                    if (b - t <= 45) br = Math.min(30, b - t);
-                    if (b - t - br < 25 && b - t <= 40) br = b - t;
-                    blocks.push({ start: t, end: t + br, type: 'brk', label: br >= 25 ? 'Rest' : 'Break', sub: '', color: COLORS.brk });
-                    t += br;
-                    firstBreak = false;
-                }
-            }
-        }
-        function fill(a, b) {
-            if (compact) {
-                pushStudy(a, b);
-                return;
-            }
-            if (schoolOn && b === answers.schoolStart && b - a >= 90) {
-                var restLen = 30;
-                var studyEnd = b - restLen;
-                if (studyEnd - a >= 30) {
-                    var studySpan = studyEnd - a;
-                    if (studySpan > 90) {
-                        pushStudy(a, studyEnd - 90);
-                        pushStudy(studyEnd - 90, studyEnd);
-                    } else {
-                        pushStudy(a, studyEnd);
-                    }
-                    blocks.push({ start: studyEnd, end: b, type: 'brk', label: 'Rest', sub: '', color: COLORS.brk });
+                if (left <= 210) {
+                    pushStudy(t, b);
                     return;
                 }
+                pushStudy(t, t + 180);
+                t += 180;
+                if (b - t >= 50) {
+                    blocks.push({ start: t, end: t + 30, type: 'brk', label: 'Rest', sub: '', color: COLORS.brk });
+                    t += 30;
+                }
             }
-            fillDetailed(a, b);
         }
         free.forEach(function (gap) {
             var start = gap.start;
@@ -279,6 +235,15 @@
                 merged.push(b);
             }
         });
+        if (!merged.length) {
+            pushStudy(dayStart, dayEnd);
+            return blocks;
+        }
+        if (merged[0].start > dayStart) merged[0].start = dayStart;
+        for (var i = 1; i < merged.length; i++) {
+            if (merged[i].start > merged[i - 1].end) merged[i - 1].end = merged[i].start;
+        }
+        if (merged[merged.length - 1].end < dayEnd) merged[merged.length - 1].end = dayEnd;
         return merged;
     }
 
@@ -286,7 +251,7 @@
         var cycle = seededShuffle(answers.subjects.slice(), seed || 1);
         if (!cycle.length) cycle = ['en'];
         var days = [];
-        for (var d = 0; d < 7; d++) days.push(buildDay(answers, d, cycle, seed + d * 13));
+        for (var d = 0; d < 7; d++) days.push(buildDay(answers, d, cycle, d >= 5 ? seed + 17 : seed));
         return { days: days, cycle: cycle };
     }
 
@@ -302,10 +267,18 @@
     }
 
     function cellAt(blocks, start, end) {
-        for (var i = 0; i < blocks.length; i++) {
+        var best = null;
+        var bestCov = 0;
+        var span = Math.max(1, end - start);
+        for (var i = 0; i < (blocks || []).length; i++) {
             var b = blocks[i];
-            if (b.start <= start && b.end >= end) return b;
+            var cov = Math.min(b.end, end) - Math.max(b.start, start);
+            if (cov > bestCov) {
+                bestCov = cov;
+                best = b;
+            }
         }
+        if (best && bestCov > 0) return best;
         return null;
     }
 
@@ -458,30 +431,29 @@
         ctx.restore();
     }
 
-    function busyKey(blocks) {
-        return (blocks || []).filter(function (b) {
-            return b.type === 'school' || b.type === 'tuition';
-        }).map(function (b) { return b.type + ':' + b.start + '-' + b.end; }).join('|');
-    }
-
-    function groupDays(days) {
-        var groups = [];
-        var i = 0;
-        while (i < 7) {
-            var key = busyKey(days[i]);
-            var g = [i];
-            while (i + 1 < 7 && busyKey(days[i + 1]) === key) {
-                i++;
-                g.push(i);
-            }
-            groups.push(g);
-            i++;
-        }
-        return groups;
+    function chartGroups() {
+        return [
+            { title: 'Mon – Fri', days: [0, 1, 2, 3, 4] },
+            { title: 'Sat – Sun', days: [5, 6] }
+        ];
     }
 
     function tableRows(weekDays, dayIdxs) {
-        var bounds = uniqueBounds(weekDays, dayIdxs);
+        var counts = {};
+        var minT = 24 * 60;
+        var maxT = 0;
+        dayIdxs.forEach(function (di) {
+            (weekDays[di] || []).forEach(function (b) {
+                counts[b.start] = (counts[b.start] || 0) + 1;
+                counts[b.end] = (counts[b.end] || 0) + 1;
+                if (b.start < minT) minT = b.start;
+                if (b.end > maxT) maxT = b.end;
+            });
+        });
+        var need = dayIdxs.length >= 4 ? 2 : 1;
+        var bounds = Object.keys(counts).map(Number).filter(function (t) {
+            return t === minT || t === maxT || counts[t] >= need;
+        }).sort(function (a, b) { return a - b; });
         var rows = [];
         for (var i = 0; i < bounds.length - 1; i++) {
             if (bounds[i + 1] - bounds[i] >= 10) rows.push({ start: bounds[i], end: bounds[i + 1] });
@@ -491,11 +463,10 @@
 
     function rowHFor(row) {
         var d = row.end - row.start;
-        if (d >= 360) return 72;
-        if (d >= 180) return 58;
-        if (d >= 90) return 50;
-        if (d >= 45) return 46;
-        return 40;
+        if (d >= 300) return 118;
+        if (d >= 150) return 100;
+        if (d >= 60) return 92;
+        return 84;
     }
 
     function strokeCell(ctx, x, y, w, h) {
@@ -504,47 +475,74 @@
         ctx.strokeRect(x, y, w, h);
     }
 
-    function drawTable(ctx, x, y, w, dayIdxs, weekDays) {
+    function drawCellLabel(ctx, cell, cx, cy, cw, rh) {
+        if (!cell) return;
+        ctx.fillStyle = INK;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        var isBand = cell.type === 'school' || cell.type === 'tuition' || cell.type === 'rest' || cell.type === 'dinner' || cell.type === 'brk';
+        var mainSize = isBand ? 28 : 24;
+        if (cw < 120) mainSize = 18;
+        ctx.font = (isBand ? '800 ' : '800 ') + mainSize + 'px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
+        var main = fitText(ctx, cell.label, cw - 16, mainSize);
+        if (cell.sub && rh >= 70) {
+            ctx.fillText(main, cx + cw / 2, cy - 12);
+            ctx.font = '600 16px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
+            ctx.fillText(fitText(ctx, '(' + cell.sub + ')', cw - 16, 16), cx + cw / 2, cy + 16);
+        } else {
+            ctx.fillText(main, cx + cw / 2, cy);
+        }
+    }
+
+    function drawTable(ctx, x, y, w, dayIdxs, weekDays, title) {
         var rows = tableRows(weekDays, dayIdxs);
         if (!rows.length) return 0;
         var heights = rows.map(rowHFor);
-        var timeW = dayIdxs.length === 1 ? 210 : 168;
+        var timeW = dayIdxs.length <= 2 ? 200 : 176;
         var colW = (w - timeW) / dayIdxs.length;
-        var headerH = 44;
+        var headerH = 52;
+        var titleH = title ? 36 : 0;
         var bodyH = heights.reduce(function (a, b) { return a + b; }, 0);
-        var h = headerH + bodyH;
+        var h = titleH + headerH + bodyH;
+        var ty = y + titleH;
+
+        if (title) {
+            ctx.fillStyle = INK;
+            ctx.font = '800 22px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(title, x, y + 18);
+        }
 
         ctx.fillStyle = PAPER;
-        ctx.fillRect(x, y, w, h);
+        ctx.fillRect(x, ty, w, headerH + bodyH);
         ctx.fillStyle = HEADER;
-        ctx.fillRect(x, y, w, headerH);
+        ctx.fillRect(x, ty, w, headerH);
         ctx.fillStyle = TIMECOL;
-        ctx.fillRect(x, y + headerH, timeW, bodyH);
+        ctx.fillRect(x, ty + headerH, timeW, bodyH);
 
         ctx.fillStyle = INK;
-        ctx.font = '800 20px sans-serif';
+        ctx.font = '800 22px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         dayIdxs.forEach(function (di, i) {
-            var label = dayIdxs.length <= 4 ? DAY_FULL[di] : DAYS[di];
-            ctx.fillText(label, x + timeW + colW * i + colW / 2, y + headerH / 2);
+            ctx.fillText(DAYS[di], x + timeW + colW * i + colW / 2, ty + headerH / 2);
         });
-        strokeCell(ctx, x, y, timeW, headerH);
+        strokeCell(ctx, x, ty, timeW, headerH);
         dayIdxs.forEach(function (_di, i) {
-            strokeCell(ctx, x + timeW + colW * i, y, colW, headerH);
+            strokeCell(ctx, x + timeW + colW * i, ty, colW, headerH);
         });
 
-        var ry = y + headerH;
+        var ry = ty + headerH;
         rows.forEach(function (row, ri) {
             var rh = heights[ri];
             strokeCell(ctx, x, ry, timeW, rh);
             ctx.fillStyle = INK;
-            ctx.font = '700 14px sans-serif';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             var timeLabel = rangeLabel(row.start, row.end);
-            var timeSize = timeLabel.length > 18 ? 12 : 14;
-            ctx.font = '700 ' + timeSize + 'px sans-serif';
+            var timeSize = timeLabel.length > 18 ? 15 : 17;
+            ctx.font = '800 ' + timeSize + 'px sans-serif';
             ctx.fillText(fitText(ctx, timeLabel, timeW - 10, timeSize), x + timeW / 2, ry + rh / 2);
 
             var skip = {};
@@ -554,7 +552,7 @@
                 var span = 1;
                 while (ci + span < dayIdxs.length) {
                     var next = cellAt(weekDays[dayIdxs[ci + span]], row.start, row.end);
-                    if (cell && next && cell.label === next.label && cell.type === next.type) span++;
+                    if (cell && next && cell.label === next.label && cell.type === next.type && (cell.sub || '') === (next.sub || '')) span++;
                     else break;
                 }
                 for (var k = 1; k < span; k++) skip[ci + k] = 1;
@@ -563,92 +561,64 @@
                 ctx.fillStyle = (cell && cell.color) ? cell.color : PAPER;
                 ctx.fillRect(cx, ry, cw, rh);
                 strokeCell(ctx, cx, ry, cw, rh);
-                if (cell) {
-                    ctx.fillStyle = INK;
-                    ctx.textAlign = 'center';
-                    var big = rh >= 54 && !cell.sub;
-                    ctx.font = (cell.type === 'school' || cell.type === 'tuition' ? '800 ' : '700 ') + (big ? '20' : '15') + 'px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-                    var main = fitText(ctx, cell.label, cw - 10, big ? 20 : 15);
-                    if (cell.sub && rh >= 44) {
-                        ctx.fillText(main, cx + cw / 2, ry + rh / 2 - 8);
-                        ctx.font = '600 12px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-                        ctx.fillText(fitText(ctx, '(' + cell.sub + ')', cw - 10, 12), cx + cw / 2, ry + rh / 2 + 10);
-                    } else {
-                        ctx.fillText(main, cx + cw / 2, ry + rh / 2);
-                    }
-                }
+                drawCellLabel(ctx, cell, cx, ry + rh / 2, cw, rh);
             });
             ry += rh;
         });
 
         ctx.strokeStyle = INK;
-        ctx.lineWidth = 2;
-        ctx.strokeRect(x, y, w, h);
+        ctx.lineWidth = 2.4;
+        ctx.strokeRect(x, ty, w, headerH + bodyH);
         return h;
     }
 
     function drawPoster(canvas, model, meta, logoCanvas) {
         var weekDays = model.days;
-        var groups = groupDays(weekDays);
+        var groups = chartGroups();
         var w = 1080;
-        var pad = 48;
+        var pad = 40;
         var innerW = w - pad * 2;
         var tableHs = groups.map(function (g) {
-            var rows = tableRows(weekDays, g);
+            var rows = tableRows(weekDays, g.days);
             var body = rows.reduce(function (a, r) { return a + rowHFor(r); }, 0);
-            return 44 + body;
+            return 36 + 52 + body;
         });
-        var tablesH = tableHs.reduce(function (a, b) { return a + b + 28; }, 0);
-        var h = 200 + tablesH + 40;
+        var tablesH = tableHs.reduce(function (a, b) { return a + b + 22; }, 0);
+        var h = 148 + tablesH + 36;
         canvas.width = w;
         canvas.height = h;
         var ctx = canvas.getContext('2d');
         ctx.fillStyle = '#F4F1E8';
         ctx.fillRect(0, 0, w, h);
-        drawLeaf(ctx, 8, 90, -0.5, 1.6, 0.14);
-        drawLeaf(ctx, 48, 110, 0.4, 1.1, 0.12);
-        drawLeaf(ctx, w - 20, h - 30, 2.6, 1.8, 0.14);
-        drawLeaf(ctx, w - 70, h - 10, 3.3, 1.15, 0.1);
+        drawLeaf(ctx, 8, 80, -0.5, 1.4, 0.14);
+        drawLeaf(ctx, 44, 98, 0.4, 1.0, 0.12);
+        drawLeaf(ctx, w - 20, h - 28, 2.6, 1.6, 0.14);
+        drawLeaf(ctx, w - 70, h - 8, 3.3, 1.05, 0.1);
 
-        drawBrandLogo(ctx, pad + 44, 78, 92, logoCanvas);
+        drawBrandLogo(ctx, pad + 36, 62, 78, logoCanvas);
 
         ctx.fillStyle = INK;
-        ctx.font = '800 56px sans-serif';
+        ctx.font = '800 44px sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'alphabetic';
-        ctx.fillText('Reed', pad + 96, 72);
-        ctx.font = '600 20px sans-serif';
-        ctx.fillText('Grade ' + meta.grade + ' timetable', pad + 96, 100);
+        ctx.fillText('Reed', pad + 84, 58);
+        ctx.font = '700 18px sans-serif';
+        ctx.fillText('Grade ' + meta.grade + '  ·  ' + (meta.name || 'Student'), pad + 84, 84);
 
-        var name = meta.name || 'Student';
-        ctx.font = '700 22px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-        var nw = Math.min(innerW - 220, Math.max(180, ctx.measureText(name).width + 36));
-        rr(ctx, pad + 96, 112, nw, 38, 19);
-        ctx.strokeStyle = INK;
-        ctx.lineWidth = 2;
-        ctx.stroke();
-        ctx.fillStyle = INK;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(fitText(ctx, name, nw - 20, 22), pad + 96 + nw / 2, 131);
-
-        ctx.fillStyle = INK;
-        ctx.globalAlpha = 0.6;
-        ctx.font = '600 16px sans-serif';
-        ctx.textAlign = 'left';
-        ctx.textBaseline = 'alphabetic';
-        ctx.fillText(meta.weekLabel || '', pad + 96, 170);
+        ctx.globalAlpha = 0.65;
+        ctx.font = '600 15px sans-serif';
+        ctx.fillText(meta.weekLabel || '', pad + 84, 108);
         ctx.globalAlpha = 1;
 
-        var y = 188;
+        var y = 128;
         groups.forEach(function (g) {
-            y += drawTable(ctx, pad, y, innerW, g, weekDays) + 26;
+            y += drawTable(ctx, pad, y, innerW, g.days, weekDays, g.title) + 22;
         });
         ctx.fillStyle = INK;
         ctx.globalAlpha = 0.55;
-        ctx.font = '600 15px sans-serif';
+        ctx.font = '600 14px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Reed · a fresh mix every week', w / 2, y + 4);
+        ctx.fillText('Reed · subjects reshuffle every week', w / 2, y + 2);
         ctx.globalAlpha = 1;
         return canvas;
     }
