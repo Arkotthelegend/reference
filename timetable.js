@@ -649,14 +649,37 @@
         return list;
     }
 
-    function storageKey(grade) { return 'reed_timetable_v1_g' + grade; }
-
-    function loadAnswers(grade) {
-        try { return JSON.parse(localStorage.getItem(storageKey(grade)) || 'null'); }
-        catch (e) { return null; }
+    function storageKey(grade, userId) {
+        return 'reed_timetable_v1_u' + String(userId || '0') + '_g' + grade;
     }
-    function saveAnswers(grade, answers) {
-        localStorage.setItem(storageKey(grade), JSON.stringify(answers));
+    function legacyStorageKey(grade) { return 'reed_timetable_v1_g' + grade; }
+    function belongsToUser(saved, api) {
+        var uid = String((api && api.userId) || '');
+        if (!saved || !uid) return false;
+        if (saved.userId) return String(saved.userId) === uid;
+        return namesMatch(saved.name, api && api.defaultName && api.defaultName());
+    }
+    function namesMatch(a, b) {
+        a = String(a || '').replace(/\s+/g, '').toLowerCase();
+        b = String(b || '').replace(/\s+/g, '').toLowerCase();
+        return !!(a && b && a === b);
+    }
+    function loadAnswers(grade, api) {
+        var uid = String((api && api.userId) || '0');
+        try {
+            var cur = JSON.parse(localStorage.getItem(storageKey(grade, uid)) || 'null');
+            if (cur) return belongsToUser(cur, api) ? cur : null;
+            var old = JSON.parse(localStorage.getItem(legacyStorageKey(grade)) || 'null');
+            if (!old || !belongsToUser(old, api)) return null;
+            old.userId = uid;
+            localStorage.setItem(storageKey(grade, uid), JSON.stringify(old));
+            localStorage.removeItem(legacyStorageKey(grade));
+            return old;
+        } catch (e) { return null; }
+    }
+    function saveAnswers(grade, answers, api) {
+        answers.userId = String((api && api.userId) || '0');
+        localStorage.setItem(storageKey(grade, answers.userId), JSON.stringify(answers));
     }
 
     function showPanel(id) {
@@ -781,7 +804,7 @@
             if (step >= list.length) {
                 answers.week = api.monday();
                 answers.subjects = weekSubjects(answers);
-                saveAnswers(api.getGrade(), answers);
+                saveAnswers(api.getGrade(), answers, api);
                 showPanel('tt-think');
                 setTimeout(function () { showResult(api, answers, false); }, 900);
                 return;
@@ -998,11 +1021,11 @@
             return;
         }
         var monday = api.monday();
-        var saved = loadAnswers(grade);
+        var saved = loadAnswers(grade, api);
         if (hasWeekPlan(saved, monday)) {
             if (!saved.week) {
                 saved.week = monday;
-                saveAnswers(grade, saved);
+                saveAnswers(grade, saved, api);
             }
             showResult(api, saved, false);
             return;
@@ -1024,7 +1047,7 @@
         openTab: openTab,
         openAsk: openAsk,
         retake: function (api) {
-            var saved = loadAnswers(api.getGrade());
+            var saved = loadAnswers(api.getGrade(), api);
             if (hasWeekPlan(saved, api.monday())) {
                 api.alert('ဒီအပတ် Timetable ကို ဆွဲပြီးပါပြီ။ နောက်အပတ် တနင်္လာမှ အသစ်ဆွဲနိုင်ပါတယ်။');
                 showResult(api, saved, false);
