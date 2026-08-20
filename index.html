@@ -388,7 +388,7 @@ input:checked + .slider:before {
     }
     .en-dlg-num { color: #00D5FF; font-weight: 800; }
     .en-dlg-blank {
-        display: inline-block;
+        display: inline;
         min-width: 3.8em;
         margin: 0 3px 4px;
         padding: 3px 10px;
@@ -399,6 +399,10 @@ input:checked + .slider:before {
         font-weight: 800;
         font-size: 0.92rem;
         vertical-align: baseline;
+        font-family: inherit;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
     }
     .en-dlg-blank.filled { border-style: solid; color: #FFFFFF; }
     .en-dlg-blank.ok { border-color: #00D5FF; color: #00D5FF; }
@@ -425,6 +429,8 @@ input:checked + .slider:before {
         font-weight: 700;
         text-align: left;
         line-height: 1.4;
+        font-family: inherit;
+        cursor: pointer;
     }
     .en-dlg-choice.on { border-color: #00D5FF; color: #00D5FF; background: #0B0F19; }
     .en-dlg-choice.used { opacity: 0.35; }
@@ -434,10 +440,12 @@ input:checked + .slider:before {
         padding: 12px;
         border-radius: 12px;
         background: #00D5FF;
-        color: #000;
+        color: #0B0F19;
         font-weight: 800;
         border: none;
         font-size: 1rem;
+        font-family: inherit;
+        cursor: pointer;
     }
     .en-dlg-score { color: #94A3B8; text-align: center; margin: 10px 0 0; font-weight: 700; }
     @media (min-width: 768px) {
@@ -2981,7 +2989,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=44'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=45'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -4368,12 +4376,19 @@ function openSubjectMenu(sub) {
                     const start = re.lastIndex;
                     const rest = src.slice(start);
                     const next = rest.search(/\(\d+\)/);
-                    const phrase = (next === -1 ? rest : rest.slice(0, next)).replace(/\s+$/, '');
+                    const end = next === -1 ? src.length : start + next;
+                    const phrase = src.slice(start, end).replace(/\s+$/, '').trim();
+                    if (!phrase) {
+                        chunks.push({ type: 'text', text: src.slice(m.index, end) });
+                        last = end;
+                        re.lastIndex = end;
+                        continue;
+                    }
                     const id = blanks.length;
                     blanks.push({ id, n: parseInt(m[1], 10), phrase });
                     chunks.push({ type: 'blank', id, n: parseInt(m[1], 10), phrase });
-                    last = start + phrase.length;
-                    re.lastIndex = last;
+                    last = end;
+                    re.lastIndex = end;
                 }
                 chunks.push({ type: 'text', text: src.slice(last) });
                 return { ...line, chunks };
