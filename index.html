@@ -361,37 +361,38 @@ input:checked + .slider:before {
     .en-qa-list { display: flex; flex-direction: column; gap: 10px; }
     .en-qa-card { background: #0B0F19; border: 1px solid #334155; border-left: 3px solid #00D5FF; border-radius: 12px; padding: 12px 14px; text-align: left; }
     .en-qa-q { color: #FFFFFF; line-height: 1.55; margin: 0 0 8px; font-size: 0.95rem; font-weight: 700; }
-    .en-qa-a { color: #00FF80; line-height: 1.6; margin: 0; font-size: 0.9rem; border-top: 1px solid #1E293B; padding-top: 8px; }
-    .en-qa-a.opinion { color: #00FF80; font-weight: 800; }
+    .en-qa-a { color: #00D5FF; line-height: 1.6; margin: 0; font-size: 0.9rem; border-top: 1px solid #1E293B; padding-top: 8px; }
+    .en-qa-a.opinion { color: #00D5FF; font-weight: 800; }
     .en-dlg-wrap { grid-column: 1 / -1; min-width: 0; max-width: 100%; }
     .en-dlg-scroll {
-        grid-column: 1 / -1;
-        min-width: 0;
-        max-width: 100%;
         overflow-x: auto;
-        overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        scroll-padding: 0 4px;
-        padding: 2px 2px 10px;
         overscroll-behavior-x: contain;
-    }
-    .en-dlg-track { display: flex; gap: 10px; width: max-content; }
-    .en-dlg-card {
-        scroll-snap-align: start;
-        flex: 0 0 min(82vw, 420px);
-        min-height: 190px;
         background: var(--detail-bg);
         border: 1px solid var(--detail-border);
         border-radius: 16px;
-        padding: 18px 16px;
-        box-sizing: border-box;
+        padding: 22px 16px 22px 20px;
     }
-    .en-dlg-card.head { min-height: 0; display: flex; align-items: center; justify-content: center; }
-    .en-dlg-who { color: #00D5FF; font-weight: 800; margin: 0 0 10px; font-size: 0.92rem; }
-    .en-dlg-text { color: #FFFFFF; line-height: 1.7; margin: 0; font-size: 1.05rem; }
-    .en-dlg-head { color: #00D5FF; font-weight: 800; margin: 0; text-align: center; }
-    .en-dlg-hint { grid-column: 1 / -1; color: #94A3B8; text-align: center; font-size: 0.82rem; margin: 0 0 8px; }
+    .en-dlg-inner {
+        width: max-content;
+        min-width: 100%;
+        padding-right: 56px;
+        box-sizing: content-box;
+    }
+    .en-dlg-line {
+        white-space: nowrap;
+        color: #FFFFFF;
+        margin: 0 0 16px;
+        font-size: 1.05rem;
+        line-height: 1.75;
+    }
+    .en-dlg-line:last-child { margin-bottom: 0; }
+    .en-dlg-head {
+        white-space: nowrap;
+        color: #00D5FF;
+        font-weight: 800;
+        margin: 4px 0 16px;
+    }
     @media (min-width: 768px) {
         .poem-para-card { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
         .poem-para-lines { margin: 0; }
@@ -2933,7 +2934,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=42'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=43'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -4276,7 +4277,7 @@ function openSubjectMenu(sub) {
             const lines = [];
             raw.forEach((line) => {
                 if (/^Dialogue\s+\d+$/i.test(line)) {
-                    lines.push({ kind: 'head', who: '', text: line });
+                    lines.push({ kind: 'head', text: line });
                     return;
                 }
                 const m = line.match(/^([^:]{1,40}):\s*(.*)$/);
@@ -4300,28 +4301,24 @@ function openSubjectMenu(sub) {
             content.innerHTML = '';
             document.getElementById('activity-back-btn').onclick = () => showENDialogues();
             const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            const hint = document.createElement('p');
-            hint.className = 'en-dlg-hint';
-            hint.textContent = '← ဘေးတိုက် ပွတ်ဆွဲပါ →';
-            const scroller = document.createElement('div');
-            scroller.className = 'en-dlg-scroll';
-            const track = document.createElement('div');
-            track.className = 'en-dlg-track';
-            parseDialogueLines(data[index].content).forEach((line) => {
-                const card = document.createElement('article');
-                card.className = 'en-dlg-card' + (line.kind === 'head' ? ' head' : '');
-                if (line.kind === 'head') {
-                    card.innerHTML = `<p class="en-dlg-head">${esc(line.text)}</p>`;
-                } else {
-                    card.innerHTML = (line.who ? `<p class="en-dlg-who">${esc(line.who)}</p>` : '') +
-                        `<p class="en-dlg-text">${esc(line.text)}</p>`;
-                }
-                track.appendChild(card);
-            });
-            scroller.appendChild(track);
             const wrap = document.createElement('div');
             wrap.className = 'en-dlg-wrap';
-            wrap.appendChild(hint);
+            const scroller = document.createElement('div');
+            scroller.className = 'en-dlg-scroll';
+            const inner = document.createElement('div');
+            inner.className = 'en-dlg-inner';
+            parseDialogueLines(data[index].content).forEach((line) => {
+                const p = document.createElement('p');
+                if (line.kind === 'head') {
+                    p.className = 'en-dlg-head';
+                    p.textContent = line.text;
+                } else {
+                    p.className = 'en-dlg-line';
+                    p.textContent = line.who ? (line.who + ': ' + line.text) : line.text;
+                }
+                inner.appendChild(p);
+            });
+            scroller.appendChild(inner);
             wrap.appendChild(scroller);
             content.appendChild(wrap);
         }
