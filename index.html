@@ -365,22 +365,15 @@ input:checked + .slider:before {
     .en-qa-a.opinion { color: #00D5FF; font-weight: 800; }
     .en-dlg-wrap { grid-column: 1 / -1; min-width: 0; max-width: 100%; }
     .en-dlg-scroll {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior-x: contain;
+        overflow-x: hidden;
         background: var(--detail-bg);
         border: 1px solid var(--detail-border);
         border-radius: 16px;
-        padding: 22px 16px 22px 20px;
+        padding: 22px 18px;
     }
-    .en-dlg-inner {
-        width: max-content;
-        min-width: 100%;
-        padding-right: 56px;
-        box-sizing: content-box;
-    }
+    .en-dlg-inner { width: 100%; min-width: 0; }
     .en-dlg-line {
-        white-space: nowrap;
+        white-space: normal;
         color: #FFFFFF;
         margin: 0 0 16px;
         font-size: 1.05rem;
@@ -388,11 +381,73 @@ input:checked + .slider:before {
     }
     .en-dlg-line:last-child { margin-bottom: 0; }
     .en-dlg-head {
-        white-space: nowrap;
+        white-space: normal;
         color: #00D5FF;
         font-weight: 800;
         margin: 4px 0 16px;
     }
+    .en-dlg-num { color: #00D5FF; font-weight: 800; }
+    .en-dlg-blank {
+        display: inline;
+        min-width: 3.8em;
+        margin: 0 3px 4px;
+        padding: 3px 10px;
+        border: 1px dashed #00D5FF;
+        border-radius: 10px;
+        background: #0B0F19;
+        color: #00D5FF;
+        font-weight: 800;
+        font-size: 0.92rem;
+        vertical-align: baseline;
+        font-family: inherit;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    .en-dlg-blank.filled { border-style: solid; color: #FFFFFF; }
+    .en-dlg-blank.ok { border-color: #00D5FF; color: #00D5FF; }
+    .en-dlg-blank.bad { border-color: #F87171; color: #F87171; }
+    .en-dlg-bank-title {
+        color: #00D5FF;
+        font-weight: 800;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin: 16px 0 8px;
+    }
+    .en-dlg-bank { display: flex; flex-wrap: wrap; gap: 8px; }
+    .en-dlg-choice {
+        width: auto !important;
+        max-width: 100%;
+        margin: 0;
+        padding: 8px 12px;
+        border-radius: 12px;
+        background: #162235;
+        border: 1px solid #334155;
+        color: #E2E8F0;
+        font-size: 0.88rem;
+        font-weight: 700;
+        text-align: left;
+        line-height: 1.4;
+        font-family: inherit;
+        cursor: pointer;
+    }
+    .en-dlg-choice.on { border-color: #00D5FF; color: #00D5FF; background: #0B0F19; }
+    .en-dlg-choice.used { opacity: 0.35; }
+    .en-dlg-check {
+        margin-top: 14px;
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        background: #00D5FF;
+        color: #0B0F19;
+        font-weight: 800;
+        border: none;
+        font-size: 1rem;
+        font-family: inherit;
+        cursor: pointer;
+    }
+    .en-dlg-score { color: #94A3B8; text-align: center; margin: 10px 0 0; font-weight: 700; }
     @media (min-width: 768px) {
         .poem-para-card { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
         .poem-para-lines { margin: 0; }
@@ -2934,7 +2989,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=43'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=45'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -4265,7 +4320,7 @@ function openSubjectMenu(sub) {
                 if (!res.ok) throw new Error();
                 const data = await res.json();
                 data.forEach((item, index) => {
-                    createBtn(item.title, content, () => showENDialogueDetail(data, index));
+                    createBtn(item.title, content, () => showENDialogueModes(data, index));
                 });
             } catch (e) {
                 tg.showAlert('Dialogue ဖိုင်မတွေ့သေးပါ။');
@@ -4294,32 +4349,196 @@ function openSubjectMenu(sub) {
             return lines;
         }
 
-        function showENDialogueDetail(data, index) {
+        function escDlg(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function sameDlgPhrase(a, b) {
+            const n = (s) => String(s || '').replace(/[“”]/g, '"').replace(/[‘’]/g, "'").replace(/\s+/g, ' ').trim().toLowerCase();
+            const left = n(a);
+            const right = n(b);
+            if (left === right) return true;
+            const bits = right.split('/').map((x) => x.trim()).filter(Boolean);
+            return bits.length > 1 && bits.some((bit) => bit === left);
+        }
+
+        function extractDialogueBlanks(text) {
+            const blanks = [];
+            const lines = parseDialogueLines(text).map((line) => {
+                if (line.kind !== 'say') return { ...line, chunks: [] };
+                const src = line.text;
+                const chunks = [];
+                const re = /\((\d+)\)\s*/g;
+                let last = 0;
+                let m;
+                while ((m = re.exec(src))) {
+                    chunks.push({ type: 'text', text: src.slice(last, m.index) });
+                    const start = re.lastIndex;
+                    const rest = src.slice(start);
+                    const next = rest.search(/\(\d+\)/);
+                    const end = next === -1 ? src.length : start + next;
+                    const phrase = src.slice(start, end).replace(/\s+$/, '').trim();
+                    if (!phrase) {
+                        chunks.push({ type: 'text', text: src.slice(m.index, end) });
+                        last = end;
+                        re.lastIndex = end;
+                        continue;
+                    }
+                    const id = blanks.length;
+                    blanks.push({ id, n: parseInt(m[1], 10), phrase });
+                    chunks.push({ type: 'blank', id, n: parseInt(m[1], 10), phrase });
+                    last = end;
+                    re.lastIndex = end;
+                }
+                chunks.push({ type: 'text', text: src.slice(last) });
+                return { ...line, chunks };
+            });
+            return { lines, blanks };
+        }
+
+        function showENDialogueModes(data, index) {
             showScreen('activity');
             document.getElementById('activity-title').innerText = data[index].title;
             const content = document.getElementById('activity-content');
             content.innerHTML = '';
             document.getElementById('activity-back-btn').onclick = () => showENDialogues();
-            const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            createBtn('Review', content, () => showENDialogueDetail(data, index, 'review'));
+            createBtn('Practice', content, () => showENDialogueDetail(data, index, 'practice'));
+        }
+
+        function showENDialogueDetail(data, index, mode) {
+            const item = data[index];
+            const practice = mode === 'practice';
+            showScreen('activity');
+            document.getElementById('activity-title').innerText = item.title + (practice ? ' · Practice' : ' · Review');
+            const content = document.getElementById('activity-content');
+            content.innerHTML = '';
+            document.getElementById('activity-back-btn').onclick = () => showENDialogueModes(data, index);
+
+            const parsed = extractDialogueBlanks(item.content);
             const wrap = document.createElement('div');
             wrap.className = 'en-dlg-wrap';
             const scroller = document.createElement('div');
             scroller.className = 'en-dlg-scroll';
             const inner = document.createElement('div');
             inner.className = 'en-dlg-inner';
-            parseDialogueLines(data[index].content).forEach((line) => {
+
+            parsed.lines.forEach((line) => {
                 const p = document.createElement('p');
                 if (line.kind === 'head') {
                     p.className = 'en-dlg-head';
                     p.textContent = line.text;
+                    inner.appendChild(p);
+                    return;
+                }
+                p.className = 'en-dlg-line';
+                const who = line.who ? escDlg(line.who) + ': ' : '';
+                if (!practice) {
+                    p.innerHTML = who + escDlg(line.text).replace(/\((\d+)\)/g, '<span class="en-dlg-num">($1)</span>');
                 } else {
-                    p.className = 'en-dlg-line';
-                    p.textContent = line.who ? (line.who + ': ' + line.text) : line.text;
+                    let html = who;
+                    (line.chunks || []).forEach((chunk) => {
+                        if (chunk.type === 'text') html += escDlg(chunk.text);
+                        else {
+                            html += `<button type="button" class="en-dlg-blank" data-id="${chunk.id}" data-n="${chunk.n}">(${chunk.n})</button>`;
+                        }
+                    });
+                    p.innerHTML = html;
                 }
                 inner.appendChild(p);
             });
             scroller.appendChild(inner);
             wrap.appendChild(scroller);
+
+            if (practice && parsed.blanks.length) {
+                const title = document.createElement('p');
+                title.className = 'en-dlg-bank-title';
+                title.textContent = 'Answer box';
+                wrap.appendChild(title);
+                const bank = document.createElement('div');
+                bank.className = 'en-dlg-bank';
+                const order = parsed.blanks.map((_, i) => i);
+                for (let i = order.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    const t = order[i]; order[i] = order[j]; order[j] = t;
+                }
+                order.forEach((bi) => {
+                    const blank = parsed.blanks[bi];
+                    const chip = document.createElement('button');
+                    chip.type = 'button';
+                    chip.className = 'en-dlg-choice';
+                    chip.textContent = blank.phrase;
+                    chip.setAttribute('data-id', String(blank.id));
+                    bank.appendChild(chip);
+                });
+                wrap.appendChild(bank);
+                let picked = null;
+                const blanks = () => Array.from(wrap.querySelectorAll('.en-dlg-blank'));
+                const choices = () => Array.from(bank.querySelectorAll('.en-dlg-choice'));
+                function setPicked(chip) {
+                    picked = chip;
+                    choices().forEach((c) => c.classList.toggle('on', c === chip));
+                }
+                function fillBlank(blankBtn, chip) {
+                    const oldId = blankBtn.getAttribute('data-filled');
+                    if (oldId) {
+                        const oldChip = bank.querySelector('.en-dlg-choice[data-id="' + oldId + '"]');
+                        if (oldChip) oldChip.classList.remove('used');
+                    }
+                    blankBtn.classList.add('filled');
+                    blankBtn.classList.remove('ok', 'bad');
+                    blankBtn.textContent = chip.textContent;
+                    blankBtn.setAttribute('data-filled', chip.getAttribute('data-id'));
+                    chip.classList.add('used');
+                    chip.classList.remove('on');
+                    picked = null;
+                }
+                bank.addEventListener('click', (e) => {
+                    const chip = e.target.closest('.en-dlg-choice');
+                    if (!chip || chip.classList.contains('used')) return;
+                    setPicked(chip);
+                });
+                wrap.addEventListener('click', (e) => {
+                    const blankBtn = e.target.closest('.en-dlg-blank');
+                    if (!blankBtn) return;
+                    if (picked) {
+                        fillBlank(blankBtn, picked);
+                        return;
+                    }
+                    const filled = blankBtn.getAttribute('data-filled');
+                    if (filled) {
+                        const oldChip = bank.querySelector('.en-dlg-choice[data-id="' + filled + '"]');
+                        if (oldChip) oldChip.classList.remove('used');
+                        blankBtn.classList.remove('filled', 'ok', 'bad');
+                        blankBtn.removeAttribute('data-filled');
+                        blankBtn.textContent = '(' + blankBtn.getAttribute('data-n') + ')';
+                    }
+                });
+                const check = document.createElement('button');
+                check.type = 'button';
+                check.className = 'en-dlg-check';
+                check.textContent = 'Check';
+                const score = document.createElement('p');
+                score.className = 'en-dlg-score';
+                check.onclick = () => {
+                    let right = 0;
+                    blanks().forEach((blankBtn) => {
+                        const ok = blankBtn.getAttribute('data-filled') === blankBtn.getAttribute('data-id');
+                        blankBtn.classList.toggle('ok', ok);
+                        blankBtn.classList.toggle('bad', !ok);
+                        if (ok) right++;
+                    });
+                    score.textContent = right + ' / ' + blanks().length + ' correct';
+                };
+                wrap.appendChild(check);
+                wrap.appendChild(score);
+            } else if (practice) {
+                const note = document.createElement('p');
+                note.className = 'en-dlg-score';
+                note.textContent = 'This dialogue has no numbered blanks.';
+                wrap.appendChild(note);
+            }
+
             content.appendChild(wrap);
         }
 
