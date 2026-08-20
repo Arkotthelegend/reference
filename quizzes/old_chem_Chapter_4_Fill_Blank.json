@@ -1,23 +1,128 @@
 [
-  {"type": "blank", "q": "If the equilibrium constant is _______ than 1, the equilibrium lies to the right, and there are more products than reactants. 2026", "c": "greater"},
-  {"type": "blank", "q": "If the external factors are altered, the system will shift to a _______ state of equilibrium. 2026", "c": "new"},
-  {"type": "blank", "q": "_______ is a system that allows energy to enter and exist, but matter can neither be gained nor lost. 2026", "c": "Closed system"},
-  {"type": "blank", "q": "At _______, the rates of forward and reverse reactions are equal. 2026", "c": "equilibrium"},
-  {"type": "blank", "q": "If the K_eq value is _______, the equilibrium lies to the right and there are more products than reactants.", "c": "large"},
-  {"type": "blank", "q": "A _______ reaction is a reaction that can proceed in both directions.", "c": "reversible"},
-  {"type": "blank", "q": "If the K_eq value is _______, the equilibrium lies to the left. 2026", "c": "less than 1"},
-  {"type": "blank", "q": "In equilibrium the forward and reverse reactions are still proceeding at an equal _______. 2025", "c": "rate"},
-  {"type": "blank", "q": "The equilibrium constant provides how far a reaction has gone towards _______ before it reaches equilibrium. 2025", "c": "completion"},
-  {"type": "blank", "q": "The equilibrium constant K_p can be given as the ratio of the _______ of products and reactants.", "c": "partial pressures"},
-  {"type": "blank", "q": "There are two types of equilibrium; _______ equilibrium and dynamic equilibrium. 2025", "c": "static"},
-  {"type": "blank", "q": "Le Chatelier's principle is a _______ guide to the effect of changes in concentration, temperature and pressure on a system at equilibrium. 2025", "c": "qualitative"},
-  {"type": "blank", "q": "Closed system allows energy to enter and exit, but _______ can neither be gained nor lost. 2025", "c": "matter"},
-  {"type": "blank", "q": "Reversible reactions that happen in a _______ system eventually reach equilibrium. 2025", "c": "closed"},
-  {"type": "blank", "q": "When the concentration of a reactant is increased on equilibrium system, the system responds by _______ the concentration of the reactant.", "c": "removing"},
-  {"type": "blank", "q": "If a reversible reaction is in a closed system, the system can reach a state called a _______ equilibrium. 2025", "c": "dynamic"},
-  {"type": "blank", "q": "In many equilibrium systems, the substances involved are _______ all in the same phase. 2025", "c": "not"},
-  {"type": "blank", "q": "In methanol production, the reaction is carried out at a temperature of 250°C using the catalyst _______. 2025", "c": "Cu-ZnO-Al_2O_3"},
-  {"type": "blank", "q": "If the number of moles of gas is the same on both sides of the reversible chemical equation, _______ has no effect. 2026", "c": "pressure"},
-  {"type": "blank", "q": "Fuels are burned in air to produce carbon dioxide and water, and this reaction goes to _______. 2026", "c": "completion"},
-  {"type": "blank", "q": "The equilibrium in which the reactants and products of a chemical equilibrium are all in a single phase is called _______ equilibrium.", "c": "homogeneous"}
+  {
+    "q": "If the equilibrium constant is _______ than 1, the equilibrium lies to the right, and there are more products than reactants. [2024]",
+    "type": "blank",
+    "c": "greater",
+    "e": "When the equilibrium constant is greater than 1, product formation is favored at equilibrium."
+  },
+  {
+    "q": "If the external factors are altered, the system will shift to a _______ state of equilibrium. [2025]",
+    "type": "blank",
+    "c": "new",
+    "e": "According to Le Chatelier's principle, altering external conditions causes the system to adjust until a new equilibrium state is established."
+  },
+  {
+    "q": "_______ is a system that allows energy to enter and exist, but matter can neither be gained or lost. [2026]",
+    "type": "blank",
+    "c": "Closed system",
+    "e": "A closed system can exchange energy (heat and work) with its surroundings, but cannot exchange matter."
+  },
+  {
+    "q": "At _______, the rates of forward and reverse reactions are equal. [2024]",
+    "type": "blank",
+    "c": "equilibrium",
+    "e": "Dynamic chemical equilibrium is reached when the rates of the forward and reverse reactions become equal."
+  },
+  {
+    "q": "If the K_eq value is _______, the equilibrium lies to the right and there are more products than reactants. [2025]",
+    "type": "blank",
+    "c": "large",
+    "e": "A large equilibrium constant (K_eq >> 1) indicates that products predominate at equilibrium."
+  },
+  {
+    "q": "A _______ reaction is a reaction that can proceed in both directions. [2026]",
+    "type": "blank",
+    "c": "reversible",
+    "e": "A reversible reaction can proceed in both forward and reverse directions under identical conditions."
+  },
+  {
+    "q": "If the K_eq value is _______, the equilibrium lies to the left. [2024]",
+    "type": "blank",
+    "c": "less than 1",
+    "e": "When K_eq is less than 1, the reaction favors the reactants at equilibrium."
+  },
+  {
+    "q": "In equilibrium the forward and reverse reactions are still proceeding at an equal _______. [2025]",
+    "type": "blank",
+    "c": "rate",
+    "e": "Chemical equilibrium is dynamic, meaning both forward and reverse processes continue simultaneously at the exact same rate."
+  },
+  {
+    "q": "The equilibrium constant provides how far a reaction has gone towards _______ before it reaches equilibrium. [2026]",
+    "type": "blank",
+    "c": "completion",
+    "e": "The magnitude of K_eq indicates the extent to which reactants are converted into products before reaching equilibrium."
+  },
+  {
+    "q": "The equilibrium constant K_p can be given as the ratio of the _______ of products and reactants. [2024]",
+    "type": "blank",
+    "c": "partial pressures",
+    "e": "For gas-phase reactions, K_p is expressed as the ratio of the partial pressures of products to reactants."
+  },
+  {
+    "q": "There are two types of equilibrium; _______ equilibrium and dynamic equilibrium. [2025]",
+    "type": "blank",
+    "c": "static",
+    "e": "Equilibrium can be broadly categorized into static equilibrium (no movement) and dynamic equilibrium (equal opposing rates)."
+  },
+  {
+    "q": "Le Chatelier's principle is a _______ guide to the effect of changes in concentration, temperature and pressure on a system at equilibrium. [2026]",
+    "type": "blank",
+    "c": "qualitative",
+    "e": "Le Chatelier's principle provides a qualitative prediction of how a system responds to changes in conditions."
+  },
+  {
+    "q": "Closed system allows energy to enter and exit, but _______ can neither be gained nor lost. [2024]",
+    "type": "blank",
+    "c": "matter",
+    "e": "Matter cannot cross the boundary of a closed system, while energy transfer remains possible."
+  },
+  {
+    "q": "Reversible reactions that happen in a _______ system eventually reach equilibrium. [2025]",
+    "type": "blank",
+    "c": "closed",
+    "e": "A closed system prevents reactants or products from escaping, allowing the system to achieve equilibrium."
+  },
+  {
+    "q": "When the concentration of a reactant is increased on equilibrium system, the system responds by _______ the concentration of the reactant. [2026]",
+    "type": "blank",
+    "c": "removing",
+    "e": "The system relieves stress by consuming (removing) the added reactant to restore equilibrium."
+  },
+  {
+    "q": "If a reversible reaction is in a closed system, the system can reach a state called a _______ equilibrium. [2024]",
+    "type": "blank",
+    "c": "dynamic",
+    "e": "In a closed system, a reversible reaction eventually establishes dynamic equilibrium."
+  },
+  {
+    "q": "In many equilibrium systems, the substances involved are _______ all in the same phase. [2025]",
+    "type": "blank",
+    "c": "not",
+    "e": "In heterogeneous equilibria, reactants and products exist in two or more different phases."
+  },
+  {
+    "q": "In methanol production, the reaction is carried out at a temperature of 250°C using the catalyst _______. [2026]",
+    "type": "blank",
+    "c": "Cu-ZnO-Al2O3",
+    "e": "Industrial synthesis of methanol utilizes a copper-zinc oxide-alumina catalyst."
+  },
+  {
+    "q": "If the number of moles of gas is the same on both sides of the reversible chemical equation, _______ has no effect. [2024]",
+    "type": "blank",
+    "c": "pressure",
+    "e": "When Δn_gas = 0, changes in overall pressure do not shift the equilibrium position."
+  },
+  {
+    "q": "Fuels are burned in air to produce carbon dioxide and water, and this reaction goes to _______. [2025]",
+    "type": "blank",
+    "c": "completion",
+    "e": "Combustion reactions are irreversible and proceed fully until the limiting reactant is completely consumed."
+  },
+  {
+    "q": "The equilibrium in which the reactants and products of a chemical equilibrium are all in a single phase is called _______ equilibrium. [2026]",
+    "type": "blank",
+    "c": "homogeneous",
+    "e": "A homogeneous equilibrium is one in which all reacting species are present in the same physical phase."
+  }
 ]
