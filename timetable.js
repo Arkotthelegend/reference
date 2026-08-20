@@ -179,18 +179,24 @@
                 if (b - a >= 10) blocks.push({ start: a, end: b, type: 'brk', label: 'Break', sub: '', color: COLORS.brk });
                 return;
             }
+            if (!answers.shortRest) {
+                pushStudy(a, b);
+                return;
+            }
+            var studyChunk = 90;
+            var restLen = answers.shortRestMins || 15;
             var t = a;
             while (b - t >= 20) {
                 var left = b - t;
-                if (left <= 210) {
+                if (left <= studyChunk + restLen) {
                     pushStudy(t, b);
                     return;
                 }
-                pushStudy(t, t + 180);
-                t += 180;
-                if (b - t >= 50) {
-                    blocks.push({ start: t, end: t + 30, type: 'brk', label: 'Rest', sub: '', color: COLORS.brk });
-                    t += 30;
+                pushStudy(t, t + studyChunk);
+                t += studyChunk;
+                if (b - t >= restLen + 20) {
+                    blocks.push({ start: t, end: t + restLen, type: 'brk', label: 'Rest', sub: '', color: COLORS.brk });
+                    t += restLen;
                 }
             }
         }
@@ -236,9 +242,31 @@
         return merged;
     }
 
-    function buildWeek(answers, seed) {
-        var cycle = seededShuffle(answers.subjects.slice(), seed || 1);
+    function weekSubjects(answers) {
+        var ids = [];
+        function add(list) {
+            (list || []).forEach(function (id) {
+                if (id && ids.indexOf(id) === -1) ids.push(id);
+            });
+        }
+        add(answers.weakSubjects);
+        add(answers.strongSubjects);
+        add(answers.subjects);
+        return ids;
+    }
+
+    function makeCycle(answers, seed) {
+        var bag = [];
+        (answers.weakSubjects || []).forEach(function (id) { bag.push(id, id, id); });
+        (answers.strongSubjects || []).forEach(function (id) { bag.push(id); });
+        if (!bag.length) bag = weekSubjects(answers).slice();
+        var cycle = seededShuffle(bag, seed || 1);
         if (!cycle.length) cycle = ['en'];
+        return cycle;
+    }
+
+    function buildWeek(answers, seed) {
+        var cycle = makeCycle(answers, seed);
         var days = [];
         for (var d = 0; d < 7; d++) days.push(buildDay(answers, d, cycle, d >= 5 ? seed + 17 : seed));
         return { days: days, cycle: cycle };
@@ -677,7 +705,9 @@
             var canvas = makePoster(api, answers, logoCanvas);
             var img = document.getElementById('tt-preview');
             var weekEl = document.getElementById('tt-week-note');
-            if (weekEl) weekEl.textContent = weekLabel(api.monday()) + ' · subjects reshuffle every Monday';
+            if (weekEl) weekEl.textContent = weekLabel(api.monday()) + ' · ဒီအပတ် တစ်ကြိမ်သာ ဆွဲနိုင်ပါတယ်';
+            var retakeBtn = document.getElementById('tt-retake');
+            if (retakeBtn) retakeBtn.hidden = !!(answers.week && answers.week === api.monday());
             canvas.toBlob(function (blob) {
                 if (!blob) {
                     img.src = canvas.toDataURL('image/png');
@@ -711,8 +741,16 @@
             restStart: 18 * 60,
             restEnd: 19 * 60,
             restLabel: 'Dinner + Rest',
-            subjects: paidSubjects(api).map(function (s) { return s.id; })
+            shortRest: true,
+            shortRestMins: 15,
+            weakSubjects: [],
+            strongSubjects: [],
+            subjects: []
         };
+        if (!answers.weakSubjects) answers.weakSubjects = [];
+        if (!answers.strongSubjects) answers.strongSubjects = [];
+        if (typeof answers.shortRest !== 'boolean') answers.shortRest = true;
+        if (!answers.shortRestMins) answers.shortRestMins = 15;
         var step = 0;
 
         function steps() {
@@ -731,7 +769,9 @@
             s.push({ id: 'wake', title: 'မနက် ဘယ်အချိန် စပီး လေ့လာမလဲ။' });
             s.push({ id: 'sleep', title: 'ည ဘယ်အချိန် အိပ်မလဲ။' });
             s.push({ id: 'rest', title: 'ထမင်းစား / နားချိန်' });
-            s.push({ id: 'subjects', title: 'Timetable ထဲ ထည့်မယ့် ဘာသာရပ်များ' });
+            s.push({ id: 'shortRest', title: 'ရှည်လျားတဲ့ ကျက်ချိန်ပြီးရင် ခဏနားမလား။' });
+            s.push({ id: 'weak', title: 'ဒီအပတ် အားနည်းတဲ့ ဘာသာရပ်များ' });
+            s.push({ id: 'strong', title: 'ဒီအပတ် အားကောင်းတဲ့ ဘာသာရပ်များ' });
             return s;
         }
 
@@ -739,6 +779,8 @@
             var list = steps();
             if (step < 0) step = 0;
             if (step >= list.length) {
+                answers.week = api.monday();
+                answers.subjects = weekSubjects(answers);
                 saveAnswers(api.getGrade(), answers);
                 showPanel('tt-think');
                 setTimeout(function () { showResult(api, answers, false); }, 900);
@@ -783,10 +825,22 @@
                     }).join('') + '</div>' +
                     '<div class="tt-times"><label>Start<select id="tt-rest-start">' + timeSelectHtml(16 * 60, 23 * 60, answers.restStart) + '</select></label>' +
                     '<label>End<select id="tt-rest-end">' + timeSelectHtml(17 * 60, 24 * 60, answers.restEnd) + '</select></label></div>';
-            } else if (cur.id === 'subjects') {
-                html = '<p class="tt-help">ဘာသာရပ် ၆ ခု ရွေးပါ။</p><div class="tt-subs" id="tt-subs">' +
+            } else if (cur.id === 'shortRest') {
+                html = '<p class="tt-help">၁ နာရီခွဲ ကျက်ပြီးရင် ၁၅ မိနစ် Rest ထည့်မယ်။</p>' +
+                    '<div class="tt-yesno"><button type="button" class="tt-chip' + (answers.shortRest ? ' on' : '') + '" data-v="1">ထည့်မယ်</button>' +
+                    '<button type="button" class="tt-chip' + (!answers.shortRest ? ' on' : '') + '" data-v="0">မထည့်ဘူး</button></div>';
+            } else if (cur.id === 'weak') {
+                html = '<p class="tt-help">ဒီအပတ် အချိန်ပိုပေးမယ့် ဘာသာရပ်များ။ အားလုံး မရွေးလည်း ရပါတယ်။</p><div class="tt-subs" id="tt-weak">' +
                     paidSubjects(api).map(function (s) {
-                        var on = answers.subjects.indexOf(s.id) !== -1;
+                        var on = answers.weakSubjects.indexOf(s.id) !== -1;
+                        return '<button type="button" class="tt-chip' + (on ? ' on' : '') + '" data-sub="' + s.id + '">' + s.name + '</button>';
+                    }).join('') + '</div>';
+            } else if (cur.id === 'strong') {
+                html = '<p class="tt-help">အားနည်းတဲ့ထဲ ရွေးပြီးသား မပါပါ။ မရွေးလည်း ရပါတယ်။</p><div class="tt-subs" id="tt-strong">' +
+                    paidSubjects(api).filter(function (s) {
+                        return answers.weakSubjects.indexOf(s.id) === -1;
+                    }).map(function (s) {
+                        var on = answers.strongSubjects.indexOf(s.id) !== -1;
                         return '<button type="button" class="tt-chip' + (on ? ' on' : '') + '" data-sub="' + s.id + '">' + s.name + '</button>';
                     }).join('') + '</div>';
             }
@@ -825,7 +879,7 @@
                     }
                 };
             });
-            body.querySelectorAll('#tt-subs .tt-chip').forEach(function (ch) {
+            body.querySelectorAll('#tt-subs .tt-chip, #tt-weak .tt-chip, #tt-strong .tt-chip').forEach(function (ch) {
                 ch.onclick = function () { ch.classList.toggle('on'); };
             });
         }
@@ -868,11 +922,23 @@
                 answers.restStart = parseTime(document.getElementById('tt-rest-start').value);
                 answers.restEnd = parseTime(document.getElementById('tt-rest-end').value);
                 if (answers.restEnd <= answers.restStart) { api.alert('နားချိန် ပြီးချိန်က စချိန်ထက် နောက်ကျရပါမယ်။'); return false; }
-            } else if (cur.id === 'subjects') {
-                answers.subjects = Array.prototype.map.call(document.querySelectorAll('#tt-subs .tt-chip.on'), function (ch) {
+            } else if (cur.id === 'shortRest') {
+                var restYes = document.querySelector('.tt-yesno .tt-chip.on');
+                answers.shortRest = !!(restYes && restYes.getAttribute('data-v') === '1');
+                answers.shortRestMins = 15;
+            } else if (cur.id === 'weak') {
+                answers.weakSubjects = Array.prototype.map.call(document.querySelectorAll('#tt-weak .tt-chip.on'), function (ch) {
                     return ch.getAttribute('data-sub');
                 });
-                if (answers.subjects.length < MIN_SUBJECTS) { api.alert('ဘာသာရပ် ၆ ခု ရွေးပါ။'); return false; }
+                if (!answers.weakSubjects.length) { api.alert('အားနည်းတဲ့ ဘာသာရပ် အနည်းဆုံး ၁ ခု ရွေးပါ။'); return false; }
+                answers.strongSubjects = (answers.strongSubjects || []).filter(function (id) {
+                    return answers.weakSubjects.indexOf(id) === -1;
+                });
+            } else if (cur.id === 'strong') {
+                answers.strongSubjects = Array.prototype.map.call(document.querySelectorAll('#tt-strong .tt-chip.on'), function (ch) {
+                    return ch.getAttribute('data-sub');
+                });
+                answers.subjects = weekSubjects(answers);
             }
             return true;
         }
@@ -915,6 +981,14 @@
         }
     }
 
+    function hasWeekPlan(saved, monday) {
+        if (!saved) return false;
+        if (saved.week && saved.week !== monday) return false;
+        if (saved.week === monday && weekSubjects(saved).length) return true;
+        if (!saved.week && weekSubjects(saved).length) return true;
+        return false;
+    }
+
     function openTab(api) {
         var grade = api.getGrade();
         var paid = paidSubjects(api);
@@ -923,8 +997,13 @@
             showPanel('tt-lock');
             return;
         }
+        var monday = api.monday();
         var saved = loadAnswers(grade);
-        if (saved && saved.subjects && saved.subjects.length >= MIN_SUBJECTS) {
+        if (hasWeekPlan(saved, monday)) {
+            if (!saved.week) {
+                saved.week = monday;
+                saveAnswers(grade, saved);
+            }
             showResult(api, saved, false);
             return;
         }
@@ -944,7 +1023,15 @@
         rangeLabel: rangeLabel,
         openTab: openTab,
         openAsk: openAsk,
-        retake: function (api) { openAsk(api, loadAnswers(api.getGrade()) || undefined); },
+        retake: function (api) {
+            var saved = loadAnswers(api.getGrade());
+            if (hasWeekPlan(saved, api.monday())) {
+                api.alert('ဒီအပတ် Timetable ကို ဆွဲပြီးပါပြီ။ နောက်အပတ် တနင်္လာမှ အသစ်ဆွဲနိုင်ပါတယ်။');
+                showResult(api, saved, false);
+                return;
+            }
+            openAsk(api, saved || undefined);
+        },
         downloadPreview: downloadPreview
     };
 })(typeof window !== 'undefined' ? window : globalThis);
