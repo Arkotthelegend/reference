@@ -18,6 +18,10 @@
  * If `date` / `grade` are missing, the script creates them.
  *
  * Project timezone: File → Project settings → Asia/Yangon
+ *
+ * Time tab download (doPost action=uploadTimetable):
+ *   Hosts a PNG and returns { status:'ok', url }. Optional Script Property
+ *   BOT_TOKEN also sends the file to that Telegram user as a document.
  */
 
 var TZ = 'Asia/Yangon';
@@ -36,6 +40,16 @@ function doGet(e) {
     if (action === 'saveScore') return json_(saveScore_(p));
     if (action === 'getStats') return json_(getStats_(p));
     if (action === 'getLeaderboard') return json_(getLeaderboard_(p));
+    return json_({ status: 'error', message: 'Unknown action' });
+  } catch (err) {
+    return json_({ status: 'error', message: String(err) });
+  }
+}
+
+function doPost(e) {
+  try {
+    var p = parsePost_(e);
+    if (String(p.action || '') === 'uploadTimetable') return json_(uploadTimetable_(p));
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -271,6 +285,107 @@ function toIso_(v) {
   var d = new Date(v);
   if (!isNaN(d.getTime())) return d.toISOString();
   return String(v);
+}
+
+function parsePost_(e) {
+  if (e && e.postData && e.postData.contents) {
+    var raw = String(e.postData.contents || '').trim();
+    if (raw.charAt(0) === '{') return JSON.parse(raw);
+  }
+  return (e && e.parameter) || {};
+}
+
+function uploadTimetable_(p) {
+  var b64 = String(p.png || p.image || '');
+  var cut = b64.indexOf('base64,');
+  if (cut >= 0) b64 = b64.slice(cut + 7);
+  b64 = b64.replace(/\s/g, '');
+  if (!b64) return { status: 'error', message: 'png required' };
+
+  var fileName = String(p.fileName || 'REED-timetable.png').replace(/[^a-zA-Z0-9._-]/g, '_');
+  if (!/\.png$/i.test(fileName)) fileName += '.png';
+  var userId = String(p.userId || '').replace(/[^0-9]/g, '');
+
+  var bytes = Utilities.base64Decode(b64);
+  var blob = Utilities.newBlob(bytes, 'image/png', fileName);
+
+  var url = hostPng_(blob);
+  var sentToChat = sendTelegramDocument_(userId, blob, fileName);
+
+  if (!url && !sentToChat) return { status: 'error', message: 'upload failed' };
+  return { status: 'ok', url: url || '', sentToChat: sentToChat };
+}
+
+function hostPng_(blob) {
+  var url = postFileUrl_('https://litterbox.catbox.moe/resources/internals/api.php', {
+    reqtype: 'fileupload',
+    time: '24h',
+    fileToUpload: blob
+  });
+  if (url) return url;
+
+  url = postFileUrl_('https://tmpfiles.org/api/v1/upload', { file: blob });
+  if (url) {
+    url = String(url).replace('http://', 'https://');
+    if (url.indexOf('tmpfiles.org/') >= 0 && url.indexOf('/dl/') < 0) {
+      url = url.replace('://tmpfiles.org/', '://tmpfiles.org/dl/');
+    }
+    return url;
+  }
+
+  try {
+    var folders = DriveApp.getFoldersByName('ReedTimetableTmp');
+    var folder = folders.hasNext() ? folders.next() : DriveApp.createFolder('ReedTimetableTmp');
+    var file = folder.createFile(blob);
+    file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    return 'https://drive.google.com/uc?export=download&id=' + file.getId();
+  } catch (err) {
+    return '';
+  }
+}
+
+function postFileUrl_(endpoint, payload) {
+  try {
+    var res = UrlFetchApp.fetch(endpoint, {
+      method: 'post',
+      payload: payload,
+      muteHttpExceptions: true,
+      followRedirects: true
+    });
+    var text = String(res.getContentText() || '').trim();
+    if (res.getResponseCode() < 200 || res.getResponseCode() >= 300) return '';
+    if (text.indexOf('https://') === 0 || text.indexOf('http://') === 0) {
+      return text.split(/\s+/)[0];
+    }
+    if (text.charAt(0) === '{') {
+      var data = JSON.parse(text);
+      var nested = data && data.data && (data.data.url || data.data.link);
+      return String(nested || data.url || data.link || '');
+    }
+  } catch (err) {}
+  return '';
+}
+
+function sendTelegramDocument_(userId, blob, fileName) {
+  if (!userId) return false;
+  var props = PropertiesService.getScriptProperties();
+  var token = props.getProperty('BOT_TOKEN') || props.getProperty('TELEGRAM_BOT_TOKEN') || '';
+  if (!token) return false;
+  try {
+    var res = UrlFetchApp.fetch('https://api.telegram.org/bot' + token + '/sendDocument', {
+      method: 'post',
+      payload: {
+        chat_id: userId,
+        document: blob,
+        caption: 'Reed timetable · ' + fileName
+      },
+      muteHttpExceptions: true
+    });
+    var data = JSON.parse(res.getContentText() || '{}');
+    return !!(data && data.ok);
+  } catch (err) {
+    return false;
+  }
 }
 
 function json_(obj) {
