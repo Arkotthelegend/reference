@@ -2675,7 +2675,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=24'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=25'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -4059,8 +4059,18 @@ async function loadGrammarNote(topicId, topicTitle) {
     }
 };
 
-    // ကဗျာ (၄) ပုဒ်၏ စာသားအပြည့်အစုံ
-    const poemsData = {
+    function poemBlock(text, author) {
+        return `
+            <div style="display: flex; justify-content: center;">
+                <div style="white-space: pre-line; text-align: left; line-height: 2;">${text}
+
+	 <i>by ${author}</i>
+                </div>
+            </div>`;
+    }
+
+    // Grade 12 poems stay as they are
+    const poemsG12 = {
         "The Library": `
             <div style="display: flex; justify-content: center;">
                 <div style="white-space: pre-line; text-align: left; line-height: 2;">It looks like any building
@@ -4176,12 +4186,167 @@ But there’s wonderment within it,
             </div>`
     };
 
-    // ကဗျာခေါင်းစဉ်များဖြင့် ခလုတ်များ ဖန်တီးခြင်း
-    ["The Library", "The Quiet Life", "The Road Not Taken", "Windy Nights"].forEach(p => createBtn(p, content, () => {
+    const poemsG11 = {
+        "Bridges": poemBlock(`I like a bridge —
+Any kind of bridge at all.
+A great steel bridge
+With towers stiff and tall;
+An old covered bridge
+That spans a waterfall;
+A hewn-stone bridge
+With its rugged floor and wall;
+A railroad bridge
+Where freight trains slowly crawl;
+A wooden bridge,
+A cement bridge,
+Whether big or small;
+Yes, I like a bridge —
+Just any kind of bridge at all.`, 'James S. Tippett'),
+        "Cloud Zoo": poemBlock(`I thought I saw a cloud whale
+Sail through a sea of blue;
+It changed into an elephant
+Of most unusual hue,
+And even as I marvelled,
+It split itself in two.
+
+I watched a long white serpent
+Winding its cloudy way,
+To pounce upon a cloud frog
+That unsuspecting lay.
+The little frog became a bird
+And slowly flew away.
+
+All afternoon I watched them, —
+Such magic as they knew!
+I saw a white rhinoceros,
+And white flamingos, too,
+Till evening shut her deep blue tent
+Over my private zoo.`, 'Norma Gillett'),
+        "Leisure": poemBlock(`What is this life if, full of care,
+We have no time to stand and stare.
+
+No time to stand beneath the boughs
+And stare as long as sheep or cows.
+
+No time to see, when woods we pass,
+Where squirrels hide their nuts in grass.
+
+No time to see, in broad daylight,
+Streams full of stars like skies at night.
+
+No time to turn at Beauty's glance,
+And watch her feet, how they can dance.
+
+No time to wait till her mouth can
+Enrich that smile her eyes began.
+
+A poor life this if, full of care,
+We have no time to stand and stare.`, 'W. H. Davies'),
+        "Stopping by Woods on a Snowy Evening": poemBlock(`Whose woods these are I think I know.
+His house is in the village though;
+He will not see me stopping here
+To watch his woods fill up with snow.
+
+My little horse must think it queer
+To stop without a farmhouse near
+Between the woods and frozen lake
+The darkest evening of the year.
+
+He gives his harness bells a shake
+To ask if there is some mistake.
+The only other sound's the sweep
+Of easy wind and downy flake.
+
+The woods are lovely, dark and deep,
+But I have promises to keep,
+And miles to go before I sleep,
+And miles to go before I sleep.`, 'Robert Frost')
+    };
+
+    const poemsG10 = {
+        "Daffodils": poemBlock(`I wandered lonely as a cloud
+That floats on high o'er vales and hills,
+When all at once I saw a crowd,
+A host of golden daffodils;
+Beside the lake, beneath the trees,
+Fluttering and dancing in the breeze.
+
+Continuous as the stars that shine
+And twinkle on the Milky Way,
+They stretched in never-ending line
+Along the margin of a bay:
+Ten thousand saw I at a glance,
+Tossing their heads in sprightly dance.`, 'William Wordsworth'),
+        "The Blind Boy": poemBlock(`O say, what is that thing call'd Light,
+Which I must ne'er enjoy;
+What are the blessings of the sight?
+O, tell your poor blind boy.
+
+You talk of wondrous things you see,
+You say the sun shines bright;
+I feel him warm, but how can he
+Or make it day or night?
+
+My day and night myself I make,
+Whene'er I sleep, or play;
+And could I ever keep awake
+With me 'twere always day.
+
+With heavy sighs I often hear
+You mourn my hapless woe:
+But sure with patience I can bear
+A loss I ne'er can know.
+
+Then let not what I cannot have
+My cheer of mind destroy;
+Whilst thus I sing, I am a king,
+Although a poor blind boy.`, 'Colley Cibber'),
+        "Song": poemBlock(`When I am dead, my dearest,
+Sing no sad songs for me;
+Plant thou no roses at my head,
+Nor shady cypress tree:
+Be the green grass above me
+With showers and dewdrops wet;
+And if thou wilt, remember,
+And if thou wilt, forget.
+
+I shall not see the shadows,
+I shall not feel the rain;
+I shall not hear the nightingale
+Sing on, as if in pain:
+And dreaming through the twilight
+That doth not rise nor set,
+Haply I may remember,
+And haply may forget.`, 'Christina Rossetti'),
+        "What Is Pink?": poemBlock(`What is pink? A rose is pink
+By the fountain's brink.
+What is red? A poppy's red
+In its barley bed.
+What is blue? The sky is blue
+Where the clouds float through.
+What is white? A swan is white
+Sailing in the light.
+What is yellow? Pears are yellow,
+Rich and ripe and mellow.
+What is green? The grass is green,
+With small flowers between.
+What is violet? Clouds are violet
+In the summer twilight.
+What is orange? Why, an orange,
+Just an orange!`, 'Christina Rossetti')
+    };
+
+    const grade = getSelectedGrade();
+    const poemsData = grade === 10 ? poemsG10 : grade === 11 ? poemsG11 : poemsG12;
+    const poemTitles = grade === 10
+        ? ["Daffodils", "The Blind Boy", "Song", "What Is Pink?"]
+        : grade === 11
+            ? ["Bridges", "Cloud Zoo", "Leisure", "Stopping by Woods on a Snowy Evening"]
+            : ["The Library", "The Quiet Life", "The Road Not Taken", "Windy Nights"];
+
+    poemTitles.forEach(p => createBtn(p, content, () => {
         showScreen('poem');
         document.getElementById('poem-title').innerText = p;
-        
-        // poemsData ထဲမှ ကဗျာစာသားများကို ယူ၍ ပြသခြင်း
         document.getElementById('poem-body').innerHTML = poemsData[p] || "<div style='text-align:center;'>ကဗျာစာသား မရှိသေးပါ။</div>";
     }));
 }
