@@ -1921,11 +1921,20 @@ body.showing-articles .container {
     padding: 12px; border-radius: 12px; border: 1px solid #334155; background: #0B0F19; color: #fff;
     font-size: 0.95rem; font-weight: 700;
 }
-#tt-preview {
-    width: 100%; border-radius: 14px; border: 1px solid #334155; margin: 8px 0 12px;
-    pointer-events: auto; user-select: auto; -webkit-touch-callout: default; background: #F4F1E8;
+#tt-preview-0, #tt-preview-1 {
+    width: 100%;
+    aspect-ratio: 210 / 297;
     object-fit: contain;
+    border-radius: 14px;
+    border: 1px solid #334155;
+    margin: 8px 0 10px;
+    pointer-events: auto;
+    user-select: auto;
+    -webkit-touch-callout: default;
+    background: #F4F1E8;
 }
+.tt-print-card { margin: 4px 0 18px; }
+.tt-print-label { color: #E2E8F0; font-size: 0.88rem; font-weight: 800; margin: 8px 0 0; }
 .tt-think-msg { text-align: center; padding: 40px 10px; color: #00D5FF; font-weight: 700; }
 
 /* Laptop / wide window: keep a centered column, but use the extra height */
@@ -2639,9 +2648,17 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <p id="tt-week-note"></p>
             </div>
         </div>
-        <img id="tt-preview" alt="Weekly timetable">
-        <p class="tt-help">ပုံကို ကြာကြာနှိပ်ပြီး Save လုပ်နိုင်ပါတယ်။ ဒီအပတ် တစ်ကြိမ်သာ ဆွဲနိုင်ပါတယ်။</p>
-        <button type="button" class="btn" onclick="REEDTimetable.downloadPreview()">Download timetable</button>
+        <div class="tt-print-card">
+            <p class="tt-print-label">Mon – Fri · A4</p>
+            <img id="tt-preview-0" alt="Monday to Friday A4 timetable">
+            <button type="button" class="btn" onclick="REEDTimetable.downloadPreview(0)">Download Mon–Fri</button>
+        </div>
+        <div class="tt-print-card">
+            <p class="tt-print-label">Sat – Sun · A4</p>
+            <img id="tt-preview-1" alt="Saturday to Sunday A4 timetable">
+            <button type="button" class="btn" onclick="REEDTimetable.downloadPreview(1)">Download Sat–Sun</button>
+        </div>
+        <p class="tt-help">Download နှိပ်ရင် Save / Share ပေါ်လာမယ်။ မရရင် ပုံကို ကြာကြာနှိပ်ပြီး Save လုပ်ပါ။ Print က A4 ဖြစ်ပါတယ်။ ဒီအပတ် တစ်ကြိမ်သာ ဆွဲနိုင်ပါတယ်။</p>
         <button type="button" class="btn back-btn" id="tt-retake" onclick="REEDTimetable.retake(timetableApi())">မေးခွန်းပြန်ဖြေမည်</button>
     </div>
 </div>
@@ -2659,7 +2676,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
     <script src="./grades.js?v=7"></script>
-    <script src="./timetable.js?v=9"></script>
+    <script src="./timetable.js?v=10"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -2878,7 +2895,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=36'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=37'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';

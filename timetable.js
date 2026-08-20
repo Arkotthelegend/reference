@@ -492,35 +492,41 @@
         ctx.strokeRect(x, y, w, h);
     }
 
-    function drawCellLabel(ctx, cell, cx, cy, cw, rh) {
+    function drawCellLabel(ctx, cell, cx, cy, cw, rh, size) {
         if (!cell) return;
         ctx.fillStyle = INK;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        var size = 18;
-        if (cw < 110) size = 16;
+        size = size || 22;
+        if (cw < 140) size = Math.max(16, size - 4);
         ctx.font = '700 ' + size + 'px "Noto Sans Myanmar","Myanmar Text",Padauk,sans-serif';
-        ctx.fillText(fitText(ctx, cell.label, cw - 12, size), cx + cw / 2, cy);
+        ctx.fillText(fitText(ctx, cell.label, cw - 14, size), cx + cw / 2, cy);
     }
 
-    function drawTable(ctx, x, y, w, dayIdxs, weekDays, title) {
+    function drawTable(ctx, x, y, w, dayIdxs, weekDays, title, bodyTarget) {
         var rows = tableRows(weekDays, dayIdxs);
         if (!rows.length) return 0;
         var heights = rows.map(rowHFor);
-        var timeW = dayIdxs.length <= 2 ? 200 : 176;
+        var natural = heights.reduce(function (a, b) { return a + b; }, 0);
+        if (bodyTarget && natural > 0 && bodyTarget > natural) {
+            var bump = (bodyTarget - natural) / rows.length;
+            heights = heights.map(function (h) { return h + bump; });
+        }
+        var timeW = dayIdxs.length <= 2 ? 260 : 210;
         var colW = (w - timeW) / dayIdxs.length;
-        var headerH = 52;
-        var titleH = title ? 36 : 0;
+        var headerH = 64;
+        var titleH = title ? 52 : 0;
         var bodyH = heights.reduce(function (a, b) { return a + b; }, 0);
         var h = titleH + headerH + bodyH;
         var ty = y + titleH;
+        var fontPx = 24;
 
         if (title) {
             ctx.fillStyle = INK;
-            ctx.font = '800 22px sans-serif';
+            ctx.font = '800 32px sans-serif';
             ctx.textAlign = 'left';
             ctx.textBaseline = 'middle';
-            ctx.fillText(title, x, y + 18);
+            ctx.fillText(title, x, y + 26);
         }
 
         ctx.fillStyle = PAPER;
@@ -531,7 +537,7 @@
         ctx.fillRect(x, ty + headerH, timeW, bodyH);
 
         ctx.fillStyle = PAPER;
-        ctx.font = '700 18px sans-serif';
+        ctx.font = '700 26px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         dayIdxs.forEach(function (di, i) {
@@ -550,8 +556,8 @@
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             var timeLabel = rangeLabel(row.start, row.end);
-            ctx.font = '700 18px sans-serif';
-            ctx.fillText(fitText(ctx, timeLabel, timeW - 10, 18), x + timeW / 2, ry + rh / 2);
+            ctx.font = '700 22px sans-serif';
+            ctx.fillText(fitText(ctx, timeLabel, timeW - 12, 22), x + timeW / 2, ry + rh / 2);
 
             dayIdxs.forEach(function (di, ci) {
                 var cell = cellAt(weekDays[di], row.start, row.end);
@@ -560,67 +566,73 @@
                 ctx.fillStyle = (cell && cell.color) ? cell.color : PAPER;
                 ctx.fillRect(cx, ry, cw, rh);
                 strokeCell(ctx, cx, ry, cw, rh);
-                drawCellLabel(ctx, cell, cx, ry + rh / 2, cw, rh);
+                drawCellLabel(ctx, cell, cx, ry + rh / 2, cw, rh, fontPx);
             });
             ry += rh;
         });
 
         ctx.strokeStyle = INK;
-        ctx.lineWidth = 2.4;
+        ctx.lineWidth = 2.8;
         ctx.strokeRect(x, ty, w, headerH + bodyH);
         return h;
     }
 
-    function drawPoster(canvas, model, meta, logoCanvas) {
+    var A4W = 1654;
+    var A4H = 2339;
+
+    function drawA4Page(canvas, model, meta, logoCanvas, group) {
         var weekDays = model.days;
-        var groups = chartGroups();
-        var w = 1080;
-        var pad = 40;
+        var w = A4W;
+        var h = A4H;
+        var pad = 72;
         var innerW = w - pad * 2;
-        var tableHs = groups.map(function (g) {
-            var rows = tableRows(weekDays, g.days);
-            var body = rows.reduce(function (a, r) { return a + rowHFor(r); }, 0);
-            return 36 + 52 + body;
-        });
-        var tablesH = tableHs.reduce(function (a, b) { return a + b + 22; }, 0);
-        var h = 148 + tablesH + 36;
         canvas.width = w;
         canvas.height = h;
         var ctx = canvas.getContext('2d');
         ctx.fillStyle = '#F4F1E8';
         ctx.fillRect(0, 0, w, h);
-        drawLeaf(ctx, 8, 80, -0.5, 1.4, 0.14);
-        drawLeaf(ctx, 44, 98, 0.4, 1.0, 0.12);
-        drawLeaf(ctx, w - 20, h - 28, 2.6, 1.6, 0.14);
-        drawLeaf(ctx, w - 70, h - 8, 3.3, 1.05, 0.1);
+        drawLeaf(ctx, 16, 110, -0.5, 1.7, 0.12);
+        drawLeaf(ctx, 70, 130, 0.35, 1.2, 0.1);
+        drawLeaf(ctx, w - 24, h - 40, 2.6, 2.0, 0.12);
+        drawLeaf(ctx, w - 90, h - 16, 3.3, 1.3, 0.1);
 
-        drawBrandLogo(ctx, pad + 36, 62, 78, logoCanvas);
-
+        drawBrandLogo(ctx, pad + 44, 88, 96, logoCanvas);
         ctx.fillStyle = INK;
-        ctx.font = '800 44px sans-serif';
+        ctx.font = '800 56px sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'alphabetic';
-        ctx.fillText('Reed', pad + 84, 58);
-        ctx.font = '700 18px sans-serif';
-        ctx.fillText('Grade ' + meta.grade + '  ·  ' + (meta.name || 'Student'), pad + 84, 84);
-
+        ctx.fillText('Reed', pad + 104, 78);
+        ctx.font = '700 24px sans-serif';
+        ctx.fillText('Grade ' + meta.grade + '  ·  ' + (meta.name || 'Student'), pad + 104, 112);
         ctx.globalAlpha = 0.65;
-        ctx.font = '600 15px sans-serif';
-        ctx.fillText(meta.weekLabel || '', pad + 84, 108);
+        ctx.font = '600 20px sans-serif';
+        ctx.fillText((meta.weekLabel || '') + '  ·  A4', pad + 104, 142);
         ctx.globalAlpha = 1;
 
-        var y = 128;
-        groups.forEach(function (g) {
-            y += drawTable(ctx, pad, y, innerW, g.days, weekDays, g.title) + 22;
-        });
+        var headerEnd = 168;
+        var footer = 56;
+        var titleH = 52;
+        var tableHeader = 64;
+        var rows = tableRows(weekDays, group.days);
+        var natural = rows.reduce(function (a, r) { return a + rowHFor(r); }, 0);
+        var bodyTarget = h - pad - headerEnd - titleH - tableHeader - footer;
+        if (natural > bodyTarget) bodyTarget = natural;
+
+        drawTable(ctx, pad, headerEnd, innerW, group.days, weekDays, group.title, bodyTarget);
+
         ctx.fillStyle = INK;
         ctx.globalAlpha = 0.55;
-        ctx.font = '600 14px sans-serif';
+        ctx.font = '600 18px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Reed · subjects reshuffle every week', w / 2, y + 2);
+        ctx.fillText('Reed · print this A4 page', w / 2, h - 28);
         ctx.globalAlpha = 1;
         return canvas;
     }
+
+    function drawPoster(canvas, model, meta, logoCanvas) {
+        return drawA4Page(canvas, model, meta, logoCanvas, chartGroups()[0]);
+    }
+
     function weekLabel(mondayYmd) {
         if (!mondayYmd) return '';
         var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -684,14 +696,16 @@
         localStorage.setItem(storageKey(grade, uid), JSON.stringify(answers));
     }
     function clearPreview() {
-        var img = document.getElementById('tt-preview');
-        if (!img) return;
-        if (img._url) {
-            try { URL.revokeObjectURL(img._url); } catch (e) {}
-        }
-        img._url = '';
-        img._blob = null;
-        img.removeAttribute('src');
+        [0, 1].forEach(function (i) {
+            var img = document.getElementById('tt-preview-' + i) || (i === 0 ? document.getElementById('tt-preview') : null);
+            if (!img) return;
+            if (img._url) {
+                try { URL.revokeObjectURL(img._url); } catch (e) {}
+            }
+            img._url = '';
+            img._blob = null;
+            img.removeAttribute('src');
+        });
     }
 
     function showPanel(id) {
@@ -720,40 +734,63 @@
         }).join('');
     }
 
-    function makePoster(api, answers, logoCanvas) {
+    function pageFileName(i) {
+        return i === 1 ? 'REED-timetable-Sat-Sun-A4.png' : 'REED-timetable-Mon-Fri-A4.png';
+    }
+
+    function setPreviewImage(img, blob, canvas) {
+        if (!img) return;
+        if (img._url) {
+            try { URL.revokeObjectURL(img._url); } catch (e) {}
+        }
+        if (blob) {
+            img._url = URL.createObjectURL(blob);
+            img.src = img._url;
+            img._blob = blob;
+        } else {
+            img.src = canvas.toDataURL('image/png');
+            img._blob = null;
+        }
+    }
+
+    function makePages(api, answers, logoCanvas) {
         var grade = api.getGrade();
         var monday = api.monday();
         var seed = hashStr(String(api.userId) + ':' + monday + ':' + grade);
         var model = buildWeek(answers, seed);
-        var canvas = document.createElement('canvas');
-        drawPoster(canvas, model, {
+        var meta = {
             grade: grade,
             name: answers.name,
             weekLabel: weekLabel(monday)
-        }, logoCanvas);
-        return canvas;
+        };
+        return chartGroups().map(function (g) {
+            return drawA4Page(document.createElement('canvas'), model, meta, logoCanvas, g);
+        });
+    }
+
+    function makePoster(api, answers, logoCanvas) {
+        return makePages(api, answers, logoCanvas)[0];
     }
 
     function showResult(api, answers, thinking) {
         if (thinking) showPanel('tt-think');
         loadLogo(function (logoCanvas) {
-            var canvas = makePoster(api, answers, logoCanvas);
-            var img = document.getElementById('tt-preview');
+            var pages = makePages(api, answers, logoCanvas);
             var weekEl = document.getElementById('tt-week-note');
             if (weekEl) weekEl.textContent = weekLabel(api.monday()) + ' · ဒီအပတ် တစ်ကြိမ်သာ ဆွဲနိုင်ပါတယ်';
             var retakeBtn = document.getElementById('tt-retake');
             if (retakeBtn) retakeBtn.hidden = !!(answers.week && answers.week === api.monday());
-            canvas.toBlob(function (blob) {
-                if (!blob) {
-                    img.src = canvas.toDataURL('image/png');
-                } else {
-                    if (img._url) URL.revokeObjectURL(img._url);
-                    img._url = URL.createObjectURL(blob);
-                    img.src = img._url;
-                    img._blob = blob;
-                }
-                showPanel('tt-result');
-            }, 'image/png');
+            var left = pages.length;
+            pages.forEach(function (canvas, i) {
+                var img = document.getElementById('tt-preview-' + i);
+                var done = function (blob) {
+                    setPreviewImage(img, blob, canvas);
+                    left--;
+                    if (left <= 0) showPanel('tt-result');
+                };
+                if (canvas.toBlob) canvas.toBlob(done, 'image/png');
+                else done(null);
+            });
         });
     }
 
@@ -992,28 +1029,49 @@
         paint();
     }
 
-    function downloadPreview() {
-        var img = document.getElementById('tt-preview');
-        var blob = img && img._blob;
-        var doSave = function (b) {
-            var name = 'REED-timetable.png';
-            try {
-                var file = new File([b], name, { type: 'image/png' });
-                if (navigator.canShare && navigator.canShare({ files: [file] })) {
-                    navigator.share({ files: [file], title: name }).catch(function () {});
-                    return;
-                }
-            } catch (err) {}
+    function saveBlob(blob, filename) {
+        if (!blob) return;
+        var downloadIt = function () {
+            var url = URL.createObjectURL(blob);
             var a = document.createElement('a');
-            a.href = URL.createObjectURL(b);
-            a.download = name;
+            a.href = url;
+            a.download = filename;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.style.display = 'none';
             document.body.appendChild(a);
             a.click();
-            a.remove();
+            setTimeout(function () {
+                a.remove();
+                URL.revokeObjectURL(url);
+            }, 2500);
         };
-        if (blob) doSave(blob);
-        else if (img && img.src) {
-            fetch(img.src).then(function (r) { return r.blob(); }).then(doSave);
+        var shareIt = function () {
+            var file;
+            try { file = new File([blob], filename, { type: 'image/png' }); }
+            catch (e) { return Promise.reject(e); }
+            if (!navigator.share) return Promise.reject(new Error('no share'));
+            var payload = { files: [file], title: filename };
+            try {
+                if (navigator.canShare && !navigator.canShare(payload)) return Promise.reject(new Error('cannot share'));
+            } catch (e2) { return Promise.reject(e2); }
+            return navigator.share(payload);
+        };
+        shareIt().catch(downloadIt);
+    }
+
+    function downloadPreview(which) {
+        var idx = parseInt(which, 10);
+        if (idx !== 1) idx = 0;
+        var img = document.getElementById('tt-preview-' + idx);
+        var blob = img && img._blob;
+        var name = pageFileName(idx);
+        if (blob) {
+            saveBlob(blob, name);
+            return;
+        }
+        if (img && img.src) {
+            fetch(img.src).then(function (r) { return r.blob(); }).then(function (b) { saveBlob(b, name); });
         }
     }
 
