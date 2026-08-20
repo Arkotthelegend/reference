@@ -425,8 +425,8 @@ input:checked + .slider:before {
     align-items: center;
     justify-content: center;
     gap: 2px;
-    min-width: 56px;
-    font-size: 0.62rem;
+    min-width: 44px;
+    font-size: 0.58rem;
     font-weight: 700;
     filter: none; 
     opacity: 0.42; 
@@ -1893,6 +1893,40 @@ body.showing-articles .container {
     font-size: 0.88rem !important;
 }
 
+#time-screen .tt-panel { padding: 4px 2px 16px; }
+.tt-ai-head { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; }
+.tt-ai-mark {
+    width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
+    background: #162235; border: 1px solid #00D5FF; color: #00D5FF;
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+}
+.tt-ai-head h2 { margin: 0; color: #00D5FF; font-size: 1.15rem; }
+.tt-ai-head p { margin: 3px 0 0; color: #94A3B8; font-size: 0.82rem; }
+.tt-step-note { color: #00D5FF; font-weight: 800; letter-spacing: 0.08em; font-size: 0.78rem; margin-bottom: 8px; }
+#tt-q { color: #fff; font-size: 1.05rem; line-height: 1.4; margin: 0 0 14px; }
+.tt-help, .tt-lock-sub, .tt-lock-msg, .tt-think-msg { color: #94A3B8; font-size: 0.9rem; line-height: 1.5; }
+.tt-lock-msg { color: #E2E8F0; font-size: 1rem; }
+.tt-chips, .tt-presets, .tt-yesno, .tt-subs { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 14px; }
+#time-screen .tt-chip {
+    width: auto !important; max-width: none !important; flex: 1 1 calc(33% - 8px);
+    margin: 0 !important; padding: 10px 12px !important; border-radius: 12px;
+    background: #162235 !important; border: 1px solid #334155 !important; color: #E2E8F0 !important;
+    font-size: 0.88rem !important; font-weight: 700;
+}
+#time-screen .tt-chip.on { border-color: #00D5FF !important; color: #00D5FF !important; background: #0B0F19 !important; }
+.tt-times { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0 8px; }
+.tt-times label, #time-screen .tt-select { display: block; color: #94A3B8; font-size: 0.78rem; font-weight: 700; }
+#time-screen select, #time-screen .tt-select, #time-screen .tt-input {
+    width: 100% !important; max-width: 100% !important; margin: 6px 0 0 !important;
+    padding: 12px; border-radius: 12px; border: 1px solid #334155; background: #0B0F19; color: #fff;
+    font-size: 0.95rem; font-weight: 700;
+}
+#tt-preview {
+    width: 100%; border-radius: 14px; border: 1px solid #334155; margin: 8px 0 12px;
+    pointer-events: auto; user-select: auto; -webkit-touch-callout: default; background: #D9EEF8;
+}
+.tt-think-msg { text-align: center; padding: 40px 10px; color: #00D5FF; font-weight: 700; }
+
 /* Laptop / wide window: keep a centered column, but use the extra height */
 @media (min-width: 768px) {
     .container {
@@ -1907,6 +1941,7 @@ body.showing-articles .container {
     #plan-screen.active-screen,
     #profile-screen.active-screen,
     #stats-screen.active-screen,
+    #time-screen.active-screen,
     #poem-screen.active-screen,
     #flashcard-screen.active-screen,
     #activity-screen.active-screen,
@@ -2558,6 +2593,58 @@ body.volunteer-role .vol-report-link { display: block !important; }
     </div>
 </div>
 
+<div id="time-screen" class="screen">
+    <div id="tt-lock" class="tt-panel" hidden>
+        <div class="tt-ai-head">
+            <div class="tt-ai-mark">✨</div>
+            <div>
+                <h2>REED Planner</h2>
+                <p>AI weekly timetable</p>
+            </div>
+        </div>
+        <p class="tt-lock-msg">ဘာသာရပ် <b>၃ ခုနှင့်အထက်</b> ဝယ်ထားသူများအတွက် ဒီအပတ် Timetable ပုံဆွဲပေးပါတယ်။</p>
+        <p class="tt-lock-sub">ယခု ဝယ်ထားသည်: <span id="tt-lock-count">0</span> ဘာသာ</p>
+        <button type="button" class="btn" onclick="copyTelegram()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
+    </div>
+    <div id="tt-ask" class="tt-panel" hidden>
+        <div class="tt-ai-head">
+            <div class="tt-ai-mark">✨</div>
+            <div>
+                <h2>REED Planner</h2>
+                <p>ကျောင်း၊ နားချိန်၊ ဘာသာရပ်တွေကို ချိန်ညှိပေးမယ်</p>
+            </div>
+        </div>
+        <div class="tt-step-note" id="tt-step-note">1 / 8</div>
+        <h3 id="tt-q"></h3>
+        <div id="tt-body"></div>
+        <button type="button" class="btn" id="tt-next-q">ဆက်မည်</button>
+        <button type="button" class="btn back-btn" id="tt-back-q">နောက်သို့</button>
+    </div>
+    <div id="tt-think" class="tt-panel" hidden>
+        <div class="tt-ai-head">
+            <div class="tt-ai-mark">✨</div>
+            <div>
+                <h2>REED Planner</h2>
+                <p>Fitting school, rest, and study blocks…</p>
+            </div>
+        </div>
+        <p class="tt-think-msg">ဒီအပတ်အတွက် Timetable ဆွဲနေသည်…</p>
+    </div>
+    <div id="tt-result" class="tt-panel" hidden>
+        <div class="tt-ai-head">
+            <div class="tt-ai-mark">✨</div>
+            <div>
+                <h2>Your week</h2>
+                <p id="tt-week-note"></p>
+            </div>
+        </div>
+        <img id="tt-preview" alt="Weekly timetable">
+        <p class="tt-help">ပုံကို ကြာကြာနှိပ်ပြီး Save လုပ်နိုင်ပါတယ်။</p>
+        <button type="button" class="btn" onclick="REEDTimetable.downloadPreview()">Download timetable</button>
+        <button type="button" class="btn back-btn" onclick="REEDTimetable.retake(timetableApi())">မေးခွန်းပြန်ဖြေမည်</button>
+    </div>
+</div>
+
 <div id="articles-channel-bar" class="articles-channel-bar">
     <button class="btn" onclick="openChannel()">📢 Join Telegram Channel</button>
 </div>
@@ -2565,11 +2652,13 @@ body.volunteer-role .vol-report-link { display: block !important; }
    <div class="nav">
     <div class="nav-item nav-active" data-tab="home" onclick="changeTab('home', this)"><span class="nav-ico">🏠</span><span class="nav-lbl">Study</span></div>
     <div class="nav-item" data-tab="plan" onclick="changeTab('plan', this)"><span class="nav-ico">📅</span><span class="nav-lbl">Plan</span></div>
+    <div class="nav-item" data-tab="time" onclick="changeTab('time', this)"><span class="nav-ico">🕒</span><span class="nav-lbl">Time</span></div>
     <div class="nav-item" data-tab="stats" onclick="changeTab('stats', this)"><span class="nav-ico">🏅</span><span class="nav-lbl">Rank</span></div>
     <div class="nav-item" data-tab="profile" onclick="changeTab('profile', this)"><span class="nav-ico">👤</span><span class="nav-lbl">Me</span></div>
 </div>
 
     <script src="./grades.js?v=7"></script>
+    <script src="./timetable.js?v=1"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -2788,7 +2877,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=27'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=28'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -5509,7 +5598,7 @@ function nextQuestion() {
     );
 		  
 		   const nav = document.querySelector('.nav');
-    const mainTabs = ['home', 'plan', 'stats', 'profile'];
+    const mainTabs = ['home', 'plan', 'time', 'stats', 'profile'];
     if (mainTabs.includes(id)) {
         nav.classList.remove('nav-hidden');
         document.body.classList.remove('page-no-nav');
@@ -5548,6 +5637,24 @@ function goTab(id) {
         syncStatsGradePicker(getSelectedGrade());
         loadUserStats();
     }
+    if(id === 'time') openTimetableTab();
+}
+
+function timetableApi() {
+    return {
+        userId: userId,
+        getGrade: getSelectedGrade,
+        getSubjects: function () { return subjects; },
+        isPaid: isPaidUnlock,
+        monday: currentWeekMonday,
+        defaultName: function () {
+            return (tg.initDataUnsafe && tg.initDataUnsafe.user && tg.initDataUnsafe.user.first_name) || 'Student';
+        },
+        alert: function (m) { tg.showAlert(m); }
+    };
+}
+function openTimetableTab() {
+    if (window.REEDTimetable) REEDTimetable.openTab(timetableApi());
 }
 
 function switchHomeTab(tab) {
