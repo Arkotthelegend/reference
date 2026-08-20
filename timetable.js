@@ -649,37 +649,49 @@
         return list;
     }
 
+    function telegramUserId(api) {
+        if (api && api.userId) return String(api.userId);
+        try {
+            var u = window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe && window.Telegram.WebApp.initDataUnsafe.user;
+            if (u && u.id != null) return String(u.id);
+        } catch (e) {}
+        return '';
+    }
     function storageKey(grade, userId) {
-        return 'reed_timetable_v1_u' + String(userId || '0') + '_g' + grade;
+        return 'reed_timetable_v2_u' + String(userId || '') + '_g' + grade;
     }
-    function legacyStorageKey(grade) { return 'reed_timetable_v1_g' + grade; }
-    function belongsToUser(saved, api) {
-        var uid = String((api && api.userId) || '');
-        if (!saved || !uid) return false;
-        if (saved.userId) return String(saved.userId) === uid;
-        return namesMatch(saved.name, api && api.defaultName && api.defaultName());
-    }
-    function namesMatch(a, b) {
-        a = String(a || '').replace(/\s+/g, '').toLowerCase();
-        b = String(b || '').replace(/\s+/g, '').toLowerCase();
-        return !!(a && b && a === b);
+    function wipeLegacyTimetables() {
+        var drop = [];
+        for (var i = 0; i < localStorage.length; i++) {
+            var k = localStorage.key(i);
+            if (k && k.indexOf('reed_timetable_v1') === 0) drop.push(k);
+        }
+        drop.forEach(function (k) { localStorage.removeItem(k); });
     }
     function loadAnswers(grade, api) {
-        var uid = String((api && api.userId) || '0');
+        var uid = telegramUserId(api);
+        if (!uid) return null;
         try {
             var cur = JSON.parse(localStorage.getItem(storageKey(grade, uid)) || 'null');
-            if (cur) return belongsToUser(cur, api) ? cur : null;
-            var old = JSON.parse(localStorage.getItem(legacyStorageKey(grade)) || 'null');
-            if (!old || !belongsToUser(old, api)) return null;
-            old.userId = uid;
-            localStorage.setItem(storageKey(grade, uid), JSON.stringify(old));
-            localStorage.removeItem(legacyStorageKey(grade));
-            return old;
+            if (!cur || String(cur.userId || '') !== uid) return null;
+            return cur;
         } catch (e) { return null; }
     }
     function saveAnswers(grade, answers, api) {
-        answers.userId = String((api && api.userId) || '0');
-        localStorage.setItem(storageKey(grade, answers.userId), JSON.stringify(answers));
+        var uid = telegramUserId(api);
+        if (!uid) return;
+        answers.userId = uid;
+        localStorage.setItem(storageKey(grade, uid), JSON.stringify(answers));
+    }
+    function clearPreview() {
+        var img = document.getElementById('tt-preview');
+        if (!img) return;
+        if (img._url) {
+            try { URL.revokeObjectURL(img._url); } catch (e) {}
+        }
+        img._url = '';
+        img._blob = null;
+        img.removeAttribute('src');
     }
 
     function showPanel(id) {
@@ -746,6 +758,7 @@
     }
 
     function openAsk(api, draft) {
+        clearPreview();
         showPanel('tt-ask');
         var answers = draft || {
             name: (api.defaultName() || 'Student').slice(0, 40),
@@ -1004,33 +1017,31 @@
         }
     }
 
-    function hasWeekPlan(saved, monday) {
-        if (!saved) return false;
-        if (saved.week && saved.week !== monday) return false;
-        if (saved.week === monday && weekSubjects(saved).length) return true;
-        if (!saved.week && weekSubjects(saved).length) return true;
-        return false;
+    function hasWeekPlan(saved, monday, api) {
+        var uid = telegramUserId(api);
+        if (!saved || !uid || !monday) return false;
+        if (String(saved.userId || '') !== uid) return false;
+        if (saved.week !== monday) return false;
+        return weekSubjects(saved).length > 0;
     }
 
     function openTab(api) {
+        wipeLegacyTimetables();
         var grade = api.getGrade();
         var paid = paidSubjects(api);
         if (paid.length < MIN_SUBJECTS && !api.isPaid('all')) {
+            clearPreview();
             document.getElementById('tt-lock-count').textContent = String(paid.length);
             showPanel('tt-lock');
             return;
         }
         var monday = api.monday();
         var saved = loadAnswers(grade, api);
-        if (hasWeekPlan(saved, monday)) {
-            if (!saved.week) {
-                saved.week = monday;
-                saveAnswers(grade, saved, api);
-            }
+        if (hasWeekPlan(saved, monday, api)) {
             showResult(api, saved, false);
             return;
         }
-        openAsk(api, saved);
+        openAsk(api, saved && String(saved.userId || '') === telegramUserId(api) ? saved : null);
     }
 
     root.REEDTimetable = {
@@ -1048,7 +1059,7 @@
         openAsk: openAsk,
         retake: function (api) {
             var saved = loadAnswers(api.getGrade(), api);
-            if (hasWeekPlan(saved, api.monday())) {
+            if (hasWeekPlan(saved, api.monday(), api)) {
                 api.alert('ဒီအပတ် Timetable ကို ဆွဲပြီးပါပြီ။ နောက်အပတ် တနင်္လာမှ အသစ်ဆွဲနိုင်ပါတယ်။');
                 showResult(api, saved, false);
                 return;
