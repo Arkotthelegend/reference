@@ -1893,53 +1893,155 @@ body.showing-articles .container {
     font-size: 0.88rem !important;
 }
 
-/* Laptop / wide window: keep the Mini App as a centered phone column */
+/* Laptop / wide window: keep a centered column, but use the extra height */
 @media (min-width: 768px) {
-    #quiz-screen.active-screen {
+    .container {
+        padding-top: 10px;
+        padding-bottom: 96px;
+    }
+    body.page-no-nav .container {
+        padding-bottom: 28px;
+    }
+
+    #home-screen.active-screen,
+    #plan-screen.active-screen,
+    #profile-screen.active-screen,
+    #stats-screen.active-screen,
+    #poem-screen.active-screen,
+    #flashcard-screen.active-screen,
+    #activity-screen.active-screen,
+    #daily-screen.active-screen {
+        display: flex;
+        flex-direction: column;
+        min-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-top, 0px) - 96px);
+    }
+    body.page-no-nav #poem-screen.active-screen,
+    body.page-no-nav #flashcard-screen.active-screen,
+    body.page-no-nav #activity-screen.active-screen,
+    body.page-no-nav #daily-screen.active-screen {
+        min-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-top, 0px) - 28px);
+    }
+
+    #home-tabs-row {
+        margin-bottom: 12px !important;
+    }
+    #home-current-section,
+    #home-old-section {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
         min-height: 0;
     }
-    #quiz-footer {
-        margin-top: 20px;
+    #subject-list,
+    #old-subject-list,
+    #daily-screen .daily-grid {
+        gap: 14px !important;
+        flex: 1 1 auto;
+        align-content: start;
     }
+    .subject-card {
+        padding: 18px 16px !important;
+    }
+
+    #quiz-screen.active-screen {
+        min-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-top, 0px) - 28px);
+    }
+    #question-box {
+        height: auto !important;
+        min-height: 180px;
+        flex: 1 1 auto;
+        max-height: min(42vh, 380px);
+    }
+    #quiz-options {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+    .option-btn {
+        min-height: 56px;
+    }
+    #quiz-footer {
+        margin-top: auto;
+        padding-bottom: 8px;
+    }
+
+    #poem-title {
+        flex-shrink: 0;
+        margin: 4px 0 12px;
+    }
+    #poem-body.poem-content {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+    }
+    #poem-screen .back-btn {
+        flex-shrink: 0;
+        margin-top: 12px;
+    }
+
+    #plan-screen.active-screen > div {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 4px 8px 8px !important;
+        min-height: 0;
+    }
+    #motivation-box {
+        margin-bottom: 12px !important;
+        padding: 18px !important;
+    }
+    #exam-countdown {
+        margin-bottom: 12px !important;
+    }
+    #checklist-container div {
+        padding: 10px 12px !important;
+    }
+
+    #profile-screen.active-screen > div:first-child {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+    }
+    #profile-avatar {
+        width: 84px !important;
+        height: 84px !important;
+        margin-top: 4px;
+    }
+    #profile-screen .profile-info-card {
+        flex: 1 1 auto;
+        margin-top: 14px !important;
+        padding: 18px !important;
+    }
+
+    .flash-container {
+        height: min(52vh, 480px);
+        margin: 12px auto;
+        flex: 1 1 auto;
+        max-height: 480px;
+    }
+
     body.math-expand-page .container {
         overflow-y: auto;
         justify-content: flex-start;
     }
-    #quiz-screen.active-screen.math-expand {
-        flex: 0 1 auto;
-        height: auto;
-        min-height: 0;
-        overflow: visible;
-        justify-content: flex-start;
-    }
     #quiz-screen.math-expand #question-box {
-        flex: 0 1 auto !important;
-        max-height: min(52vh, 420px) !important;
+        flex: 1 1 auto !important;
+        max-height: none !important;
         margin-bottom: 16px;
     }
-    #quiz-screen.math-expand #quiz-footer,
-    #math-solution-actions {
-        margin-top: 16px;
-    }
-    #math-solution-screen {
-        bottom: auto !important;
-        height: auto !important;
-        max-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-top, 0px));
-        overflow: hidden !important;
-    }
     #math-solution-content {
-        flex: 0 1 auto;
-        max-height: min(58vh, 520px);
+        flex: 1 1 auto;
+        max-height: none;
     }
     #math-solution-actions {
-        margin-top: 16px !important;
+        margin-top: auto !important;
     }
     #grammar-note-screen {
         left: 50% !important;
         right: auto !important;
         width: min(var(--app-max), 100%) !important;
         transform: translateX(-50%);
-        height: auto !important;
+        height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-top, 0px)) !important;
         max-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-top, 0px));
     }
     body.showing-articles .articles-channel-bar {
@@ -2686,7 +2788,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=26'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=27'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -5258,7 +5360,7 @@ function loadQuestion() {
         });
         setQuizKeysHint(q.type === 'tf'
             ? 'Laptop: 1 = True · 2 = False · Space = Next'
-            : 'Laptop: 1 2 3 to choose · Space = Next');
+            : 'Laptop: ' + opts.map((_, n) => n + 1).join(' ') + ' to choose · Space = Next');
     }
     else if (q.type === 'blank') {
         const input = document.createElement('input');
@@ -6465,7 +6567,7 @@ document.addEventListener('keydown', function(e) {
     }
 
     if (!quizOn || isAnswered) return;
-    if (e.key === '1' || e.key === '2' || e.key === '3') {
+    if (e.key >= '1' && e.key <= '9') {
         const idx = parseInt(e.key, 10) - 1;
         const btns = document.querySelectorAll('#quiz-options .option-btn');
         if (btns[idx] && !btns[idx].disabled) {
