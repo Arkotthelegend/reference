@@ -6,7 +6,7 @@
         mm: 'Myan', en: 'English', math: 'Maths', phy: 'Physics',
         chem: 'Chemistry', bio: 'Biology',         eco: 'Eco'
     };
-    var MIN_SUBJECTS = 6;
+    var MIN_SUBJECTS = 4;
     var INK = '#111111';
     var PAPER = '#FFFFFF';
     var HEADER = '#245C43';
