@@ -351,6 +351,17 @@ input:checked + .slider:before {
     }
     .quiz-input:focus { border-color: #00D5FF; }
     .poem-content { background: var(--card-bg); padding: 25px; border-radius: 16px; border: 1px solid #334155; line-height: 1.8; text-align: center; }
+    .poem-para-wrap { margin-top: 22px; text-align: left; }
+    .poem-para-head { color: #00D5FF; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 12px; }
+    .poem-para-list { display: flex; flex-direction: column; gap: 10px; }
+    .poem-para-card { background: #0B0F19; border: 1px solid #334155; border-left: 3px solid #00D5FF; border-radius: 12px; padding: 12px 14px; text-align: left; }
+    .poem-para-lines { color: #E2E8F0; font-style: italic; line-height: 1.55; white-space: pre-line; margin: 0 0 8px; font-size: 0.95rem; }
+    .poem-para-mean { color: #94A3B8; line-height: 1.6; margin: 0; font-size: 0.9rem; border-top: 1px solid #1E293B; padding-top: 8px; }
+    @media (min-width: 768px) {
+        .poem-para-card { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+        .poem-para-lines { margin: 0; }
+        .poem-para-mean { border-top: none; padding-top: 0; border-left: 1px solid #1E293B; padding-left: 16px; }
+    }
     .quiz-card { background: var(--card-bg); padding: 18px; border-radius: 14px; margin-bottom: 15px; border-left: 4px solid #00D5FF; }
 
     /* Stats & Badges */
@@ -2675,7 +2686,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=25'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=26'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -4186,6 +4197,67 @@ But there’s wonderment within it,
             </div>`
     };
 
+    const g12Paraphrase = {
+        "The Library": [
+            { lines: "It looks like any building\nWhen you pass it on the street,", mean: "These lines mean that the library seems like any other ordinary buildings we usually see when we walk along the street." },
+            { lines: "Made of stone and glass and marble,\nMade of iron and concrete.", mean: "These lines mean that the library is built from common materials such as stone, glass, marble, iron, and concrete." },
+            { lines: "But once inside you can ride\nA camel or a train,", mean: "These lines mean that inside the library, reading allows us to imagine going on exciting trips, such as riding a camel in the desert or taking a train to a distant country." },
+            { lines: "Visit Rome, Siam, or Nome,\nFeel a hurricane,", mean: "These lines mean that inside the library, reading allows us to imagine traveling to faraway places such as Rome, Siam, or Nome, and even experience natural disasters like hurricanes." },
+            { lines: "Meet a king, learn to sing,\nHow to bake a pie,", mean: "These lines mean that inside the library, reading allows us to imagine meeting a king, learning to sing, and even mastering how to bake a pie." },
+            { lines: "Go to sea, plant a tree,\nFind how airplanes fly,", mean: "These lines mean that inside the library, reading allows us to imagine different experiences, such as sailing across the sea, planting a tree, and learning how airplanes fly." },
+            { lines: "Train a horse, and of course\nHave all the dogs you'd like,", mean: "These lines mean that inside the library, reading allows us to imagine training a horse, and keeping as many dogs as we wish." },
+            { lines: "See the moon, a sandy dune,\nOr catch a whopping pike.", mean: "These lines mean that inside the library, reading allows us to imagine exciting experiences, such as traveling to the moon, crossing a wide desert, or catching a big sharp-toothed freshwater fish." },
+            { lines: "Everything that books can bring\nYou'll find inside these walls.", mean: "These lines mean that through reading in the library, we can gain a wide range of knowledge, experiences, adventures, and imagination that books can offer." },
+            { lines: "A world is there for you to share\nWhen adventure calls.", mean: "These lines mean that the library offers a whole world of experiences, and whenever we feel ready for an adventure, we can explore anywhere in the world of books." },
+            { lines: "You cannot tell its magic\nBy the way the building looks,", mean: "These lines mean that we cannot judge the true value and wonder of the library by its ordinary outside appearance." },
+            { lines: "But there's wonderment within it,\nThe wonderment of books.", mean: "These lines mean that although the library may look ordinary, its true wonder and amazement comes from the knowledge and imagination found in books." }
+        ],
+        "The Quiet Life": [
+            { lines: "Happy the man, whose wish and care\nA few paternal acres bound,", mean: "These lines mean that a happy person is someone who is satisfied with a small piece of land passed down from his father and does not have many desires or worries." },
+            { lines: "Content to breathe his native air,\nIn his own ground.", mean: "These lines mean that the happy man feels satisfied to simply live in his own country and stand on his own land." },
+            { lines: "Whose herds with milk, whose fields with bread,\nWhose flocks supply him with attire;", mean: "These lines mean that the happy man is self-sufficient: his cows give him milk, his fields produce wheat for bread, and his sheep provide wool for clothes." },
+            { lines: "Whose trees in summer yield him shade,\nIn winter fire.", mean: "These lines mean that the happy man gets shade from his trees to stay cool in summer and firewood to keep him warm in winter." },
+            { lines: "Blest, who can unconcernedly find\nHours, days, and years slide soft away,", mean: "These lines mean that the happy man watches his hours, days, and years pass gently without anxiety." },
+            { lines: "In health of body, peace of mind,\nQuiet by day,", mean: "These lines mean that the happy man is in good health, has a peaceful mind, and enjoys a calm and undisturbed daily life." },
+            { lines: "Sound sleep by night; study and ease,\nTogether mixed; sweet recreation;", mean: "These lines mean that the happy man sleeps well at night and keeps a good balance between work and free time, so his relaxation is enjoyable and refreshing." },
+            { lines: "And innocence, which most does please\nWith meditation.", mean: "These lines mean that what pleases the happy man most is his clear conscience, which is strengthened by his regular mindfulness." },
+            { lines: "Thus let me live, unseen, unknown;\nThus unlamented let me die;", mean: "These lines mean that the happy man wishes to live simple, unnoticed life without fame, and to die without being mourned." },
+            { lines: "Steal from the world, and not a stone\nTell where I lie.", mean: "These lines mean that the happy man wishes to quietly slip away from the world, leaving no gravestone to mark where he was buried." }
+        ],
+        "The Road Not Taken": [
+            { lines: "Two roads diverged in a yellow wood,\nAnd sorry I could not travel both", mean: "These lines mean that while travelling in a forest with yellow leaves, two paths split apart and the poet regretted that he could not take both paths." },
+            { lines: "And be one traveler, long I stood\nAnd looked down one as far as I could\nTo where it bent in the undergrowth;", mean: "These lines mean that being only one traveller, the poet stood there a long time, looking down the first road as far as he could see until it turned and disappeared into the bushes." },
+            { lines: "Then took the other, as just as fair,\nAnd having perhaps the better claim,\nBecause it was grassy and wanted wear;", mean: "These lines mean that the poet chose the second path, which seemed equally as beautiful as the first one, and he felt this path might be slightly better as it was covered with grass and looked less travelled." },
+            { lines: "Though as for that the passing there\nHad worn them really about the same,", mean: "These lines mean that the poet thought the second path was less travelled, but after walking some distance, he realized that both paths had actually been used almost equally." },
+            { lines: "And both that morning equally lay\nIn leaves no step had trodden black.", mean: "These lines mean that both paths looked the same in that morning, covered with fresh leaves that no one had stepped on them yet to darken or crush them." },
+            { lines: "Oh, I kept the first for another day!\nYet knowing how way leads on to way,\nI doubted if I should ever come back.", mean: "These lines mean that the poet decided to return later and try the first path, but he knew he would have to continue on the path he had already taken and he was unsure he would go back." },
+            { lines: "I shall be telling this with a sigh\nSomewhere ages and ages hence:", mean: "These lines mean that in the future, the poet will look back on the choice and decision he made and talk about it, possibly with some regret or deep emotion." },
+            { lines: "Two roads diverged in a wood, and I—\nI took the one less traveled by,\nAnd that has made all the difference.", mean: "These lines mean that the poet had to make a choice between two paths in his life, and he chose the less popular or uncommon option and this choice changed his life significantly." }
+        ],
+        "Windy Nights": [
+            { lines: "Whenever the moon and stars are set,\nWhenever the wind is high,", mean: "These lines mean that whenever the moon and stars disappear and the wind blows strongly, the night becomes a place of mystery and fear." },
+            { lines: "All night long in the dark and wet,\nA man goes riding by.", mean: "These lines mean that throughout the entire night, a mysterious rider on horseback keeps passing through the darkness and rain." },
+            { lines: "Late in the night when the fires are out,\nWhy does he gallop and gallop about?", mean: "These lines mean that deep into the night, when all lights are out and everyone is asleep, no one can understand why the rider keeps galloping." },
+            { lines: "Whenever the trees are crying aloud,\nAnd ships are tossed at sea,", mean: "These lines mean that the wind is so strong that the trees make loud, crying sounds, while the waves toss ships violently on the ocean." },
+            { lines: "By, on the highway, low and loud,\nBy at the gallop goes he.", mean: "These lines mean that the rider rides very fast along the main road, and the horse's hooves make a deep, loud sound as he passes." },
+            { lines: "By at the gallop he goes, and then\nBy he comes back at the gallop again.", mean: "These lines mean that the rider keeps riding back and forth at high speed, as if he cannot stop." }
+        ]
+    };
+
+    function paraphraseHtml(rows) {
+        if (!rows || !rows.length) return "";
+        const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        return `<div class="poem-para-wrap">
+            <h3 class="poem-para-head">Paraphrasing</h3>
+            <div class="poem-para-list">${rows.map((r) => `
+                <div class="poem-para-card">
+                    <p class="poem-para-lines">${esc(r.lines)}</p>
+                    <p class="poem-para-mean">${esc(r.mean)}</p>
+                </div>`).join("")}
+            </div>
+        </div>`;
+    }
+
     const poemsG11 = {
         "Bridges": poemBlock(`I like a bridge —
 Any kind of bridge at all.
@@ -4347,7 +4419,9 @@ Just an orange!`, 'Christina Rossetti')
     poemTitles.forEach(p => createBtn(p, content, () => {
         showScreen('poem');
         document.getElementById('poem-title').innerText = p;
-        document.getElementById('poem-body').innerHTML = poemsData[p] || "<div style='text-align:center;'>ကဗျာစာသား မရှိသေးပါ။</div>";
+        let html = poemsData[p] || "<div style='text-align:center;'>ကဗျာစာသား မရှိသေးပါ။</div>";
+        if (grade === 12) html += paraphraseHtml(g12Paraphrase[p]);
+        document.getElementById('poem-body').innerHTML = html;
     }));
 }
 
