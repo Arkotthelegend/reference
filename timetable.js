@@ -7,6 +7,10 @@
         chem: 'Chemistry', bio: 'Biology',         eco: 'Eco'
     };
     var MIN_SUBJECTS = 4;
+    var STEAM = {
+        1: ['mm', 'en', 'math', 'phy', 'chem', 'bio'],
+        2: ['mm', 'en', 'math', 'phy', 'chem', 'eco']
+    };
     var INK = '#111111';
     var PAPER = '#FFFFFF';
     var HEADER = '#245C43';
@@ -242,11 +246,38 @@
         return merged;
     }
 
+    function steamId(answers) {
+        return parseInt(answers && answers.steam, 10) === 2 ? 2 : 1;
+    }
+    function steamIds(answers) {
+        return STEAM[steamId(answers)].slice();
+    }
+    function inSteam(answers, id) {
+        return steamIds(answers).indexOf(id) !== -1;
+    }
+    function steamHelp(st) {
+        return st === 2
+            ? 'STEAM 2: Myan, English, Maths, Physics, Chemistry, Eco'
+            : 'STEAM 1: Myan, English, Maths, Physics, Chemistry, Biology';
+    }
+    function steamSubjectList(api, answers) {
+        var all = api.getSubjects() || [];
+        return steamIds(answers).map(function (id) {
+            var found = null;
+            all.forEach(function (s) { if (s.id === id) found = s; });
+            return found || { id: id, name: SHORT[id] || id };
+        });
+    }
+    function guessSteam(api) {
+        var paid = paidSubjects(api).map(function (s) { return s.id; });
+        if (paid.indexOf('eco') !== -1 && paid.indexOf('bio') === -1) return 2;
+        return 1;
+    }
     function weekSubjects(answers) {
         var ids = [];
         function add(list) {
             (list || []).forEach(function (id) {
-                if (id && ids.indexOf(id) === -1) ids.push(id);
+                if (id && ids.indexOf(id) === -1 && inSteam(answers, id)) ids.push(id);
             });
         }
         add(answers.weakSubjects);
@@ -257,8 +288,12 @@
 
     function makeCycle(answers, seed) {
         var bag = [];
-        (answers.weakSubjects || []).forEach(function (id) { bag.push(id, id, id); });
-        (answers.strongSubjects || []).forEach(function (id) { bag.push(id); });
+        (answers.weakSubjects || []).forEach(function (id) {
+            if (inSteam(answers, id)) bag.push(id, id, id);
+        });
+        (answers.strongSubjects || []).forEach(function (id) {
+            if (inSteam(answers, id)) bag.push(id);
+        });
         if (!bag.length) bag = weekSubjects(answers).slice();
         var cycle = seededShuffle(bag, seed || 1);
         if (!cycle.length) cycle = ['en'];
@@ -800,6 +835,7 @@
         clearPreview();
         showPanel('tt-ask');
         var answers = draft || {
+            steam: guessSteam(api),
             name: (api.defaultName() || 'Student').slice(0, 40),
             schoolDays: [0, 1, 2, 3, 4],
             schoolStart: 7 * 60 + 30,
@@ -822,6 +858,7 @@
             strongSubjects: [],
             subjects: []
         };
+        if (!answers.steam) answers.steam = guessSteam(api);
         if (!answers.weakSubjects) answers.weakSubjects = [];
         if (!answers.strongSubjects) answers.strongSubjects = [];
         if (typeof answers.shortRest !== 'boolean') answers.shortRest = true;
@@ -830,6 +867,7 @@
 
         function steps() {
             var s = [
+                { id: 'steam', title: 'STEAM ဘယ်လမ်းလဲ။' },
                 { id: 'name', title: 'Timetable ပေါ်မှာ နာမည် ဘယ်လိုရေးမလဲ။' },
                 { id: 'schoolDays', title: 'ဘယ်နေ့တွေ ကျောင်းတက်လဲ။' }
             ];
@@ -839,7 +877,6 @@
             s.push({ id: 'tuition', title: 'Tuition / extra class ရှိလား။' });
             if (answers.hasTuition) {
                 s.push({ id: 'tuitionHours', title: 'Tuition ရှိတဲ့နေ့ နဲ့ နာရီ။' });
-                s.push({ id: 'tuition2', title: 'ညဘက် Tuition ထပ်ရှိသေးလား။' });
             }
             s.push({ id: 'wake', title: 'မနက် ဘယ်အချိန် စပီး လေ့လာမလဲ။' });
             s.push({ id: 'sleep', title: 'ည ဘယ်အချိန် အိပ်မလဲ။' });
@@ -866,7 +903,14 @@
             document.getElementById('tt-q').textContent = cur.title;
             var body = document.getElementById('tt-body');
             var html = '';
-            if (cur.id === 'name') {
+            if (cur.id === 'steam') {
+                var st = steamId(answers);
+                html = '<p class="tt-help">Grade 10, 11, 12 အားလုံး STEAM 1 ဒါမှမဟုတ် STEAM 2 ရွေးပါ။</p>' +
+                    '<div class="tt-yesno" id="tt-steam">' +
+                    '<button type="button" class="tt-chip' + (st === 1 ? ' on' : '') + '" data-v="1">STEAM 1 · Bio</button>' +
+                    '<button type="button" class="tt-chip' + (st === 2 ? ' on' : '') + '" data-v="2">STEAM 2 · Eco</button>' +
+                    '</div><p class="tt-help" id="tt-steam-note">' + steamHelp(st) + '</p>';
+            } else if (cur.id === 'name') {
                 html = '<input class="quiz-input tt-input" id="tt-name" maxlength="40" value="' + String(answers.name || '').replace(/"/g, '&quot;') + '">';
             } else if (cur.id === 'schoolDays') {
                 html = '<p class="tt-help">မတက်ရင် တစ်နေ့မှ မရွေးပါနဲ့။</p><div class="tt-chips" id="tt-school-days">' + dayChips(answers.schoolDays || []) + '</div>';
@@ -881,14 +925,18 @@
                 html = '<div class="tt-yesno"><button type="button" class="tt-chip' + (answers.hasTuition ? ' on' : '') + '" data-v="1">ရှိတယ်</button>' +
                     '<button type="button" class="tt-chip' + (!answers.hasTuition ? ' on' : '') + '" data-v="0">မရှိဘူး</button></div>';
             } else if (cur.id === 'tuitionHours') {
-                html = '<div class="tt-chips" id="tt-tu-days">' + dayChips(answers.tuitionDays || [0, 1, 2, 3, 4]) + '</div>' +
+                html = '<p class="tt-help">၂ ခုရှိရင် Add နှိပ်ပြီး နောက်ထပ် အချိန်ထည့်ပါ။</p>' +
+                    '<div class="tt-chips" id="tt-tu-days">' + dayChips(answers.tuitionDays || [0, 1, 2, 3, 4]) + '</div>' +
+                    '<p class="tt-print-label">Tuition 1</p>' +
                     '<div class="tt-times"><label>Start<select id="tt-tu-start">' + timeSelectHtml(6 * 60, 22 * 60, answers.tuitionStart) + '</select></label>' +
-                    '<label>End<select id="tt-tu-end">' + timeSelectHtml(8 * 60, 24 * 60, answers.tuitionEnd) + '</select></label></div>';
-            } else if (cur.id === 'tuition2') {
-                html = '<div class="tt-yesno" id="tt-tu2"><button type="button" class="tt-chip' + (answers.hasTuition2 ? ' on' : '') + '" data-v="1">ရှိတယ်</button>' +
-                    '<button type="button" class="tt-chip' + (!answers.hasTuition2 ? ' on' : '') + '" data-v="0">မရှိဘူး</button></div>' +
-                    '<div class="tt-times" id="tt-tu2-times" style="' + (answers.hasTuition2 ? '' : 'display:none') + '"><label>Start<select id="tt-tu2-start">' + timeSelectHtml(12 * 60, 22 * 60, answers.tuition2Start) + '</select></label>' +
-                    '<label>End<select id="tt-tu2-end">' + timeSelectHtml(14 * 60, 24 * 60, answers.tuition2End) + '</select></label></div>';
+                    '<label>End<select id="tt-tu-end">' + timeSelectHtml(8 * 60, 24 * 60, answers.tuitionEnd) + '</select></label></div>' +
+                    '<div id="tt-tu2-block"' + (answers.hasTuition2 ? '' : ' hidden') + '>' +
+                    '<p class="tt-print-label">Tuition 2</p>' +
+                    '<div class="tt-times"><label>Start<select id="tt-tu2-start">' + timeSelectHtml(12 * 60, 22 * 60, answers.tuition2Start || 20 * 60) + '</select></label>' +
+                    '<label>End<select id="tt-tu2-end">' + timeSelectHtml(14 * 60, 24 * 60, answers.tuition2End || 23 * 60) + '</select></label></div>' +
+                    '<button type="button" class="tt-chip tt-add-tu" id="tt-tu2-remove">Tuition 2 ဖယ်ရှားမည်</button>' +
+                    '</div>' +
+                    '<button type="button" class="tt-chip tt-add-tu" id="tt-tu-add"' + (answers.hasTuition2 ? ' hidden' : '') + '>+ Tuition ထပ်ထည့်မည်</button>';
             } else if (cur.id === 'wake') {
                 html = '<select class="tt-select" id="tt-wake">' + timeSelectHtml(5 * 60, 9 * 60, answers.dayStart) + '</select>';
             } else if (cur.id === 'sleep') {
@@ -905,14 +953,14 @@
                     '<div class="tt-yesno"><button type="button" class="tt-chip' + (answers.shortRest ? ' on' : '') + '" data-v="1">ထည့်မယ်</button>' +
                     '<button type="button" class="tt-chip' + (!answers.shortRest ? ' on' : '') + '" data-v="0">မထည့်ဘူး</button></div>';
             } else if (cur.id === 'weak') {
-                html = '<p class="tt-help">ဒီအပတ် အချိန်ပိုပေးမယ့် ဘာသာရပ်များ။ အားလုံး မရွေးလည်း ရပါတယ်။</p><div class="tt-subs" id="tt-weak">' +
-                    paidSubjects(api).map(function (s) {
+                html = '<p class="tt-help">ဒီအပတ် အချိန်ပိုပေးမယ့် ဘာသာရပ်များ။ STEAM ' + steamId(answers) + ' ထဲက ရွေးပါ။</p><div class="tt-subs" id="tt-weak">' +
+                    steamSubjectList(api, answers).map(function (s) {
                         var on = answers.weakSubjects.indexOf(s.id) !== -1;
                         return '<button type="button" class="tt-chip' + (on ? ' on' : '') + '" data-sub="' + s.id + '">' + s.name + '</button>';
                     }).join('') + '</div>';
             } else if (cur.id === 'strong') {
                 html = '<p class="tt-help">အားနည်းတဲ့ထဲ ရွေးပြီးသား မပါပါ။ မရွေးလည်း ရပါတယ်။</p><div class="tt-subs" id="tt-strong">' +
-                    paidSubjects(api).filter(function (s) {
+                    steamSubjectList(api, answers).filter(function (s) {
                         return answers.weakSubjects.indexOf(s.id) === -1;
                     }).map(function (s) {
                         var on = answers.strongSubjects.indexOf(s.id) !== -1;
@@ -948,12 +996,22 @@
                 ch.onclick = function () {
                     body.querySelectorAll('.tt-yesno .tt-chip').forEach(function (x) { x.classList.remove('on'); });
                     ch.classList.add('on');
-                    if (cur.id === 'tuition2') {
-                        var box = document.getElementById('tt-tu2-times');
-                        if (box) box.style.display = ch.getAttribute('data-v') === '1' ? '' : 'none';
+                    if (cur.id === 'steam') {
+                        var note = document.getElementById('tt-steam-note');
+                        if (note) note.textContent = steamHelp(ch.getAttribute('data-v') === '2' ? 2 : 1);
                     }
                 };
             });
+            var addTu = document.getElementById('tt-tu-add');
+            var remTu = document.getElementById('tt-tu2-remove');
+            var tu2 = document.getElementById('tt-tu2-block');
+            function showTu2(on) {
+                answers.hasTuition2 = !!on;
+                if (tu2) tu2.hidden = !on;
+                if (addTu) addTu.hidden = !!on;
+            }
+            if (addTu) addTu.onclick = function () { showTu2(true); };
+            if (remTu) remTu.onclick = function () { showTu2(false); };
             body.querySelectorAll('#tt-subs .tt-chip, #tt-weak .tt-chip, #tt-strong .tt-chip').forEach(function (ch) {
                 ch.onclick = function () { ch.classList.toggle('on'); };
             });
@@ -963,7 +1021,12 @@
             var list = steps();
             var cur = list[step];
             if (!cur) return true;
-            if (cur.id === 'name') {
+            if (cur.id === 'steam') {
+                var steamChip = document.querySelector('#tt-steam .tt-chip.on');
+                answers.steam = steamChip && steamChip.getAttribute('data-v') === '2' ? 2 : 1;
+                answers.weakSubjects = (answers.weakSubjects || []).filter(function (id) { return inSteam(answers, id); });
+                answers.strongSubjects = (answers.strongSubjects || []).filter(function (id) { return inSteam(answers, id); });
+            } else if (cur.id === 'name') {
                 var n = (document.getElementById('tt-name').value || '').trim();
                 if (!n) { api.alert('နာမည် ရိုက်ထည့်ပါ။'); return false; }
                 answers.name = n;
@@ -976,17 +1039,19 @@
             } else if (cur.id === 'tuition') {
                 var yes = document.querySelector('.tt-yesno .tt-chip.on');
                 answers.hasTuition = !!(yes && yes.getAttribute('data-v') === '1');
+                if (!answers.hasTuition) answers.hasTuition2 = false;
             } else if (cur.id === 'tuitionHours') {
                 answers.tuitionDays = readDays(document.getElementById('tt-tu-days'));
                 answers.tuitionStart = parseTime(document.getElementById('tt-tu-start').value);
                 answers.tuitionEnd = parseTime(document.getElementById('tt-tu-end').value);
                 if (!answers.tuitionDays.length) { api.alert('Tuition ရှိတဲ့နေ့ ရွေးပါ။'); return false; }
                 if (answers.tuitionEnd <= answers.tuitionStart) { api.alert('Tuition ပြီးချိန်က စချိန်ထက် နောက်ကျရပါမယ်။'); return false; }
-            } else if (cur.id === 'tuition2') {
-                answers.hasTuition2 = document.querySelector('#tt-tu2 .tt-chip.on').getAttribute('data-v') === '1';
+                var tu2Box = document.getElementById('tt-tu2-block');
+                answers.hasTuition2 = !!(tu2Box && !tu2Box.hidden);
                 if (answers.hasTuition2) {
                     answers.tuition2Start = parseTime(document.getElementById('tt-tu2-start').value);
                     answers.tuition2End = parseTime(document.getElementById('tt-tu2-end').value);
+                    if (answers.tuition2End <= answers.tuition2Start) { api.alert('Tuition 2 ပြီးချိန်က စချိန်ထက် နောက်ကျရပါမယ်။'); return false; }
                 }
             } else if (cur.id === 'wake') {
                 answers.dayStart = parseTime(document.getElementById('tt-wake').value);
@@ -1205,6 +1270,7 @@
         if (!saved || !uid || !monday) return false;
         if (String(saved.userId || '') !== uid) return false;
         if (saved.week !== monday) return false;
+        if (saved.steam !== 1 && saved.steam !== 2) return false;
         return weekSubjects(saved).length > 0;
     }
 
