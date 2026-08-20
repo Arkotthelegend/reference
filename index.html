@@ -1914,6 +1914,8 @@ body.showing-articles .container {
     font-size: 0.88rem !important; font-weight: 700;
 }
 #time-screen .tt-chip.on { border-color: #00D5FF !important; color: #00D5FF !important; background: #0B0F19 !important; }
+#time-screen .tt-add-tu { flex: 1 1 100% !important; border-style: dashed !important; color: #00D5FF !important; border-color: #00D5FF !important; }
+#tt-tu2-block { margin: 8px 0 4px; }
 .tt-times { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0 8px; }
 .tt-times label, #time-screen .tt-select { display: block; color: #94A3B8; font-size: 0.78rem; font-weight: 700; }
 #time-screen select, #time-screen .tt-select, #time-screen .tt-input {
@@ -2614,7 +2616,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
             </div>
         </div>
         <p class="tt-lock-msg">၄ ဘာသာအနည်းဆုံးဝယ်ယူသူများကိုသာ Timetabe ဆွဲပေးပါတယ်</p>
-        <p class="tt-lock-sub">ယခု ဝယ်ထားသည်: <span id="tt-lock-count">0</span> ဘာသာ</p>
+        <p class="tt-lock-sub">Grade 10, 11, 12 · ယခု ဝယ်ထားသည်: <span id="tt-lock-count">0</span> ဘာသာ</p>
         <button type="button" class="btn" onclick="copyTelegram()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
     </div>
     <div id="tt-ask" class="tt-panel" hidden>
@@ -2622,7 +2624,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <div class="tt-ai-mark">✨</div>
             <div>
                 <h2>Reed</h2>
-                <p>ကျောင်း၊ နားချိန်၊ ဘာသာရပ်တွေကို ချိန်ညှိပေးမယ်</p>
+                <p>Grade 10 / 11 / 12 · STEAM 1 ဒါမှမဟုတ် STEAM 2</p>
             </div>
         </div>
         <div class="tt-step-note" id="tt-step-note">1 / 8</div>
@@ -2677,7 +2679,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
     <script src="./grades.js?v=7"></script>
-    <script src="./timetable.js?v=12"></script>
+    <script src="./timetable.js?v=13"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -2896,7 +2898,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=39'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=40'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
