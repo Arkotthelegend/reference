@@ -1265,6 +1265,24 @@
         }).catch(fail);
     }
 
+    function savePng(blob, fileName, api) {
+        api = api || (typeof window.timetableApi === 'function' ? window.timetableApi() : {});
+        fileName = fileName || 'REED-stats.png';
+        if (!blob) return Promise.reject(new Error('no image'));
+        return hostPng(api, blob, fileName).then(function (hosted) {
+            if (hosted && hosted.sentToChat && !hosted.url) {
+                if (api && api.alert) api.alert('ပုံကို Telegram chat ထဲ ပို့လိုက်ပါတယ်။');
+                return hosted;
+            }
+            return saveHttpsFile(hosted.url, fileName).then(function () {
+                if (hosted.sentToChat && api && api.alert) {
+                    api.alert('ပုံကို Telegram chat ထဲကိုလည်း ပို့လိုက်ပါတယ်။');
+                }
+                return hosted;
+            });
+        });
+    }
+
     function hasWeekPlan(saved, monday, api) {
         var uid = telegramUserId(api);
         if (!saved || !uid || !monday) return false;
@@ -1315,6 +1333,7 @@
             }
             openAsk(api, saved || undefined);
         },
-        downloadPreview: downloadPreview
+        downloadPreview: downloadPreview,
+        savePng: savePng
     };
 })(typeof window !== 'undefined' ? window : globalThis);
