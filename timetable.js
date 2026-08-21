@@ -1287,15 +1287,13 @@
             if (api && api.alert) api.alert('ပုံ မရသေးပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
             return;
         }
-        downloadBlob(blob, name, api, function (busy, label) {
-            setDlState(idx, busy, label);
-        }).then(function (hosted) {
-            if (img && hosted && hosted.url) {
-                img._httpsUrl = hosted.url;
-                img.src = hosted.url;
-            }
-        }).catch(function () {});
-        return;
+        setDlState(idx, true, 'Uploading…');
+        hostPng(api, blob, name).then(function (hosted) {
+            setDlState(idx, true, 'Saving…');
+            return finish(hosted);
+        }).then(function () {
+            setDlState(idx, false);
+        }).catch(fail);
     }
 
     function savePng(blob, fileName, api) {
