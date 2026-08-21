@@ -1229,7 +1229,7 @@
                     fileName: fileName,
                     userId: telegramUserId(api)
                 })
-            }, 20000);
+            }, 45000);
         }).then(function (r) { return r.text(); }).then(function (t) {
             var data = parseJsonish(t) || {};
             var hosted = httpsUrl(data.url);
@@ -1243,56 +1243,43 @@
     }
 
     function hostPng(api, blob, fileName) {
-        return uploadLitterboxDirect(blob, fileName).then(function (url) {
-            return url || uploadTmpfilesDirect(blob, fileName);
-        }).then(function (url) {
-            if (url) return { url: url, sentToChat: false };
-            return uploadViaGas(api, blob, fileName);
+        return uploadViaGas(api, blob, fileName).then(function (g) {
+            g = g || { url: '', sentToChat: false };
+            if (g.sentToChat) return g;
+            return uploadLitterboxDirect(blob, fileName).then(function (url) {
+                return url || uploadTmpfilesDirect(blob, fileName) || g.url || '';
+            }).then(function (url) {
+                return { url: url || '', sentToChat: false };
+            });
         }).catch(function () {
             return { url: '', sentToChat: false };
         });
     }
 
-    function saveHttpsFile(fileUrl, fileName) {
-        if (!fileUrl) return Promise.resolve(false);
+    function openHttpsFile(fileUrl) {
+        if (!fileUrl) return false;
         var tg = webApp();
-        return new Promise(function (resolve) {
-            var done = false;
-            var finish = function (ok) {
-                if (done) return;
-                done = true;
-                resolve(!!ok);
-            };
-            var openLink = function () {
-                try {
-                    if (tg && typeof tg.openLink === 'function') {
-                        tg.openLink(fileUrl, { try_instant_view: false });
-                        finish(true);
-                        return;
-                    }
-                } catch (e) {}
-                try {
-                    window.open(fileUrl, '_blank');
-                    finish(true);
-                    return;
-                } catch (e2) {}
-                finish(false);
-            };
-            try {
-                if (tg && typeof tg.downloadFile === 'function' && (!tg.isVersionAtLeast || tg.isVersionAtLeast('8.0'))) {
-                    var ret = tg.downloadFile({ url: fileUrl, file_name: fileName }, function (ok) {
-                        if (ok) finish(true);
-                        else openLink();
-                    });
-                    if (ret && typeof ret.then === 'function') {
-                        ret.then(function () { finish(true); }).catch(function () { openLink(); });
-                    }
-                    setTimeout(function () { if (!done) openLink(); }, 12000);
-                    return;
-                }
-            } catch (e3) {}
-            openLink();
-        });
+        try {
+            if (tg && typeof tg.openLink === 'function') {
+                tg.openLink(fileUrl, { try_instant_view: false });
+                return true;
+            }
+        } catch (e) {}
+        try {
+            window.open(fileUrl, '_blank');
+            return true;
+        } catch (e2) {}
+        return false;
+    }
+
+    function asPngBlob(blob) {
+        if (!blob) return blob;
+        try {
+            if (blob.type === 'image/png') return blob;
+            return new Blob([blob], { type: 'image/png' });
+        } catch (e) {
+            return blob;
+        }
     }
 
     function tryBlobSave(blob, fileName) {
@@ -1325,43 +1312,42 @@
         btn.textContent = label || btn._label;
     }
 
-    function tellSaved(api, sentToChat, kind) {
-        if (!api || !api.alert || !sentToChat) return;
-        if (kind === 'timetable') api.alert('Timetable ကို Telegram chat ထဲ ပို့လိုက်ပါတယ်။ Chat မှာ ဖွင့်ပြီး သိမ်းပါ။');
-        else api.alert('ပုံကို Telegram chat ထဲ ပို့လိုက်ပါတယ်။ Chat မှာ ဖွင့်ပြီး သိမ်းပါ။');
+    function tellSaved(api, sentToChat, openedLink, kind) {
+        if (!api || !api.alert) return;
+        if (sentToChat) {
+            if (kind === 'timetable') api.alert('Timetable ကို Telegram chat ထဲ ပို့လိုက်ပါတယ်။ Chat မှာ ဖွင့်ပြီး Save လုပ်ပါ။');
+            else api.alert('ပုံကို Telegram chat ထဲ ပို့လိုက်ပါတယ်။ Chat မှာ ဖွင့်ပြီး Save လုပ်ပါ။');
+            return;
+        }
+        if (openedLink) {
+            api.alert('ပုံကို browser မှာ ဖွင့်လိုက်ပါတယ်။ Long press ပြီး Save image လုပ်ပါ။');
+        }
     }
 
     function saveImage(api, blob, fileName, onState) {
         api = api || {};
         fileName = fileName || 'REED.png';
         onState = onState || function () {};
+        blob = asPngBlob(blob);
         if (!blob) return Promise.resolve({ ok: false, url: '', sentToChat: false });
-        onState(true, 'Uploading…');
+        onState(true, 'Sending…');
         return hostPng(api, blob, fileName).then(function (hosted) {
             hosted = hosted || { url: '', sentToChat: false };
-            if (hosted.url) {
-                onState(true, 'Saving…');
-                return saveHttpsFile(hosted.url, fileName).then(function (saved) {
-                    if (saved || hosted.sentToChat) {
-                        return { ok: true, url: hosted.url, sentToChat: !!hosted.sentToChat };
-                    }
-                    return tryBlobSave(blob, fileName).then(function (ok) {
-                        return { ok: ok, url: hosted.url, sentToChat: false };
-                    });
-                });
-            }
             if (hosted.sentToChat) {
-                return { ok: true, url: '', sentToChat: true };
+                return { ok: true, url: hosted.url || '', sentToChat: true, openedLink: false };
+            }
+            if (hosted.url && openHttpsFile(hosted.url)) {
+                return { ok: true, url: hosted.url, sentToChat: false, openedLink: true };
             }
             return tryBlobSave(blob, fileName).then(function (ok) {
-                return { ok: ok, url: '', sentToChat: false };
+                return { ok: ok, url: hosted.url || '', sentToChat: false, openedLink: false };
             });
         }).then(function (result) {
             onState(false);
             return result;
         }, function () {
             onState(false);
-            return { ok: false, url: '', sentToChat: false };
+            return { ok: false, url: '', sentToChat: false, openedLink: false };
         });
     }
 
@@ -1376,7 +1362,7 @@
             if (!result.ok) {
                 if (api && api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
             } else {
-                tellSaved(api, result.sentToChat, 'image');
+                tellSaved(api, result.sentToChat, result.openedLink, 'image');
             }
             return { url: result.url || '', sentToChat: !!result.sentToChat };
         });
@@ -1392,26 +1378,7 @@
         var img = document.getElementById('tt-preview-' + idx);
         var blob = img && img._blob;
         var name = pageFileName(idx);
-        var mark = function (hosted) {
-            if (img && hosted && hosted.url) {
-                img._httpsUrl = hosted.url;
-                img.src = hosted.url;
-            }
-        };
 
-        if (img && img._httpsUrl) {
-            setDlState(idx, true, 'Saving…');
-            saveHttpsFile(img._httpsUrl, name).then(function (ok) {
-                if (ok) {
-                    setDlState(idx, false);
-                    return;
-                }
-                img._httpsUrl = '';
-                setDlState(idx, false);
-                downloadPreview(api, idx);
-            });
-            return;
-        }
         if (!blob) {
             if (api && api.alert) api.alert('ပုံ မရသေးပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
             return;
@@ -1419,11 +1386,11 @@
         saveImage(api, blob, name, function (busy, label) {
             setDlState(idx, busy, label);
         }).then(function (result) {
-            mark(result);
+            if (img && result && result.url) img._httpsUrl = result.url;
             if (!result.ok) {
                 if (api && api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
             } else {
-                tellSaved(api, result.sentToChat, 'timetable');
+                tellSaved(api, result.sentToChat, result.openedLink, 'timetable');
             }
         });
     }
