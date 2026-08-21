@@ -2929,16 +2929,24 @@ body.volunteer-role .vol-report-link { display: block !important; }
 .ld-stat-label { font-size: 0.6rem; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 .ld-stat-div { width: 1px; background: #1E293B; flex-shrink: 0; align-self: stretch; margin: 4px 0; }
         
-                .ld-section { margin-bottom: 24px; text-align: left; }d
+                .ld-section { margin-bottom: 24px; text-align: left; }
         .ld-section h2 { color: #00D5FF; font-size: 1.2rem; margin-bottom: 16px; text-align: center; }
         .ld-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-                .ld-card { background: linear-gradient(145deg, #162235, #0F172A); border: 1px solid rgba(30,41,59,0.8); border-radius: 20px; padding: 16px 12px; text-align: center; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
-		.ld-card::before { content:''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #00D5FF, transparent); opacity: 0; transition: opacity 0.3s; }
-        .ld-card:hover { transform: translateY(-6px); border-color: rgba(0,213,255,0.3); }
-        .ld-card:hover::before { opacity: 1; }
+                .ld-card { background: #162235; border: 1px solid #334155; border-radius: 16px; padding: 16px 12px; text-align: center; }
                .ld-card-icon { font-size: 1.6rem; margin-bottom: 8px; display: block; }
 			   .ld-card-title { font-weight: 700; font-size: 0.95rem; color: #fff; margin-bottom: 4px; }
         .ld-card-desc { font-size: 0.8rem; color: #94A3B8; line-height: 1.4; }
+        .ld-grades { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .ld-grade { background: #162235; border: 1px solid #334155; border-radius: 14px; padding: 14px 8px; text-align: center; }
+        .ld-grade b { display: block; color: #00D5FF; font-size: 1rem; }
+        .ld-grade span { display: block; color: #94A3B8; font-size: 0.72rem; margin-top: 6px; line-height: 1.35; }
+        .ld-tabs { display: flex; flex-direction: column; gap: 8px; }
+        .ld-tab { display: flex; gap: 12px; align-items: flex-start; background: #162235; border: 1px solid #334155; border-radius: 14px; padding: 12px; }
+        .ld-tab-ico { font-size: 1.15rem; width: 28px; text-align: center; flex-shrink: 0; }
+        .ld-tab b { display: block; color: #fff; font-size: 0.92rem; margin-bottom: 2px; }
+        .ld-tab span { color: #94A3B8; font-size: 0.78rem; line-height: 1.4; }
+        .ld-steam { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .ld-note { color: #94A3B8; font-size: 0.82rem; line-height: 1.5; text-align: center; margin: 0 0 12px; }
         
         .ld-subjects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .ld-sub { background: linear-gradient(90deg, #162235, #0F172A); border-left: 3px solid #00D5FF; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease; border: 1px solid rgba(30,41,59,0.6); border-left-width: 3px; }
@@ -2984,33 +2992,61 @@ body.volunteer-role .vol-report-link { display: block !important; }
             
             <div class="ld-hero">
                 <h1>REED Education</h1>
-                <p>Grade 12 Matriculation Prep App<br>မြန်မာစာ · အင်္ဂလိပ်စာ · သင်္ချာ · ရူပဗေဒ · ဓာတုဗေဒ · ဇီဝဗေဒ · ဘောဂဗေဒ</p>
+                <p>Telegram Mini App for Grade 10, 11 and 12<br>မြန်မာစာ · အင်္ဂလိပ်စာ · သင်္ချာ · ရူပဗေဒ · ဓာတုဗေဒ · ဇီဝဗေဒ · ဘောဂဗေဒ</p>
             </div>
 
             <div class="ld-statbar">
+                <div class="ld-stat-item"><div class="ld-stat-num">10–12</div><div class="ld-stat-label">Grades</div></div>
+                <div class="ld-stat-div"></div>
                 <div class="ld-stat-item"><div class="ld-stat-num">7</div><div class="ld-stat-label">Subjects</div></div>
                 <div class="ld-stat-div"></div>
-                <div class="ld-stat-item"><div class="ld-stat-num">12K+</div><div class="ld-stat-label">Obj Questions</div></div>
+                <div class="ld-stat-item"><div class="ld-stat-num">🕒</div><div class="ld-stat-label">Timetable</div></div>
                 <div class="ld-stat-div"></div>
-                <div class="ld-stat-item"><div class="ld-stat-num">📄</div><div class="ld-stat-label">Old Questions</div></div>
-                <div class="ld-stat-div"></div>
-                <div class="ld-stat-item"><div class="ld-stat-num">🏆</div><div class="ld-stat-label">Rankings</div></div>
+                <div class="ld-stat-item"><div class="ld-stat-num">🏅</div><div class="ld-stat-label">Rank</div></div>
+            </div>
+
+            <div class="ld-section reveal">
+                <h2>🎓 Grades</h2>
+                <p class="ld-note">Pick your grade in the app. Quizzes and unlocks stay on that grade.</p>
+                <div class="ld-grades">
+                    <div class="ld-grade"><b>Grade 10</b><span>Chapter quizzes for all 7 subjects</span></div>
+                    <div class="ld-grade"><b>Grade 11</b><span>Chapter quizzes for all 7 subjects</span></div>
+                    <div class="ld-grade"><b>Grade 12</b><span>Matric prep plus old questions</span></div>
+                </div>
+            </div>
+
+            <div class="ld-section reveal">
+                <h2>📱 Inside the app</h2>
+                <div class="ld-tabs">
+                    <div class="ld-tab"><div class="ld-tab-ico">🏠</div><div><b>Study</b><span>Subject quizzes, flashcards, English grammar, poems, dialogues, and Grade 12 Q &amp; A</span></div></div>
+                    <div class="ld-tab"><div class="ld-tab-ico">📅</div><div><b>Plan</b><span>Free Daily Quiz, exam countdown, and a daily study checklist</span></div></div>
+                    <div class="ld-tab"><div class="ld-tab-ico">🕒</div><div><b>Time</b><span>Weekly timetable from your school, tuition, and rest hours. Download Mon–Fri and Sat–Sun A4 pages</span></div></div>
+                    <div class="ld-tab"><div class="ld-tab-ico">🏅</div><div><b>Rank</b><span>All-time accuracy, questions, time, subject radar, and leaderboard</span></div></div>
+                    <div class="ld-tab"><div class="ld-tab-ico">👤</div><div><b>Me</b><span>Profile, paid unlocks, volunteer access, and News</span></div></div>
+                </div>
             </div>
 
             <div class="ld-section reveal">
                 <h2>✨ What You Get</h2>
                 <div class="ld-grid">
                     <div class="ld-card"><span class="ld-card-icon">📝</span><div class="ld-card-title">Daily Quiz</div><div class="ld-card-desc">3 free random questions every day for every subject</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">📚</span><div class="ld-card-title">Essential Objective Questions</div><div class="ld-card-desc">Paid 12,000+ Objective Questions</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">📊</span><div class="ld-card-title">Smart Stats</div><div class="ld-card-desc">Track accuracy, speed & progress per subject</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">🏅</span><div class="ld-card-title">Leaderboard</div><div class="ld-card-desc">Compete with friends on accuracy & speed</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">📰</span><div class="ld-card-title">News & Articles</div><div class="ld-card-desc">Read study tips and subject articles</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">✅</span><div class="ld-card-title">Study Tracker</div><div class="ld-card-desc">Daily checklist to keep your prep on track</div></div>
-                </div> 
+                    <div class="ld-card"><span class="ld-card-icon">📚</span><div class="ld-card-title">Chapter quizzes</div><div class="ld-card-desc">MCQ, fill-blank, true/false, 1-mark, and more for Grade 10, 11, and 12</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">🕒</span><div class="ld-card-title">Timetable</div><div class="ld-card-desc">Build a week plan around school, tuition, lunch, and rest. Save A4 pages to your phone</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">🔬</span><div class="ld-card-title">STEAM 1 or 2</div><div class="ld-card-desc">STEAM 1 uses Biology. STEAM 2 uses Economics. Stats and Time follow your class</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">🏅</span><div class="ld-card-title">Rank &amp; radar</div><div class="ld-card-desc">See accuracy, question count, and time per subject. Download your all-time chart</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">🇬🇧</span><div class="ld-card-title">English tools</div><div class="ld-card-desc">Shared grammar notes, poems, dialogues, and Grade 12 Q &amp; A</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">📄</span><div class="ld-card-title">Old questions</div><div class="ld-card-desc">Past-year practice on Grade 12, with an Old badge in quizzes</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">🃏</span><div class="ld-card-title">Flashcards</div><div class="ld-card-desc">Flip cards for quick review, including math solutions</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">✅</span><div class="ld-card-title">Study Tracker</div><div class="ld-card-desc">Daily checklist on Plan so you tick off each subject</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">📰</span><div class="ld-card-title">News</div><div class="ld-card-desc">Study tips and articles, plus the Reed Telegram channel</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">🤝</span><div class="ld-card-title">Volunteer</div><div class="ld-card-desc">Volunteer unlocks stay on the granted grade. Report a mistake from quizzes</div></div>
+                    <div class="ld-card"><span class="ld-card-icon">📊</span><div class="ld-card-title">Smart Stats</div><div class="ld-card-desc">Track accuracy and speed per subject. Best and Old scores stay separate</div></div>
+                </div>
             </div>
 
             <div class="ld-section reveal">
                 <h2>📖 All Subjects</h2>
+                <p class="ld-note">Same seven subjects on Grade 10, 11, and 12. STEAM 2 students use Eco instead of Bio.</p>
                 <div class="ld-subjects">
                     <div class="ld-sub"><span class="ld-sub-ico">🇲🇲</span> မြန်မာစာ</div>
                     <div class="ld-sub"><span class="ld-sub-ico">🇬🇧</span> အင်္ဂလိပ်စာ</div>
@@ -3023,11 +3059,19 @@ body.volunteer-role .vol-report-link { display: block !important; }
             </div>
 
             <div class="ld-section reveal">
+                <h2>🔬 STEAM class</h2>
+                <div class="ld-steam">
+                    <div class="ld-grade"><b>STEAM 1</b><span>Myan, English, Maths, Physics, Chemistry, Biology</span></div>
+                    <div class="ld-grade"><b>STEAM 2</b><span>Myan, English, Maths, Physics, Chemistry, Eco</span></div>
+                </div>
+            </div>
+
+            <div class="ld-section reveal">
                 <h2>How to Start</h2>
                 <div class="ld-steps">
-                    <div class="ld-step"><div class="ld-step-num">1</div><div class="ld-step-text"><b>Open in Telegram</b>Click the button below to launch the app</div></div>
-                    <div class="ld-step"><div class="ld-step-num">2</div><div class="ld-step-text"><b>Pick a Subject</b>Choose from 7 Grade 12 subjects</div></div>
-                    <div class="ld-step"><div class="ld-step-num">3</div><div class="ld-step-text"><b>Practice Daily</b>Quizzes, flashcards & past year questions</div></div>
+                    <div class="ld-step"><div class="ld-step-num">1</div><div class="ld-step-text"><b>Open in Telegram</b>This page is only a preview. The Mini App runs inside Telegram</div></div>
+                    <div class="ld-step"><div class="ld-step-num">2</div><div class="ld-step-text"><b>Pick Grade 10, 11, or 12</b>Quizzes, unlocks, rank, and timetable follow that grade</div></div>
+                    <div class="ld-step"><div class="ld-step-num">3</div><div class="ld-step-text"><b>Study, Plan, Time</b>Daily quiz, chapter practice, weekly timetable, and rank</div></div>
                 </div>
             </div>
 
@@ -3120,7 +3164,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=53'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=54'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
