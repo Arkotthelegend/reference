@@ -575,7 +575,119 @@
         ctx.fillText(fitText(ctx, cell.label, cw - 14, size), cx + cw / 2, cy);
     }
 
+    function dayTimeSpan(weekDays, dayIdxs) {
+        var minT = 24 * 60;
+        var maxT = 0;
+        (dayIdxs || []).forEach(function (di) {
+            (weekDays[di] || []).forEach(function (b) {
+                if (b.start < minT) minT = b.start;
+                if (b.end > maxT) maxT = b.end;
+            });
+        });
+        if (minT >= maxT) {
+            minT = 6 * 60;
+            maxT = 23 * 60;
+        }
+        return { minT: minT, maxT: maxT };
+    }
+
+    function drawTimedTable(ctx, x, y, w, dayIdxs, weekDays, title, bodyTarget) {
+        var span = dayTimeSpan(weekDays, dayIdxs);
+        var minT = span.minT;
+        var maxT = span.maxT;
+        var range = Math.max(60, maxT - minT);
+        var timeW = 260;
+        var colW = (w - timeW) / Math.max(1, dayIdxs.length);
+        var headerH = 64;
+        var titleH = title ? 52 : 0;
+        var bodyH = Math.max(400, bodyTarget || 1600);
+        var ty = y + titleH;
+        var fontPx = 24;
+        function yAt(m) {
+            return ty + headerH + (m - minT) / range * bodyH;
+        }
+
+        if (title) {
+            ctx.fillStyle = INK;
+            ctx.font = '800 32px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(title, x, y + 26);
+        }
+
+        ctx.fillStyle = PAPER;
+        ctx.fillRect(x, ty, w, headerH + bodyH);
+        ctx.fillStyle = HEADER;
+        ctx.fillRect(x, ty, w, headerH);
+        ctx.fillStyle = TIMECOL;
+        ctx.fillRect(x, ty + headerH, timeW, bodyH);
+
+        ctx.fillStyle = PAPER;
+        ctx.font = '700 26px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        dayIdxs.forEach(function (di, i) {
+            ctx.fillText(DAYS[di], x + timeW + colW * i + colW / 2, ty + headerH / 2);
+        });
+        strokeCell(ctx, x, ty, timeW, headerH);
+        dayIdxs.forEach(function (_di, i) {
+            strokeCell(ctx, x + timeW + colW * i, ty, colW, headerH);
+        });
+
+        var hour = Math.ceil(minT / 60) * 60;
+        if (hour === minT) hour += 60;
+        ctx.save();
+        while (hour < maxT) {
+            var hy = yAt(hour);
+            ctx.strokeStyle = 'rgba(17,17,17,0.16)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(x, hy);
+            ctx.lineTo(x + w, hy);
+            ctx.stroke();
+            hour += 60;
+        }
+        ctx.restore();
+
+        dayIdxs.forEach(function (di, ci) {
+            (weekDays[di] || []).forEach(function (b) {
+                var y0 = yAt(b.start);
+                var y1 = yAt(b.end);
+                var rh = Math.max(3, y1 - y0);
+                var cx = x + timeW + ci * colW;
+                ctx.fillStyle = (b && b.color) ? b.color : PAPER;
+                ctx.fillRect(cx, y0, colW, rh);
+                strokeCell(ctx, cx, y0, colW, rh);
+                if (rh >= 36) {
+                    drawCellLabel(ctx, b, cx, y0 + rh / 2, colW, rh, rh >= 64 ? fontPx : 16);
+                }
+            });
+        });
+
+        ctx.fillStyle = INK;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        var mark = Math.floor(minT / 60) * 60;
+        if (mark < minT) mark += 60;
+        for (; mark < maxT; mark += 60) {
+            var y0 = yAt(Math.max(mark, minT));
+            var y1 = yAt(Math.min(mark + 60, maxT));
+            if (y1 - y0 < 26) continue;
+            ctx.font = '700 20px sans-serif';
+            ctx.fillText(fitText(ctx, minsToLabel(mark), timeW - 12, 20), x + timeW / 2, (y0 + y1) / 2);
+        }
+        strokeCell(ctx, x, ty + headerH, timeW, bodyH);
+
+        ctx.strokeStyle = INK;
+        ctx.lineWidth = 2.8;
+        ctx.strokeRect(x, ty, w, headerH + bodyH);
+        return titleH + headerH + bodyH;
+    }
+
     function drawTable(ctx, x, y, w, dayIdxs, weekDays, title, bodyTarget) {
+        if ((dayIdxs || []).length <= 2) {
+            return drawTimedTable(ctx, x, y, w, dayIdxs, weekDays, title, bodyTarget);
+        }
         var rows = tableRows(weekDays, dayIdxs);
         if (!rows.length) return 0;
         var heights = rows.map(rowHFor);
@@ -685,10 +797,12 @@
         var footer = 56;
         var titleH = 52;
         var tableHeader = 64;
-        var rows = tableRows(weekDays, group.days);
-        var natural = rows.reduce(function (a, r) { return a + rowHFor(r); }, 0);
         var bodyTarget = h - pad - headerEnd - titleH - tableHeader - footer;
-        if (natural > bodyTarget) bodyTarget = natural;
+        if (group.days.length > 2) {
+            var rows = tableRows(weekDays, group.days);
+            var natural = rows.reduce(function (a, r) { return a + rowHFor(r); }, 0);
+            if (natural > bodyTarget) bodyTarget = natural;
+        }
 
         drawTable(ctx, pad, headerEnd, innerW, group.days, weekDays, group.title, bodyTarget);
 
