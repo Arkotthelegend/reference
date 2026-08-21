@@ -66,12 +66,6 @@
     "e": "Initial angular speed represents how fast the object is rotating at the start of the time interval."
   },
   {
-    "q": "The formula for average angular speed is $\\omega = \\frac{\\omega + \\omega_0}{____}$.",
-    "type": "blank",
-    "c": "$2$",
-    "e": "Average angular speed is the arithmetic mean of the initial and final angular speeds."
-  },
-  {
     "q": "The equations of motion for constant angular acceleration are analogous to equations for constant acceleration in ____ motion.",
     "type": "blank",
     "c": "linear",
@@ -84,34 +78,10 @@
     "e": "Linear kinematic equations apply to objects moving in a straight line with unchanging acceleration."
   },
   {
-    "q": "In the analogy between linear and angular motion, linear velocity $v$ corresponds to angular velocity $\\____$.",
-    "type": "blank",
-    "c": "$\\omega$",
-    "e": "Angular velocity $\\omega$ is the rotational equivalent of linear velocity $v$."
-  },
-  {
-    "q": "In the kinematic analogies, linear displacement $s$ corresponds to angular displacement $\\____$.",
-    "type": "blank",
-    "c": "$\\theta$",
-    "e": "Angular displacement $\\theta$ measures the angle rotated, analogous to linear distance $s$."
-  },
-  {
     "q": "The linear equation $v^2 = v_0^2 + 2as$ is analogous to the angular equation $\\omega^2 = \\omega_0^2 + 2\\alpha\\____$.",
     "type": "blank",
     "c": "$\\theta$",
     "e": "Angular displacement $\\theta$ replaces linear displacement $s$ in this time-independent kinematic equation."
-  },
-  {
-    "q": "In the analogy of kinematic equations, linear acceleration $a$ corresponds to angular acceleration $\\____$.",
-    "type": "blank",
-    "c": "$\\alpha$",
-    "e": "Angular acceleration $\\alpha$ is the rate of change of angular velocity, matching linear acceleration $a$."
-  },
-  {
-    "q": "The linear equation $s = \\frac{v + v_0}{2} t$ corresponds to the angular equation $\\theta = \\frac{\\omega + \\omega_0}{____} t$.",
-    "type": "blank",
-    "c": "$2$",
-    "e": "Both equations calculate displacement using the average velocity or angular velocity multiplied by time."
   },
   {
     "q": "According to the summary, angular acceleration is constant if the angular velocity changes at a constant ____.",
@@ -174,12 +144,6 @@
     "e": "The center of every circular particle path is located on the main axis of rotation."
   },
   {
-    "q": "The relation between arc length $s$ and angular displacement $\\theta$ is $s = \\____ \\theta$.",
-    "type": "blank",
-    "c": "$r$",
-    "e": "Arc length equals the radius multiplied by the angular displacement in radians."
-  },
-  {
     "q": "In the equation $s = r \\theta$, the variable $r$ represents the ____ of the circle.",
     "type": "blank",
     "c": "radius",
@@ -190,12 +154,6 @@
     "type": "blank",
     "c": "same",
     "e": "While linear speeds vary by radius, all particles in a rigid body share the exact same angular velocity."
-  },
-  {
-    "q": "The magnitude of the linear velocity $v$ is related to the angular velocity $\\omega$ by the equation $v = \\____ \\omega$.",
-    "type": "blank",
-    "c": "$r$",
-    "e": "Linear velocity increases proportionally with the distance from the axis of rotation."
   },
   {
     "q": "Because its direction is tangent to the path, linear velocity is also called ____ velocity.",
@@ -214,12 +172,6 @@
     "type": "blank",
     "c": "tangent",
     "e": "Tangential acceleration acts along the tangent line, either speeding up or slowing down the particle."
-  },
-  {
-    "q": "The tangential acceleration $a_T$ relates to angular acceleration $\\alpha$ by the equation $a_T = \\____ \\alpha$.",
-    "type": "blank",
-    "c": "$r$",
-    "e": "Tangential acceleration is the product of the radius and the angular acceleration."
   },
   {
     "q": "Tangential acceleration is a measure of how fast the tangential ____ changes.",
@@ -378,18 +330,6 @@
     "e": "Geometric similarity between the displacement and velocity triangles allows the ratio of sides to be equated."
   },
   {
-    "q": "In uniform circular motion, the magnitudes of initial and final velocities are equal, so $v_1 = v_2 = \\____$.",
-    "type": "blank",
-    "c": "$v$",
-    "e": "Because speed is constant, the length of the velocity vectors remains $v$."
-  },
-  {
-    "q": "As $\\Delta t$ approaches zero, the relation becomes $\\Delta v = \\frac{v}{\\____} \\Delta s$.",
-    "type": "blank",
-    "c": "$r$",
-    "e": "This proportionality comes from the similar triangles relating velocity change to arc length."
-  },
-  {
     "q": "Centripetal acceleration is defined as the limit of $\\frac{\\Delta v}{\\Delta t}$ as $\\Delta t$ approaches ____.",
     "type": "blank",
     "c": "zero",
@@ -400,18 +340,6 @@
     "type": "blank",
     "c": "speed",
     "e": "The rate of change of arc length with respect to time is the linear speed $v$."
-  },
-  {
-    "q": "The formula for centripetal acceleration in terms of linear speed is $a_c = \\frac{\\____^2}{r}$.",
-    "type": "blank",
-    "c": "$v$",
-    "e": "This is the standard equation for calculating centripetal acceleration using linear speed and radius."
-  },
-  {
-    "q": "Substituting $v = r \\omega$ into the centripetal acceleration formula yields $a_c = r \\____^2$.",
-    "type": "blank",
-    "c": "$\\omega$",
-    "e": "This alternative form calculates centripetal acceleration using angular velocity and radius."
   },
   {
     "q": "In uniform circular motion, the linear velocity vector is ____ to the path.",
@@ -484,18 +412,6 @@
     "type": "blank",
     "c": "angle",
     "e": "Because it is the vector sum of two perpendicular components, the total acceleration points diagonally inward."
-  },
-  {
-    "q": "The magnitude of the resultant acceleration is found using the formula $a = \\sqrt{a_c^2 + \\____^2}$.",
-    "type": "blank",
-    "c": "$a_T$",
-    "e": "This applies the Pythagorean theorem to the perpendicular radial and tangential acceleration components."
-  },
-  {
-    "q": "The direction of the resultant acceleration vector is given by the equation $\\tan \\theta = \\frac{\\____}{a_c}$.",
-    "type": "blank",
-    "c": "$a_T$",
-    "e": "This trigonometric ratio determines the angle of the total acceleration vector relative to the radial direction."
   },
   {
     "q": "In nonuniform circular motion, the object experiences tangential acceleration which is ____ to the circle.",
