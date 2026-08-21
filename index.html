@@ -1227,34 +1227,36 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     border-radius: 16px;
     padding: 14px 12px 12px;
 }
-.stat-radar-head {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 8px;
-}
 .stat-radar-title {
     color: #00D5FF;
     font-weight: 800;
     font-size: 1rem;
+    text-align: left;
+    margin: 0 0 8px;
 }
-.stat-radar-sub {
+.stat-radar-totals {
+    text-align: center;
+    color: #E2E8F0;
+    font-weight: 700;
+    font-size: 0.88rem;
+    margin: 4px 0 10px;
+}
+.stat-radar-totals span {
     color: #94A3B8;
-    font-size: 0.72rem;
-    line-height: 1.4;
-    margin-top: 3px;
+    font-weight: 600;
+    font-size: 0.78rem;
 }
 .stat-radar-dl {
-    flex: 0 0 auto;
-    margin: 0;
-    padding: 8px 12px;
-    border-radius: 10px;
+    display: block;
+    width: 100%;
+    margin: 12px 0 0;
+    padding: 12px;
+    border-radius: 12px;
     background: #00D5FF;
     color: #0B0F19;
     border: none;
     font-weight: 800;
-    font-size: 0.78rem;
+    font-size: 0.95rem;
     font-family: inherit;
     cursor: pointer;
 }
@@ -1270,25 +1272,34 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     background: transparent;
 }
 .stat-radar-legend {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px 10px;
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 6px;
 }
 .stat-radar-leg {
+    padding: 8px 0;
+    border-bottom: 1px solid #1E293B;
+    color: #E2E8F0;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+.stat-radar-leg:last-child { border-bottom: none; }
+.stat-radar-leg-top {
     display: flex;
     justify-content: space-between;
     gap: 8px;
-    color: #E2E8F0;
-    font-size: 0.78rem;
-    font-weight: 700;
 }
-.stat-radar-leg span { color: #00D5FF; font-family: monospace; }
-.stat-radar-leg.locked { color: #64748B; }
-.stat-radar-leg.locked span { color: #64748B; }
-@media (min-width: 768px) {
-    .stat-radar-grid { grid-template-columns: 1fr 1fr; }
+.stat-radar-leg-top span { color: #00D5FF; font-family: monospace; }
+.stat-radar-leg-meta {
+    color: #94A3B8;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 2px;
 }
+.stat-radar-leg.locked,
+.stat-radar-leg.locked .stat-radar-leg-top span,
+.stat-radar-leg.locked .stat-radar-leg-meta { color: #64748B; }
 
 /* Leaderboard theme fixes */
 .leaderboard-item {
@@ -1491,11 +1502,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     display: block;
     margin-bottom: 6px;
 }
-.rank-period-toggle {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 12px;
-}
+.rank-period-toggle { display: none; }
 .rank-period-btn {
     flex: 1;
     background: #1E293B !important;
@@ -1529,12 +1536,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 .stat-card {
     border-top: 3px solid var(--accent);
 }
-.stat-insight-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin: 0 0 14px;
-}
+#stat-focus-card { margin: 0 0 14px; }
 .stat-insight {
     background: var(--card-bg);
     border: 1px solid #334155;
@@ -2598,43 +2600,22 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <div class="stat-row">
                     <div class="stat-row-item"><b id="stat-total-q">0</b><br><span>Questions</span></div>
                     <div class="stat-row-item"><b id="stat-total-c">0</b><br><span>Correct</span></div>
+                    <div class="stat-row-item"><b id="stat-total-time">00:00</b><br><span>Time</span></div>
                 </div>
             </div>
             <div class="stat-radar-grid">
                 <div class="stat-radar-card">
-                    <div class="stat-radar-head">
-                        <div>
-                            <div class="stat-radar-title">All time</div>
-                            <div class="stat-radar-sub" id="stat-radar-all-sub">Buy and practice every subject for a balanced chart</div>
-                        </div>
-                        <button type="button" class="stat-radar-dl" id="stat-radar-all-dl">Download</button>
-                    </div>
+                    <div class="stat-radar-title">All time</div>
                     <canvas id="stat-radar-all" width="640" height="640"></canvas>
+                    <div class="stat-radar-totals" id="stat-radar-all-totals"></div>
                     <div class="stat-radar-legend" id="stat-radar-all-legend"></div>
-                </div>
-                <div class="stat-radar-card">
-                    <div class="stat-radar-head">
-                        <div>
-                            <div class="stat-radar-title">This week</div>
-                            <div class="stat-radar-sub" id="stat-radar-week-sub">This week’s ranked practice</div>
-                        </div>
-                        <button type="button" class="stat-radar-dl" id="stat-radar-week-dl">Download</button>
-                    </div>
-                    <canvas id="stat-radar-week" width="640" height="640"></canvas>
-                    <div class="stat-radar-legend" id="stat-radar-week-legend"></div>
+                    <button type="button" class="stat-radar-dl" id="stat-radar-all-dl">Download</button>
                 </div>
             </div>
-            <div class="stat-insight-grid">
-                <div class="stat-insight week">
-                    <div class="stat-insight-label">This week</div>
-                    <div class="stat-insight-value" id="stat-week-compare">—</div>
-                    <div class="stat-insight-sub" id="stat-week-compare-sub"></div>
-                </div>
-                <div class="stat-insight" id="stat-focus-card">
-                    <div class="stat-insight-label">Focus</div>
-                    <div class="stat-insight-value" id="stat-focus-value">—</div>
-                    <div class="stat-insight-sub" id="stat-focus-sub"></div>
-                </div>
+            <div class="stat-insight" id="stat-focus-card">
+                <div class="stat-insight-label">Focus</div>
+                <div class="stat-insight-value" id="stat-focus-value">—</div>
+                <div class="stat-insight-sub" id="stat-focus-sub"></div>
             </div>
             <div id="stat-subjects" style="margin-bottom: 20px;"></div>
         </div>
@@ -3087,10 +3068,10 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=46'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=47'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
-        let rankPeriod = 'week';
+        let rankPeriod = 'all';
         let pendingStatsTab = 'leaderboard';
         let leaderboardCache = { at: 0, rows: null };
         let lastRankSnapshot = null;
@@ -3581,15 +3562,14 @@ async function loadUserStats() {
 
     // Overall card elements
     const overallAccEl = document.getElementById('stat-overall-acc');
-    const card = overallAccEl.closest('.stat-card');
     
     if (keys.length === 0) {
         overallAccEl.innerText = '0%';
         document.getElementById('stat-total-q').innerText = '0';
         document.getElementById('stat-total-c').innerText = '0';
-        let timeDiv = document.getElementById('stat-total-time');
-        if (timeDiv) timeDiv.innerText = '⏱ 00:00';
-        container.innerHTML = '<div class="stat-empty">No scores yet</div>';
+        const timeEl = document.getElementById('stat-total-time');
+        if (timeEl) timeEl.innerText = '00:00';
+        container.innerHTML = '';
         renderStatInsights(bestScoresObj, {});
         renderStatRadars(bestScoresObj, {});
         return;
@@ -3619,98 +3599,25 @@ async function loadUserStats() {
     overallAccEl.innerText = overallAcc + '%';
     document.getElementById('stat-total-q').innerText = overallTotal;
     document.getElementById('stat-total-c').innerText = overallScore;
+    const timeEl = document.getElementById('stat-total-time');
+    if (timeEl) timeEl.innerText = formatTime(overallTime);
 
-    let timeDiv = document.getElementById('stat-total-time');
-    if (!timeDiv) {
-        timeDiv = document.createElement('div');
-        timeDiv.id = 'stat-total-time';
-        timeDiv.style.cssText = 'margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.1);font-family:monospace;color:var(--text-muted);font-size:0.85rem;text-align:center;';
-        card.appendChild(timeDiv);
-    }
-    timeDiv.innerText = 'Time  ' + formatTime(overallTime);
-
-    // Render per-subject rows
-    Object.keys(bySubject).forEach(sub => {
-        const s = bySubject[sub];
-        const acc = s.total > 0 ? Math.round((s.score / s.total) * 100) : 0;
-        const timeStr = formatTime(s.time);
-
-        const div = document.createElement('div');
-        div.className = 'stat-score-item';
-        div.style.cssText = 'display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;';
-        div.innerHTML = `
-            <div style="flex:1;min-width:120px;">
-                <div class="stat-score-name">${getSubjectNameEn(sub)}</div>
-                <div class="stat-score-meta" style="margin-top:4px;display:block;">${timeStr} · ${s.count} quizzes</div>
-            </div>
-            <div style="text-align:right;">
-                <div style="font-family:monospace;color:var(--accent);font-weight:bold;font-size:1rem;">${acc}%</div>
-                <div style="font-size:0.75rem;color:var(--text-muted);">${s.score}/${s.total}</div>
-            </div>
-        `;
-        container.appendChild(div);
-    });
+    container.innerHTML = '';
     renderStatInsights(bestScoresObj, bySubject);
     renderStatRadars(bestScoresObj, bySubject);
 }
 		
 function renderStatInsights(bestScoresObj, bySubject) {
-    const weekEl = document.getElementById('stat-week-compare');
-    const weekSub = document.getElementById('stat-week-compare-sub');
     const focusEl = document.getElementById('stat-focus-value');
     const focusSub = document.getElementById('stat-focus-sub');
     const focusCard = document.getElementById('stat-focus-card');
-    if (!weekEl || !focusEl) return;
-    weekEl.style.color = '';
-    if (!focusCard) return;
-
-    const localStats = getLocalStats();
-    const attempts = [];
-    (localStats.history || []).forEach(function (h) { attempts.push(h); });
-    Object.keys(bestScoresObj || {}).forEach(function (key) {
-        const b = bestScoresObj[key];
-        if (b && b.date) attempts.push({ ...b, quizFile: b.quizFile || key });
-    });
-
-    function periodAcc(weekStart) {
-        let scoreSum = 0, totalSum = 0;
-        attempts.forEach(function (a) {
-            const file = a.quizFile || '';
-            if (!isRankableQuizFile(file) && file) return;
-            if (a.isOld || String(file).startsWith('old_') || String(file).startsWith('daily_')) return;
-            if (!scoreBelongsToGrade(a, file, getStatsGrade())) return;
-            const ymd = ymdFromValue(a.date);
-            if (!isYmdInWeek(ymd, weekStart)) return;
-            scoreSum += (a.score || 0);
-            totalSum += (a.total || 0);
-        });
-        return { acc: totalSum > 0 ? Math.round((scoreSum / totalSum) * 100) : null, total: totalSum };
-    }
-
-    const thisWeek = periodAcc(currentWeekMonday());
-    const prevWeek = periodAcc(lastWeekMonday());
-    if (thisWeek.acc === null && prevWeek.acc === null) {
-        weekEl.innerText = 'No data yet';
-        weekSub.innerText = 'Take a ranked quiz';
-    } else if (thisWeek.acc === null) {
-        weekEl.innerText = 'No scores';
-        weekSub.innerText = 'Last week ' + prevWeek.acc + '%';
-    } else if (prevWeek.acc === null) {
-        weekEl.innerText = thisWeek.acc + '%';
-        weekSub.innerText = 'First score this week';
-    } else {
-        const diff = thisWeek.acc - prevWeek.acc;
-        const arrow = diff > 0 ? '▲' : (diff < 0 ? '▼' : '●');
-        weekEl.innerText = thisWeek.acc + '%  ' + arrow + ' ' + Math.abs(diff) + '%';
-        weekEl.style.color = diff > 0 ? '#10B981' : (diff < 0 ? '#F59E0B' : 'var(--white)');
-        weekSub.innerText = 'Last week ' + prevWeek.acc + '%';
-    }
+    if (!focusEl || !focusCard) return;
 
     const subs = Object.keys(bySubject || {});
     if (subs.length === 0) {
         focusCard.className = 'stat-insight';
         focusEl.innerText = '—';
-        focusSub.innerText = '';
+        if (focusSub) focusSub.innerText = '';
         return;
     }
     let weakest = subs[0], strongest = subs[0];
@@ -3723,14 +3630,14 @@ function renderStatInsights(bestScoresObj, bySubject) {
     });
     const weakAcc = Math.round((bySubject[weakest].score / bySubject[weakest].total) * 100);
     const strongAcc = Math.round((bySubject[strongest].score / bySubject[strongest].total) * 100);
-    focusCard.className = 'stat-insight ' + (subs.length > 1 && weakest !== strongest ? 'weak' : 'strong');
     if (subs.length === 1 || weakest === strongest) {
         focusEl.innerText = getSubjectNameEn(strongest);
-        focusSub.innerText = 'Strongest · ' + strongAcc + '%';
+        if (focusSub) focusSub.innerText = 'Strongest · ' + strongAcc + '%';
         focusCard.className = 'stat-insight strong';
     } else {
         focusEl.innerText = getSubjectNameEn(weakest);
-        focusSub.innerText = 'Weakest · ' + weakAcc + '%  · Best ' + getSubjectNameEn(strongest);
+        if (focusSub) focusSub.innerText = 'Weakest · ' + weakAcc + '%  · Best ' + getSubjectNameEn(strongest);
+        focusCard.className = 'stat-insight weak';
     }
 }
 
@@ -3767,44 +3674,6 @@ function radarPctFor(subId, grade, bucket) {
     if (raw <= 0) return 0;
     return Math.min(raw, STAT_RADAR_TRIAL_CAP);
 }
-function weekSubjectBuckets(bestScoresObj) {
-    const grade = getStatsGrade();
-    const weekStart = currentWeekMonday();
-    const bySubject = {};
-    const seen = {};
-    function add(a) {
-        if (!a) return;
-        const file = a.quizFile || '';
-        if (a.isOld || String(file).startsWith('old_') || String(file).startsWith('daily_')) return;
-        if (!scoreBelongsToGrade(a, file, grade)) return;
-        if (file && typeof isSubChapter === 'function' && isSubChapter(file)) return;
-        if (file && typeof isMyanmarIndividualQuiz === 'function' && isMyanmarIndividualQuiz(file)) return;
-        const ymd = ymdFromValue(a.date);
-        if (!isYmdInWeek(ymd, weekStart)) return;
-        const id = String(file) + '|' + ymd + '|' + (a.score || 0) + '|' + (a.total || 0);
-        if (seen[id]) return;
-        seen[id] = true;
-        const sub = a.subject || 'unknown';
-        if (!bySubject[sub]) bySubject[sub] = { score: 0, total: 0, count: 0 };
-        bySubject[sub].score += (a.score || 0);
-        bySubject[sub].total += (a.total || 0);
-        bySubject[sub].count += 1;
-    }
-    const localStats = getLocalStats();
-    (localStats.history || []).forEach(add);
-    Object.keys(bestScoresObj || {}).forEach(function (key) {
-        add(Object.assign({ quizFile: key }, bestScoresObj[key]));
-    });
-    return bySubject;
-}
-function formatWeekRange(weekMonday) {
-    const end = addDaysYmd(weekMonday, 6);
-    function nice(ymd) {
-        const d = new Date(ymd + 'T12:00:00+06:30');
-        return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-    }
-    return nice(weekMonday) + ' – ' + nice(end);
-}
 function reedVerifyCode(parts) {
     const s = parts.join('|');
     let h = 2166136261;
@@ -3825,13 +3694,19 @@ function loadReedLogo() {
     });
     return reedLogoWait;
 }
-function buildRadarModel(kind, bestScoresObj, allTimeBySubject) {
+function buildRadarModel(bestScoresObj, allTimeBySubject) {
     const grade = getStatsGrade();
-    const bucket = kind === 'week' ? weekSubjectBuckets(bestScoresObj) : (allTimeBySubject || {});
-    const ids = radarSubjectIds(grade, Object.assign({}, allTimeBySubject || {}, bucket));
+    const bucket = allTimeBySubject || {};
+    const ids = radarSubjectIds(grade, bucket);
+    let questions = 0;
+    let time = 0;
+    Object.keys(bucket).forEach(function (id) {
+        questions += bucket[id].total || 0;
+        time += bucket[id].time || 0;
+    });
     const axes = ids.map(function (id) {
         const open = statsSubjectUnlocked(id, grade);
-        const s = bucket[id] || { score: 0, total: 0, count: 0 };
+        const s = bucket[id] || { score: 0, total: 0, count: 0, time: 0 };
         return {
             id: id,
             name: getSubjectNameEn(id),
@@ -3839,25 +3714,23 @@ function buildRadarModel(kind, bestScoresObj, allTimeBySubject) {
             open: open,
             pct: radarPctFor(id, grade, bucket),
             raw: s.total > 0 ? Math.round((s.score / s.total) * 100) : 0,
+            total: s.total || 0,
+            time: s.time || 0,
             count: s.count || 0
         };
     });
     const filled = axes.filter(function (a) { return a.open && a.pct > 0; }).length;
     const u = (window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user) || {};
-    const weekStart = currentWeekMonday();
     const ymd = ymdInTz(new Date(), RANK_TZ);
-    const title = kind === 'week' ? 'WEEKLY BALANCE' : 'ALL-TIME BALANCE';
-    const period = kind === 'week' ? ('This week · ' + formatWeekRange(weekStart)) : ('All time · Grade ' + grade);
     const stamp = reedVerifyCode([
-        String(u.id || ''), kind, String(grade),
-        axes.map(function (a) { return a.id + a.pct; }).join(','), ymd
+        String(u.id || ''), 'all', String(grade),
+        axes.map(function (a) { return a.id + a.pct + 'q' + a.total + 't' + a.time; }).join(','), ymd
     ]);
     return {
-        kind: kind,
+        kind: 'all',
         grade: grade,
-        title: title,
-        period: period,
-        weekLabel: formatWeekRange(weekStart),
+        title: 'ALL-TIME BALANCE',
+        period: 'All time · Grade ' + grade,
         name: u.first_name || 'Student',
         userId: u.id != null ? String(u.id) : 'unknown',
         username: u.username ? ('@' + u.username) : '',
@@ -3865,7 +3738,9 @@ function buildRadarModel(kind, bestScoresObj, allTimeBySubject) {
         stamp: stamp,
         axes: axes,
         filled: filled,
-        fileName: kind === 'week' ? 'REED-weekly-balance.png' : 'REED-all-time-balance.png'
+        questions: questions,
+        time: time,
+        fileName: 'REED-all-time-balance.png'
     };
 }
 function paintRadarWheel(ctx, cx, cy, radius, model, scale) {
@@ -3994,27 +3869,23 @@ function drawRadarShareCard(model, logo) {
     ctx.fillStyle = '#94A3B8';
     ctx.font = '600 20px sans-serif';
     ctx.fillText('Grade ' + model.grade + '  ·  ID ' + model.userId, 64, 274);
-    ctx.fillText(model.period, 64, 304);
-    paintRadarWheel(ctx, w / 2, 640, 268, model, 1.7);
-    const colW = (w - 128) / 2;
+    ctx.fillText((model.questions || 0) + ' questions  ·  ' + formatTime(model.time || 0), 64, 304);
+    paintRadarWheel(ctx, w / 2, 620, 250, model, 1.6);
     model.axes.forEach(function (axis, i) {
-        const col = i % 2;
-        const row = Math.floor(i / 2);
-        const x = 64 + col * colW;
-        const y = 980 + row * 42;
+        const y = 930 + i * 46;
         ctx.fillStyle = axis.open ? '#E2E8F0' : '#64748B';
         ctx.font = '700 22px sans-serif';
         ctx.textAlign = 'left';
-        ctx.fillText(axis.name + (axis.open ? '' : '  trial'), x, y);
+        ctx.fillText(axis.name, 64, y);
+        ctx.fillStyle = axis.open ? '#94A3B8' : '#64748B';
+        ctx.font = '600 18px sans-serif';
+        ctx.fillText((axis.total || 0) + ' Q  ·  ' + formatTime(axis.time || 0), 280, y);
         ctx.fillStyle = axis.open ? '#00D5FF' : '#64748B';
         ctx.font = '800 22px monospace';
         ctx.textAlign = 'right';
-        ctx.fillText(axis.pct + '%', x + colW - 24, y);
+        ctx.fillText(axis.pct + '%', w - 64, y);
     });
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#00D5FF';
-    ctx.font = '700 20px sans-serif';
-    ctx.fillText('Full shape = every subject bought and practiced', 64, 1248);
     ctx.fillStyle = '#64748B';
     ctx.font = '700 18px sans-serif';
     ctx.fillText('REED-' + model.stamp + '  ·  ' + model.ymd + '  ·  Do not edit', 64, 1284);
@@ -4025,37 +3896,35 @@ function renderRadarLegend(el, model) {
     el.innerHTML = model.axes.map(function (axis) {
         const cls = axis.open ? 'stat-radar-leg' : 'stat-radar-leg locked';
         const mark = axis.open ? axis.pct + '%' : (axis.raw ? 'Trial ' + axis.pct + '%' : '—');
-        return '<div class="' + cls + '">' + axis.name + '<span>' + mark + '</span></div>';
+        const q = axis.total || 0;
+        const qLabel = q === 1 ? '1 question' : (q + ' questions');
+        return '<div class="' + cls + '">' +
+            '<div class="stat-radar-leg-top">' + axis.name + '<span>' + mark + '</span></div>' +
+            '<div class="stat-radar-leg-meta">' + qLabel + ' · ' + formatTime(axis.time || 0) + '</div>' +
+            '</div>';
     }).join('');
 }
 function bindStatRadarDownloads() {
     if (statRadarDlBound) return;
     statRadarDlBound = true;
     const allBtn = document.getElementById('stat-radar-all-dl');
-    const weekBtn = document.getElementById('stat-radar-week-dl');
-    if (allBtn) allBtn.onclick = function () { downloadStatRadar('all', allBtn); };
-    if (weekBtn) weekBtn.onclick = function () { downloadStatRadar('week', weekBtn); };
+    if (allBtn) allBtn.onclick = function () { downloadStatRadar(allBtn); };
 }
 function renderStatRadars(bestScoresObj, allTimeBySubject) {
-    if (!document.getElementById('stat-radar-all') || !document.getElementById('stat-radar-week')) return;
-    const allModel = buildRadarModel('all', bestScoresObj, allTimeBySubject);
-    const weekModel = buildRadarModel('week', bestScoresObj, allTimeBySubject);
-    statsRadarModels = { all: allModel, week: weekModel };
-    const allSub = document.getElementById('stat-radar-all-sub');
-    const weekSub = document.getElementById('stat-radar-week-sub');
-    if (allSub) {
-        allSub.textContent = allModel.filled >= allModel.axes.length
-            ? 'Balanced — every subject practiced'
-            : 'Buy and practice every subject for a balanced chart';
+    if (!document.getElementById('stat-radar-all')) return;
+    const allModel = buildRadarModel(bestScoresObj, allTimeBySubject);
+    statsRadarModels = { all: allModel };
+    const totals = document.getElementById('stat-radar-all-totals');
+    if (totals) {
+        const q = allModel.questions || 0;
+        const qLabel = q === 1 ? '1 question' : (q + ' questions');
+        totals.innerHTML = qLabel + ' <span>·</span> ' + formatTime(allModel.time || 0);
     }
-    if (weekSub) weekSub.textContent = weekModel.weekLabel + ' · ranked quizzes only';
     bindStatRadarDownloads();
     loadReedLogo().then(function () {
         drawRadarPreview(document.getElementById('stat-radar-all'), statsRadarModels.all);
-        drawRadarPreview(document.getElementById('stat-radar-week'), statsRadarModels.week);
     });
     renderRadarLegend(document.getElementById('stat-radar-all-legend'), allModel);
-    renderRadarLegend(document.getElementById('stat-radar-week-legend'), weekModel);
 }
 function canvasToPngBlob(canvas) {
     return new Promise(function (resolve, reject) {
@@ -4075,8 +3944,8 @@ function canvasToPngBlob(canvas) {
         }, 'image/png');
     });
 }
-function downloadStatRadar(kind, btn) {
-    const model = statsRadarModels[kind === 'week' ? 'week' : 'all'];
+function downloadStatRadar(btn) {
+    const model = statsRadarModels.all;
     const api = (typeof timetableApi === 'function') ? timetableApi() : {};
     if (!model) {
         if (api.alert) api.alert('Chart မရသေးပါ။');
@@ -7264,10 +7133,10 @@ function percentileForRank(rank, total) {
 function fillRankSnapshotCard(el, snap) {
     if (!el) return;
     if (!snap) {
-        el.innerHTML = '<div class="rank-snapshot-kicker">🏅 ဒီအပတ် Rank</div><div class="rank-snapshot-row"><div class="rank-snapshot-rank">—</div><div class="rank-snapshot-meta">ရမှတ်မရှိသေးပါ</div></div>';
+        el.innerHTML = '<div class="rank-snapshot-kicker">🏅 Rank</div><div class="rank-snapshot-row"><div class="rank-snapshot-rank">—</div><div class="rank-snapshot-meta">ရမှတ်မရှိသေးပါ</div></div>';
         return;
     }
-    const periodLabel = snap.period === 'week' ? 'ဒီအပတ်' : 'စုစုပေါင်း';
+    const periodLabel = 'စုစုပေါင်း';
     const rankText = snap.myRank ? ('#' + snap.myRank) : '—';
     const pctText = snap.percentile ? ('Top ' + snap.percentile + '%') : 'Rank စာရင်းထဲ မဝင်သေးပါ';
     el.innerHTML = '<div class="rank-snapshot-kicker">🏅 ' + periodLabel + ' · Grade ' + snap.grade + '</div>' +
@@ -7279,12 +7148,8 @@ async function refreshRankSnapshot() {
     try {
         const rows = await fetchAllLeaderboardRows();
         const grade = getSelectedGrade();
-        let period = 'week';
-        let built = buildRankEntries(rows, { subject: 'all', grade: grade, period: period });
-        if (built.entries.length === 0) {
-            period = 'all';
-            built = buildRankEntries(rows, { subject: 'all', grade: grade, period: period });
-        }
+        const period = 'all';
+        const built = buildRankEntries(rows, { subject: 'all', grade: grade, period: period });
         const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
         const idx = built.entries.findIndex(function (e) { return e.userId === currentUserId; });
         const myRank = idx === -1 ? null : idx + 1;
@@ -7337,7 +7202,7 @@ async function loadLeaderboard() {
     try {
         const rows = await fetchAllLeaderboardRows();
         const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
-        const built = buildRankEntries(rows, { subject: subject, grade: grade, period: rankPeriod });
+        const built = buildRankEntries(rows, { subject: subject, grade: grade, period: 'all' });
         const entries = built.entries;
 
         if (loadingDiv) loadingDiv.style.display = 'none';
@@ -7376,7 +7241,7 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
         const meSnap = entries[myEntryIndex];
         lastRankSnapshot = {
             grade: parseInt(grade, 10) || getSelectedGrade(),
-            period: rankPeriod,
+            period: 'all',
             myRank: myRank,
             total: entries.length,
             percentile: myPct,
