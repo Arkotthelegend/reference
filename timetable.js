@@ -1213,6 +1213,37 @@
         btn.textContent = label || btn._label;
     }
 
+    function downloadBlob(blob, fileName, api, onState) {
+        api = api || (typeof window.timetableApi === 'function' ? window.timetableApi() : {});
+        fileName = fileName || 'REED.png';
+        onState = onState || function () {};
+        if (!blob) {
+            if (api && api.alert) api.alert('ပုံ မရသေးပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
+            return Promise.resolve();
+        }
+        onState(true, 'Uploading…');
+        return hostPng(api, blob, fileName).then(function (hosted) {
+            if (hosted && hosted.sentToChat && !hosted.url) {
+                onState(false);
+                if (api && api.alert) api.alert('ပုံကို Telegram chat ထဲ ပို့လိုက်ပါတယ်။');
+                return hosted;
+            }
+            if (!hosted || !hosted.url) throw new Error('host failed');
+            onState(true, 'Saving…');
+            return saveHttpsFile(hosted.url, fileName).then(function () {
+                if (hosted.sentToChat && api && api.alert) {
+                    api.alert('ပုံကို Telegram chat ထဲကိုလည်း ပို့လိုက်ပါတယ်။');
+                }
+                onState(false);
+                return hosted;
+            });
+        }).catch(function (err) {
+            onState(false);
+            if (api && api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
+            throw err;
+        });
+    }
+
     function downloadPreview(api, which) {
         if (typeof api === 'number' || api == null) {
             which = api;
@@ -1256,31 +1287,19 @@
             if (api && api.alert) api.alert('ပုံ မရသေးပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
             return;
         }
-        setDlState(idx, true, 'Uploading…');
-        hostPng(api, blob, name).then(function (hosted) {
-            setDlState(idx, true, 'Saving…');
-            return finish(hosted);
-        }).then(function () {
-            setDlState(idx, false);
-        }).catch(fail);
+        downloadBlob(blob, name, api, function (busy, label) {
+            setDlState(idx, busy, label);
+        }).then(function (hosted) {
+            if (img && hosted && hosted.url) {
+                img._httpsUrl = hosted.url;
+                img.src = hosted.url;
+            }
+        }).catch(function () {});
+        return;
     }
 
     function savePng(blob, fileName, api) {
-        api = api || (typeof window.timetableApi === 'function' ? window.timetableApi() : {});
-        fileName = fileName || 'REED-stats.png';
-        if (!blob) return Promise.reject(new Error('no image'));
-        return hostPng(api, blob, fileName).then(function (hosted) {
-            if (hosted && hosted.sentToChat && !hosted.url) {
-                if (api && api.alert) api.alert('ပုံကို Telegram chat ထဲ ပို့လိုက်ပါတယ်။');
-                return hosted;
-            }
-            return saveHttpsFile(hosted.url, fileName).then(function () {
-                if (hosted.sentToChat && api && api.alert) {
-                    api.alert('ပုံကို Telegram chat ထဲကိုလည်း ပို့လိုက်ပါတယ်။');
-                }
-                return hosted;
-            });
-        });
+        return downloadBlob(blob, fileName, api);
     }
 
     function hasWeekPlan(saved, monday, api) {
@@ -1334,6 +1353,7 @@
             openAsk(api, saved || undefined);
         },
         downloadPreview: downloadPreview,
+        downloadBlob: downloadBlob,
         savePng: savePng
     };
 })(typeof window !== 'undefined' ? window : globalThis);

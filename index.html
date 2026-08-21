@@ -2610,6 +2610,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     <div class="stat-radar-totals" id="stat-radar-all-totals"></div>
                     <div class="stat-radar-legend" id="stat-radar-all-legend"></div>
                     <button type="button" class="stat-radar-dl" id="stat-radar-all-dl">Download</button>
+                    <img id="stat-radar-file" alt="" hidden>
                 </div>
             </div>
             <div class="stat-insight" id="stat-focus-card">
@@ -2849,7 +2850,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
     <script src="./grades.js?v=7"></script>
-    <script src="./timetable.js?v=14"></script>
+    <script src="./timetable.js?v=15"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3068,7 +3069,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=47'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=48'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
@@ -3643,7 +3644,7 @@ function renderStatInsights(bestScoresObj, bySubject) {
 
 const STAT_RADAR_TRIAL_CAP = 18;
 const STAT_RADAR_SHORT = { mm: 'MM', en: 'EN', math: 'MATH', phy: 'PHY', chem: 'CHEM', bio: 'BIO', eco: 'ECO' };
-let reedLogoImg = null;
+let reedLogoCanvas = null;
 let reedLogoWait = null;
 let statRadarDlBound = false;
 
@@ -3684,14 +3685,31 @@ function reedVerifyCode(parts) {
     return ('000000' + (h >>> 0).toString(16)).slice(-6).toUpperCase();
 }
 function loadReedLogo() {
-    if (reedLogoImg && reedLogoImg.complete && reedLogoImg.naturalWidth) return Promise.resolve(reedLogoImg);
+    if (reedLogoCanvas) return Promise.resolve(reedLogoCanvas);
     if (reedLogoWait) return reedLogoWait;
-    reedLogoWait = new Promise(function (resolve) {
-        const img = new Image();
-        img.onload = function () { reedLogoImg = img; resolve(img); };
-        img.onerror = function () { resolve(null); };
-        img.src = './logo.jpg';
-    });
+    reedLogoWait = fetch('./logo.jpg').then(function (r) {
+        if (!r.ok) throw new Error('logo');
+        return r.blob();
+    }).then(function (blob) {
+        return new Promise(function (resolve) {
+            const img = new Image();
+            const url = URL.createObjectURL(blob);
+            img.onload = function () {
+                const tmp = document.createElement('canvas');
+                tmp.width = img.naturalWidth || img.width || 1;
+                tmp.height = img.naturalHeight || img.height || 1;
+                tmp.getContext('2d').drawImage(img, 0, 0);
+                try { URL.revokeObjectURL(url); } catch (e) {}
+                reedLogoCanvas = tmp;
+                resolve(tmp);
+            };
+            img.onerror = function () {
+                try { URL.revokeObjectURL(url); } catch (e2) {}
+                resolve(null);
+            };
+            img.src = url;
+        });
+    }).catch(function () { return null; });
     return reedLogoWait;
 }
 function buildRadarModel(bestScoresObj, allTimeBySubject) {
@@ -3818,9 +3836,9 @@ function drawRadarPreview(canvas, model) {
         for (let x = -size; x < size; x += 170) ctx.fillText('REED', x, y);
     }
     ctx.restore();
-    if (reedLogoImg && reedLogoImg.naturalWidth) {
+    if (reedLogoCanvas && reedLogoCanvas.width) {
         ctx.globalAlpha = 0.12;
-        ctx.drawImage(reedLogoImg, size / 2 - 48, size / 2 - 48, 96, 96);
+        ctx.drawImage(reedLogoCanvas, size / 2 - 48, size / 2 - 48, 96, 96);
         ctx.globalAlpha = 1;
     }
     paintRadarWheel(ctx, size / 2, size / 2, 210, model, 1.35);
@@ -3847,7 +3865,7 @@ function drawRadarShareCard(model, logo) {
         for (let x = -w; x < w; x += 240) ctx.fillText('REED', x, y);
     }
     ctx.restore();
-    if (logo && logo.naturalWidth) {
+    if (logo && logo.width) {
         ctx.drawImage(logo, 64, 56, 92, 92);
         ctx.globalAlpha = 0.14;
         ctx.drawImage(logo, w / 2 - 70, 560, 140, 140);
@@ -3910,6 +3928,46 @@ function bindStatRadarDownloads() {
     const allBtn = document.getElementById('stat-radar-all-dl');
     if (allBtn) allBtn.onclick = function () { downloadStatRadar(allBtn); };
 }
+function setStatRadarFile(blob, canvas) {
+    const img = document.getElementById('stat-radar-file');
+    if (!img) return;
+    if (img._url) {
+        try { URL.revokeObjectURL(img._url); } catch (e) {}
+    }
+    img._httpsUrl = '';
+    if (blob) {
+        img._url = URL.createObjectURL(blob);
+        img.src = img._url;
+        img._blob = blob;
+    } else {
+        try { img.src = canvas.toDataURL('image/png'); } catch (e2) {}
+        img._blob = null;
+    }
+}
+function canvasToPngBlob(canvas) {
+    return new Promise(function (resolve) {
+        if (canvas && canvas.toBlob) {
+            canvas.toBlob(function (blob) { resolve(blob || null); }, 'image/png');
+            return;
+        }
+        try {
+            const data = canvas.toDataURL('image/png');
+            const bin = atob(data.split(',')[1]);
+            const arr = new Uint8Array(bin.length);
+            for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+            resolve(new Blob([arr], { type: 'image/png' }));
+        } catch (e) {
+            resolve(null);
+        }
+    });
+}
+function bakeStatRadarFile(model, logo) {
+    const card = drawRadarShareCard(model, logo);
+    return canvasToPngBlob(card).then(function (blob) {
+        setStatRadarFile(blob, card);
+        return blob;
+    });
+}
 function renderStatRadars(bestScoresObj, allTimeBySubject) {
     if (!document.getElementById('stat-radar-all')) return;
     const allModel = buildRadarModel(bestScoresObj, allTimeBySubject);
@@ -3921,51 +3979,75 @@ function renderStatRadars(bestScoresObj, allTimeBySubject) {
         totals.innerHTML = qLabel + ' <span>·</span> ' + formatTime(allModel.time || 0);
     }
     bindStatRadarDownloads();
-    loadReedLogo().then(function () {
+    loadReedLogo().then(function (logo) {
         drawRadarPreview(document.getElementById('stat-radar-all'), statsRadarModels.all);
+        return bakeStatRadarFile(statsRadarModels.all, logo);
     });
     renderRadarLegend(document.getElementById('stat-radar-all-legend'), allModel);
-}
-function canvasToPngBlob(canvas) {
-    return new Promise(function (resolve, reject) {
-        if (!canvas.toBlob) {
-            try {
-                const data = canvas.toDataURL('image/png');
-                const bin = atob(data.split(',')[1]);
-                const arr = new Uint8Array(bin.length);
-                for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
-                resolve(new Blob([arr], { type: 'image/png' }));
-            } catch (e) { reject(e); }
-            return;
-        }
-        canvas.toBlob(function (blob) {
-            if (blob) resolve(blob);
-            else reject(new Error('png failed'));
-        }, 'image/png');
-    });
 }
 function downloadStatRadar(btn) {
     const model = statsRadarModels.all;
     const api = (typeof timetableApi === 'function') ? timetableApi() : {};
+    const img = document.getElementById('stat-radar-file');
+    const name = (model && model.fileName) || 'REED-all-time-balance.png';
+    const setBusy = function (busy, label) {
+        if (!btn) return;
+        if (!btn._label) btn._label = 'Download';
+        btn.disabled = !!busy;
+        btn.textContent = busy ? (label || 'Saving…') : btn._label;
+    };
     if (!model) {
         if (api.alert) api.alert('Chart မရသေးပါ။');
         return;
     }
-    const label = btn ? btn.textContent : 'Download';
-    if (btn) { btn.disabled = true; btn.textContent = 'Saving…'; }
-    const finish = function () {
-        if (btn) { btn.disabled = false; btn.textContent = label; }
-    };
-    loadReedLogo().then(function (logo) {
-        const card = drawRadarShareCard(model, logo);
-        return canvasToPngBlob(card);
-    }).then(function (blob) {
-        if (window.REEDTimetable && typeof REEDTimetable.savePng === 'function') {
-            return REEDTimetable.savePng(blob, model.fileName, api);
+    const go = function (blob) {
+        if (window.REEDTimetable && typeof REEDTimetable.downloadBlob === 'function') {
+            return REEDTimetable.downloadBlob(blob, name, api, setBusy);
         }
-        throw new Error('save missing');
-    }).then(finish).catch(function () {
-        finish();
+        if (window.REEDTimetable && typeof REEDTimetable.savePng === 'function') {
+            setBusy(true, 'Uploading…');
+            return REEDTimetable.savePng(blob, name, api).then(function () { setBusy(false); });
+        }
+        if (api.alert) api.alert('ပုံ မရသေးပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
+        return Promise.resolve();
+    };
+    if (img && img._httpsUrl) {
+        setBusy(true, 'Saving…');
+        const tg = window.Telegram && Telegram.WebApp;
+        try {
+            if (tg && typeof tg.downloadFile === 'function' && (!tg.isVersionAtLeast || tg.isVersionAtLeast('8.0'))) {
+                tg.downloadFile({ url: img._httpsUrl, file_name: name }, function () { setBusy(false); });
+                return;
+            }
+            if (tg && typeof tg.openLink === 'function') {
+                tg.openLink(img._httpsUrl, { try_instant_view: false });
+                setBusy(false);
+                return;
+            }
+        } catch (e) {}
+        setBusy(false);
+    }
+    const blob = img && img._blob;
+    if (blob) {
+        go(blob).then(function (hosted) {
+            if (img && hosted && hosted.url) img._httpsUrl = hosted.url;
+        }).catch(function () {});
+        return;
+    }
+    setBusy(true, 'Saving…');
+    loadReedLogo().then(function (logo) {
+        return bakeStatRadarFile(model, logo);
+    }).then(function (made) {
+        if (!made) {
+            setBusy(false);
+            if (api.alert) api.alert('ပုံ မရသေးပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
+            return;
+        }
+        return go(made).then(function (hosted) {
+            if (img && hosted && hosted.url) img._httpsUrl = hosted.url;
+        });
+    }).catch(function () {
+        setBusy(false);
         if (api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
     });
 }
