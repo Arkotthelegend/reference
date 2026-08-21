@@ -1300,6 +1300,49 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 .stat-radar-leg.locked,
 .stat-radar-leg.locked .stat-radar-leg-top span,
 .stat-radar-leg.locked .stat-radar-leg-meta { color: #64748B; }
+.stat-steam-card {
+    background: #0B0F19;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 12px;
+    margin: 0 0 14px;
+}
+.stat-steam-kicker {
+    color: #00D5FF;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+}
+.stat-steam-btns {
+    display: flex;
+    gap: 8px;
+}
+.stat-steam-btn {
+    flex: 1;
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: #162235;
+    border: 1px solid #334155;
+    color: #E2E8F0;
+    font-size: 0.88rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+}
+.stat-steam-btn.on {
+    border-color: #00D5FF;
+    color: #00D5FF;
+    background: #0B0F19;
+}
+.stat-steam-hint {
+    color: #94A3B8;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    margin: 8px 0 0;
+}
 
 /* Leaderboard theme fixes */
 .leaderboard-item {
@@ -2594,6 +2637,14 @@ body.volunteer-role .vol-report-link { display: block !important; }
         
         <!-- Summary Tab -->
         <div id="stats-tab-summary" style="display: none;">
+            <div class="stat-steam-card" id="stat-steam-card">
+                <div class="stat-steam-kicker">Your class</div>
+                <div class="stat-steam-btns">
+                    <button type="button" class="stat-steam-btn" id="stat-steam-1" data-steam="1">STEAM 1 · Bio</button>
+                    <button type="button" class="stat-steam-btn" id="stat-steam-2" data-steam="2">STEAM 2 · Eco</button>
+                </div>
+                <p class="stat-steam-hint" id="stat-steam-hint">STEAM 2 uses Economics, not Biology.</p>
+            </div>
             <div class="stat-card">
                 <div class="stat-big-number" id="stat-overall-acc">0%</div>
                 <div class="stat-label">Accuracy</div>
@@ -2850,7 +2901,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
     <script src="./grades.js?v=7"></script>
-    <script src="./timetable.js?v=16"></script>
+    <script src="./timetable.js?v=17"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3069,7 +3120,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=49'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=50'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
@@ -3447,7 +3498,7 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
         if (filterOld) return isOld;
         return !isOld && !isDaily;
     });
-    keys = keys.filter(key => !isSubChapter(key) && !isMyanmarIndividualQuiz(key) && scoreBelongsToGrade(bestScoresObj[key], key, getStatsGrade()));
+    keys = keys.filter(key => !isSubChapter(key) && !isMyanmarIndividualQuiz(key) && scoreBelongsToGrade(bestScoresObj[key], key, getStatsGrade()) && steamKeepsSubject((bestScoresObj[key] && bestScoresObj[key].subject) || 'unknown'));
 
     if (keys.length === 0) {
         container.innerHTML = '<div class="stat-empty">No scores yet</div>';
@@ -3550,6 +3601,8 @@ async function loadUserStats() {
 
 		function renderSummary(bestScoresObj) {
     bestScoresObj = bestScoresObj || {};
+    bindStatSteamBtns();
+    syncStatSteamBtns();
     const container = document.getElementById('stat-subjects');
     if (!container) return;
     container.innerHTML = '';
@@ -3558,7 +3611,8 @@ async function loadUserStats() {
         const item = bestScoresObj[key];
         const isOld = item.isOld || key.startsWith('old_');
         const isDaily = key.startsWith('daily_');
-        return !isOld && !isDaily && !isSubChapter(key) && !isMyanmarIndividualQuiz(key) && scoreBelongsToGrade(item, key, getStatsGrade());
+        const sub = item.subject || 'unknown';
+        return !isOld && !isDaily && !isSubChapter(key) && !isMyanmarIndividualQuiz(key) && scoreBelongsToGrade(item, key, getStatsGrade()) && steamKeepsSubject(sub);
     });
 
     // Overall card elements
@@ -3647,6 +3701,74 @@ const STAT_RADAR_SHORT = { mm: 'MM', en: 'EN', math: 'MATH', phy: 'PHY', chem: '
 let reedLogoCanvas = null;
 let reedLogoWait = null;
 let statRadarDlBound = false;
+let statSteamBound = false;
+
+function getUserSteam() {
+    const g = (typeof getStatsGrade === 'function' ? getStatsGrade() : 12);
+    try {
+        if (window.REEDTimetable && typeof REEDTimetable.getSteam === 'function') {
+            return REEDTimetable.getSteam(timetableApi(), g) === 2 ? 2 : 1;
+        }
+    } catch (e) {}
+    try {
+        const uid = (typeof telegramUserId === 'function' ? telegramUserId() : '') || '0';
+        const s = localStorage.getItem('reed_steam_u' + uid + '_g' + g);
+        if (s === '2') return 2;
+        if (s === '1') return 1;
+    } catch (e2) {}
+    return 1;
+}
+function setUserSteam(steam) {
+    steam = parseInt(steam, 10) === 2 ? 2 : 1;
+    const g = (typeof getStatsGrade === 'function' ? getStatsGrade() : 12);
+    try {
+        if (window.REEDTimetable && typeof REEDTimetable.setSteam === 'function') {
+            REEDTimetable.setSteam(timetableApi(), steam, g);
+        } else {
+            const uid = (typeof telegramUserId === 'function' ? telegramUserId() : '') || '0';
+            localStorage.setItem('reed_steam_u' + uid + '_g' + g, String(steam));
+        }
+    } catch (e) {}
+    return steam;
+}
+function steamKeepsSubject(id) {
+    const steam = getUserSteam();
+    if (id === 'bio') return steam !== 2;
+    if (id === 'eco') return steam !== 1;
+    return true;
+}
+function syncStatSteamBtns() {
+    const steam = getUserSteam();
+    const b1 = document.getElementById('stat-steam-1');
+    const b2 = document.getElementById('stat-steam-2');
+    const hint = document.getElementById('stat-steam-hint');
+    if (b1) b1.classList.toggle('on', steam === 1);
+    if (b2) b2.classList.toggle('on', steam === 2);
+    if (hint) {
+        hint.textContent = steam === 2
+            ? 'STEAM 2 uses Economics, not Biology.'
+            : 'STEAM 1 uses Biology, not Economics.';
+    }
+}
+function bindStatSteamBtns() {
+    if (statSteamBound) return;
+    const b1 = document.getElementById('stat-steam-1');
+    const b2 = document.getElementById('stat-steam-2');
+    if (!b1 || !b2) return;
+    statSteamBound = true;
+    const pick = function (steam) {
+        setUserSteam(steam);
+        const img = document.getElementById('stat-radar-file');
+        if (img) img._httpsUrl = '';
+        syncStatSteamBtns();
+        renderSummary(statsBestScores);
+        renderBestScores(statsBestScores, 'stat-best-scores', false);
+        renderBestScores(statsBestScores, 'stat-old-scores', true);
+    };
+    b1.onclick = function () { pick(1); };
+    b2.onclick = function () { pick(2); };
+}
+bindStatSteamBtns();
 
 function statsGradePrefix(grade) {
     const cfg = (window.GRADE_CONFIG && GRADE_CONFIG[grade]) || {};
@@ -3659,13 +3781,9 @@ function statsSubjectUnlocked(subId, grade) {
     return isExpiryValid(bought[prefix + 'all']) || isExpiryValid(bought[prefix + subId]) ||
         isExpiryValid(vol[prefix + 'all']) || isExpiryValid(vol[prefix + subId]);
 }
-function radarSubjectIds(grade, bySubject) {
+function radarSubjectIds() {
     const ids = ['mm', 'en', 'math', 'phy', 'chem'];
-    const ecoOn = statsSubjectUnlocked('eco', grade) || !!(bySubject && bySubject.eco && bySubject.eco.total);
-    const bioOn = statsSubjectUnlocked('bio', grade) || !!(bySubject && bySubject.bio && bySubject.bio.total);
-    if (ecoOn && bioOn) { ids.push('bio', 'eco'); }
-    else if (ecoOn) ids.push('eco');
-    else ids.push('bio');
+    ids.push(getUserSteam() === 2 ? 'eco' : 'bio');
     return ids;
 }
 function radarPctFor(subId, grade, bucket) {
@@ -3715,7 +3833,7 @@ function loadReedLogo() {
 function buildRadarModel(bestScoresObj, allTimeBySubject) {
     const grade = getStatsGrade();
     const bucket = allTimeBySubject || {};
-    const ids = radarSubjectIds(grade, bucket);
+    const ids = radarSubjectIds();
     let questions = 0;
     let time = 0;
     Object.keys(bucket).forEach(function (id) {

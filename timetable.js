@@ -273,6 +273,43 @@
         if (paid.indexOf('eco') !== -1 && paid.indexOf('bio') === -1) return 2;
         return 1;
     }
+    function steamChoiceKey(api, grade) {
+        var uid = telegramUserId(api) || '0';
+        var g = grade;
+        if (g == null) {
+            try {
+                if (api && typeof api.getGrade === 'function') g = api.getGrade();
+            } catch (e) {}
+        }
+        return 'reed_steam_u' + uid + '_g' + (g || 12);
+    }
+    function getSteam(api, grade) {
+        try {
+            var stored = localStorage.getItem(steamChoiceKey(api, grade));
+            if (stored === '1' || stored === '2') return parseInt(stored, 10);
+        } catch (e) {}
+        try {
+            var g = grade;
+            if (g == null && api && typeof api.getGrade === 'function') g = api.getGrade();
+            var rec = loadAnswers(g || 12, api);
+            if (rec && (rec.steam === 1 || rec.steam === 2)) return rec.steam;
+        } catch (e2) {}
+        return guessSteam(api);
+    }
+    function setSteam(api, steam, grade) {
+        steam = parseInt(steam, 10) === 2 ? 2 : 1;
+        try { localStorage.setItem(steamChoiceKey(api, grade), String(steam)); } catch (e) {}
+        try {
+            var g = grade;
+            if (g == null && api && typeof api.getGrade === 'function') g = api.getGrade();
+            var rec = loadAnswers(g || 12, api);
+            if (rec) {
+                rec.steam = steam;
+                saveAnswers(g || 12, rec, api);
+            }
+        } catch (e2) {}
+        return steam;
+    }
     function weekSubjects(answers) {
         var ids = [];
         function add(list) {
@@ -835,7 +872,7 @@
         clearPreview();
         showPanel('tt-ask');
         var answers = draft || {
-            steam: guessSteam(api),
+            steam: getSteam(api),
             name: (api.defaultName() || 'Student').slice(0, 40),
             schoolDays: [0, 1, 2, 3, 4],
             schoolStart: 7 * 60 + 30,
@@ -858,7 +895,7 @@
             strongSubjects: [],
             subjects: []
         };
-        if (!answers.steam) answers.steam = guessSteam(api);
+        if (!answers.steam) answers.steam = getSteam(api);
         if (!answers.weakSubjects) answers.weakSubjects = [];
         if (!answers.strongSubjects) answers.strongSubjects = [];
         if (typeof answers.shortRest !== 'boolean') answers.shortRest = true;
@@ -997,8 +1034,10 @@
                     body.querySelectorAll('.tt-yesno .tt-chip').forEach(function (x) { x.classList.remove('on'); });
                     ch.classList.add('on');
                     if (cur.id === 'steam') {
+                        var picked = ch.getAttribute('data-v') === '2' ? 2 : 1;
                         var note = document.getElementById('tt-steam-note');
-                        if (note) note.textContent = steamHelp(ch.getAttribute('data-v') === '2' ? 2 : 1);
+                        if (note) note.textContent = steamHelp(picked);
+                        setSteam(api, picked);
                     }
                 };
             });
@@ -1024,6 +1063,7 @@
             if (cur.id === 'steam') {
                 var steamChip = document.querySelector('#tt-steam .tt-chip.on');
                 answers.steam = steamChip && steamChip.getAttribute('data-v') === '2' ? 2 : 1;
+                setSteam(api, answers.steam);
                 answers.weakSubjects = (answers.weakSubjects || []).filter(function (id) { return inSteam(answers, id); });
                 answers.strongSubjects = (answers.strongSubjects || []).filter(function (id) { return inSteam(answers, id); });
             } else if (cur.id === 'name') {
@@ -1129,26 +1169,58 @@
         return t.indexOf('https://') === 0 ? t : '';
     }
 
+    function fetchTimeout(url, opts, ms) {
+        opts = opts || {};
+        ms = ms || 12000;
+        var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+        var timer = setTimeout(function () {
+            try { if (ctrl) ctrl.abort(); } catch (e) {}
+        }, ms);
+        if (ctrl) opts.signal = ctrl.signal;
+        return fetch(url, opts).then(function (r) {
+            clearTimeout(timer);
+            return r;
+        }, function (err) {
+            clearTimeout(timer);
+            throw err;
+        });
+    }
+
     function uploadLitterboxDirect(blob, fileName) {
         var fd = new FormData();
         fd.append('reqtype', 'fileupload');
         fd.append('time', '24h');
         fd.append('fileToUpload', blob, fileName || 'REED-timetable.png');
-        return fetch('https://litterbox.catbox.moe/resources/internals/api.php', {
+        return fetchTimeout('https://litterbox.catbox.moe/resources/internals/api.php', {
             method: 'POST',
             body: fd
-        }).then(function (r) { return r.text(); }).then(function (t) {
-            var url = httpsUrl(t);
-            if (!url) throw new Error(t || 'host failed');
-            return url;
-        });
+        }, 10000).then(function (r) { return r.text(); }).then(function (t) {
+            return httpsUrl(t);
+        }).catch(function () { return ''; });
+    }
+
+    function uploadTmpfilesDirect(blob, fileName) {
+        var fd = new FormData();
+        fd.append('file', blob, fileName || 'REED.png');
+        return fetchTimeout('https://tmpfiles.org/api/v1/upload', {
+            method: 'POST',
+            body: fd
+        }, 12000).then(function (r) { return r.text(); }).then(function (t) {
+            var data = parseJsonish(t) || {};
+            var u = (data.data && (data.data.url || data.data.link)) || data.url || '';
+            u = String(u || '').replace('http://', 'https://');
+            if (u.indexOf('tmpfiles.org/') >= 0 && u.indexOf('/dl/') < 0) {
+                u = u.replace('://tmpfiles.org/', '://tmpfiles.org/dl/');
+            }
+            return httpsUrl(u);
+        }).catch(function () { return ''; });
     }
 
     function uploadViaGas(api, blob, fileName) {
         var url = api && api.uploadUrl;
-        if (!url) return Promise.reject(new Error('no gas'));
+        if (!url) return Promise.resolve({ url: '', sentToChat: false });
         return blobToBase64(blob).then(function (b64) {
-            return fetch(url, {
+            return fetchTimeout(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                 body: JSON.stringify({
@@ -1157,27 +1229,32 @@
                     fileName: fileName,
                     userId: telegramUserId(api)
                 })
-            });
+            }, 20000);
         }).then(function (r) { return r.text(); }).then(function (t) {
             var data = parseJsonish(t) || {};
             var hosted = httpsUrl(data.url);
             if (data.status !== 'ok' || (!hosted && !data.sentToChat)) {
-                throw new Error(data.message || 'gas upload failed');
+                return { url: '', sentToChat: false };
             }
-            data.url = hosted;
-            return data;
+            return { url: hosted, sentToChat: !!data.sentToChat };
+        }).catch(function () {
+            return { url: '', sentToChat: false };
         });
     }
 
     function hostPng(api, blob, fileName) {
         return uploadLitterboxDirect(blob, fileName).then(function (url) {
-            return { url: url, sentToChat: false };
-        }).catch(function () {
+            return url || uploadTmpfilesDirect(blob, fileName);
+        }).then(function (url) {
+            if (url) return { url: url, sentToChat: false };
             return uploadViaGas(api, blob, fileName);
+        }).catch(function () {
+            return { url: '', sentToChat: false };
         });
     }
 
     function saveHttpsFile(fileUrl, fileName) {
+        if (!fileUrl) return Promise.resolve(false);
         var tg = webApp();
         return new Promise(function (resolve) {
             var done = false;
@@ -1186,22 +1263,57 @@
                 done = true;
                 resolve(!!ok);
             };
-            setTimeout(function () { finish(true); }, 8000);
-            try {
-                if (tg && typeof tg.downloadFile === 'function' && (!tg.isVersionAtLeast || tg.isVersionAtLeast('8.0'))) {
-                    tg.downloadFile({ url: fileUrl, file_name: fileName }, finish);
-                    return;
-                }
-            } catch (e) {}
-            try {
-                if (tg && typeof tg.openLink === 'function') {
-                    tg.openLink(fileUrl, { try_instant_view: false });
+            var openLink = function () {
+                try {
+                    if (tg && typeof tg.openLink === 'function') {
+                        tg.openLink(fileUrl, { try_instant_view: false });
+                        finish(true);
+                        return;
+                    }
+                } catch (e) {}
+                try {
+                    window.open(fileUrl, '_blank');
                     finish(true);
                     return;
+                } catch (e2) {}
+                finish(false);
+            };
+            try {
+                if (tg && typeof tg.downloadFile === 'function' && (!tg.isVersionAtLeast || tg.isVersionAtLeast('8.0'))) {
+                    var ret = tg.downloadFile({ url: fileUrl, file_name: fileName }, function (ok) {
+                        if (ok) finish(true);
+                        else openLink();
+                    });
+                    if (ret && typeof ret.then === 'function') {
+                        ret.then(function () { finish(true); }).catch(function () { openLink(); });
+                    }
+                    setTimeout(function () { if (!done) openLink(); }, 12000);
+                    return;
                 }
-            } catch (e2) {}
-            try { window.open(fileUrl, '_blank'); } catch (e3) {}
-            finish(true);
+            } catch (e3) {}
+            openLink();
+        });
+    }
+
+    function tryBlobSave(blob, fileName) {
+        return new Promise(function (resolve) {
+            if (!blob) { resolve(false); return; }
+            try {
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = fileName || 'REED.png';
+                a.rel = 'noopener';
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(function () {
+                    try { URL.revokeObjectURL(url); a.remove(); } catch (e) {}
+                }, 2500);
+                resolve(true);
+            } catch (e2) {
+                resolve(false);
+            }
         });
     }
 
@@ -1213,34 +1325,60 @@
         btn.textContent = label || btn._label;
     }
 
+    function tellSaved(api, sentToChat, kind) {
+        if (!api || !api.alert || !sentToChat) return;
+        if (kind === 'timetable') api.alert('Timetable ကို Telegram chat ထဲ ပို့လိုက်ပါတယ်။ Chat မှာ ဖွင့်ပြီး သိမ်းပါ။');
+        else api.alert('ပုံကို Telegram chat ထဲ ပို့လိုက်ပါတယ်။ Chat မှာ ဖွင့်ပြီး သိမ်းပါ။');
+    }
+
+    function saveImage(api, blob, fileName, onState) {
+        api = api || {};
+        fileName = fileName || 'REED.png';
+        onState = onState || function () {};
+        if (!blob) return Promise.resolve({ ok: false, url: '', sentToChat: false });
+        onState(true, 'Uploading…');
+        return hostPng(api, blob, fileName).then(function (hosted) {
+            hosted = hosted || { url: '', sentToChat: false };
+            if (hosted.url) {
+                onState(true, 'Saving…');
+                return saveHttpsFile(hosted.url, fileName).then(function (saved) {
+                    if (saved || hosted.sentToChat) {
+                        return { ok: true, url: hosted.url, sentToChat: !!hosted.sentToChat };
+                    }
+                    return tryBlobSave(blob, fileName).then(function (ok) {
+                        return { ok: ok, url: hosted.url, sentToChat: false };
+                    });
+                });
+            }
+            if (hosted.sentToChat) {
+                return { ok: true, url: '', sentToChat: true };
+            }
+            return tryBlobSave(blob, fileName).then(function (ok) {
+                return { ok: ok, url: '', sentToChat: false };
+            });
+        }).then(function (result) {
+            onState(false);
+            return result;
+        }, function () {
+            onState(false);
+            return { ok: false, url: '', sentToChat: false };
+        });
+    }
+
     function downloadBlob(blob, fileName, api, onState) {
         api = api || (typeof window.timetableApi === 'function' ? window.timetableApi() : {});
         fileName = fileName || 'REED.png';
-        onState = onState || function () {};
         if (!blob) {
             if (api && api.alert) api.alert('ပုံ မရသေးပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
-            return Promise.resolve();
+            return Promise.resolve({ url: '', sentToChat: false });
         }
-        onState(true, 'Uploading…');
-        return hostPng(api, blob, fileName).then(function (hosted) {
-            if (hosted && hosted.sentToChat && !hosted.url) {
-                onState(false);
-                if (api && api.alert) api.alert('ပုံကို Telegram chat ထဲ ပို့လိုက်ပါတယ်။');
-                return hosted;
+        return saveImage(api, blob, fileName, onState).then(function (result) {
+            if (!result.ok) {
+                if (api && api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
+            } else {
+                tellSaved(api, result.sentToChat, 'image');
             }
-            if (!hosted || !hosted.url) throw new Error('host failed');
-            onState(true, 'Saving…');
-            return saveHttpsFile(hosted.url, fileName).then(function () {
-                if (hosted.sentToChat && api && api.alert) {
-                    api.alert('ပုံကို Telegram chat ထဲကိုလည်း ပို့လိုက်ပါတယ်။');
-                }
-                onState(false);
-                return hosted;
-            });
-        }).catch(function (err) {
-            onState(false);
-            if (api && api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
-            throw err;
+            return { url: result.url || '', sentToChat: !!result.sentToChat };
         });
     }
 
@@ -1254,46 +1392,40 @@
         var img = document.getElementById('tt-preview-' + idx);
         var blob = img && img._blob;
         var name = pageFileName(idx);
-
-        var finish = function (hosted) {
+        var mark = function (hosted) {
             if (img && hosted && hosted.url) {
                 img._httpsUrl = hosted.url;
                 img.src = hosted.url;
             }
-            if (hosted && hosted.sentToChat && !hosted.url && api && api.alert) {
-                api.alert('Timetable ကို Telegram chat ထဲ ပို့လိုက်ပါတယ်။');
-                return Promise.resolve();
-            }
-            return saveHttpsFile(hosted.url, name).then(function () {
-                if (hosted.sentToChat && api && api.alert) {
-                    api.alert('Timetable ကို Telegram chat ထဲကိုလည်း ပို့လိုက်ပါတယ်။');
-                }
-            });
-        };
-
-        var fail = function () {
-            setDlState(idx, false);
-            if (api && api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
         };
 
         if (img && img._httpsUrl) {
             setDlState(idx, true, 'Saving…');
-            finish({ url: img._httpsUrl, sentToChat: false }).then(function () {
+            saveHttpsFile(img._httpsUrl, name).then(function (ok) {
+                if (ok) {
+                    setDlState(idx, false);
+                    return;
+                }
+                img._httpsUrl = '';
                 setDlState(idx, false);
-            }).catch(fail);
+                downloadPreview(api, idx);
+            });
             return;
         }
         if (!blob) {
             if (api && api.alert) api.alert('ပုံ မရသေးပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
             return;
         }
-        setDlState(idx, true, 'Uploading…');
-        hostPng(api, blob, name).then(function (hosted) {
-            setDlState(idx, true, 'Saving…');
-            return finish(hosted);
-        }).then(function () {
-            setDlState(idx, false);
-        }).catch(fail);
+        saveImage(api, blob, name, function (busy, label) {
+            setDlState(idx, busy, label);
+        }).then(function (result) {
+            mark(result);
+            if (!result.ok) {
+                if (api && api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
+            } else {
+                tellSaved(api, result.sentToChat, 'timetable');
+            }
+        });
     }
 
     function savePng(blob, fileName, api) {
@@ -1352,6 +1484,8 @@
         },
         downloadPreview: downloadPreview,
         downloadBlob: downloadBlob,
-        savePng: savePng
+        savePng: savePng,
+        getSteam: getSteam,
+        setSteam: setSteam
     };
 })(typeof window !== 'undefined' ? window : globalThis);
