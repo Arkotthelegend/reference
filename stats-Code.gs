@@ -309,8 +309,8 @@ function uploadTimetable_(p) {
   var bytes = Utilities.base64Decode(b64);
   var blob = Utilities.newBlob(bytes, 'image/png', fileName);
 
-  var url = hostPng_(blob);
-  var sentToChat = sendTelegramDocument_(userId, blob, fileName);
+  var sentToChat = sendTelegramImage_(userId, blob, fileName);
+  var url = sentToChat ? '' : hostPng_(blob);
 
   if (!url && !sentToChat) return { status: 'error', message: 'upload failed' };
   return { status: 'ok', url: url || '', sentToChat: sentToChat };
@@ -366,19 +366,21 @@ function postFileUrl_(endpoint, payload) {
   return '';
 }
 
-function sendTelegramDocument_(userId, blob, fileName) {
+function sendTelegramImage_(userId, blob, fileName) {
   if (!userId) return false;
   var props = PropertiesService.getScriptProperties();
   var token = props.getProperty('BOT_TOKEN') || props.getProperty('TELEGRAM_BOT_TOKEN') || '';
   if (!token) return false;
+  var caption = 'Reed · ' + fileName;
+  if (sendTelegram_(token, 'sendPhoto', { chat_id: userId, photo: blob, caption: caption })) return true;
+  return sendTelegram_(token, 'sendDocument', { chat_id: userId, document: blob, caption: caption });
+}
+
+function sendTelegram_(token, method, payload) {
   try {
-    var res = UrlFetchApp.fetch('https://api.telegram.org/bot' + token + '/sendDocument', {
+    var res = UrlFetchApp.fetch('https://api.telegram.org/bot' + token + '/' + method, {
       method: 'post',
-      payload: {
-        chat_id: userId,
-        document: blob,
-        caption: 'Reed timetable · ' + fileName
-      },
+      payload: payload,
       muteHttpExceptions: true
     });
     var data = JSON.parse(res.getContentText() || '{}');
@@ -386,6 +388,10 @@ function sendTelegramDocument_(userId, blob, fileName) {
   } catch (err) {
     return false;
   }
+}
+
+function sendTelegramDocument_(userId, blob, fileName) {
+  return sendTelegramImage_(userId, blob, fileName);
 }
 
 function json_(obj) {

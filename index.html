@@ -2901,7 +2901,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
     <script src="./grades.js?v=7"></script>
-    <script src="./timetable.js?v=17"></script>
+    <script src="./timetable.js?v=18"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3120,7 +3120,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=50'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=51'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
@@ -4112,7 +4112,7 @@ function downloadStatRadar(btn) {
         if (!btn) return;
         if (!btn._label) btn._label = 'Download';
         btn.disabled = !!busy;
-        btn.textContent = busy ? (label || 'Saving…') : btn._label;
+        btn.textContent = busy ? (label || 'Sending…') : btn._label;
     };
     if (!model) {
         if (api.alert) api.alert('Chart မရသေးပါ။');
@@ -4123,36 +4123,18 @@ function downloadStatRadar(btn) {
             return REEDTimetable.downloadBlob(blob, name, api, setBusy);
         }
         if (window.REEDTimetable && typeof REEDTimetable.savePng === 'function') {
-            setBusy(true, 'Uploading…');
+            setBusy(true, 'Sending…');
             return REEDTimetable.savePng(blob, name, api).then(function () { setBusy(false); });
         }
         if (api.alert) api.alert('ပုံ မရသေးပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
         return Promise.resolve();
     };
-    if (img && img._httpsUrl) {
-        setBusy(true, 'Saving…');
-        const tg = window.Telegram && Telegram.WebApp;
-        try {
-            if (tg && typeof tg.downloadFile === 'function' && (!tg.isVersionAtLeast || tg.isVersionAtLeast('8.0'))) {
-                tg.downloadFile({ url: img._httpsUrl, file_name: name }, function () { setBusy(false); });
-                return;
-            }
-            if (tg && typeof tg.openLink === 'function') {
-                tg.openLink(img._httpsUrl, { try_instant_view: false });
-                setBusy(false);
-                return;
-            }
-        } catch (e) {}
-        setBusy(false);
-    }
     const blob = img && img._blob;
     if (blob) {
-        go(blob).then(function (hosted) {
-            if (img && hosted && hosted.url) img._httpsUrl = hosted.url;
-        }).catch(function () {});
+        go(blob).catch(function () {});
         return;
     }
-    setBusy(true, 'Saving…');
+    setBusy(true, 'Sending…');
     loadReedLogo().then(function (logo) {
         return bakeStatRadarFile(model, logo);
     }).then(function (made) {
@@ -4161,9 +4143,7 @@ function downloadStatRadar(btn) {
             if (api.alert) api.alert('ပုံ မရသေးပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
             return;
         }
-        return go(made).then(function (hosted) {
-            if (img && hosted && hosted.url) img._httpsUrl = hosted.url;
-        });
+        return go(made);
     }).catch(function () {
         setBusy(false);
         if (api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
