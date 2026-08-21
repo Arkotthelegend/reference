@@ -1215,6 +1215,80 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     font-size: 0.72rem;
     margin-top: 4px;
 }
+.stat-radar-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 0 0 14px;
+}
+.stat-radar-card {
+    background: #0B0F19;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 14px 12px 12px;
+}
+.stat-radar-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+.stat-radar-title {
+    color: #00D5FF;
+    font-weight: 800;
+    font-size: 1rem;
+}
+.stat-radar-sub {
+    color: #94A3B8;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    margin-top: 3px;
+}
+.stat-radar-dl {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: #00D5FF;
+    color: #0B0F19;
+    border: none;
+    font-weight: 800;
+    font-size: 0.78rem;
+    font-family: inherit;
+    cursor: pointer;
+}
+.stat-radar-dl:disabled {
+    opacity: 0.55;
+    cursor: wait;
+}
+.stat-radar-card canvas {
+    display: block;
+    width: min(100%, 320px);
+    height: auto;
+    margin: 0 auto;
+    background: transparent;
+}
+.stat-radar-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 10px;
+    margin-top: 10px;
+}
+.stat-radar-leg {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    color: #E2E8F0;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+.stat-radar-leg span { color: #00D5FF; font-family: monospace; }
+.stat-radar-leg.locked { color: #64748B; }
+.stat-radar-leg.locked span { color: #64748B; }
+@media (min-width: 768px) {
+    .stat-radar-grid { grid-template-columns: 1fr 1fr; }
+}
 
 /* Leaderboard theme fixes */
 .leaderboard-item {
@@ -2526,6 +2600,30 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     <div class="stat-row-item"><b id="stat-total-c">0</b><br><span>Correct</span></div>
                 </div>
             </div>
+            <div class="stat-radar-grid">
+                <div class="stat-radar-card">
+                    <div class="stat-radar-head">
+                        <div>
+                            <div class="stat-radar-title">All time</div>
+                            <div class="stat-radar-sub" id="stat-radar-all-sub">Buy and practice every subject for a balanced chart</div>
+                        </div>
+                        <button type="button" class="stat-radar-dl" id="stat-radar-all-dl">Download</button>
+                    </div>
+                    <canvas id="stat-radar-all" width="640" height="640"></canvas>
+                    <div class="stat-radar-legend" id="stat-radar-all-legend"></div>
+                </div>
+                <div class="stat-radar-card">
+                    <div class="stat-radar-head">
+                        <div>
+                            <div class="stat-radar-title">This week</div>
+                            <div class="stat-radar-sub" id="stat-radar-week-sub">This week’s ranked practice</div>
+                        </div>
+                        <button type="button" class="stat-radar-dl" id="stat-radar-week-dl">Download</button>
+                    </div>
+                    <canvas id="stat-radar-week" width="640" height="640"></canvas>
+                    <div class="stat-radar-legend" id="stat-radar-week-legend"></div>
+                </div>
+            </div>
             <div class="stat-insight-grid">
                 <div class="stat-insight week">
                     <div class="stat-insight-label">This week</div>
@@ -2770,7 +2868,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
     <script src="./grades.js?v=7"></script>
-    <script src="./timetable.js?v=13"></script>
+    <script src="./timetable.js?v=14"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -2989,7 +3087,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=45'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=46'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'week';
@@ -2997,6 +3095,7 @@ function setQuizKeysHint(text) {
         let leaderboardCache = { at: 0, rows: null };
         let lastRankSnapshot = null;
         let statsBestScores = {};
+        let statsRadarModels = { all: null, week: null };
 
 function ymdInTz(date, tz) {
     return new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(date);
@@ -3470,6 +3569,7 @@ async function loadUserStats() {
 		function renderSummary(bestScoresObj) {
     bestScoresObj = bestScoresObj || {};
     const container = document.getElementById('stat-subjects');
+    if (!container) return;
     container.innerHTML = '';
 
            const keys = Object.keys(bestScoresObj).filter(key => {
@@ -3491,6 +3591,7 @@ async function loadUserStats() {
         if (timeDiv) timeDiv.innerText = '⏱ 00:00';
         container.innerHTML = '<div class="stat-empty">No scores yet</div>';
         renderStatInsights(bestScoresObj, {});
+        renderStatRadars(bestScoresObj, {});
         return;
     }
 
@@ -3550,6 +3651,7 @@ async function loadUserStats() {
         container.appendChild(div);
     });
     renderStatInsights(bestScoresObj, bySubject);
+    renderStatRadars(bestScoresObj, bySubject);
 }
 		
 function renderStatInsights(bestScoresObj, bySubject) {
@@ -3630,6 +3732,373 @@ function renderStatInsights(bestScoresObj, bySubject) {
         focusEl.innerText = getSubjectNameEn(weakest);
         focusSub.innerText = 'Weakest · ' + weakAcc + '%  · Best ' + getSubjectNameEn(strongest);
     }
+}
+
+const STAT_RADAR_TRIAL_CAP = 18;
+const STAT_RADAR_SHORT = { mm: 'MM', en: 'EN', math: 'MATH', phy: 'PHY', chem: 'CHEM', bio: 'BIO', eco: 'ECO' };
+let reedLogoImg = null;
+let reedLogoWait = null;
+let statRadarDlBound = false;
+
+function statsGradePrefix(grade) {
+    const cfg = (window.GRADE_CONFIG && GRADE_CONFIG[grade]) || {};
+    return cfg.sheetPrefix || '';
+}
+function statsSubjectUnlocked(subId, grade) {
+    const prefix = statsGradePrefix(grade);
+    const bought = (typeof userBought === 'object' && userBought) ? userBought : {};
+    const vol = (typeof volunteerMap === 'function') ? volunteerMap() : {};
+    return isExpiryValid(bought[prefix + 'all']) || isExpiryValid(bought[prefix + subId]) ||
+        isExpiryValid(vol[prefix + 'all']) || isExpiryValid(vol[prefix + subId]);
+}
+function radarSubjectIds(grade, bySubject) {
+    const ids = ['mm', 'en', 'math', 'phy', 'chem'];
+    const ecoOn = statsSubjectUnlocked('eco', grade) || !!(bySubject && bySubject.eco && bySubject.eco.total);
+    const bioOn = statsSubjectUnlocked('bio', grade) || !!(bySubject && bySubject.bio && bySubject.bio.total);
+    if (ecoOn && bioOn) { ids.push('bio', 'eco'); }
+    else if (ecoOn) ids.push('eco');
+    else ids.push('bio');
+    return ids;
+}
+function radarPctFor(subId, grade, bucket) {
+    const s = (bucket && bucket[subId]) || { score: 0, total: 0 };
+    const raw = s.total > 0 ? Math.round((s.score / s.total) * 100) : 0;
+    if (statsSubjectUnlocked(subId, grade)) return raw;
+    if (raw <= 0) return 0;
+    return Math.min(raw, STAT_RADAR_TRIAL_CAP);
+}
+function weekSubjectBuckets(bestScoresObj) {
+    const grade = getStatsGrade();
+    const weekStart = currentWeekMonday();
+    const bySubject = {};
+    const seen = {};
+    function add(a) {
+        if (!a) return;
+        const file = a.quizFile || '';
+        if (a.isOld || String(file).startsWith('old_') || String(file).startsWith('daily_')) return;
+        if (!scoreBelongsToGrade(a, file, grade)) return;
+        if (file && typeof isSubChapter === 'function' && isSubChapter(file)) return;
+        if (file && typeof isMyanmarIndividualQuiz === 'function' && isMyanmarIndividualQuiz(file)) return;
+        const ymd = ymdFromValue(a.date);
+        if (!isYmdInWeek(ymd, weekStart)) return;
+        const id = String(file) + '|' + ymd + '|' + (a.score || 0) + '|' + (a.total || 0);
+        if (seen[id]) return;
+        seen[id] = true;
+        const sub = a.subject || 'unknown';
+        if (!bySubject[sub]) bySubject[sub] = { score: 0, total: 0, count: 0 };
+        bySubject[sub].score += (a.score || 0);
+        bySubject[sub].total += (a.total || 0);
+        bySubject[sub].count += 1;
+    }
+    const localStats = getLocalStats();
+    (localStats.history || []).forEach(add);
+    Object.keys(bestScoresObj || {}).forEach(function (key) {
+        add(Object.assign({ quizFile: key }, bestScoresObj[key]));
+    });
+    return bySubject;
+}
+function formatWeekRange(weekMonday) {
+    const end = addDaysYmd(weekMonday, 6);
+    function nice(ymd) {
+        const d = new Date(ymd + 'T12:00:00+06:30');
+        return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+    }
+    return nice(weekMonday) + ' – ' + nice(end);
+}
+function reedVerifyCode(parts) {
+    const s = parts.join('|');
+    let h = 2166136261;
+    for (let i = 0; i < s.length; i++) {
+        h ^= s.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+    }
+    return ('000000' + (h >>> 0).toString(16)).slice(-6).toUpperCase();
+}
+function loadReedLogo() {
+    if (reedLogoImg && reedLogoImg.complete && reedLogoImg.naturalWidth) return Promise.resolve(reedLogoImg);
+    if (reedLogoWait) return reedLogoWait;
+    reedLogoWait = new Promise(function (resolve) {
+        const img = new Image();
+        img.onload = function () { reedLogoImg = img; resolve(img); };
+        img.onerror = function () { resolve(null); };
+        img.src = './logo.jpg';
+    });
+    return reedLogoWait;
+}
+function buildRadarModel(kind, bestScoresObj, allTimeBySubject) {
+    const grade = getStatsGrade();
+    const bucket = kind === 'week' ? weekSubjectBuckets(bestScoresObj) : (allTimeBySubject || {});
+    const ids = radarSubjectIds(grade, Object.assign({}, allTimeBySubject || {}, bucket));
+    const axes = ids.map(function (id) {
+        const open = statsSubjectUnlocked(id, grade);
+        const s = bucket[id] || { score: 0, total: 0, count: 0 };
+        return {
+            id: id,
+            name: getSubjectNameEn(id),
+            short: STAT_RADAR_SHORT[id] || id.toUpperCase(),
+            open: open,
+            pct: radarPctFor(id, grade, bucket),
+            raw: s.total > 0 ? Math.round((s.score / s.total) * 100) : 0,
+            count: s.count || 0
+        };
+    });
+    const filled = axes.filter(function (a) { return a.open && a.pct > 0; }).length;
+    const u = (window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user) || {};
+    const weekStart = currentWeekMonday();
+    const ymd = ymdInTz(new Date(), RANK_TZ);
+    const title = kind === 'week' ? 'WEEKLY BALANCE' : 'ALL-TIME BALANCE';
+    const period = kind === 'week' ? ('This week · ' + formatWeekRange(weekStart)) : ('All time · Grade ' + grade);
+    const stamp = reedVerifyCode([
+        String(u.id || ''), kind, String(grade),
+        axes.map(function (a) { return a.id + a.pct; }).join(','), ymd
+    ]);
+    return {
+        kind: kind,
+        grade: grade,
+        title: title,
+        period: period,
+        weekLabel: formatWeekRange(weekStart),
+        name: u.first_name || 'Student',
+        userId: u.id != null ? String(u.id) : 'unknown',
+        username: u.username ? ('@' + u.username) : '',
+        ymd: ymd,
+        stamp: stamp,
+        axes: axes,
+        filled: filled,
+        fileName: kind === 'week' ? 'REED-weekly-balance.png' : 'REED-all-time-balance.png'
+    };
+}
+function paintRadarWheel(ctx, cx, cy, radius, model, scale) {
+    const axes = model.axes;
+    const n = axes.length;
+    scale = scale || 1;
+    ctx.save();
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1 * scale;
+    [0.25, 0.5, 0.75, 1].forEach(function (t) {
+        ctx.beginPath();
+        for (let i = 0; i < n; i++) {
+            const ang = -Math.PI / 2 + i * (Math.PI * 2 / n);
+            const x = cx + Math.cos(ang) * radius * t;
+            const y = cy + Math.sin(ang) * radius * t;
+            if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.stroke();
+    });
+    for (let i = 0; i < n; i++) {
+        const ang = -Math.PI / 2 + i * (Math.PI * 2 / n);
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(ang) * radius, cy + Math.sin(ang) * radius);
+        ctx.stroke();
+    }
+    ctx.beginPath();
+    axes.forEach(function (axis, i) {
+        const ang = -Math.PI / 2 + i * (Math.PI * 2 / n);
+        const r = radius * Math.max(0, Math.min(1, axis.pct / 100));
+        const x = cx + Math.cos(ang) * r;
+        const y = cy + Math.sin(ang) * r;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(0,213,255,0.28)';
+    ctx.fill();
+    ctx.strokeStyle = '#00D5FF';
+    ctx.lineWidth = 2.4 * scale;
+    ctx.stroke();
+    axes.forEach(function (axis, i) {
+        const ang = -Math.PI / 2 + i * (Math.PI * 2 / n);
+        const r = radius * Math.max(0, Math.min(1, axis.pct / 100));
+        ctx.beginPath();
+        ctx.arc(cx + Math.cos(ang) * r, cy + Math.sin(ang) * r, 4.2 * scale, 0, Math.PI * 2);
+        ctx.fillStyle = axis.open ? '#00D5FF' : '#64748B';
+        ctx.fill();
+        const lx = cx + Math.cos(ang) * (radius + 22 * scale);
+        const ly = cy + Math.sin(ang) * (radius + 22 * scale);
+        ctx.fillStyle = axis.open ? '#FFFFFF' : '#64748B';
+        ctx.font = '700 ' + (12 * scale) + 'px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(axis.short, lx, ly);
+    });
+    ctx.restore();
+}
+function drawRadarPreview(canvas, model) {
+    if (!canvas || !model) return;
+    const size = 640;
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, size, size);
+    ctx.fillStyle = '#0B0F19';
+    ctx.fillRect(0, 0, size, size);
+    ctx.save();
+    ctx.translate(size / 2, size / 2);
+    ctx.rotate(-Math.PI / 5);
+    ctx.fillStyle = 'rgba(0,213,255,0.05)';
+    ctx.font = '700 36px sans-serif';
+    ctx.textAlign = 'center';
+    for (let y = -size; y < size; y += 78) {
+        for (let x = -size; x < size; x += 170) ctx.fillText('REED', x, y);
+    }
+    ctx.restore();
+    if (reedLogoImg && reedLogoImg.naturalWidth) {
+        ctx.globalAlpha = 0.12;
+        ctx.drawImage(reedLogoImg, size / 2 - 48, size / 2 - 48, 96, 96);
+        ctx.globalAlpha = 1;
+    }
+    paintRadarWheel(ctx, size / 2, size / 2, 210, model, 1.35);
+}
+function drawRadarShareCard(model, logo) {
+    const w = 1080;
+    const h = 1350;
+    const canvas = document.createElement('canvas');
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#0B0F19';
+    ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = '#00D5FF';
+    ctx.lineWidth = 8;
+    ctx.strokeRect(24, 24, w - 48, h - 48);
+    ctx.save();
+    ctx.translate(w / 2, h / 2);
+    ctx.rotate(-Math.PI / 5);
+    ctx.fillStyle = 'rgba(0,213,255,0.055)';
+    ctx.font = '700 52px sans-serif';
+    ctx.textAlign = 'center';
+    for (let y = -h; y < h; y += 96) {
+        for (let x = -w; x < w; x += 240) ctx.fillText('REED', x, y);
+    }
+    ctx.restore();
+    if (logo && logo.naturalWidth) {
+        ctx.drawImage(logo, 64, 56, 92, 92);
+        ctx.globalAlpha = 0.14;
+        ctx.drawImage(logo, w / 2 - 70, 560, 140, 140);
+        ctx.globalAlpha = 1;
+    }
+    ctx.fillStyle = '#00D5FF';
+    ctx.font = '800 28px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('REED EDUCATION', 176, 92);
+    ctx.fillStyle = '#94A3B8';
+    ctx.font = '700 18px sans-serif';
+    ctx.fillText('Official Mini App', 176, 122);
+    ctx.fillStyle = '#00D5FF';
+    ctx.font = '800 42px sans-serif';
+    ctx.fillText(model.title, 64, 196);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '700 24px sans-serif';
+    ctx.fillText(model.name + (model.username ? '  ' + model.username : ''), 64, 242);
+    ctx.fillStyle = '#94A3B8';
+    ctx.font = '600 20px sans-serif';
+    ctx.fillText('Grade ' + model.grade + '  ·  ID ' + model.userId, 64, 274);
+    ctx.fillText(model.period, 64, 304);
+    paintRadarWheel(ctx, w / 2, 640, 268, model, 1.7);
+    const colW = (w - 128) / 2;
+    model.axes.forEach(function (axis, i) {
+        const col = i % 2;
+        const row = Math.floor(i / 2);
+        const x = 64 + col * colW;
+        const y = 980 + row * 42;
+        ctx.fillStyle = axis.open ? '#E2E8F0' : '#64748B';
+        ctx.font = '700 22px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(axis.name + (axis.open ? '' : '  trial'), x, y);
+        ctx.fillStyle = axis.open ? '#00D5FF' : '#64748B';
+        ctx.font = '800 22px monospace';
+        ctx.textAlign = 'right';
+        ctx.fillText(axis.pct + '%', x + colW - 24, y);
+    });
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#00D5FF';
+    ctx.font = '700 20px sans-serif';
+    ctx.fillText('Full shape = every subject bought and practiced', 64, 1248);
+    ctx.fillStyle = '#64748B';
+    ctx.font = '700 18px sans-serif';
+    ctx.fillText('REED-' + model.stamp + '  ·  ' + model.ymd + '  ·  Do not edit', 64, 1284);
+    return canvas;
+}
+function renderRadarLegend(el, model) {
+    if (!el || !model) return;
+    el.innerHTML = model.axes.map(function (axis) {
+        const cls = axis.open ? 'stat-radar-leg' : 'stat-radar-leg locked';
+        const mark = axis.open ? axis.pct + '%' : (axis.raw ? 'Trial ' + axis.pct + '%' : '—');
+        return '<div class="' + cls + '">' + axis.name + '<span>' + mark + '</span></div>';
+    }).join('');
+}
+function bindStatRadarDownloads() {
+    if (statRadarDlBound) return;
+    statRadarDlBound = true;
+    const allBtn = document.getElementById('stat-radar-all-dl');
+    const weekBtn = document.getElementById('stat-radar-week-dl');
+    if (allBtn) allBtn.onclick = function () { downloadStatRadar('all', allBtn); };
+    if (weekBtn) weekBtn.onclick = function () { downloadStatRadar('week', weekBtn); };
+}
+function renderStatRadars(bestScoresObj, allTimeBySubject) {
+    if (!document.getElementById('stat-radar-all') || !document.getElementById('stat-radar-week')) return;
+    const allModel = buildRadarModel('all', bestScoresObj, allTimeBySubject);
+    const weekModel = buildRadarModel('week', bestScoresObj, allTimeBySubject);
+    statsRadarModels = { all: allModel, week: weekModel };
+    const allSub = document.getElementById('stat-radar-all-sub');
+    const weekSub = document.getElementById('stat-radar-week-sub');
+    if (allSub) {
+        allSub.textContent = allModel.filled >= allModel.axes.length
+            ? 'Balanced — every subject practiced'
+            : 'Buy and practice every subject for a balanced chart';
+    }
+    if (weekSub) weekSub.textContent = weekModel.weekLabel + ' · ranked quizzes only';
+    bindStatRadarDownloads();
+    loadReedLogo().then(function () {
+        drawRadarPreview(document.getElementById('stat-radar-all'), statsRadarModels.all);
+        drawRadarPreview(document.getElementById('stat-radar-week'), statsRadarModels.week);
+    });
+    renderRadarLegend(document.getElementById('stat-radar-all-legend'), allModel);
+    renderRadarLegend(document.getElementById('stat-radar-week-legend'), weekModel);
+}
+function canvasToPngBlob(canvas) {
+    return new Promise(function (resolve, reject) {
+        if (!canvas.toBlob) {
+            try {
+                const data = canvas.toDataURL('image/png');
+                const bin = atob(data.split(',')[1]);
+                const arr = new Uint8Array(bin.length);
+                for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+                resolve(new Blob([arr], { type: 'image/png' }));
+            } catch (e) { reject(e); }
+            return;
+        }
+        canvas.toBlob(function (blob) {
+            if (blob) resolve(blob);
+            else reject(new Error('png failed'));
+        }, 'image/png');
+    });
+}
+function downloadStatRadar(kind, btn) {
+    const model = statsRadarModels[kind === 'week' ? 'week' : 'all'];
+    const api = (typeof timetableApi === 'function') ? timetableApi() : {};
+    if (!model) {
+        if (api.alert) api.alert('Chart မရသေးပါ။');
+        return;
+    }
+    const label = btn ? btn.textContent : 'Download';
+    if (btn) { btn.disabled = true; btn.textContent = 'Saving…'; }
+    const finish = function () {
+        if (btn) { btn.disabled = false; btn.textContent = label; }
+    };
+    loadReedLogo().then(function (logo) {
+        const card = drawRadarShareCard(model, logo);
+        return canvasToPngBlob(card);
+    }).then(function (blob) {
+        if (window.REEDTimetable && typeof REEDTimetable.savePng === 'function') {
+            return REEDTimetable.savePng(blob, model.fileName, api);
+        }
+        throw new Error('save missing');
+    }).then(finish).catch(function () {
+        finish();
+        if (api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
+    });
 }
 
 function showStatsScreen(tabName) {
@@ -3873,6 +4342,7 @@ async function fetchPaidUsers() {
         renderSubjects();
         initOldSubjects();
         renderProfileData();
+        if (typeof renderSummary === 'function') renderSummary(statsBestScores);
         console.log("✅ Data synced from server");
     } catch (e) {
         console.error("❌ Background sync failed:", e);
