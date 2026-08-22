@@ -2908,7 +2908,12 @@ body.volunteer-role .vol-report-link { display: block !important; }
         document.body.innerHTML = `
     <style>
         .ld-page { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #0B0F19; color: #fff; min-height: 100vh; overflow-y: auto; overflow-x: hidden; position: relative; }
-		        .ld-wrap { max-width: 600px; margin: 0 auto; padding: 20px 16px 120px; text-align: center; position: relative; z-index: 1; overflow-x: hidden; }
+        .ld-top { position: sticky; top: 0; z-index: 80; background: #0B0F19; border-bottom: 1px solid #1E293B; display: flex; justify-content: center; gap: 4px; padding: 10px 10px 10px; flex-wrap: wrap; }
+        .ld-nav-btn { background: transparent; border: none; color: #94A3B8; font-weight: 700; font-size: 0.82rem; padding: 8px 14px; border-radius: 999px; cursor: pointer; }
+        .ld-nav-btn.ld-nav-on { color: #0B0F19; background: #00D5FF; }
+		        .ld-wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 120px; text-align: center; position: relative; z-index: 1; overflow-x: hidden; }
+        .ld-panel { display: none; text-align: left; }
+        .ld-panel.ld-panel-on { display: block; }
 				
         @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
                 .reveal { opacity:0; transform:translateY(24px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -2961,6 +2966,26 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-price-row:last-child { margin-bottom: 0; }
         .ld-price-row b { display: block; color: #00D5FF; font-size: 1.12rem; font-family: monospace; }
         .ld-price-row span { display: block; color: #94A3B8; font-size: 0.72rem; margin-top: 3px; line-height: 1.35; }
+        .ld-term { display: flex; gap: 8px; justify-content: center; margin: 0 0 16px; }
+        .ld-term button { background: #162235; border: 1px solid #334155; color: #94A3B8; border-radius: 999px; padding: 8px 14px; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
+        .ld-term button.ld-term-on { background: #00D5FF; color: #0B0F19; border-color: #00D5FF; }
+        .ld-plans { display: flex; flex-direction: column; gap: 14px; }
+        .ld-plan { background: #0B0F19; border: 1px solid #1E293B; border-radius: 18px; padding: 22px 18px 16px; text-align: left; }
+        .ld-plan-popular { border-color: #00D5FF; }
+        .ld-plan-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; gap: 8px; }
+        .ld-plan-badge { background: #00D5FF; color: #0B0F19; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; }
+        .ld-plan-popular-tag { border: 1px solid #64748B; color: #fff; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; }
+        .ld-plan-price { font-size: 2.15rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; line-height: 1; }
+        .ld-plan-price small { font-size: 0.95rem; font-weight: 600; color: #94A3B8; margin-left: 4px; }
+        .ld-plan-bill { color: #94A3B8; font-size: 0.82rem; margin: 8px 0 12px; }
+        .ld-plan-desc { color: #E2E8F0; font-size: 0.88rem; line-height: 1.5; margin: 0 0 16px; }
+        .ld-plan-cta { display: block; width: 100%; padding: 14px; border-radius: 10px; background: #00D5FF; color: #0B0F19; font-weight: 800; text-align: center; text-decoration: none; box-sizing: border-box; margin-bottom: 18px; }
+        .ld-plan-sec { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #64748B; margin: 0 0 4px; }
+        .ld-plan-feat { list-style: none; padding: 0; margin: 0; }
+        .ld-plan-feat li { color: #fff; font-size: 0.86rem; line-height: 1.45; padding: 10px 0; border-top: 1px solid #1E293B; }
+        @media (min-width: 840px) {
+            .ld-plans { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: stretch; }
+        }
         
         .ld-subjects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .ld-sub { background: linear-gradient(90deg, #162235, #0F172A); border-left: 3px solid #00D5FF; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease; border: 1px solid rgba(30,41,59,0.6); border-left-width: 3px; }
@@ -2998,9 +3023,15 @@ body.volunteer-role .vol-report-link { display: block !important; }
         }
     </style>
     <div class="ld-page">
-        <div class="ld-glow-bg"></div>
+        <div class="ld-top">
+            <button type="button" class="ld-nav-btn ld-nav-on" data-ld="home">Home</button>
+            <button type="button" class="ld-nav-btn" data-ld="app">App</button>
+            <button type="button" class="ld-nav-btn" data-ld="price">Price</button>
+            <button type="button" class="ld-nav-btn" data-ld="start">Start</button>
+        </div>
         <div class="ld-wrap">
-            
+
+            <div id="ld-panel-home" class="ld-panel ld-panel-on" style="text-align:center;">
             <img src="./logo.jpg" alt="REED Education Logo" class="ld-logo" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
             <div id="logo-fallback" class="ld-logo-fallback" style="display:none;">📚</div>
             
@@ -3009,58 +3040,40 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <p>Telegram Mini App for Grade 10, 11 and 12<br>မြန်မာစာ · အင်္ဂလိပ်စာ · သင်္ချာ · ရူပဗေဒ · ဓာတုဗေဒ · ဇီဝဗေဒ · ဘောဂဗေဒ</p>
             </div>
 
-            <div class="ld-statbar">
-                <div class="ld-stat-item"><div class="ld-stat-num">10–12</div><div class="ld-stat-label">Grades</div></div>
-                <div class="ld-stat-div"></div>
-                <div class="ld-stat-item"><div class="ld-stat-num">7</div><div class="ld-stat-label">Subjects</div></div>
-                <div class="ld-stat-div"></div>
-                <div class="ld-stat-item"><div class="ld-stat-num">🕒</div><div class="ld-stat-label">Timetable</div></div>
-                <div class="ld-stat-div"></div>
-                <div class="ld-stat-item"><div class="ld-stat-num">🏅</div><div class="ld-stat-label">Rank</div></div>
+            <div class="ld-countdown-wrap">
+                <div class="ld-countdown-label">ခန့်မှန်းခြေ စာမေးပွဲဖြေဆိုရန် ကျန်ရှိချိန်</div>
+                <div class="ld-countdown">
+                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-d">00</div><div class="ld-cd-lbl">Days</div></div>
+                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-h">00</div><div class="ld-cd-lbl">Hrs</div></div>
+                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-m">00</div><div class="ld-cd-lbl">Mins</div></div>
+                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-s">00</div><div class="ld-cd-lbl">Secs</div></div>
+                </div>
+            </div>
+            <p class="ld-note">Same price on every grade. Open Price for Tester, 1 subject, and the 6-subject desk with weekly timetable.</p>
             </div>
 
-            <div class="ld-section reveal">
-                <h2>🎓 Grades</h2>
-                <p class="ld-note">Pick your grade in the app. Quizzes and unlocks stay on that grade.</p>
+            <div id="ld-panel-app" class="ld-panel">
+            <div class="ld-section">
+                <h2>Grades</h2>
+                <p class="ld-note">Pick Grade 10, 11, or 12 in the app. Quizzes and unlocks stay on that grade.</p>
                 <div class="ld-grades">
-                    <div class="ld-grade"><b>Grade 10</b><span>Chapter quizzes for all 7 subjects</span></div>
-                    <div class="ld-grade"><b>Grade 11</b><span>Chapter quizzes for all 7 subjects</span></div>
-                    <div class="ld-grade"><b>Grade 12</b><span>Matric prep plus old questions</span></div>
+                    <div class="ld-grade"><b>Grade 10</b><span>Chapter quizzes for the STEAM desk</span></div>
+                    <div class="ld-grade"><b>Grade 11</b><span>Chapter quizzes for the STEAM desk</span></div>
+                    <div class="ld-grade"><b>Grade 12</b><span>Matric chapters plus old-year papers</span></div>
                 </div>
             </div>
-
-            <div class="ld-section reveal">
-                <h2>📱 Inside the app</h2>
+            <div class="ld-section">
+                <h2>Weekly timetable</h2>
+                <p class="ld-note">Time opens when you have 4 paid subjects. Tester and the 6-subject pack include it. A 1-subject plan does not.</p>
                 <div class="ld-tabs">
-                    <div class="ld-tab"><div class="ld-tab-ico">🏠</div><div><b>Study</b><span>Subject quizzes, flashcards, English grammar, poems, dialogues, and Grade 12 Q &amp; A</span></div></div>
-                    <div class="ld-tab"><div class="ld-tab-ico">📅</div><div><b>Plan</b><span>Free Daily Quiz, exam countdown, and a daily study checklist</span></div></div>
-                    <div class="ld-tab"><div class="ld-tab-ico">🕒</div><div><b>Time</b><span>Weekly timetable from your school, tuition, and rest hours. Download Mon–Fri and Sat–Sun A4 pages</span></div></div>
-                    <div class="ld-tab"><div class="ld-tab-ico">🏅</div><div><b>Rank</b><span>All-time accuracy, questions, time, subject radar, and leaderboard</span></div></div>
-                    <div class="ld-tab"><div class="ld-tab-ico">👤</div><div><b>Me</b><span>Profile, paid unlocks, volunteer access, and News</span></div></div>
+                    <div class="ld-tab"><div class="ld-tab-ico">🏫</div><div><b>Your week, not a blank grid</b><span>Built from your school hours, tuition, lunch, dinner, and rest — then filled with your STEAM subjects</span></div></div>
+                    <div class="ld-tab"><div class="ld-tab-ico">📅</div><div><b>Mon–Fri and Sat–Sun</b><span>Two A4 pages. Weekend days are real blocks, not a sliced weekday chart</span></div></div>
+                    <div class="ld-tab"><div class="ld-tab-ico">🔬</div><div><b>STEAM 1 or STEAM 2</b><span>Biology or Economics as the sixth subject. The week chart follows that class</span></div></div>
                 </div>
             </div>
-
-            <div class="ld-section reveal">
-                <h2>✨ What You Get</h2>
-                <div class="ld-grid">
-                    <div class="ld-card"><span class="ld-card-icon">📝</span><div class="ld-card-title">Daily Quiz</div><div class="ld-card-desc">3 free random questions every day for every subject</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">📚</span><div class="ld-card-title">Chapter quizzes</div><div class="ld-card-desc">MCQ, fill-blank, true/false, 1-mark, and more for Grade 10, 11, and 12</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">🕒</span><div class="ld-card-title">Timetable</div><div class="ld-card-desc">Build a week plan around school, tuition, lunch, and rest. Save A4 pages to your phone</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">🔬</span><div class="ld-card-title">STEAM 1 or 2</div><div class="ld-card-desc">STEAM 1 uses Biology. STEAM 2 uses Economics. Stats and Time follow your class</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">🏅</span><div class="ld-card-title">Rank &amp; radar</div><div class="ld-card-desc">See accuracy, question count, and time per subject. Download your all-time chart</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">🇬🇧</span><div class="ld-card-title">English tools</div><div class="ld-card-desc">Shared grammar notes, poems, dialogues, and Grade 12 Q &amp; A</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">📄</span><div class="ld-card-title">Old questions</div><div class="ld-card-desc">Past-year practice on Grade 12, with an Old badge in quizzes</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">🃏</span><div class="ld-card-title">Flashcards</div><div class="ld-card-desc">Flip cards for quick review, including math solutions</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">✅</span><div class="ld-card-title">Study Tracker</div><div class="ld-card-desc">Daily checklist on Plan so you tick off each subject</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">📰</span><div class="ld-card-title">News</div><div class="ld-card-desc">Study tips and articles, plus the Reed Telegram channel</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">🤝</span><div class="ld-card-title">Volunteer</div><div class="ld-card-desc">Volunteer unlocks stay on the granted grade. Report a mistake from quizzes</div></div>
-                    <div class="ld-card"><span class="ld-card-icon">📊</span><div class="ld-card-title">Smart Stats</div><div class="ld-card-desc">Track accuracy and speed per subject. Best and Old scores stay separate</div></div>
-                </div>
-            </div>
-
-            <div class="ld-section reveal">
-                <h2>📖 All Subjects</h2>
-                <p class="ld-note">Same seven subjects on Grade 10, 11, and 12. STEAM 2 students use Eco instead of Bio.</p>
+            <div class="ld-section">
+                <h2>Subjects</h2>
+                <p class="ld-note">Same seven names on every grade. Your pack uses six: STEAM 2 swaps Eco for Bio.</p>
                 <div class="ld-subjects">
                     <div class="ld-sub"><span class="ld-sub-ico">🇲🇲</span> မြန်မာစာ</div>
                     <div class="ld-sub"><span class="ld-sub-ico">🇬🇧</span> အင်္ဂလိပ်စာ</div>
@@ -3071,78 +3084,146 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     <div class="ld-sub"><span class="ld-sub-ico">📊</span> ဘောဂဗေဒ</div>
                 </div>
             </div>
-
-            <div class="ld-section reveal">
-                <h2>🔬 STEAM class</h2>
+            <div class="ld-section">
+                <h2>STEAM class</h2>
                 <div class="ld-steam">
                     <div class="ld-grade"><b>STEAM 1</b><span>Myan, English, Maths, Physics, Chemistry, Biology</span></div>
                     <div class="ld-grade"><b>STEAM 2</b><span>Myan, English, Maths, Physics, Chemistry, Eco</span></div>
                 </div>
             </div>
-
-            <div class="ld-section reveal">
-                <h2>Price</h2>
-                <p class="ld-note">Same for Grade 10, 11, and 12. Six subjects = your STEAM desk (Bio or Eco as the sixth). No extra exam sale.</p>
-                <div class="ld-price-tester">
-                    <div class="ld-price-kicker">Try first</div>
-                    <div class="ld-price-name">Tester pack</div>
-                    <div class="ld-price-amt">3,000 Ks</div>
-                    <div class="ld-price-meta">6 subjects · 7 days<br>For people who want to try the whole desk</div>
-                </div>
-                <div class="ld-price-cols">
-                    <div class="ld-price-card ld-price-best">
-                        <div class="ld-price-tag">Best value</div>
-                        <h3>6 subjects</h3>
-                        <div class="ld-price-row"><b>29,500 Ks</b><span>15 months · school year</span></div>
-                        <div class="ld-price-row"><b>24,500 Ks</b><span>10 months · this exam</span></div>
-                    </div>
-                    <div class="ld-price-card">
-                        <h3>1 subject</h3>
-                        <div class="ld-price-row"><b>14,500 Ks</b><span>15 months · school year</span></div>
-                        <div class="ld-price-row"><b>12,500 Ks</b><span>10 months · this exam</span></div>
-                    </div>
-                </div>
-                <p class="ld-note" style="margin-top:12px;margin-bottom:0;">Buy: message <a href="https://t.me/minaphayarkot" target="_blank" style="color:#00D5FF;text-decoration:none;">@minaphayarkot</a> with your Telegram ID, grade, and plan.</p>
             </div>
 
-            <div class="ld-section reveal">
+            <div id="ld-panel-price" class="ld-panel">
+            <h2 style="color:#00D5FF;font-size:1.2rem;margin:0 0 8px;text-align:center;">Price</h2>
+            <p class="ld-note">Grade 10, 11, and 12 share this list. 15 months is the school year. 10 months is this exam year. No extra exam sale.</p>
+            <div class="ld-term">
+                <button type="button" class="ld-term-btn ld-term-on" data-months="15">15 months</button>
+                <button type="button" class="ld-term-btn" data-months="10">10 months</button>
+            </div>
+            <div class="ld-plans">
+                <article class="ld-plan">
+                    <div class="ld-plan-head">
+                        <span class="ld-plan-badge">Tester</span>
+                    </div>
+                    <div class="ld-plan-price">3,000 <small>Ks</small></div>
+                    <div class="ld-plan-bill">7 days · 6 subjects · billed once</div>
+                    <p class="ld-plan-desc">A one-week desk so you can see the real week chart and all six subjects before you buy the year.</p>
+                    <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Message to try</a>
+                    <div class="ld-plan-sec">This week only</div>
+                    <ul class="ld-plan-feat">
+                        <li>All 6 STEAM subjects on your grade for 7 days</li>
+                        <li>Time tab opens — weekly timetable from school, tuition, lunch, and rest</li>
+                        <li>Download Mon–Fri and Sat–Sun A4 pages that week</li>
+                        <li>Pick STEAM 1 (Bio) or STEAM 2 (Eco) like the full pack</li>
+                        <li>Ends on day 7 — it is a try, not the school-year plan</li>
+                    </ul>
+                </article>
+                <article class="ld-plan">
+                    <div class="ld-plan-head">
+                        <span class="ld-plan-badge">1 subject</span>
+                    </div>
+                    <div class="ld-plan-price"><span id="ld-one-amt">14,500</span> <small>Ks</small></div>
+                    <div class="ld-plan-bill" id="ld-one-bill">15 months · school year · billed once</div>
+                    <p class="ld-plan-desc">For the student who only needs one paper — Maths, English, or one science — not the whole STEAM week.</p>
+                    <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Message to buy</a>
+                    <div class="ld-plan-sec">What this unlocks</div>
+                    <ul class="ld-plan-feat">
+                        <li>One subject you name — full chapter quizzes on your grade</li>
+                        <li>Grade 12: old-year questions for that subject only</li>
+                        <li>English pack includes grammar, poems, dialogues, and Q &amp; A</li>
+                        <li>Does not open Time — weekly timetable needs 4 paid subjects</li>
+                        <li>Same price on Grade 10, 11, and 12</li>
+                    </ul>
+                </article>
+                <article class="ld-plan ld-plan-popular">
+                    <div class="ld-plan-head">
+                        <span class="ld-plan-badge">6 subjects</span>
+                        <span class="ld-plan-popular-tag">Popular</span>
+                    </div>
+                    <div class="ld-plan-price"><span id="ld-six-amt">29,500</span> <small>Ks</small></div>
+                    <div class="ld-plan-bill" id="ld-six-bill">15 months · school year · billed once</div>
+                    <p class="ld-plan-desc">The STEAM desk plus the week chart. This is the plan that matches a real school + tuition week.</p>
+                    <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Message to buy</a>
+                    <div class="ld-plan-sec">Weekly timetable</div>
+                    <ul class="ld-plan-feat">
+                        <li>Time tab unlocked — you already have 6 subjects</li>
+                        <li>Week built from your school hours, tuition, lunch, dinner, and rest</li>
+                        <li>Mon–Fri page and Sat–Sun page, download as A4</li>
+                        <li>STEAM 1 Biology or STEAM 2 Economics — the chart follows that class</li>
+                    </ul>
+                    <div class="ld-plan-sec" style="margin-top:12px;">The six subjects</div>
+                    <ul class="ld-plan-feat">
+                        <li>Myanmar, English, Maths, Physics, Chemistry, plus Bio or Eco</li>
+                        <li>Full chapter quizzes for every subject on your grade</li>
+                        <li>Grade 12: old-year papers on those subjects</li>
+                        <li>Same pack on Grade 10, 11, and 12</li>
+                    </ul>
+                </article>
+            </div>
+            <p class="ld-note" style="margin-top:16px;margin-bottom:0;">Send <a href="https://t.me/minaphayarkot" target="_blank" rel="noopener" style="color:#00D5FF;text-decoration:none;">@minaphayarkot</a> your Telegram ID, grade, and plan. Tester is meant once per ID.</p>
+            </div>
+
+            <div id="ld-panel-start" class="ld-panel">
+            <div class="ld-section">
                 <h2>How to Start</h2>
                 <div class="ld-steps">
-                    <div class="ld-step"><div class="ld-step-num">1</div><div class="ld-step-text"><b>Open in Telegram</b>This page is only a preview. The Mini App runs inside Telegram</div></div>
-                    <div class="ld-step"><div class="ld-step-num">2</div><div class="ld-step-text"><b>Pick Grade 10, 11, or 12</b>Quizzes, unlocks, rank, and timetable follow that grade</div></div>
-                    <div class="ld-step"><div class="ld-step-num">3</div><div class="ld-step-text"><b>Study, Plan, Time</b>Daily quiz, chapter practice, weekly timetable, and rank</div></div>
+                    <div class="ld-step"><div class="ld-step-num">1</div><div class="ld-step-text"><b>Open in Telegram</b>This site is a preview. Practice runs inside @reededucation_bot</div></div>
+                    <div class="ld-step"><div class="ld-step-num">2</div><div class="ld-step-text"><b>Pick Grade 10, 11, or 12</b>Quizzes, unlocks, and the week chart follow that grade</div></div>
+                    <div class="ld-step"><div class="ld-step-num">3</div><div class="ld-step-text"><b>Buy a plan if you want the desk</b>Tester, 1 subject, or 6 subjects — message @minaphayarkot</div></div>
                 </div>
             </div>
-
-            <div class="ld-countdown-wrap reveal">
-                <div class="ld-countdown-label">⏳ ခန့်မှန်းခြေ စာမေးပွဲဖြေဆိုရန် ကျန်ရှိချိန်</div>
-                <div class="ld-countdown">
-                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-d">00</div><div class="ld-cd-lbl">Days</div></div>
-                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-h">00</div><div class="ld-cd-lbl">Hrs</div></div>
-                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-m">00</div><div class="ld-cd-lbl">Mins</div></div>
-                    <div class="ld-cd-box"><div class="ld-cd-val" id="ld-s">00</div><div class="ld-cd-lbl">Secs</div></div>
-                </div>
             </div>
 
             <div class="ld-footer">
-                <p>Need help? Contact <a href="https://t.me/minaphayarkot" target="_blank">@minaphayarkot</a></p>
+                <p>Need help? Contact <a href="https://t.me/minaphayarkot" target="_blank" rel="noopener">@minaphayarkot</a></p>
                 <p style="margin-top:6px;">© 2026 REED Education</p>
             </div>
         </div>
 
         <div class="ld-cta">
-            <a href="https://t.me/reededucation_bot" class="ld-btn ld-btn-primary">📱 Open App in Telegram</a>
-            <a href="https://t.me/REED_education" class="ld-btn ld-btn-secondary">📢 Join Telegram Channel</a>
+            <a href="https://t.me/reededucation_bot" class="ld-btn ld-btn-primary">Open App in Telegram</a>
+            <a href="https://t.me/REED_education" class="ld-btn ld-btn-secondary">Join Telegram Channel</a>
         </div>
     </div>
     `;
     
-    // Scroll reveal animation
     (function(){
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        function showPanel(id) {
+            document.querySelectorAll('.ld-panel').forEach(function(p) {
+                p.classList.toggle('ld-panel-on', p.id === 'ld-panel-' + id);
+            });
+            document.querySelectorAll('.ld-nav-btn').forEach(function(b) {
+                b.classList.toggle('ld-nav-on', b.getAttribute('data-ld') === id);
+            });
+            window.scrollTo(0, 0);
+        }
+        document.querySelectorAll('.ld-nav-btn').forEach(function(b) {
+            b.addEventListener('click', function() { showPanel(b.getAttribute('data-ld')); });
+        });
+        function applyTerm(months) {
+            var oneAmt = document.getElementById('ld-one-amt');
+            var sixAmt = document.getElementById('ld-six-amt');
+            var oneBill = document.getElementById('ld-one-bill');
+            var sixBill = document.getElementById('ld-six-bill');
+            if (!oneAmt || !sixAmt) return;
+            if (months === '10') {
+                oneAmt.textContent = '12,500';
+                sixAmt.textContent = '24,500';
+                oneBill.textContent = '10 months · this exam year · billed once';
+                sixBill.textContent = '10 months · this exam year · billed once';
+            } else {
+                oneAmt.textContent = '14,500';
+                sixAmt.textContent = '29,500';
+                oneBill.textContent = '15 months · school year · billed once';
+                sixBill.textContent = '15 months · school year · billed once';
+            }
+            document.querySelectorAll('.ld-term-btn').forEach(function(b) {
+                b.classList.toggle('ld-term-on', b.getAttribute('data-months') === months);
+            });
+        }
+        document.querySelectorAll('.ld-term-btn').forEach(function(b) {
+            b.addEventListener('click', function() { applyTerm(b.getAttribute('data-months')); });
+        });
     })();
 
     // Countdown timer logic
@@ -3203,7 +3284,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=55'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=56'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
