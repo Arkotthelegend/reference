@@ -36,11 +36,15 @@ function commandName(text) {
 
 function aboutReedReply() {
   return [
-    'Reed Education is a Telegram Mini App for Grade 10, 11, and 12.',
+    'Reed Education is a Grade 10 / 11 / 12 study Mini App. You are already in the bot that opens it: @reededucation_bot.',
     '',
-    'Open it in this chat: tap Start Practice, or the menu button then Open. No Play Store or App Store download.',
+    'To practice now:',
+    '• Tap Start Practice in this chat menu',
+    '• Or pin this bot chat. In your chat list you will see Open App',
     '',
-    'Inside the app:',
+    '@REED_education is only our news and community channel. You cannot practice quizzes there.',
+    '',
+    'Inside the Mini App:',
     '• Study — quizzes, flashcards, English grammar, poems, dialogues, Grade 12 Q and A',
     '• Plan — free Daily Quiz (3 questions a day), exam countdown, study checklist',
     '• Time — weekly timetable from your school, tuition, lunch, and rest. Download Mon–Fri and Sat–Sun A4 pages',
@@ -48,13 +52,12 @@ function aboutReedReply() {
     '• Me — profile, paid unlocks, News, volunteer',
     '',
     'Subjects: Myanmar, English, Maths, Physics, Chemistry, Biology, Economics.',
-    'STEAM 1 uses Biology. STEAM 2 uses Economics. Pick that in Rank → Summary or when you build a timetable.',
+    'STEAM 1 uses Biology. STEAM 2 uses Economics.',
     '',
     'Website: reededucation.net',
-    'Channel: @REED_education',
-    'Buy help: Me → contact to buy, or message @minaphayarkot and send your Telegram ID.',
-    '',
-    'Ask me about grades, subjects, the timetable, rank, pricing, or how to open the app.'
+    'Channel (info only): @REED_education',
+    'This bot (open the app here): @reededucation_bot',
+    'Buy help: Me → contact to buy, or message @minaphayarkot and send your Telegram ID.'
   ].join('\n');
 }
 
@@ -62,22 +65,28 @@ function startReply() {
   return [
     'Welcome to Reed Education.',
     '',
-    'This is a Grade 10 / 11 / 12 study Mini App that runs inside Telegram. No app store download.',
+    'You are chatting with @reededucation_bot. This is the place to open the Mini App.',
     '',
-    'Open the app: tap Start Practice in this chat, or tap the menu button then Open.',
+    'To practice:',
+    '• Tap Start Practice in the menu of this chat',
+    '• Or pin this chat. Then Open App appears on this chat in your list',
+    '',
+    '@REED_education is the channel for news and community only. No quizzes there.',
     '',
     'You get 3 free Daily Quiz questions per subject, plus a Chapter 1 trial.',
     '',
-    'Ask me about:',
-    '• How to open Reed',
-    '• Grade 10, 11, 12 and subjects',
-    '• Timetable, Rank, Daily Quiz',
-    '• STEAM 1 (Bio) or STEAM 2 (Eco)',
-    '• Pricing and how to buy',
+    'Ask me about grades, timetable, Rank, STEAM 1 or 2, pricing, or how to open the app.'
+  ].join('\n');
+}
+
+function howToOpenReply() {
+  return [
+    'Practice is in this bot chat: @reededucation_bot. You are already here.',
     '',
-    'Channel: @REED_education',
+    '• Tap Start Practice in this chat menu to open the Mini App',
+    '• Or pin this chat, then tap Open App when you see this chat in your list',
     '',
-    'What would you like to know?'
+    'Do not go to @REED_education to practice. That channel is only news and community.'
   ].join('\n');
 }
 
@@ -114,8 +123,12 @@ function stripFancyText(text) {
 
 function fixOfficialHandles(text) {
   var s = String(text || '');
-  s = s.replace(/@REED[_]?education/gi, '@REED_education');
-  s = s.replace(/t\.me\/REED[_]?education/gi, 't.me/REED_education');
+  s = s.replace(/@reededucation_bot/gi, '@reededucation_bot');
+  s = s.replace(/t\.me\/reededucation_bot/gi, 't.me/reededucation_bot');
+  s = s.replace(/@REED_education\b/gi, '@REED_education');
+  s = s.replace(/@REEDeducation\b(?!_bot)/gi, '@REED_education');
+  s = s.replace(/t\.me\/REED_education\b/gi, 't.me/REED_education');
+  s = s.replace(/t\.me\/REEDeducation\b(?!_bot)/gi, 't.me/REED_education');
   s = s.replace(/@minaphayarkot/gi, '@minaphayarkot');
   return s;
 }
@@ -142,11 +155,22 @@ async function getAIReply(question, apiKey) {
     return aboutReedReply();
   }
 
+  if (/\b(start practice|open app|open the app|how to (open|practice|use)|where (to |do i )?(practice|open)|pin (the )?chat|menu button)\b/i.test(raw)
+    || /\b(channel|@reed_education|@reededucation)\b/i.test(raw) && /\b(practice|quiz|app|open|bot)\b/i.test(raw)) {
+    return howToOpenReply();
+  }
+
   var systemPrompt = [
     'You are Reed, the in-chat helper for Reed Education. You are friendly, specific, and practical.',
     '',
     'WHAT REED IS:',
-    'Reed Education is a Telegram Mini App for Myanmar Grade 10, 11, and 12 students. Website: reededucation.net. Official channel username is exactly @REED_education (underscore between REED and education). Never write @REEDeducation. Contact to buy: @minaphayarkot. The student opens the Mini App from this bot — tap Start Practice, or the menu button then Open. No Play Store or App Store install.',
+    'Reed Education is a Telegram Mini App for Myanmar Grade 10, 11, and 12 students. Website: reededucation.net. Contact to buy: @minaphayarkot. No Play Store or App Store install.',
+    '',
+    'BOT vs CHANNEL — never mix these up:',
+    '• @reededucation_bot is THIS chat. The user is already typing here. This bot opens the Mini App.',
+    '• To practice: tap Start Practice in this chat menu. Or pin this bot chat; then Open App shows on this chat in the chat list.',
+    '• @REED_education is the news and community CHANNEL only. Users cannot practice, quiz, or open the Mini App there. Never send people to the channel to study.',
+    '• Never write @REEDeducation. Channel is @REED_education. Bot is @reededucation_bot.',
     '',
     'IMPORTANT: Questions like "tell me about Reed", "Reed", "Reed Education", "the app", or ရီးဒ် ARE on-topic. Answer them. Do not say you can only help with the app.',
     '',
@@ -188,7 +212,7 @@ async function getAIReply(question, apiKey) {
     '4. Match the user language (English or Myanmar).',
     '5. Plain text only. Never use asterisks, markdown, HTML, or # headings. Use short sentences and • bullets. Keep under 160 words.',
     '6. If you are not sure a feature exists, say so and point them to the matching tab instead of inventing it.',
-    '7. Official links only: channel @REED_education (keep the underscore), website reededucation.net, contact @minaphayarkot. Never invent @REEDeducation or other handles.'
+    '7. Official names only: bot @reededucation_bot, channel @REED_education, website reededucation.net, contact @minaphayarkot. Never invent @REEDeducation. If they ask how to practice, tell them they are already in the bot and to tap Start Practice or pin the chat for Open App. Do not tell them to open the channel to practice.'
   ].join('\n');
 
   if (!looksLikeReedQuestion(raw)) {
