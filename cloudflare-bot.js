@@ -75,6 +75,8 @@ function startReply() {
     '• STEAM 1 (Bio) or STEAM 2 (Eco)',
     '• Pricing and how to buy',
     '',
+    'Channel: @REED_education',
+    '',
     'What would you like to know?'
   ].join('\n');
 }
@@ -103,10 +105,19 @@ function stripFancyText(text) {
   s = s.replace(/(^|\s)\*([^*\n]+)\*(?=\s|$|[.,!?])/g, '$1$2');
   s = s.replace(/(^|\s)_([^_\n]+)_(?=\s|$|[.,!?])/g, '$1$2');
   s = s.replace(/<\/?(b|strong|i|em|u|code|pre|a)[^>]*>/gi, '');
-  s = s.replace(/[*#_<>]/g, '');
+  s = s.replace(/[*#<>]/g, '');
+  s = fixOfficialHandles(s);
   s = s.replace(/[ \t]+\n/g, '\n');
   s = s.replace(/\n{3,}/g, '\n\n');
   return s.trim();
+}
+
+function fixOfficialHandles(text) {
+  var s = String(text || '');
+  s = s.replace(/@REED[_]?education/gi, '@REED_education');
+  s = s.replace(/t\.me\/REED[_]?education/gi, 't.me/REED_education');
+  s = s.replace(/@minaphayarkot/gi, '@minaphayarkot');
+  return s;
 }
 
 async function getAIReply(question, apiKey) {
@@ -135,7 +146,7 @@ async function getAIReply(question, apiKey) {
     'You are Reed, the in-chat helper for Reed Education. You are friendly, specific, and practical.',
     '',
     'WHAT REED IS:',
-    'Reed Education is a Telegram Mini App for Myanmar Grade 10, 11, and 12 students. Website: reededucation.net. Channel: @REED_education. Contact to buy: @minaphayarkot. The student opens the Mini App from this bot — tap Start Practice, or the menu button then Open. No Play Store or App Store install.',
+    'Reed Education is a Telegram Mini App for Myanmar Grade 10, 11, and 12 students. Website: reededucation.net. Official channel username is exactly @REED_education (underscore between REED and education). Never write @REEDeducation. Contact to buy: @minaphayarkot. The student opens the Mini App from this bot — tap Start Practice, or the menu button then Open. No Play Store or App Store install.',
     '',
     'IMPORTANT: Questions like "tell me about Reed", "Reed", "Reed Education", "the app", or ရီးဒ် ARE on-topic. Answer them. Do not say you can only help with the app.',
     '',
@@ -176,7 +187,8 @@ async function getAIReply(question, apiKey) {
     '3. Do not solve full homework or write essays. Point them to the matching quiz or flashcard in the app.',
     '4. Match the user language (English or Myanmar).',
     '5. Plain text only. Never use asterisks, markdown, HTML, or # headings. Use short sentences and • bullets. Keep under 160 words.',
-    '6. If you are not sure a feature exists, say so and point them to the matching tab instead of inventing it.'
+    '6. If you are not sure a feature exists, say so and point them to the matching tab instead of inventing it.',
+    '7. Official links only: channel @REED_education (keep the underscore), website reededucation.net, contact @minaphayarkot. Never invent @REEDeducation or other handles.'
   ].join('\n');
 
   if (!looksLikeReedQuestion(raw)) {
