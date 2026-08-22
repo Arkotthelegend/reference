@@ -2921,12 +2921,38 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-top { display: flex; gap: 4px; padding: 4px; border: 1px solid #1E293B; background: #162235; border-radius: 999px; }
         .ld-nav-btn { background: transparent; border: none; color: #94A3B8; font-weight: 600; font-size: 0.82rem; padding: 8px 16px; border-radius: 999px; cursor: pointer; }
         .ld-nav-btn.ld-nav-on { color: #0B0F19; background: #00D5FF; }
-        .ld-nav-cta { display: none; text-decoration: none; background: #00D5FF; color: #0B0F19; font-weight: 800; font-size: 0.82rem; padding: 10px 18px; border-radius: 999px; }
+        .ld-nav-cta { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; white-space: nowrap; text-decoration: none; background: #00D5FF; color: #0B0F19; font-weight: 800; font-size: 0.88rem; min-width: 148px; padding: 12px 28px; border-radius: 14px; }
 		        .ld-wrap { max-width: 1120px; margin: 0 auto; padding: 28px 24px 120px; text-align: center; position: relative; z-index: 1; overflow-x: hidden; }
         .ld-panel { display: none; text-align: left; }
         .ld-panel.ld-panel-on { display: block; animation: fadeInUp 0.45s ease-out; }
 				
         @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes ldPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.7); } }
+        @keyframes ldFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes ldOrb { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+        .ld-orb-a { animation: ldOrb 8s ease-in-out infinite; }
+        .ld-kicker i { animation: ldPulse 1.6s ease-in-out infinite; }
+        .ld-device { animation: ldFloat 5.5s ease-in-out infinite; }
+        .ld-nav-btn, .ld-nav-cta, .ld-btn, .ld-plan-cta, .ld-term button, .ld-grade, .ld-tab, .ld-sub, .ld-plan, .ld-cd-box, .ld-float {
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
+        .ld-nav-btn:hover:not(.ld-nav-on) { color: #fff; background: rgba(0,213,255,0.14); }
+        .ld-nav-cta:hover, .ld-btn-primary:hover, .ld-plan-cta:hover {
+            transform: translateY(-3px);
+            background: #5EE9FF;
+            box-shadow: 0 12px 28px rgba(0,213,255,0.32);
+        }
+        .ld-btn-secondary:hover {
+            transform: translateY(-3px);
+            background: rgba(0,213,255,0.12);
+            box-shadow: 0 10px 24px rgba(0,213,255,0.16);
+        }
+        .ld-term button:hover:not(.ld-term-on) { color: #fff; border-color: #00D5FF; }
+        .ld-plan:hover { transform: translateY(-6px); border-color: #00D5FF; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+        .ld-grade:hover, .ld-tab:hover, .ld-sub:hover { transform: translateY(-4px); border-color: #00D5FF; }
+        .ld-cd-box:hover { border-color: #00D5FF; transform: translateY(-2px); }
+        .ld-float:hover { border-color: #00D5FF; transform: translateY(-3px); }
+        .ld-brand:hover { color: #00D5FF; }
                 .reveal { opacity:0; transform:translateY(24px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity:1; transform:translateY(0); }
         
@@ -2986,7 +3012,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-footer a { color: #00D5FF; text-decoration: none; }
         .ld-bento { display: grid; gap: 12px; }
         @media (min-width: 840px) {
-            .ld-nav-cta { display: inline-flex; align-items: center; }
+            .ld-nav-cta { display: inline-flex; }
             .ld-cta { display: none; }
             .ld-wrap { padding-bottom: 64px; }
             .ld-float-l { left: -48px; }
@@ -3070,7 +3096,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-countdown-label { color: #94A3B8; font-size: 0.78rem; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
         @media (min-width: 840px) {
             .ld-cta { display: none !important; }
-            .ld-nav-cta { display: inline-flex !important; }
+            .ld-nav-cta { display: inline-flex !important; min-width: 160px; padding: 12px 32px; }
             .ld-plans { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: stretch; }
         }
     </style>
@@ -3098,7 +3124,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <div id="ld-panel-home" class="ld-panel ld-panel-on" style="text-align:center;">
             <div class="ld-hero">
                 <div class="ld-kicker"><i></i> Grade 10 · 11 · 12</div>
-                <h1>Study built around <em>your week</em></h1>
+                <h1>Road to The <em>Whole Myanmar</em></h1>
                 <p>A Telegram Mini App for Myanmar students. Chapter quizzes on your grade, plus a weekly timetable from school, tuition, and rest. STEAM 1 or STEAM 2.</p>
                 <div class="ld-hero-actions">
                     <a href="https://t.me/reededucation_bot" class="ld-btn ld-btn-primary">Open in Telegram</a>
@@ -3371,7 +3397,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=57'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=58'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
