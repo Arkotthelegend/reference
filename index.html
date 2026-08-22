@@ -2932,7 +2932,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         @keyframes ldOrb { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
         .ld-orb-a { animation: ldOrb 8s ease-in-out infinite; }
         .ld-kicker i { animation: ldPulse 1.6s ease-in-out infinite; }
-        .ld-nav-btn, .ld-nav-cta, .ld-btn, .ld-plan-cta, .ld-term button, .ld-grade, .ld-tab, .ld-sub, .ld-plan, .ld-cd-box, .ld-float {
+        .ld-nav-btn, .ld-nav-cta, .ld-btn, .ld-plan-cta, .ld-term button, .ld-kind button, .ld-grade, .ld-tab, .ld-sub, .ld-plan, .ld-cd-box, .ld-float {
             transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
         }
         .ld-nav-btn:hover:not(.ld-nav-on) { color: #fff; background: rgba(0,213,255,0.14); }
@@ -2972,6 +2972,10 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-stage { position: relative; margin: 12px auto 0; max-width: 760px; }
         .ld-stage-glow { position: absolute; inset: 8% 8% auto; height: 70%; background: radial-gradient(ellipse at center, rgba(0,213,255,0.18), transparent 70%); pointer-events: none; }
         .ld-types { display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; }
+        .ld-kind { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+        .ld-kind button { background: #162235; border: 1px solid #334155; color: #94A3B8; border-radius: 999px; padding: 8px 14px; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
+        .ld-kind button.ld-kind-on { background: #00D5FF; color: #0B0F19; border-color: #00D5FF; }
+        .ld-kind button:hover:not(.ld-kind-on) { color: #fff; border-color: #00D5FF; }
         .ld-device { position: relative; background: #162235; border: 1px solid #334155; border-radius: 20px; padding: 12px 14px 12px; text-align: left; box-shadow: 0 16px 48px rgba(0,0,0,0.35); }
         .ld-device-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; color: #94A3B8; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; }
         .ld-device-dots { display: flex; gap: 6px; }
@@ -3161,29 +3165,18 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <div class="ld-stage">
                 <div class="ld-stage-glow"></div>
                 <div class="ld-types">
-                    <div class="ld-device">
-                        <div class="ld-device-bar">
-                            <div class="ld-device-dots"><span></span><span></span><span></span></div>
-                            <span>MCQ</span>
-                            <span>6 subjects</span>
-                        </div>
-                        <div class="ld-qstack" id="ld-stack-mcq"></div>
+                    <div class="ld-kind">
+                        <button type="button" class="ld-kind-btn ld-kind-on" data-kind="mcq">MCQ</button>
+                        <button type="button" class="ld-kind-btn" data-kind="tf">True / False</button>
+                        <button type="button" class="ld-kind-btn" data-kind="blank">Fill blank</button>
                     </div>
                     <div class="ld-device">
                         <div class="ld-device-bar">
                             <div class="ld-device-dots"><span></span><span></span><span></span></div>
-                            <span>True / False</span>
+                            <span id="ld-kind-label">MCQ</span>
                             <span>6 subjects</span>
                         </div>
-                        <div class="ld-qstack" id="ld-stack-tf"></div>
-                    </div>
-                    <div class="ld-device">
-                        <div class="ld-device-bar">
-                            <div class="ld-device-dots"><span></span><span></span><span></span></div>
-                            <span>Fill blank</span>
-                            <span>6 subjects</span>
-                        </div>
-                        <div class="ld-qstack" id="ld-stack-blank"></div>
+                        <div class="ld-qstack" id="ld-stack"></div>
                     </div>
                 </div>
             </div>
@@ -3373,8 +3366,12 @@ body.volunteer-role .vol-report-link { display: block !important; }
         function tfIdx(item) {
             return (item.c === true || item.c === 'true' || item.c === 0 || item.c === 'မှန်') ? 0 : 1;
         }
+        var labels = { mcq: 'MCQ', tf: 'True / False', blank: 'Fill blank' };
+        var kind = 'mcq';
+        var i = 0;
+        var timer;
         function paint(kind, item) {
-            var root = document.getElementById('ld-stack-' + kind);
+            var root = document.getElementById('ld-stack');
             if (!root || !item) return;
             root.innerHTML = '';
             var row = document.createElement('div');
@@ -3437,16 +3434,30 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 }
             }
         }
-        if (!document.getElementById('ld-stack-mcq')) return;
-        var i = 0;
+        if (!document.getElementById('ld-stack')) return;
         function step() {
-            paint('mcq', packs.mcq[i]);
-            paint('tf', packs.tf[i]);
-            paint('blank', packs.blank[i]);
-            i = (i + 1) % 6;
+            var list = packs[kind];
+            paint(kind, list[i % list.length]);
+            var lab = document.getElementById('ld-kind-label');
+            if (lab) lab.textContent = labels[kind];
+            i = (i + 1) % list.length;
         }
-        step();
-        setInterval(step, 3000);
+        function play() {
+            if (timer) clearInterval(timer);
+            step();
+            timer = setInterval(step, 3000);
+        }
+        document.querySelectorAll('.ld-kind-btn').forEach(function (b) {
+            b.addEventListener('click', function () {
+                kind = b.getAttribute('data-kind');
+                i = 0;
+                document.querySelectorAll('.ld-kind-btn').forEach(function (x) {
+                    x.classList.toggle('ld-kind-on', x === b);
+                });
+                play();
+            });
+        });
+        play();
     })();
 
     // Countdown timer logic
@@ -3507,7 +3518,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=63'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=64'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
