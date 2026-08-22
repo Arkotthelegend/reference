@@ -2901,7 +2901,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
     <script src="./grades.js?v=7"></script>
-    <script src="./timetable.js?v=20"></script>
+    <script src="./timetable.js?v=21"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3397,7 +3397,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=58'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=59'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
@@ -3421,6 +3421,16 @@ function mondayYmd(ymd) {
 }
 function currentWeekMonday() {
     return mondayYmd(ymdInTz(new Date(), RANK_TZ));
+}
+function ymdWeekday(ymd) {
+    return new Date(ymd + 'T12:00:00+06:30').getUTCDay();
+}
+function planningMonday() {
+    var today = ymdInTz(new Date(), RANK_TZ);
+    var cur = mondayYmd(today);
+    var dow = ymdWeekday(today);
+    if (dow === 6 || dow === 0) return addDaysYmd(cur, 7);
+    return cur;
 }
 function lastWeekMonday() {
     return addDaysYmd(currentWeekMonday(), -7);
@@ -6835,6 +6845,7 @@ function timetableApi() {
         getSubjects: function () { return subjects; },
         isPaid: isPaidUnlock,
         monday: currentWeekMonday,
+        planningMonday: planningMonday,
         defaultName: function () {
             var u = window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user;
             return (u && u.first_name) || 'Student';
