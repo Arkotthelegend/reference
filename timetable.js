@@ -807,6 +807,19 @@
         return 'This week · ' + pretty(mondayYmd) + ' – ' + pretty(ey + '-' + em + '-' + ed);
     }
 
+    function targetMonday(api) {
+        if (api && typeof api.planningMonday === 'function') return api.planningMonday();
+        return api && api.monday ? api.monday() : '';
+    }
+
+    function weekFor(answers, api) {
+        return (answers && answers.week) || targetMonday(api);
+    }
+
+    function canChangePlan(saved, api) {
+        return !hasWeekPlan(saved, targetMonday(api), api);
+    }
+
     function timeSelectHtml(from, to, selected) {
         var html = '';
         for (var m = from; m <= to; m += 15) {
@@ -917,7 +930,7 @@
 
     function makePages(api, answers, logoCanvas) {
         var grade = api.getGrade();
-        var monday = api.monday();
+        var monday = weekFor(answers, api);
         var seed = hashStr(String(api.userId) + ':' + monday + ':' + grade);
         var model = buildWeek(answers, seed);
         var meta = {
@@ -939,9 +952,14 @@
         loadLogo(function (logoCanvas) {
             var pages = makePages(api, answers, logoCanvas);
             var weekEl = document.getElementById('tt-week-note');
-            if (weekEl) weekEl.textContent = weekLabel(api.monday()) + ' · ဒီအပတ် တစ်ကြိမ်သာ ဆွဲနိုင်ပါတယ်';
+            var monday = weekFor(answers, api);
+            if (weekEl) {
+                weekEl.textContent = canChangePlan(answers, api)
+                    ? (weekLabel(monday) + ' · ထားခဲ့နိုင်သည်။ စနေမှ နောက်အပတ်ကို ပြန်ဆွဲနိုင်ပါတယ်')
+                    : (weekLabel(monday) + ' · ဒီအပတ် တစ်ကြိမ်သာ ဆွဲနိုင်ပါတယ်');
+            }
             var retakeBtn = document.getElementById('tt-retake');
-            if (retakeBtn) retakeBtn.hidden = !!(answers.week && answers.week === api.monday());
+            if (retakeBtn) retakeBtn.hidden = !canChangePlan(answers, api);
             var left = pages.length;
             pages.forEach(function (canvas, i) {
                 var img = document.getElementById('tt-preview-' + i);
@@ -1016,7 +1034,7 @@
             var list = steps();
             if (step < 0) step = 0;
             if (step >= list.length) {
-                answers.week = api.monday();
+                answers.week = targetMonday(api);
                 answers.subjects = weekSubjects(answers);
                 saveAnswers(api.getGrade(), answers, api);
                 showPanel('tt-think');
@@ -1508,7 +1526,7 @@
         }
         var monday = api.monday();
         var saved = loadAnswers(grade, api);
-        if (hasWeekPlan(saved, monday, api)) {
+        if (hasWeekPlan(saved, monday, api) || hasWeekPlan(saved, targetMonday(api), api)) {
             showResult(api, saved, false);
             return;
         }
@@ -1530,9 +1548,9 @@
         openAsk: openAsk,
         retake: function (api) {
             var saved = loadAnswers(api.getGrade(), api);
-            if (hasWeekPlan(saved, api.monday(), api)) {
+            if (!canChangePlan(saved, api)) {
                 api.alert('ဒီအပတ် Timetable ကို ဆွဲပြီးပါပြီ။ နောက်အပတ် တနင်္လာမှ အသစ်ဆွဲနိုင်ပါတယ်။');
-                showResult(api, saved, false);
+                if (saved) showResult(api, saved, false);
                 return;
             }
             openAsk(api, saved || undefined);
