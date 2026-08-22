@@ -2987,11 +2987,15 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-float b { display: block; color: #00D5FF; font-size: 0.72rem; margin-bottom: 2px; }
         .ld-float-l { left: -8px; top: 22%; }
         .ld-float-r { right: -8px; bottom: 18%; }
-        .ld-quiz-q { color: #fff; font-size: 1.02rem; font-weight: 700; line-height: 1.45; margin: 0 0 14px; min-height: 2.8em; text-align: left; }
+        .ld-quiz-q { color: #fff; font-size: 1.02rem; font-weight: 700; line-height: 1.45; margin: 0 0 14px; min-height: 3.4em; text-align: left; }
         .ld-quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+        .ld-quiz-opts.tf { flex-direction: row; }
         .ld-opt { display: block; width: 100%; text-align: left; background: #0B0F19; border: 1px solid #334155; color: #E2E8F0; border-radius: 12px; padding: 11px 14px; font-size: 0.88rem; font-weight: 600; box-sizing: border-box; }
+        .ld-quiz-opts.tf .ld-opt { text-align: center; }
         .ld-opt.pick { border-color: #00D5FF; color: #00D5FF; box-shadow: 0 0 0 1px #00D5FF; }
         .ld-opt.ok { border-color: #22C55E; background: rgba(34,197,94,0.14); color: #86EFAC; }
+        .ld-blank { display: block; width: 100%; min-height: 48px; text-align: left; background: #0B0F19; border: 1px dashed #334155; color: #64748B; border-radius: 12px; padding: 11px 14px; font-size: 0.95rem; font-weight: 700; box-sizing: border-box; }
+        .ld-blank.ok { border-style: solid; border-color: #22C55E; background: rgba(34,197,94,0.14); color: #86EFAC; }
         .ld-quiz-meta { margin-top: 12px; color: #64748B; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
         
  .ld-statbar { display: flex; justify-content: center; gap: 12px; flex-wrap: nowrap; margin-bottom: 24px; animation: fadeInUp 0.8s ease-out 0.1s both; }
@@ -3158,14 +3162,13 @@ body.volunteer-role .vol-report-link { display: block !important; }
                         <span>REED · Practice</span>
                         <span>G12</span>
                     </div>
-                    <p class="ld-quiz-q" id="ld-quiz-q">Force is measured in which unit?</p>
+                    <p class="ld-quiz-q" id="ld-quiz-q">ရေသည်ပြဇာတ်ကို _____ ရေးသားခဲ့သည်။</p>
                     <div class="ld-quiz-opts" id="ld-quiz-opts">
-                        <button type="button" class="ld-opt">A. Newton</button>
-                        <button type="button" class="ld-opt">B. Joule</button>
-                        <button type="button" class="ld-opt">C. Watt</button>
-                        <button type="button" class="ld-opt">D. Pascal</button>
+                        <button type="button" class="ld-opt">A. ဦးပုည</button>
+                        <button type="button" class="ld-opt">B. ဦးပုညဏ်</button>
+                        <button type="button" class="ld-opt">C. ဦးပုညဏ</button>
                     </div>
-                    <div class="ld-quiz-meta">Chapter quiz · Physics</div>
+                    <div class="ld-quiz-meta" id="ld-quiz-meta">MCQ · မြန်မာစာ</div>
                 </div>
             </div>
             </div>
@@ -3219,7 +3222,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     </div>
                     <div class="ld-plan-price">3,000 <small>Ks</small></div>
                     <div class="ld-plan-bill">7 days · 6 subjects · billed once</div>
-                    <p class="ld-plan-desc">Try every subject’s quizzes for one week. Then it ends.</p>
+                    <p class="ld-plan-desc">Try every subject’s quizzes for one week. Weekly timetable made by AI.</p>
                     <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Message to try</a>
                 </article>
                 <article class="ld-plan">
@@ -3238,7 +3241,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     </div>
                     <div class="ld-plan-price"><span id="ld-six-amt">29,500</span> <small>Ks</small></div>
                     <div class="ld-plan-bill" id="ld-six-bill">15 months · school year · billed once</div>
-                    <p class="ld-plan-desc">All six subjects’ quizzes. Timetable comes with this pack.</p>
+                    <p class="ld-plan-desc">All six subjects’ quizzes. Weekly timetable made by AI.</p>
                     <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Message to buy</a>
                 </article>
             </div>
@@ -3315,35 +3318,68 @@ body.volunteer-role .vol-report-link { display: block !important; }
         var list = document.getElementById('ld-quiz-opts');
         if (!qEl || !list) return;
         var bank = [
-            { q: 'Force is measured in which unit?', a: ['Newton', 'Joule', 'Watt', 'Pascal'], c: 0, t: 'Physics' },
-            { q: 'Water’s chemical formula is…', a: ['CO2', 'H2O', 'NaCl', 'O2'], c: 1, t: 'Chemistry' },
-            { q: 'The nucleus of an atom contains…', a: ['Electrons only', 'Protons and neutrons', 'Neutrons only', 'Photons'], c: 1, t: 'Chemistry' },
-            { q: 'Photosynthesis happens mainly in the…', a: ['Mitochondria', 'Chloroplast', 'Nucleus', 'Ribosome'], c: 1, t: 'Biology' }
+            { kind: 'mcq', type: 'MCQ', t: 'မြန်မာစာ', q: 'ရေသည်ပြဇာတ်ကို _____ ရေးသားခဲ့သည်။', a: ['ဦးပုည', 'ဦးပုညဏ်', 'ဦးပုညဏ'], c: 0 },
+            { kind: 'tf', type: 'True / False', t: 'ဘောဂဗေဒ', q: 'Perfectly Elastic Demand တွင် E ၏တန်ဖိုးသည် အနန္တကိန်း (ထ) နှင့် ညီမျှသည်။', c: true },
+            { kind: 'blank', type: 'Fill blank', t: 'မြန်မာစာ', q: 'ရေသည်ပြဇာတ်ကို _____ ရေးသားခဲ့သည်။', a: 'ဦးပုည' },
+            { kind: 'mcq', type: 'MCQ', t: 'ဘောဂဗေဒ', q: 'ဝယ်လိုအားအလျော့အတင်းကင်းခြင်း (Perfectly Inelastic Demand) ၏ တန်ဖိုးမှာ _____ ဖြစ်သည်။', a: ['E = 0', 'E = 1', 'E = 00'], c: 0 },
+            { kind: 'tf', type: 'True / False', t: 'မြန်မာစာ', q: 'ရေသည်ပြဇာတ်ကို ဦးပုည ရေးသားခဲ့သည်။', c: true },
+            { kind: 'blank', type: 'Fill blank', t: 'ဘောဂဗေဒ', q: 'အလျော့အတင်းအပြည့်ရှိသော ကုန်စည်တစ်ခု၏ ဝယ်လိုအားမျဉ်းကွေးသည် ___ မျဉ်းဖြစ်နေမည်ဖြစ်သည်။', a: 'အလျားလိုက်' }
         ];
         var i = 0;
         var letters = 'ABCD';
-        var meta = document.querySelector('.ld-quiz-meta');
+        var meta = document.getElementById('ld-quiz-meta') || document.querySelector('.ld-quiz-meta');
+        function pickTf(item) {
+            return (item.c === true || item.c === 'true' || item.c === 0 || item.c === 'မှန်') ? 0 : 1;
+        }
+        function mark(el, delayPick, delayOk) {
+            if (!el) return;
+            setTimeout(function () { el.classList.add('pick'); }, delayPick);
+            setTimeout(function () {
+                el.classList.remove('pick');
+                el.classList.add('ok');
+            }, delayOk);
+        }
         function draw() {
             var item = bank[i % bank.length];
             qEl.textContent = item.q;
-            if (meta) meta.textContent = 'Chapter quiz · ' + item.t;
-            list.innerHTML = item.a.map(function (t, n) {
-                return '<button type="button" class="ld-opt">' + letters.charAt(n) + '. ' + t + '</button>';
-            }).join('');
-            var opts = list.querySelectorAll('.ld-opt');
-            setTimeout(function () {
-                if (opts[item.c]) opts[item.c].classList.add('pick');
-            }, 800);
-            setTimeout(function () {
-                if (opts[item.c]) {
-                    opts[item.c].classList.remove('pick');
-                    opts[item.c].classList.add('ok');
-                }
-            }, 1500);
+            if (meta) meta.textContent = item.type + ' · ' + item.t;
+            list.className = 'ld-quiz-opts' + (item.kind === 'tf' ? ' tf' : '');
+            if (item.kind === 'blank') {
+                list.innerHTML = '';
+                var box = document.createElement('div');
+                box.className = 'ld-blank';
+                box.textContent = 'အဖြေရိုက်ထည့်ပါ...';
+                list.appendChild(box);
+                setTimeout(function () {
+                    box.textContent = item.a;
+                    box.classList.add('ok');
+                }, 900);
+            } else if (item.kind === 'tf') {
+                var tfOpts = ['မှန် (TRUE)', 'မှား (FALSE)'];
+                list.innerHTML = '';
+                tfOpts.forEach(function (lab) {
+                    var b = document.createElement('button');
+                    b.type = 'button';
+                    b.className = 'ld-opt';
+                    b.textContent = lab;
+                    list.appendChild(b);
+                });
+                mark(list.children[pickTf(item)], 800, 1500);
+            } else {
+                list.innerHTML = '';
+                item.a.forEach(function (t, n) {
+                    var b = document.createElement('button');
+                    b.type = 'button';
+                    b.className = 'ld-opt';
+                    b.textContent = letters.charAt(n) + '. ' + t;
+                    list.appendChild(b);
+                });
+                mark(list.children[item.c], 800, 1500);
+            }
             setTimeout(function () {
                 i += 1;
                 draw();
-            }, 2800);
+            }, 3000);
         }
         draw();
     })();
@@ -3406,7 +3442,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=60'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=61'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
