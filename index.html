@@ -2947,6 +2947,20 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-tab span { color: #94A3B8; font-size: 0.78rem; line-height: 1.4; }
         .ld-steam { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .ld-note { color: #94A3B8; font-size: 0.82rem; line-height: 1.5; text-align: center; margin: 0 0 12px; }
+        .ld-price-tester { background: #162235; border: 1px solid #334155; border-radius: 16px; padding: 16px 14px; margin-bottom: 12px; text-align: center; }
+        .ld-price-kicker { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #94A3B8; margin-bottom: 6px; }
+        .ld-price-name { font-weight: 800; font-size: 1.05rem; color: #fff; margin: 0 0 4px; }
+        .ld-price-amt { font-size: 1.55rem; font-weight: 800; color: #00D5FF; font-family: monospace; margin: 8px 0 4px; }
+        .ld-price-meta { color: #94A3B8; font-size: 0.78rem; line-height: 1.4; }
+        .ld-price-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .ld-price-card { background: #162235; border: 1px solid #334155; border-radius: 16px; padding: 14px 10px; text-align: center; }
+        .ld-price-card.ld-price-best { border-color: #00D5FF; }
+        .ld-price-card h3 { margin: 0 0 10px; font-size: 0.88rem; color: #fff; }
+        .ld-price-tag { display: inline-block; font-size: 0.62rem; font-weight: 800; color: #0B0F19; background: #00D5FF; border-radius: 999px; padding: 2px 8px; margin-bottom: 8px; }
+        .ld-price-row { margin: 0 0 10px; }
+        .ld-price-row:last-child { margin-bottom: 0; }
+        .ld-price-row b { display: block; color: #00D5FF; font-size: 1.12rem; font-family: monospace; }
+        .ld-price-row span { display: block; color: #94A3B8; font-size: 0.72rem; margin-top: 3px; line-height: 1.35; }
         
         .ld-subjects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .ld-sub { background: linear-gradient(90deg, #162235, #0F172A); border-left: 3px solid #00D5FF; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease; border: 1px solid rgba(30,41,59,0.6); border-left-width: 3px; }
@@ -3067,6 +3081,31 @@ body.volunteer-role .vol-report-link { display: block !important; }
             </div>
 
             <div class="ld-section reveal">
+                <h2>Price</h2>
+                <p class="ld-note">Same for Grade 10, 11, and 12. Six subjects = your STEAM desk (Bio or Eco as the sixth). No extra exam sale.</p>
+                <div class="ld-price-tester">
+                    <div class="ld-price-kicker">Try first</div>
+                    <div class="ld-price-name">Tester pack</div>
+                    <div class="ld-price-amt">3,000 Ks</div>
+                    <div class="ld-price-meta">6 subjects · 7 days<br>For people who want to try the whole desk</div>
+                </div>
+                <div class="ld-price-cols">
+                    <div class="ld-price-card ld-price-best">
+                        <div class="ld-price-tag">Best value</div>
+                        <h3>6 subjects</h3>
+                        <div class="ld-price-row"><b>29,500 Ks</b><span>15 months · school year</span></div>
+                        <div class="ld-price-row"><b>24,500 Ks</b><span>10 months · this exam</span></div>
+                    </div>
+                    <div class="ld-price-card">
+                        <h3>1 subject</h3>
+                        <div class="ld-price-row"><b>14,500 Ks</b><span>15 months · school year</span></div>
+                        <div class="ld-price-row"><b>12,500 Ks</b><span>10 months · this exam</span></div>
+                    </div>
+                </div>
+                <p class="ld-note" style="margin-top:12px;margin-bottom:0;">Buy: message <a href="https://t.me/minaphayarkot" target="_blank" style="color:#00D5FF;text-decoration:none;">@minaphayarkot</a> with your Telegram ID, grade, and plan.</p>
+            </div>
+
+            <div class="ld-section reveal">
                 <h2>How to Start</h2>
                 <div class="ld-steps">
                     <div class="ld-step"><div class="ld-step-num">1</div><div class="ld-step-text"><b>Open in Telegram</b>This page is only a preview. The Mini App runs inside Telegram</div></div>
@@ -3164,7 +3203,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=54'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=55'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
