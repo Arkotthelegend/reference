@@ -2953,7 +2953,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
             box-shadow: 0 10px 24px rgba(0,213,255,0.16);
         }
         .ld-term button:hover:not(.ld-term-on) { color: #fff; border-color: #00D5FF; }
-        .ld-term-exam:hover:not(.ld-term-on) { color: #FDE68A; border-color: #FBBF24; }
+        .ld-term button.ld-term-exam:hover:not(.ld-term-on) { color: #FDE68A; border-color: #FBBF24; }
         .ld-plan:hover { transform: translateY(-6px); border-color: #00D5FF; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
         .ld-grade:hover, .ld-tab:hover, .ld-sub:hover { transform: translateY(-4px); border-color: #00D5FF; }
         .ld-cd-box:hover { border-color: #00D5FF; transform: translateY(-2px); }
@@ -3081,11 +3081,11 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-price-row:last-child { margin-bottom: 0; }
         .ld-price-row b { display: block; color: #00D5FF; font-size: 1.12rem; font-family: monospace; }
         .ld-price-row span { display: block; color: #94A3B8; font-size: 0.72rem; margin-top: 3px; line-height: 1.35; }
-        .ld-term { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 16px; }
-        .ld-term button { background: #162235; border: 1px solid #334155; color: #94A3B8; border-radius: 999px; padding: 8px 14px; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
+        .ld-term { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 16px; }
+        .ld-term button { width: auto; flex: 0 0 auto; background: #162235; border: 1px solid #334155; color: #94A3B8; border-radius: 999px; padding: 8px 14px; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
         .ld-term button.ld-term-on { background: #00D5FF; color: #0B0F19; border-color: #00D5FF; }
-        .ld-term-exam { border-color: #FBBF24; color: #FBBF24; }
-        .ld-term-exam.ld-term-on { background: #FBBF24; color: #0B0F19; border-color: #FBBF24; }
+        .ld-term button.ld-term-exam { border-color: #FBBF24; color: #FBBF24; }
+        .ld-term button.ld-term-exam.ld-term-on { background: #FBBF24; color: #0B0F19; border-color: #FBBF24; }
         .ld-plans { display: flex; flex-direction: column; gap: 14px; }
         .ld-plan { background: #162235; border: 1px solid #334155; border-radius: 22px; padding: 26px 22px 20px; text-align: left; }
         .ld-plan-try { border-color: #FBBF24; background: linear-gradient(180deg, rgba(251,191,36,0.16) 0%, #162235 44%); }
