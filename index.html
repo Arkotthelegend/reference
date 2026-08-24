@@ -2953,6 +2953,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
             box-shadow: 0 10px 24px rgba(0,213,255,0.16);
         }
         .ld-term button:hover:not(.ld-term-on) { color: #fff; border-color: #00D5FF; }
+        .ld-term button.ld-term-exam:hover:not(.ld-term-on) { color: #FDE68A; border-color: #FBBF24; }
         .ld-plan:hover { transform: translateY(-6px); border-color: #00D5FF; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
         .ld-grade:hover, .ld-tab:hover, .ld-sub:hover { transform: translateY(-4px); border-color: #00D5FF; }
         .ld-cd-box:hover { border-color: #00D5FF; transform: translateY(-2px); }
@@ -3079,9 +3080,14 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-price-row:last-child { margin-bottom: 0; }
         .ld-price-row b { display: block; color: #00D5FF; font-size: 1.12rem; font-family: monospace; }
         .ld-price-row span { display: block; color: #94A3B8; font-size: 0.72rem; margin-top: 3px; line-height: 1.35; }
-        .ld-term { display: flex; gap: 8px; justify-content: center; margin: 0 0 16px; }
-        .ld-term button { background: #162235; border: 1px solid #334155; color: #94A3B8; border-radius: 999px; padding: 8px 14px; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
+        .ld-term { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; max-width: 640px; margin: 0 auto 16px; }
+        .ld-term button { width: 100%; min-width: 0; background: #162235; border: 1px solid #334155; color: #94A3B8; border-radius: 999px; padding: 8px 10px; font-weight: 700; font-size: 0.78rem; cursor: pointer; }
         .ld-term button.ld-term-on { background: #00D5FF; color: #0B0F19; border-color: #00D5FF; }
+        .ld-term button.ld-term-exam { border-color: #FBBF24; color: #FBBF24; }
+        .ld-term button.ld-term-exam.ld-term-on { background: #FBBF24; color: #0B0F19; border-color: #FBBF24; }
+        @media (max-width: 700px) {
+            .ld-term { grid-template-columns: 1fr 1fr; }
+        }
         .ld-plans { display: flex; flex-direction: column; gap: 14px; }
         .ld-plan { background: #162235; border: 1px solid #334155; border-radius: 22px; padding: 26px 22px 20px; text-align: left; }
         .ld-plan-try { border-color: #FBBF24; background: linear-gradient(180deg, rgba(251,191,36,0.16) 0%, #162235 44%); }
@@ -3227,17 +3233,19 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
             <div id="ld-panel-price" class="ld-panel">
             <h2 style="color:#00D5FF;font-size:1.2rem;margin:0 0 8px;text-align:center;">Price</h2>
-            <p class="ld-note">Same prices for Grade 10, 11, and 12. 15 months = school year. 10 months = this exam.</p>
+            <p class="ld-note">Same prices for Grade 10, 11, and 12. 1 month, 3 months, 6 months, or till the exam.</p>
             <p class="ld-note" style="color:#00D5FF;font-weight:700;">Weekly timetable made by AI — included with Tester and the 6-subject pack.</p>
             <div class="ld-term">
-                <button type="button" class="ld-term-btn ld-term-on" data-months="15">15 months</button>
-                <button type="button" class="ld-term-btn" data-months="10">10 months</button>
+                <button type="button" class="ld-term-btn ld-term-on" data-term="1">1 month</button>
+                <button type="button" class="ld-term-btn" data-term="3">3 months</button>
+                <button type="button" class="ld-term-btn" data-term="6">6 months</button>
+                <button type="button" class="ld-term-btn ld-term-exam" data-term="exam">Till the exam</button>
             </div>
             <div class="ld-plans">
-                <article class="ld-plan ld-plan-try">
+                <article class="ld-plan ld-plan-popular">
                     <div class="ld-plan-head">
                         <span class="ld-plan-badge">Tester</span>
-                        <span class="ld-plan-try-tag">7-day try</span>
+                        <span class="ld-plan-popular-tag">7-day try</span>
                     </div>
                     <p class="ld-plan-hook">Taste the full app this week</p>
                     <div class="ld-plan-price">3,000 <small>Ks</small></div>
@@ -3250,13 +3258,13 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     </ul>
                     <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Try it this week</a>
                 </article>
-                <article class="ld-plan">
+                <article class="ld-plan ld-plan-popular">
                     <div class="ld-plan-head">
                         <span class="ld-plan-badge">1 subject</span>
                     </div>
-                    <p class="ld-plan-hook">One subject, full chapters</p>
-                    <div class="ld-plan-price"><span id="ld-one-amt">14,500</span> <small>Ks</small></div>
-                    <div class="ld-plan-bill" id="ld-one-bill">15 months · school year · billed once</div>
+                    <p class="ld-plan-hook">၁ ဘာသာချင်းစီ</p>
+                    <div class="ld-plan-price"><span id="ld-one-amt">၂,၀၀၀</span> <small>Ks</small></div>
+                    <div class="ld-plan-bill" id="ld-one-bill">1 month · billed once</div>
                     <p class="ld-plan-desc">Unlock chapter practice for one subject on your grade.</p>
                     <ul class="ld-plan-feat">
                         <li>Chapter quizzes for that subject</li>
@@ -3269,10 +3277,10 @@ body.volunteer-role .vol-report-link { display: block !important; }
                         <span class="ld-plan-badge">6 subjects</span>
                         <span class="ld-plan-popular-tag">Most pick this</span>
                     </div>
-                    <p class="ld-plan-hook">One pack for the whole exam</p>
-                    <div class="ld-plan-price"><span id="ld-six-amt">29,500</span> <small>Ks</small></div>
-                    <div class="ld-plan-bill" id="ld-six-bill">15 months · school year · billed once</div>
-                    <p class="ld-plan-desc" id="ld-six-desc">Stop buying subject by subject. Six singles would be 87,000 Ks — this pack is 29,500.</p>
+                    <p class="ld-plan-hook">ဘာသာစုံတွဲ</p>
+                    <div class="ld-plan-price"><span id="ld-six-amt">၁၀,၀၀၀</span> <small>Ks</small></div>
+                    <div class="ld-plan-bill" id="ld-six-bill">1 month · billed once</div>
+                    <p class="ld-plan-desc" id="ld-six-desc">Stop buying subject by subject. Six singles would be ၁၂,၀၀၀ Ks — this pack is ၁၀,၀၀၀.</p>
                     <ul class="ld-plan-feat">
                         <li>မြန်မာ · English · Math · Physics · Chem · Bio or Eco</li>
                         <li class="ld-plan-ai">Weekly timetable made by AI</li>
@@ -3322,32 +3330,47 @@ body.volunteer-role .vol-report-link { display: block !important; }
         });
         var jump = document.getElementById('ld-jump-price');
         if (jump) jump.addEventListener('click', function(e) { e.preventDefault(); showPanel('price'); });
-        function applyTerm(months) {
+        function applyTerm(term) {
             var oneAmt = document.getElementById('ld-one-amt');
             var sixAmt = document.getElementById('ld-six-amt');
             var oneBill = document.getElementById('ld-one-bill');
             var sixBill = document.getElementById('ld-six-bill');
             var sixDesc = document.getElementById('ld-six-desc');
             if (!oneAmt || !sixAmt) return;
-            if (months === '10') {
-                oneAmt.textContent = '12,500';
-                sixAmt.textContent = '24,500';
-                oneBill.textContent = '10 months · this exam year · billed once';
-                sixBill.textContent = '10 months · this exam year · billed once';
-                if (sixDesc) sixDesc.textContent = 'Stop buying subject by subject. Six singles would be 75,000 Ks — this pack is 24,500.';
-            } else {
-                oneAmt.textContent = '14,500';
-                sixAmt.textContent = '29,500';
-                oneBill.textContent = '15 months · school year · billed once';
-                sixBill.textContent = '15 months · school year · billed once';
-                if (sixDesc) sixDesc.textContent = 'Stop buying subject by subject. Six singles would be 87,000 Ks — this pack is 29,500.';
-            }
+            var table = {
+                '1': {
+                    one: '၂,၀၀၀', six: '၁၀,၀၀၀',
+                    bill: '1 month · billed once',
+                    desc: 'Stop buying subject by subject. Six singles would be ၁၂,၀၀၀ Ks — this pack is ၁၀,၀၀၀.'
+                },
+                '3': {
+                    one: '၅,၅၀၀', six: '၂၇,၀၀၀',
+                    bill: '3 months · billed once',
+                    desc: 'Stop buying subject by subject. Six singles would be ၃၃,၀၀၀ Ks — this pack is ၂၇,၀၀၀.'
+                },
+                '6': {
+                    one: '၁၀,၀၀၀', six: '၅၃,၀၀၀',
+                    bill: '6 months · billed once',
+                    desc: 'Stop buying subject by subject. Six singles would be ၆၀,၀၀၀ Ks — this pack is ၅၃,၀၀၀.'
+                },
+                exam: {
+                    one: '၁၁,၀၀၀', six: '၅၅,၀၀၀',
+                    bill: 'Till the exam · billed once',
+                    desc: 'Stop buying subject by subject. Six singles would be ၆၆,၀၀၀ Ks — this pack is ၅၅,၀၀၀.'
+                }
+            };
+            var row = table[term] || table['1'];
+            oneAmt.textContent = row.one;
+            sixAmt.textContent = row.six;
+            if (oneBill) oneBill.textContent = row.bill;
+            if (sixBill) sixBill.textContent = row.bill;
+            if (sixDesc) sixDesc.textContent = row.desc;
             document.querySelectorAll('.ld-term-btn').forEach(function(b) {
-                b.classList.toggle('ld-term-on', b.getAttribute('data-months') === months);
+                b.classList.toggle('ld-term-on', b.getAttribute('data-term') === term);
             });
         }
         document.querySelectorAll('.ld-term-btn').forEach(function(b) {
-            b.addEventListener('click', function() { applyTerm(b.getAttribute('data-months')); });
+            b.addEventListener('click', function() { applyTerm(b.getAttribute('data-term')); });
         });
     })();
 
@@ -3531,7 +3554,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=70'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=71'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
