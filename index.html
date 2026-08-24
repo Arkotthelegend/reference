@@ -3101,11 +3101,11 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-plan-hook { color: #94A3B8; font-size: 0.78rem; font-weight: 700; margin: 0 0 10px; }
         .ld-plan-try .ld-plan-hook { color: #FBBF24; }
         .ld-plan-popular .ld-plan-hook { color: #00D5FF; }
-        .ld-plan-price { font-size: 2.15rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; line-height: 1; }
+        .ld-plan-price { display: block; font-size: 2.15rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; line-height: 1.4; margin: 0; }
         .ld-plan-try .ld-plan-price { color: #FBBF24; }
         .ld-plan-popular .ld-plan-price { color: #00D5FF; }
         .ld-plan-price small { font-size: 0.95rem; font-weight: 600; color: #94A3B8; margin-left: 4px; }
-        .ld-plan-bill { color: #94A3B8; font-size: 0.82rem; margin: 8px 0 12px; }
+        .ld-plan-bill { display: block; color: #94A3B8; font-size: 0.82rem; margin: 16px 0 12px; }
         .ld-plan-desc { color: #E2E8F0; font-size: 0.88rem; line-height: 1.5; margin: 0 0 16px; }
         .ld-plan-cta { display: block; width: 100%; padding: 14px; border-radius: 999px; background: #00D5FF; color: #0B0F19; font-weight: 800; text-align: center; text-decoration: none; box-sizing: border-box; margin-bottom: 0; }
         .ld-plan-try .ld-plan-cta { background: #FBBF24; color: #0B0F19; }
@@ -3136,7 +3136,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         @media (min-width: 840px) {
             .ld-cta { display: none !important; }
             .ld-nav-cta { display: inline-flex !important; min-width: 160px; padding: 12px 32px; }
-            .ld-plans { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: stretch; }
+            .ld-plans { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
         }
     </style>
     <div class="ld-page">
@@ -3234,7 +3234,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <div id="ld-panel-price" class="ld-panel">
             <h2 style="color:#00D5FF;font-size:1.2rem;margin:0 0 8px;text-align:center;">Price</h2>
             <p class="ld-note">Same prices for Grade 10, 11, and 12. 1 month, 3 months, 6 months, or till the exam.</p>
-            <p class="ld-note" style="color:#00D5FF;font-weight:700;">Weekly timetable made by AI — included with Tester and the 6-subject pack.</p>
+            <p class="ld-note" style="color:#00D5FF;font-weight:700;">Weekly timetable made by AI — included with the 6-subject pack.</p>
             <div class="ld-term">
                 <button type="button" class="ld-term-btn ld-term-on" data-term="1">1 month</button>
                 <button type="button" class="ld-term-btn" data-term="3">3 months</button>
@@ -3242,22 +3242,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <button type="button" class="ld-term-btn ld-term-exam" data-term="exam">Till the exam</button>
             </div>
             <div class="ld-plans">
-                <article class="ld-plan ld-plan-popular">
-                    <div class="ld-plan-head">
-                        <span class="ld-plan-badge">Tester</span>
-                        <span class="ld-plan-popular-tag">7-day try</span>
-                    </div>
-                    <p class="ld-plan-hook">Taste the full app this week</p>
-                    <div class="ld-plan-price">3,000 <small>Ks</small></div>
-                    <div class="ld-plan-bill">7 days · 6 subjects · billed once</div>
-                    <p class="ld-plan-desc">See every subject before you commit. If it clicks, upgrade. If not, the week just ends.</p>
-                    <ul class="ld-plan-feat">
-                        <li>All six quizzes for 7 days</li>
-                        <li>MCQ, T/F, fill-blank, and 1-mark</li>
-                        <li class="ld-plan-ai">Weekly timetable made by AI</li>
-                    </ul>
-                    <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Try it this week</a>
-                </article>
                 <article class="ld-plan ld-plan-popular">
                     <div class="ld-plan-head">
                         <span class="ld-plan-badge">1 subject</span>
@@ -3297,7 +3281,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <div class="ld-steps">
                     <div class="ld-step"><div class="ld-step-num">1</div><div class="ld-step-text"><b>Open in Telegram</b>This site is a preview. Practice runs inside @reededucation_bot</div></div>
                     <div class="ld-step"><div class="ld-step-num">2</div><div class="ld-step-text"><b>Pick Grade 10, 11, or 12</b>Then open a chapter and answer</div></div>
-                    <div class="ld-step"><div class="ld-step-num">3</div><div class="ld-step-text"><b>Buy if you want full quizzes</b>Tester, 1 subject, or 6 subjects — @minaphayarkot</div></div>
+                    <div class="ld-step"><div class="ld-step-num">3</div><div class="ld-step-text"><b>Buy if you want full quizzes</b>1 subject or 6 subjects — @minaphayarkot</div></div>
                 </div>
             </div>
             </div>
@@ -3554,7 +3538,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=71'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=72'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
