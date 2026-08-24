@@ -2948,7 +2948,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
             box-shadow: 0 10px 24px rgba(0,213,255,0.16);
         }
         .ld-term button:hover:not(.ld-term-on) { color: #fff; border-color: #00D5FF; }
-        .ld-plan:hover { transform: translateY(-6px); border-color: #00D5FF; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+        .ld-plan:hover { transform: translateY(-8px); box-shadow: 0 22px 48px rgba(0,0,0,0.42); }
         .ld-grade:hover, .ld-tab:hover, .ld-sub:hover { transform: translateY(-4px); border-color: #00D5FF; }
         .ld-cd-box:hover { border-color: #00D5FF; transform: translateY(-2px); }
         .ld-float:hover { border-color: #00D5FF; transform: translateY(-3px); }
@@ -3019,8 +3019,54 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-grade { background: #162235; border: 1px solid #334155; border-radius: 18px; padding: 22px 14px; text-align: center; }
         .ld-tab { display: flex; gap: 12px; align-items: flex-start; background: #162235; border: 1px solid #334155; border-radius: 18px; padding: 16px; }
         .ld-note { color: #94A3B8; font-size: 0.92rem; line-height: 1.6; text-align: center; margin: 0 auto 12px; max-width: 36rem; }
-        .ld-plan { background: #162235; border: 1px solid #334155; border-radius: 22px; padding: 26px 22px 20px; text-align: left; }
-        .ld-plan-cta { border-radius: 999px; }
+        .ld-plans-wrap { text-align: center; }
+        .ld-plans-wrap h2 {
+            color: #fff; font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800;
+            letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 8px;
+        }
+        .ld-plans-wrap .ld-note { margin-bottom: 28px; }
+        .ld-plans {
+            display: grid; grid-template-columns: 1fr; gap: 18px;
+            max-width: 1080px; margin: 0 auto 8px; align-items: stretch;
+        }
+        .ld-plan {
+            position: relative; display: flex; flex-direction: column; overflow: hidden;
+            background: #fff; color: #0F172A; border: none; border-radius: 22px;
+            padding: 28px 22px 22px; text-align: center;
+            box-shadow: 0 14px 36px rgba(0,0,0,0.28);
+            font-family: "Noto Sans Myanmar", "Myanmar Text", Padauk, Pyidaungsu, Inter, sans-serif;
+        }
+        .ld-plan h3 { margin: 0 0 14px; font-size: 1.02rem; font-weight: 700; color: #0F172A; line-height: 1.4; }
+        .ld-plan hr { border: none; border-top: 1px solid #E2E8F0; margin: 0 6px 18px; }
+        .ld-plan-price { font-size: 1.85rem; font-weight: 800; color: #0F172A; line-height: 1.15; letter-spacing: -0.02em; }
+        .ld-plan-cycle { color: #94A3B8; font-size: 0.78rem; font-weight: 600; margin: 6px 0 14px; }
+        .ld-plan-feats { list-style: none; padding: 0; margin: 0 0 22px; text-align: left; }
+        .ld-plan-feats li {
+            display: flex; align-items: flex-start; gap: 8px;
+            color: #334155; font-size: 0.84rem; font-weight: 600; line-height: 1.45; margin: 0 0 10px;
+        }
+        .ld-plan-feats li:last-child { margin-bottom: 0; }
+        .ld-plan-feats li::before { content: "✓"; color: #00D5FF; font-weight: 800; flex-shrink: 0; }
+        .ld-plan-cta {
+            display: block; width: 100%; box-sizing: border-box; margin-top: auto;
+            background: #00D5FF; color: #0B0F19; font-weight: 800; font-size: 0.84rem;
+            padding: 12px 16px; border-radius: 999px; text-decoration: none;
+        }
+        .ld-plan-hot { padding-top: 0; }
+        .ld-plan-badge {
+            background: #00D5FF; color: #0B0F19; font-size: 0.68rem; font-weight: 800;
+            letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 12px;
+            margin: 0 -22px 18px; border-radius: 22px 22px 0 0;
+        }
+        @media (min-width: 640px) {
+            .ld-plans { grid-template-columns: 1fr 1fr; }
+        }
+        @media (min-width: 980px) {
+            .ld-plans { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+            .ld-plan { padding: 26px 16px 18px; }
+            .ld-plan-badge { margin-left: -16px; margin-right: -16px; }
+            .ld-plan-price { font-size: 1.55rem; }
+        }
                 .ld-countdown-wrap { background: #162235; border: 1px solid #334155; border-radius: 20px; padding: 14px; margin: 0 auto 16px; text-align: center; max-width: 520px; }
                 .ld-cta { position: fixed; bottom: 0; left: 0; width: 100%; background: #0B0F19; border-top: 1px solid #1E293B; padding: 12px 16px 20px; display: flex; flex-direction: column; gap: 8px; z-index: 100; box-sizing: border-box; }
 		.ld-btn { display: block; width: 100%; padding: 16px; border-radius: 14px; font-weight: 700; font-size: 1rem; text-decoration: none; text-align: center; border: none; cursor: pointer; box-sizing: border-box; }
@@ -3060,43 +3106,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-tab span { color: #94A3B8; font-size: 0.78rem; line-height: 1.4; }
         .ld-steam { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .ld-note { color: #94A3B8; font-size: 0.82rem; line-height: 1.5; text-align: center; margin: 0 0 12px; }
-        .ld-price-tester { background: #162235; border: 1px solid #334155; border-radius: 16px; padding: 16px 14px; margin-bottom: 12px; text-align: center; }
-        .ld-price-kicker { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #94A3B8; margin-bottom: 6px; }
-        .ld-price-name { font-weight: 800; font-size: 1.05rem; color: #fff; margin: 0 0 4px; }
-        .ld-price-amt { font-size: 1.55rem; font-weight: 800; color: #00D5FF; font-family: monospace; margin: 8px 0 4px; }
-        .ld-price-meta { color: #94A3B8; font-size: 0.78rem; line-height: 1.4; }
-        .ld-price-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .ld-price-card { background: #162235; border: 1px solid #334155; border-radius: 16px; padding: 14px 10px; text-align: center; }
-        .ld-price-card.ld-price-best { border-color: #00D5FF; }
-        .ld-price-card h3 { margin: 0 0 10px; font-size: 0.88rem; color: #fff; }
-        .ld-price-tag { display: inline-block; font-size: 0.62rem; font-weight: 800; color: #0B0F19; background: #00D5FF; border-radius: 999px; padding: 2px 8px; margin-bottom: 8px; }
-        .ld-price-row { margin: 0 0 10px; }
-        .ld-price-row:last-child { margin-bottom: 0; }
-        .ld-price-row b { display: block; color: #00D5FF; font-size: 1.12rem; font-family: monospace; }
-        .ld-price-row span { display: block; color: #94A3B8; font-size: 0.72rem; margin-top: 3px; line-height: 1.35; }
-        .ld-sheet {
-            max-width: 640px; margin: 0 auto; overflow: hidden;
-            border-radius: 8px 8px 0 0;
-            font-family: "Noto Sans Myanmar", "Myanmar Text", Padauk, Pyidaungsu, sans-serif;
-        }
-        .ld-sheet-head {
-            background: #C6FF2E; color: #000; font-weight: 800; font-size: 1.12rem;
-            padding: 16px 18px; text-align: left; line-height: 1.45; letter-spacing: 0;
-            border-radius: 8px 8px 0 0;
-        }
-        .ld-sheet-table { width: 100%; border-collapse: collapse; table-layout: fixed; border: 2px solid #111; border-top: none; }
-        .ld-sheet-table th, .ld-sheet-table td {
-            border: 1px solid #111; padding: 16px 12px; text-align: center; font-weight: 700;
-            font-size: 0.98rem; line-height: 1.5; background: #2C2C2C; color: #fff;
-        }
-        .ld-sheet-table col.ld-col-type { width: 34%; }
-        .ld-sheet-table th:first-child, .ld-sheet-table td:first-child { text-align: left; padding-left: 16px; }
-        .ld-sheet-table .pack { background: #E8940A; color: #fff; }
-        @media (max-width: 520px) {
-            .ld-sheet-head { font-size: 0.92rem; padding: 14px 12px; }
-            .ld-sheet-table th, .ld-sheet-table td { font-size: 0.82rem; padding: 14px 8px; }
-            .ld-sheet-table th:first-child, .ld-sheet-table td:first-child { padding-left: 12px; }
-        }
         
         .ld-subjects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .ld-sub { background: linear-gradient(90deg, #162235, #0F172A); border-left: 3px solid #00D5FF; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease; border: 1px solid rgba(30,41,59,0.6); border-left-width: 3px; }
@@ -3213,46 +3222,62 @@ body.volunteer-role .vol-report-link { display: block !important; }
             </div>
 
             <div id="ld-panel-price" class="ld-panel">
-            <div class="ld-sheet">
-                <div class="ld-sheet-head">G-12, G-11, G-10 ဘာသာရပ်ဈေးနှုန်းများ</div>
-                <table class="ld-sheet-table">
-                    <colgroup>
-                        <col class="ld-col-type">
-                        <col>
-                        <col>
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>အမျိုးအစား</th>
-                            <th>၁ ဘာသာချင်းစီ</th>
-                            <th class="pack">ဘာသာစုံတွဲ</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>၁ လစာ</td>
-                            <td>၂,၀၀၀</td>
-                            <td class="pack">၁၀,၀၀၀</td>
-                        </tr>
-                        <tr>
-                            <td>၃ လစာ</td>
-                            <td>၅,၅၀၀</td>
-                            <td class="pack">၂၇,၀၀၀</td>
-                        </tr>
-                        <tr>
-                            <td>၆ လစာ</td>
-                            <td>၁၀,၀၀၀</td>
-                            <td class="pack">၅၃,၀၀၀</td>
-                        </tr>
-                        <tr>
-                            <td>စာမေးပွဲကြီးအထိ</td>
-                            <td>၁၁,၀၀၀</td>
-                            <td class="pack">၅၅,၀၀၀</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="ld-plans-wrap">
+                <h2>Pricing Plan</h2>
+                <p class="ld-note">G-10 · G-11 · G-12</p>
+                <div class="ld-plans">
+                    <article class="ld-plan">
+                        <h3>၁ လစာ</h3>
+                        <hr>
+                        <div class="ld-plan-price">၂,၀၀၀</div>
+                        <div class="ld-plan-cycle">၁ ဘာသာချင်းစီ</div>
+                        <ul class="ld-plan-feats">
+                            <li>ဘာသာစုံတွဲ ၁၀,၀၀၀</li>
+                            <li>G-10 · G-11 · G-12</li>
+                            <li>MCQ · T/F · Blank</li>
+                        </ul>
+                        <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Choose Plan</a>
+                    </article>
+                    <article class="ld-plan">
+                        <h3>၃ လစာ</h3>
+                        <hr>
+                        <div class="ld-plan-price">၅,၅၀၀</div>
+                        <div class="ld-plan-cycle">၁ ဘာသာချင်းစီ</div>
+                        <ul class="ld-plan-feats">
+                            <li>ဘာသာစုံတွဲ ၂၇,၀၀၀</li>
+                            <li>G-10 · G-11 · G-12</li>
+                            <li>MCQ · T/F · Blank</li>
+                        </ul>
+                        <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Choose Plan</a>
+                    </article>
+                    <article class="ld-plan">
+                        <h3>၆ လစာ</h3>
+                        <hr>
+                        <div class="ld-plan-price">၁၀,၀၀၀</div>
+                        <div class="ld-plan-cycle">၁ ဘာသာချင်းစီ</div>
+                        <ul class="ld-plan-feats">
+                            <li>ဘာသာစုံတွဲ ၅၃,၀၀၀</li>
+                            <li>G-10 · G-11 · G-12</li>
+                            <li>MCQ · T/F · Blank</li>
+                        </ul>
+                        <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Choose Plan</a>
+                    </article>
+                    <article class="ld-plan ld-plan-hot">
+                        <div class="ld-plan-badge">Most Popular</div>
+                        <h3>စာမေးပွဲကြီးအထိ</h3>
+                        <hr>
+                        <div class="ld-plan-price">၁၁,၀၀၀</div>
+                        <div class="ld-plan-cycle">၁ ဘာသာချင်းစီ</div>
+                        <ul class="ld-plan-feats">
+                            <li>ဘာသာစုံတွဲ ၅၅,၀၀၀</li>
+                            <li>G-10 · G-11 · G-12</li>
+                            <li>MCQ · T/F · Blank</li>
+                        </ul>
+                        <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Choose Plan</a>
+                    </article>
+                </div>
+                <p class="ld-note" style="margin-top:20px;margin-bottom:0;">Message <a href="https://t.me/minaphayarkot" target="_blank" rel="noopener" style="color:#00D5FF;text-decoration:none;">@minaphayarkot</a> with your Telegram ID, grade, and plan.</p>
             </div>
-            <p class="ld-note" style="margin-top:16px;margin-bottom:0;">Message <a href="https://t.me/minaphayarkot" target="_blank" rel="noopener" style="color:#00D5FF;text-decoration:none;">@minaphayarkot</a> with your Telegram ID, grade, and plan.</p>
             </div>
 
             <div id="ld-panel-start" class="ld-panel">
@@ -3476,7 +3501,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=68'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=69'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
