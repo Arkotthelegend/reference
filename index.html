@@ -2906,7 +2906,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
         document.body.innerHTML = `
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@600;700;800&display=swap">
     <style>
         html, body { margin: 0; background: #0B0F19 !important; }
         .ld-page { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #0B0F19; color: #fff; min-height: 100vh; overflow-y: auto; overflow-x: hidden; position: relative; }
@@ -2942,13 +2941,19 @@ body.volunteer-role .vol-report-link { display: block !important; }
             background: #5EE9FF;
             box-shadow: 0 12px 28px rgba(0,213,255,0.32);
         }
+        .ld-plan-try .ld-plan-cta:hover {
+            background: #FDE68A;
+            box-shadow: 0 12px 28px rgba(251,191,36,0.32);
+        }
+        .ld-plan-try:hover { border-color: #FBBF24; box-shadow: 0 16px 40px rgba(251,191,36,0.18); }
+        .ld-plan-popular:hover { border-color: #5EE9FF; box-shadow: 0 16px 40px rgba(0,213,255,0.22); }
         .ld-btn-secondary:hover {
             transform: translateY(-3px);
             background: rgba(0,213,255,0.12);
             box-shadow: 0 10px 24px rgba(0,213,255,0.16);
         }
         .ld-term button:hover:not(.ld-term-on) { color: #fff; border-color: #00D5FF; }
-        .ld-plan:hover { transform: translateY(-8px); box-shadow: 0 22px 48px rgba(0,0,0,0.42); }
+        .ld-plan:hover { transform: translateY(-6px); border-color: #00D5FF; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
         .ld-grade:hover, .ld-tab:hover, .ld-sub:hover { transform: translateY(-4px); border-color: #00D5FF; }
         .ld-cd-box:hover { border-color: #00D5FF; transform: translateY(-2px); }
         .ld-float:hover { border-color: #00D5FF; transform: translateY(-3px); }
@@ -3019,54 +3024,8 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-grade { background: #162235; border: 1px solid #334155; border-radius: 18px; padding: 22px 14px; text-align: center; }
         .ld-tab { display: flex; gap: 12px; align-items: flex-start; background: #162235; border: 1px solid #334155; border-radius: 18px; padding: 16px; }
         .ld-note { color: #94A3B8; font-size: 0.92rem; line-height: 1.6; text-align: center; margin: 0 auto 12px; max-width: 36rem; }
-        .ld-plans-wrap { text-align: center; }
-        .ld-plans-wrap h2 {
-            color: #fff; font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800;
-            letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 8px;
-        }
-        .ld-plans-wrap .ld-note { margin-bottom: 28px; }
-        .ld-plans {
-            display: grid; grid-template-columns: 1fr; gap: 18px;
-            max-width: 1080px; margin: 0 auto 8px; align-items: stretch;
-        }
-        .ld-plan {
-            position: relative; display: flex; flex-direction: column; overflow: hidden;
-            background: #fff; color: #0F172A; border: none; border-radius: 22px;
-            padding: 28px 22px 22px; text-align: center;
-            box-shadow: 0 14px 36px rgba(0,0,0,0.28);
-            font-family: "Noto Sans Myanmar", "Myanmar Text", Padauk, Pyidaungsu, Inter, sans-serif;
-        }
-        .ld-plan h3 { margin: 0 0 14px; font-size: 1.02rem; font-weight: 700; color: #0F172A; line-height: 1.4; }
-        .ld-plan hr { border: none; border-top: 1px solid #E2E8F0; margin: 0 6px 18px; }
-        .ld-plan-price { font-size: 1.85rem; font-weight: 800; color: #0F172A; line-height: 1.15; letter-spacing: -0.02em; }
-        .ld-plan-cycle { color: #94A3B8; font-size: 0.78rem; font-weight: 600; margin: 6px 0 14px; }
-        .ld-plan-feats { list-style: none; padding: 0; margin: 0 0 22px; text-align: left; }
-        .ld-plan-feats li {
-            display: flex; align-items: flex-start; gap: 8px;
-            color: #334155; font-size: 0.84rem; font-weight: 600; line-height: 1.45; margin: 0 0 10px;
-        }
-        .ld-plan-feats li:last-child { margin-bottom: 0; }
-        .ld-plan-feats li::before { content: "✓"; color: #00D5FF; font-weight: 800; flex-shrink: 0; }
-        .ld-plan-cta {
-            display: block; width: 100%; box-sizing: border-box; margin-top: auto;
-            background: #00D5FF; color: #0B0F19; font-weight: 800; font-size: 0.84rem;
-            padding: 12px 16px; border-radius: 999px; text-decoration: none;
-        }
-        .ld-plan-hot { padding-top: 0; }
-        .ld-plan-badge {
-            background: #00D5FF; color: #0B0F19; font-size: 0.68rem; font-weight: 800;
-            letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 12px;
-            margin: 0 -22px 18px; border-radius: 22px 22px 0 0;
-        }
-        @media (min-width: 640px) {
-            .ld-plans { grid-template-columns: 1fr 1fr; }
-        }
-        @media (min-width: 980px) {
-            .ld-plans { grid-template-columns: repeat(4, 1fr); gap: 14px; }
-            .ld-plan { padding: 26px 16px 18px; }
-            .ld-plan-badge { margin-left: -16px; margin-right: -16px; }
-            .ld-plan-price { font-size: 1.55rem; }
-        }
+        .ld-plan { background: #162235; border: 1px solid #334155; border-radius: 22px; padding: 26px 22px 20px; text-align: left; }
+        .ld-plan-cta { border-radius: 999px; }
                 .ld-countdown-wrap { background: #162235; border: 1px solid #334155; border-radius: 20px; padding: 14px; margin: 0 auto 16px; text-align: center; max-width: 520px; }
                 .ld-cta { position: fixed; bottom: 0; left: 0; width: 100%; background: #0B0F19; border-top: 1px solid #1E293B; padding: 12px 16px 20px; display: flex; flex-direction: column; gap: 8px; z-index: 100; box-sizing: border-box; }
 		.ld-btn { display: block; width: 100%; padding: 16px; border-radius: 14px; font-weight: 700; font-size: 1rem; text-decoration: none; text-align: center; border: none; cursor: pointer; box-sizing: border-box; }
@@ -3106,6 +3065,50 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-tab span { color: #94A3B8; font-size: 0.78rem; line-height: 1.4; }
         .ld-steam { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .ld-note { color: #94A3B8; font-size: 0.82rem; line-height: 1.5; text-align: center; margin: 0 0 12px; }
+        .ld-price-tester { background: #162235; border: 1px solid #334155; border-radius: 16px; padding: 16px 14px; margin-bottom: 12px; text-align: center; }
+        .ld-price-kicker { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #94A3B8; margin-bottom: 6px; }
+        .ld-price-name { font-weight: 800; font-size: 1.05rem; color: #fff; margin: 0 0 4px; }
+        .ld-price-amt { font-size: 1.55rem; font-weight: 800; color: #00D5FF; font-family: monospace; margin: 8px 0 4px; }
+        .ld-price-meta { color: #94A3B8; font-size: 0.78rem; line-height: 1.4; }
+        .ld-price-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .ld-price-card { background: #162235; border: 1px solid #334155; border-radius: 16px; padding: 14px 10px; text-align: center; }
+        .ld-price-card.ld-price-best { border-color: #00D5FF; }
+        .ld-price-card h3 { margin: 0 0 10px; font-size: 0.88rem; color: #fff; }
+        .ld-price-tag { display: inline-block; font-size: 0.62rem; font-weight: 800; color: #0B0F19; background: #00D5FF; border-radius: 999px; padding: 2px 8px; margin-bottom: 8px; }
+        .ld-price-row { margin: 0 0 10px; }
+        .ld-price-row:last-child { margin-bottom: 0; }
+        .ld-price-row b { display: block; color: #00D5FF; font-size: 1.12rem; font-family: monospace; }
+        .ld-price-row span { display: block; color: #94A3B8; font-size: 0.72rem; margin-top: 3px; line-height: 1.35; }
+        .ld-term { display: flex; gap: 8px; justify-content: center; margin: 0 0 16px; }
+        .ld-term button { background: #162235; border: 1px solid #334155; color: #94A3B8; border-radius: 999px; padding: 8px 14px; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
+        .ld-term button.ld-term-on { background: #00D5FF; color: #0B0F19; border-color: #00D5FF; }
+        .ld-plans { display: flex; flex-direction: column; gap: 14px; }
+        .ld-plan { background: #162235; border: 1px solid #334155; border-radius: 22px; padding: 26px 22px 20px; text-align: left; }
+        .ld-plan-try { border-color: #FBBF24; background: linear-gradient(180deg, rgba(251,191,36,0.16) 0%, #162235 44%); }
+        .ld-plan-popular { border-color: #00D5FF; background: linear-gradient(180deg, rgba(0,213,255,0.16) 0%, #162235 40%); }
+        .ld-plan-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 8px; }
+        .ld-plan-badge { background: #334155; color: #E2E8F0; font-size: 0.65rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; }
+        .ld-plan-try .ld-plan-badge { background: #FBBF24; color: #0B0F19; }
+        .ld-plan-popular .ld-plan-badge { background: #00D5FF; color: #0B0F19; }
+        .ld-plan-popular-tag { background: #00D5FF; color: #0B0F19; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; }
+        .ld-plan-try-tag { background: #FBBF24; color: #0B0F19; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; }
+        .ld-plan-hook { color: #94A3B8; font-size: 0.78rem; font-weight: 700; margin: 0 0 10px; }
+        .ld-plan-try .ld-plan-hook { color: #FBBF24; }
+        .ld-plan-popular .ld-plan-hook { color: #00D5FF; }
+        .ld-plan-price { font-size: 2.15rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; line-height: 1; }
+        .ld-plan-try .ld-plan-price { color: #FBBF24; }
+        .ld-plan-popular .ld-plan-price { color: #00D5FF; }
+        .ld-plan-price small { font-size: 0.95rem; font-weight: 600; color: #94A3B8; margin-left: 4px; }
+        .ld-plan-bill { color: #94A3B8; font-size: 0.82rem; margin: 8px 0 12px; }
+        .ld-plan-desc { color: #E2E8F0; font-size: 0.88rem; line-height: 1.5; margin: 0 0 16px; }
+        .ld-plan-cta { display: block; width: 100%; padding: 14px; border-radius: 999px; background: #00D5FF; color: #0B0F19; font-weight: 800; text-align: center; text-decoration: none; box-sizing: border-box; margin-bottom: 0; }
+        .ld-plan-try .ld-plan-cta { background: #FBBF24; color: #0B0F19; }
+        .ld-plan-sec { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #64748B; margin: 0 0 4px; }
+        .ld-plan-feat { list-style: none; padding: 0; margin: 0 0 16px; }
+        .ld-plan-feat li { color: #fff; font-size: 0.86rem; line-height: 1.45; padding: 10px 0; border-top: 1px solid #1E293B; }
+        .ld-plan-feat li:first-child { border-top: 0; padding-top: 0; }
+        .ld-plan-ai { color: #00D5FF !important; font-weight: 800; }
+        .ld-plan-try .ld-plan-ai { color: #FBBF24 !important; }
         
         .ld-subjects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .ld-sub { background: linear-gradient(90deg, #162235, #0F172A); border-left: 3px solid #00D5FF; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease; border: 1px solid rgba(30,41,59,0.6); border-left-width: 3px; }
@@ -3127,6 +3130,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         @media (min-width: 840px) {
             .ld-cta { display: none !important; }
             .ld-nav-cta { display: inline-flex !important; min-width: 160px; padding: 12px 32px; }
+            .ld-plans { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: stretch; }
         }
     </style>
     <div class="ld-page">
@@ -3222,62 +3226,61 @@ body.volunteer-role .vol-report-link { display: block !important; }
             </div>
 
             <div id="ld-panel-price" class="ld-panel">
-            <div class="ld-plans-wrap">
-                <h2>Pricing Plan</h2>
-                <p class="ld-note">G-10 · G-11 · G-12</p>
-                <div class="ld-plans">
-                    <article class="ld-plan">
-                        <h3>၁ လစာ</h3>
-                        <hr>
-                        <div class="ld-plan-price">၂,၀၀၀</div>
-                        <div class="ld-plan-cycle">၁ ဘာသာချင်းစီ</div>
-                        <ul class="ld-plan-feats">
-                            <li>ဘာသာစုံတွဲ ၁၀,၀၀၀</li>
-                            <li>G-10 · G-11 · G-12</li>
-                            <li>MCQ · T/F · Blank</li>
-                        </ul>
-                        <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Choose Plan</a>
-                    </article>
-                    <article class="ld-plan">
-                        <h3>၃ လစာ</h3>
-                        <hr>
-                        <div class="ld-plan-price">၅,၅၀၀</div>
-                        <div class="ld-plan-cycle">၁ ဘာသာချင်းစီ</div>
-                        <ul class="ld-plan-feats">
-                            <li>ဘာသာစုံတွဲ ၂၇,၀၀၀</li>
-                            <li>G-10 · G-11 · G-12</li>
-                            <li>MCQ · T/F · Blank</li>
-                        </ul>
-                        <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Choose Plan</a>
-                    </article>
-                    <article class="ld-plan">
-                        <h3>၆ လစာ</h3>
-                        <hr>
-                        <div class="ld-plan-price">၁၀,၀၀၀</div>
-                        <div class="ld-plan-cycle">၁ ဘာသာချင်းစီ</div>
-                        <ul class="ld-plan-feats">
-                            <li>ဘာသာစုံတွဲ ၅၃,၀၀၀</li>
-                            <li>G-10 · G-11 · G-12</li>
-                            <li>MCQ · T/F · Blank</li>
-                        </ul>
-                        <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Choose Plan</a>
-                    </article>
-                    <article class="ld-plan ld-plan-hot">
-                        <div class="ld-plan-badge">Most Popular</div>
-                        <h3>စာမေးပွဲကြီးအထိ</h3>
-                        <hr>
-                        <div class="ld-plan-price">၁၁,၀၀၀</div>
-                        <div class="ld-plan-cycle">၁ ဘာသာချင်းစီ</div>
-                        <ul class="ld-plan-feats">
-                            <li>ဘာသာစုံတွဲ ၅၅,၀၀၀</li>
-                            <li>G-10 · G-11 · G-12</li>
-                            <li>MCQ · T/F · Blank</li>
-                        </ul>
-                        <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Choose Plan</a>
-                    </article>
-                </div>
-                <p class="ld-note" style="margin-top:20px;margin-bottom:0;">Message <a href="https://t.me/minaphayarkot" target="_blank" rel="noopener" style="color:#00D5FF;text-decoration:none;">@minaphayarkot</a> with your Telegram ID, grade, and plan.</p>
+            <h2 style="color:#00D5FF;font-size:1.2rem;margin:0 0 8px;text-align:center;">Price</h2>
+            <p class="ld-note">Same prices for Grade 10, 11, and 12. 15 months = school year. 10 months = this exam.</p>
+            <p class="ld-note" style="color:#00D5FF;font-weight:700;">Weekly timetable made by AI — included with Tester and the 6-subject pack.</p>
+            <div class="ld-term">
+                <button type="button" class="ld-term-btn ld-term-on" data-months="15">15 months</button>
+                <button type="button" class="ld-term-btn" data-months="10">10 months</button>
             </div>
+            <div class="ld-plans">
+                <article class="ld-plan ld-plan-try">
+                    <div class="ld-plan-head">
+                        <span class="ld-plan-badge">Tester</span>
+                        <span class="ld-plan-try-tag">7-day try</span>
+                    </div>
+                    <p class="ld-plan-hook">Taste the full app this week</p>
+                    <div class="ld-plan-price">3,000 <small>Ks</small></div>
+                    <div class="ld-plan-bill">7 days · 6 subjects · billed once</div>
+                    <p class="ld-plan-desc">See every subject before you commit. If it clicks, upgrade. If not, the week just ends.</p>
+                    <ul class="ld-plan-feat">
+                        <li>All six quizzes for 7 days</li>
+                        <li>MCQ, T/F, fill-blank, and 1-mark</li>
+                        <li class="ld-plan-ai">Weekly timetable made by AI</li>
+                    </ul>
+                    <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Try it this week</a>
+                </article>
+                <article class="ld-plan">
+                    <div class="ld-plan-head">
+                        <span class="ld-plan-badge">1 subject</span>
+                    </div>
+                    <p class="ld-plan-hook">One subject, full chapters</p>
+                    <div class="ld-plan-price"><span id="ld-one-amt">14,500</span> <small>Ks</small></div>
+                    <div class="ld-plan-bill" id="ld-one-bill">15 months · school year · billed once</div>
+                    <p class="ld-plan-desc">Unlock chapter practice for one subject on your grade.</p>
+                    <ul class="ld-plan-feat">
+                        <li>Chapter quizzes for that subject</li>
+                        <li>MCQ, true/false, fill-blank, and 1-mark</li>
+                    </ul>
+                    <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Message to buy</a>
+                </article>
+                <article class="ld-plan ld-plan-popular">
+                    <div class="ld-plan-head">
+                        <span class="ld-plan-badge">6 subjects</span>
+                        <span class="ld-plan-popular-tag">Most pick this</span>
+                    </div>
+                    <p class="ld-plan-hook">One pack for the whole exam</p>
+                    <div class="ld-plan-price"><span id="ld-six-amt">29,500</span> <small>Ks</small></div>
+                    <div class="ld-plan-bill" id="ld-six-bill">15 months · school year · billed once</div>
+                    <p class="ld-plan-desc" id="ld-six-desc">Stop buying subject by subject. Six singles would be 87,000 Ks — this pack is 29,500.</p>
+                    <ul class="ld-plan-feat">
+                        <li>မြန်မာ · English · Math · Physics · Chem · Bio or Eco</li>
+                        <li class="ld-plan-ai">Weekly timetable made by AI</li>
+                    </ul>
+                    <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Unlock all six</a>
+                </article>
+            </div>
+            <p class="ld-note" style="margin-top:16px;margin-bottom:0;">Message <a href="https://t.me/minaphayarkot" target="_blank" rel="noopener" style="color:#00D5FF;text-decoration:none;">@minaphayarkot</a> with your Telegram ID, grade, and plan.</p>
             </div>
 
             <div id="ld-panel-start" class="ld-panel">
@@ -3286,7 +3289,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <div class="ld-steps">
                     <div class="ld-step"><div class="ld-step-num">1</div><div class="ld-step-text"><b>Open in Telegram</b>This site is a preview. Practice runs inside @reededucation_bot</div></div>
                     <div class="ld-step"><div class="ld-step-num">2</div><div class="ld-step-text"><b>Pick Grade 10, 11, or 12</b>Then open a chapter and answer</div></div>
-                    <div class="ld-step"><div class="ld-step-num">3</div><div class="ld-step-text"><b>Buy if you want full quizzes</b>1 subject or all subjects — @minaphayarkot</div></div>
+                    <div class="ld-step"><div class="ld-step-num">3</div><div class="ld-step-text"><b>Buy if you want full quizzes</b>Tester, 1 subject, or 6 subjects — @minaphayarkot</div></div>
                 </div>
             </div>
             </div>
@@ -3319,6 +3322,33 @@ body.volunteer-role .vol-report-link { display: block !important; }
         });
         var jump = document.getElementById('ld-jump-price');
         if (jump) jump.addEventListener('click', function(e) { e.preventDefault(); showPanel('price'); });
+        function applyTerm(months) {
+            var oneAmt = document.getElementById('ld-one-amt');
+            var sixAmt = document.getElementById('ld-six-amt');
+            var oneBill = document.getElementById('ld-one-bill');
+            var sixBill = document.getElementById('ld-six-bill');
+            var sixDesc = document.getElementById('ld-six-desc');
+            if (!oneAmt || !sixAmt) return;
+            if (months === '10') {
+                oneAmt.textContent = '12,500';
+                sixAmt.textContent = '24,500';
+                oneBill.textContent = '10 months · this exam year · billed once';
+                sixBill.textContent = '10 months · this exam year · billed once';
+                if (sixDesc) sixDesc.textContent = 'Stop buying subject by subject. Six singles would be 75,000 Ks — this pack is 24,500.';
+            } else {
+                oneAmt.textContent = '14,500';
+                sixAmt.textContent = '29,500';
+                oneBill.textContent = '15 months · school year · billed once';
+                sixBill.textContent = '15 months · school year · billed once';
+                if (sixDesc) sixDesc.textContent = 'Stop buying subject by subject. Six singles would be 87,000 Ks — this pack is 29,500.';
+            }
+            document.querySelectorAll('.ld-term-btn').forEach(function(b) {
+                b.classList.toggle('ld-term-on', b.getAttribute('data-months') === months);
+            });
+        }
+        document.querySelectorAll('.ld-term-btn').forEach(function(b) {
+            b.addEventListener('click', function() { applyTerm(b.getAttribute('data-months')); });
+        });
     })();
 
     (function(){
@@ -3501,7 +3531,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=69'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=70'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
