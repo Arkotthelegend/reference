@@ -3049,7 +3049,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
             .ld-nav-inner { flex-wrap: wrap; justify-content: center; padding: 12px 14px; }
             .ld-float { display: none; }
             .ld-week { grid-template-columns: 40px repeat(5, 1fr); }
-            .ld-term { display: grid; grid-template-columns: 1fr 1fr; }
         }
         .ld-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
                 .ld-card { background: #162235; border: 1px solid #334155; border-radius: 16px; padding: 16px 12px; text-align: center; }
@@ -3081,11 +3080,14 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-price-row:last-child { margin-bottom: 0; }
         .ld-price-row b { display: block; color: #00D5FF; font-size: 1.12rem; font-family: monospace; }
         .ld-price-row span { display: block; color: #94A3B8; font-size: 0.72rem; margin-top: 3px; line-height: 1.35; }
-        .ld-term { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0 0 16px; }
-        .ld-term button { width: auto; flex: 0 0 auto; background: #162235; border: 1px solid #334155; color: #94A3B8; border-radius: 999px; padding: 8px 14px; font-weight: 700; font-size: 0.8rem; cursor: pointer; }
+        .ld-term { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; max-width: 640px; margin: 0 auto 16px; }
+        .ld-term button { width: 100%; min-width: 0; background: #162235; border: 1px solid #334155; color: #94A3B8; border-radius: 999px; padding: 8px 10px; font-weight: 700; font-size: 0.78rem; cursor: pointer; }
         .ld-term button.ld-term-on { background: #00D5FF; color: #0B0F19; border-color: #00D5FF; }
         .ld-term button.ld-term-exam { border-color: #FBBF24; color: #FBBF24; }
         .ld-term button.ld-term-exam.ld-term-on { background: #FBBF24; color: #0B0F19; border-color: #FBBF24; }
+        @media (max-width: 700px) {
+            .ld-term { grid-template-columns: 1fr 1fr; }
+        }
         .ld-plans { display: flex; flex-direction: column; gap: 14px; }
         .ld-plan { background: #162235; border: 1px solid #334155; border-radius: 22px; padding: 26px 22px 20px; text-align: left; }
         .ld-plan-try { border-color: #FBBF24; background: linear-gradient(180deg, rgba(251,191,36,0.16) 0%, #162235 44%); }
