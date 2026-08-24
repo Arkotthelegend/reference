@@ -317,24 +317,19 @@
                 if (id && ids.indexOf(id) === -1 && inSteam(answers, id)) ids.push(id);
             });
         }
+        add(steamIds(answers));
         add(answers.weakSubjects);
         add(answers.strongSubjects);
-        add(answers.subjects);
         return ids;
     }
 
     function makeCycle(answers, seed) {
-        var bag = [];
+        var bag = steamIds(answers);
         (answers.weakSubjects || []).forEach(function (id) {
-            if (inSteam(answers, id)) bag.push(id, id, id);
+            if (inSteam(answers, id)) bag.push(id, id);
         });
-        (answers.strongSubjects || []).forEach(function (id) {
-            if (inSteam(answers, id)) bag.push(id);
-        });
-        if (!bag.length) bag = weekSubjects(answers).slice();
-        var cycle = seededShuffle(bag, seed || 1);
-        if (!cycle.length) cycle = ['en'];
-        return cycle;
+        if (!bag.length) bag = ['en'];
+        return seededShuffle(bag, seed || 1);
     }
 
     function buildWeek(answers, seed) {
@@ -793,18 +788,8 @@
         return drawA4Page(canvas, model, meta, logoCanvas, chartGroups()[0]);
     }
 
-    function weekLabel(mondayYmd) {
-        if (!mondayYmd) return '';
-        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        function pretty(ymd) {
-            var p = ymd.split('-');
-            return parseInt(p[2], 10) + ' ' + months[parseInt(p[1], 10) - 1];
-        }
-        var end = new Date(Date.parse(mondayYmd + 'T12:00:00+06:30') + 6 * 86400000);
-        var ey = end.getFullYear();
-        var em = pad(end.getMonth() + 1);
-        var ed = pad(end.getDate());
-        return 'This week · ' + pretty(mondayYmd) + ' – ' + pretty(ey + '-' + em + '-' + ed);
+    function weekLabel() {
+        return 'This week';
     }
 
     function targetMonday(api) {
