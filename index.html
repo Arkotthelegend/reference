@@ -2906,6 +2906,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
         document.body.innerHTML = `
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@600;700;800&display=swap">
     <style>
         html, body { margin: 0; background: #0B0F19 !important; }
         .ld-page { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #0B0F19; color: #fff; min-height: 100vh; overflow-y: auto; overflow-x: hidden; position: relative; }
@@ -3073,19 +3074,28 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-price-row:last-child { margin-bottom: 0; }
         .ld-price-row b { display: block; color: #00D5FF; font-size: 1.12rem; font-family: monospace; }
         .ld-price-row span { display: block; color: #94A3B8; font-size: 0.72rem; margin-top: 3px; line-height: 1.35; }
-        .ld-sheet { max-width: 640px; margin: 0 auto; overflow: hidden; border: 2px solid #0B0F19; border-radius: 8px; }
-        .ld-sheet-head { background: #5CFF33; color: #0B0F19; font-weight: 800; font-size: 1.02rem; padding: 14px 16px; text-align: left; }
-        .ld-sheet-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-        .ld-sheet-table th, .ld-sheet-table td {
-            border: 1px solid #0B0F19; padding: 14px 8px; text-align: center; font-weight: 800; font-size: 0.82rem; line-height: 1.45;
-            background: #1B2433; color: #fff;
+        .ld-sheet {
+            max-width: 640px; margin: 0 auto; overflow: hidden;
+            border-radius: 8px 8px 0 0;
+            font-family: "Noto Sans Myanmar", "Myanmar Text", Padauk, Pyidaungsu, sans-serif;
         }
-        .ld-sheet-table th:first-child, .ld-sheet-table td:first-child { text-align: left; padding-left: 12px; }
-        .ld-sheet-table .pack { background: #FFB000; color: #0B0F19; }
+        .ld-sheet-head {
+            background: #C6FF2E; color: #000; font-weight: 800; font-size: 1.12rem;
+            padding: 16px 18px; text-align: left; line-height: 1.45; letter-spacing: 0;
+            border-radius: 8px 8px 0 0;
+        }
+        .ld-sheet-table { width: 100%; border-collapse: collapse; table-layout: fixed; border: 2px solid #111; border-top: none; }
+        .ld-sheet-table th, .ld-sheet-table td {
+            border: 1px solid #111; padding: 16px 12px; text-align: center; font-weight: 700;
+            font-size: 0.98rem; line-height: 1.5; background: #2C2C2C; color: #fff;
+        }
+        .ld-sheet-table col.ld-col-type { width: 34%; }
+        .ld-sheet-table th:first-child, .ld-sheet-table td:first-child { text-align: left; padding-left: 16px; }
+        .ld-sheet-table .pack { background: #E8940A; color: #fff; }
         @media (max-width: 520px) {
-            .ld-sheet-head { font-size: 0.88rem; padding: 12px 10px; }
-            .ld-sheet-table th, .ld-sheet-table td { font-size: 0.72rem; padding: 12px 4px; }
-            .ld-sheet-table th:first-child, .ld-sheet-table td:first-child { padding-left: 8px; }
+            .ld-sheet-head { font-size: 0.92rem; padding: 14px 12px; }
+            .ld-sheet-table th, .ld-sheet-table td { font-size: 0.82rem; padding: 14px 8px; }
+            .ld-sheet-table th:first-child, .ld-sheet-table td:first-child { padding-left: 12px; }
         }
         
         .ld-subjects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -3204,8 +3214,13 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
             <div id="ld-panel-price" class="ld-panel">
             <div class="ld-sheet">
-                <div class="ld-sheet-head">G-12, G-11, G-10 ဘာသာရပ်ဈေးနှုန်း</div>
+                <div class="ld-sheet-head">G-12, G-11, G-10 ဘာသာရပ်ဈေးနှုန်းများ</div>
                 <table class="ld-sheet-table">
+                    <colgroup>
+                        <col class="ld-col-type">
+                        <col>
+                        <col>
+                    </colgroup>
                     <thead>
                         <tr>
                             <th>အမျိုးအစား</th>
@@ -3216,23 +3231,23 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     <tbody>
                         <tr>
                             <td>၁ လစာ</td>
-                            <td>၂,၀၀၀ ကျပ်</td>
-                            <td class="pack">၁၀,၀၀၀ ကျပ်</td>
+                            <td>၂,၀၀၀</td>
+                            <td class="pack">၁၀,၀၀၀</td>
                         </tr>
                         <tr>
                             <td>၃ လစာ</td>
-                            <td>၅,၅၀၀ ကျပ်</td>
-                            <td class="pack">၂၇,၀၀၀ ကျပ်</td>
+                            <td>၅,၅၀၀</td>
+                            <td class="pack">၂၇,၀၀၀</td>
                         </tr>
                         <tr>
                             <td>၆ လစာ</td>
-                            <td>၁၀,၀၀၀ ကျပ်</td>
-                            <td class="pack">၅၃,၀၀၀ ကျပ်</td>
+                            <td>၁၀,၀၀၀</td>
+                            <td class="pack">၅၃,၀၀၀</td>
                         </tr>
                         <tr>
                             <td>စာမေးပွဲကြီးအထိ</td>
-                            <td>၁၁,၀၀၀ ကျပ်</td>
-                            <td class="pack">၅၅,၀၀၀ ကျပ်</td>
+                            <td>၁၁,၀၀၀</td>
+                            <td class="pack">၅၅,၀၀၀</td>
                         </tr>
                     </tbody>
                 </table>
@@ -3461,7 +3476,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=67'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=68'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
