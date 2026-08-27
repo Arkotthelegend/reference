@@ -1,152 +1,153 @@
+math_Chapter_1_2_Marks.json
 [
   {
     "type": "math_show",
-    "q": "Solve \\( x^2 = -16 \\).",
-    "c": "<strong>Solution</strong><br><br>Since \\( i^2 = -1 \\),<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}x^2 &= -16 = 16 i^2\\\\x &= \\pm 4i.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(x=\\pm 4i\\)</div>"
+    "q": "Given \\( z = 1 + i \\), find \\( z^8 \\) in the form \\( x + yi \\).",
+    "c": "<strong>Solution</strong><br><br>The trigonometric form of \\( z = 1 + i \\) is<br><div style=\"overflow-x:auto;\">\\[ z = \\sqrt{2} \\left( \\cos \\frac{\\pi}{4} + i \\sin \\frac{\\pi}{4} \\right) \\]</div>By De Moivre's Theorem,<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z^8 &= (\\sqrt{2})^8 \\left( \\cos \\left( 8 \\times \\frac{\\pi}{4} \\right) + i \\sin \\left( 8 \\times \\frac{\\pi}{4} \\right) \\right) \\\\ &= 16 (\\cos 2\\pi + i \\sin 2\\pi) \\\\ &= 16 (1 + 0i) \\\\ &= 16 \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 16 \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Evaluate \\( i^{33} + i^{34} \\).",
-    "c": "<strong>Solution</strong><br><br>The powers of \\( i \\) repeat every four: \\( i^1=i,\\; i^2=-1,\\; i^3=-i,\\; i^4=1 \\).<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}i^{33}&=(i^4)^8\\cdot i=i,\\\\i^{34}&=(i^4)^8\\cdot i^2=-1.\\end{aligned}\\]</div><br><br><div style=\"overflow-x:auto;\">\\(i^{33}+i^{34}=i-1=-1+i.\\)</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(-1+i\\)</div>"
+    "q": "Given \\( z = -1 + \\sqrt{3}i \\), find \\( z^6 \\) in the form \\( x + yi \\).",
+    "c": "<strong>Solution</strong><br><br>The trigonometric form of \\( z = -1 + \\sqrt{3}i \\) is<br><div style=\"overflow-x:auto;\">\\[ z = 2 \\left( \\cos \\frac{2\\pi}{3} + i \\sin \\frac{2\\pi}{3} \\right) \\]</div>By De Moivre's Theorem,<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z^6 &= 2^6 \\left( \\cos \\left( 6 \\times \\frac{2\\pi}{3} \\right) + i \\sin \\left( 6 \\times \\frac{2\\pi}{3} \\right) \\right) \\\\ &= 64 (\\cos 4\\pi + i \\sin 4\\pi) \\\\ &= 64 (1 + 0i) \\\\ &= 64 \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 64 \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Compute \\( (4,\\,-2)+(1,\\,5)-(2,\\,-1) \\) in the form \\( (x,\\, y) \\).",
-    "c": "<strong>Solution</strong><br><br>Addition and subtraction of ordered pairs are componentwise:<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}(4,-2)+(1,5)-(2,-1)&=(4+1-2,\\; -2+5-(-1))\\\\&=(3,\\,4).\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\((3,\\,4)\\)</div>"
+    "q": "Given \\( z = \\sqrt{3} - i \\), find \\( z^5 \\) in the form \\( x + yi \\).",
+    "c": "<strong>Solution</strong><br><br>The trigonometric form of \\( z = \\sqrt{3} - i \\) is<br><div style=\"overflow-x:auto;\">\\[ z = 2 \\left( \\cos \\left(-\\frac{\\pi}{6}\\right) + i \\sin \\left(-\\frac{\\pi}{6}\\right) \\right) \\]</div>By De Moivre's Theorem,<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z^5 &= 2^5 \\left( \\cos \\left( 5 \\times \\left(-\\frac{\\pi}{6}\\right) \\right) + i \\sin \\left( 5 \\times \\left(-\\frac{\\pi}{6}\\right) \\right) \\right) \\\\ &= 32 \\left( \\cos \\left(-\\frac{5\\pi}{6}\\right) + i \\sin \\left(-\\frac{5\\pi}{6}\\right) \\right) \\\\ &= 32 \\left( -\\frac{\\sqrt{3}}{2} - \\frac{1}{2}i \\right) \\\\ &= -16\\sqrt{3} - 16i \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( -16\\sqrt{3} - 16i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Find the product \\( (3,\\,-1)(2,\\,4) \\) in the form \\( (x,\\, y) \\).",
-    "c": "<strong>Solution</strong><br><br>The product of ordered pairs is \\( (x_1,y_1)(x_2,y_2)=(x_1x_2-y_1y_2,\\; x_1y_2+y_1x_2) \\).<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}(3,-1)(2,4)&=(3\\cdot 2-(-1)\\cdot 4,\\; 3\\cdot 4+(-1)\\cdot 2)\\\\&=(6+4,\\; 12-2)=(10,\\,10).\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\((10,\\,10)\\)</div>"
+    "q": "Given \\( z = -2 - 2i \\), find \\( z^4 \\) in the form \\( x + yi \\).",
+    "c": "<strong>Solution</strong><br><br>The trigonometric form of \\( z = -2 - 2i \\) is<br><div style=\"overflow-x:auto;\">\\[ z = 2\\sqrt{2} \\left( \\cos \\left(-\\frac{3\\pi}{4}\\right) + i \\sin \\left(-\\frac{3\\pi}{4}\\right) \\right) \\]</div>By De Moivre's Theorem,<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z^4 &= (2\\sqrt{2})^4 \\left( \\cos \\left( 4 \\times \\left(-\\frac{3\\pi}{4}\\right) \\right) + i \\sin \\left( 4 \\times \\left(-\\frac{3\\pi}{4}\\right) \\right) \\right) \\\\ &= 64 (\\cos (-3\\pi) + i \\sin (-3\\pi)) \\\\ &= 64 (-1 + 0i) \\\\ &= -64 \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( -64 \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Using ordered pairs, show that \\( i^2 = -1 \\).",
-    "c": "<strong>Solution</strong><br><br>By definition \\( i=(0,1) \\) and \\( -1=(-1,0) \\).<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}i^2=(0,1)(0,1)&=(0\\cdot 0-1\\cdot 1,\\; 0\\cdot 1+1\\cdot 0)\\\\&=(-1,\\,0)=-1.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(i^2=-1\\)</div>"
+    "q": "Given \\( z = 1 - \\sqrt{3}i \\), find \\( z^{10} \\) in the form \\( x + yi \\).",
+    "c": "<strong>Solution</strong><br><br>The trigonometric form of \\( z = 1 - \\sqrt{3}i \\) is<br><div style=\"overflow-x:auto;\">\\[ z = 2 \\left( \\cos \\left(-\\frac{\\pi}{3}\\right) + i \\sin \\left(-\\frac{\\pi}{3}\\right) \\right) \\]</div>By De Moivre's Theorem,<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z^{10} &= 2^{10} \\left( \\cos \\left( 10 \\times \\left(-\\frac{\\pi}{3}\\right) \\right) + i \\sin \\left( 10 \\times \\left(-\\frac{\\pi}{3}\\right) \\right) \\right) \\\\ &= 1024 \\left( \\cos \\left(-\\frac{10\\pi}{3}\\right) + i \\sin \\left(-\\frac{10\\pi}{3}\\right) \\right) \\\\ &= 1024 \\left( \\cos \\frac{2\\pi}{3} + i \\sin \\frac{2\\pi}{3} \\right) \\\\ &= 1024 \\left( -\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i \\right) \\\\ &= -512 + 512\\sqrt{3}i \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( -512 + 512\\sqrt{3}i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Express \\( (2-i)-(3+4i)+i \\) in the form \\( a+bi \\).",
-    "c": "<strong>Solution</strong><br><br>Collect real and imaginary parts:<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}(2-i)-(3+4i)+i&=2-3+(-1-4+1)i\\\\&=-1-4i.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(-1-4i\\)</div>"
+    "q": "Let \\( z_1 = 3 + 4i \\) and \\( z_2 = 1 - 2i \\). Find \\( z_1 z_2 \\) in the form \\( x + yi \\).",
+    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z_1 z_2 &= (3 + 4i)(1 - 2i) \\\\ &= 3 - 6i + 4i - 8i^2 \\\\ &= 3 - 2i - 8(-1) \\\\ &= 3 - 2i + 8 \\\\ &= 11 - 2i \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 11 - 2i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Find the multiplicative inverse of \\( z=1-2i \\).",
-    "c": "<strong>Solution</strong><br><br>Multiply numerator and denominator by the conjugate \\( 1+2i \\):<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}z^{-1}&=\\frac{1}{1-2i}=\\frac{1+2i}{(1-2i)(1+2i)}\\\\&=\\frac{1+2i}{1+4}=\\frac{1}{5}+\\frac{2}{5}i.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(\\dfrac{1}{5}+\\dfrac{2}{5}i\\)</div>"
+    "q": "Let \\( z_1 = 2 + 3i \\) and \\( z_2 = 4 - i \\). Find \\( \\frac{z_1}{z_2} \\) in the form \\( x + yi \\).",
+    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} \\frac{z_1}{z_2} &= \\frac{2 + 3i}{4 - i} \\\\ &= \\frac{(2 + 3i)(4 + i)}{(4 - i)(4 + i)} \\\\ &= \\frac{8 + 2i + 12i + 3i^2}{16 - i^2} \\\\ &= \\frac{8 + 14i - 3}{16 + 1} \\\\ &= \\frac{5 + 14i}{17} \\\\ &= \\frac{5}{17} + \\frac{14}{17}i \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( \\frac{5}{17} + \\frac{14}{17}i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Express \\( \\dfrac{3+i}{1+i} \\) in the form \\( a+bi \\).",
-    "c": "<strong>Solution</strong><br><br>Multiply numerator and denominator by \\( 1-i \\):<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}\\frac{3+i}{1+i}&=\\frac{(3+i)(1-i)}{(1+i)(1-i)}\\\\&=\\frac{3-3i+i-i^2}{2}=\\frac{3-2i+1}{2}\\\\&=\\frac{4-2i}{2}=2-i.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(2-i\\)</div>"
+    "q": "Let \\( z_1 = 5 - 2i \\) and \\( z_2 = 3 + i \\). Find \\( \\frac{z_1}{z_2} \\) in the form \\( x + yi \\).",
+    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} \\frac{z_1}{z_2} &= \\frac{5 - 2i}{3 + i} \\\\ &= \\frac{(5 - 2i)(3 - i)}{(3 + i)(3 - i)} \\\\ &= \\frac{15 - 5i - 6i + 2i^2}{9 - i^2} \\\\ &= \\frac{15 - 11i - 2}{9 + 1} \\\\ &= \\frac{13 - 11i}{10} \\\\ &= \\frac{13}{10} - \\frac{11}{10}i \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( \\frac{13}{10} - \\frac{11}{10}i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Find \\( |z| \\) if \\( z=(1+2i)(2-i) \\).",
-    "c": "<strong>Solution</strong><br><br>Use \\( |z_1 z_2|=|z_1|\\,|z_2| \\).<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}|1+2i|&=\\sqrt{1+4}=\\sqrt{5},\\\\|2-i|&=\\sqrt{4+1}=\\sqrt{5},\\\\|z|&=\\sqrt{5}\\cdot\\sqrt{5}=5.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(5\\)</div>"
+    "q": "Let \\( z_1 = -1 + 2i \\) and \\( z_2 = 2 - i \\). Find \\( z_1^2 + z_2 \\) in the form \\( x + yi \\).",
+    "c": "<strong>Solution</strong><br><br>First, calculate \\( z_1^2 \\):<br><div style=\"overflow-x:auto;\">\\[ z_1^2 = (-1 + 2i)^2 = 1 - 4i + 4i^2 = 1 - 4i - 4 = -3 - 4i \\]</div>Now, add \\( z_2 \\):<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z_1^2 + z_2 &= (-3 - 4i) + (2 - i) \\\\ &= -1 - 5i \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( -1 - 5i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Find the conjugate of \\( z=(2+i)(1-3i) \\).",
-    "c": "<strong>Solution</strong><br><br>First expand \\( z \\):<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}z&=(2+i)(1-3i)=2-6i+i-3i^2\\\\&=2-5i+3=5-5i.\\end{aligned}\\]</div><br><br>Hence \\( \\bar{z}=5+5i \\).<br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(5+5i\\)</div>"
+    "q": "Let \\( z = 2 - i \\). Find \\( \\frac{z}{\\bar{z}} \\) in the form \\( x + yi \\).",
+    "c": "<strong>Solution</strong><br><br>The conjugate of \\( z = 2 - i \\) is \\( \\bar{z} = 2 + i \\).<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} \\frac{z}{\\bar{z}} &= \\frac{2 - i}{2 + i} \\\\ &= \\frac{(2 - i)(2 - i)}{(2 + i)(2 - i)} \\\\ &= \\frac{4 - 4i + i^2}{4 - i^2} \\\\ &= \\frac{4 - 4i - 1}{4 + 1} \\\\ &= \\frac{3 - 4i}{5} \\\\ &= \\frac{3}{5} - \\frac{4}{5}i \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( \\frac{3}{5} - \\frac{4}{5}i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "If \\( z=1+i \\), find \\( |z| \\) and the principal argument \\( \\theta \\) (\\( -\\pi<\\theta\\le\\pi \\)).",
-    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}|z|&=\\sqrt{1^2+1^2}=\\sqrt{2},\\\\\\cos\\theta&=\\frac{1}{\\sqrt{2}},\\quad\\sin\\theta=\\frac{1}{\\sqrt{2}}\\implies\\theta=\\frac{\\pi}{4}.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\( |z|=\\sqrt{2} \\), \\( \\theta=\\dfrac{\\pi}{4} \\)</div>"
+    "q": "Solve the equation \\( 2z + 3i = 4 - 5i \\) for \\( z \\).",
+    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} 2z + 3i &= 4 - 5i \\\\ 2z &= 4 - 5i - 3i \\\\ 2z &= 4 - 8i \\\\ z &= \\frac{4 - 8i}{2} \\\\ z &= 2 - 4i \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 2 - 4i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Express \\( z=\\sqrt{3}-i \\) in trigonometric form with \\( -\\pi<\\theta\\le\\pi \\).",
-    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}r&=\\sqrt{(\\sqrt{3})^2+(-1)^2}=\\sqrt{3+1}=2,\\\\\\cos\\theta&=\\frac{\\sqrt{3}}{2},\\quad\\sin\\theta=-\\frac12\\implies\\theta=-\\frac{\\pi}{6}.\\end{aligned}\\]</div><br><br><div style=\"overflow-x:auto;\">\\(z=2\\Bigl(\\cos\\Bigl(-\\frac{\\pi}{6}\\Bigr)+i\\sin\\Bigl(-\\frac{\\pi}{6}\\Bigr)\\Bigr).\\)</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(2\\bigl(\\cos(-\\dfrac{\\pi}{6})+i\\sin(-\\dfrac{\\pi}{6})\\bigr)\\)</div>"
+    "q": "Solve the equation \\( iz + 3 = 2 - i \\) for \\( z \\).",
+    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} iz + 3 &= 2 - i \\\\ iz &= -1 - i \\\\ z &= \\frac{-1 - i}{i} \\\\ z &= \\frac{(-1 - i)(-i)}{i(-i)} \\\\ z &= \\frac{i + i^2}{-i^2} \\\\ z &= \\frac{i - 1}{1} \\\\ z &= -1 + i \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( -1 + i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Express \\( z=-1+i \\) in trigonometric form with \\( -\\pi<\\theta\\le\\pi \\).",
-    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}r&=\\sqrt{(-1)^2+1^2}=\\sqrt{2},\\\\\\cos\\theta&=-\\frac{1}{\\sqrt{2}},\\quad\\sin\\theta=\\frac{1}{\\sqrt{2}}\\implies\\theta=\\frac{3\\pi}{4}.\\end{aligned}\\]</div><br><br><div style=\"overflow-x:auto;\">\\(z=\\sqrt{2}\\Bigl(\\cos\\frac{3\\pi}{4}+i\\sin\\frac{3\\pi}{4}\\Bigr).\\)</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(\\sqrt{2}\\bigl(\\cos\\dfrac{3\\pi}{4}+i\\sin\\dfrac{3\\pi}{4}\\bigr)\\)</div>"
+    "q": "Solve the equation \\( 4z - i = 2z + 3i \\) for \\( z \\).",
+    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} 4z - i &= 2z + 3i \\\\ 4z - 2z &= 3i + i \\\\ 2z &= 4i \\\\ z &= 2i \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 2i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Find the product of \\( z_1=3\\bigl(\\cos\\dfrac{\\pi}{4}+i\\sin\\dfrac{\\pi}{4}\\bigr) \\) and \\( z_2=2\\bigl(\\cos\\dfrac{\\pi}{6}+i\\sin\\dfrac{\\pi}{6}\\bigr) \\) in trigonometric form.",
-    "c": "<strong>Solution</strong><br><br>Use \\( z_1 z_2=r_1 r_2\\bigl(\\cos(\\theta_1+\\theta_2)+i\\sin(\\theta_1+\\theta_2)\\bigr) \\).<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}z_1 z_2&=6\\Bigl(\\cos\\Bigl(\\frac{\\pi}{4}+\\frac{\\pi}{6}\\Bigr)+i\\sin\\Bigl(\\frac{\\pi}{4}+\\frac{\\pi}{6}\\Bigr)\\Bigr)\\\\&=6\\Bigl(\\cos\\frac{5\\pi}{12}+i\\sin\\frac{5\\pi}{12}\\Bigr).\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(6\\bigl(\\cos\\dfrac{5\\pi}{12}+i\\sin\\dfrac{5\\pi}{12}\\bigr)\\)</div>"
+    "q": "Solve the equation \\( (1 + i)z = 2 + 4i \\) for \\( z \\).",
+    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z &= \\frac{2 + 4i}{1 + i} \\\\ z &= \\frac{(2 + 4i)(1 - i)}{(1 + i)(1 - i)} \\\\ z &= \\frac{2 - 2i + 4i - 4i^2}{1 - i^2} \\\\ z &= \\frac{2 + 2i + 4}{1 + 1} \\\\ z &= \\frac{6 + 2i}{2} \\\\ z &= 3 + i \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 3 + i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Find \\( \\dfrac{z_1}{z_2} \\) where \\( z_1=6\\bigl(\\cos\\dfrac{5\\pi}{6}+i\\sin\\dfrac{5\\pi}{6}\\bigr) \\) and \\( z_2=3\\bigl(\\cos\\dfrac{\\pi}{2}+i\\sin\\dfrac{\\pi}{2}\\bigr) \\).",
-    "c": "<strong>Solution</strong><br><br>Use \\( \\dfrac{z_1}{z_2}=\\dfrac{r_1}{r_2}\\bigl(\\cos(\\theta_1-\\theta_2)+i\\sin(\\theta_1-\\theta_2)\\bigr) \\).<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}\\frac{z_1}{z_2}&=2\\Bigl(\\cos\\Bigl(\\frac{5\\pi}{6}-\\frac{\\pi}{2}\\Bigr)+i\\sin\\Bigl(\\frac{5\\pi}{6}-\\frac{\\pi}{2}\\Bigr)\\Bigr)\\\\&=2\\Bigl(\\cos\\frac{\\pi}{3}+i\\sin\\frac{\\pi}{3}\\Bigr).\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(2\\bigl(\\cos\\dfrac{\\pi}{3}+i\\sin\\dfrac{\\pi}{3}\\bigr)\\)</div>"
+    "q": "Solve the equation \\( z + 2\\bar{z} = 3 - 4i \\) for \\( z \\).",
+    "c": "<strong>Solution</strong><br><br>Let \\( z = x + yi \\), then \\( \\bar{z} = x - yi \\).<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} (x + yi) + 2(x - yi) &= 3 - 4i \\\\ x + yi + 2x - 2yi &= 3 - 4i \\\\ 3x - yi &= 3 - 4i \\end{aligned} \\]</div>Equating real and imaginary parts:<br><div style=\"overflow-x:auto;\">\\[ 3x = 3 \\implies x = 1 \\]</div><div style=\"overflow-x:auto;\">\\[ -y = -4 \\implies y = 4 \\]</div>Thus, \\( z = 1 + 4i \\).<br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 1 + 4i \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "If \\( z=2\\bigl(\\cos\\dfrac{\\pi}{3}+i\\sin\\dfrac{\\pi}{3}\\bigr) \\), find \\( z^2 \\) in trigonometric form.",
-    "c": "<strong>Solution</strong><br><br>By De Moivre's theorem, \\( \\bigl[r(\\cos\\theta+i\\sin\\theta)\\bigr]^n=r^n(\\cos n\\theta+i\\sin n\\theta) \\).<br><br><div style=\"overflow-x:auto;\">\\(z^2=4\\Bigl(\\cos\\frac{2\\pi}{3}+i\\sin\\frac{2\\pi}{3}\\Bigr).\\)</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(4\\bigl(\\cos\\dfrac{2\\pi}{3}+i\\sin\\dfrac{2\\pi}{3}\\bigr)\\)</div>"
+    "q": "Find the trigonometric form of \\( z = -3 + 3\\sqrt{3}i \\) with \\( -\\pi < \\theta \\le \\pi \\).<br><br><svg viewBox=\"0 0 280 200\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"100\" x2=\"260\" y2=\"100\" stroke=\"#FFFFFF\" stroke-width=\"1.5\"/><line x1=\"140\" y1=\"20\" x2=\"140\" y2=\"180\" stroke=\"#FFFFFF\" stroke-width=\"1.5\"/><text x=\"250\" y=\"90\" fill=\"#FFFFFF\" font-size=\"12\">Re</text><text x=\"150\" y=\"30\" fill=\"#FFFFFF\" font-size=\"12\">Im</text><line x1=\"140\" y1=\"100\" x2=\"60\" y2=\"40\" stroke=\"#00EDFF\" stroke-width=\"2\"/><circle cx=\"60\" cy=\"40\" r=\"4\" fill=\"#00EDFF\"/><text x=\"40\" y=\"35\" fill=\"#00EDFF\" font-size=\"12\">z</text></svg>",
+    "c": "<strong>Solution</strong><br><br>For \\( z = -3 + 3\\sqrt{3}i \\), we have \\( x = -3 \\) and \\( y = 3\\sqrt{3} \\).<br><div style=\"overflow-x:auto;\">\\[ r = \\sqrt{(-3)^2 + (3\\sqrt{3})^2} = \\sqrt{9 + 27} = \\sqrt{36} = 6 \\]</div><div style=\"overflow-x:auto;\">\\[ \\cos \\theta = \\frac{-3}{6} = -\\frac{1}{2}, \\quad \\sin \\theta = \\frac{3\\sqrt{3}}{6} = \\frac{\\sqrt{3}}{2} \\]</div>Since \\( \\cos \\theta < 0 \\) and \\( \\sin \\theta > 0 \\), \\( \\theta \\) is in the second quadrant.<br><div style=\"overflow-x:auto;\">\\[ \\theta = \\frac{2\\pi}{3} \\]</div>The trigonometric form is<br><div style=\"overflow-x:auto;\">\\[ z = 6 \\left( \\cos \\frac{2\\pi}{3} + i \\sin \\frac{2\\pi}{3} \\right) \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 6 \\left( \\cos \\frac{2\\pi}{3} + i \\sin \\frac{2\\pi}{3} \\right) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "If \\( z=2\\bigl(\\cos\\bigl(-\\dfrac{\\pi}{6}\\bigr)+i\\sin\\bigl(-\\dfrac{\\pi}{6}\\bigr)\\bigr) \\), find \\( z^{-1} \\) in trigonometric form.",
-    "c": "<strong>Solution</strong><br><br>The inverse is \\( z^{-1}=\\dfrac{1}{r}\\bigl(\\cos(-\\theta)+i\\sin(-\\theta)\\bigr) \\).<br><br><div style=\"overflow-x:auto;\">\\(z^{-1}=\\frac12\\Bigl(\\cos\\frac{\\pi}{6}+i\\sin\\frac{\\pi}{6}\\Bigr).\\)</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(\\dfrac12\\bigl(\\cos\\dfrac{\\pi}{6}+i\\sin\\dfrac{\\pi}{6}\\bigr)\\)</div>"
+    "q": "Find the trigonometric form of \\( z = 4 - 4i \\) with \\( -\\pi < \\theta \\le \\pi \\).",
+    "c": "<strong>Solution</strong><br><br>For \\( z = 4 - 4i \\), we have \\( x = 4 \\) and \\( y = -4 \\).<br><div style=\"overflow-x:auto;\">\\[ r = \\sqrt{4^2 + (-4)^2} = \\sqrt{16 + 16} = \\sqrt{32} = 4\\sqrt{2} \\]</div><div style=\"overflow-x:auto;\">\\[ \\cos \\theta = \\frac{4}{4\\sqrt{2}} = \\frac{1}{\\sqrt{2}}, \\quad \\sin \\theta = \\frac{-4}{4\\sqrt{2}} = -\\frac{1}{\\sqrt{2}} \\]</div>Since \\( \\cos \\theta > 0 \\) and \\( \\sin \\theta < 0 \\), \\( \\theta \\) is in the fourth quadrant.<br><div style=\"overflow-x:auto;\">\\[ \\theta = -\\frac{\\pi}{4} \\]</div>The trigonometric form is<br><div style=\"overflow-x:auto;\">\\[ z = 4\\sqrt{2} \\left( \\cos \\left(-\\frac{\\pi}{4}\\right) + i \\sin \\left(-\\frac{\\pi}{4}\\right) \\right) \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 4\\sqrt{2} \\left( \\cos \\left(-\\frac{\\pi}{4}\\right) + i \\sin \\left(-\\frac{\\pi}{4}\\right) \\right) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Find the distance between the points representing \\( z_1=3+i \\) and \\( z_2=-1+4i \\).",
-    "c": "<strong>Solution</strong><br><br>The distance is \\( |z_1-z_2| \\).<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}z_1-z_2&=(3+i)-(-1+4i)=4-3i,\\\\|4-3i|&=\\sqrt{16+9}=5.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(5\\)</div>"
+    "q": "Find the trigonometric form of \\( z = -5 \\) with \\( -\\pi < \\theta \\le \\pi \\).",
+    "c": "<strong>Solution</strong><br><br>For \\( z = -5 \\), we have \\( x = -5 \\) and \\( y = 0 \\).<br><div style=\"overflow-x:auto;\">\\[ r = \\sqrt{(-5)^2 + 0^2} = 5 \\]</div><div style=\"overflow-x:auto;\">\\[ \\cos \\theta = \\frac{-5}{5} = -1, \\quad \\sin \\theta = \\frac{0}{5} = 0 \\]</div>The angle is on the negative real axis.<br><div style=\"overflow-x:auto;\">\\[ \\theta = \\pi \\]</div>The trigonometric form is<br><div style=\"overflow-x:auto;\">\\[ z = 5 (\\cos \\pi + i \\sin \\pi) \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 5 (\\cos \\pi + i \\sin \\pi) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Solve \\( x^2-2x+2=0 \\).",
-    "c": "<strong>Solution</strong><br><br>Complete the square:<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}x^2-2x+2&=0\\\\x^2-2x+1&=-1\\\\(x-1)^2&=-1=i^2\\\\x-1&=\\pm i\\\\x&=1\\pm i.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(x=1\\pm i\\)</div>"
+    "q": "Find the trigonometric form of \\( z = -2\\sqrt{3} - 2i \\) with \\( -\\pi < \\theta \\le \\pi \\).",
+    "c": "<strong>Solution</strong><br><br>For \\( z = -2\\sqrt{3} - 2i \\), we have \\( x = -2\\sqrt{3} \\) and \\( y = -2 \\).<br><div style=\"overflow-x:auto;\">\\[ r = \\sqrt{(-2\\sqrt{3})^2 + (-2)^2} = \\sqrt{12 + 4} = \\sqrt{16} = 4 \\]</div><div style=\"overflow-x:auto;\">\\[ \\cos \\theta = \\frac{-2\\sqrt{3}}{4} = -\\frac{\\sqrt{3}}{2}, \\quad \\sin \\theta = \\frac{-2}{4} = -\\frac{1}{2} \\]</div>Since \\( \\cos \\theta < 0 \\) and \\( \\sin \\theta < 0 \\), \\( \\theta \\) is in the third quadrant.<br><div style=\"overflow-x:auto;\">\\[ \\theta = -\\frac{5\\pi}{6} \\]</div>The trigonometric form is<br><div style=\"overflow-x:auto;\">\\[ z = 4 \\left( \\cos \\left(-\\frac{5\\pi}{6}\\right) + i \\sin \\left(-\\frac{5\\pi}{6}\\right) \\right) \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 4 \\left( \\cos \\left(-\\frac{5\\pi}{6}\\right) + i \\sin \\left(-\\frac{5\\pi}{6}\\right) \\right) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Find the real and imaginary parts of \\( \\dfrac{1}{2-i} \\).",
-    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}\\frac{1}{2-i}&=\\frac{2+i}{(2-i)(2+i)}=\\frac{2+i}{5}\\\\&=\\frac{2}{5}+\\frac{1}{5}i.\\end{aligned}\\]</div><br><br>Real part \\( \\dfrac{2}{5} \\), imaginary part \\( \\dfrac{1}{5} \\).<br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; real \\( \\dfrac{2}{5} \\), imaginary \\( \\dfrac{1}{5} \\)</div>"
+    "q": "Find the trigonometric form of \\( z = 3i \\) with \\( -\\pi < \\theta \\le \\pi \\).",
+    "c": "<strong>Solution</strong><br><br>For \\( z = 3i \\), we have \\( x = 0 \\) and \\( y = 3 \\).<br><div style=\"overflow-x:auto;\">\\[ r = \\sqrt{0^2 + 3^2} = 3 \\]</div><div style=\"overflow-x:auto;\">\\[ \\cos \\theta = 0, \\quad \\sin \\theta = 1 \\]</div>The angle is on the positive imaginary axis.<br><div style=\"overflow-x:auto;\">\\[ \\theta = \\frac{\\pi}{2} \\]</div>The trigonometric form is<br><div style=\"overflow-x:auto;\">\\[ z = 3 \\left( \\cos \\frac{\\pi}{2} + i \\sin \\frac{\\pi}{2} \\right) \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 3 \\left( \\cos \\frac{\\pi}{2} + i \\sin \\frac{\\pi}{2} \\right) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "If \\( (2x+1,\\, y-3)=(5,\\, 1) \\), find \\( x \\) and \\( y \\).",
-    "c": "<strong>Solution</strong><br><br>Two ordered pairs are equal if and only if corresponding components are equal.<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}2x+1&=5\\implies x=2,\\\\y-3&=1\\implies y=4.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(x=2,\\; y=4\\)</div>"
+    "q": "Let \\( z_1 = 2 \\left( \\cos \\frac{\\pi}{3} + i \\sin \\frac{\\pi}{3} \\right) \\) and \\( z_2 = 3 \\left( \\cos \\frac{\\pi}{6} + i \\sin \\frac{\\pi}{6} \\right) \\). Find \\( z_1 z_2 \\) in trigonometric form.",
+    "c": "<strong>Solution</strong><br><br>Using the product rule for complex numbers in trigonometric form:<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z_1 z_2 &= (2 \\times 3) \\left( \\cos \\left( \\frac{\\pi}{3} + \\frac{\\pi}{6} \\right) + i \\sin \\left( \\frac{\\pi}{3} + \\frac{\\pi}{6} \\right) \\right) \\\\ &= 6 \\left( \\cos \\frac{\\pi}{2} + i \\sin \\frac{\\pi}{2} \\right) \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 6 \\left( \\cos \\frac{\\pi}{2} + i \\sin \\frac{\\pi}{2} \\right) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Find \\( z^{-1} \\) if \\( z=3+4i \\).",
-    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}z^{-1}&=\\frac{3-4i}{(3+4i)(3-4i)}=\\frac{3-4i}{9+16}\\\\&=\\frac{3}{25}-\\frac{4}{25}i.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(\\dfrac{3}{25}-\\dfrac{4}{25}i\\)</div>"
+    "q": "Let \\( z_1 = 4 \\left( \\cos \\frac{3\\pi}{4} + i \\sin \\frac{3\\pi}{4} \\right) \\) and \\( z_2 = 2 \\left( \\cos \\frac{\\pi}{4} + i \\sin \\frac{\\pi}{4} \\right) \\). Find \\( \\frac{z_1}{z_2} \\) in trigonometric form.",
+    "c": "<strong>Solution</strong><br><br>Using the quotient rule for complex numbers in trigonometric form:<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} \\frac{z_1}{z_2} &= \\frac{4}{2} \\left( \\cos \\left( \\frac{3\\pi}{4} - \\frac{\\pi}{4} \\right) + i \\sin \\left( \\frac{3\\pi}{4} - \\frac{\\pi}{4} \\right) \\right) \\\\ &= 2 \\left( \\cos \\frac{\\pi}{2} + i \\sin \\frac{\\pi}{2} \\right) \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 2 \\left( \\cos \\frac{\\pi}{2} + i \\sin \\frac{\\pi}{2} \\right) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Express \\( z=-\\sqrt{3}+i \\) in trigonometric form with \\( -\\pi<\\theta\\le\\pi \\).",
-    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}r&=\\sqrt{3+1}=2,\\\\\\cos\\theta&=-\\frac{\\sqrt{3}}{2},\\quad\\sin\\theta=\\frac12\\implies\\theta=\\frac{5\\pi}{6}.\\end{aligned}\\]</div><br><br><div style=\"overflow-x:auto;\">\\(z=2\\Bigl(\\cos\\frac{5\\pi}{6}+i\\sin\\frac{5\\pi}{6}\\Bigr).\\)</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(2\\bigl(\\cos\\dfrac{5\\pi}{6}+i\\sin\\dfrac{5\\pi}{6}\\bigr)\\)</div>"
+    "q": "Let \\( z_1 = 5 \\left( \\cos \\frac{2\\pi}{3} + i \\sin \\frac{2\\pi}{3} \\right) \\) and \\( z_2 = \\sqrt{2} \\left( \\cos \\left(-\\frac{\\pi}{4}\\right) + i \\sin \\left(-\\frac{\\pi}{4}\\right) \\right) \\). Find \\( z_1 z_2 \\) in trigonometric form.",
+    "c": "<strong>Solution</strong><br><br>Using the product rule for complex numbers in trigonometric form:<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z_1 z_2 &= (5 \\times \\sqrt{2}) \\left( \\cos \\left( \\frac{2\\pi}{3} + \\left(-\\frac{\\pi}{4}\\right) \\right) + i \\sin \\left( \\frac{2\\pi}{3} + \\left(-\\frac{\\pi}{4}\\right) \\right) \\right) \\\\ &= 5\\sqrt{2} \\left( \\cos \\frac{5\\pi}{12} + i \\sin \\frac{5\\pi}{12} \\right) \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( 5\\sqrt{2} \\left( \\cos \\frac{5\\pi}{12} + i \\sin \\frac{5\\pi}{12} \\right) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Evaluate \\( i^{100}+i^{101}+i^{102}+i^{103} \\).",
-    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}i^{100}&=(i^4)^{25}=1,\\\\i^{101}&=i,\\\\i^{102}&=-1,\\\\i^{103}&=-i.\\end{aligned}\\]</div><br><br><div style=\"overflow-x:auto;\">\\(1+i-1-i=0.\\)</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(0\\)</div>"
+    "q": "Given \\( z_1 = 1 + \\sqrt{3}i \\) and \\( z_2 = -1 + i \\), find \\( \\frac{z_1}{z_2} \\) using trigonometric forms.",
+    "c": "<strong>Solution</strong><br><br>First, convert \\( z_1 \\) and \\( z_2 \\) to trigonometric form:<br><div style=\"overflow-x:auto;\">\\[ z_1 = 2 \\left( \\cos \\frac{\\pi}{3} + i \\sin \\frac{\\pi}{3} \\right) \\]</div><div style=\"overflow-x:auto;\">\\[ z_2 = \\sqrt{2} \\left( \\cos \\frac{3\\pi}{4} + i \\sin \\frac{3\\pi}{4} \\right) \\]</div>Now, divide using the quotient rule:<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} \\frac{z_1}{z_2} &= \\frac{2}{\\sqrt{2}} \\left( \\cos \\left( \\frac{\\pi}{3} - \\frac{3\\pi}{4} \\right) + i \\sin \\left( \\frac{\\pi}{3} - \\frac{3\\pi}{4} \\right) \\right) \\\\ &= \\sqrt{2} \\left( \\cos \\left(-\\frac{5\\pi}{12}\\right) + i \\sin \\left(-\\frac{5\\pi}{12}\\right) \\right) \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( \\sqrt{2} \\left( \\cos \\left(-\\frac{5\\pi}{12}\\right) + i \\sin \\left(-\\frac{5\\pi}{12}\\right) \\right) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Find the square roots of \\( z=9(\\cos\\pi+i\\sin\\pi) \\) in trigonometric form.",
-    "c": "<strong>Solution</strong><br><br>The square roots are \\( w_k=\\sqrt{9}\\bigl(\\cos\\dfrac{\\pi+2k\\pi}{2}+i\\sin\\dfrac{\\pi+2k\\pi}{2}\\bigr) \\) for \\( k=0,1 \\).<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}k=0:\\quad &3\\Bigl(\\cos\\frac{\\pi}{2}+i\\sin\\frac{\\pi}{2}\\Bigr),\\\\k=1:\\quad &3\\Bigl(\\cos\\Bigl(-\\frac{\\pi}{2}\\Bigr)+i\\sin\\Bigl(-\\frac{\\pi}{2}\\Bigr)\\Bigr).\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\( 3\\bigl(\\cos\\dfrac{\\pi}{2}+i\\sin\\dfrac{\\pi}{2}\\bigr) \\) and \\( 3\\bigl(\\cos(-\\dfrac{\\pi}{2})+i\\sin(-\\dfrac{\\pi}{2})\\bigr) \\)</div>"
+    "q": "Given \\( z = 2 \\left( \\cos \\frac{\\pi}{6} + i \\sin \\frac{\\pi}{6} \\right) \\), find \\( z^{-1} \\) in trigonometric form.",
+    "c": "<strong>Solution</strong><br><br>Using the inverse rule for complex numbers in trigonometric form:<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z^{-1} &= \\frac{1}{2} \\left( \\cos \\left(-\\frac{\\pi}{6}\\right) + i \\sin \\left(-\\frac{\\pi}{6}\\right) \\right) \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( \\frac{1}{2} \\left( \\cos \\left(-\\frac{\\pi}{6}\\right) + i \\sin \\left(-\\frac{\\pi}{6}\\right) \\right) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "If \\( z=\\cos\\dfrac{\\pi}{4}+i\\sin\\dfrac{\\pi}{4} \\), find \\( z^8 \\).",
-    "c": "<strong>Solution</strong><br><br>By De Moivre's theorem,<br><br><div style=\"overflow-x:auto;\">\\(z^8=\\cos 2\\pi+i\\sin 2\\pi=1.\\)</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(1\\)</div>"
+    "q": "Let \\( z_1 = (2, 3) \\) and \\( z_2 = (1, -2) \\). Find \\( z_1 z_2 \\) in ordered pair form.",
+    "c": "<strong>Solution</strong><br><br>Using the product definition for ordered pairs \\( (x_1, y_1)(x_2, y_2) = (x_1 x_2 - y_1 y_2, x_1 y_2 + y_1 x_2) \\):<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z_1 z_2 &= (2, 3)(1, -2) \\\\ &= (2(1) - 3(-2), 2(-2) + 3(1)) \\\\ &= (2 + 6, -4 + 3) \\\\ &= (8, -1) \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( (8, -1) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Convert \\( z=2\\bigl(\\cos\\bigl(-\\dfrac{\\pi}{3}\\bigr)+i\\sin\\bigl(-\\dfrac{\\pi}{3}\\bigr)\\bigr) \\) to the form \\( a+bi \\).",
-    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}z&=2\\Bigl(\\frac12-i\\frac{\\sqrt{3}}{2}\\Bigr)\\\\&=1-\\sqrt{3}\\, i.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(1-\\sqrt{3}\\, i\\)</div>"
+    "q": "Let \\( z_1 = (-1, 4) \\) and \\( z_2 = (3, 2) \\). Find \\( z_1 z_2 \\) in ordered pair form.",
+    "c": "<strong>Solution</strong><br><br>Using the product definition for ordered pairs:<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} z_1 z_2 &= (-1, 4)(3, 2) \\\\ &= (-1(3) - 4(2), -1(2) + 4(3)) \\\\ &= (-3 - 8, -2 + 12) \\\\ &= (-11, 10) \\end{aligned} \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( (-11, 10) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "If \\( z=-5+12i \\), find \\( \\bar{z} \\) and \\( |z| \\).",
-    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}\\bar{z}&=-5-12i,\\\\|z|&=\\sqrt{(-5)^2+12^2}=\\sqrt{25+144}=13.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\( \\bar{z}=-5-12i \\), \\( |z|=13 \\)</div>"
+    "q": "Let \\( z_1 = (1, 2) \\) and \\( z_2 = (-2, 1) \\). Find \\( \\frac{z_1}{z_2} \\) in ordered pair form.",
+    "c": "<strong>Solution</strong><br><br>Convert to algebraic form, divide, and convert back:<br><div style=\"overflow-x:auto;\">\\[ \\begin{aligned} \\frac{z_1}{z_2} &= \\frac{1 + 2i}{-2 + i} \\\\ &= \\frac{(1 + 2i)(-2 - i)}{(-2 + i)(-2 - i)} \\\\ &= \\frac{-2 - i - 4i - 2i^2}{4 - i^2} \\\\ &= \\frac{-2 - 5i + 2}{4 + 1} \\\\ &= \\frac{-5i}{5} \\\\ &= -i \\end{aligned} \\]</div>In ordered pair form, \\( -i = (0, -1) \\).<br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( (0, -1) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Given \\( z_1=-1+2i \\), compute \\( z_1^2-2z_1+1 \\).",
-    "c": "<strong>Solution</strong><br><br>Note that \\( z_1^2-2z_1+1=(z_1-1)^2 \\).<br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}z_1-1&=-2+2i,\\\\(z_1-1)^2&=(-2+2i)^2=4-8i+4i^2\\\\&=4-8i-4=-8i.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\(-8i\\)</div>"
+    "q": "If \\( z_1 = (3, -1) \\) and \\( z_2 = (2, 4) \\), find the conjugate of \\( z_1 + z_2 \\) in ordered pair form.",
+    "c": "<strong>Solution</strong><br><br>First, find the sum \\( z_1 + z_2 \\):<br><div style=\"overflow-x:auto;\">\\[ z_1 + z_2 = (3 + 2, -1 + 4) = (5, 3) \\]</div>The conjugate of an ordered pair \\( (x, y) \\) is \\( (x, -y) \\).<br><div style=\"overflow-x:auto;\">\\[ \\overline{z_1 + z_2} = (5, -3) \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( (5, -3) \\)</div>"
   },
   {
     "type": "math_show",
-    "q": "Find \\( z\\bar{z} \\) if \\( z=6-8i \\), and hence write \\( |z| \\).",
-    "c": "<strong>Solution</strong><br><br><div style=\"overflow-x:auto;\">\\[\\begin{aligned}z\\bar{z}&=(6-8i)(6+8i)=36+64=100,\\\\|z|&=\\sqrt{z\\bar{z}}=10.\\end{aligned}\\]</div><br><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;margin-top:6px;\"><strong>Answer</strong> &nbsp; \\( z\\bar{z}=100 \\), \\( |z|=10 \\)</div>"
+    "q": "If \\( z = (1, -2) \\), find \\( z^2 + \\bar{z} \\) in ordered pair form.",
+    "c": "<strong>Solution</strong><br><br>Convert \\( z \\) to algebraic form: \\( z = 1 - 2i \\).<br>Calculate \\( z^2 \\):<br><div style=\"overflow-x:auto;\">\\[ z^2 = (1 - 2i)^2 = 1 - 4i + 4i^2 = 1 - 4i - 4 = -3 - 4i \\]</div>In ordered pair form, \\( z^2 = (-3, -4) \\).<br>The conjugate is \\( \\bar{z} = 1 + 2i = (1, 2) \\).<br>Now, add them:<br><div style=\"overflow-x:auto;\">\\[ z^2 + \\bar{z} = (-3 + 1, -4 + 2) = (-2, -2) \\]</div><br><div style=\"display:inline-block;border:2px solid #00D5FF;padding:8px 14px;border-radius:8px;\"><strong>Answer</strong> &nbsp; \\( (-2, -2) \\)</div>"
   }
 ]
