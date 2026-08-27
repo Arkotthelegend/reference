@@ -755,34 +755,49 @@ input:checked + .slider:before {
     flex-shrink: 0;
     margin-top: auto;
 }
-#math-solution-content .math-scroll-container {
-    overflow: visible !important;
-    white-space: normal !important;
-    max-width: 100%;
-}
-#math-solution-content .math-scroll-container p {
-    display: block;
-    white-space: normal;
-}
-#math-solution-content [style*="nowrap"],
+#math-solution-content .math-scroll-container,
+#math-solution-content .math-hscroll,
 #math-solution-content [style*="overflow-x"] {
-    overflow: visible !important;
-    overflow-x: visible !important;
-    overflow-y: visible !important;
-    white-space: normal !important;
     max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+    padding-bottom: 8px;
 }
-#math-solution-content .mjx-container,
-#math-solution-content mjx-container {
-    overflow-x: visible !important;
-    overflow-y: visible !important;
-    max-width: 100% !important;
+#math-solution-content .math-hscroll::-webkit-scrollbar,
+#math-solution-content [style*="overflow-x"]::-webkit-scrollbar {
+    height: 6px;
+}
+#math-solution-content .math-hscroll::-webkit-scrollbar-track,
+#math-solution-content [style*="overflow-x"]::-webkit-scrollbar-track {
+    background: #1E293B;
+    border-radius: 3px;
+}
+#math-solution-content .math-hscroll::-webkit-scrollbar-thumb,
+#math-solution-content [style*="overflow-x"]::-webkit-scrollbar-thumb {
+    background: #00D5FF;
+    border-radius: 3px;
+}
+#math-solution-content .math-hscroll .mjx-container,
+#math-solution-content .math-hscroll mjx-container,
+#math-solution-content [style*="overflow-x"] .mjx-container,
+#math-solution-content [style*="overflow-x"] mjx-container {
+    max-width: none !important;
+    overflow: visible !important;
+    width: max-content;
+    display: block !important;
 }
 
 mjx-mtable {
     margin: 5px 0 !important;
     max-width: 100% !important;
     display: inline-table !important;
+}
+#math-solution-content .math-hscroll mjx-mtable,
+#math-solution-content [style*="overflow-x"] mjx-mtable {
+    max-width: none !important;
 }
 
 /* ၃။ Matrix နဲ့ Vector (အပေါ်အောက် ဂဏန်းများ) အတွက် အမြင့်ကို ရှင်းထုတ်ခြင်း */
@@ -3515,20 +3530,18 @@ function fastMath(scope) {
 
 function unwrapMathSolutionScroll(root) {
     if (!root) return;
-    root.querySelectorAll('div, span, p').forEach(function(el) {
-        var st = el.getAttribute('style') || '';
-        if (/overflow-x\s*:\s*auto/i.test(st) || /white-space\s*:\s*nowrap/i.test(st)) {
-            el.style.overflow = 'visible';
-            el.style.overflowX = 'visible';
-            el.style.overflowY = 'visible';
-            el.style.whiteSpace = 'normal';
-            el.style.maxWidth = '100%';
+    root.querySelectorAll('mjx-container, .mjx-container').forEach(function(el) {
+        if (el.closest('.math-hscroll')) return;
+        var parent = el.parentElement;
+        var pst = parent ? (parent.getAttribute('style') || '') : '';
+        if (parent && /overflow-x\s*:\s*auto/i.test(pst)) {
+            parent.classList.add('math-hscroll');
+            return;
         }
-    });
-    root.querySelectorAll('.math-scroll-container').forEach(function(el) {
-        el.style.overflow = 'visible';
-        el.style.overflowX = 'visible';
-        el.style.whiteSpace = 'normal';
+        var wrap = document.createElement('div');
+        wrap.className = 'math-hscroll';
+        el.parentNode.insertBefore(wrap, el);
+        wrap.appendChild(el);
     });
 }
 
@@ -3538,7 +3551,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=75'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=76'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
