@@ -1,6 +1,17 @@
 [
   {
     "type": "mcq",
+    "q": "The pure imaginary unit \\( i \\) is defined by",
+    "a": [
+      "\\( i = 1 \\)",
+      "\\( i^2 = -1 \\)",
+      "\\( i^2 = 1 \\)",
+      "\\( i = -1 \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
     "q": "What is the value of \\( i^{19} \\)?",
     "a": [
       "\\( 1 \\)",
@@ -12,36 +23,113 @@
   },
   {
     "type": "mcq",
-    "q": "If \\( (x + 1,\\, 2y - 3) = (4,\\, 5) \\), find \\( x \\) and \\( y \\).",
+    "q": "The value of \\( i^{-1} \\) is",
     "a": [
-      "\\( x = 3,\\ y = 4 \\)",
-      "\\( x = 5,\\ y = 4 \\)",
-      "\\( x = 3,\\ y = 1 \\)",
-      "\\( x = 4,\\ y = 4 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "Let \\( z_1 = (3,\\, -2) \\) and \\( z_2 = (1,\\, 4) \\). The product \\( z_1 z_2 \\) is",
-    "a": [
-      "\\( (11,\\, 10) \\)",
-      "\\( (3,\\, -8) \\)",
-      "\\( (-5,\\, 10) \\)",
-      "\\( (11,\\, -10) \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The conjugate of \\( z = 4 - 7i \\) is",
-    "a": [
-      "\\( -4 + 7i \\)",
-      "\\( 4 + 7i \\)",
-      "\\( -4 - 7i \\)",
-      "\\( 7 - 4i \\)"
+      "\\( i \\)",
+      "\\( -i \\)",
+      "\\( 1 \\)",
+      "\\( -1 \\)"
     ],
     "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The solutions of \\( x^2 + 9 = 0 \\) are",
+    "a": [
+      "\\( \\pm 3 \\)",
+      "\\( \\pm 3i \\)",
+      "\\( \\pm 9i \\)",
+      "\\( \\pm \\sqrt{3}\\, i \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( (x - 1,\\, y + 2) = (3,\\, -4) \\), then",
+    "a": [
+      "\\( x = 4,\\; y = -6 \\)",
+      "\\( x = 2,\\; y = -2 \\)",
+      "\\( x = 4,\\; y = -2 \\)",
+      "\\( x = 3,\\; y = -6 \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "The imaginary unit \\( i \\) as an ordered pair is",
+    "a": [
+      "\\( (1,\\, 0) \\)",
+      "\\( (0,\\, 1) \\)",
+      "\\( (1,\\, 1) \\)",
+      "\\( (0,\\, -1) \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The sum \\( (2,\\, -3) + (4,\\, 1) \\) is",
+    "a": [
+      "\\( (6,\\, -2) \\)",
+      "\\( (8,\\, -3) \\)",
+      "\\( (2,\\, -4) \\)",
+      "\\( (6,\\, 2) \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "The product \\( (1,\\, 2)(3,\\, -1) \\) is",
+    "a": [
+      "\\( (3,\\, -2) \\)",
+      "\\( (5,\\, 5) \\)",
+      "\\( (1,\\, -2) \\)",
+      "\\( (5,\\, -5) \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The real number \\( 7 \\) as a complex ordered pair is",
+    "a": [
+      "\\( (0,\\, 7) \\)",
+      "\\( (7,\\, 7) \\)",
+      "\\( (7,\\, 0) \\)",
+      "\\( (7,\\, 1) \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "The conjugate of \\( z = -3 + 5i \\) is",
+    "a": [
+      "\\( 3 - 5i \\)",
+      "\\( -3 - 5i \\)",
+      "\\( 3 + 5i \\)",
+      "\\( 5 - 3i \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The modulus \\( |6 - 8i| \\) is",
+    "a": [
+      "\\( 2 \\)",
+      "\\( 10 \\)",
+      "\\( 14 \\)",
+      "\\( \\sqrt{14} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( z = 3 + 4i \\), then \\( z\\bar{z} \\) equals",
+    "a": [
+      "\\( 7 \\)",
+      "\\( 12i \\)",
+      "\\( 25 \\)",
+      "\\( -7 \\)"
+    ],
+    "c": 2
   },
   {
     "type": "mcq",
@@ -50,35 +138,57 @@
       "\\( \\dfrac{1 + 3i}{2} \\)",
       "\\( \\dfrac{1 - 3i}{2} \\)",
       "\\( \\dfrac{3 + i}{2} \\)",
-      "\\( \\dfrac{3 - i}{2} \\)"
+      "\\( 1 + i \\)"
     ],
     "c": 0
   },
   {
     "type": "mcq",
-    "q": "The modulus \\( |6 - 8i| \\) is",
+    "q": "The multiplicative inverse of \\( z = 3 + 4i \\) is",
     "a": [
-      "\\( 10 \\)",
-      "\\( 14 \\)",
-      "\\( 2 \\)",
-      "\\( \\sqrt{14} \\)"
+      "\\( 3 - 4i \\)",
+      "\\( \\dfrac{3}{25} - \\dfrac{4}{25}i \\)",
+      "\\( \\dfrac{3}{5} - \\dfrac{4}{5}i \\)",
+      "\\( \\dfrac{4}{25} - \\dfrac{3}{25}i \\)"
     ],
-    "c": 0
+    "c": 1
   },
   {
     "type": "mcq",
-    "q": "The trigonometric form of \\( z = -1 - i \\) with \\( -\\pi < \\theta \\le \\pi \\) is",
+    "q": "The real part of \\( (1 + 2i)(3 - i) \\) is",
     "a": [
-      "\\( \\sqrt{2}\\bigl(\\cos\\dfrac{\\pi}{4} + i\\sin\\dfrac{\\pi}{4}\\bigr) \\)",
-      "\\( \\sqrt{2}\\bigl(\\cos\\dfrac{3\\pi}{4} + i\\sin\\dfrac{3\\pi}{4}\\bigr) \\)",
-      "\\( \\sqrt{2}\\bigl(\\cos\\bigl(-\\dfrac{3\\pi}{4}\\bigr) + i\\sin\\bigl(-\\dfrac{3\\pi}{4}\\bigr)\\bigr) \\)",
-      "\\( 2\\bigl(\\cos\\bigl(-\\dfrac{\\pi}{4}\\bigr) + i\\sin\\bigl(-\\dfrac{\\pi}{4}\\bigr)\\bigr) \\)"
+      "\\( 3 \\)",
+      "\\( 4 \\)",
+      "\\( 5 \\)",
+      "\\( 1 \\)"
     ],
     "c": 2
   },
   {
     "type": "mcq",
-    "q": "Let \\( z_1 = 3\\bigl(\\cos\\dfrac{\\pi}{6} + i\\sin\\dfrac{\\pi}{6}\\bigr) \\) and \\( z_2 = 2\\bigl(\\cos\\dfrac{\\pi}{3} + i\\sin\\dfrac{\\pi}{3}\\bigr) \\). Then \\( z_1 z_2 \\) is",
+    "q": "The trigonometric form of \\( z = 1 - i \\) with \\( -\\pi < \\theta \\le \\pi \\) is",
+    "a": [
+      "\\( \\sqrt{2}\\bigl(\\cos\\dfrac{\\pi}{4} + i\\sin\\dfrac{\\pi}{4}\\bigr) \\)",
+      "\\( \\sqrt{2}\\bigl(\\cos\\bigl(-\\dfrac{\\pi}{4}\\bigr) + i\\sin\\bigl(-\\dfrac{\\pi}{4}\\bigr)\\bigr) \\)",
+      "\\( 2\\bigl(\\cos\\bigl(-\\dfrac{\\pi}{4}\\bigr) + i\\sin\\bigl(-\\dfrac{\\pi}{4}\\bigr)\\bigr) \\)",
+      "\\( \\sqrt{2}\\bigl(\\cos\\dfrac{3\\pi}{4} + i\\sin\\dfrac{3\\pi}{4}\\bigr) \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The principal argument of \\( z = -\\sqrt{3} + i \\) (\\( -\\pi < \\theta \\le \\pi \\)) is",
+    "a": [
+      "\\( \\dfrac{\\pi}{6} \\)",
+      "\\( \\dfrac{\\pi}{3} \\)",
+      "\\( \\dfrac{5\\pi}{6} \\)",
+      "\\( -\\dfrac{\\pi}{6} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "Let \\( z_1 = 2\\bigl(\\cos\\dfrac{\\pi}{6} + i\\sin\\dfrac{\\pi}{6}\\bigr) \\) and \\( z_2 = 3\\bigl(\\cos\\dfrac{\\pi}{3} + i\\sin\\dfrac{\\pi}{3}\\bigr) \\). Then \\( z_1 z_2 \\) is",
     "a": [
       "\\( 5\\bigl(\\cos\\dfrac{\\pi}{2} + i\\sin\\dfrac{\\pi}{2}\\bigr) \\)",
       "\\( 6\\bigl(\\cos\\dfrac{\\pi}{2} + i\\sin\\dfrac{\\pi}{2}\\bigr) \\)",
@@ -89,177 +199,56 @@
   },
   {
     "type": "mcq",
-    "q": "If \\( z = \\sqrt{2}\\bigl(\\cos\\dfrac{\\pi}{6} + i\\sin\\dfrac{\\pi}{6}\\bigr) \\), then \\( z^6 \\) in trigonometric form is",
-    "a": [
-      "\\( 8\\bigl(\\cos\\pi + i\\sin\\pi\\bigr) \\)",
-      "\\( 8\\bigl(\\cos\\dfrac{\\pi}{6} + i\\sin\\dfrac{\\pi}{6}\\bigr) \\)",
-      "\\( \\sqrt{2}\\bigl(\\cos\\pi + i\\sin\\pi\\bigr) \\)",
-      "\\( 4\\bigl(\\cos\\pi + i\\sin\\pi\\bigr) \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "Each cube root of \\( z = 27\\bigl(\\cos\\dfrac{3\\pi}{4} + i\\sin\\dfrac{3\\pi}{4}\\bigr) \\) has modulus",
-    "a": [
-      "\\( 9 \\)",
-      "\\( 3 \\)",
-      "\\( 27 \\)",
-      "\\( \\sqrt{3} \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The value of \\( i^{-3} \\) is",
-    "a": [
-      "\\( 1 \\)",
-      "\\( -1 \\)",
-      "\\( i \\)",
-      "\\( -i \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The solutions of \\( x^2 + 4 = 0 \\) are",
-    "a": [
-      "\\( \\pm 2 \\)",
-      "\\( \\pm 2i \\)",
-      "\\( \\pm 4i \\)",
-      "\\( \\pm \\sqrt{2}\\, i \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( (3x,\\, y - 1) = (6,\\, -4) \\), then",
-    "a": [
-      "\\( x = 2,\\ y = -3 \\)",
-      "\\( x = 2,\\ y = -5 \\)",
-      "\\( x = 3,\\ y = -3 \\)",
-      "\\( x = 18,\\ y = -3 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The sum \\( (4,\\, -1) + (-2,\\, 5) \\) is",
-    "a": [
-      "\\( (2,\\, 4) \\)",
-      "\\( (6,\\, -6) \\)",
-      "\\( (2,\\, -6) \\)",
-      "\\( (-8,\\, -5) \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The product \\( (2,\\, -3)(1,\\, 1) \\) is",
-    "a": [
-      "\\( (5,\\, -1) \\)",
-      "\\( (-1,\\, -5) \\)",
-      "\\( (2,\\, -3) \\)",
-      "\\( (5,\\, 1) \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The modulus of \\( z = -5 - 12i \\) is",
-    "a": [
-      "\\( 7 \\)",
-      "\\( 13 \\)",
-      "\\( 17 \\)",
-      "\\( \\sqrt{119} \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The multiplicative inverse of \\( z = 2 + i \\) is",
-    "a": [
-      "\\( 2 - i \\)",
-      "\\( \\dfrac{2 - i}{5} \\)",
-      "\\( \\dfrac{2 + i}{5} \\)",
-      "\\( \\dfrac{1}{2} - i \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The real part of \\( (3 - i)(2 + i) \\) is",
-    "a": [
-      "\\( 5 \\)",
-      "\\( 6 \\)",
-      "\\( 7 \\)",
-      "\\( 8 \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The principal argument of \\( z = \\sqrt{3} + i \\) (with \\( -\\pi < \\theta \\le \\pi \\)) is",
-    "a": [
-      "\\( \\dfrac{\\pi}{6} \\)",
-      "\\( \\dfrac{\\pi}{3} \\)",
-      "\\( \\dfrac{2\\pi}{3} \\)",
-      "\\( \\dfrac{\\pi}{2} \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
     "q": "Let \\( z_1 = 8\\bigl(\\cos\\dfrac{2\\pi}{3} + i\\sin\\dfrac{2\\pi}{3}\\bigr) \\) and \\( z_2 = 2\\bigl(\\cos\\dfrac{\\pi}{6} + i\\sin\\dfrac{\\pi}{6}\\bigr) \\). Then \\( \\dfrac{z_1}{z_2} \\) is",
     "a": [
       "\\( 4\\bigl(\\cos\\dfrac{\\pi}{2} + i\\sin\\dfrac{\\pi}{2}\\bigr) \\)",
-      "\\( 4\\bigl(\\cos\\dfrac{\\pi}{2} - i\\sin\\dfrac{\\pi}{2}\\bigr) \\)",
+      "\\( 4\\bigl(\\cos\\dfrac{\\pi}{6} + i\\sin\\dfrac{\\pi}{6}\\bigr) \\)",
       "\\( 16\\bigl(\\cos\\dfrac{\\pi}{2} + i\\sin\\dfrac{\\pi}{2}\\bigr) \\)",
-      "\\( 4\\bigl(\\cos\\dfrac{\\pi}{6} + i\\sin\\dfrac{\\pi}{6}\\bigr) \\)"
+      "\\( 4\\bigl(\\cos\\dfrac{\\pi}{3} + i\\sin\\dfrac{\\pi}{3}\\bigr) \\)"
     ],
     "c": 0
   },
   {
     "type": "mcq",
-    "q": "If \\( z = \\cos\\dfrac{\\pi}{6} + i\\sin\\dfrac{\\pi}{6} \\), then \\( z^6 \\) equals",
+    "q": "If \\( z = r(\\cos\\theta + i\\sin\\theta) \\), then De Moivre's theorem says \\( z^n \\) equals",
     "a": [
-      "\\( 1 \\)",
-      "\\( -1 \\)",
-      "\\( i \\)",
-      "\\( -i \\)"
+      "\\( nr(\\cos\\theta + i\\sin\\theta) \\)",
+      "\\( r^n(\\cos n\\theta + i\\sin n\\theta) \\)",
+      "\\( r^n(\\cos\\theta + i\\sin\\theta) \\)",
+      "\\( r(\\cos n\\theta + i\\sin n\\theta) \\)"
     ],
     "c": 1
   },
   {
     "type": "mcq",
-    "q": "A non-zero complex number has how many distinct fourth roots?",
+    "q": "A non-zero complex number has how many distinct cube roots?",
     "a": [
       "\\( 1 \\)",
       "\\( 2 \\)",
       "\\( 3 \\)",
       "\\( 4 \\)"
     ],
-    "c": 3
+    "c": 2
   },
   {
     "type": "mcq",
-    "q": "Each fourth root of \\( z = 81\\bigl(\\cos\\theta + i\\sin\\theta\\bigr) \\) has modulus",
+    "q": "Each fourth root of \\( z = 16(\\cos\\theta + i\\sin\\theta) \\) has modulus",
     "a": [
-      "\\( 3 \\)",
-      "\\( 9 \\)",
-      "\\( 81 \\)",
-      "\\( \\sqrt{81} \\)"
+      "\\( 2 \\)",
+      "\\( 4 \\)",
+      "\\( 8 \\)",
+      "\\( 16 \\)"
     ],
     "c": 0
   },
   {
     "type": "mcq",
-    "q": "One square root of \\( z = 9\\bigl(\\cos 0 + i\\sin 0\\bigr) \\) is",
+    "q": "One square root of \\( z = 4(\\cos 0 + i\\sin 0) \\) is",
     "a": [
-      "\\( 3\\bigl(\\cos 0 + i\\sin 0\\bigr) \\)",
-      "\\( 9\\bigl(\\cos 0 + i\\sin 0\\bigr) \\)",
-      "\\( 3\\bigl(\\cos\\dfrac{\\pi}{2} + i\\sin\\dfrac{\\pi}{2}\\bigr) \\)",
-      "\\( \\sqrt{3}\\bigl(\\cos 0 + i\\sin 0\\bigr) \\)"
+      "\\( 2(\\cos 0 + i\\sin 0) \\)",
+      "\\( 4(\\cos 0 + i\\sin 0) \\)",
+      "\\( 2\\bigl(\\cos\\dfrac{\\pi}{2} + i\\sin\\dfrac{\\pi}{2}\\bigr) \\)",
+      "\\( \\sqrt{2}(\\cos 0 + i\\sin 0) \\)"
     ],
     "c": 0
   },
@@ -278,10 +267,10 @@
     "type": "mcq",
     "q": "The trigonometric form of \\( z = -2 \\) with \\( -\\pi < \\theta \\le \\pi \\) is",
     "a": [
-      "\\( 2\\bigl(\\cos 0 + i\\sin 0\\bigr) \\)",
-      "\\( 2\\bigl(\\cos\\pi + i\\sin\\pi\\bigr) \\)",
+      "\\( 2(\\cos 0 + i\\sin 0) \\)",
+      "\\( 2(\\cos\\pi + i\\sin\\pi) \\)",
       "\\( 2\\bigl(\\cos\\dfrac{\\pi}{2} + i\\sin\\dfrac{\\pi}{2}\\bigr) \\)",
-      "\\( -2\\bigl(\\cos\\pi + i\\sin\\pi\\bigr) \\)"
+      "\\( -2(\\cos\\pi + i\\sin\\pi) \\)"
     ],
     "c": 1
   },
@@ -290,20 +279,53 @@
     "q": "Which of the following is purely imaginary?",
     "a": [
       "\\( 2 + i \\)",
-      "\\( -4 \\)",
-      "\\( 3i \\)",
+      "\\( -5 \\)",
+      "\\( 4i \\)",
       "\\( 1 - i \\)"
     ],
     "c": 2
   },
   {
     "type": "mcq",
-    "q": "If \\( z = 3 - 4i \\), then \\( z + \\bar{z} \\) equals",
+    "q": "If \\( z = 2 - 5i \\), then \\( z + \\bar{z} \\) equals",
     "a": [
-      "\\( 6 \\)",
-      "\\( -8i \\)",
-      "\\( 3 \\)",
-      "\\( 7 \\)"
+      "\\( 4 \\)",
+      "\\( -10i \\)",
+      "\\( 2 \\)",
+      "\\( -3 \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( z = \\cos\\dfrac{\\pi}{3} + i\\sin\\dfrac{\\pi}{3} \\), then \\( z^6 \\) equals",
+    "a": [
+      "\\( 1 \\)",
+      "\\( -1 \\)",
+      "\\( i \\)",
+      "\\( -i \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( z = r(\\cos\\theta + i\\sin\\theta) \\) with \\( r \\ne 0 \\), then \\( z^{-1} \\) is",
+    "a": [
+      "\\( r(\\cos(-\\theta) + i\\sin(-\\theta)) \\)",
+      "\\( \\dfrac{1}{r}(\\cos\\theta + i\\sin\\theta) \\)",
+      "\\( \\dfrac{1}{r}(\\cos(-\\theta) + i\\sin(-\\theta)) \\)",
+      "\\( \\dfrac{1}{r}(\\cos\\theta - i\\sin\\theta)^{-1} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "The value of \\( i^{2024} \\) is",
+    "a": [
+      "\\( 1 \\)",
+      "\\( -1 \\)",
+      "\\( i \\)",
+      "\\( -i \\)"
     ],
     "c": 0
   }
