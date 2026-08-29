@@ -113,6 +113,52 @@
         return { label: SHORT[id] || id, sub: '', color: COLORS.study };
     }
 
+    var MAX_TUITION_BLOCKS = 8;
+
+    function defaultTuitionBlock(afterEnd) {
+        var start = typeof afterEnd === 'number' ? Math.min(afterEnd + 30, 22 * 60) : 16 * 60;
+        var end = Math.min(start + 3 * 60, 24 * 60);
+        if (end <= start) {
+            start = 20 * 60;
+            end = 23 * 60;
+        }
+        return { start: start, end: end };
+    }
+
+    function tuitionBlocksOf(answers) {
+        if (!answers) return [];
+        var blocks = [];
+        if (Array.isArray(answers.tuitionBlocks) && answers.tuitionBlocks.length) {
+            blocks = answers.tuitionBlocks.map(function (b) {
+                return { start: parseTime(b && b.start), end: parseTime(b && b.end) };
+            }).filter(function (b) { return b.end > b.start; });
+        } else if (answers.hasTuition) {
+            if (answers.tuitionStart != null && answers.tuitionEnd != null) {
+                blocks.push({ start: answers.tuitionStart, end: answers.tuitionEnd });
+            }
+            if (answers.hasTuition2 && answers.tuition2Start != null && answers.tuition2End != null) {
+                blocks.push({ start: answers.tuition2Start, end: answers.tuition2End });
+            }
+        }
+        return blocks;
+    }
+
+    function syncTuitionFields(answers, blocks) {
+        blocks = (blocks || []).filter(function (b) { return b && b.end > b.start; });
+        answers.tuitionBlocks = blocks;
+        answers.hasTuition = blocks.length > 0;
+        answers.hasTuition2 = blocks.length > 1;
+        if (blocks[0]) {
+            answers.tuitionStart = blocks[0].start;
+            answers.tuitionEnd = blocks[0].end;
+        }
+        if (blocks[1]) {
+            answers.tuition2Start = blocks[1].start;
+            answers.tuition2End = blocks[1].end;
+        }
+        return blocks;
+    }
+
     function buildDay(answers, dayIndex, cycle, seed) {
         var dayStart = answers.dayStart;
         var dayEnd = answers.dayEnd <= answers.dayStart ? 1440 : answers.dayEnd;
@@ -140,12 +186,11 @@
             }
             blocks.push(tu);
         }
-        if (tuitionOn) addTuition(answers.tuitionStart, answers.tuitionEnd);
-        if (tuitionOn && answers.hasTuition2) addTuition(answers.tuition2Start, answers.tuition2End);
+        var tuBlocks = tuitionOn ? tuitionBlocksOf(answers) : [];
+        tuBlocks.forEach(function (b) { addTuition(b.start, b.end); });
 
         var lastTu = 0;
-        if (tuitionOn) lastTu = answers.tuitionEnd;
-        if (tuitionOn && answers.hasTuition2) lastTu = Math.max(lastTu, answers.tuition2End);
+        tuBlocks.forEach(function (b) { lastTu = Math.max(lastTu, b.end); });
         var restStart = answers.restStart;
         var restEnd = answers.restEnd;
         var restLabel = answers.restLabel || 'Dinner + Rest';
@@ -965,6 +1010,7 @@
         var answers = draft || {
             steam: getSteam(api),
             name: (api.defaultName() || 'Student').slice(0, 40),
+            goesToSchool: true,
             schoolDays: [0, 1, 2, 3, 4],
             schoolStart: 7 * 60 + 30,
             schoolEnd: 13 * 60,
@@ -975,6 +1021,7 @@
             hasTuition2: false,
             tuition2Start: 20 * 60,
             tuition2End: 23 * 60,
+            tuitionBlocks: [],
             dayStart: 6 * 60,
             dayEnd: 23 * 60,
             restStart: 18 * 60,
@@ -991,20 +1038,27 @@
         if (!answers.strongSubjects) answers.strongSubjects = [];
         if (typeof answers.shortRest !== 'boolean') answers.shortRest = true;
         if (!answers.shortRestMins) answers.shortRestMins = 15;
+        if (typeof answers.goesToSchool !== 'boolean') {
+            answers.goesToSchool = (answers.schoolDays || []).length > 0;
+        }
+        syncTuitionFields(answers, tuitionBlocksOf(answers));
         var step = 0;
 
         function steps() {
             var s = [
                 { id: 'steam', title: 'STEAM ဘယ်လမ်းလဲ။' },
                 { id: 'name', title: 'Timetable ပေါ်မှာ နာမည် ဘယ်လိုရေးမလဲ။' },
-                { id: 'schoolDays', title: 'ဘယ်နေ့တွေ ကျောင်းတက်လဲ။' }
+                { id: 'goesToSchool', title: 'ကျောင်းတက်လား၊ Tuition / Guide ပဲလား။' }
             ];
-            if ((answers.schoolDays || []).length) {
-                s.push({ id: 'schoolHours', title: 'ကျောင်းနာရီ ဘယ်အချိန်လဲ။' });
+            if (answers.goesToSchool !== false) {
+                s.push({ id: 'schoolDays', title: 'ဘယ်နေ့တွေ ကျောင်းတက်လဲ။' });
+                if ((answers.schoolDays || []).length) {
+                    s.push({ id: 'schoolHours', title: 'ကျောင်းနာရီ ဘယ်အချိန်လဲ။' });
+                }
+                s.push({ id: 'tuition', title: 'Tuition / extra class ရှိလား။' });
             }
-            s.push({ id: 'tuition', title: 'Tuition / extra class ရှိလား။' });
-            if (answers.hasTuition) {
-                s.push({ id: 'tuitionHours', title: 'Tuition ရှိတဲ့နေ့ နဲ့ နာရီ။' });
+            if (answers.hasTuition || answers.goesToSchool === false) {
+                s.push({ id: 'tuitionHours', title: 'Tuition / Guide ရှိတဲ့နေ့ နဲ့ နာရီ။' });
             }
             s.push({ id: 'wake', title: 'မနက် ဘယ်အချိန် စပီး လေ့လာမလဲ။' });
             s.push({ id: 'sleep', title: 'ည ဘယ်အချိန် အိပ်မလဲ။' });
@@ -1040,6 +1094,12 @@
                     '</div><p class="tt-help" id="tt-steam-note">' + steamHelp(st) + '</p>';
             } else if (cur.id === 'name') {
                 html = '<input class="quiz-input tt-input" id="tt-name" maxlength="40" value="' + String(answers.name || '').replace(/"/g, '&quot;') + '">';
+            } else if (cur.id === 'goesToSchool') {
+                html = '<p class="tt-help">ကျောင်းမတက်ရင် School block မထည့်ပါ။ Tuition / Guide အချိန်တွေကို နောက်မှာ ထည့်နိုင်ပါတယ်။</p>' +
+                    '<div class="tt-yesno" id="tt-goes-school">' +
+                    '<button type="button" class="tt-chip' + (answers.goesToSchool !== false ? ' on' : '') + '" data-v="1">ကျောင်းတက်တယ်</button>' +
+                    '<button type="button" class="tt-chip' + (answers.goesToSchool === false ? ' on' : '') + '" data-v="0">Tuition / Guide ပဲ</button>' +
+                    '</div>';
             } else if (cur.id === 'schoolDays') {
                 html = '<p class="tt-help">မတက်ရင် တစ်နေ့မှ မရွေးပါနဲ့။</p><div class="tt-chips" id="tt-school-days">' + dayChips(answers.schoolDays || []) + '</div>';
             } else if (cur.id === 'schoolHours') {
@@ -1053,18 +1113,20 @@
                 html = '<div class="tt-yesno"><button type="button" class="tt-chip' + (answers.hasTuition ? ' on' : '') + '" data-v="1">ရှိတယ်</button>' +
                     '<button type="button" class="tt-chip' + (!answers.hasTuition ? ' on' : '') + '" data-v="0">မရှိဘူး</button></div>';
             } else if (cur.id === 'tuitionHours') {
-                html = '<p class="tt-help">၂ ခုရှိရင် Add နှိပ်ပြီး နောက်ထပ် အချိန်ထည့်ပါ။</p>' +
+                var tuList = tuitionBlocksOf(answers);
+                if (!tuList.length) tuList = [defaultTuitionBlock()];
+                html = '<p class="tt-help">Tuition / Guide အချိန် တစ်ခုထက်ပိုရင် Add နှိပ်ပါ။</p>' +
                     '<div class="tt-chips" id="tt-tu-days">' + dayChips(answers.tuitionDays || [0, 1, 2, 3, 4]) + '</div>' +
-                    '<p class="tt-print-label">Tuition 1</p>' +
-                    '<div class="tt-times"><label>Start<select id="tt-tu-start">' + timeSelectHtml(6 * 60, 22 * 60, answers.tuitionStart) + '</select></label>' +
-                    '<label>End<select id="tt-tu-end">' + timeSelectHtml(8 * 60, 24 * 60, answers.tuitionEnd) + '</select></label></div>' +
-                    '<div id="tt-tu2-block"' + (answers.hasTuition2 ? '' : ' hidden') + '>' +
-                    '<p class="tt-print-label">Tuition 2</p>' +
-                    '<div class="tt-times"><label>Start<select id="tt-tu2-start">' + timeSelectHtml(12 * 60, 22 * 60, answers.tuition2Start || 20 * 60) + '</select></label>' +
-                    '<label>End<select id="tt-tu2-end">' + timeSelectHtml(14 * 60, 24 * 60, answers.tuition2End || 23 * 60) + '</select></label></div>' +
-                    '<button type="button" class="tt-chip tt-add-tu" id="tt-tu2-remove">Tuition 2 ဖယ်ရှားမည်</button>' +
-                    '</div>' +
-                    '<button type="button" class="tt-chip tt-add-tu" id="tt-tu-add"' + (answers.hasTuition2 ? ' hidden' : '') + '>+ Tuition ထပ်ထည့်မည်</button>';
+                    '<div id="tt-tu-blocks">' + tuList.map(function (b, i) {
+                        return '<div class="tt-tu-row">' +
+                            '<div class="tt-tu-row-head"><p class="tt-print-label">Tuition ' + (i + 1) + '</p>' +
+                            (tuList.length > 1 ? '<button type="button" class="tt-chip tt-tu-remove" data-i="' + i + '">ဖယ်ရှားမည်</button>' : '') +
+                            '</div>' +
+                            '<div class="tt-times"><label>Start<select class="tt-tu-start">' + timeSelectHtml(6 * 60, 22 * 60, b.start) + '</select></label>' +
+                            '<label>End<select class="tt-tu-end">' + timeSelectHtml(8 * 60, 24 * 60, b.end) + '</select></label></div>' +
+                            '</div>';
+                    }).join('') + '</div>' +
+                    '<button type="button" class="tt-chip tt-add-tu" id="tt-tu-add"' + (tuList.length >= MAX_TUITION_BLOCKS ? ' hidden' : '') + '>+ Tuition ထပ်ထည့်မည်</button>';
             } else if (cur.id === 'wake') {
                 html = '<select class="tt-select" id="tt-wake">' + timeSelectHtml(5 * 60, 9 * 60, answers.dayStart) + '</select>';
             } else if (cur.id === 'sleep') {
@@ -1132,16 +1194,40 @@
                     }
                 };
             });
-            var addTu = document.getElementById('tt-tu-add');
-            var remTu = document.getElementById('tt-tu2-remove');
-            var tu2 = document.getElementById('tt-tu2-block');
-            function showTu2(on) {
-                answers.hasTuition2 = !!on;
-                if (tu2) tu2.hidden = !on;
-                if (addTu) addTu.hidden = !!on;
+            function readTuitionBlocksFromDom() {
+                var wrap = document.getElementById('tt-tu-blocks');
+                if (!wrap) return null;
+                return Array.prototype.map.call(wrap.querySelectorAll('.tt-tu-row'), function (row) {
+                    var startEl = row.querySelector('.tt-tu-start');
+                    var endEl = row.querySelector('.tt-tu-end');
+                    return {
+                        start: parseTime(startEl && startEl.value),
+                        end: parseTime(endEl && endEl.value)
+                    };
+                });
             }
-            if (addTu) addTu.onclick = function () { showTu2(true); };
-            if (remTu) remTu.onclick = function () { showTu2(false); };
+            var addTu = document.getElementById('tt-tu-add');
+            if (addTu) addTu.onclick = function () {
+                var daysEl = document.getElementById('tt-tu-days');
+                if (daysEl) answers.tuitionDays = readDays(daysEl);
+                var blocks = readTuitionBlocksFromDom() || tuitionBlocksOf(answers);
+                if (blocks.length >= MAX_TUITION_BLOCKS) return;
+                var lastEnd = blocks.length ? blocks[blocks.length - 1].end : 16 * 60;
+                blocks.push(defaultTuitionBlock(lastEnd));
+                syncTuitionFields(answers, blocks);
+                paint();
+            };
+            body.querySelectorAll('.tt-tu-remove').forEach(function (btn) {
+                btn.onclick = function () {
+                    var daysEl = document.getElementById('tt-tu-days');
+                    if (daysEl) answers.tuitionDays = readDays(daysEl);
+                    var blocks = readTuitionBlocksFromDom() || tuitionBlocksOf(answers);
+                    var idx = parseInt(btn.getAttribute('data-i'), 10);
+                    if (blocks.length > 1 && idx >= 0 && idx < blocks.length) blocks.splice(idx, 1);
+                    syncTuitionFields(answers, blocks);
+                    paint();
+                };
+            });
             body.querySelectorAll('#tt-subs .tt-chip, #tt-weak .tt-chip, #tt-strong .tt-chip').forEach(function (ch) {
                 ch.onclick = function () { ch.classList.toggle('on'); };
             });
@@ -1161,6 +1247,18 @@
                 var n = (document.getElementById('tt-name').value || '').trim();
                 if (!n) { api.alert('နာမည် ရိုက်ထည့်ပါ။'); return false; }
                 answers.name = n;
+            } else if (cur.id === 'goesToSchool') {
+                var schoolChip = document.querySelector('#tt-goes-school .tt-chip.on');
+                answers.goesToSchool = !(schoolChip && schoolChip.getAttribute('data-v') === '0');
+                if (!answers.goesToSchool) {
+                    answers.schoolDays = [];
+                    answers.hasTuition = true;
+                    if (!tuitionBlocksOf(answers).length) {
+                        syncTuitionFields(answers, [defaultTuitionBlock()]);
+                    }
+                } else if (!(answers.schoolDays || []).length) {
+                    answers.schoolDays = [0, 1, 2, 3, 4];
+                }
             } else if (cur.id === 'schoolDays') {
                 answers.schoolDays = readDays(document.getElementById('tt-school-days'));
             } else if (cur.id === 'schoolHours') {
@@ -1170,20 +1268,31 @@
             } else if (cur.id === 'tuition') {
                 var yes = document.querySelector('.tt-yesno .tt-chip.on');
                 answers.hasTuition = !!(yes && yes.getAttribute('data-v') === '1');
-                if (!answers.hasTuition) answers.hasTuition2 = false;
+                if (!answers.hasTuition) {
+                    answers.hasTuition2 = false;
+                    answers.tuitionBlocks = [];
+                }
             } else if (cur.id === 'tuitionHours') {
                 answers.tuitionDays = readDays(document.getElementById('tt-tu-days'));
-                answers.tuitionStart = parseTime(document.getElementById('tt-tu-start').value);
-                answers.tuitionEnd = parseTime(document.getElementById('tt-tu-end').value);
-                if (!answers.tuitionDays.length) { api.alert('Tuition ရှိတဲ့နေ့ ရွေးပါ။'); return false; }
-                if (answers.tuitionEnd <= answers.tuitionStart) { api.alert('Tuition ပြီးချိန်က စချိန်ထက် နောက်ကျရပါမယ်။'); return false; }
-                var tu2Box = document.getElementById('tt-tu2-block');
-                answers.hasTuition2 = !!(tu2Box && !tu2Box.hidden);
-                if (answers.hasTuition2) {
-                    answers.tuition2Start = parseTime(document.getElementById('tt-tu2-start').value);
-                    answers.tuition2End = parseTime(document.getElementById('tt-tu2-end').value);
-                    if (answers.tuition2End <= answers.tuition2Start) { api.alert('Tuition 2 ပြီးချိန်က စချိန်ထက် နောက်ကျရပါမယ်။'); return false; }
+                var collected = [];
+                var tuWrap = document.getElementById('tt-tu-blocks');
+                if (tuWrap) {
+                    collected = Array.prototype.map.call(tuWrap.querySelectorAll('.tt-tu-row'), function (row) {
+                        return {
+                            start: parseTime(row.querySelector('.tt-tu-start').value),
+                            end: parseTime(row.querySelector('.tt-tu-end').value)
+                        };
+                    });
                 }
+                if (!answers.tuitionDays.length) { api.alert('Tuition ရှိတဲ့နေ့ ရွေးပါ။'); return false; }
+                if (!collected.length) { api.alert('Tuition အချိန် အနည်းဆုံး ၁ ခု ထည့်ပါ။'); return false; }
+                for (var ti = 0; ti < collected.length; ti++) {
+                    if (collected[ti].end <= collected[ti].start) {
+                        api.alert('Tuition ' + (ti + 1) + ' ပြီးချိန်က စချိန်ထက် နောက်ကျရပါမယ်။');
+                        return false;
+                    }
+                }
+                syncTuitionFields(answers, collected);
             } else if (cur.id === 'wake') {
                 answers.dayStart = parseTime(document.getElementById('tt-wake').value);
             } else if (cur.id === 'sleep') {

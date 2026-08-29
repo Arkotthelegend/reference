@@ -2173,7 +2173,10 @@ body.showing-articles .container {
 }
 #time-screen .tt-chip.on { border-color: #00D5FF !important; color: #00D5FF !important; background: #0B0F19 !important; }
 #time-screen .tt-add-tu { flex: 1 1 100% !important; border-style: dashed !important; color: #00D5FF !important; border-color: #00D5FF !important; }
-#tt-tu2-block { margin: 8px 0 4px; }
+.tt-tu-row { margin: 10px 0 6px; padding-top: 8px; border-top: 1px solid #1E293B; }
+.tt-tu-row-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tt-tu-row-head .tt-print-label { margin: 0; }
+#time-screen .tt-tu-remove { flex: 0 0 auto !important; max-width: none !important; padding: 8px 10px !important; font-size: 0.78rem !important; }
 .tt-times { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0 8px; }
 .tt-times label, #time-screen .tt-select { display: block; color: #94A3B8; font-size: 0.78rem; font-weight: 700; }
 #time-screen select, #time-screen .tt-select, #time-screen .tt-input {
@@ -2949,7 +2952,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
     <script src="./grades.js?v=7"></script>
-    <script src="./timetable.js?v=22"></script>
+    <script src="./timetable.js?v=23"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3584,7 +3587,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=79'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=80'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
@@ -6593,6 +6596,13 @@ function updateFlashUI() {
     }
 }
 		
+function quizBlankAnswer(q) {
+    if (!q) return '';
+    if (q.c !== undefined && q.c !== null && String(q.c).trim() !== '') return q.c;
+    if (typeof q.a === 'string' && q.a.trim()) return q.a;
+    return '';
+}
+
 function escapeExplanationAnswer(value) {
     const node = document.createElement('div');
     node.innerHTML = String(value ?? '');
@@ -6854,7 +6864,8 @@ function loadQuestion() {
             input.disabled = true;
             sBtn.disabled = true;
 
-            const isCorrect = input.value.trim().toLowerCase() === q.c.toString().toLowerCase();
+            const correct = quizBlankAnswer(q);
+            const isCorrect = !!correct && input.value.trim().toLowerCase() === String(correct).toLowerCase();
 
             if(isCorrect) {
                 input.style.borderColor = '#10B981';
@@ -6868,14 +6879,14 @@ function loadQuestion() {
                 input.style.background = 'rgba(239, 68, 68, 0.1)';
             }
 
-            if (isExplSubject) {
-                const explText = buildExplanationText(q, isCorrect, q.c);
-                renderExplanationPanel(explText, isCorrect, q.c);
+            if (isExplSubject || currentSubject?.id === 'en') {
+                const explText = buildExplanationText(q, isCorrect, correct);
+                renderExplanationPanel(explText, isCorrect, correct);
             } else {
                 if(isCorrect) {
                     tg.showAlert("မှန်ကန်ပါသည်။ ✅");
                 } else {
-                    tg.showAlert("အဖြေမှန်မှာ: " + q.c + "\nအခြားသောအဖြေမှန်များလည်းရှိနိုင်ပါသည်");
+                    tg.showAlert("အဖြေမှန်မှာ: " + correct + "\nအခြားသောအဖြေမှန်များလည်းရှိနိုင်ပါသည်");
                 }
             }
 
