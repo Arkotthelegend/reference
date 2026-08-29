@@ -1977,7 +1977,7 @@ body.math-expand-page .container {
 
 #explanation-box.show {
     padding: 12px 16px;
-    max-height: 140px; /* ⬅️ Hard cap so it never pushes Next button off screen */
+    max-height: 220px; /* answer + explanation; still capped so Next stays on screen */
     opacity: 1;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -1992,6 +1992,33 @@ body.math-expand-page .container {
     display: block;
     margin-bottom: 4px;
     font-size: 0.95rem;
+}
+
+.expl-answer {
+    margin: 0 0 10px 0;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: rgba(0, 213, 255, 0.08);
+    border: 1px solid rgba(0, 213, 255, 0.28);
+}
+.expl-answer-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #00D5FF;
+    margin-bottom: 4px;
+}
+.expl-answer-value {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.45;
+    word-break: break-word;
+}
+.expl-note {
+    color: #E2E8F0;
 }
 
 /* Footer stays at bottom of flex container */
@@ -3557,7 +3584,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=78'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=79'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
@@ -6566,6 +6593,16 @@ function updateFlashUI() {
     }
 }
 		
+function escapeExplanationAnswer(value) {
+    const node = document.createElement('div');
+    node.innerHTML = String(value ?? '');
+    const plain = (node.textContent || node.innerText || '').trim();
+    return plain
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
 // ─── NEW: Bullet-proof explanation renderer ───
 function renderExplanationPanel(rawText, isCorrect, correctAnswerText) {
     const box = document.getElementById('explanation-box');
@@ -6579,19 +6616,23 @@ function renderExplanationPanel(rawText, isCorrect, correctAnswerText) {
     let text = String(rawText ?? '');
     if (text.toLowerCase() === 'undefined' || text.toLowerCase() === 'null') text = '';
 
-    // Build safe HTML
-    let bodyHtml = '';
+    const answer = String(correctAnswerText ?? '').trim();
+    const skipAnswer = !answer || answer.toLowerCase() === 'undefined' || answer.toLowerCase() === 'null';
+    const answerHtml = skipAnswer
+        ? ''
+        : `<div class="expl-answer"><span class="expl-answer-label">အဖြေမှန်</span><span class="expl-answer-value">${escapeExplanationAnswer(answer)}</span></div>`;
+
+    let noteHtml = '';
     if (text.length > 0) {
-        bodyHtml = `<div style="color:#E2E8F0;">${text}</div>`;
-    } else if (!isCorrect && correctAnswerText) {
-        bodyHtml = `<div style="color:#E2E8F0;">အဖြေမှန်မှာ <b style="color:#fff">${correctAnswerText}</b> ဖြစ်ပါသည်။</div>`;
-    } else {
-        bodyHtml = `<div style="color:#94A3B8;font-style:italic;">${isCorrect ? 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။' : 'အဖြေမှားနေပါသည်။ နောက်တစ်ပုဒ်တွင် ကြိုးစားကြည့်ပါ။'}</div>`;
+        noteHtml = `<div class="expl-note">${text}</div>`;
+    } else if (!answerHtml) {
+        noteHtml = `<div class="expl-note" style="color:#94A3B8;font-style:italic;">${isCorrect ? 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။' : 'အဖြေမှားနေပါသည်။ နောက်တစ်ပုဒ်တွင် ကြိုးစားကြည့်ပါ။'}</div>`;
     }
 
     box.innerHTML = `
         <b style="color:${color};display:block;margin-bottom:6px;font-size:1rem;">${icon} ${title}</b>
-        ${bodyHtml}
+        ${answerHtml}
+        ${noteHtml}
     `;
     box.classList.toggle('wrong', !isCorrect);
     box.classList.add('show');
@@ -6603,10 +6644,7 @@ function renderExplanationPanel(rawText, isCorrect, correctAnswerText) {
 
 // ─── Helper: decide what text to show ───
 function buildExplanationText(q, isCorrect, correctAnswerText) {
-    // Debug: open browser console to see this
-    console.log('🔍 buildExplanationText called. q.e =', q.e, '| type =', typeof q.e);
-
-    // Accept e, explanation, or note
+    // Accept e, explanation, or note. The correct answer is rendered separately.
     let custom = q.e;
     if (custom === undefined || custom === null) custom = q.explanation;
     if (custom === undefined || custom === null) custom = q.note;
@@ -6615,13 +6653,7 @@ function buildExplanationText(q, isCorrect, correctAnswerText) {
         return custom.trim();
     }
 
-    if (!isCorrect && correctAnswerText) {
-        return `အဖြေမှန်မှာ <b style="color:#fff">${correctAnswerText}</b> ဖြစ်ပါသည်။`;
-    }
-
-    return isCorrect
-        ? 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။'
-        : 'အဖြေမှားနေပါသည်။ နောက်တစ်ပုဒ်တွင် ကြိုးစားကြည့်ပါ။';
+    return '';
 }
 
 function loadQuestion() {
