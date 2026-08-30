@@ -159,6 +159,104 @@
         return blocks;
     }
 
+    var MEAL_KEYS = ['breakfast', 'lunch', 'dinner'];
+    var MEAL_META = {
+        breakfast: { label: 'Breakfast', color: COLORS.rest, title: 'နံနက်စာ · Breakfast', from: 5 * 60, to: 11 * 60 },
+        lunch: { label: 'Lunch', color: COLORS.rest, title: 'နေ့လယ်စာ · Lunch', from: 10 * 60, to: 16 * 60 },
+        dinner: { label: 'Dinner', color: COLORS.dinner, title: 'ညစာ · Dinner', from: 16 * 60, to: 24 * 60 }
+    };
+
+    function defaultMeals() {
+        return {
+            breakfast: { on: true, start: 6 * 60 + 30, end: 7 * 60 },
+            lunch: { on: true, start: 12 * 60, end: 13 * 60 },
+            dinner: { on: true, start: 18 * 60, end: 19 * 60 }
+        };
+    }
+
+    function hasMealPlan(answers) {
+        return !!(answers && answers.meals && typeof answers.meals === 'object');
+    }
+
+    function normalizeMeals(raw, fallbackRest) {
+        var base = defaultMeals();
+        if (raw && typeof raw === 'object') {
+            MEAL_KEYS.forEach(function (k) {
+                var m = raw[k];
+                if (!m || typeof m !== 'object') return;
+                if (typeof m.on === 'boolean') base[k].on = m.on;
+                var start = parseTime(m.start);
+                var end = parseTime(m.end);
+                if (end > start) {
+                    base[k].start = start;
+                    base[k].end = end;
+                }
+            });
+            return base;
+        }
+        if (fallbackRest && parseTime(fallbackRest.end) > parseTime(fallbackRest.start)) {
+            base.breakfast.on = false;
+            base.lunch.on = false;
+            base.dinner.start = parseTime(fallbackRest.start);
+            base.dinner.end = parseTime(fallbackRest.end);
+        }
+        return base;
+    }
+
+    function syncMealRestFields(answers, meals) {
+        meals = meals || normalizeMeals(answers && answers.meals, answers && {
+            start: answers.restStart,
+            end: answers.restEnd
+        });
+        answers.meals = meals;
+        if (meals.dinner && meals.dinner.on) {
+            answers.restStart = meals.dinner.start;
+            answers.restEnd = meals.dinner.end;
+            answers.restLabel = 'Dinner';
+        } else {
+            answers.restLabel = 'Dinner';
+        }
+        return meals;
+    }
+
+    function clipRangeAroundSchool(start, end, schoolOn, schoolStart, schoolEnd) {
+        if (!schoolOn) return [[start, end]];
+        if (end <= schoolStart || start >= schoolEnd) return [[start, end]];
+        var out = [];
+        if (start < schoolStart) out.push([start, Math.min(end, schoolStart)]);
+        if (end > schoolEnd) out.push([Math.max(start, schoolEnd), end]);
+        return out.filter(function (p) { return p[1] > p[0]; });
+    }
+
+    function insertMealBlocks(blocks, meal, dayStart, dayEnd, schoolOn, schoolStart, schoolEnd) {
+        if (!meal || !meal.on) return;
+        var start = parseTime(meal.start);
+        var end = parseTime(meal.end);
+        if (!(end > start)) return;
+        clipRangeAroundSchool(start, end, schoolOn, schoolStart, schoolEnd).forEach(function (p) {
+            var piece = clip({
+                start: p[0],
+                end: p[1],
+                type: 'rest',
+                label: meal.label,
+                color: meal.color
+            }, dayStart, dayEnd);
+            if (!piece) return;
+            gaps(piece.start, piece.end, blocks).forEach(function (g) {
+                if (g.end - g.start >= 10) {
+                    blocks.push({
+                        start: g.start,
+                        end: g.end,
+                        type: 'rest',
+                        label: meal.label,
+                        sub: '',
+                        color: meal.color
+                    });
+                }
+            });
+        });
+    }
+
     function buildDay(answers, dayIndex, cycle, seed) {
         var dayStart = answers.dayStart;
         var dayEnd = answers.dayEnd <= answers.dayStart ? 1440 : answers.dayEnd;
@@ -189,30 +287,47 @@
         var tuBlocks = tuitionOn ? tuitionBlocksOf(answers) : [];
         tuBlocks.forEach(function (b) { addTuition(b.start, b.end); });
 
-        var lastTu = 0;
-        tuBlocks.forEach(function (b) { lastTu = Math.max(lastTu, b.end); });
-        var restStart = answers.restStart;
-        var restEnd = answers.restEnd;
-        var restLabel = answers.restLabel || 'Dinner + Rest';
-        if (lastTu && restStart < lastTu) {
-            restStart = lastTu;
-            restEnd = lastTu + 30;
-            restLabel = 'Dinner + Rest';
-        }
+        var plannedMeals = hasMealPlan(answers);
+        if (plannedMeals) {
+            var meals = normalizeMeals(answers.meals);
+            insertMealBlocks(blocks, {
+                on: meals.breakfast.on, start: meals.breakfast.start, end: meals.breakfast.end,
+                label: MEAL_META.breakfast.label, color: MEAL_META.breakfast.color
+            }, dayStart, dayEnd, schoolOn, answers.schoolStart, answers.schoolEnd);
+            insertMealBlocks(blocks, {
+                on: meals.lunch.on, start: meals.lunch.start, end: meals.lunch.end,
+                label: MEAL_META.lunch.label, color: MEAL_META.lunch.color
+            }, dayStart, dayEnd, schoolOn, answers.schoolStart, answers.schoolEnd);
+            insertMealBlocks(blocks, {
+                on: meals.dinner.on, start: meals.dinner.start, end: meals.dinner.end,
+                label: MEAL_META.dinner.label, color: MEAL_META.dinner.color
+            }, dayStart, dayEnd, schoolOn, answers.schoolStart, answers.schoolEnd);
+        } else {
+            var lastTu = 0;
+            tuBlocks.forEach(function (b) { lastTu = Math.max(lastTu, b.end); });
+            var restStart = answers.restStart;
+            var restEnd = answers.restEnd;
+            var restLabel = answers.restLabel || 'Dinner + Rest';
+            if (lastTu && restStart < lastTu) {
+                restStart = lastTu;
+                restEnd = lastTu + 30;
+                restLabel = 'Dinner + Rest';
+            }
 
-        if (schoolOn && !tuitionOn) {
-            var lunch = clip({ start: answers.schoolEnd, end: answers.schoolEnd + 60, type: 'rest', label: 'Lunch + Rest', color: COLORS.rest }, dayStart, dayEnd);
-            if (lunch) blocks.push(lunch);
-        }
+            if (schoolOn && !tuitionOn) {
+                var autoLunch = clip({ start: answers.schoolEnd, end: answers.schoolEnd + 60, type: 'rest', label: 'Lunch + Rest', color: COLORS.rest }, dayStart, dayEnd);
+                if (autoLunch) blocks.push(autoLunch);
+            }
 
-        var rest = clip({ start: restStart, end: restEnd, type: 'rest', label: restLabel, color: COLORS.dinner }, dayStart, dayEnd);
-        if (rest) {
-            var busyNow = blocks.map(function (b) { return { start: b.start, end: b.end }; });
-            gaps(rest.start, rest.end, busyNow).forEach(function (g) {
-                if (g.end - g.start >= 15) {
-                    blocks.push({ start: g.start, end: g.end, type: 'rest', label: restLabel, sub: '', color: COLORS.dinner });
-                }
-            });
+            var rest = clip({ start: restStart, end: restEnd, type: 'rest', label: restLabel, color: COLORS.dinner }, dayStart, dayEnd);
+            if (rest) {
+                var busyNow = blocks.map(function (b) { return { start: b.start, end: b.end }; });
+                gaps(rest.start, rest.end, busyNow).forEach(function (g) {
+                    if (g.end - g.start >= 15) {
+                        blocks.push({ start: g.start, end: g.end, type: 'rest', label: restLabel, sub: '', color: COLORS.dinner });
+                    }
+                });
+            }
         }
 
         var free = gaps(dayStart, dayEnd, blocks);
@@ -257,7 +372,7 @@
                 return;
             }
             var lunch = null;
-            if (!schoolOn && start <= 11 * 60 && end >= 14 * 60) {
+            if (!plannedMeals && !schoolOn && start <= 11 * 60 && end >= 14 * 60) {
                 lunch = { start: 12 * 60, end: 13 * 60 };
             }
             if (lunch && lunch.start > start && lunch.end < end) {
@@ -1024,9 +1139,10 @@
             tuitionBlocks: [],
             dayStart: 6 * 60,
             dayEnd: 23 * 60,
+            meals: defaultMeals(),
             restStart: 18 * 60,
             restEnd: 19 * 60,
-            restLabel: 'Dinner + Rest',
+            restLabel: 'Dinner',
             shortRest: true,
             shortRestMins: 15,
             weakSubjects: [],
@@ -1040,6 +1156,16 @@
         if (!answers.shortRestMins) answers.shortRestMins = 15;
         if (typeof answers.goesToSchool !== 'boolean') {
             answers.goesToSchool = (answers.schoolDays || []).length > 0;
+        }
+        if (hasMealPlan(answers)) {
+            syncMealRestFields(answers, normalizeMeals(answers.meals));
+        } else {
+            var seeded = defaultMeals();
+            if (parseTime(answers.restEnd) > parseTime(answers.restStart)) {
+                seeded.dinner.start = parseTime(answers.restStart);
+                seeded.dinner.end = parseTime(answers.restEnd);
+            }
+            syncMealRestFields(answers, seeded);
         }
         syncTuitionFields(answers, tuitionBlocksOf(answers));
         var step = 0;
@@ -1062,7 +1188,7 @@
             }
             s.push({ id: 'wake', title: 'မနက် ဘယ်အချိန် စပီး လေ့လာမလဲ။' });
             s.push({ id: 'sleep', title: 'ည ဘယ်အချိန် အိပ်မလဲ။' });
-            s.push({ id: 'rest', title: 'ထမင်းစား / နားချိန်' });
+            s.push({ id: 'meals', title: 'နံနက်စာ / နေ့လယ်စာ / ညစာ ဘယ်အချိန်လဲ။' });
             s.push({ id: 'shortRest', title: 'ရှည်လျားတဲ့ ကျက်ချိန်ပြီးရင် ခဏနားမလား။' });
             s.push({ id: 'weak', title: 'ဒီအပတ် အားနည်းတဲ့ ဘာသာရပ်များ' });
             s.push({ id: 'strong', title: 'ဒီအပတ် အားကောင်းတဲ့ ဘာသာရပ်များ' });
@@ -1131,13 +1257,42 @@
                 html = '<select class="tt-select" id="tt-wake">' + timeSelectHtml(5 * 60, 9 * 60, answers.dayStart) + '</select>';
             } else if (cur.id === 'sleep') {
                 html = '<select class="tt-select" id="tt-sleep">' + timeSelectHtml(20 * 60, 24 * 60, answers.dayEnd) + '</select>';
-            } else if (cur.id === 'rest') {
-                html = '<div class="tt-presets">' +
-                    [['5:00 – 6:00 PM', 17 * 60, 18 * 60, 'Dinner + Rest'], ['6:00 – 7:00 PM', 18 * 60, 19 * 60, 'Dinner + Rest'], ['7:00 – 8:00 PM', 19 * 60, 20 * 60, 'Dinner + Break'], ['10:00 – 10:30 PM', 22 * 60, 22 * 60 + 30, 'Dinner + Rest']].map(function (p) {
-                        return '<button type="button" class="tt-chip tt-preset" data-a="' + p[1] + '" data-b="' + p[2] + '" data-l="' + p[3] + '">' + p[0] + '</button>';
-                    }).join('') + '</div>' +
-                    '<div class="tt-times"><label>Start<select id="tt-rest-start">' + timeSelectHtml(16 * 60, 23 * 60, answers.restStart) + '</select></label>' +
-                    '<label>End<select id="tt-rest-end">' + timeSelectHtml(17 * 60, 24 * 60, answers.restEnd) + '</select></label></div>';
+            } else if (cur.id === 'meals') {
+                var meals = normalizeMeals(answers.meals, { start: answers.restStart, end: answers.restEnd });
+                var mealPresets = {
+                    breakfast: [
+                        ['6:00 – 6:30 AM', 6 * 60, 6 * 60 + 30],
+                        ['6:30 – 7:00 AM', 6 * 60 + 30, 7 * 60],
+                        ['7:00 – 7:30 AM', 7 * 60, 7 * 60 + 30]
+                    ],
+                    lunch: [
+                        ['12:00 – 12:30 PM', 12 * 60, 12 * 60 + 30],
+                        ['12:00 – 1:00 PM', 12 * 60, 13 * 60],
+                        ['1:00 – 1:30 PM', 13 * 60, 13 * 60 + 30]
+                    ],
+                    dinner: [
+                        ['5:00 – 6:00 PM', 17 * 60, 18 * 60],
+                        ['6:00 – 7:00 PM', 18 * 60, 19 * 60],
+                        ['7:00 – 8:00 PM', 19 * 60, 20 * 60]
+                    ]
+                };
+                html = '<p class="tt-help">မစားချင်တဲ့ အချိန်ကို ပိတ်နိုင်ပါတယ်။ ကျောင်း / Tuition နဲ့ တူတဲ့ စားချိန်ကို အဲဒီထဲမှာ စားတယ်လို့ ယူဆပြီး chart ပေါ်မှာ ထပ်မရေးပါ။</p>' +
+                    MEAL_KEYS.map(function (k) {
+                        var m = meals[k];
+                        var meta = MEAL_META[k];
+                        var on = m.on !== false;
+                        return '<div class="tt-meal-row" data-meal="' + k + '">' +
+                            '<label class="tt-meal-head">' +
+                            '<input type="checkbox" class="tt-meal-on" data-meal="' + k + '"' + (on ? ' checked' : '') + '>' +
+                            '<span>' + meta.title + '</span></label>' +
+                            '<div class="tt-presets">' + mealPresets[k].map(function (p) {
+                                return '<button type="button" class="tt-chip tt-preset" data-meal="' + k + '" data-a="' + p[1] + '" data-b="' + p[2] + '"' + (on ? '' : ' disabled') + '>' + p[0] + '</button>';
+                            }).join('') + '</div>' +
+                            '<div class="tt-times' + (on ? '' : ' is-off') + '">' +
+                            '<label>Start<select class="tt-meal-start" data-meal="' + k + '"' + (on ? '' : ' disabled') + '>' + timeSelectHtml(meta.from, meta.to, m.start) + '</select></label>' +
+                            '<label>End<select class="tt-meal-end" data-meal="' + k + '"' + (on ? '' : ' disabled') + '>' + timeSelectHtml(meta.from + 15, meta.to, m.end) + '</select></label>' +
+                            '</div></div>';
+                    }).join('');
             } else if (cur.id === 'shortRest') {
                 html = '<p class="tt-help">၁ နာရီခွဲ ကျက်ပြီးရင် ၁၅ မိနစ် Rest ထည့်မယ်။</p>' +
                     '<div class="tt-yesno"><button type="button" class="tt-chip' + (answers.shortRest ? ' on' : '') + '" data-v="1">ထည့်မယ်</button>' +
@@ -1166,20 +1321,42 @@
             });
             body.querySelectorAll('.tt-presets .tt-preset').forEach(function (ch) {
                 ch.onclick = function () {
+                    if (ch.disabled) return;
                     var a = parseInt(ch.getAttribute('data-a'), 10);
                     var b = parseInt(ch.getAttribute('data-b'), 10);
+                    if (cur.id === 'meals') {
+                        var meal = ch.getAttribute('data-meal');
+                        var mealRow = body.querySelector('.tt-meal-row[data-meal="' + meal + '"]');
+                        if (mealRow) {
+                            mealRow.querySelector('.tt-meal-start').value = String(a);
+                            mealRow.querySelector('.tt-meal-end').value = String(b);
+                            mealRow.querySelectorAll('.tt-preset').forEach(function (x) { x.classList.remove('on'); });
+                            ch.classList.add('on');
+                        }
+                        return;
+                    }
                     var map = {
-                        schoolHours: ['tt-school-start', 'tt-school-end'],
-                        rest: ['tt-rest-start', 'tt-rest-end']
+                        schoolHours: ['tt-school-start', 'tt-school-end']
                     };
                     var ids = map[cur.id];
                     if (ids) {
                         document.getElementById(ids[0]).value = String(a);
                         document.getElementById(ids[1]).value = String(b);
                     }
-                    if (cur.id === 'rest' && ch.getAttribute('data-l')) answers.restLabel = ch.getAttribute('data-l');
                     body.querySelectorAll('.tt-preset').forEach(function (x) { x.classList.remove('on'); });
                     ch.classList.add('on');
+                };
+            });
+            function setMealRowOn(row, on) {
+                if (!row) return;
+                row.querySelectorAll('.tt-meal-start, .tt-meal-end').forEach(function (el) { el.disabled = !on; });
+                row.querySelectorAll('.tt-preset').forEach(function (el) { el.disabled = !on; });
+                var times = row.querySelector('.tt-times');
+                if (times) times.classList.toggle('is-off', !on);
+            }
+            body.querySelectorAll('.tt-meal-on').forEach(function (cb) {
+                cb.onchange = function () {
+                    setMealRowOn(cb.closest('.tt-meal-row'), cb.checked);
                 };
             });
             body.querySelectorAll('.tt-yesno .tt-chip').forEach(function (ch) {
@@ -1298,10 +1475,28 @@
             } else if (cur.id === 'sleep') {
                 answers.dayEnd = parseTime(document.getElementById('tt-sleep').value);
                 if (answers.dayEnd <= answers.dayStart) { api.alert('အိပ်ချိန်က မနက်စချိန်ထက် နောက်ကျရပါမယ်။'); return false; }
-            } else if (cur.id === 'rest') {
-                answers.restStart = parseTime(document.getElementById('tt-rest-start').value);
-                answers.restEnd = parseTime(document.getElementById('tt-rest-end').value);
-                if (answers.restEnd <= answers.restStart) { api.alert('နားချိန် ပြီးချိန်က စချိန်ထက် နောက်ကျရပါမယ်။'); return false; }
+            } else if (cur.id === 'meals') {
+                var nextMeals = normalizeMeals(answers.meals, { start: answers.restStart, end: answers.restEnd });
+                var mealTitles = { breakfast: 'နံနက်စာ', lunch: 'နေ့လယ်စာ', dinner: 'ညစာ' };
+                var onCount = 0;
+                for (var mi = 0; mi < MEAL_KEYS.length; mi++) {
+                    var mk = MEAL_KEYS[mi];
+                    var row = document.querySelector('.tt-meal-row[data-meal="' + mk + '"]');
+                    if (!row) continue;
+                    var onEl = row.querySelector('.tt-meal-on');
+                    nextMeals[mk].on = !!(onEl && onEl.checked);
+                    nextMeals[mk].start = parseTime(row.querySelector('.tt-meal-start').value);
+                    nextMeals[mk].end = parseTime(row.querySelector('.tt-meal-end').value);
+                    if (nextMeals[mk].on) {
+                        onCount++;
+                        if (nextMeals[mk].end <= nextMeals[mk].start) {
+                            api.alert(mealTitles[mk] + ' ပြီးချိန်က စချိန်ထက် နောက်ကျရပါမယ်။');
+                            return false;
+                        }
+                    }
+                }
+                if (!onCount) { api.alert('ထမင်းစားချိန် အနည်းဆုံး ၁ ခု ရွေးပါ။'); return false; }
+                syncMealRestFields(answers, nextMeals);
             } else if (cur.id === 'shortRest') {
                 var restYes = document.querySelector('.tt-yesno .tt-chip.on');
                 answers.shortRest = !!(restYes && restYes.getAttribute('data-v') === '1');
