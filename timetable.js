@@ -116,7 +116,7 @@
     var MAX_TUITION_BLOCKS = 8;
 
     function defaultTuitionBlock(afterEnd) {
-        var start = typeof afterEnd === 'number' ? Math.min(afterEnd + 30, 22 * 60) : 16 * 60;
+        var start = typeof afterEnd === 'number' ? Math.min(afterEnd + 60, 22 * 60) : 16 * 60;
         var end = Math.min(start + 3 * 60, 24 * 60);
         if (end <= start) {
             start = 20 * 60;
@@ -161,15 +161,45 @@
 
     var MEAL_KEYS = ['breakfast', 'lunch', 'dinner'];
     var MEAL_META = {
-        breakfast: { label: 'Breakfast', color: COLORS.rest, title: 'နံနက်စာ · Breakfast', from: 5 * 60, to: 11 * 60 },
-        lunch: { label: 'Lunch', color: COLORS.rest, title: 'နေ့လယ်စာ · Lunch', from: 10 * 60, to: 16 * 60 },
-        dinner: { label: 'Dinner', color: COLORS.dinner, title: 'ညစာ · Dinner', from: 16 * 60, to: 24 * 60 }
+        breakfast: { label: 'Breakfast', color: COLORS.rest, title: 'နံနက်စာ', from: 5 * 60, to: 11 * 60, searchFrom: 5 * 60, searchTo: 10 * 60 },
+        lunch: { label: 'Lunch', color: COLORS.rest, title: 'နေ့လယ်စာ', from: 11 * 60, to: 17 * 60, searchFrom: 11 * 60, searchTo: 15 * 60 + 30 },
+        dinner: { label: 'Dinner', color: COLORS.dinner, title: 'ညစာ', from: 16 * 60, to: 24 * 60, searchFrom: 16 * 60, searchTo: 22 * 60 + 30 }
     };
+    var STEP_ORDER = [
+        'steam', 'name', 'goesToSchool', 'schoolDays', 'schoolHours',
+        'tuition', 'tuitionHours', 'meals', 'wake', 'sleep', 'shortRest', 'weak', 'strong'
+    ];
 
-    function defaultMeals() {
+    function suggestLunch(answers) {
+        answers = answers || {};
+        var busy = [];
+        if (answers.goesToSchool !== false && (answers.schoolDays || []).length && answers.schoolEnd > answers.schoolStart) {
+            busy.push({ start: answers.schoolStart, end: answers.schoolEnd });
+        }
+        tuitionBlocksOf(answers).forEach(function (b) { busy.push({ start: b.start, end: b.end }); });
+        var found = null;
+        gaps(11 * 60, 15 * 60 + 30, busy).forEach(function (g) {
+            var len = g.end - g.start;
+            if (len < 45 || len > 150) return;
+            if (!found || len < found.end - found.start || (len === found.end - found.start && g.start < found.start)) found = g;
+        });
+        if (found) {
+            return {
+                start: found.start,
+                end: (found.end - found.start) <= 90 ? found.end : found.start + 60
+            };
+        }
+        if (answers.goesToSchool !== false && (answers.schoolDays || []).length && answers.schoolEnd > answers.schoolStart) {
+            return { start: answers.schoolEnd, end: answers.schoolEnd + 60 };
+        }
+        return { start: 12 * 60, end: 13 * 60 };
+    }
+
+    function defaultMeals(answers) {
+        var lunch = suggestLunch(answers);
         return {
             breakfast: { on: true, start: 6 * 60 + 30, end: 7 * 60 },
-            lunch: { on: true, start: 12 * 60, end: 13 * 60 },
+            lunch: { on: true, start: lunch.start, end: lunch.end },
             dinner: { on: true, start: 18 * 60, end: 19 * 60 }
         };
     }
@@ -219,42 +249,83 @@
         return meals;
     }
 
-    function clipRangeAroundSchool(start, end, schoolOn, schoolStart, schoolEnd) {
-        if (!schoolOn) return [[start, end]];
-        if (end <= schoolStart || start >= schoolEnd) return [[start, end]];
-        var out = [];
-        if (start < schoolStart) out.push([start, Math.min(end, schoolStart)]);
-        if (end > schoolEnd) out.push([Math.max(start, schoolEnd), end]);
-        return out.filter(function (p) { return p[1] > p[0]; });
+    function mealWindowFreeMins(answers, meal) {
+        if (!meal || !meal.on || !(meal.end > meal.start)) return 0;
+        var busy = [];
+        if (answers.goesToSchool !== false && (answers.schoolDays || []).length && answers.schoolEnd > answers.schoolStart) {
+            busy.push({ start: answers.schoolStart, end: answers.schoolEnd });
+        }
+        tuitionBlocksOf(answers).forEach(function (b) { busy.push({ start: b.start, end: b.end }); });
+        var free = 0;
+        gaps(meal.start, meal.end, busy).forEach(function (g) {
+            free += Math.max(0, g.end - g.start);
+        });
+        return free;
     }
 
-    function insertMealBlocks(blocks, meal, dayStart, dayEnd, schoolOn, schoolStart, schoolEnd) {
+    function suggestMealsOntoAnswers(answers) {
+        var meals = normalizeMeals(answers.meals, { start: answers.restStart, end: answers.restEnd });
+        if (meals.lunch.on && mealWindowFreeMins(answers, meals.lunch) < 15) {
+            var sug = suggestLunch(answers);
+            meals.lunch.start = sug.start;
+            meals.lunch.end = sug.end;
+        }
+        return syncMealRestFields(answers, meals);
+    }
+
+    function insertMealBlocks(blocks, meal, dayStart, dayEnd, meta) {
         if (!meal || !meal.on) return;
-        var start = parseTime(meal.start);
-        var end = parseTime(meal.end);
-        if (!(end > start)) return;
-        clipRangeAroundSchool(start, end, schoolOn, schoolStart, schoolEnd).forEach(function (p) {
+        var wantStart = parseTime(meal.start);
+        var wantEnd = parseTime(meal.end);
+        if (!(wantEnd > wantStart)) return;
+        var wantLen = Math.max(30, wantEnd - wantStart);
+        var free = gaps(dayStart, dayEnd, blocks).filter(function (g) { return g.end - g.start >= 15; });
+
+        function add(a, b) {
             var piece = clip({
-                start: p[0],
-                end: p[1],
+                start: a,
+                end: b,
                 type: 'rest',
                 label: meal.label,
                 color: meal.color
             }, dayStart, dayEnd);
-            if (!piece) return;
-            gaps(piece.start, piece.end, blocks).forEach(function (g) {
-                if (g.end - g.start >= 10) {
-                    blocks.push({
-                        start: g.start,
-                        end: g.end,
-                        type: 'rest',
-                        label: meal.label,
-                        sub: '',
-                        color: meal.color
-                    });
-                }
-            });
+            if (!piece) return false;
+            blocks.push({ start: piece.start, end: piece.end, type: 'rest', label: meal.label, sub: '', color: meal.color });
+            return true;
+        }
+
+        var placed = false;
+        free.forEach(function (g) {
+            var a = Math.max(g.start, wantStart);
+            var b = Math.min(g.end, wantEnd);
+            if (b - a >= 15) placed = add(a, b) || placed;
         });
+        if (placed) return;
+
+        var searchFrom = meta && meta.searchFrom != null ? meta.searchFrom : wantStart - 60;
+        var searchTo = meta && meta.searchTo != null ? meta.searchTo : wantEnd + 90;
+        var best = null;
+        var bestScore = 1e9;
+        free.forEach(function (g) {
+            var a = Math.max(g.start, searchFrom);
+            var b = Math.min(g.end, searchTo);
+            if (b - a < 30) return;
+            var start = Math.min(Math.max(wantStart, a), Math.max(a, b - Math.min(wantLen, b - a)));
+            if (start < a) start = a;
+            var end = Math.min(b, start + wantLen);
+            if (end - start < 30) {
+                start = a;
+                end = Math.min(b, a + wantLen);
+            }
+            if (end - start < 30) return;
+            var score = Math.abs(start - wantStart);
+            if (b - a <= 90) score -= 20;
+            if (score < bestScore) {
+                bestScore = score;
+                best = { start: start, end: end };
+            }
+        });
+        if (best) add(best.start, best.end);
     }
 
     function buildDay(answers, dayIndex, cycle, seed) {
@@ -293,15 +364,15 @@
             insertMealBlocks(blocks, {
                 on: meals.breakfast.on, start: meals.breakfast.start, end: meals.breakfast.end,
                 label: MEAL_META.breakfast.label, color: MEAL_META.breakfast.color
-            }, dayStart, dayEnd, schoolOn, answers.schoolStart, answers.schoolEnd);
+            }, dayStart, dayEnd, MEAL_META.breakfast);
             insertMealBlocks(blocks, {
                 on: meals.lunch.on, start: meals.lunch.start, end: meals.lunch.end,
                 label: MEAL_META.lunch.label, color: MEAL_META.lunch.color
-            }, dayStart, dayEnd, schoolOn, answers.schoolStart, answers.schoolEnd);
+            }, dayStart, dayEnd, MEAL_META.lunch);
             insertMealBlocks(blocks, {
                 on: meals.dinner.on, start: meals.dinner.start, end: meals.dinner.end,
                 label: MEAL_META.dinner.label, color: MEAL_META.dinner.color
-            }, dayStart, dayEnd, schoolOn, answers.schoolStart, answers.schoolEnd);
+            }, dayStart, dayEnd, MEAL_META.dinner);
         } else {
             var lastTu = 0;
             tuBlocks.forEach(function (b) { lastTu = Math.max(lastTu, b.end); });
@@ -1139,7 +1210,7 @@
             tuitionBlocks: [],
             dayStart: 6 * 60,
             dayEnd: 23 * 60,
-            meals: defaultMeals(),
+            meals: null,
             restStart: 18 * 60,
             restEnd: 19 * 60,
             restLabel: 'Dinner',
@@ -1160,7 +1231,7 @@
         if (hasMealPlan(answers)) {
             syncMealRestFields(answers, normalizeMeals(answers.meals));
         } else {
-            var seeded = defaultMeals();
+            var seeded = defaultMeals(answers);
             if (parseTime(answers.restEnd) > parseTime(answers.restStart)) {
                 seeded.dinner.start = parseTime(answers.restStart);
                 seeded.dinner.end = parseTime(answers.restEnd);
@@ -1168,7 +1239,7 @@
             syncMealRestFields(answers, seeded);
         }
         syncTuitionFields(answers, tuitionBlocksOf(answers));
-        var step = 0;
+        var stepId = 'steam';
 
         function steps() {
             var s = [
@@ -1186,19 +1257,39 @@
             if (answers.hasTuition || answers.goesToSchool === false) {
                 s.push({ id: 'tuitionHours', title: 'Tuition / Guide ရှိတဲ့နေ့ နဲ့ နာရီ။' });
             }
+            s.push({ id: 'meals', title: 'နံနက်စာ / နေ့လယ်စာ / ညစာ ဘယ်အချိန်လဲ။' });
             s.push({ id: 'wake', title: 'မနက် ဘယ်အချိန် စပီး လေ့လာမလဲ။' });
             s.push({ id: 'sleep', title: 'ည ဘယ်အချိန် အိပ်မလဲ။' });
-            s.push({ id: 'meals', title: 'နံနက်စာ / နေ့လယ်စာ / ညစာ ဘယ်အချိန်လဲ။' });
             s.push({ id: 'shortRest', title: 'ရှည်လျားတဲ့ ကျက်ချိန်ပြီးရင် ခဏနားမလား။' });
             s.push({ id: 'weak', title: 'ဒီအပတ် အားနည်းတဲ့ ဘာသာရပ်များ' });
             s.push({ id: 'strong', title: 'ဒီအပတ် အားကောင်းတဲ့ ဘာသာရပ်များ' });
             return s;
         }
 
+        function stepIndexOf(list, id) {
+            for (var i = 0; i < list.length; i++) if (list[i].id === id) return i;
+            return -1;
+        }
+
+        function resolveStepId(list) {
+            if (stepId === '__done') return '__done';
+            if (stepIndexOf(list, stepId) >= 0) return stepId;
+            var pos = STEP_ORDER.indexOf(stepId);
+            if (pos < 0) return list[0] ? list[0].id : '__done';
+            var n;
+            for (n = pos; n < STEP_ORDER.length; n++) {
+                if (stepIndexOf(list, STEP_ORDER[n]) >= 0) return STEP_ORDER[n];
+            }
+            for (n = pos; n >= 0; n--) {
+                if (stepIndexOf(list, STEP_ORDER[n]) >= 0) return STEP_ORDER[n];
+            }
+            return list[0] ? list[0].id : '__done';
+        }
+
         function paint() {
             var list = steps();
-            if (step < 0) step = 0;
-            if (step >= list.length) {
+            stepId = resolveStepId(list);
+            if (stepId === '__done') {
                 answers.week = targetMonday(api);
                 answers.subjects = weekSubjects(answers);
                 saveAnswers(api.getGrade(), answers, api);
@@ -1206,6 +1297,7 @@
                 setTimeout(function () { showResult(api, answers, false); }, 900);
                 return;
             }
+            var step = stepIndexOf(list, stepId);
             var cur = list[step];
             document.getElementById('tt-step-note').textContent = (step + 1) + ' / ' + list.length;
             document.getElementById('tt-q').textContent = cur.title;
@@ -1241,7 +1333,7 @@
             } else if (cur.id === 'tuitionHours') {
                 var tuList = tuitionBlocksOf(answers);
                 if (!tuList.length) tuList = [defaultTuitionBlock()];
-                html = '<p class="tt-help">Tuition / Guide အချိန် တစ်ခုထက်ပိုရင် Add နှိပ်ပါ။</p>' +
+                html = '<p class="tt-help">နေ့လယ်စာ ချန်ထားချင်ရင် Tuition ကို နှစ်ပိုင်းခွဲပါ။ ဥပမာ 8–12 နဲ့ 1–4။</p>' +
                     '<div class="tt-chips" id="tt-tu-days">' + dayChips(answers.tuitionDays || [0, 1, 2, 3, 4]) + '</div>' +
                     '<div id="tt-tu-blocks">' + tuList.map(function (b, i) {
                         return '<div class="tt-tu-row">' +
@@ -1258,25 +1350,23 @@
             } else if (cur.id === 'sleep') {
                 html = '<select class="tt-select" id="tt-sleep">' + timeSelectHtml(20 * 60, 24 * 60, answers.dayEnd) + '</select>';
             } else if (cur.id === 'meals') {
-                var meals = normalizeMeals(answers.meals, { start: answers.restStart, end: answers.restEnd });
+                var meals = suggestMealsOntoAnswers(answers);
                 var mealPresets = {
                     breakfast: [
-                        ['6:00 – 6:30 AM', 6 * 60, 6 * 60 + 30],
                         ['6:30 – 7:00 AM', 6 * 60 + 30, 7 * 60],
                         ['7:00 – 7:30 AM', 7 * 60, 7 * 60 + 30]
                     ],
                     lunch: [
-                        ['12:00 – 12:30 PM', 12 * 60, 12 * 60 + 30],
                         ['12:00 – 1:00 PM', 12 * 60, 13 * 60],
-                        ['1:00 – 1:30 PM', 13 * 60, 13 * 60 + 30]
+                        ['1:00 – 2:00 PM', 13 * 60, 14 * 60],
+                        ['2:00 – 3:00 PM', 14 * 60, 15 * 60]
                     ],
                     dinner: [
-                        ['5:00 – 6:00 PM', 17 * 60, 18 * 60],
                         ['6:00 – 7:00 PM', 18 * 60, 19 * 60],
                         ['7:00 – 8:00 PM', 19 * 60, 20 * 60]
                     ]
                 };
-                html = '<p class="tt-help">မစားချင်တဲ့ အချိန်ကို ပိတ်နိုင်ပါတယ်။ ကျောင်း / Tuition နဲ့ တူတဲ့ စားချိန်ကို အဲဒီထဲမှာ စားတယ်လို့ ယူဆပြီး chart ပေါ်မှာ ထပ်မရေးပါ။</p>' +
+                html = '<p class="tt-help">ကျောင်း / Tuition ကြား ချန်ထားတဲ့ အချိန်ကို ထမင်းစားချိန်အဖြစ် ထည့်ပါမယ်။ မစားချင်ရင် ပိတ်ပါ။</p>' +
                     MEAL_KEYS.map(function (k) {
                         var m = meals[k];
                         var meta = MEAL_META[k];
@@ -1286,7 +1376,8 @@
                             '<input type="checkbox" class="tt-meal-on" data-meal="' + k + '"' + (on ? ' checked' : '') + '>' +
                             '<span>' + meta.title + '</span></label>' +
                             '<div class="tt-presets">' + mealPresets[k].map(function (p) {
-                                return '<button type="button" class="tt-chip tt-preset" data-meal="' + k + '" data-a="' + p[1] + '" data-b="' + p[2] + '"' + (on ? '' : ' disabled') + '>' + p[0] + '</button>';
+                                var hit = on && m.start === p[1] && m.end === p[2];
+                                return '<button type="button" class="tt-chip tt-preset' + (hit ? ' on' : '') + '" data-meal="' + k + '" data-a="' + p[1] + '" data-b="' + p[2] + '"' + (on ? '' : ' disabled') + '>' + p[0] + '</button>';
                             }).join('') + '</div>' +
                             '<div class="tt-times' + (on ? '' : ' is-off') + '">' +
                             '<label>Start<select class="tt-meal-start" data-meal="' + k + '"' + (on ? '' : ' disabled') + '>' + timeSelectHtml(meta.from, meta.to, m.start) + '</select></label>' +
@@ -1315,6 +1406,13 @@
             body.innerHTML = html;
             document.getElementById('tt-back-q').style.visibility = step ? 'visible' : 'hidden';
             document.getElementById('tt-next-q').textContent = step === list.length - 1 ? '✨ Timetable ဆွဲမည်' : 'ဆက်မည်';
+            try {
+                var screen = document.getElementById('time-screen');
+                if (screen) screen.scrollTop = 0;
+                var ask = document.getElementById('tt-ask');
+                if (ask) ask.scrollTop = 0;
+                window.scrollTo(0, 0);
+            } catch (eScroll) {}
 
             body.querySelectorAll('#tt-school-days .tt-chip, #tt-tu-days .tt-chip').forEach(function (ch) {
                 ch.onclick = function () { ch.classList.toggle('on'); };
@@ -1412,7 +1510,7 @@
 
         function collect() {
             var list = steps();
-            var cur = list[step];
+            var cur = list[stepIndexOf(list, stepId)];
             if (!cur) return true;
             if (cur.id === 'steam') {
                 var steamChip = document.querySelector('#tt-steam .tt-chip.on');
@@ -1520,12 +1618,18 @@
 
         document.getElementById('tt-next-q').onclick = function () {
             if (!collect()) return;
-            step++;
+            var list = steps();
+            var idx = stepIndexOf(list, stepId);
+            if (idx < 0 || idx >= list.length - 1) stepId = '__done';
+            else stepId = list[idx + 1].id;
             paint();
         };
         document.getElementById('tt-back-q').onclick = function () {
             collect();
-            step--;
+            var list = steps();
+            var idx = stepIndexOf(list, stepId);
+            if (idx <= 0) stepId = list[0] ? list[0].id : 'steam';
+            else stepId = list[idx - 1].id;
             paint();
         };
         paint();

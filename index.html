@@ -2224,6 +2224,7 @@ body.showing-articles .container {
     flex: 0 0 auto;
 }
 .tt-times.is-off { opacity: 0.4; }
+#time-screen .tt-meal-row .tt-chip { flex: 1 1 calc(50% - 8px) !important; font-size: 0.8rem !important; }
 #time-screen .tt-preset:disabled { opacity: 0.4; pointer-events: none; }
 #time-screen .tt-tu-remove { flex: 0 0 auto !important; max-width: none !important; padding: 8px 10px !important; font-size: 0.78rem !important; }
 .tt-times { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0 8px; }
@@ -3001,7 +3002,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
     <script src="./grades.js?v=7"></script>
-    <script src="./timetable.js?v=24"></script>
+    <script src="./timetable.js?v=25"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3655,7 +3656,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=82'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=83'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
