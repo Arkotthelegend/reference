@@ -1909,6 +1909,28 @@ body.math-expand-page .container {
     height: auto;
     display: block;
 }
+#math-solution-content .math-step {
+    color: #00D5FF;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    margin: 14px 0 6px;
+}
+#math-solution-content .math-final {
+    margin-top: 16px;
+    padding: 10px 12px;
+    border: 1px solid rgba(0, 213, 255, 0.35);
+    background: rgba(0, 213, 255, 0.08);
+    border-radius: 12px;
+}
+#math-solution-content .math-final-label {
+    display: block;
+    color: #00D5FF;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+}
 
 #quiz-options {
     flex: 0 0 auto;
@@ -3564,6 +3586,25 @@ function fastMath(scope) {
     }
 }
 
+function tidyMathSolutionHtml(html) {
+    html = String(html || '');
+    html = html.replace(/\$verified\$/gi, 'Verified');
+    html = html.replace(/\$LHS = RHS\. Hence verified\.\$/g, 'LHS = RHS.');
+    html = html.replace(/\$Let \$/g, 'Let $');
+    html = html.replace(/\$If \$/g, 'If $');
+    html = html.replace(/\$The /g, 'The $');
+    html = html.replace(/\$\$<\/div>/g, '$</div>');
+    html = html.replace(/(?:<br\s*\/?>\s*)+Step\s+(\d+)\s*(?:<br\s*\/?>\s*)+/gi, '<div class="math-step">Step $1</div>');
+    html = html.replace(/<strong>Final Answer:\s*([\s\S]*?)<\/strong>/gi, function (_, inner) {
+        inner = String(inner || '').trim();
+        if (!inner) return '<div class="math-final"><span class="math-final-label">Final Answer</span>';
+        return '<div class="math-final"><span class="math-final-label">Final Answer</span>' + inner + '</div>';
+    });
+    html = html.replace(/<strong>Final Answer:<\/strong>\s*(?:<br\s*\/?>\s*)*/gi, '<div class="math-final"><span class="math-final-label">Final Answer</span>');
+    if (html.indexOf('<div class="math-final">') !== -1 && !/<\/div>\s*$/.test(html.trim())) html += '</div>';
+    return html;
+}
+
 function unwrapMathSolutionScroll(root) {
     if (!root) return;
     root.querySelectorAll('mjx-container, .mjx-container').forEach(function(el) {
@@ -3587,7 +3628,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_ID = 8432363664;
-		const CB = '?v=80'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=81'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
@@ -6734,7 +6775,7 @@ function loadQuestion() {
         showBtn.onclick = function() {
             showScreen('math-solution');
             const solBox = document.getElementById('math-solution-content');
-            solBox.innerHTML = q.c;
+            solBox.innerHTML = tidyMathSolutionHtml(q.c);
             unwrapMathSolutionScroll(solBox);
             if (window.MathJax && MathJax.typesetPromise) {
                 MathJax.typesetPromise([solBox]).then(function() {
