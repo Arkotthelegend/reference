@@ -189,9 +189,6 @@
                 end: (found.end - found.start) <= 90 ? found.end : found.start + 60
             };
         }
-        if (answers.goesToSchool !== false && (answers.schoolDays || []).length && answers.schoolEnd > answers.schoolStart) {
-            return { start: answers.schoolEnd, end: answers.schoolEnd + 60 };
-        }
         return { start: 12 * 60, end: 13 * 60 };
     }
 
@@ -249,83 +246,60 @@
         return meals;
     }
 
-    function mealWindowFreeMins(answers, meal) {
-        if (!meal || !meal.on || !(meal.end > meal.start)) return 0;
-        var busy = [];
-        if (answers.goesToSchool !== false && (answers.schoolDays || []).length && answers.schoolEnd > answers.schoolStart) {
-            busy.push({ start: answers.schoolStart, end: answers.schoolEnd });
-        }
-        tuitionBlocksOf(answers).forEach(function (b) { busy.push({ start: b.start, end: b.end }); });
-        var free = 0;
-        gaps(meal.start, meal.end, busy).forEach(function (g) {
-            free += Math.max(0, g.end - g.start);
-        });
-        return free;
-    }
-
     function suggestMealsOntoAnswers(answers) {
-        var meals = normalizeMeals(answers.meals, { start: answers.restStart, end: answers.restEnd });
-        if (meals.lunch.on && mealWindowFreeMins(answers, meals.lunch) < 15) {
-            var sug = suggestLunch(answers);
-            meals.lunch.start = sug.start;
-            meals.lunch.end = sug.end;
-        }
-        return syncMealRestFields(answers, meals);
+        return syncMealRestFields(answers, normalizeMeals(answers.meals, {
+            start: answers.restStart,
+            end: answers.restEnd
+        }));
     }
 
-    function insertMealBlocks(blocks, meal, dayStart, dayEnd, meta) {
+    function punchRange(blocks, start, end) {
+        var kept = [];
+        for (var i = 0; i < blocks.length; i++) {
+            var b = blocks[i];
+            if (b.end <= start || b.start >= end) {
+                kept.push(b);
+                continue;
+            }
+            if (b.start < start && start - b.start >= 10) {
+                kept.push({
+                    start: b.start, end: start, type: b.type, label: b.label,
+                    sub: b.sub || '', color: b.color
+                });
+            }
+            if (b.end > end && b.end - end >= 10) {
+                kept.push({
+                    start: end, end: b.end, type: b.type, label: b.label,
+                    sub: b.sub || '', color: b.color
+                });
+            }
+        }
+        blocks.length = 0;
+        for (var j = 0; j < kept.length; j++) blocks.push(kept[j]);
+    }
+
+    function insertMealBlocks(blocks, meal, dayStart, dayEnd) {
         if (!meal || !meal.on) return;
         var wantStart = parseTime(meal.start);
         var wantEnd = parseTime(meal.end);
         if (!(wantEnd > wantStart)) return;
-        var wantLen = Math.max(30, wantEnd - wantStart);
-        var free = gaps(dayStart, dayEnd, blocks).filter(function (g) { return g.end - g.start >= 15; });
-
-        function add(a, b) {
-            var piece = clip({
-                start: a,
-                end: b,
-                type: 'rest',
-                label: meal.label,
-                color: meal.color
-            }, dayStart, dayEnd);
-            if (!piece) return false;
-            blocks.push({ start: piece.start, end: piece.end, type: 'rest', label: meal.label, sub: '', color: meal.color });
-            return true;
-        }
-
-        var placed = false;
-        free.forEach(function (g) {
-            var a = Math.max(g.start, wantStart);
-            var b = Math.min(g.end, wantEnd);
-            if (b - a >= 15) placed = add(a, b) || placed;
+        var piece = clip({
+            start: wantStart,
+            end: wantEnd,
+            type: 'rest',
+            label: meal.label,
+            color: meal.color
+        }, dayStart, dayEnd);
+        if (!piece) return;
+        punchRange(blocks, piece.start, piece.end);
+        blocks.push({
+            start: piece.start,
+            end: piece.end,
+            type: 'rest',
+            label: meal.label,
+            sub: '',
+            color: meal.color
         });
-        if (placed) return;
-
-        var searchFrom = meta && meta.searchFrom != null ? meta.searchFrom : wantStart - 60;
-        var searchTo = meta && meta.searchTo != null ? meta.searchTo : wantEnd + 90;
-        var best = null;
-        var bestScore = 1e9;
-        free.forEach(function (g) {
-            var a = Math.max(g.start, searchFrom);
-            var b = Math.min(g.end, searchTo);
-            if (b - a < 30) return;
-            var start = Math.min(Math.max(wantStart, a), Math.max(a, b - Math.min(wantLen, b - a)));
-            if (start < a) start = a;
-            var end = Math.min(b, start + wantLen);
-            if (end - start < 30) {
-                start = a;
-                end = Math.min(b, a + wantLen);
-            }
-            if (end - start < 30) return;
-            var score = Math.abs(start - wantStart);
-            if (b - a <= 90) score -= 20;
-            if (score < bestScore) {
-                bestScore = score;
-                best = { start: start, end: end };
-            }
-        });
-        if (best) add(best.start, best.end);
     }
 
     function buildDay(answers, dayIndex, cycle, seed) {
@@ -364,15 +338,15 @@
             insertMealBlocks(blocks, {
                 on: meals.breakfast.on, start: meals.breakfast.start, end: meals.breakfast.end,
                 label: MEAL_META.breakfast.label, color: MEAL_META.breakfast.color
-            }, dayStart, dayEnd, MEAL_META.breakfast);
+            }, dayStart, dayEnd);
             insertMealBlocks(blocks, {
                 on: meals.lunch.on, start: meals.lunch.start, end: meals.lunch.end,
                 label: MEAL_META.lunch.label, color: MEAL_META.lunch.color
-            }, dayStart, dayEnd, MEAL_META.lunch);
+            }, dayStart, dayEnd);
             insertMealBlocks(blocks, {
                 on: meals.dinner.on, start: meals.dinner.start, end: meals.dinner.end,
                 label: MEAL_META.dinner.label, color: MEAL_META.dinner.color
-            }, dayStart, dayEnd, MEAL_META.dinner);
+            }, dayStart, dayEnd);
         } else {
             var lastTu = 0;
             tuBlocks.forEach(function (b) { lastTu = Math.max(lastTu, b.end); });
@@ -1366,7 +1340,7 @@
                         ['7:00 – 8:00 PM', 19 * 60, 20 * 60]
                     ]
                 };
-                html = '<p class="tt-help">ကျောင်း / Tuition ကြား ချန်ထားတဲ့ အချိန်ကို ထမင်းစားချိန်အဖြစ် ထည့်ပါမယ်။ မစားချင်ရင် ပိတ်ပါ။</p>' +
+                html = '<p class="tt-help">ရွေးထားတဲ့ အချိန်အတိုင်း ထည့်ပါမယ်။ ကျောင်းချိန်ထဲ ကျရင် ကျောင်းကို ခွဲပြီး Lunch ပြပါမယ်။</p>' +
                     MEAL_KEYS.map(function (k) {
                         var m = meals[k];
                         var meta = MEAL_META[k];
