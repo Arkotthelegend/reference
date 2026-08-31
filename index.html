@@ -2248,6 +2248,44 @@ body.showing-articles .container {
 }
 .tt-print-card { margin: 4px 0 18px; }
 .tt-print-label { color: #E2E8F0; font-size: 0.88rem; font-weight: 800; margin: 8px 0 0; }
+.admin-panel {
+    margin: 16px 4px 24px;
+    padding: 16px;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    background: #0B0F19;
+    text-align: left;
+}
+.admin-kicker {
+    color: #00D5FF;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+}
+.admin-panel h3 {
+    color: #fff;
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+}
+.admin-help { color: #94A3B8; font-size: 0.82rem; line-height: 1.5; margin: 0 0 12px; }
+.admin-stat { color: #E2E8F0; font-size: 0.88rem; font-weight: 700; margin: 0 0 10px; }
+.admin-label { display: block; color: #94A3B8; font-size: 0.78rem; font-weight: 700; margin: 12px 0 8px; }
+.admin-panel .btn { margin: 6px 0; }
+.admin-out {
+    min-height: 48px;
+    max-height: 180px;
+    overflow: auto;
+    margin: 8px 0 12px;
+    padding: 10px;
+    border-radius: 12px;
+    background: #162235;
+    color: #E2E8F0;
+    font-size: 0.78rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
 #time-screen .btn:disabled { opacity: 0.55; }
 .tt-think-msg { text-align: center; padding: 40px 10px; color: #00D5FF; font-weight: 700; }
 
@@ -2711,6 +2749,21 @@ body.volunteer-role .vol-report-link { display: block !important; }
 					 
             </div> 
 			<div id="dynamic-content-area"></div>
+            <div id="admin-panel" class="admin-panel" hidden>
+                <p class="admin-kicker">Admin</p>
+                <h3>REED control</h3>
+                <p class="admin-help">Paid list နဲ့ ဒီဖုန်းပေါ်က tools။ ဘာသာရပ် ဖွင့်/ပိတ် က my-note admin app မှာ လုပ်ရပါတယ်။</p>
+                <div class="admin-stat" id="admin-cache-stat">Paid cache: —</div>
+                <button type="button" class="btn" id="admin-refresh-paid">Paid list refresh</button>
+                <label class="admin-label">Telegram ID ရှာရန်
+                    <input id="admin-lookup-id" class="tt-input quiz-input" inputmode="numeric" placeholder="7273479209">
+                </label>
+                <button type="button" class="btn back-btn" id="admin-lookup-btn">ID ရှာမည်</button>
+                <pre id="admin-lookup-out" class="admin-out"></pre>
+                <button type="button" class="btn" id="admin-reset-tt">ဒီဖုန်း Timetable reset</button>
+                <button type="button" class="btn back-btn" id="admin-test-unlock">ဒီဖုန်းမှာ All ဖွင့်ကြည့်မည်</button>
+                <p class="admin-help">Test unlock က ဒီဖုန်းပဲ။ Google Sheet ထဲ မရောက်ပါ။</p>
+            </div>
         </div>
 		
 		<!-- Statistics Screen -->
@@ -2984,8 +3037,8 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <img id="tt-preview-1" alt="Saturday to Sunday A4 timetable">
             <button type="button" class="btn" id="tt-dl-1" onclick="REEDTimetable.downloadPreview(timetableApi(), 1)">Download Sat–Sun</button>
         </div>
-        <p class="tt-help">Download နှိပ်ရင် ဖုန်းထဲ သိမ်းဖို့ popup ပေါ်လာမယ်။ မရရင် browser မှာ ပုံပွင့်မယ်။ Print က A4 ဖြစ်ပါတယ်။ ဒီအပတ် တစ်ကြိမ်သာ ဆွဲနိုင်ပါတယ်။</p>
-        <button type="button" class="btn back-btn" id="tt-retake" onclick="REEDTimetable.retake(timetableApi())">မေးခွန်းပြန်ဖြေမည်</button>
+        <p class="tt-help">Download နှိပ်ရင် ဖုန်းထဲ သိမ်းဖို့ popup ပေါ်လာမယ်။ မရရင် browser မှာ ပုံပွင့်မယ်။ Print က A4 ဖြစ်ပါတယ်။</p>
+        <button type="button" class="btn" id="tt-retake" onclick="REEDTimetable.retake(timetableApi())">Timetable ပြန်ဆွဲမည်</button>
     </div>
 </div>
 
@@ -3002,7 +3055,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
     <script src="./grades.js?v=7"></script>
-    <script src="./timetable.js?v=26"></script>
+    <script src="./timetable.js?v=27"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3655,8 +3708,8 @@ function setQuizKeysHint(text) {
     if (hint) hint.textContent = text || '';
 }
 		
-		const ADMIN_ID = 8432363664;
-		const CB = '?v=84'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const ADMIN_IDS = ['8432363664', '7273479209'];
+		const CB = '?v=85'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
@@ -7122,7 +7175,11 @@ function timetableApi() {
             var u = window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user;
             return (u && u.first_name) || 'Student';
         },
-        alert: function (m) { tg.showAlert(m); }
+        alert: function (m) { tg.showAlert(m); },
+        confirm: function (m, cb) {
+            if (tg && typeof tg.showConfirm === 'function') tg.showConfirm(m, cb);
+            else cb(window.confirm(m));
+        }
     };
 }
 function openTimetableTab() {
@@ -7156,6 +7213,83 @@ function switchHomeTab(tab) {
         currentBtn.style.color = 'var(--white)';
     }
 }
+function isAppAdmin() {
+    const id = String((tg && tg.initDataUnsafe && tg.initDataUnsafe.user && tg.initDataUnsafe.user.id) || '');
+    return ADMIN_IDS.indexOf(id) !== -1;
+}
+
+function paidUserCount() {
+    return Object.keys(paidUsers || {}).filter(function (k) { return /^\d+$/.test(k); }).length;
+}
+
+function formatUnlockMap(row) {
+    if (!row || typeof row !== 'object') return 'Not in paid cache.';
+    const keys = Object.keys(row).filter(function (k) { return k !== 'vol'; }).sort();
+    const lines = keys.map(function (k) {
+        const v = row[k];
+        if (v && typeof v === 'object') return k + ': ' + JSON.stringify(v);
+        return k + ': ' + v;
+    });
+    if (row.vol && typeof row.vol === 'object') {
+        lines.push('vol: ' + JSON.stringify(row.vol));
+    }
+    return lines.join('\n') || 'Empty row.';
+}
+
+function refreshAdminPanel() {
+    const panel = document.getElementById('admin-panel');
+    if (!panel) return;
+    const on = isAppAdmin();
+    panel.hidden = !on;
+    if (!on) return;
+    const stat = document.getElementById('admin-cache-stat');
+    if (stat) stat.textContent = 'Paid cache: ' + paidUserCount() + ' users';
+}
+
+function adminLookupPaid() {
+    if (!isAppAdmin()) return;
+    const id = String((document.getElementById('admin-lookup-id').value || '').trim());
+    const out = document.getElementById('admin-lookup-out');
+    if (!id) {
+        out.textContent = 'ID ရိုက်ပါ။';
+        return;
+    }
+    out.textContent = 'ID ' + id + '\n' + formatUnlockMap(paidUsers[id]);
+}
+
+function bindAdminPanel() {
+    if (bindAdminPanel.done) return;
+    bindAdminPanel.done = true;
+    const refreshBtn = document.getElementById('admin-refresh-paid');
+    if (refreshBtn) refreshBtn.onclick = function () {
+        if (!isAppAdmin()) return;
+        fetchPaidUsers().then(function () {
+            refreshAdminPanel();
+            tg.showAlert('Paid list refresh ပြီးပါပြီ။');
+        });
+    };
+    const lookupBtn = document.getElementById('admin-lookup-btn');
+    if (lookupBtn) lookupBtn.onclick = adminLookupPaid;
+    const resetBtn = document.getElementById('admin-reset-tt');
+    if (resetBtn) resetBtn.onclick = function () {
+        if (!isAppAdmin()) return;
+        changeTab('time', document.querySelector('.nav-item[data-tab="time"]'));
+        REEDTimetable.retake(timetableApi());
+    };
+    const unlockBtn = document.getElementById('admin-test-unlock');
+    if (unlockBtn) unlockBtn.onclick = function () {
+        if (!isAppAdmin()) return;
+        const uid = String(userId);
+        paidUsers[uid] = Object.assign({}, paidUsers[uid] || {}, { all: '2099-12-31' });
+        userBought = paidUsers[uid];
+        try { localStorage.setItem('cached_paid_users_v22', JSON.stringify(paidUsers)); } catch (e) {}
+        applyVolunteerChrome();
+        renderSubjects();
+        renderProfileData();
+        tg.showAlert('ဒီဖုန်းမှာ All subjects ဖွင့်ပြီးပါပြီ။ Sheet ထဲ မရောက်ပါ။');
+    };
+}
+
 function renderProfileData() {
     const userId = tg.initDataUnsafe?.user?.id || 0;
     const userName = tg.initDataUnsafe?.user?.first_name || "Scholar";
@@ -7236,6 +7370,8 @@ function renderProfileData() {
         </div>
     </div>
 `;
+    bindAdminPanel();
+    refreshAdminPanel();
 }
 
 function applyGradeUI() {
