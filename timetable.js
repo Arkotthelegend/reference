@@ -167,7 +167,7 @@
     };
     var STEP_ORDER = [
         'steam', 'name', 'goesToSchool', 'schoolDays', 'schoolHours',
-        'tuition', 'tuitionHours', 'meals', 'wake', 'sleep', 'shortRest', 'weak', 'strong'
+        'tuition', 'tuitionHours', 'meals', 'wake', 'sleep', 'subjectsPerDay', 'studyBlock', 'shortRest', 'weak', 'strong'
     ];
 
     function suggestLunch(answers) {
@@ -376,34 +376,68 @@
         }
 
         var free = gaps(dayStart, dayEnd, blocks);
-        var slot = dayIndex;
+        var daySubs = subjectsForDay(answers, cycle, dayIndex);
+        var lightSubs = lightSubjectIds(answers);
+        var studySlot = 0;
+        var lightSlot = dayIndex;
         function pushStudy(a, b) {
             if (b - a < 15) return;
-            var metaC = subjectMeta(cycle[slot % cycle.length]);
-            slot++;
+            var id = daySubs[studySlot % daySubs.length];
+            studySlot++;
+            var metaC = subjectMeta(id);
             blocks.push({ start: a, end: b, type: 'study', label: metaC.label, sub: metaC.sub, color: COLORS.study });
         }
+        function pushLight(a, b) {
+            if (b - a < 15) return;
+            var id = lightSubs[lightSlot % lightSubs.length];
+            lightSlot++;
+            var metaL = subjectMeta(id);
+            blocks.push({ start: a, end: b, type: 'study', label: metaL.label, sub: metaL.sub, color: COLORS.study });
+        }
+        function studyChunkMins() {
+            var n = parseInt(answers.studyMins, 10);
+            return n === 45 || n === 90 ? n : 60;
+        }
         function fill(a, b) {
-            if (b - a < 20) {
-                if (b - a >= 10) blocks.push({ start: a, end: b, type: 'brk', label: 'Break', sub: '', color: COLORS.brk });
+            var len = b - a;
+            if (len < 20) {
+                if (len >= 10) blocks.push({ start: a, end: b, type: 'brk', label: 'Break', sub: '', color: COLORS.brk });
                 return;
             }
-            if (!answers.shortRest) {
-                pushStudy(a, b);
+            if (len <= 40) {
+                pushLight(a, b);
                 return;
             }
-            var studyChunk = 90;
-            var restLen = answers.shortRestMins || 15;
+            var studyChunk = studyChunkMins();
+            var restLen = answers.shortRest ? (answers.shortRestMins || 15) : 0;
             var t = a;
             while (b - t >= 20) {
                 var left = b - t;
-                if (left <= studyChunk + restLen) {
+                if (left <= 40) {
+                    pushLight(t, b);
+                    return;
+                }
+                if (left <= studyChunk) {
                     pushStudy(t, b);
                     return;
                 }
                 pushStudy(t, t + studyChunk);
                 t += studyChunk;
-                if (b - t >= restLen + 20) {
+                left = b - t;
+                if (left < 20) {
+                    if (left >= 10) {
+                        blocks.push({
+                            start: t, end: b, type: 'brk',
+                            label: restLen ? 'Rest' : 'Break', sub: '', color: COLORS.brk
+                        });
+                    }
+                    return;
+                }
+                if (left <= 40) {
+                    pushLight(t, b);
+                    return;
+                }
+                if (restLen && left >= restLen + 20) {
                     blocks.push({ start: t, end: t + restLen, type: 'brk', label: 'Rest', sub: '', color: COLORS.brk });
                     t += restLen;
                 }
@@ -526,6 +560,36 @@
         add(answers.weakSubjects);
         add(answers.strongSubjects);
         return ids;
+    }
+
+    function subjectsForDay(answers, cycle, dayIndex) {
+        var n = parseInt(answers && answers.subjectsPerDay, 10);
+        if (!(n >= 2 && n <= 6)) n = 3;
+        var bag = (cycle && cycle.length) ? cycle : ['en'];
+        n = Math.min(n, bag.length);
+        var out = [];
+        var start = (dayIndex || 0) * Math.max(1, n - 1);
+        var g = 0;
+        while (out.length < n && g < bag.length * 5) {
+            var id = bag[(start + g) % bag.length];
+            if (out.indexOf(id) === -1) out.push(id);
+            g++;
+        }
+        return out.length ? out : ['en'];
+    }
+
+    function lightSubjectIds(answers) {
+        var ids = [];
+        (answers && answers.strongSubjects || []).forEach(function (id) {
+            if (inSteam(answers, id) && ids.indexOf(id) === -1) ids.push(id);
+        });
+        if (!ids.length) {
+            steamIds(answers).forEach(function (id) {
+                if ((answers.weakSubjects || []).indexOf(id) === -1) ids.push(id);
+            });
+        }
+        if (!ids.length) ids = steamIds(answers).slice();
+        return ids.length ? ids : ['en'];
     }
 
     function makeCycle(answers, seed) {
@@ -1186,6 +1250,8 @@
             restStart: 18 * 60,
             restEnd: 19 * 60,
             restLabel: 'Dinner',
+            subjectsPerDay: 3,
+            studyMins: 60,
             shortRest: true,
             shortRestMins: 15,
             weakSubjects: [],
@@ -1197,6 +1263,10 @@
         if (!answers.strongSubjects) answers.strongSubjects = [];
         if (typeof answers.shortRest !== 'boolean') answers.shortRest = true;
         if (!answers.shortRestMins) answers.shortRestMins = 15;
+        var spd = parseInt(answers.subjectsPerDay, 10);
+        answers.subjectsPerDay = (spd >= 2 && spd <= 6) ? spd : 3;
+        var sm = parseInt(answers.studyMins, 10);
+        answers.studyMins = (sm === 45 || sm === 90) ? sm : 60;
         if (typeof answers.goesToSchool !== 'boolean') {
             answers.goesToSchool = (answers.schoolDays || []).length > 0;
         }
@@ -1232,6 +1302,8 @@
             s.push({ id: 'meals', title: 'နံနက်စာ / နေ့လယ်စာ / ညစာ ဘယ်အချိန်လဲ။' });
             s.push({ id: 'wake', title: 'မနက် ဘယ်အချိန် စပီး လေ့လာမလဲ။' });
             s.push({ id: 'sleep', title: 'ည ဘယ်အချိန် အိပ်မလဲ။' });
+            s.push({ id: 'subjectsPerDay', title: 'တစ်နေ့ ဘယ်နှစ်ဘာသာ ကျက်မလဲ။' });
+            s.push({ id: 'studyBlock', title: 'တစ်ခါကျက်ရင် ဘယ်လောက်ကြာမလဲ။' });
             s.push({ id: 'shortRest', title: 'ရှည်လျားတဲ့ ကျက်ချိန်ပြီးရင် ခဏနားမလား။' });
             s.push({ id: 'weak', title: 'ဒီအပတ် အားနည်းတဲ့ ဘာသာရပ်များ' });
             s.push({ id: 'strong', title: 'ဒီအပတ် အားကောင်းတဲ့ ဘာသာရပ်များ' });
@@ -1356,8 +1428,20 @@
                             '<label>End<select class="tt-meal-end" data-meal="' + k + '"' + (on ? '' : ' disabled') + '>' + timeSelectHtml(meta.from + 15, meta.to, m.end) + '</select></label>' +
                             '</div></div>';
                     }).join('');
+            } else if (cur.id === 'subjectsPerDay') {
+                html = '<p class="tt-help">ရှည်တဲ့ ကျက်ချိန်မှာ ဒီအရေအတွက်အတိုင်း လှည့်မယ်။ အားနည်းတဲ့ ဘာသာကို ဦးစားပေးမယ်။</p>' +
+                    '<div class="tt-yesno" id="tt-spd">' +
+                    [2, 3, 4, 5, 6].map(function (n) {
+                        return '<button type="button" class="tt-chip' + (answers.subjectsPerDay === n ? ' on' : '') + '" data-v="' + n + '">' + n + ' ဘာသာ</button>';
+                    }).join('') + '</div>';
+            } else if (cur.id === 'studyBlock') {
+                html = '<p class="tt-help">ကျောင်းနဲ့ ညစာကြားလို ရှည်တဲ့အချိန်ကို ဒီမိနစ်အတိုင်း ခွဲမယ်။ ထမင်း / Tuition ကြား ၃၀ မိနစ်ပဲရှိရင် ပေါ့ပါးတဲ့ ဘာသာ ထည့်မယ်။</p>' +
+                    '<div class="tt-yesno" id="tt-study-mins">' +
+                    [45, 60, 90].map(function (n) {
+                        return '<button type="button" class="tt-chip' + (answers.studyMins === n ? ' on' : '') + '" data-v="' + n + '">' + n + ' မိနစ်</button>';
+                    }).join('') + '</div>';
             } else if (cur.id === 'shortRest') {
-                html = '<p class="tt-help">၁ နာရီခွဲ ကျက်ပြီးရင် ၁၅ မိနစ် Rest ထည့်မယ်။</p>' +
+                html = '<p class="tt-help">' + answers.studyMins + ' မိနစ် ကျက်ပြီးရင် ၁၅ မိနစ် Rest ထည့်မယ်။</p>' +
                     '<div class="tt-yesno"><button type="button" class="tt-chip' + (answers.shortRest ? ' on' : '') + '" data-v="1">ထည့်မယ်</button>' +
                     '<button type="button" class="tt-chip' + (!answers.shortRest ? ' on' : '') + '" data-v="0">မထည့်ဘူး</button></div>';
             } else if (cur.id === 'weak') {
@@ -1567,6 +1651,14 @@
                 }
                 if (!onCount) { api.alert('ထမင်းစားချိန် အနည်းဆုံး ၁ ခု ရွေးပါ။'); return false; }
                 syncMealRestFields(answers, nextMeals);
+            } else if (cur.id === 'subjectsPerDay') {
+                var spdChip = document.querySelector('#tt-spd .tt-chip.on');
+                var spdPick = parseInt(spdChip && spdChip.getAttribute('data-v'), 10);
+                answers.subjectsPerDay = (spdPick >= 2 && spdPick <= 6) ? spdPick : 3;
+            } else if (cur.id === 'studyBlock') {
+                var smChip = document.querySelector('#tt-study-mins .tt-chip.on');
+                var pickedMins = parseInt(smChip && smChip.getAttribute('data-v'), 10);
+                answers.studyMins = (pickedMins === 45 || pickedMins === 90) ? pickedMins : 60;
             } else if (cur.id === 'shortRest') {
                 var restYes = document.querySelector('.tt-yesno .tt-chip.on');
                 answers.shortRest = !!(restYes && restYes.getAttribute('data-v') === '1');
