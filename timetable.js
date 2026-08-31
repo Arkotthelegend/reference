@@ -1144,12 +1144,10 @@
             var weekEl = document.getElementById('tt-week-note');
             var monday = weekFor(answers, api);
             if (weekEl) {
-                weekEl.textContent = canChangePlan(answers, api)
-                    ? (weekLabel(monday) + ' · ထားခဲ့နိုင်သည်။ စနေမှ နောက်အပတ်ကို ပြန်ဆွဲနိုင်ပါတယ်')
-                    : (weekLabel(monday) + ' · ဒီအပတ် တစ်ကြိမ်သာ ဆွဲနိုင်ပါတယ်');
+                weekEl.textContent = weekLabel(monday) + ' · ပြန်ဆွဲချင်ရင် Reset နှိပ်ပါ';
             }
             var retakeBtn = document.getElementById('tt-retake');
-            if (retakeBtn) retakeBtn.hidden = !canChangePlan(answers, api);
+            if (retakeBtn) retakeBtn.hidden = false;
             var left = pages.length;
             pages.forEach(function (canvas, i) {
                 var img = document.getElementById('tt-preview-' + i);
@@ -1914,13 +1912,21 @@
         openTab: openTab,
         openAsk: openAsk,
         retake: function (api) {
-            var saved = loadAnswers(api.getGrade(), api);
-            if (!canChangePlan(saved, api)) {
-                api.alert('ဒီအပတ် Timetable ကို ဆွဲပြီးပါပြီ။ နောက်အပတ် တနင်္လာမှ အသစ်ဆွဲနိုင်ပါတယ်။');
-                if (saved) showResult(api, saved, false);
+            var go = function () {
+                var saved = loadAnswers(api.getGrade(), api);
+                if (saved) {
+                    saved.week = '';
+                    saveAnswers(api.getGrade(), saved, api);
+                }
+                openAsk(api, saved || undefined);
+            };
+            if (api && typeof api.confirm === 'function') {
+                api.confirm('Timetable ကို ပြန်ဆွဲမလား။ မေးခွန်းတွေ ပြန်ဖြေရပါမယ်။', function (ok) {
+                    if (ok) go();
+                });
                 return;
             }
-            openAsk(api, saved || undefined);
+            go();
         },
         downloadPreview: downloadPreview,
         downloadBlob: downloadBlob,
