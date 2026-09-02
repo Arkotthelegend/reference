@@ -317,6 +317,11 @@ function getGradeCfg() {
     return GRADE_CONFIG[getSelectedGrade()];
 }
 
+function getGradeCfgFor(grade) {
+    var g = parseInt(grade, 10);
+    return GRADE_CONFIG[g] || GRADE_CONFIG[12];
+}
+
 function refreshSubjectsFromGrade() {
     subjects = getGradeCfg().subjects;
 }
