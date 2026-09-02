@@ -697,34 +697,143 @@
         });
     }
 
+    function fetchTimeout(url, opts, ms) {
+        var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+        var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, ms || 20000);
+        opts = opts || {};
+        if (ctrl) opts.signal = ctrl.signal;
+        return fetch(url, opts).then(function (res) {
+            clearTimeout(timer);
+            return res;
+        }, function (err) {
+            clearTimeout(timer);
+            throw err;
+        });
+    }
+
+    function httpsUrl(raw) {
+        var u = String(raw || '').trim();
+        if (/^https:\/\//i.test(u)) return u;
+        return '';
+    }
+
+    function telegramApp() {
+        return (root.Telegram && Telegram.WebApp) || null;
+    }
+
+    function useTelegramSave() {
+        var tg = telegramApp();
+        return !!(tg && typeof tg.openLink === 'function');
+    }
+
+    function uploadLitterbox(blob, fileName) {
+        var fd = new FormData();
+        fd.append('reqtype', 'fileupload');
+        fd.append('time', '24h');
+        fd.append('fileToUpload', blob, fileName || 'REED.zip');
+        return fetchTimeout('https://litterbox.catbox.moe/resources/internals/api.php', {
+            method: 'POST',
+            body: fd
+        }, 25000).then(function (r) { return r.text(); }).then(function (t) {
+            return httpsUrl(t);
+        }).catch(function () { return ''; });
+    }
+
+    function uploadTmpfiles(blob, fileName) {
+        var fd = new FormData();
+        fd.append('file', blob, fileName || 'REED.zip');
+        return fetchTimeout('https://tmpfiles.org/api/v1/upload', {
+            method: 'POST',
+            body: fd
+        }, 25000).then(function (r) { return r.text(); }).then(function (t) {
+            var data = {};
+            try { data = JSON.parse(t); } catch (e) {}
+            var u = (data.data && (data.data.url || data.data.link)) || data.url || '';
+            u = String(u || '').replace('http://', 'https://');
+            if (u.indexOf('tmpfiles.org/') >= 0 && u.indexOf('/dl/') < 0) {
+                u = u.replace('://tmpfiles.org/', '://tmpfiles.org/dl/');
+            }
+            return httpsUrl(u);
+        }).catch(function () { return ''; });
+    }
+
+    function hostFile(blob, fileName) {
+        return uploadLitterbox(blob, fileName).then(function (url) {
+            if (url) return url;
+            return uploadTmpfiles(blob, fileName);
+        });
+    }
+
+    function openHttps(url) {
+        if (!url) return false;
+        var tg = telegramApp();
+        try {
+            if (tg && typeof tg.openLink === 'function') {
+                tg.openLink(url, { try_instant_view: false });
+                return true;
+            }
+        } catch (e) {}
+        try {
+            window.open(url, '_blank', 'noopener');
+            return true;
+        } catch (e2) {}
+        return false;
+    }
+
+    function setZipLink(href, fileName) {
+        var link = document.getElementById('post-zip-link');
+        if (!link) return;
+        if (link._prev && String(link._prev).indexOf('blob:') === 0) {
+            try { URL.revokeObjectURL(link._prev); } catch (e) {}
+        }
+        link._prev = href;
+        link.href = href;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        if (fileName) link.setAttribute('download', fileName);
+        else link.removeAttribute('download');
+        link.hidden = false;
+        link.textContent = 'Save ZIP';
+        link.onclick = function (ev) {
+            if (href && href.indexOf('https:') === 0) {
+                ev.preventDefault();
+                openHttps(href);
+            }
+        };
+    }
+
+    function clickLocalDownload(blob, fileName) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = fileName || 'reed-quiz.zip';
+        a.rel = 'noopener';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () {
+            try { URL.revokeObjectURL(url); a.remove(); } catch (e) {}
+        }, 4000);
+        return url;
+    }
+
     function saveBlob(blob, fileName) {
         if (!blob) return Promise.resolve({ ok: false });
-        var url = URL.createObjectURL(blob);
-        var link = document.getElementById('post-zip-link');
-        if (link && /\.zip$/i.test(fileName || '')) {
-            if (link._prev) {
-                try { URL.revokeObjectURL(link._prev); } catch (e) {}
-            }
-            link._prev = url;
-            link.href = url;
-            link.download = fileName;
-            link.hidden = false;
-            link.textContent = 'Save ZIP';
+        if (useTelegramSave()) {
+            setStatus('Uploading…');
+            return hostFile(blob, fileName).then(function (url) {
+                if (!url) {
+                    setStatus('သိမ်းမရပါ — အင်တာနက် ဖွင့်ပါ');
+                    return { ok: false };
+                }
+                if (/\.zip$/i.test(fileName || '')) setZipLink(url, fileName);
+                openHttps(url);
+                return { ok: true, hosted: true, url: url };
+            });
         }
         try {
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = fileName || 'reed-quiz.zip';
-            a.rel = 'noopener';
-            a.style.display = 'none';
-            document.body.appendChild(a);
-            a.click();
-            setTimeout(function () {
-                try { a.remove(); } catch (e2) {}
-                if (!(link && link._prev === url)) {
-                    try { URL.revokeObjectURL(url); } catch (e3) {}
-                }
-            }, 4000);
+            var blobUrl = clickLocalDownload(blob, fileName);
+            if (/\.zip$/i.test(fileName || '')) setZipLink(blobUrl, fileName);
             return Promise.resolve({ ok: true });
         } catch (e) {
             return Promise.resolve({ ok: false });
@@ -760,7 +869,11 @@
         })).then(function (files) {
             var zip = zipFiles(files);
             return saveBlob(zip, zipName()).then(function (res) {
-                setStatus(res.ok ? ('ZIP ၁ ဖိုင် · ပုံ ' + files.length + ' ခု') : 'ZIP သိမ်းမရပါ');
+                if (res && res.hosted) {
+                    setStatus('Browser မှာ ဖွင့်ပြီး Save လုပ်ပါ · ပုံ ' + files.length + ' ခု');
+                } else {
+                    setStatus(res && res.ok ? ('ZIP ၁ ဖိုင် · ပုံ ' + files.length + ' ခု') : 'ZIP သိမ်းမရပါ');
+                }
                 return res;
             });
         }).catch(function () {
@@ -985,6 +1098,7 @@
         zipFiles: zipFiles,
         downloadAll: downloadAll,
         saveBlob: saveBlob,
+        useTelegramSave: useTelegramSave,
         state: state
     };
 })(typeof window !== 'undefined' ? window : globalThis);
