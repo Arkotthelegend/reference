@@ -39,6 +39,7 @@
         grade: 12,
         sub: 'phy',
         chapter: 1,
+        chapters: [1],
         type: 'MCQ',
         count: 5,
         slides: []
@@ -99,6 +100,35 @@
         return [];
     }
 
+    function subKeys(grade, subId, ch) {
+        var cfg = gradeCfg(grade);
+        var map = (cfg && cfg.subChapters && cfg.subChapters[subId]) || {};
+        return (map['Chapter ' + ch] || []).slice();
+    }
+
+    function selectedChapters() {
+        var list = (state.chapters && state.chapters.length) ? state.chapters.slice() : [];
+        if (list.length && list.some(function (id) { return String(id) === String(state.chapter); })) {
+            return list;
+        }
+        return state.chapter != null ? [state.chapter] : [1];
+    }
+
+    function setChapters(list) {
+        var next = (list || []).slice();
+        if (!next.length) next = [isGrammar() ? 'past_simple' : 1];
+        state.chapters = next;
+        state.chapter = next[0];
+    }
+
+    function coerceChIds(list) {
+        return (list || []).map(function (v) {
+            if (isGrammar()) return v;
+            var n = parseInt(v, 10);
+            return isNaN(n) ? v : n;
+        });
+    }
+
     function mmFiles(grade) {
         return (gradeCfg(grade).mmDailyFiles || []).slice();
     }
@@ -118,9 +148,8 @@
         return state.sub === 'en' && state.type === 'en_gram';
     }
 
-    function fileName() {
+    function fileNameFor(ch) {
         var sub = state.sub;
-        var ch = state.chapter;
         var type = currentType();
         if (sub === 'en') {
             if (state.type === 'en_gram') return String(ch);
@@ -130,6 +159,10 @@
         if (sub === 'mm') return mmFiles(state.grade)[ch - 1] || mmFiles(state.grade)[0];
         if (sub === 'math') return 'math_Chapter_' + ch + '_1_Mark';
         return sub + '_Chapter_' + ch + '_' + type.file;
+    }
+
+    function fileName() {
+        return fileNameFor(selectedChapters()[0]);
     }
 
     function currentType() {
@@ -181,6 +214,42 @@
         return next();
     }
 
+    function loadQuizJsonSoft(grade, name) {
+        return loadQuizJson(grade, name).then(function (data) {
+            return Array.isArray(data) ? data : [];
+        }).catch(function () { return []; });
+    }
+
+    function usesSubFiles() {
+        return ['phy', 'chem', 'bio', 'eco'].indexOf(state.sub) !== -1;
+    }
+
+    function loadChapterGroups(ch) {
+        if (!usesSubFiles()) {
+            return loadQuizJsonSoft(state.grade, fileNameFor(ch)).then(function (items) {
+                return [{ group: String(ch), items: items }];
+            });
+        }
+        var type = currentType();
+        var parts = subKeys(state.grade, state.sub, ch);
+        if (!parts.length) {
+            return loadQuizJsonSoft(state.grade, fileNameFor(ch)).then(function (items) {
+                return [{ group: String(ch), items: items }];
+            });
+        }
+        return Promise.all(parts.map(function (p) {
+            var name = state.sub + '_Chapter_' + ch + '_' + p + '_' + type.file;
+            return loadQuizJsonSoft(state.grade, name).then(function (items) {
+                return { group: ch + '-' + p, items: items };
+            });
+        })).then(function (groups) {
+            if (groups.some(function (g) { return g.items.length; })) return groups;
+            return loadQuizJsonSoft(state.grade, fileNameFor(ch)).then(function (items) {
+                return [{ group: String(ch), items: items }];
+            });
+        });
+    }
+
     function cleanLatex(raw) {
         var s = String(raw == null ? '' : raw);
         var blanks = [];
@@ -212,12 +281,40 @@
     }
 
     function shufflePick(arr, n) {
-        var a = arr.slice();
-        for (var i = a.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var t = a[i]; a[i] = a[j]; a[j] = t;
+        return pickSpread([arr || []], n);
+    }
+
+    function pickSpread(groups, n) {
+        var buckets = (groups || []).map(function (g) {
+            var a = (g || []).slice();
+            for (var i = a.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var t = a[i]; a[i] = a[j]; a[j] = t;
+            }
+            return a;
+        }).filter(function (g) { return g.length; });
+        var out = [];
+        var seen = {};
+        function key(item) {
+            return String((item && item.q) || '') + '|' + String((item && (item.c != null ? item.c : item.a)) || '');
         }
-        return a.slice(0, Math.min(n, a.length));
+        var guard = 0;
+        while (out.length < n && buckets.length && guard < n * 80) {
+            guard++;
+            buckets = buckets.filter(function (b) { return b.length; });
+            for (var i = 0; i < buckets.length && out.length < n; i++) {
+                var item = buckets[i].pop();
+                var k = key(item);
+                if (seen[k]) continue;
+                seen[k] = 1;
+                out.push(item);
+            }
+        }
+        for (var x = out.length - 1; x > 0; x--) {
+            var y = Math.floor(Math.random() * (x + 1));
+            var tmp = out[x]; out[x] = out[y]; out[y] = tmp;
+        }
+        return out;
     }
 
     function normalizeQ(raw) {
@@ -586,16 +683,26 @@
     function metaLine() {
         var s = subMeta(state.sub);
         var type = currentType();
-        if (isGrammar()) return s.short + '  ·  GRAMMAR  ·  ' + grammarTitle(state.chapter).toUpperCase();
-        if (state.sub === 'en' && state.type === 'en_init') return s.short + '  ·  UNIT ' + state.chapter + '  ·  INITIAL';
-        if (state.sub === 'en') return s.short + '  ·  UNIT ' + state.chapter + '  ·  ' + type.label.toUpperCase();
-        if (state.sub === 'mm') return s.short + '  ·  ' + (mmFiles(state.grade)[state.chapter - 1] || '').replace(/^mm_/, '') + '  ·  MCQ';
-        return s.short + '  ·  CHAPTER ' + state.chapter + '  ·  ' + type.label.toUpperCase();
+        var cs = selectedChapters();
+        if (isGrammar()) {
+            if (cs.length === 1) return s.short + '  ·  GRAMMAR  ·  ' + grammarTitle(cs[0]).toUpperCase();
+            return s.short + '  ·  GRAMMAR  ·  ' + cs.length + ' TOPICS';
+        }
+        if (state.sub === 'en' && state.type === 'en_init') {
+            return s.short + '  ·  UNIT ' + cs.join(', ') + '  ·  INITIAL';
+        }
+        if (state.sub === 'en') return s.short + '  ·  UNIT ' + cs.join(', ') + '  ·  ' + type.label.toUpperCase();
+        if (state.sub === 'mm') {
+            if (cs.length === 1) return s.short + '  ·  ' + (mmFiles(state.grade)[cs[0] - 1] || '').replace(/^mm_/, '') + '  ·  MCQ';
+            return s.short + '  ·  ' + cs.length + ' CATEGORIES  ·  MCQ';
+        }
+        return s.short + '  ·  CHAPTER ' + cs.join(', ') + '  ·  ' + type.label.toUpperCase();
     }
 
     function stem() {
-        if (isGrammar()) return ('en-g' + state.grade + '-' + state.chapter + '-grammar').toLowerCase();
-        return (state.sub + '-g' + state.grade + '-ch' + state.chapter + '-' + currentType().id).toLowerCase();
+        var cs = selectedChapters();
+        if (isGrammar()) return ('en-g' + state.grade + '-' + cs.join('_') + '-grammar').toLowerCase().slice(0, 60);
+        return (state.sub + '-g' + state.grade + '-ch' + cs.join('-') + '-' + currentType().id).toLowerCase();
     }
 
     function crc32(u8) {
@@ -908,6 +1015,39 @@
         });
     }
 
+    function chipRowMulti(id, items, selected, onChange) {
+        var wrap = document.getElementById(id);
+        if (!wrap) return;
+        var sel = (selected || []).map(String);
+        var allIds = items.map(function (it) { return String(it.id); });
+        var allOn = allIds.length > 0 && allIds.every(function (x) { return sel.indexOf(x) !== -1; });
+        var html = '<button type="button" class="tt-chip post-chip' + (allOn ? ' on' : '') + '" data-v="__all__">All</button>';
+        html += items.map(function (it) {
+            var on = sel.indexOf(String(it.id)) !== -1 ? ' on' : '';
+            return '<button type="button" class="tt-chip post-chip' + on + '" data-v="' + escHtml(it.id) + '">' + escHtml(it.label) + '</button>';
+        }).join('');
+        wrap.innerHTML = html;
+        wrap.querySelectorAll('.post-chip').forEach(function (btn) {
+            btn.onclick = function () {
+                var v = btn.getAttribute('data-v');
+                if (v === '__all__') {
+                    onChange(allIds.slice());
+                    return;
+                }
+                var next;
+                if (allOn) next = [v];
+                else {
+                    next = sel.slice();
+                    var idx = next.indexOf(v);
+                    if (idx >= 0) {
+                        if (next.length > 1) next.splice(idx, 1);
+                    } else next.push(v);
+                }
+                onChange(next);
+            };
+        });
+    }
+
     function paintPickers() {
         chipRow('post-grades', [
             { id: 10, label: 'G10' }, { id: 11, label: 'G11' }, { id: 12, label: 'G12' }
@@ -921,7 +1061,7 @@
             state.sub = v;
             var types = typesFor(v);
             if (!types.some(function (t) { return t.id === state.type; })) state.type = types[0].id;
-            state.chapter = isGrammar() ? (grammarTopics()[0] && grammarTopics()[0].id) : 1;
+            setChapters([isGrammar() ? ((grammarTopics()[0] && grammarTopics()[0].id) || 'past_simple') : 1]);
             paintPickers();
         });
         var types = typesFor(state.sub);
@@ -929,8 +1069,8 @@
             return { id: t.id, label: t.label };
         }), state.type, function (v) {
             state.type = v;
-            if (isGrammar()) state.chapter = (grammarTopics()[0] && grammarTopics()[0].id) || 'past_simple';
-            else if (typeof state.chapter !== 'number') state.chapter = 1;
+            if (isGrammar()) setChapters([(grammarTopics()[0] && grammarTopics()[0].id) || 'past_simple']);
+            else if (typeof selectedChapters()[0] !== 'number') setChapters([1]);
             paintPickers();
         });
         var chs = [];
@@ -951,17 +1091,31 @@
                 chs.push({ id: i, label: prefix + i });
             }
         }
-        if (!chs.some(function (c) { return String(c.id) === String(state.chapter); })) {
-            state.chapter = chs[0] ? chs[0].id : 1;
+        if (chs.length) {
+            var allowed = {};
+            chs.forEach(function (c) { allowed[String(c.id)] = c.id; });
+            var cur = selectedChapters().filter(function (id) {
+                return Object.prototype.hasOwnProperty.call(allowed, String(id));
+            }).map(function (id) { return allowed[String(id)]; });
+            if (!cur.length) cur = [chs[0].id];
+            setChapters(cur);
         }
         var chWrap = document.getElementById('post-chs');
         if (chWrap) chWrap.classList.toggle('post-chs-topics', isGrammar());
         var chLab = document.getElementById('post-ch-label');
         if (chLab) {
-            chLab.textContent = isGrammar() ? 'GRAMMAR TOPIC' : (state.sub === 'en' ? 'UNIT' : (state.sub === 'mm' ? 'CATEGORY' : 'CHAPTER'));
+            var base = isGrammar() ? 'GRAMMAR TOPIC' : (state.sub === 'en' ? 'UNIT' : (state.sub === 'mm' ? 'CATEGORY' : 'CHAPTER'));
+            chLab.textContent = base + ' · tap more than one';
         }
-        chipRow('post-chs', chs, state.chapter, function (v) {
-            state.chapter = isGrammar() ? v : parseInt(v, 10);
+        var hint = document.getElementById('post-ch-hint');
+        if (hint) {
+            if (isGrammar()) hint.textContent = 'Tap more than one topic to mix questions.';
+            else if (state.sub === 'en') hint.textContent = 'Tap more than one unit to mix questions.';
+            else if (state.sub === 'mm') hint.textContent = 'Tap more than one category to mix questions.';
+            else hint.textContent = 'Tap more than one chapter. Questions mix across 1.1, 1.2, … not just one section.';
+        }
+        chipRowMulti('post-chs', chs, selectedChapters(), function (next) {
+            setChapters(coerceChIds(next));
             paintPickers();
         });
         var countEl = document.getElementById('post-count');
@@ -998,11 +1152,20 @@
         if (!(n >= 1 && n <= 20)) n = parseInt(state.count, 10);
         if (!(n >= 1 && n <= 20)) n = 5;
         state.count = n;
-        var name = fileName();
-        setStatus('Loading ' + name + '…');
-        return loadQuizJson(state.grade, name).then(function (data) {
-            if (!Array.isArray(data) || !data.length) throw new Error('empty');
-            var picked = shufflePick(data, n);
+        var chs = selectedChapters();
+        var label = chs.length === 1
+            ? fileNameFor(chs[0])
+            : (state.sub + ' · ' + chs.length + ' chapters');
+        setStatus('Loading ' + label + '…');
+        return Promise.all(chs.map(function (ch) { return loadChapterGroups(ch); })).then(function (packs) {
+            var groups = [];
+            packs.forEach(function (pack) {
+                (pack || []).forEach(function (g) { groups.push(g.items || []); });
+            });
+            var pool = groups.reduce(function (sum, g) { return sum + g.length; }, 0);
+            if (!pool) throw new Error('empty');
+            var picked = pickSpread(groups, n);
+            state.lastPicked = picked;
             var meta = { line: metaLine(), accent: accentOf(state.sub) };
             var slides = [];
             picked.forEach(function (raw, i) {
@@ -1020,7 +1183,7 @@
             });
             state.slides = slides;
             renderPreviews();
-            setStatus(picked.length + ' quizzes · ' + slides.length + ' images');
+            setStatus(picked.length + ' quizzes · mixed · ' + slides.length + ' images');
             var allBtn = document.getElementById('post-dl-all');
             if (allBtn) {
                 allBtn.hidden = !slides.length;
@@ -1031,14 +1194,15 @@
             if (zipLink) zipLink.hidden = true;
         }).catch(function () {
             state.slides = [];
+            state.lastPicked = [];
             renderPreviews();
             var allBtn = document.getElementById('post-dl-all');
             if (allBtn) allBtn.hidden = true;
             var zipLink = document.getElementById('post-zip-link');
             if (zipLink) zipLink.hidden = true;
-            setStatus('မေးခွန်းဖိုင် မတွေ့ပါ — ' + name);
+            setStatus('မေးခွန်းဖိုင် မတွေ့ပါ — ' + label);
             if (root.Telegram && Telegram.WebApp && Telegram.WebApp.showAlert) {
-                Telegram.WebApp.showAlert('မေးခွန်းဖိုင် မတွေ့သေးပါ: ' + name);
+                Telegram.WebApp.showAlert('မေးခွန်းဖိုင် မတွေ့သေးပါ: ' + label);
             }
         });
     }
@@ -1088,6 +1252,11 @@
         bind: bind,
         generate: generate,
         fileName: fileName,
+        fileNameFor: fileNameFor,
+        pickSpread: pickSpread,
+        selectedChapters: selectedChapters,
+        setChapters: setChapters,
+        loadChapterGroups: loadChapterGroups,
         quizPath: quizPath,
         quizPaths: quizPaths,
         normalizeQ: normalizeQ,
