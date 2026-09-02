@@ -35,8 +35,6 @@
         { id: 'True_False', label: 'T / F', file: 'True_False' }
     ];
 
-    var grainTile = null;
-
     var state = {
         grade: 12,
         sub: 'phy',
@@ -321,83 +319,32 @@
         strokeRound(ctx, x, y, w, h, r);
     }
 
-    function makeGrain() {
-        if (grainTile) return grainTile;
-        var g = document.createElement('canvas');
-        g.width = 160;
-        g.height = 160;
-        var x = g.getContext('2d');
-        if (!x) return g;
-        for (var i = 0; i < 160; i += 2) {
-            for (var j = 0; j < 160; j += 2) {
-                var n = Math.random();
-                if (n > 0.62) {
-                    x.fillStyle = n > 0.88 ? 'rgba(255,255,255,0.38)' : 'rgba(0,0,0,0.42)';
-                    x.fillRect(i, j, 2, 2);
+    function paintBlocks(ctx, accent) {
+        var cell = 108;
+        var gx, gy, x, y, k;
+        for (gy = 0; gy < 10; gy++) {
+            for (gx = 0; gx < 10; gx++) {
+                x = gx * cell;
+                y = gy * cell;
+                k = (gx * 3 + gy * 5) % 7;
+                if (k === 0) {
+                    ctx.fillStyle = hexRgba(accent, 0.16);
+                    ctx.fillRect(x + 8, y + 8, 60, 60);
+                } else if (k === 1) {
+                    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+                    ctx.fillRect(x + 24, y + 16, 72, 32);
+                } else if (k === 2) {
+                    ctx.fillStyle = 'rgba(22,34,53,0.55)';
+                    ctx.fillRect(x + 16, y + 28, 44, 68);
+                } else if (k === 3) {
+                    ctx.fillStyle = hexRgba(accent, 0.10);
+                    ctx.fillRect(x + 40, y + 40, 52, 52);
+                } else if (k === 4) {
+                    ctx.fillStyle = 'rgba(255,255,255,0.05)';
+                    ctx.fillRect(x + 12, y + 48, 84, 28);
                 }
             }
         }
-        grainTile = g;
-        return g;
-    }
-
-    function paintGrain(ctx) {
-        var tile = makeGrain();
-        if (!ctx.createPattern) return;
-        var pat = ctx.createPattern(tile, 'repeat');
-        if (!pat) return;
-        ctx.save();
-        ctx.globalAlpha = 0.22;
-        ctx.fillStyle = pat;
-        ctx.fillRect(0, 0, W, H);
-        ctx.restore();
-    }
-
-    function paintOrbs(ctx, accent) {
-        function orb(cx, cy, r, color) {
-            if (!ctx.createRadialGradient) {
-                ctx.save();
-                ctx.globalAlpha = 0.12;
-                ctx.fillStyle = color;
-                ctx.beginPath();
-                ctx.arc(cx, cy, r * 0.4, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.restore();
-                return;
-            }
-            var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-            g.addColorStop(0, color);
-            g.addColorStop(1, 'rgba(11,15,25,0)');
-            ctx.fillStyle = g;
-            ctx.fillRect(cx - r, cy - r, r * 2, r * 2);
-        }
-        orb(200, 140, 420, hexRgba(accent, 0.32));
-        orb(940, 980, 460, hexRgba(accent, 0.2));
-        orb(980, 90, 280, 'rgba(255,255,255,0.1)');
-        orb(80, 900, 240, hexRgba(accent, 0.14));
-    }
-
-    function paintDots(ctx) {
-        ctx.fillStyle = 'rgba(255,255,255,0.045)';
-        for (var dx = 36; dx < W; dx += 28) {
-            for (var dy = 36; dy < H; dy += 28) {
-                ctx.beginPath();
-                ctx.arc(dx, dy, 1.15, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-    }
-
-    function paintWatermark(ctx) {
-        ctx.save();
-        ctx.translate(W / 2, H / 2 + 40);
-        if (ctx.rotate) ctx.rotate(-0.16);
-        ctx.globalAlpha = 0.045;
-        ctx.fillStyle = WHITE;
-        ctx.font = '900 210px Inter, system-ui, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('REED', 0, 70);
-        ctx.restore();
     }
 
     function kindLabel(q) {
@@ -441,29 +388,14 @@
 
         ctx.fillStyle = BG;
         ctx.fillRect(0, 0, W, H);
-        paintOrbs(ctx, accent);
-        paintGrain(ctx);
-        paintDots(ctx);
-        paintWatermark(ctx);
+        paintBlocks(ctx, accent);
 
-        ctx.strokeStyle = hexRgba(accent, 0.42);
-        ctx.lineWidth = 3;
-        strokeRound(ctx, 22, 22, W - 44, H - 44, 36);
-        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
-        ctx.lineWidth = 1;
-        strokeRound(ctx, 34, 34, W - 68, H - 68, 28);
-
-        if (ctx.createLinearGradient) {
-            var bar = ctx.createLinearGradient(22, 0, W - 22, 0);
-            bar.addColorStop(0, accent);
-            bar.addColorStop(0.55, hexRgba(accent, 0.85));
-            bar.addColorStop(1, hexRgba(accent, 0.15));
-            ctx.fillStyle = bar;
-        } else {
-            ctx.fillStyle = accent;
-        }
-        ctx.fillRect(24, 24, W - 48, 8);
-        ctx.fillRect(24, H - 32, W - 48, 8);
+        ctx.strokeStyle = hexRgba('#334155', 0.9);
+        ctx.lineWidth = 2;
+        strokeRound(ctx, 22, 22, W - 44, H - 44, 28);
+        ctx.fillStyle = accent;
+        ctx.fillRect(22, 22, W - 44, 8);
+        ctx.fillRect(22, H - 30, W - 44, 8);
 
         ctx.fillStyle = accent;
         ctx.font = '800 32px Inter, system-ui, sans-serif';
@@ -472,10 +404,7 @@
 
         var pill = kind === 'answer' ? 'ANSWER' : 'QUIZ';
         var pw = kind === 'answer' ? 170 : 122;
-        fillRound(ctx, W - 56 - pw, 50, pw, 42, 21, hexRgba(accent, 0.18));
-        ctx.strokeStyle = hexRgba(accent, 0.45);
-        ctx.lineWidth = 1.5;
-        strokeRound(ctx, W - 56 - pw, 50, pw, 42, 21);
+        fillRound(ctx, W - 56 - pw, 50, pw, 42, 21, hexRgba(accent, 0.16));
         ctx.fillStyle = accent;
         ctx.font = '800 20px Inter, system-ui, sans-serif';
         ctx.textAlign = 'center';
@@ -522,46 +451,46 @@
 
         if (q.kind === 'mcq') {
             var n = Math.max(1, (q.options || []).length);
-            var optH = n >= 4 ? 86 : 98;
+            var optH = n >= 4 ? 92 : 104;
             var gap = 12;
             var optsH = n * optH + (n - 1) * gap;
             var qH = bottom - top - optsH - 16;
-            if (qH < 150) {
-                optH = 74;
+            if (qH < 160) {
+                optH = 82;
                 optsH = n * optH + (n - 1) * gap;
                 qH = bottom - top - optsH - 16;
             }
             paintCard(ctx, x, top, inner, qH, 22, CARD, accent);
-            ctx.font = '700 32px ' + fontFace;
-            var maxLines = Math.max(3, Math.floor((qH - 40) / 40));
+            ctx.font = '700 40px ' + fontFace;
+            var maxLines = Math.max(3, Math.floor((qH - 44) / 48));
             var qLines = wrapLines(ctx, q.q, inner - 56, maxLines);
-            drawQuestionLines(ctx, qLines, x + 28, top + 48, 40, accent);
+            drawQuestionLines(ctx, qLines, x + 28, top + 52, 48, accent);
             var oy = top + qH + 16;
             q.options.forEach(function (opt, i) {
                 paintCard(ctx, x, oy, inner, optH, 18, CARD2, null);
                 ctx.beginPath();
-                ctx.arc(x + 44, oy + optH / 2, 22, 0, Math.PI * 2);
+                ctx.arc(x + 48, oy + optH / 2, 24, 0, Math.PI * 2);
                 ctx.fillStyle = accent;
                 ctx.fill();
                 ctx.fillStyle = BG;
-                ctx.font = '800 22px Inter, sans-serif';
+                ctx.font = '800 24px Inter, sans-serif';
                 ctx.textAlign = 'center';
-                ctx.fillText(LETTERS[i] || String(i + 1), x + 44, oy + optH / 2 + 8);
+                ctx.fillText(LETTERS[i] || String(i + 1), x + 48, oy + optH / 2 + 8);
                 ctx.textAlign = 'left';
                 ctx.fillStyle = WHITE;
-                ctx.font = '700 26px Inter, "Noto Sans Myanmar", sans-serif';
-                var ol = wrapLines(ctx, opt, inner - 130, 2);
-                ctx.fillText(ol[0] || '', x + 82, oy + (ol[1] ? optH * 0.4 : optH * 0.62));
-                if (ol[1]) ctx.fillText(ol[1], x + 82, oy + optH * 0.76);
+                ctx.font = '700 32px Inter, "Noto Sans Myanmar", sans-serif';
+                var ol = wrapLines(ctx, opt, inner - 140, 2);
+                ctx.fillText(ol[0] || '', x + 88, oy + (ol[1] ? optH * 0.4 : optH * 0.62));
+                if (ol[1]) ctx.fillText(ol[1], x + 88, oy + optH * 0.76);
                 oy += optH + gap;
             });
         } else if (q.kind === 'tf') {
             var btnH = 118;
             var tfH = bottom - top - btnH - 16;
             paintCard(ctx, x, top, inner, tfH, 22, CARD, accent);
-            ctx.font = '700 32px ' + fontFace;
-            var tfLines = wrapLines(ctx, q.q, inner - 56, Math.max(4, Math.floor((tfH - 40) / 40)));
-            drawQuestionLines(ctx, tfLines, x + 28, top + 52, 40, accent);
+            ctx.font = '700 40px ' + fontFace;
+            var tfLines = wrapLines(ctx, q.q, inner - 56, Math.max(4, Math.floor((tfH - 44) / 48)));
+            drawQuestionLines(ctx, tfLines, x + 28, top + 56, 48, accent);
             var by = bottom - btnH;
             var bw = (inner - 16) / 2;
             paintCard(ctx, x, by, bw, btnH, 20, CARD2, '#22C55E');
@@ -577,17 +506,17 @@
             ctx.fillStyle = MUTED;
             ctx.font = '700 20px Inter, sans-serif';
             ctx.fillText('Rewrite / complete the sentence', x + 28, top + 44);
-            ctx.font = '700 30px Inter, sans-serif';
-            var rLines = wrapLines(ctx, q.q, inner - 56, Math.max(6, Math.floor((bottom - top - 90) / 40)));
-            drawQuestionLines(ctx, rLines, x + 28, top + 96, 40, accent);
+            ctx.font = '700 38px Inter, sans-serif';
+            var rLines = wrapLines(ctx, q.q, inner - 56, Math.max(6, Math.floor((bottom - top - 90) / 48)));
+            drawQuestionLines(ctx, rLines, x + 28, top + 100, 48, accent);
         } else {
             var hasInline = /_{3,}/.test(q.q || '');
             var blankH = hasInline ? 0 : 118;
             var bH = bottom - top - blankH - (blankH ? 16 : 0);
             paintCard(ctx, x, top, inner, bH, 22, CARD, accent);
-            ctx.font = '700 32px ' + fontFace;
-            var bLines = wrapLines(ctx, q.q, inner - 56, Math.max(4, Math.floor((bH - 40) / 40)));
-            drawQuestionLines(ctx, bLines, x + 28, top + 52, 40, accent);
+            ctx.font = '700 40px ' + fontFace;
+            var bLines = wrapLines(ctx, q.q, inner - 56, Math.max(4, Math.floor((bH - 44) / 48)));
+            drawQuestionLines(ctx, bLines, x + 28, top + 56, 48, accent);
             if (!hasInline) {
                 paintCard(ctx, x, bottom - blankH, inner, blankH, 20, CARD2, accent);
                 ctx.fillStyle = MUTED;
@@ -609,21 +538,15 @@
         var inner = W - 96;
         var top = 208;
         var bottom = H - 78;
-        var ansH = q.e ? 280 : Math.min(420, bottom - top);
+        var ansH = q.e ? 300 : Math.min(440, bottom - top);
 
-        ctx.save();
-        if (ctx.shadowBlur != null) {
-            ctx.shadowColor = hexRgba(OK, 0.45);
-            ctx.shadowBlur = 36;
-        }
         paintCard(ctx, x, top, inner, ansH, 24, '#10261A', OK);
-        ctx.restore();
 
         ctx.fillStyle = MUTED;
-        ctx.font = '700 20px Inter, sans-serif';
-        ctx.fillText('Correct answer', x + 28, top + 48);
+        ctx.font = '700 22px Inter, sans-serif';
+        ctx.fillText('Correct answer', x + 28, top + 52);
         ctx.fillStyle = OK;
-        ctx.font = '800 38px Inter, "Noto Sans Myanmar", sans-serif';
+        ctx.font = '800 46px Inter, "Noto Sans Myanmar", sans-serif';
         var ans = '';
         if (q.kind === 'mcq') {
             ans = (LETTERS[q.correct] || '') + '   ' + (q.options[q.correct] || '');
@@ -633,10 +556,10 @@
             ans = q.correct || '—';
         }
         var aLines = wrapLines(ctx, ans, inner - 56, 4);
-        var ay = top + 108;
+        var ay = top + 116;
         aLines.forEach(function (ln) {
             ctx.fillText(ln, x + 28, ay);
-            ay += 50;
+            ay += 56;
         });
 
         if (q.e) {
@@ -648,12 +571,12 @@
                 ctx.font = '700 20px Inter, sans-serif';
                 ctx.fillText('Why', x + 28, whyTop + 44);
                 ctx.fillStyle = WHITE;
-                ctx.font = '600 26px Inter, "Noto Sans Myanmar", sans-serif';
-                var eLines = wrapLines(ctx, q.e, inner - 56, Math.max(4, Math.floor((whyH - 70) / 36)));
-                var ey = whyTop + 88;
+                ctx.font = '600 30px Inter, "Noto Sans Myanmar", sans-serif';
+                var eLines = wrapLines(ctx, q.e, inner - 56, Math.max(4, Math.floor((whyH - 70) / 40)));
+                var ey = whyTop + 92;
                 eLines.forEach(function (ln) {
                     ctx.fillText(ln, x + 28, ey);
-                    ey += 36;
+                    ey += 40;
                 });
             }
         }
@@ -675,6 +598,76 @@
         return (state.sub + '-g' + state.grade + '-ch' + state.chapter + '-' + currentType().id).toLowerCase();
     }
 
+    function crc32(u8) {
+        var c = 0xFFFFFFFF;
+        var i, b;
+        for (i = 0; i < u8.length; i++) {
+            b = (c ^ u8[i]) & 0xFF;
+            c = (CRC_TABLE[b] ^ (c >>> 8)) >>> 0;
+        }
+        return (c ^ 0xFFFFFFFF) >>> 0;
+    }
+
+    var CRC_TABLE = (function () {
+        var t = new Uint32Array(256);
+        var n, c, k;
+        for (n = 0; n < 256; n++) {
+            c = n;
+            for (k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+            t[n] = c >>> 0;
+        }
+        return t;
+    })();
+
+    function u16(n) {
+        return new Uint8Array([n & 255, (n >>> 8) & 255]);
+    }
+
+    function u32(n) {
+        return new Uint8Array([n & 255, (n >>> 8) & 255, (n >>> 16) & 255, (n >>> 24) & 255]);
+    }
+
+    function concatU8(chunks) {
+        var n = 0, i, o = 0, out;
+        for (i = 0; i < chunks.length; i++) n += chunks[i].length;
+        out = new Uint8Array(n);
+        for (i = 0; i < chunks.length; i++) { out.set(chunks[i], o); o += chunks[i].length; }
+        return out;
+    }
+
+    function zipFiles(files) {
+        var encoder = new TextEncoder();
+        var locals = [];
+        var centrals = [];
+        var offset = 0;
+        files.forEach(function (f) {
+            var name = encoder.encode(String(f.name || 'file.bin'));
+            var data = f.bytes || new Uint8Array(0);
+            var crc = crc32(data);
+            var local = concatU8([
+                u32(0x04034b50), u16(20), u16(0), u16(0), u16(0), u16(0),
+                u32(crc), u32(data.length), u32(data.length),
+                u16(name.length), u16(0), name, data
+            ]);
+            var central = concatU8([
+                u32(0x02014b50), u16(20), u16(20), u16(0), u16(0), u16(0), u16(0),
+                u32(crc), u32(data.length), u32(data.length),
+                u16(name.length), u16(0), u16(0), u16(0), u16(0), u32(0),
+                u32(offset), name
+            ]);
+            locals.push(local);
+            centrals.push(central);
+            offset += local.length;
+        });
+        var cd = concatU8(centrals);
+        var eocd = concatU8([
+            u32(0x06054b50), u16(0), u16(0),
+            u16(files.length), u16(files.length),
+            u32(cd.length), u32(offset), u16(0)
+        ]);
+        return new Blob([concatU8(locals.concat([cd, eocd]))], { type: 'application/zip' });
+    }
+
     function canvasBlob(canvas) {
         return new Promise(function (resolve) {
             if (!canvas) return resolve(null);
@@ -691,22 +684,73 @@
         });
     }
 
-    function downloadOne(item) {
-        return canvasBlob(item.canvas).then(function (blob) {
-            if (!blob) return { ok: false };
-            if (root.REEDTimetable && typeof root.REEDTimetable.downloadBlob === 'function') {
-                var api = typeof root.timetableApi === 'function' ? root.timetableApi() : {};
-                return root.REEDTimetable.downloadBlob(blob, item.name, api);
-            }
+    function blobBytes(blob) {
+        if (!blob) return Promise.resolve(new Uint8Array(0));
+        if (blob.arrayBuffer) {
+            return blob.arrayBuffer().then(function (ab) { return new Uint8Array(ab); });
+        }
+        return new Promise(function (resolve) {
+            var fr = new FileReader();
+            fr.onload = function () { resolve(new Uint8Array(fr.result || [])); };
+            fr.onerror = function () { resolve(new Uint8Array(0)); };
+            fr.readAsArrayBuffer(blob);
+        });
+    }
+
+    function saveBlob(blob, fileName) {
+        if (!blob) return Promise.resolve({ ok: false });
+        try {
             var url = URL.createObjectURL(blob);
             var a = document.createElement('a');
             a.href = url;
-            a.download = item.name;
+            a.download = fileName || 'reed-quiz.zip';
             a.rel = 'noopener';
+            a.style.display = 'none';
             document.body.appendChild(a);
             a.click();
-            setTimeout(function () { try { URL.revokeObjectURL(url); a.remove(); } catch (e) {} }, 2000);
-            return { ok: true };
+            setTimeout(function () { try { URL.revokeObjectURL(url); a.remove(); } catch (e) {} }, 2500);
+            return Promise.resolve({ ok: true });
+        } catch (e) {
+            return Promise.resolve({ ok: false });
+        }
+    }
+
+    function downloadOne(item) {
+        return canvasBlob(item.canvas).then(function (blob) {
+            if (!blob) return { ok: false };
+            return saveBlob(blob, item.name);
+        });
+    }
+
+    function zipName() {
+        return stem() + '-' + state.slides.length + 'imgs.zip';
+    }
+
+    function downloadAll() {
+        var list = state.slides.slice();
+        if (!list.length) {
+            setStatus('အရင် ပုံထုတ်ပါ');
+            return Promise.resolve();
+        }
+        var btn = document.getElementById('post-dl-all');
+        if (btn) { btn.disabled = true; btn.textContent = 'ZIP လုပ်နေ…'; }
+        setStatus('ZIP လုပ်နေ…');
+        return Promise.all(list.map(function (item) {
+            return canvasBlob(item.canvas).then(function (blob) {
+                return blobBytes(blob).then(function (bytes) {
+                    return { name: item.name, bytes: bytes };
+                });
+            });
+        })).then(function (files) {
+            var zip = zipFiles(files);
+            return saveBlob(zip, zipName()).then(function (res) {
+                setStatus(res.ok ? ('ZIP ၁ ဖိုင် · ပုံ ' + files.length + ' ခု') : 'ZIP သိမ်းမရပါ');
+                return res;
+            });
+        }).catch(function () {
+            setStatus('ZIP မရပါ');
+        }).then(function () {
+            if (btn) { btn.disabled = false; btn.textContent = 'Download ZIP'; }
         });
     }
 
@@ -849,7 +893,11 @@
             renderPreviews();
             setStatus(picked.length + ' quizzes · ' + slides.length + ' images');
             var allBtn = document.getElementById('post-dl-all');
-            if (allBtn) allBtn.hidden = !slides.length;
+            if (allBtn) {
+                allBtn.hidden = !slides.length;
+                allBtn.disabled = false;
+                allBtn.textContent = 'Download ZIP';
+            }
         }).catch(function () {
             state.slides = [];
             renderPreviews();
@@ -860,24 +908,6 @@
                 Telegram.WebApp.showAlert('မေးခွန်းဖိုင် မတွေ့သေးပါ: ' + name);
             }
         });
-    }
-
-    function downloadAll() {
-        var list = state.slides.slice();
-        if (!list.length) return Promise.resolve();
-        var i = 0;
-        function next() {
-            if (i >= list.length) {
-                setStatus('Download ' + list.length + ' images');
-                return Promise.resolve();
-            }
-            var item = list[i++];
-            setStatus('Download ' + i + ' / ' + list.length);
-            return downloadOne(item).then(function () {
-                return new Promise(function (r) { setTimeout(r, 350); });
-            }).then(next);
-        }
-        return next();
     }
 
     function bind() {
@@ -932,6 +962,9 @@
         drawQuestion: drawQuestion,
         drawAnswer: drawAnswer,
         typesFor: typesFor,
+        zipFiles: zipFiles,
+        downloadAll: downloadAll,
+        saveBlob: saveBlob,
         state: state
     };
 })(typeof window !== 'undefined' ? window : globalThis);
