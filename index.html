@@ -2260,6 +2260,17 @@ body.showing-articles .container {
     font-size: 0.82rem !important; font-weight: 700;
 }
 #post-screen .tt-chip.on { border-color: #00D5FF !important; color: #00D5FF !important; background: #0B0F19 !important; }
+#post-chs.post-chs-topics {
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+#post-chs.post-chs-topics .tt-chip {
+    flex: 1 1 calc(50% - 8px) !important;
+    font-size: 0.7rem !important;
+    padding: 8px 10px !important;
+    text-align: left;
+}
 .post-count-row { display: flex; align-items: center; gap: 10px; margin: 10px 0 14px; }
 #post-count {
     width: 88px !important; max-width: 88px !important; text-align: center;
@@ -3021,14 +3032,14 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
 <div id="post-screen" class="screen">
     <h2>Quiz Post</h2>
-    <p class="post-help">TikTok slide အတွက် မေးခွန်းပုံ ၁ ခု နဲ့ အဖြေပုံ ၁ ခု (1:1)။ ၅ ပုဒ်ဆို ပုံ ၁၀ ခု။ Thumbnail က ကိုယ်တိုင်လုပ်ပါ။</p>
+    <p class="post-help">TikTok slide အတွက် မေးခွန်းပုံ ၁ ခု နဲ့ အဖြေပုံ ၁ ခု (1:1)။ ၅ ပုဒ်ဆို ပုံ ၁၀ ခု။ English မှာ MCQ, Initial Letter, Grammar ရွေးလို့ရသည်။ Thumbnail က ကိုယ်တိုင်လုပ်ပါ။</p>
     <p class="post-label">GRADE</p>
     <div class="post-chips" id="post-grades"></div>
     <p class="post-label">SUBJECT</p>
     <div class="post-chips" id="post-subs"></div>
     <p class="post-label">TYPE</p>
     <div class="post-chips" id="post-types"></div>
-    <p class="post-label">CHAPTER / UNIT</p>
+    <p class="post-label" id="post-ch-label">CHAPTER / UNIT</p>
     <div class="post-chips" id="post-chs"></div>
     <p class="post-label">QUESTION COUNT</p>
     <div class="post-count-row">
@@ -3054,9 +3065,9 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <div class="nav-item" id="nav-post" data-tab="post" hidden onclick="changeTab('post', this)"><span class="nav-ico">📸</span><span class="nav-lbl">Post</span></div>
 </div>
 
-    <script src="./grades.js?v=8"></script>
+    <script src="./grades.js?v=9"></script>
     <script src="./timetable.js?v=28"></script>
-    <script src="./quiz-post.js?v=2"></script>
+    <script src="./quiz-post.js?v=4"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3710,7 +3721,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=88'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=90'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
