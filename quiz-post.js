@@ -699,8 +699,19 @@
 
     function saveBlob(blob, fileName) {
         if (!blob) return Promise.resolve({ ok: false });
+        var url = URL.createObjectURL(blob);
+        var link = document.getElementById('post-zip-link');
+        if (link && /\.zip$/i.test(fileName || '')) {
+            if (link._prev) {
+                try { URL.revokeObjectURL(link._prev); } catch (e) {}
+            }
+            link._prev = url;
+            link.href = url;
+            link.download = fileName;
+            link.hidden = false;
+            link.textContent = 'Save ZIP';
+        }
         try {
-            var url = URL.createObjectURL(blob);
             var a = document.createElement('a');
             a.href = url;
             a.download = fileName || 'reed-quiz.zip';
@@ -708,7 +719,12 @@
             a.style.display = 'none';
             document.body.appendChild(a);
             a.click();
-            setTimeout(function () { try { URL.revokeObjectURL(url); a.remove(); } catch (e) {} }, 2500);
+            setTimeout(function () {
+                try { a.remove(); } catch (e2) {}
+                if (!(link && link._prev === url)) {
+                    try { URL.revokeObjectURL(url); } catch (e3) {}
+                }
+            }, 4000);
             return Promise.resolve({ ok: true });
         } catch (e) {
             return Promise.resolve({ ok: false });
