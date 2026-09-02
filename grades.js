@@ -322,6 +322,10 @@ function getGradeCfgFor(grade) {
     return GRADE_CONFIG[g] || GRADE_CONFIG[12];
 }
 
+function getEnGrammarTopics() {
+    return EN_GRAMMAR_TOPICS.slice();
+}
+
 function refreshSubjectsFromGrade() {
     subjects = getGradeCfg().subjects;
 }
