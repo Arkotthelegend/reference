@@ -328,19 +328,19 @@
                 y = gy * cell;
                 k = (gx * 3 + gy * 5) % 7;
                 if (k === 0) {
-                    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+                    ctx.fillStyle = 'rgba(255,255,255,0.04)';
                     ctx.fillRect(x + 8, y + 8, 60, 60);
                 } else if (k === 1) {
-                    ctx.fillStyle = 'rgba(255,255,255,0.05)';
+                    ctx.fillStyle = 'rgba(255,255,255,0.025)';
                     ctx.fillRect(x + 24, y + 16, 72, 32);
                 } else if (k === 2) {
-                    ctx.fillStyle = 'rgba(0,0,0,0.22)';
+                    ctx.fillStyle = 'rgba(0,0,0,0.10)';
                     ctx.fillRect(x + 16, y + 28, 44, 68);
                 } else if (k === 3) {
-                    ctx.fillStyle = 'rgba(255,255,255,0.10)';
+                    ctx.fillStyle = 'rgba(255,255,255,0.05)';
                     ctx.fillRect(x + 40, y + 40, 52, 52);
                 } else if (k === 4) {
-                    ctx.fillStyle = 'rgba(255,255,255,0.04)';
+                    ctx.fillStyle = 'rgba(255,255,255,0.02)';
                     ctx.fillRect(x + 12, y + 48, 84, 28);
                 }
             }
