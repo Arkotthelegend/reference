@@ -1,7 +1,7 @@
 /* REED admin Post tab — TikTok Q/A quiz slides. */
 (function (root) {
     var W = 1080;
-    var H = 1920;
+    var H = 1080;
     var BG = '#0B0F19';
     var CARD = '#162235';
     var CYAN = '#00D5FF';
@@ -239,30 +239,30 @@
         ctx.fillStyle = BG;
         ctx.fillRect(0, 0, W, H);
         ctx.fillStyle = CYAN;
-        ctx.fillRect(0, 0, W, 14);
-        ctx.fillRect(0, H - 14, W, 14);
+        ctx.fillRect(0, 0, W, 10);
+        ctx.fillRect(0, H - 10, W, 10);
 
         ctx.fillStyle = CYAN;
-        ctx.font = '800 42px Inter, system-ui, sans-serif';
+        ctx.font = '800 36px Inter, system-ui, sans-serif';
         ctx.textAlign = 'left';
-        ctx.fillText('REED', 72, 90);
+        ctx.fillText('REED', 48, 64);
         ctx.fillStyle = MUTED;
-        ctx.font = '700 28px Inter, system-ui, sans-serif';
+        ctx.font = '700 24px Inter, system-ui, sans-serif';
         ctx.textAlign = 'right';
-        ctx.fillText(kind === 'answer' ? 'ANSWER' : 'QUIZ', W - 72, 88);
+        ctx.fillText(kind === 'answer' ? 'ANSWER' : 'QUIZ', W - 48, 62);
 
         ctx.textAlign = 'left';
         ctx.fillStyle = WHITE;
-        ctx.font = '800 36px Inter, system-ui, sans-serif';
-        ctx.fillText(meta.line, 72, 160);
+        ctx.font = '800 28px Inter, system-ui, sans-serif';
+        ctx.fillText(meta.line, 48, 112);
         ctx.fillStyle = MUTED;
-        ctx.font = '700 26px Inter, system-ui, sans-serif';
-        ctx.fillText((kind === 'answer' ? 'Answer  ' : 'Question  ') + idx + ' / ' + total, 72, 208);
+        ctx.font = '700 22px Inter, system-ui, sans-serif';
+        ctx.fillText((kind === 'answer' ? 'Answer  ' : 'Question  ') + idx + ' / ' + total, 48, 148);
 
         ctx.fillStyle = MUTED;
-        ctx.font = '700 24px Inter, system-ui, sans-serif';
+        ctx.font = '700 20px Inter, system-ui, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText(kind === 'answer' ? 'REED Education' : 'REED Education  ·  swipe for answer', W / 2, H - 52);
+        ctx.fillText(kind === 'answer' ? 'REED Education' : 'REED Education  ·  swipe for answer', W / 2, H - 36);
         ctx.textAlign = 'left';
         return { c: c, ctx: ctx };
     }
@@ -270,48 +270,86 @@
     function drawQuestion(q, idx, total, meta) {
         var slide = slideBase('question', idx, total, meta);
         var ctx = slide.ctx;
-        var y = 250;
-        fillRound(ctx, 56, y, W - 112, q.kind === 'mcq' ? 520 : 640, 28, CARD);
-        ctx.fillStyle = WHITE;
-        ctx.font = '700 40px "Noto Sans Myanmar","Myanmar Text",Padauk,Inter,sans-serif';
-        var qLines = wrapLines(ctx, q.q, W - 200, q.kind === 'mcq' ? 8 : 12);
-        var ty = y + 70;
-        qLines.forEach(function (ln) {
-            ctx.fillText(ln, 88, ty);
-            ty += 52;
-        });
+        var x = 40;
+        var inner = W - 80;
+        var top = 176;
+        var bottom = H - 64;
 
         if (q.kind === 'mcq') {
-            var start = 820;
+            var n = Math.max(1, (q.options || []).length);
+            var optH = n >= 4 ? 84 : 96;
+            var gap = 10;
+            var optsH = n * optH + (n - 1) * gap;
+            var qH = bottom - top - optsH - 14;
+            if (qH < 170) {
+                optH = 72;
+                optsH = n * optH + (n - 1) * gap;
+                qH = bottom - top - optsH - 14;
+            }
+            fillRound(ctx, x, top, inner, qH, 22, CARD);
+            ctx.fillStyle = WHITE;
+            ctx.font = '700 34px "Noto Sans Myanmar","Myanmar Text",Padauk,Inter,sans-serif';
+            var maxLines = Math.max(3, Math.floor((qH - 40) / 42));
+            var qLines = wrapLines(ctx, q.q, inner - 48, maxLines);
+            var ty = top + 48;
+            qLines.forEach(function (ln) {
+                ctx.fillText(ln, x + 24, ty);
+                ty += 42;
+            });
+            var oy = top + qH + 14;
             q.options.forEach(function (opt, i) {
-                var oy = start + i * 150;
-                fillRound(ctx, 56, oy, W - 112, 128, 24, CARD);
+                fillRound(ctx, x, oy, inner, optH, 18, CARD);
                 ctx.fillStyle = CYAN;
-                ctx.font = '800 40px Inter, sans-serif';
-                ctx.fillText(LETTERS[i] || String(i + 1), 88, oy + 80);
+                ctx.font = '800 32px Inter, sans-serif';
+                ctx.fillText(LETTERS[i] || String(i + 1), x + 24, oy + optH * 0.66);
                 ctx.fillStyle = WHITE;
-                ctx.font = '700 34px Inter, "Noto Sans Myanmar", sans-serif';
-                var ol = wrapLines(ctx, opt, W - 280, 2);
-                ctx.fillText(ol[0] || '', 168, oy + 58);
-                if (ol[1]) ctx.fillText(ol[1], 168, oy + 100);
+                ctx.font = '700 28px Inter, "Noto Sans Myanmar", sans-serif';
+                var ol = wrapLines(ctx, opt, inner - 110, 2);
+                ctx.fillText(ol[0] || '', x + 78, oy + (ol[1] ? optH * 0.4 : optH * 0.66));
+                if (ol[1]) ctx.fillText(ol[1], x + 78, oy + optH * 0.76);
+                oy += optH + gap;
             });
         } else if (q.kind === 'tf') {
-            fillRound(ctx, 56, 980, 450, 140, 24, CARD);
-            fillRound(ctx, 574, 980, 450, 140, 24, CARD);
+            var btnH = 110;
+            var tfH = bottom - top - btnH - 16;
+            fillRound(ctx, x, top, inner, tfH, 22, CARD);
             ctx.fillStyle = WHITE;
-            ctx.font = '800 44px Inter, sans-serif';
+            ctx.font = '700 34px "Noto Sans Myanmar","Myanmar Text",Padauk,Inter,sans-serif';
+            var tfLines = wrapLines(ctx, q.q, inner - 48, Math.max(4, Math.floor((tfH - 40) / 42)));
+            var tty = top + 52;
+            tfLines.forEach(function (ln) {
+                ctx.fillText(ln, x + 24, tty);
+                tty += 42;
+            });
+            var by = bottom - btnH;
+            var bw = (inner - 16) / 2;
+            fillRound(ctx, x, by, bw, btnH, 20, CARD);
+            fillRound(ctx, x + bw + 16, by, bw, btnH, 20, CARD);
+            ctx.fillStyle = WHITE;
+            ctx.font = '800 36px Inter, sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('TRUE', 281, 1068);
-            ctx.fillText('FALSE', 799, 1068);
+            ctx.fillText('TRUE', x + bw / 2, by + 68);
+            ctx.fillText('FALSE', x + bw + 16 + bw / 2, by + 68);
             ctx.textAlign = 'left';
         } else {
+            var blankH = 120;
+            var bH = bottom - top - blankH - 16;
+            fillRound(ctx, x, top, inner, bH, 22, CARD);
+            ctx.fillStyle = WHITE;
+            ctx.font = '700 34px "Noto Sans Myanmar","Myanmar Text",Padauk,Inter,sans-serif';
+            var bLines = wrapLines(ctx, q.q, inner - 48, Math.max(4, Math.floor((bH - 40) / 42)));
+            var bty = top + 52;
+            bLines.forEach(function (ln) {
+                ctx.fillText(ln, x + 24, bty);
+                bty += 42;
+            });
+            fillRound(ctx, x, bottom - blankH, inner, blankH, 20, CARD);
             ctx.fillStyle = MUTED;
-            ctx.font = '700 30px Inter, sans-serif';
-            ctx.fillText('Fill the blank', 72, 980);
-            fillRound(ctx, 56, 1020, W - 112, 160, 24, CARD);
+            ctx.font = '700 22px Inter, sans-serif';
+            ctx.fillText('Fill the blank', x + 24, bottom - blankH + 38);
             ctx.fillStyle = CYAN;
-            ctx.font = '800 40px Inter, sans-serif';
-            ctx.fillText('_____', 88, 1118);
+            ctx.font = '800 36px Inter, sans-serif';
+            ctx.fillText('_____', x + 24, bottom - 36);
         }
         return slide.c;
     }
@@ -319,12 +357,17 @@
     function drawAnswer(q, idx, total, meta) {
         var slide = slideBase('answer', idx, total, meta);
         var ctx = slide.ctx;
-        fillRound(ctx, 56, 250, W - 112, 420, 28, CARD);
+        var x = 40;
+        var inner = W - 80;
+        var top = 176;
+        var bottom = H - 64;
+        var ansH = 250;
+        fillRound(ctx, x, top, inner, ansH, 22, CARD);
         ctx.fillStyle = MUTED;
-        ctx.font = '700 26px Inter, sans-serif';
-        ctx.fillText('Correct answer', 88, 310);
+        ctx.font = '700 22px Inter, sans-serif';
+        ctx.fillText('Correct answer', x + 24, top + 46);
         ctx.fillStyle = OK;
-        ctx.font = '800 52px Inter, "Noto Sans Myanmar", sans-serif';
+        ctx.font = '800 40px Inter, "Noto Sans Myanmar", sans-serif';
         var ans = '';
         if (q.kind === 'mcq') {
             ans = (LETTERS[q.correct] || '') + '   ' + (q.options[q.correct] || '');
@@ -333,26 +376,30 @@
         } else {
             ans = q.correct || '—';
         }
-        var aLines = wrapLines(ctx, ans, W - 200, 4);
-        var ay = 390;
+        var aLines = wrapLines(ctx, ans, inner - 48, 3);
+        var ay = top + 100;
         aLines.forEach(function (ln) {
-            ctx.fillText(ln, 88, ay);
-            ay += 64;
+            ctx.fillText(ln, x + 24, ay);
+            ay += 52;
         });
 
         if (q.e) {
-            fillRound(ctx, 56, 720, W - 112, 980, 28, CARD);
-            ctx.fillStyle = MUTED;
-            ctx.font = '700 26px Inter, sans-serif';
-            ctx.fillText('Why', 88, 780);
-            ctx.fillStyle = WHITE;
-            ctx.font = '600 34px Inter, "Noto Sans Myanmar", sans-serif';
-            var eLines = wrapLines(ctx, q.e, W - 200, 18);
-            var ey = 850;
-            eLines.forEach(function (ln) {
-                ctx.fillText(ln, 88, ey);
-                ey += 46;
-            });
+            var whyTop = top + ansH + 14;
+            var whyH = bottom - whyTop;
+            if (whyH > 120) {
+                fillRound(ctx, x, whyTop, inner, whyH, 22, CARD);
+                ctx.fillStyle = MUTED;
+                ctx.font = '700 22px Inter, sans-serif';
+                ctx.fillText('Why', x + 24, whyTop + 44);
+                ctx.fillStyle = WHITE;
+                ctx.font = '600 28px Inter, "Noto Sans Myanmar", sans-serif';
+                var eLines = wrapLines(ctx, q.e, inner - 48, Math.max(4, Math.floor((whyH - 70) / 38)));
+                var ey = whyTop + 90;
+                eLines.forEach(function (ln) {
+                    ctx.fillText(ln, x + 24, ey);
+                    ey += 38;
+                });
+            }
         }
         return slide.c;
     }

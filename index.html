@@ -2272,7 +2272,7 @@ body.showing-articles .container {
     background: #0B0F19; border: 1px solid #1E293B; border-radius: 14px; padding: 8px;
 }
 .post-card-label { color: #94A3B8; font-size: 0.72rem; font-weight: 800; margin: 0 0 6px; }
-.post-thumb { width: 100%; border-radius: 10px; display: block; background: #162235; }
+.post-thumb { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; border-radius: 10px; display: block; background: #162235; }
 .post-card .btn { margin-top: 8px; font-size: 0.78rem !important; padding: 8px !important; }
 body:not(.admin-role) #nav-post { display: none !important; }
 .nav-item[hidden] { display: none !important; }
@@ -3021,7 +3021,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
 <div id="post-screen" class="screen">
     <h2>Quiz Post</h2>
-    <p class="post-help">TikTok slide အတွက် မေးခွန်းပုံ ၁ ခု နဲ့ အဖြေပုံ ၁ ခု။ ၅ ပုဒ်ဆို ပုံ ၁၀ ခု။ Thumbnail က ကိုယ်တိုင်လုပ်ပါ။</p>
+    <p class="post-help">TikTok slide အတွက် မေးခွန်းပုံ ၁ ခု နဲ့ အဖြေပုံ ၁ ခု (1:1)။ ၅ ပုဒ်ဆို ပုံ ၁၀ ခု။ Thumbnail က ကိုယ်တိုင်လုပ်ပါ။</p>
     <p class="post-label">GRADE</p>
     <div class="post-chips" id="post-grades"></div>
     <p class="post-label">SUBJECT</p>
@@ -3056,7 +3056,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
     <script src="./grades.js?v=8"></script>
     <script src="./timetable.js?v=28"></script>
-    <script src="./quiz-post.js?v=1"></script>
+    <script src="./quiz-post.js?v=2"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3710,7 +3710,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=87'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=88'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
