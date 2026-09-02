@@ -2278,6 +2278,8 @@ body.showing-articles .container {
     padding: 10px; font-weight: 800;
 }
 #post-status { color: #00D5FF; font-size: 0.82rem; font-weight: 700; margin: 8px 0 12px; min-height: 1.2em; }
+#post-dl-all[hidden] { display: none !important; }
+#post-dl-all:disabled { opacity: 0.6; cursor: wait; }
 .post-previews { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .post-card {
     background: #0B0F19; border: 1px solid #1E293B; border-radius: 14px; padding: 8px;
@@ -3032,7 +3034,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
 <div id="post-screen" class="screen">
     <h2>Quiz Post</h2>
-    <p class="post-help">TikTok slide အတွက် မေးခွန်းပုံ ၁ ခု နဲ့ အဖြေပုံ ၁ ခု (1:1)။ ၅ ပုဒ်ဆို ပုံ ၁၀ ခု။ English မှာ MCQ, Initial Letter, Grammar ရွေးလို့ရသည်။ Thumbnail က ကိုယ်တိုင်လုပ်ပါ။</p>
+    <p class="post-help">TikTok slide အတွက် မေးခွန်းပုံ ၁ ခု နဲ့ အဖြေပုံ ၁ ခု (1:1)။ English မှာ MCQ, Initial Letter, Grammar ရွေးလို့ရသည်။ Thumbnail က ကိုယ်တိုင်လုပ်ပါ။ ပုံအားလုံးကို Download ZIP နဲ့ တစ်ဖိုင်တည်း သိမ်းပါ။</p>
     <p class="post-label">GRADE</p>
     <div class="post-chips" id="post-grades"></div>
     <p class="post-label">SUBJECT</p>
@@ -3048,7 +3050,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     </div>
     <button type="button" class="btn" id="post-go">ပုံထုတ်မည်</button>
     <p id="post-status"></p>
-    <button type="button" class="btn back-btn" id="post-dl-all" hidden>Download all</button>
+    <button type="button" class="btn" id="post-dl-all" hidden>Download ZIP</button>
     <div class="post-previews" id="post-previews"></div>
 </div>
 
@@ -3067,7 +3069,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
     <script src="./grades.js?v=9"></script>
     <script src="./timetable.js?v=28"></script>
-    <script src="./quiz-post.js?v=4"></script>
+    <script src="./quiz-post.js?v=5"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3721,7 +3723,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=90'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=91'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
