@@ -2252,7 +2252,10 @@ body.showing-articles .container {
 #post-screen h2 { color: #00D5FF; font-size: 1.15rem; margin: 0 0 6px; }
 .post-help { color: #94A3B8; font-size: 0.82rem; line-height: 1.5; margin: 0 0 14px; }
 .post-label { color: #94A3B8; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; margin: 12px 0 6px; }
+.post-hint { margin: 0 0 8px; font-size: 0.78rem; color: #94A3B8; line-height: 1.45; }
 .post-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
+#post-chs { margin-bottom: 2px; }
+#post-chs .post-chip[data-v="__all__"] { flex: 0 0 auto; min-width: 58px; }
 #post-screen .tt-chip {
     width: auto !important; max-width: none !important; flex: 1 1 calc(25% - 8px);
     margin: 0 !important; padding: 10px 10px !important; border-radius: 12px;
@@ -3041,8 +3044,9 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <div class="post-chips" id="post-subs"></div>
     <p class="post-label">TYPE</p>
     <div class="post-chips" id="post-types"></div>
-    <p class="post-label" id="post-ch-label">CHAPTER / UNIT</p>
+    <p class="post-label" id="post-ch-label">CHAPTER / UNIT · tap more than one</p>
     <div class="post-chips" id="post-chs"></div>
+    <p class="post-hint" id="post-ch-hint">Tap more than one chapter. Questions mix across 1.1, 1.2, … not just one section.</p>
     <p class="post-label">QUESTION COUNT</p>
     <div class="post-count-row">
         <input id="post-count" class="quiz-input" type="number" min="1" max="20" value="5" inputmode="numeric">
@@ -3070,7 +3074,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
     <script src="./grades.js?v=9"></script>
     <script src="./timetable.js?v=28"></script>
-    <script src="./quiz-post.js?v=8"></script>
+    <script src="./quiz-post.js?v=9"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3724,7 +3728,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=94'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=96'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
