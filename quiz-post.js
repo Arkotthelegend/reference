@@ -914,11 +914,15 @@
                 allBtn.disabled = false;
                 allBtn.textContent = 'Download ZIP';
             }
+            var zipLink = document.getElementById('post-zip-link');
+            if (zipLink) zipLink.hidden = true;
         }).catch(function () {
             state.slides = [];
             renderPreviews();
             var allBtn = document.getElementById('post-dl-all');
             if (allBtn) allBtn.hidden = true;
+            var zipLink = document.getElementById('post-zip-link');
+            if (zipLink) zipLink.hidden = true;
             setStatus('မေးခွန်းဖိုင် မတွေ့ပါ — ' + name);
             if (root.Telegram && Telegram.WebApp && Telegram.WebApp.showAlert) {
                 Telegram.WebApp.showAlert('မေးခွန်းဖိုင် မတွေ့သေးပါ: ' + name);
