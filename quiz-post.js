@@ -347,7 +347,7 @@
         var pat = ctx.createPattern(tile, 'repeat');
         if (!pat) return;
         ctx.save();
-        ctx.globalAlpha = 0.14;
+        ctx.globalAlpha = 0.22;
         ctx.fillStyle = pat;
         ctx.fillRect(0, 0, W, H);
         ctx.restore();
@@ -371,10 +371,10 @@
             ctx.fillStyle = g;
             ctx.fillRect(cx - r, cy - r, r * 2, r * 2);
         }
-        orb(200, 140, 420, hexRgba(accent, 0.22));
-        orb(940, 980, 460, hexRgba(accent, 0.14));
-        orb(980, 90, 280, 'rgba(255,255,255,0.07)');
-        orb(80, 900, 240, hexRgba(accent, 0.08));
+        orb(200, 140, 420, hexRgba(accent, 0.32));
+        orb(940, 980, 460, hexRgba(accent, 0.2));
+        orb(980, 90, 280, 'rgba(255,255,255,0.1)');
+        orb(80, 900, 240, hexRgba(accent, 0.14));
     }
 
     function paintDots(ctx) {
@@ -404,7 +404,7 @@
         if (q.kind === 'mcq') return 'MULTIPLE CHOICE';
         if (q.kind === 'tf') return 'TRUE OR FALSE';
         if (q.kind === 'rewrite') return 'REWRITE';
-        if (/_{3,}/.test(q.q || '')) return 'INITIAL / BLANK';
+        if (/[A-Za-z]_{3,}/.test(q.q || '')) return 'INITIAL LETTER';
         return 'FILL THE BLANK';
     }
 
