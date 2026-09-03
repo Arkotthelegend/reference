@@ -19,7 +19,10 @@
  *
  * Project timezone: File → Project settings → Asia/Yangon
  *
- * Time tab download (doPost action=uploadTimetable):
+ * Customer analysis (doPost saveSale / deleteSale / saveBizNotes,
+ * doGet getSales / getBizNotes) uses extra sheets named Sales and BizNotes
+ * in the SAME spreadsheet. Redeploy → New version after pasting this file.
+ *
  *   Hosts a PNG and returns { status:'ok', url }. Optional Script Property
  *   BOT_TOKEN also sends the file to that Telegram user as a document.
  */
@@ -40,6 +43,8 @@ function doGet(e) {
     if (action === 'saveScore') return json_(saveScore_(p));
     if (action === 'getStats') return json_(getStats_(p));
     if (action === 'getLeaderboard') return json_(getLeaderboard_(p));
+    if (action === 'getSales') return json_(getSales_());
+    if (action === 'getBizNotes') return json_(getBizNotes_());
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -49,7 +54,11 @@ function doGet(e) {
 function doPost(e) {
   try {
     var p = parsePost_(e);
-    if (String(p.action || '') === 'uploadTimetable') return json_(uploadTimetable_(p));
+    var action = String(p.action || '');
+    if (action === 'uploadTimetable') return json_(uploadTimetable_(p));
+    if (action === 'saveSale') return json_(saveSale_(p.sale || p));
+    if (action === 'deleteSale') return json_(deleteSale_(p.id || p.saleId));
+    if (action === 'saveBizNotes') return json_(saveBizNotes_(p.notes || p));
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -392,6 +401,165 @@ function sendTelegram_(token, method, payload) {
 
 function sendTelegramDocument_(userId, blob, fileName) {
   return sendTelegramImage_(userId, blob, fileName);
+}
+
+var SALES_HEADERS = [
+  'id', 'date', 'userId', 'userName', 'grade', 'pack', 'subject', 'term', 'amount', 'note', 'savedAt'
+];
+
+function salesSheet_() {
+  var ss = SPREADSHEET_ID
+    ? SpreadsheetApp.openById(SPREADSHEET_ID)
+    : SpreadsheetApp.getActiveSpreadsheet();
+  if (!ss) throw new Error('Spreadsheet not found. Set SPREADSHEET_ID.');
+  var sh = ss.getSheetByName('Sales');
+  if (!sh) {
+    sh = ss.insertSheet('Sales');
+    sh.getRange(1, 1, 1, SALES_HEADERS.length).setValues([SALES_HEADERS]);
+  }
+  var idx = headerIndex_(sh);
+  SALES_HEADERS.forEach(function (name) {
+    if (idx[name] !== undefined) return;
+    var col = sh.getLastColumn() + 1;
+    sh.getRange(1, col).setValue(name);
+    idx[name] = col - 1;
+  });
+  return sh;
+}
+
+function notesSheet_() {
+  var ss = SPREADSHEET_ID
+    ? SpreadsheetApp.openById(SPREADSHEET_ID)
+    : SpreadsheetApp.getActiveSpreadsheet();
+  if (!ss) throw new Error('Spreadsheet not found. Set SPREADSHEET_ID.');
+  var sh = ss.getSheetByName('BizNotes');
+  if (!sh) {
+    sh = ss.insertSheet('BizNotes');
+    sh.getRange(1, 1, 1, 2).setValues([['key', 'json']]);
+  }
+  return sh;
+}
+
+function saveSale_(sale) {
+  sale = sale || {};
+  var id = String(sale.id || '');
+  if (!id) return { status: 'error', message: 'id required' };
+  var sheet = salesSheet_();
+  var idx = headerIndex_(sheet);
+  var last = sheet.getLastRow();
+  var found = 0;
+  if (last >= 2) {
+    var ids = sheet.getRange(2, (idx.id || 0) + 1, last - 1, 1).getValues();
+    for (var i = 0; i < ids.length; i++) {
+      if (String(ids[i][0] || '') === id) { found = i + 2; break; }
+    }
+  }
+  function putRow(row) {
+    setCell_(sheet, row, idx.id, id);
+    setCell_(sheet, row, idx.date, String(sale.date || ''));
+    setCell_(sheet, row, idx.userId, String(sale.userId || ''));
+    setCell_(sheet, row, idx.userName, String(sale.userName || ''));
+    setCell_(sheet, row, idx.grade, String(sale.grade || ''));
+    setCell_(sheet, row, idx.pack, String(sale.pack || ''));
+    setCell_(sheet, row, idx.subject, String(sale.subject || ''));
+    setCell_(sheet, row, idx.term, String(sale.term || ''));
+    setCell_(sheet, row, idx.amount, num_(sale.amount));
+    setCell_(sheet, row, idx.note, String(sale.note || ''));
+    setCell_(sheet, row, idx.savedAt, String(sale.savedAt || new Date().toISOString()));
+  }
+  if (found) {
+    putRow(found);
+    return { status: 'ok', action: 'replaced', id: id };
+  }
+  var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+  var line = [];
+  for (var c = 0; c < headers.length; c++) line.push('');
+  function put(name, value) {
+    if (idx[name] === undefined) return;
+    line[idx[name]] = value;
+  }
+  put('id', id);
+  put('date', String(sale.date || ''));
+  put('userId', String(sale.userId || ''));
+  put('userName', String(sale.userName || ''));
+  put('grade', String(sale.grade || ''));
+  put('pack', String(sale.pack || ''));
+  put('subject', String(sale.subject || ''));
+  put('term', String(sale.term || ''));
+  put('amount', num_(sale.amount));
+  put('note', String(sale.note || ''));
+  put('savedAt', String(sale.savedAt || new Date().toISOString()));
+  sheet.appendRow(line);
+  return { status: 'ok', action: 'inserted', id: id };
+}
+
+function deleteSale_(id) {
+  id = String(id || '');
+  if (!id) return { status: 'error', message: 'id required' };
+  var sheet = salesSheet_();
+  var idx = headerIndex_(sheet);
+  var last = sheet.getLastRow();
+  if (last < 2) return { status: 'ok', action: 'missing' };
+  var ids = sheet.getRange(2, (idx.id || 0) + 1, last - 1, 1).getValues();
+  for (var i = 0; i < ids.length; i++) {
+    if (String(ids[i][0] || '') === id) {
+      sheet.deleteRow(i + 2);
+      return { status: 'ok', action: 'deleted', id: id };
+    }
+  }
+  return { status: 'ok', action: 'missing', id: id };
+}
+
+function getSales_() {
+  var sheet = salesSheet_();
+  var idx = headerIndex_(sheet);
+  var last = sheet.getLastRow();
+  if (last < 2) return { status: 'ok', sales: [] };
+  var values = sheet.getRange(2, 1, last - 1, sheet.getLastColumn()).getValues();
+  var sales = [];
+  for (var i = 0; i < values.length; i++) {
+    var id = String(values[i][idx.id] || '');
+    if (!id) continue;
+    sales.push({
+      id: id,
+      date: String(values[i][idx.date] || ''),
+      userId: String(values[i][idx.userId] || ''),
+      userName: idx.userName !== undefined ? String(values[i][idx.userName] || '') : '',
+      grade: idx.grade !== undefined ? String(values[i][idx.grade] || '') : '',
+      pack: idx.pack !== undefined ? String(values[i][idx.pack] || '') : '',
+      subject: idx.subject !== undefined ? String(values[i][idx.subject] || '') : '',
+      term: idx.term !== undefined ? String(values[i][idx.term] || '') : '',
+      amount: idx.amount !== undefined ? num_(values[i][idx.amount]) : 0,
+      note: idx.note !== undefined ? String(values[i][idx.note] || '') : '',
+      savedAt: idx.savedAt !== undefined ? String(values[i][idx.savedAt] || '') : ''
+    });
+  }
+  return { status: 'ok', sales: sales };
+}
+
+function saveBizNotes_(notes) {
+  var sheet = notesSheet_();
+  var json = JSON.stringify(notes || {});
+  var last = sheet.getLastRow();
+  if (last < 2) {
+    sheet.appendRow(['notes', json]);
+  } else {
+    sheet.getRange(2, 1, 1, 2).setValues([['notes', json]]);
+  }
+  return { status: 'ok' };
+}
+
+function getBizNotes_() {
+  var sheet = notesSheet_();
+  var last = sheet.getLastRow();
+  if (last < 2) return { status: 'ok', notes: {} };
+  var raw = String(sheet.getRange(2, 2).getValue() || '');
+  if (!raw) return { status: 'ok', notes: {} };
+  try {
+    return { status: 'ok', notes: JSON.parse(raw) };
+  } catch (err) {
+    return { status: 'ok', notes: {} };
+  }
 }
 
 function json_(obj) {
