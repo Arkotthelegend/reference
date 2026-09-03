@@ -263,6 +263,49 @@ body.page-no-nav .container {
     .flash-back { background: #1E293B; border: 2px solid #EF4444; color: #fff; transform: rotateY(180deg); }
     .is-flipped { transform: rotateY(180deg); }
 
+    #flashcard-screen.flash-rewrite-on .flash-container { display: none; }
+    #flash-rewrite { display: none; text-align: left; margin: 10px 0 14px; }
+    #flashcard-screen.flash-rewrite-on #flash-rewrite { display: block; }
+    .rw-top { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; flex-wrap: wrap; }
+    .rw-rule {
+        display: inline-block; background: #162235; border: 1px solid #00D5FF; color: #00D5FF;
+        border-radius: 999px; padding: 5px 12px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.02em;
+    }
+    .rw-note {
+        margin-left: auto; background: #162235 !important; border: 1px solid #334155 !important;
+        color: #E2E8F0 !important; border-radius: 999px !important; padding: 6px 12px !important;
+        font-size: 0.75rem !important; font-weight: 700 !important; width: auto !important;
+    }
+    .rw-label { color: #94A3B8; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; margin: 0 0 6px; }
+    .rw-prompt, .rw-answer {
+        background: #162235; border: 1px solid #334155; border-radius: 16px;
+        padding: 16px 16px 16px 18px; color: #fff; font-size: 1.05rem; line-height: 1.55;
+        font-weight: 600; margin: 0 0 12px;
+    }
+    .rw-prompt { border-left: 4px solid #00D5FF; }
+    .rw-answer { border-left: 4px solid #22C55E; background: #10261A; border-color: #14532D; }
+    .rw-hint {
+        display: inline; color: #00D5FF; font-weight: 800;
+        background: rgba(0, 213, 255, 0.12); border-radius: 8px; padding: 0 5px;
+    }
+    .rw-change { color: #00D5FF; font-weight: 800; }
+    .rw-try {
+        width: 100%; box-sizing: border-box; min-height: 74px; resize: vertical;
+        background: #0B0F19; color: #fff; border: 1px solid #334155; border-radius: 14px;
+        padding: 12px 14px; font-size: 1rem; line-height: 1.45; font-family: inherit; margin: 0 0 10px;
+    }
+    .rw-try:focus { outline: none; border-color: #00D5FF; }
+    #rw-reveal { margin: 0 0 12px !important; }
+    #rw-answer-wrap[hidden] { display: none !important; }
+    .rw-try-note { color: #94A3B8; font-size: 0.8rem; font-weight: 700; margin: 0 0 10px; }
+    .rw-try-note.ok { color: #22C55E; }
+    .rw-mark-row { display: flex; gap: 8px; margin: 0 0 12px; }
+    .rw-mark-row .btn { flex: 1; margin: 0 !important; font-size: 0.85rem !important; padding: 11px 8px !important; }
+    #rw-knew { background: #14532D !important; border: 1px solid #22C55E !important; color: #fff !important; }
+    #rw-almost { background: #1E293B !important; border: 1px solid #00D5FF !important; color: #00D5FF !important; }
+    #rw-missed { background: #1E293B !important; border: 1px solid #64748B !important; color: #E2E8F0 !important; }
+    .rw-keys { color: #64748B; font-size: 0.72rem; text-align: center; margin: 0 0 8px; }
+
     #flashcard-screen div[style*="display: flex; gap: 10px;"] { width: 100%; margin-bottom: 10px; }
     #flashcard-screen div[style*="display: flex; gap: 10px;"] .btn {
         background: #1E293B !important; border: 1px solid #334155 !important; color: var(--white) !important; font-size: 1rem !important;
@@ -2882,6 +2925,28 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 </div>
             </div>
 
+            <div id="flash-rewrite">
+                <div class="rw-top">
+                    <span class="rw-rule" id="rw-rule">Grammar</span>
+                    <button type="button" class="btn rw-note" id="rw-note" hidden>📖 Note</button>
+                </div>
+                <p class="rw-label">REWRITE</p>
+                <div class="rw-prompt" id="rw-prompt"></div>
+                <textarea id="rw-try" class="rw-try" rows="3" placeholder="Type the sentence, then reveal…" inputmode="text"></textarea>
+                <button type="button" class="btn" id="rw-reveal">အဖြေကြည့်ရန်</button>
+                <div id="rw-answer-wrap" hidden>
+                    <p class="rw-label">ANSWER</p>
+                    <div class="rw-answer" id="rw-answer"></div>
+                    <p class="rw-try-note" id="rw-try-note"></p>
+                    <div class="rw-mark-row">
+                        <button type="button" class="btn" id="rw-knew">Knew</button>
+                        <button type="button" class="btn" id="rw-almost">Almost</button>
+                        <button type="button" class="btn" id="rw-missed">Missed</button>
+                    </div>
+                </div>
+                <p class="rw-keys">Laptop: Space = reveal / next</p>
+            </div>
+
             <div style="display: flex; gap: 10px;">
                 <button class="btn" style="background: var(--secondary-btn);" onclick="prevFlash()">⬅️ ရှေ့သို့</button>
                 <button class="btn" onclick="nextFlash()">နောက်သို့ ➡️</button>
@@ -3074,6 +3139,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
     <script src="./grades.js?v=9"></script>
     <script src="./timetable.js?v=28"></script>
+    <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=9"></script>
     <script>
 
@@ -3728,7 +3794,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=96'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=97'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
@@ -5066,9 +5132,10 @@ const oldENGrammarTopics = [
 	{ title: "As if / As though", id: "asif" },
     { title: "The more the less", id: "the more" },
     { title: "Such that / In order to", id: "inorder" },
-	{ title: "Participal phrases", id: "participal" }
+    { title: "Participal phrases", id: "participal" }
     // လိုအပ်သလို ထပ်ဖြည့်နိုင်ပါသည်
 ];
+window.oldENGrammarTopics = oldENGrammarTopics;
 
 
 // မေးခွန်းဟောင်းအတွက် သီးသန့် Button ဖန်တီးပေးသည့် Function
@@ -5755,6 +5822,8 @@ function showGrammarMenu(topicId, topicTitle) {
 }
 
 async function loadGrammarNote(topicId, topicTitle) {
+    const noteBack = document.querySelector('#grammar-note-screen .back-btn');
+    if (noteBack) noteBack.onclick = function () { showScreen('activity'); };
     try {
         const res = await fetch(`./notes/grammar_${topicId}.json`);
         if (!res.ok) throw new Error();
@@ -5766,8 +5835,10 @@ async function loadGrammarNote(topicId, topicTitle) {
 		document.getElementById('grammar-note-screen').scrollTop = 0;
         
             fastMath();
+        return true;
     } catch (e) {
         tg.showAlert("Grammar Note ဖိုင်မတွေ့သေးပါ - " + topicId);
+        return false;
     }
 }
 
@@ -6632,19 +6703,79 @@ async function initFlashcards(fileName, markTitle = "Flashcard", onBack = null) 
     } catch (e) { tg.showAlert("ဖိုင်မတွေ့သေးပါ- " + fileName); }
 }
 
+function isRewriteFlash(fileName) {
+    return !!(window.REEDGrammar && REEDGrammar.isPracticeFile(fileName || currentQuizFile));
+}
+
+function resetRewriteSheet() {
+    const wrap = document.getElementById('rw-answer-wrap');
+    const tryEl = document.getElementById('rw-try');
+    const note = document.getElementById('rw-try-note');
+    if (wrap) wrap.hidden = true;
+    if (tryEl) tryEl.value = '';
+    if (note) {
+        note.textContent = '';
+        note.classList.remove('ok');
+    }
+}
+
+function revealRewriteAnswer() {
+    if (!flashCards[flashIdx]) return;
+    const G = window.REEDGrammar;
+    if (!G) return;
+    const item = flashCards[flashIdx];
+    const ans = document.getElementById('rw-answer');
+    const wrap = document.getElementById('rw-answer-wrap');
+    const note = document.getElementById('rw-try-note');
+    const tryEl = document.getElementById('rw-try');
+    if (ans) ans.innerHTML = G.formatAnswer(item.q, item.a);
+    if (wrap) wrap.hidden = false;
+    if (note) {
+        const typed = tryEl ? tryEl.value : '';
+        if (typed.trim() && G.answersMatch(typed, item.a)) {
+            note.textContent = 'Your try matches.';
+            note.classList.add('ok');
+        } else if (typed.trim()) {
+            note.textContent = 'Compare with your try above.';
+            note.classList.remove('ok');
+        } else {
+            note.textContent = '';
+            note.classList.remove('ok');
+        }
+    }
+}
+
+function peekGrammarNoteFromPractice() {
+    const G = window.REEDGrammar;
+    if (!G) return;
+    const id = G.topicIdFromFile(currentQuizFile);
+    if (!id || !G.hasGrammarNote(currentQuizFile)) return;
+    loadGrammarNote(id, currentFlashMark).then(function (ok) {
+        if (!ok) return;
+        const back = document.querySelector('#grammar-note-screen .back-btn');
+        if (back) back.onclick = function () { showScreen('flashcard'); };
+    });
+}
+
 function updateFlashUI() {
     const card = document.getElementById('flash-card');
-    card.classList.remove('is-flipped');
-    
-    // ခေါင်းစဉ်ကို ပြောင်းလဲပေးခြင်း
+    if (card) card.classList.remove('is-flipped');
     document.getElementById('flash-title').innerText = currentFlashMark;
-    
-    // innerText ကို innerHTML သို့ ပြောင်းလဲခြင်း (Messy ဖြစ်တာကို ရှင်းဖို့)
+    document.getElementById('flash-count').innerText = `${flashIdx + 1} / ${flashCards.length}`;
+    const rewrite = isRewriteFlash(currentQuizFile);
+    document.getElementById('flashcard-screen').classList.toggle('flash-rewrite-on', rewrite);
+    if (rewrite && window.REEDGrammar) {
+        const item = flashCards[flashIdx] || { q: '', a: '' };
+        document.getElementById('rw-rule').textContent = REEDGrammar.ruleChip(currentQuizFile, currentFlashMark);
+        document.getElementById('rw-prompt').innerHTML = REEDGrammar.formatPrompt(item.q);
+        const noteBtn = document.getElementById('rw-note');
+        if (noteBtn) noteBtn.hidden = !REEDGrammar.hasGrammarNote(currentQuizFile);
+        resetRewriteSheet();
+        return;
+    }
     document.getElementById('flash-front-content').innerHTML = flashCards[flashIdx].q;
     document.getElementById('flash-back-content').innerHTML = flashCards[flashIdx].a;
-    
-    document.getElementById('flash-count').innerText = `${flashIdx + 1} / ${flashCards.length}`;
-        fastMath();
+    fastMath();
 }
 
         function flipCard() {
@@ -7742,6 +7873,7 @@ let isFlashcardShuffled = false;
 async function initFlashcards(fileName, markTitle = "Flashcard", onBack = null) {
     currentFlashMark = markTitle; 
     fileName = withGradePrefix(fileName);
+    currentQuizFile = fileName;
     try {
         const res = await fetch(quizUrl(fileName));
         if(!res.ok) throw new Error();
@@ -7765,10 +7897,35 @@ async function initFlashcards(fileName, markTitle = "Flashcard", onBack = null) 
                 else showScreen('activity');
             };
         }
+        bindRewriteSheet();
         updateFlashUI();
     } catch (e) { 
         tg.showAlert("ဖိုင်မတွေ့သေးပါ- " + fileName); 
     }
+}
+
+function bindRewriteSheet() {
+    if (bindRewriteSheet.done) return;
+    bindRewriteSheet.done = true;
+    const reveal = document.getElementById('rw-reveal');
+    if (reveal) reveal.onclick = function () { revealRewriteAnswer(); };
+    const tryEl = document.getElementById('rw-try');
+    if (tryEl) tryEl.onkeydown = function (e) {
+        if ((e.key === 'Enter' && !e.shiftKey) || e.key === 'Escape') {
+            e.preventDefault();
+            tryEl.blur();
+            if (e.key === 'Enter') revealRewriteAnswer();
+        }
+    };
+    const noteBtn = document.getElementById('rw-note');
+    if (noteBtn) noteBtn.onclick = function () { peekGrammarNoteFromPractice(); };
+    function markNext() { nextFlash(); }
+    const knew = document.getElementById('rw-knew');
+    const almost = document.getElementById('rw-almost');
+    const missed = document.getElementById('rw-missed');
+    if (knew) knew.onclick = markNext;
+    if (almost) almost.onclick = markNext;
+    if (missed) missed.onclick = markNext;
 }
 
 // ခလုတ်နှိပ်လိုက်ရင် အလုပ်လုပ်မည့် Function
@@ -8218,10 +8375,18 @@ document.addEventListener('keydown', function(e) {
 
     const quizOn = document.getElementById('quiz-screen')?.classList.contains('active-screen');
     const mathOn = document.getElementById('math-solution-screen')?.classList.contains('active-screen');
-    if (!quizOn && !mathOn) return;
+    const flashOn = document.getElementById('flashcard-screen')?.classList.contains('active-screen');
+    const rewriteOn = flashOn && document.getElementById('flashcard-screen')?.classList.contains('flash-rewrite-on');
+    if (!quizOn && !mathOn && !rewriteOn) return;
 
     if (e.key === ' ' || e.code === 'Space') {
         e.preventDefault();
+        if (rewriteOn) {
+            const wrap = document.getElementById('rw-answer-wrap');
+            if (wrap && wrap.hidden) revealRewriteAnswer();
+            else nextFlash();
+            return;
+        }
         if (mathOn) {
             const mathNext = document.getElementById('math-next-btn');
             if (mathNext && mathNext.style.display !== 'none' && !mathNext.disabled) mathNext.click();
