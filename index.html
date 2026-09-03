@@ -6731,12 +6731,12 @@ function revealRewriteAnswer() {
     if (ans) ans.innerHTML = G.formatAnswer(item.q, item.a);
     if (wrap) wrap.hidden = false;
     if (note) {
-        const typed = tryEl ? tryEl.value : '';
-        if (typed.trim() && G.answersMatch(typed, item.a)) {
-            note.textContent = 'Your try matches.';
+        const typed = tryEl ? tryEl.value.trim() : '';
+        if (typed && G.answersMatch(typed, item.a)) {
+            note.textContent = 'Your try matches: ' + typed;
             note.classList.add('ok');
-        } else if (typed.trim()) {
-            note.textContent = 'Compare with your try above.';
+        } else if (typed) {
+            note.textContent = 'Your try: ' + typed;
             note.classList.remove('ok');
         } else {
             note.textContent = '';
