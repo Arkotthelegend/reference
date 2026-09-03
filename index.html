@@ -2333,7 +2333,42 @@ body.showing-articles .container {
 .post-card-label { color: #94A3B8; font-size: 0.72rem; font-weight: 800; margin: 0 0 6px; }
 .post-thumb { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; border-radius: 10px; display: block; background: #162235; }
 .post-card .btn { margin-top: 8px; font-size: 0.78rem !important; padding: 8px !important; }
-body:not(.admin-role) #nav-post { display: none !important; }
+#cust-screen { padding: 4px 2px 20px; text-align: left; }
+#cust-screen h2 { color: #00D5FF; font-size: 1.15rem; margin: 0 0 6px; }
+#cust-sync { color: #00D5FF; font-size: 0.78rem; font-weight: 700; min-height: 1.2em; margin: 0 0 10px; }
+.cust-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 0 12px; }
+.cust-kpi { background: #162235; border: 1px solid #334155; border-radius: 14px; padding: 12px; }
+.cust-kpi-v { color: #fff; font-size: 1.2rem; font-weight: 800; margin: 0 0 4px; }
+.cust-kpi-l { color: #94A3B8; font-size: 0.72rem; font-weight: 700; margin: 0; }
+.cust-kpi-l span { display: block; font-weight: 600; opacity: 0.85; margin-top: 2px; }
+.cust-bar-row { display: grid; grid-template-columns: 92px 1fr auto; gap: 8px; align-items: center; margin: 0 0 8px; color: #E2E8F0; font-size: 0.78rem; font-weight: 700; }
+.cust-bar { height: 8px; background: #0B0F19; border-radius: 99px; overflow: hidden; }
+.cust-bar i { display: block; height: 100%; background: #00D5FF; border-radius: 99px; }
+.cust-month { background: #162235; border: 1px solid #334155; border-radius: 12px; padding: 10px 12px; margin: 0 0 8px; }
+.cust-month b { display: block; color: #00D5FF; font-size: 0.82rem; }
+.cust-month span { color: #94A3B8; font-size: 0.75rem; }
+.cust-form { display: grid; gap: 8px; margin: 0 0 12px; }
+.cust-form label { color: #94A3B8; font-size: 0.72rem; font-weight: 800; }
+#cust-screen input, #cust-screen select, #cust-screen textarea {
+    width: 100%; box-sizing: border-box; margin: 4px 0 0; padding: 10px 12px;
+    border-radius: 12px; border: 1px solid #334155; background: #0B0F19; color: #fff;
+    font-size: 0.95rem; font-weight: 700; font-family: inherit;
+}
+#cust-screen textarea { min-height: 72px; font-weight: 600; line-height: 1.45; }
+.cust-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cust-sale { display: flex; gap: 8px; align-items: flex-start; background: #162235; border: 1px solid #334155; border-radius: 12px; padding: 10px; margin: 0 0 8px; }
+.cust-sale div { flex: 1; color: #E2E8F0; font-size: 0.82rem; font-weight: 700; }
+.cust-sale span { display: block; color: #94A3B8; font-size: 0.72rem; font-weight: 600; margin-top: 3px; }
+.cust-del { flex: 0 0 auto; width: auto !important; margin: 0 !important; padding: 8px 10px !important; font-size: 0.72rem !important; background: #1E293B !important; }
+.cust-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; margin: 0 0 8px; }
+.cust-table th, .cust-table td { text-align: left; padding: 8px 6px; border-bottom: 1px solid #1E293B; color: #E2E8F0; }
+.cust-table th { color: #94A3B8; font-size: 0.68rem; }
+#cust-screen .tt-chip { width: auto !important; max-width: none !important; flex: 1 1 calc(50% - 8px); margin: 0 !important; padding: 10px !important; border-radius: 12px; background: #162235 !important; border: 1px solid #334155 !important; color: #E2E8F0 !important; font-size: 0.78rem !important; font-weight: 700; }
+#cust-screen .tt-chip.on { border-color: #00D5FF !important; color: #00D5FF !important; background: #0B0F19 !important; }
+.cust-check { display: flex; align-items: center; gap: 8px; color: #E2E8F0; font-size: 0.82rem; font-weight: 700; margin: 8px 0; }
+.cust-check input { width: auto !important; }
+body:not(.admin-role) #nav-post,
+body:not(.admin-role) #nav-cust { display: none !important; }
 .nav-item[hidden] { display: none !important; }
 body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
 #time-screen .btn:disabled { opacity: 0.55; }
@@ -2355,6 +2390,7 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
     #stats-screen.active-screen,
     #time-screen.active-screen,
     #post-screen.active-screen,
+    #cust-screen.active-screen,
     #poem-screen.active-screen,
     #flashcard-screen.active-screen,
     #activity-screen.active-screen,
@@ -3124,6 +3160,117 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <div class="post-previews" id="post-previews"></div>
 </div>
 
+<div id="cust-screen" class="screen">
+    <h2>Customer analysis</h2>
+    <p class="post-help">Earlier Google Sheet buyer history is gone. Every new sale you add here is saved on this phone and, after you redeploy stats-Code.gs, on the stats spreadsheet too. Export JSON as a backup.</p>
+    <p id="cust-sync"></p>
+
+    <p class="post-label">1. CURRENT SALES</p>
+    <div class="cust-kpis" id="cust-kpis"></div>
+    <p class="post-label">SINGLE VS ALL 6</p>
+    <div id="cust-pack-bars"></div>
+    <p class="post-label">1 / 3 / 6 MONTHS</p>
+    <div id="cust-term-bars"></div>
+
+    <p class="post-label">2. MONTHLY GROWTH</p>
+    <div id="cust-months"></div>
+
+    <p class="post-label">ADD A SALE</p>
+    <div class="cust-form">
+        <div class="cust-row2">
+            <label>Date<input id="cust-date" type="date"></label>
+            <label>Telegram ID<input id="cust-uid" inputmode="numeric" placeholder="8432…"></label>
+        </div>
+        <div class="cust-row2">
+            <label>Name (optional)<input id="cust-name" placeholder="first name"></label>
+            <label>Grade
+                <select id="cust-grade">
+                    <option value="12">12</option>
+                    <option value="11">11</option>
+                    <option value="10">10</option>
+                </select>
+            </label>
+        </div>
+        <div class="cust-row2">
+            <label>Pack
+                <select id="cust-pack">
+                    <option value="one">Single subject</option>
+                    <option value="all">All 6 subjects</option>
+                </select>
+            </label>
+            <label>Term
+                <select id="cust-term">
+                    <option value="1">1 month</option>
+                    <option value="3">3 months</option>
+                    <option value="6">6 months</option>
+                    <option value="exam">Till exam</option>
+                </select>
+            </label>
+        </div>
+        <div class="cust-row2">
+            <label id="cust-sub-wrap">Subject
+                <select id="cust-sub">
+                    <option value="mm">Myanmar</option>
+                    <option value="en">English</option>
+                    <option value="math">Maths</option>
+                    <option value="phy">Physics</option>
+                    <option value="chem">Chemistry</option>
+                    <option value="bio">Biology</option>
+                    <option value="eco">Economics</option>
+                </select>
+            </label>
+            <label>Amount (Ks)<input id="cust-amt" type="number" min="0" step="500" value="2000"></label>
+        </div>
+        <label>Note<input id="cust-note" placeholder="optional"></label>
+        <button type="button" class="btn" id="cust-add">Save sale</button>
+    </div>
+    <div id="cust-sales-list"></div>
+    <button type="button" class="btn back-btn" id="cust-export" style="margin-top:8px;">Export JSON backup</button>
+
+    <p class="post-label">3. WHO IS THE MAIN CUSTOMER?</p>
+    <div class="post-chips" id="cust-persona-chips">
+        <button type="button" class="tt-chip" data-v="weak">Weak, need practice</button>
+        <button type="button" class="tt-chip" data-v="average">Average, higher marks</button>
+        <button type="button" class="tt-chip" data-v="high">High, distinctions</button>
+        <button type="button" class="tt-chip" data-v="mixture">Mixture</button>
+    </div>
+    <select id="cust-persona" hidden>
+        <option value="weak">weak</option>
+        <option value="average">average</option>
+        <option value="high">high</option>
+        <option value="mixture">mixture</option>
+    </select>
+    <label>What they spend on private class / guides / question books
+        <textarea id="cust-spend" placeholder="e.g. tuition 30,000 Ks/month, guides 5,000…"></textarea>
+    </label>
+
+    <p class="post-label">4. HOW MUCH CONTENT (GRADE 12)</p>
+    <div id="cust-content"></div>
+
+    <p class="post-label">5. AFTER SUBSCRIPTION EXPIRES</p>
+    <textarea id="cust-after"></textarea>
+
+    <p class="post-label">6. CONVERSION</p>
+    <textarea id="cust-funnel"></textarea>
+    <label class="cust-check"><input id="cust-trial" type="checkbox" checked> Free trial before pay (Daily Quiz 3/day + Chapter 1)</label>
+
+    <p class="post-label">7. GOAL RIGHT NOW</p>
+    <div class="post-chips" id="cust-goal-chips">
+        <button type="button" class="tt-chip" data-v="A">A. Max revenue</button>
+        <button type="button" class="tt-chip" data-v="B">B. Max students</button>
+        <button type="button" class="tt-chip" data-v="C">C. Early → longer plans</button>
+        <button type="button" class="tt-chip" data-v="D">D. Exam-season revenue</button>
+    </div>
+    <select id="cust-goal" hidden>
+        <option value=""> </option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+    </select>
+    <button type="button" class="btn" id="cust-save-notes" style="margin-top:12px;">Save analysis notes</button>
+</div>
+
 <div id="articles-channel-bar" class="articles-channel-bar">
     <button class="btn" onclick="openChannel()">📢 Join Telegram Channel</button>
 </div>
@@ -3135,12 +3282,14 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <div class="nav-item" data-tab="stats" onclick="changeTab('stats', this)"><span class="nav-ico">🏅</span><span class="nav-lbl">Rank</span></div>
     <div class="nav-item" data-tab="profile" onclick="changeTab('profile', this)"><span class="nav-ico">👤</span><span class="nav-lbl">Me</span></div>
     <div class="nav-item" id="nav-post" data-tab="post" hidden onclick="changeTab('post', this)"><span class="nav-ico">📸</span><span class="nav-lbl">Post</span></div>
+    <div class="nav-item" id="nav-cust" data-tab="cust" hidden onclick="changeTab('cust', this)"><span class="nav-ico">📊</span><span class="nav-lbl">Cust</span></div>
 </div>
 
     <script src="./grades.js?v=9"></script>
     <script src="./timetable.js?v=28"></script>
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=9"></script>
+    <script src="./customer-analysis.js?v=1"></script>
     <script>
 
 		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
@@ -3794,8 +3943,9 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=97'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=99'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
+        window.STATS_GAS_URL = STATS_GAS_URL;
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
         let pendingStatsTab = 'leaderboard';
@@ -7268,7 +7418,7 @@ function nextQuestion() {
     );
 		  
 		   const nav = document.querySelector('.nav');
-    const mainTabs = ['home', 'plan', 'time', 'stats', 'profile', 'post'];
+    const mainTabs = ['home', 'plan', 'time', 'stats', 'profile', 'post', 'cust'];
     if (mainTabs.includes(id)) {
         nav.classList.remove('nav-hidden');
         document.body.classList.remove('page-no-nav');
@@ -7310,6 +7460,9 @@ function goTab(id) {
     if(id === 'time') openTimetableTab();
     if(id === 'post') {
         if (window.REEDQuizPost) REEDQuizPost.applyChrome();
+    }
+    if(id === 'cust') {
+        if (window.REEDCustomers) REEDCustomers.applyChrome();
     }
 }
 
@@ -7375,6 +7528,7 @@ function isAppAdmin() {
 
 function applyAdminChrome() {
     if (window.REEDQuizPost) REEDQuizPost.applyChrome();
+    if (window.REEDCustomers) REEDCustomers.applyChrome();
 }
 
 function renderProfileData() {
