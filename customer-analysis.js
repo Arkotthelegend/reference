@@ -1,59 +1,34 @@
-/* REED admin — customer / sales analysis. */
+/* REED admin — customer analysis from TG APP SHEET Logs. */
 (function (root) {
-    var LS_SALES = 'reed_sales_ledger_v1';
-    var LS_NOTES = 'reed_biz_notes_v1';
     var TZ = 'Asia/Yangon';
-    var SUBJECTS = [
+    var SUBJECT_ORDER = [
         { id: 'mm', name: 'Myanmar' },
         { id: 'en', name: 'English' },
-        { id: 'math', name: 'Maths' },
+        { id: 'math', name: 'Mathematics' },
         { id: 'phy', name: 'Physics' },
         { id: 'chem', name: 'Chemistry' },
         { id: 'bio', name: 'Biology' },
-        { id: 'eco', name: 'Economics' }
+        { id: 'eco', name: 'Economics' },
+        { id: 'all', name: 'All' }
     ];
-    var TERMS = [
-        { id: '1', label: '1 month' },
-        { id: '3', label: '3 months' },
-        { id: '6', label: '6 months' },
-        { id: 'exam', label: 'Till exam' }
-    ];
-    var PRICES = {
-        one: { '1': 2000, '3': 5500, '6': 10000, exam: 11000 },
-        all: { '1': 10000, '3': 27000, '6': 53000, exam: 55000 }
+    var NAME_TO_ID = {
+        myanmar: 'mm', english: 'en', mathematics: 'math', maths: 'math',
+        math: 'math', physics: 'phy', chemistry: 'chem', biology: 'bio',
+        economics: 'eco', all: 'all', 'all subjects': 'all'
     };
-    var CONTENT_G12 = {
-        mm: { mcq: 740, tf: 798, blank: 800, extra: 776, extraLabel: 'flash / other' },
-        en: { mcq: 1476, tf: 0, blank: 564, extra: 2305, extraLabel: 'grammar / poems / Q&A' },
-        math: { mcq: 947, tf: 0, blank: 0, extra: 0, extraLabel: '' },
-        phy: { mcq: 1053, tf: 1529, blank: 1373, extra: 293, extraLabel: 'formulas / keys' },
-        chem: { mcq: 834, tf: 1000, blank: 984, extra: 124, extraLabel: 'formulas / keys' },
-        bio: { mcq: 637, tf: 778, blank: 921, extra: 0, extraLabel: '' },
-        eco: { mcq: 1224, tf: 1148, blank: 1612, extra: 116, extraLabel: 'formulas / keys' }
-    };
-    var DEFAULT_NOTES = {
-        persona: 'mixture',
-        spend: '',
-        explanations: true,
-        fromSyllabus: true,
-        grows: true,
-        afterExpire: 'Paid chapters lock when the date ends. Progress and Rank stay. Daily Quiz (3/day) and Chapter 1 trial stay free. Renew by messaging @minaphayarkot with Telegram ID.',
-        funnel: 'TikTok → Telegram channel @REED_education → Mini App in @reededucation_bot → free Daily Quiz + Chapter 1 trial → pay @minaphayarkot',
-        trial: true,
-        goal: ''
-    };
+    var GRADES = [10, 11, 12];
 
-    var sales = [];
-    var notes = Object.assign({}, DEFAULT_NOTES);
+    var logs = [];
+    var active = [];
     var syncMsg = '';
+    var searchQ = '';
+    var loading = false;
 
-    function gasUrl() {
-        return (typeof root.STATS_GAS_URL === 'string' && root.STATS_GAS_URL) || '';
-    }
-
-    function paidFromCache() {
-        try { return JSON.parse(localStorage.getItem('cached_paid_users_v22') || '{}'); }
-        catch (e) { return {}; }
+    function paidGasUrl() {
+        if (typeof root.PAID_USERS_GAS_URL === 'string' && root.PAID_USERS_GAS_URL) {
+            return root.PAID_USERS_GAS_URL;
+        }
+        return 'https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec';
     }
 
     function esc(s) {
@@ -62,146 +37,199 @@
             .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
-    function ymd(iso) {
+    function todayYmd() {
         try {
             return new Intl.DateTimeFormat('en-CA', {
                 timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit'
-            }).format(iso ? new Date(iso) : new Date());
+            }).format(new Date());
         } catch (e) {
-            var d = iso ? new Date(iso) : new Date();
-            return d.toISOString().slice(0, 10);
+            return new Date().toISOString().slice(0, 10);
         }
     }
 
-    function monthKey(iso) {
-        return ymd(iso).slice(0, 7);
-    }
-
-    function monthLabel(key) {
-        var p = String(key || '').split('-');
-        var names = ['January', 'February', 'March', 'April', 'May', 'June',
-            'July', 'August', 'September', 'October', 'November', 'December'];
-        var m = parseInt(p[1], 10);
-        if (!m) return key;
-        var now = ymd();
-        var tag = key === now.slice(0, 7) ? ' so far' : '';
-        return names[m - 1] + ' ' + p[0] + tag;
-    }
-
-    function priceOf(pack, term) {
-        var row = PRICES[pack === 'all' ? 'all' : 'one'] || PRICES.one;
-        return row[term] || 0;
-    }
-
-    function loadLocalSales() {
-        try {
-            var raw = JSON.parse(localStorage.getItem(LS_SALES) || '[]');
-            return Array.isArray(raw) ? raw : [];
-        } catch (e) { return []; }
-    }
-
-    function loadLocalNotes() {
-        try {
-            var raw = JSON.parse(localStorage.getItem(LS_NOTES) || '{}');
-            return Object.assign({}, DEFAULT_NOTES, raw);
-        } catch (e) { return Object.assign({}, DEFAULT_NOTES); }
-    }
-
-    function persistLocal() {
-        localStorage.setItem(LS_SALES, JSON.stringify(sales));
-        localStorage.setItem(LS_NOTES, JSON.stringify(notes));
-    }
-
-    function mergeSales(a, b) {
-        var map = {};
-        (a || []).concat(b || []).forEach(function (row) {
-            if (!row || !row.id) return;
-            var prev = map[row.id];
-            if (!prev || String(row.savedAt || '') > String(prev.savedAt || '')) map[row.id] = row;
-        });
-        return Object.keys(map).map(function (k) { return map[k]; }).sort(function (x, y) {
-            return String(y.date || '').localeCompare(String(x.date || ''));
-        });
-    }
-
-    function analyze(list) {
-        list = list || [];
-        var users = {};
-        var firstMonth = {};
-        var revenue = 0;
-        var pack = { one: 0, all: 0 };
-        var packAmt = { one: 0, all: 0 };
-        var term = { '1': 0, '3': 0, '6': 0, exam: 0 };
-        var months = {};
-        list.forEach(function (s) {
-            var amt = parseInt(s.amount, 10) || 0;
-            revenue += amt;
-            var uid = String(s.userId || '').trim();
-            if (uid) {
-                users[uid] = 1;
-                var mk = monthKey(s.date);
-                if (!firstMonth[uid] || mk < firstMonth[uid]) firstMonth[uid] = mk;
+    function toYmd(value) {
+        if (value === null || value === undefined || value === '') return '';
+        if (Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value.getTime())) {
+            try {
+                return new Intl.DateTimeFormat('en-CA', {
+                    timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit'
+                }).format(value);
+            } catch (e) {
+                return value.toISOString().slice(0, 10);
             }
-            var p = s.pack === 'all' ? 'all' : 'one';
-            pack[p] += 1;
-            packAmt[p] += amt;
-            var t = TERMS.some(function (x) { return x.id === s.term; }) ? s.term : '1';
-            term[t] += 1;
-            var m = monthKey(s.date);
-            if (!months[m]) months[m] = { sales: 0, revenue: 0 };
-            months[m].sales += 1;
-            months[m].revenue += amt;
-        });
-        var newUsers = {};
-        Object.keys(firstMonth).forEach(function (uid) {
-            var m = firstMonth[uid];
-            newUsers[m] = (newUsers[m] || 0) + 1;
-        });
-        Object.keys(months).forEach(function (m) {
-            months[m].newUsers = newUsers[m] || 0;
-        });
-        var n = list.length || 1;
-        function pct(v) { return Math.round((v / n) * 100); }
+        }
+        var s = String(value).trim();
+        var iso = s.match(/^(\d{4}-\d{2}-\d{2})/);
+        if (iso) return iso[1];
+        var dmy = s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2,4})/);
+        if (dmy) {
+            var y = dmy[3].length === 2 ? '20' + dmy[3] : dmy[3];
+            return y + '-' + String(dmy[2]).padStart(2, '0') + '-' + String(dmy[1]).padStart(2, '0');
+        }
+        var d = new Date(s);
+        if (!isNaN(d.getTime())) return toYmd(d);
+        return '';
+    }
+
+    function formatStamp(value) {
+        if (!value) return '';
+        var d = value instanceof Date ? value : new Date(value);
+        if (isNaN(d.getTime())) return String(value);
+        try {
+            return new Intl.DateTimeFormat('en-GB', {
+                timeZone: TZ, day: '2-digit', month: '2-digit', year: '2-digit',
+                hour: '2-digit', minute: '2-digit', hour12: false
+            }).format(d).replace(',', '');
+        } catch (e) {
+            return d.toISOString();
+        }
+    }
+
+    function subjectIdFrom(name, column) {
+        var col = String(column || '').trim().toLowerCase();
+        var colId = col.replace(/^(?:g1[01]_)?(?:vol_)?/, '');
+        if (NAME_TO_ID[colId]) return NAME_TO_ID[colId];
+        var key = String(name || '').trim().toLowerCase();
+        if (NAME_TO_ID[key]) return NAME_TO_ID[key];
+        return key || colId || 'other';
+    }
+
+    function subjectNameFrom(id, fallback) {
+        for (var i = 0; i < SUBJECT_ORDER.length; i++) {
+            if (SUBJECT_ORDER[i].id === id) return SUBJECT_ORDER[i].name;
+        }
+        return fallback || id;
+    }
+
+    function gradeOf(raw, column) {
+        var n = parseInt(raw, 10);
+        if (n === 10 || n === 11 || n === 12) return n;
+        var m = String(column || '').match(/^g(10|11)_/);
+        if (m) return parseInt(m[1], 10);
+        return 12;
+    }
+
+    function isVolunteerRow(row) {
+        if (!row) return false;
+        if (row.kind === 'volunteer' || row.volunteer === true) return true;
+        if (String(row.role || '').toLowerCase() === 'volunteer') return true;
+        return /(?:^|_)vol_/.test(String(row.column || ''));
+    }
+
+    function isPaidLog(row) {
+        if (!row) return false;
+        if (isVolunteerRow(row)) return false;
+        var status = String(row.status || row.role || 'paid').toLowerCase();
+        return status === '' || status === 'paid';
+    }
+
+    function normalizeLog(raw) {
+        raw = raw || {};
+        var column = raw.column || raw.subjectCode || raw.code || '';
+        var subject = raw.subject || raw.subjectName || raw.name || '';
+        var id = subjectIdFrom(subject, column);
+        var grade = gradeOf(raw.grade, column);
         return {
-            payingUsers: Object.keys(users).length,
-            sales: list.length,
-            revenue: revenue,
-            pack: pack,
-            packAmt: packAmt,
-            packPct: { one: pct(pack.one), all: pct(pack.all) },
-            term: term,
-            termPct: {
-                '1': pct(term['1']),
-                '3': pct(term['3']),
-                '6': pct(term['6']),
-                exam: pct(term.exam)
-            },
+            timestamp: raw.timestamp || raw.time || '',
+            userId: String(raw.id || raw.userId || raw.uid || '').trim(),
+            subject: subjectNameFrom(id, subject || id),
+            subjectId: id,
+            months: parseInt(raw.months != null ? raw.months : raw.duration, 10) || 0,
+            unit: raw.unit || 'months',
+            expiry: toYmd(raw.expiry),
+            grade: grade,
+            column: String(column || ''),
+            role: String(raw.role || raw.status || 'paid'),
+            volunteer: isVolunteerRow(raw)
+        };
+    }
+
+    function normalizeActive(raw) {
+        raw = raw || {};
+        var column = raw.column || '';
+        var subject = raw.subject || '';
+        var id = subjectIdFrom(subject, column);
+        return {
+            userId: String(raw.id || raw.userId || '').trim(),
+            subject: subjectNameFrom(id, subject || id),
+            subjectId: id,
+            expiry: toYmd(raw.expiry),
+            grade: gradeOf(raw.grade, column),
+            column: String(column || ''),
+            volunteer: isVolunteerRow(raw)
+        };
+    }
+
+    function paidLogs(list) {
+        return (list || []).map(normalizeLog).filter(function (row) {
+            return row.userId && isPaidLog(row);
+        });
+    }
+
+    function currentUnlocks(list, today) {
+        today = today || todayYmd();
+        return (list || []).map(normalizeActive).filter(function (row) {
+            return row.userId && !row.volunteer && row.expiry && row.expiry >= today;
+        });
+    }
+
+    function emptyMatrix() {
+        var matrix = {};
+        SUBJECT_ORDER.forEach(function (s) {
+            matrix[s.id] = { name: s.name, 10: 0, 11: 0, 12: 0, total: 0 };
+        });
+        return matrix;
+    }
+
+    function addToMatrix(matrix, subjectId, subjectName, grade) {
+        var id = subjectId || 'other';
+        if (!matrix[id]) matrix[id] = { name: subjectName || id, 10: 0, 11: 0, 12: 0, total: 0 };
+        if (grade === 10 || grade === 11 || grade === 12) {
+            matrix[id][grade] += 1;
+            matrix[id].total += 1;
+        }
+    }
+
+    function soldMatrix(list) {
+        var rows = paidLogs(list);
+        var matrix = emptyMatrix();
+        var buyers = {};
+        var months = 0;
+        rows.forEach(function (row) {
+            addToMatrix(matrix, row.subjectId, row.subject, row.grade);
+            buyers[row.userId] = 1;
+            months += row.months;
+        });
+        return {
+            rows: rows,
+            matrix: matrix,
+            sold: rows.length,
+            buyers: Object.keys(buyers).length,
             months: months
         };
     }
 
-    function liveUnlockCount(paid) {
-        if (!paid || typeof paid !== 'object') return 0;
-        var n = 0;
-        Object.keys(paid).forEach(function (id) {
-            if (!/^\d+$/.test(id)) return;
-            var rec = paid[id];
-            if (!rec || typeof rec !== 'object') return;
-            var paidKey = Object.keys(rec).some(function (k) {
-                if (k === 'vol' || k === 'isVolunteer') return false;
-                return !!rec[k];
-            });
-            if (paidKey) n += 1;
+    function liveMatrix(list, today) {
+        var rows = currentUnlocks(list, today);
+        var matrix = emptyMatrix();
+        var users = {};
+        rows.forEach(function (row) {
+            addToMatrix(matrix, row.subjectId, row.subject, row.grade);
+            if (!users[row.userId]) users[row.userId] = [];
+            users[row.userId].push(row);
         });
-        return n;
-    }
-
-    function subjectTotal(row) {
-        return (row.mcq || 0) + (row.tf || 0) + (row.blank || 0) + (row.extra || 0);
-    }
-
-    function ks(n) {
-        return String(n || 0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' Ks';
+        Object.keys(users).forEach(function (id) {
+            users[id].sort(function (a, b) {
+                return (a.grade - b.grade) || String(a.subject).localeCompare(String(b.subject));
+            });
+        });
+        return {
+            rows: rows,
+            matrix: matrix,
+            users: users,
+            userCount: Object.keys(users).length,
+            slots: rows.length
+        };
     }
 
     function setSync(text) {
@@ -210,309 +238,150 @@
         if (el) el.textContent = syncMsg;
     }
 
-    function postGas(body) {
-        var url = gasUrl();
-        if (!url) return Promise.resolve({ status: 'skip' });
-        return fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify(body)
-        }).then(function (res) { return res.text(); }).then(function (t) {
-            try { return JSON.parse(t); } catch (e) { return { status: 'error', message: t }; }
-        }).catch(function (e) { return { status: 'error', message: String(e && e.message || e) }; });
-    }
-
-    function getGas(action) {
-        var url = gasUrl();
-        if (!url) return Promise.resolve({ status: 'skip' });
-        return fetch(url + '?action=' + encodeURIComponent(action) + '&cb=' + Date.now())
-            .then(function (res) { return res.json(); })
-            .catch(function () { return { status: 'error' }; });
-    }
-
-    function cloudSaveSale(row) {
-        return postGas({ action: 'saveSale', sale: row });
-    }
-
-    function cloudDeleteSale(id) {
-        return postGas({ action: 'deleteSale', id: id });
-    }
-
-    function cloudSaveNotes() {
-        return postGas({ action: 'saveBizNotes', notes: notes });
-    }
-
-    function loadCloud() {
-        return Promise.all([getGas('getSales'), getGas('getBizNotes')]).then(function (pair) {
-            var sRes = pair[0] || {};
-            var nRes = pair[1] || {};
-            if (sRes.status === 'ok' && Array.isArray(sRes.sales)) {
-                sales = mergeSales(sales, sRes.sales);
-            }
-            if (nRes.status === 'ok' && nRes.notes && typeof nRes.notes === 'object') {
-                notes = Object.assign({}, DEFAULT_NOTES, notes, nRes.notes);
-            }
-            persistLocal();
-            var ok = sRes.status === 'ok' || nRes.status === 'ok';
-            var skip = sRes.status === 'skip';
-            setSync(ok ? 'Saved on this phone and the stats sheet.' : (skip ? 'Saved on this phone.' : 'Saved on this phone. Sheet sync not ready — redeploy stats-Code.gs.'));
-            paint();
-        });
-    }
-
-    function addSaleFromForm() {
-        var uid = (document.getElementById('cust-uid') || {}).value;
-        var date = (document.getElementById('cust-date') || {}).value;
-        var name = (document.getElementById('cust-name') || {}).value;
-        var grade = (document.getElementById('cust-grade') || {}).value;
-        var pack = (document.getElementById('cust-pack') || {}).value;
-        var sub = (document.getElementById('cust-sub') || {}).value;
-        var term = (document.getElementById('cust-term') || {}).value;
-        var amount = parseInt((document.getElementById('cust-amt') || {}).value, 10);
-        var note = (document.getElementById('cust-note') || {}).value;
-        uid = String(uid || '').replace(/\D/g, '');
-        if (!uid) {
-            setSync('Telegram ID လိုအပ်သည်။');
-            return;
-        }
-        if (!date) date = ymd();
-        if (!(amount >= 0)) amount = priceOf(pack, term);
-        var row = {
-            id: Date.now() + '-' + Math.floor(Math.random() * 1e6),
-            date: date,
-            userId: uid,
-            userName: String(name || '').trim(),
-            grade: String(grade || '12'),
-            pack: pack === 'all' ? 'all' : 'one',
-            subject: pack === 'all' ? 'all' : (sub || 'phy'),
-            term: term || '1',
-            amount: amount,
-            note: String(note || '').trim(),
-            savedAt: new Date().toISOString()
-        };
-        sales = mergeSales([row], sales);
-        persistLocal();
-        paint();
-        cloudSaveSale(row).then(function (res) {
-            setSync(res && res.status === 'ok' ? 'Sale saved on phone + sheet.' : 'Sale saved on this phone.');
-        });
-        var uidEl = document.getElementById('cust-uid');
-        var nameEl = document.getElementById('cust-name');
-        var noteEl = document.getElementById('cust-note');
-        if (uidEl) uidEl.value = '';
-        if (nameEl) nameEl.value = '';
-        if (noteEl) noteEl.value = '';
-    }
-
-    function removeSale(id) {
-        sales = sales.filter(function (s) { return s.id !== id; });
-        persistLocal();
-        paint();
-        cloudDeleteSale(id);
-        setSync('Sale removed (saved).');
-    }
-
-    function readNotesFromForm() {
-        var persona = (document.getElementById('cust-persona') || {}).value;
-        var spend = (document.getElementById('cust-spend') || {}).value;
-        var after = (document.getElementById('cust-after') || {}).value;
-        var funnel = (document.getElementById('cust-funnel') || {}).value;
-        var goal = (document.getElementById('cust-goal') || {}).value;
-        var trial = document.getElementById('cust-trial');
-        notes.persona = persona || notes.persona;
-        notes.spend = spend == null ? notes.spend : spend;
-        notes.afterExpire = after == null ? notes.afterExpire : after;
-        notes.funnel = funnel == null ? notes.funnel : funnel;
-        notes.goal = goal == null ? notes.goal : goal;
-        notes.trial = trial ? !!trial.checked : notes.trial;
-        notes.explanations = true;
-        notes.fromSyllabus = true;
-        notes.grows = true;
-    }
-
-    function saveNotes() {
-        readNotesFromForm();
-        persistLocal();
-        cloudSaveNotes().then(function (res) {
-            setSync(res && res.status === 'ok' ? 'Notes saved on phone + sheet.' : 'Notes saved on this phone.');
-        });
-        paint();
-    }
-
-    function fillAmount() {
-        var pack = (document.getElementById('cust-pack') || {}).value;
-        var term = (document.getElementById('cust-term') || {}).value;
-        var amt = document.getElementById('cust-amt');
-        if (amt) amt.value = String(priceOf(pack, term));
-        var subWrap = document.getElementById('cust-sub-wrap');
-        if (subWrap) subWrap.hidden = pack === 'all';
-    }
-
-    function exportJson() {
-        var blob = {
-            sales: sales,
-            notes: notes,
-            analysis: analyze(sales),
-            exportedAt: new Date().toISOString()
-        };
-        var text = JSON.stringify(blob, null, 2);
-        var a = document.createElement('a');
-        a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(text);
-        a.download = 'reed-customer-analysis.json';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-    }
-
     function kpiCard(label, value, sub) {
         return '<div class="cust-kpi"><p class="cust-kpi-v">' + esc(value) + '</p><p class="cust-kpi-l">' + esc(label) +
             (sub ? '<span>' + esc(sub) + '</span>' : '') + '</p></div>';
     }
 
-    function barRow(label, pct, extra) {
-        var w = Math.max(0, Math.min(100, pct || 0));
-        return '<div class="cust-bar-row"><span>' + esc(label) + '</span><div class="cust-bar"><i style="width:' + w + '%"></i></div><b>' + w + '% ' + esc(extra || '') + '</b></div>';
+    function matrixTable(matrix) {
+        var ids = SUBJECT_ORDER.map(function (s) { return s.id; });
+        Object.keys(matrix).forEach(function (id) {
+            if (ids.indexOf(id) === -1 && matrix[id].total) ids.push(id);
+        });
+        var totals = { 10: 0, 11: 0, 12: 0, total: 0 };
+        var body = ids.map(function (id) {
+            var row = matrix[id];
+            if (!row || (!row.total && SUBJECT_ORDER.some(function (s) { return s.id === id; }) === false)) return '';
+            totals[10] += row[10];
+            totals[11] += row[11];
+            totals[12] += row[12];
+            totals.total += row.total;
+            return '<tr><td>' + esc(row.name) + '</td><td class="num">' + row[10] + '</td><td class="num">' +
+                row[11] + '</td><td class="num">' + row[12] + '</td><td class="num">' + row.total + '</td></tr>';
+        }).join('');
+        return '<table class="cust-table"><thead><tr><th>Subject</th><th>G10</th><th>G11</th><th>G12</th><th>Total</th></tr></thead><tbody>' +
+            body + '</tbody><tfoot><tr><th>Total</th><th class="num">' + totals[10] + '</th><th class="num">' +
+            totals[11] + '</th><th class="num">' + totals[12] + '</th><th class="num">' + totals.total + '</th></tr></tfoot></table>';
     }
 
     function paintKpis() {
         var box = document.getElementById('cust-kpis');
         if (!box) return;
-        var a = analyze(sales);
-        var live = liveUnlockCount(paidFromCache());
-        box.innerHTML = kpiCard('Paying users', a.payingUsers, 'in the saved ledger') +
-            kpiCard('Sales', a.sales, '') +
-            kpiCard('Revenue', ks(a.revenue), 'from saved sales') +
-            kpiCard('Live unlocks', live, 'current paid sheet (no history)');
-        var packBox = document.getElementById('cust-pack-bars');
-        if (packBox) {
-            packBox.innerHTML = barRow('Single subject', a.packPct.one, a.pack.one + ' · ' + ks(a.packAmt.one)) +
-                barRow('All 6 subjects', a.packPct.all, a.pack.all + ' · ' + ks(a.packAmt.all));
+        var sold = soldMatrix(logs);
+        var live = liveMatrix(active);
+        box.innerHTML =
+            kpiCard('Subjects sold', sold.sold, 'paid rows in Logs') +
+            kpiCard('Buyers', sold.buyers, 'unique Telegram IDs in Logs') +
+            kpiCard('Unlock users now', live.userCount, 'expiry still valid') +
+            kpiCard('Open subjects now', live.slots, 'current paid unlocks');
+    }
+
+    function paintTables() {
+        var soldBox = document.getElementById('cust-sold-table');
+        if (soldBox) {
+            var sold = soldMatrix(logs);
+            soldBox.innerHTML = matrixTable(sold.matrix) +
+                '<p class="post-help">Each Logs row is one subject sale. Volunteer unlocks are left out. <b>All</b> is a full-pack row, not six separate subjects.</p>';
         }
-        var termBox = document.getElementById('cust-term-bars');
-        if (termBox) {
-            termBox.innerHTML = TERMS.map(function (t) {
-                return barRow(t.label, a.termPct[t.id], String(a.term[t.id] || 0));
-            }).join('');
-        }
-        var monthBox = document.getElementById('cust-months');
-        if (monthBox) {
-            var keys = Object.keys(a.months).sort();
-            if (!keys.length) {
-                monthBox.innerHTML = '<p class="post-help">No saved sales yet. Add each new buyer below — July / August / September will fill in.</p>';
-            } else {
-                monthBox.innerHTML = keys.map(function (k) {
-                    var m = a.months[k];
-                    return '<div class="cust-month"><b>' + esc(monthLabel(k)) + '</b><span>' + m.newUsers + ' new paying · ' + m.sales + ' sales · ' + ks(m.revenue) + '</span></div>';
-                }).join('');
-            }
+        var liveBox = document.getElementById('cust-live-table');
+        if (liveBox) {
+            var live = liveMatrix(active);
+            liveBox.innerHTML = matrixTable(live.matrix);
         }
     }
 
-    function paintSales() {
-        var box = document.getElementById('cust-sales-list');
+    function paintUsers() {
+        var box = document.getElementById('cust-users');
         if (!box) return;
-        if (!sales.length) {
-            box.innerHTML = '<p class="post-help">Ledger is empty. Old Google Sheet buyers cannot be recovered. Save every new sale here.</p>';
+        var live = liveMatrix(active);
+        var q = searchQ.toLowerCase();
+        var ids = Object.keys(live.users).sort(function (a, b) {
+            return live.users[b].length - live.users[a].length || a.localeCompare(b);
+        });
+        var shown = ids.filter(function (id) {
+            if (!q) return true;
+            if (id.indexOf(q) !== -1) return true;
+            return live.users[id].some(function (row) {
+                return String(row.subject).toLowerCase().indexOf(q) !== -1 ||
+                    ('g' + row.grade).indexOf(q) !== -1;
+            });
+        });
+        if (!shown.length) {
+            box.innerHTML = '<p class="post-help">' + (ids.length ? 'No unlock user matches that search.' : 'No current paid unlocks.') + '</p>';
             return;
         }
-        box.innerHTML = sales.map(function (s) {
-            var pack = s.pack === 'all' ? 'All 6' : (s.subject || 'one');
-            var term = (TERMS.filter(function (t) { return t.id === s.term; })[0] || TERMS[0]).label;
-            return '<div class="cust-sale">' +
-                '<div><b>' + esc(s.date) + '</b> · ID ' + esc(s.userId) +
-                (s.userName ? ' · ' + esc(s.userName) : '') +
-                '<span>G' + esc(s.grade) + ' · ' + esc(pack) + ' · ' + esc(term) + ' · ' + ks(s.amount) + '</span></div>' +
-                '<button type="button" class="btn cust-del" data-id="' + esc(s.id) + '">Delete</button></div>';
+        box.innerHTML = shown.map(function (id) {
+            var rows = live.users[id];
+            var lines = rows.map(function (row) {
+                return 'G' + row.grade + ' ' + row.subject + ' · until ' + row.expiry;
+            }).join('<br>');
+            return '<div class="cust-sale"><div><b>ID ' + esc(id) + '</b><span>' + rows.length +
+                ' subject' + (rows.length === 1 ? '' : 's') + ' open</span><span>' + lines + '</span></div></div>';
         }).join('');
-        box.querySelectorAll('.cust-del').forEach(function (btn) {
-            btn.onclick = function () { removeSale(btn.getAttribute('data-id')); };
-        });
     }
 
-    function paintContent() {
-        var box = document.getElementById('cust-content');
+    function paintLogs() {
+        var box = document.getElementById('cust-logs');
         if (!box) return;
-        var rows = SUBJECTS.map(function (s) {
-            var c = CONTENT_G12[s.id] || {};
-            var tot = subjectTotal(c);
-            return '<tr><td>' + esc(s.name) + '</td><td>' + c.tf + '</td><td>' + c.blank + '</td><td>' + c.mcq + '</td><td>' + tot + '</td></tr>';
+        var rows = paidLogs(logs).slice().sort(function (a, b) {
+            return String(b.timestamp).localeCompare(String(a.timestamp));
+        }).slice(0, 40);
+        if (!rows.length) {
+            box.innerHTML = '<p class="post-help">No paid Logs rows yet.</p>';
+            return;
+        }
+        box.innerHTML = rows.map(function (row) {
+            return '<div class="cust-sale"><div><b>' + esc(formatStamp(row.timestamp)) + '</b> · ID ' + esc(row.userId) +
+                '<span>G' + esc(row.grade) + ' · ' + esc(row.subject) + ' · ' +
+                esc(row.months || 0) + ' ' + esc(row.unit || 'months') +
+                (row.expiry ? ' · until ' + esc(row.expiry) : '') + '</span></div></div>';
         }).join('');
-        var grand = SUBJECTS.reduce(function (n, s) { return n + subjectTotal(CONTENT_G12[s.id] || {}); }, 0);
-        box.innerHTML = '<table class="cust-table"><thead><tr><th>Subject</th><th>T/F</th><th>Blank</th><th>MCQ</th><th>All items</th></tr></thead><tbody>' +
-            rows + '</tbody></table>' +
-            '<p class="post-help">Grade 12 current bank ≈ ' + esc(ks(grand).replace(' Ks', '')) + ' items (not counting old-question files). Explanations/answers are included. Questions follow the syllabus; Grade 12 also has past-paper (Old) quizzes. The bank grows when new JSON is added. 2,000 Ks for one subject is thousands of questions, not a couple of hundred.</p>';
-    }
-
-    function paintNotes() {
-        var persona = document.getElementById('cust-persona');
-        var spend = document.getElementById('cust-spend');
-        var after = document.getElementById('cust-after');
-        var funnel = document.getElementById('cust-funnel');
-        var trial = document.getElementById('cust-trial');
-        var goal = document.getElementById('cust-goal');
-        if (persona) persona.value = notes.persona || 'mixture';
-        if (spend && document.activeElement !== spend) spend.value = notes.spend || '';
-        if (after && document.activeElement !== after) after.value = notes.afterExpire || '';
-        if (funnel && document.activeElement !== funnel) funnel.value = notes.funnel || '';
-        if (trial) trial.checked = notes.trial !== false;
-        if (goal) goal.value = notes.goal || '';
-        document.querySelectorAll('#cust-persona-chips .tt-chip').forEach(function (btn) {
-            btn.classList.toggle('on', btn.getAttribute('data-v') === (notes.persona || 'mixture'));
-        });
-        document.querySelectorAll('#cust-goal-chips .tt-chip').forEach(function (btn) {
-            btn.classList.toggle('on', btn.getAttribute('data-v') === (notes.goal || ''));
-        });
     }
 
     function paint() {
         paintKpis();
-        paintSales();
-        paintContent();
-        paintNotes();
+        paintTables();
+        paintUsers();
+        paintLogs();
         var el = document.getElementById('cust-sync');
         if (el && syncMsg) el.textContent = syncMsg;
+        var btn = document.getElementById('cust-refresh');
+        if (btn) btn.disabled = loading;
+    }
+
+    function loadSheet() {
+        if (loading) return Promise.resolve();
+        loading = true;
+        setSync('Reading TG APP SHEET…');
+        paint();
+        var url = paidGasUrl() + '?cb=' + Date.now();
+        return fetch(url).then(function (res) { return res.json(); }).then(function (data) {
+            if (!data || data.success === false) {
+                throw new Error((data && data.message) || 'Sheet read failed');
+            }
+            logs = Array.isArray(data.logs) ? data.logs : [];
+            active = Array.isArray(data.active) ? data.active : [];
+            setSync('From TG APP SHEET · Logs ' + logs.length + ' rows · updated ' + formatStamp(new Date()));
+        }).catch(function (err) {
+            setSync('Could not read the sheet. ' + (err && err.message ? err.message : ''));
+        }).then(function () {
+            loading = false;
+            paint();
+        });
     }
 
     function bind() {
         if (bind.done) return;
         bind.done = true;
-        var date = document.getElementById('cust-date');
-        if (date && !date.value) date.value = ymd();
-        ['cust-pack', 'cust-term'].forEach(function (id) {
-            var el = document.getElementById(id);
-            if (el) el.onchange = fillAmount;
-        });
-        fillAmount();
-        var add = document.getElementById('cust-add');
-        if (add) add.onclick = function () { addSaleFromForm(); };
-        var save = document.getElementById('cust-save-notes');
-        if (save) save.onclick = function () { saveNotes(); };
-        var exp = document.getElementById('cust-export');
-        if (exp) exp.onclick = function () { exportJson(); };
-        document.querySelectorAll('#cust-persona-chips .tt-chip').forEach(function (btn) {
-            btn.onclick = function () {
-                notes.persona = btn.getAttribute('data-v');
-                var sel = document.getElementById('cust-persona');
-                if (sel) sel.value = notes.persona;
-                persistLocal();
-                paintNotes();
+        var refresh = document.getElementById('cust-refresh');
+        if (refresh) refresh.onclick = function () { loadSheet(); };
+        var search = document.getElementById('cust-search');
+        if (search) {
+            search.oninput = function () {
+                searchQ = search.value || '';
+                paintUsers();
             };
-        });
-        document.querySelectorAll('#cust-goal-chips .tt-chip').forEach(function (btn) {
-            btn.onclick = function () {
-                notes.goal = btn.getAttribute('data-v');
-                var sel = document.getElementById('cust-goal');
-                if (sel) sel.value = notes.goal;
-                persistLocal();
-                paintNotes();
-            };
-        });
-        ['cust-spend', 'cust-after', 'cust-funnel'].forEach(function (id) {
-            var el = document.getElementById(id);
-            if (el) el.onchange = function () { readNotesFromForm(); persistLocal(); };
-        });
-        var trial = document.getElementById('cust-trial');
-        if (trial) trial.onchange = function () { readNotesFromForm(); persistLocal(); };
+        }
     }
 
     function applyChrome() {
@@ -525,38 +394,42 @@
             if (screen && screen.classList.contains('active-screen') && typeof root.goTab === 'function') {
                 root.goTab('home');
             }
+            return;
         }
-        if (on) {
-            bind();
-            sales = mergeSales(loadLocalSales(), sales);
-            notes = Object.assign({}, DEFAULT_NOTES, loadLocalNotes(), notes);
-            persistLocal();
-            paint();
-            if (!applyChrome.synced) {
-                applyChrome.synced = true;
-                loadCloud();
+        bind();
+        paint();
+        var custOpen = document.getElementById('cust-screen');
+        if (custOpen && custOpen.classList.contains('active-screen')) {
+            if (!applyChrome.fetched || applyChrome.stale) {
+                applyChrome.fetched = true;
+                applyChrome.stale = false;
+                loadSheet();
             }
+        } else if (!applyChrome.fetched) {
+            applyChrome.fetched = true;
+            loadSheet();
         }
     }
 
     function open() {
+        applyChrome.stale = true;
         applyChrome();
         if (typeof root.changeTab === 'function') {
             root.changeTab('cust', document.getElementById('nav-cust'));
         } else if (typeof root.showScreen === 'function') {
             root.showScreen('cust');
         }
-        paint();
     }
 
     root.REEDCustomers = {
         applyChrome: applyChrome,
         open: open,
-        analyze: analyze,
-        priceOf: priceOf,
-        mergeSales: mergeSales,
-        liveUnlockCount: liveUnlockCount,
-        CONTENT_G12: CONTENT_G12,
-        PRICES: PRICES
+        loadSheet: loadSheet,
+        soldMatrix: soldMatrix,
+        liveMatrix: liveMatrix,
+        currentUnlocks: currentUnlocks,
+        normalizeLog: normalizeLog,
+        isPaidLog: isPaidLog,
+        todayYmd: todayYmd
     };
 })(typeof window !== 'undefined' ? window : globalThis);
