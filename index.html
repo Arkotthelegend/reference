@@ -299,11 +299,6 @@ body.page-no-nav .container {
     #rw-answer-wrap[hidden] { display: none !important; }
     .rw-try-note { color: #94A3B8; font-size: 0.8rem; font-weight: 700; margin: 0 0 10px; }
     .rw-try-note.ok { color: #22C55E; }
-    .rw-mark-row { display: flex; gap: 8px; margin: 0 0 12px; }
-    .rw-mark-row .btn { flex: 1; margin: 0 !important; font-size: 0.85rem !important; padding: 11px 8px !important; }
-    #rw-knew { background: #14532D !important; border: 1px solid #22C55E !important; color: #fff !important; }
-    #rw-almost { background: #1E293B !important; border: 1px solid #00D5FF !important; color: #00D5FF !important; }
-    #rw-missed { background: #1E293B !important; border: 1px solid #64748B !important; color: #E2E8F0 !important; }
     .rw-keys { color: #64748B; font-size: 0.72rem; text-align: center; margin: 0 0 8px; }
 
     #flashcard-screen div[style*="display: flex; gap: 10px;"] { width: 100%; margin-bottom: 10px; }
@@ -2978,11 +2973,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     <p class="rw-label">ANSWER</p>
                     <div class="rw-answer" id="rw-answer"></div>
                     <p class="rw-try-note" id="rw-try-note"></p>
-                    <div class="rw-mark-row">
-                        <button type="button" class="btn" id="rw-knew">Knew</button>
-                        <button type="button" class="btn" id="rw-almost">Almost</button>
-                        <button type="button" class="btn" id="rw-missed">Missed</button>
-                    </div>
                 </div>
                 <p class="rw-keys">Laptop: Space = reveal / next</p>
             </div>
@@ -3859,7 +3849,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=104'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=105'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -7998,13 +7988,6 @@ function bindRewriteSheet() {
     };
     const noteBtn = document.getElementById('rw-note');
     if (noteBtn) noteBtn.onclick = function () { peekGrammarNoteFromPractice(); };
-    function markNext() { nextFlash(); }
-    const knew = document.getElementById('rw-knew');
-    const almost = document.getElementById('rw-almost');
-    const missed = document.getElementById('rw-missed');
-    if (knew) knew.onclick = markNext;
-    if (almost) almost.onclick = markNext;
-    if (missed) missed.onclick = markNext;
 }
 
 // ခလုတ်နှိပ်လိုက်ရင် အလုပ်လုပ်မည့် Function
