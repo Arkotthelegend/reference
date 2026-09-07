@@ -2186,16 +2186,10 @@ body.showing-articles .container {
     z-index: 4000;
     pointer-events: none;
 }
-#beginner-guide-dim {
+#beginner-guide .beginner-shade {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
+    background: rgba(11, 15, 25, 0.5);
     pointer-events: auto;
-}
-#beginner-guide-dim path {
-    pointer-events: fill;
 }
 #home-trial-btn, #profile-buy-btn {
     scroll-margin-bottom: 120px;
@@ -3256,9 +3250,10 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
 <div id="beginner-guide" hidden>
-    <svg id="beginner-guide-dim" xmlns="http://www.w3.org/2000/svg">
-        <path id="beginner-guide-dim-path" fill="rgba(11,15,25,0.46)" fill-rule="evenodd"></path>
-    </svg>
+    <div class="beginner-shade" id="beginner-shade-t"></div>
+    <div class="beginner-shade" id="beginner-shade-l"></div>
+    <div class="beginner-shade" id="beginner-shade-r"></div>
+    <div class="beginner-shade" id="beginner-shade-b"></div>
     <div id="beginner-guide-card">
         <p id="beginner-guide-text"></p>
         <div class="beginner-guide-actions">
@@ -3926,7 +3921,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=111'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=112'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -7880,37 +7875,28 @@ function scrollTargetInContainer(el, cardH) {
     try { el.scrollIntoView({ block: 'center', inline: 'nearest' }); } catch (e) {}
 }
 
-function beginnerDimPath(r, w, h) {
-    const rad = Math.min(14, r.height / 2, r.width / 2);
-    const l = r.left;
-    const t = r.top;
-    const right = r.right;
-    const b = r.bottom;
-    return 'M0,0H' + w + 'V' + h + 'H0Z' +
-        'M' + (l + rad) + ',' + t +
-        'H' + (right - rad) +
-        'A' + rad + ',' + rad + ' 0 0 1 ' + right + ',' + (t + rad) +
-        'V' + (b - rad) +
-        'A' + rad + ',' + rad + ' 0 0 1 ' + (right - rad) + ',' + b +
-        'H' + (l + rad) +
-        'A' + rad + ',' + rad + ' 0 0 1 ' + l + ',' + (b - rad) +
-        'V' + (t + rad) +
-        'A' + rad + ',' + rad + ' 0 0 1 ' + (l + rad) + ',' + t +
-        'Z';
+function setBeginnerShade(id, top, left, width, height) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.top = Math.max(0, top) + 'px';
+    el.style.left = Math.max(0, left) + 'px';
+    el.style.width = Math.max(0, width) + 'px';
+    el.style.height = Math.max(0, height) + 'px';
 }
 
 function punchBeginnerHole(target) {
-    const svg = document.getElementById('beginner-guide-dim');
-    const path = document.getElementById('beginner-guide-dim-path');
-    if (!svg || !path || !target) return;
     const r = target.getBoundingClientRect();
     if (r.width < 8 || r.height < 8) return;
     const w = window.innerWidth;
     const h = window.innerHeight;
-    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
-    svg.setAttribute('width', String(w));
-    svg.setAttribute('height', String(h));
-    path.setAttribute('d', beginnerDimPath(r, w, h));
+    const top = Math.max(0, r.top);
+    const left = Math.max(0, r.left);
+    const right = Math.min(w, r.right);
+    const bottom = Math.min(h, r.bottom);
+    setBeginnerShade('beginner-shade-t', 0, 0, w, top);
+    setBeginnerShade('beginner-shade-b', bottom, 0, w, h - bottom);
+    setBeginnerShade('beginner-shade-l', top, 0, left, bottom - top);
+    setBeginnerShade('beginner-shade-r', top, right, w - right, bottom - top);
 }
 
 function placeBeginnerCard(target, card) {
@@ -7949,6 +7935,7 @@ function layoutBeginnerGuide(target, skipScroll) {
         run();
         requestAnimationFrame(run);
     });
+    setTimeout(run, 120);
 }
 
 function endBeginnerGuide() {
