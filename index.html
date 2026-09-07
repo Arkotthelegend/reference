@@ -2186,22 +2186,28 @@ body.showing-articles .container {
     z-index: 4000;
     pointer-events: none;
 }
-#beginner-guide-spot {
+#beginner-guide-dim {
     position: absolute;
     inset: 0;
-    pointer-events: none;
-    border: none;
-    box-shadow: none;
-    background: none;
-}
-#beginner-guide-spot .beginner-shade {
-    position: absolute;
-    background: rgba(11, 15, 25, 0.5);
+    background: rgba(11, 15, 25, 0.46);
     pointer-events: auto;
+}
+#beginner-guide-clone {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
 }
 #home-trial-btn, #profile-buy-btn {
     scroll-margin-bottom: 120px;
-    scroll-margin-top: 200px;
+    scroll-margin-top: 220px;
 }
 #beginner-guide-card {
     pointer-events: auto;
@@ -2216,7 +2222,7 @@ body.showing-articles .container {
     padding: 16px 16px 14px;
     color: #fff;
     box-sizing: border-box;
-    z-index: 1;
+    z-index: 3;
 }
 #beginner-guide-text {
     margin: 0 0 14px;
@@ -3258,12 +3264,8 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
 <div id="beginner-guide" hidden>
-    <div id="beginner-guide-spot">
-        <div class="beginner-shade" id="beginner-shade-t"></div>
-        <div class="beginner-shade" id="beginner-shade-l"></div>
-        <div class="beginner-shade" id="beginner-shade-r"></div>
-        <div class="beginner-shade" id="beginner-shade-b"></div>
-    </div>
+    <div id="beginner-guide-dim"></div>
+    <div id="beginner-guide-clone" aria-hidden="true"></div>
     <div id="beginner-guide-card">
         <p id="beginner-guide-text"></p>
         <div class="beginner-guide-actions">
@@ -3931,7 +3933,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=109'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=110'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -7876,7 +7878,7 @@ function beginnerNavReserve() {
 
 function scrollTargetInContainer(el, cardH) {
     const scroller = document.querySelector('.container');
-    const desiredTop = Math.max(16, (cardH || 170) + 28);
+    const desiredTop = Math.max(24, (cardH || 170) + 40);
     const r = el.getBoundingClientRect();
     if (scroller) {
         scroller.scrollTop += r.top - desiredTop;
@@ -7885,57 +7887,64 @@ function scrollTargetInContainer(el, cardH) {
     try { el.scrollIntoView({ block: 'center', inline: 'nearest' }); } catch (e) {}
 }
 
-function setBeginnerShade(id, top, left, width, height) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.style.top = Math.max(0, top) + 'px';
-    el.style.left = Math.max(0, left) + 'px';
-    el.style.width = Math.max(0, width) + 'px';
-    el.style.height = Math.max(0, height) + 'px';
+function paintBeginnerClone(target) {
+    const clone = document.getElementById('beginner-guide-clone');
+    if (!clone || !target) return;
+    const r = target.getBoundingClientRect();
+    const cs = getComputedStyle(target);
+    clone.innerHTML = target.innerHTML;
+    clone.style.top = r.top + 'px';
+    clone.style.left = r.left + 'px';
+    clone.style.width = r.width + 'px';
+    clone.style.height = r.height + 'px';
+    clone.style.background = cs.backgroundColor;
+    clone.style.border = cs.border;
+    clone.style.borderRadius = cs.borderRadius;
+    clone.style.color = cs.color;
+    clone.style.font = cs.font;
+    clone.style.fontWeight = cs.fontWeight;
+    clone.style.gap = cs.gap;
+    clone.style.flexDirection = cs.flexDirection;
+    clone.style.lineHeight = cs.lineHeight;
+    clone.style.opacity = '1';
+    clone.style.filter = 'none';
 }
 
-function dimAroundBeginnerTarget(r) {
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    const top = Math.max(0, r.top);
-    const left = Math.max(0, r.left);
-    const right = Math.min(w, r.right);
-    const bottom = Math.min(h, r.bottom);
-    setBeginnerShade('beginner-shade-t', 0, 0, w, top);
-    setBeginnerShade('beginner-shade-b', bottom, 0, w, h - bottom);
-    setBeginnerShade('beginner-shade-l', top, 0, left, Math.max(0, bottom - top));
-    setBeginnerShade('beginner-shade-r', top, right, w - right, Math.max(0, bottom - top));
+function placeBeginnerCard(target, card) {
+    const r = target.getBoundingClientRect();
+    const cardH = card.offsetHeight || 170;
+    const gap = 22;
+    const navH = beginnerNavReserve();
+    const spaceAbove = r.top - 12;
+    const spaceBelow = window.innerHeight - navH - r.bottom;
+    let top;
+    if (spaceAbove >= cardH + gap) {
+        top = r.top - cardH - gap;
+    } else if (spaceBelow >= cardH + gap) {
+        top = r.bottom + gap;
+    } else {
+        top = Math.max(8, r.top - cardH - gap);
+    }
+    if (top < r.bottom && (top + cardH) > r.top) {
+        top = (spaceBelow > spaceAbove) ? (r.bottom + gap) : (r.top - cardH - gap);
+    }
+    card.style.top = top + 'px';
+    card.style.bottom = 'auto';
 }
 
 function layoutBeginnerGuide(target, skipScroll) {
     const card = document.getElementById('beginner-guide-card');
     if (!card || !target) return;
     const cardH = card.offsetHeight || 170;
-    const gap = 14;
-    const place = function () {
-        const r = target.getBoundingClientRect();
-        dimAroundBeginnerTarget(r);
-        const navH = beginnerNavReserve();
-        const spaceAbove = r.top - 12;
-        const spaceBelow = window.innerHeight - navH - r.bottom;
-        let top;
-        if (spaceAbove >= cardH + gap) {
-            top = r.top - cardH - gap;
-        } else if (spaceBelow >= cardH + gap) {
-            top = r.bottom + gap;
-        } else {
-            top = Math.max(8, r.top - cardH - gap);
-        }
-        if (top < r.bottom && top + cardH > r.top) {
-            top = (spaceBelow > spaceAbove) ? r.bottom + gap : r.top - cardH - gap;
-        }
-        card.style.top = top + 'px';
-        card.style.bottom = 'auto';
-    };
-    if (!skipScroll) scrollTargetInContainer(target, cardH);
-    requestAnimationFrame(function () {
+    const run = function () {
         if (!skipScroll) scrollTargetInContainer(target, cardH);
-        requestAnimationFrame(place);
+        paintBeginnerClone(target);
+        placeBeginnerCard(target, card);
+    };
+    run();
+    requestAnimationFrame(function () {
+        run();
+        requestAnimationFrame(run);
     });
 }
 
