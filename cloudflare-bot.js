@@ -1,15 +1,19 @@
 /* Reed Education Telegram bot — Cloudflare Worker
-   Secrets: BOT_TOKEN, OPENAI_API_KEY, optional START_VIDEO_FILE_ID
+   Secrets: BOT_TOKEN, OPENAI_API_KEY
+   Optional: START_VIDEO_FILE_ID, START_VIDEO_URL
    Paste this file into the Worker and deploy.
 
-   /start sends a few short Burmese lines. If START_VIDEO_FILE_ID is set
-   and valid, those lines go as the video caption. If the video id is
-   wrong, it still sends the text (a file_id from another bot will fail).
+   /start caption is a few short Burmese lines.
+   Video is sent if any of these work, in order:
+     1) START_VIDEO_FILE_ID (must come from THIS bot)
+     2) START_VIDEO_URL (direct https mp4 link)
+     3) https://reededucation.net/start-welcome.mp4
+   If none work, text is still sent.
 
-   To attach the intro video: send the clip to THIS bot as a video.
-   The bot replies with the file_id. Save that as START_VIDEO_FILE_ID. */
+   Easiest: upload start-welcome.mp4 to the GitHub repo root
+   (GitHub → Add file → Upload). Pages will serve it at the URL above. */
 
-var ADMIN_TELEGRAM_ID = '8432363664';
+var DEFAULT_START_VIDEO_URL = 'https://reededucation.net/start-welcome.mp4';
 
 export default {
   async fetch(request, env) {
@@ -30,7 +34,7 @@ export default {
       try {
         if (commandName(msg.text) === '/start') {
           await sendStartWelcome(chatId, env);
-        } else if (videoFileIdFromMessage(msg) && isAdminMessage(msg)) {
+        } else if (videoFileIdFromMessage(msg) && isPrivateChat(msg)) {
           await sendTelegramMessage(
             chatId,
             'Save this as Worker secret START_VIDEO_FILE_ID:\n' + videoFileIdFromMessage(msg),
@@ -258,9 +262,8 @@ async function getAIReply(question, apiKey) {
   }
 }
 
-function isAdminMessage(msg) {
-  var id = msg && msg.from && msg.from.id;
-  return String(id) === ADMIN_TELEGRAM_ID;
+function isPrivateChat(msg) {
+  return !!(msg && msg.chat && msg.chat.type === 'private');
 }
 
 function videoFileIdFromMessage(msg) {
@@ -272,12 +275,32 @@ function videoFileIdFromMessage(msg) {
   return '';
 }
 
+async function startVideoTargets(env) {
+  var out = [];
+  var fileId = String((env && env.START_VIDEO_FILE_ID) || '').trim();
+  var url = String((env && env.START_VIDEO_URL) || '').trim();
+  if (fileId) out.push(fileId);
+  if (url) out.push(url);
+  if (url !== DEFAULT_START_VIDEO_URL && await urlIsReachable(DEFAULT_START_VIDEO_URL)) {
+    out.push(DEFAULT_START_VIDEO_URL);
+  }
+  return out;
+}
+
+async function urlIsReachable(url) {
+  try {
+    var res = await fetch(url, { method: 'HEAD' });
+    return !!(res && res.ok);
+  } catch (e) {
+    return false;
+  }
+}
+
 async function sendStartWelcome(chatId, env) {
   var caption = startReply();
-  var videoId = String((env && env.START_VIDEO_FILE_ID) || '').trim();
-  if (videoId) {
-    var sent = await sendTelegramVideo(chatId, videoId, caption, env.BOT_TOKEN);
-    if (sent) return;
+  var targets = await startVideoTargets(env);
+  for (var i = 0; i < targets.length; i++) {
+    if (await sendTelegramVideo(chatId, targets[i], caption, env.BOT_TOKEN)) return;
   }
   await sendTelegramMessage(chatId, caption, env.BOT_TOKEN);
 }
