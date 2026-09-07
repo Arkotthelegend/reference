@@ -2184,31 +2184,30 @@ body.showing-articles .container {
     position: fixed;
     inset: 0;
     z-index: 4000;
-    pointer-events: auto;
-}
-#beginner-guide::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(11, 15, 25, 0.62);
-}
-#home-trial-btn, #profile-buy-btn {
-    scroll-margin-bottom: 230px;
+    pointer-events: none;
 }
 #beginner-guide-spot {
     position: absolute;
-    border: 2px solid #00D5FF;
-    border-radius: 16px;
-    box-shadow: 0 0 0 9999px rgba(11, 15, 25, 0.78);
+    inset: 0;
     pointer-events: none;
+    border: none;
+    box-shadow: none;
+    background: none;
+}
+#beginner-guide-spot .beginner-shade {
+    position: absolute;
+    background: rgba(11, 15, 25, 0.5);
+    pointer-events: auto;
+}
+#home-trial-btn, #profile-buy-btn {
+    scroll-margin-bottom: 120px;
+    scroll-margin-top: 200px;
 }
 #beginner-guide-card {
     pointer-events: auto;
     position: absolute;
     left: 16px;
     right: 16px;
-    bottom: calc(88px + var(--tg-safe-bottom, 0px));
-    top: auto;
     max-width: 420px;
     margin: 0 auto;
     background: #162235;
@@ -2217,6 +2216,7 @@ body.showing-articles .container {
     padding: 16px 16px 14px;
     color: #fff;
     box-sizing: border-box;
+    z-index: 1;
 }
 #beginner-guide-text {
     margin: 0 0 14px;
@@ -3258,7 +3258,12 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
 <div id="beginner-guide" hidden>
-    <div id="beginner-guide-spot"></div>
+    <div id="beginner-guide-spot">
+        <div class="beginner-shade" id="beginner-shade-t"></div>
+        <div class="beginner-shade" id="beginner-shade-l"></div>
+        <div class="beginner-shade" id="beginner-shade-r"></div>
+        <div class="beginner-shade" id="beginner-shade-b"></div>
+    </div>
     <div id="beginner-guide-card">
         <p id="beginner-guide-text"></p>
         <div class="beginner-guide-actions">
@@ -3926,7 +3931,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=107'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=109'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -7862,29 +7867,75 @@ function showBeginnerGuideStep(step) {
     }, 80);
 }
 
-function scrollTargetInContainer(el) {
-    try { el.scrollIntoView({ block: 'center', inline: 'nearest' }); } catch (e) {}
-    const scroller = document.querySelector('.container');
-    if (!scroller) return;
-    const s = scroller.getBoundingClientRect();
-    const t = el.getBoundingClientRect();
-    const viewH = Math.min(s.height, window.innerHeight - s.top - 90);
-    const mid = s.top + viewH * 0.38;
-    scroller.scrollTop += (t.top + t.height / 2) - mid;
+function beginnerNavReserve() {
+    const nav = document.querySelector('.nav');
+    if (!nav) return 88;
+    const r = nav.getBoundingClientRect();
+    return Math.max(88, window.innerHeight - r.top + 8);
 }
 
-function layoutBeginnerGuide(target) {
-    const spot = document.getElementById('beginner-guide-spot');
-    if (!spot || !target) return;
-    scrollTargetInContainer(target);
-    requestAnimationFrame(function () {
-        scrollTargetInContainer(target);
+function scrollTargetInContainer(el, cardH) {
+    const scroller = document.querySelector('.container');
+    const desiredTop = Math.max(16, (cardH || 170) + 28);
+    const r = el.getBoundingClientRect();
+    if (scroller) {
+        scroller.scrollTop += r.top - desiredTop;
+        return;
+    }
+    try { el.scrollIntoView({ block: 'center', inline: 'nearest' }); } catch (e) {}
+}
+
+function setBeginnerShade(id, top, left, width, height) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.top = Math.max(0, top) + 'px';
+    el.style.left = Math.max(0, left) + 'px';
+    el.style.width = Math.max(0, width) + 'px';
+    el.style.height = Math.max(0, height) + 'px';
+}
+
+function dimAroundBeginnerTarget(r) {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const top = Math.max(0, r.top);
+    const left = Math.max(0, r.left);
+    const right = Math.min(w, r.right);
+    const bottom = Math.min(h, r.bottom);
+    setBeginnerShade('beginner-shade-t', 0, 0, w, top);
+    setBeginnerShade('beginner-shade-b', bottom, 0, w, h - bottom);
+    setBeginnerShade('beginner-shade-l', top, 0, left, Math.max(0, bottom - top));
+    setBeginnerShade('beginner-shade-r', top, right, w - right, Math.max(0, bottom - top));
+}
+
+function layoutBeginnerGuide(target, skipScroll) {
+    const card = document.getElementById('beginner-guide-card');
+    if (!card || !target) return;
+    const cardH = card.offsetHeight || 170;
+    const gap = 14;
+    const place = function () {
         const r = target.getBoundingClientRect();
-        const pad = 8;
-        spot.style.top = (r.top - pad) + 'px';
-        spot.style.left = Math.max(8, r.left - pad) + 'px';
-        spot.style.width = Math.min(window.innerWidth - 16, r.width + pad * 2) + 'px';
-        spot.style.height = (r.height + pad * 2) + 'px';
+        dimAroundBeginnerTarget(r);
+        const navH = beginnerNavReserve();
+        const spaceAbove = r.top - 12;
+        const spaceBelow = window.innerHeight - navH - r.bottom;
+        let top;
+        if (spaceAbove >= cardH + gap) {
+            top = r.top - cardH - gap;
+        } else if (spaceBelow >= cardH + gap) {
+            top = r.bottom + gap;
+        } else {
+            top = Math.max(8, r.top - cardH - gap);
+        }
+        if (top < r.bottom && top + cardH > r.top) {
+            top = (spaceBelow > spaceAbove) ? r.bottom + gap : r.top - cardH - gap;
+        }
+        card.style.top = top + 'px';
+        card.style.bottom = 'auto';
+    };
+    if (!skipScroll) scrollTargetInContainer(target, cardH);
+    requestAnimationFrame(function () {
+        if (!skipScroll) scrollTargetInContainer(target, cardH);
+        requestAnimationFrame(place);
     });
 }
 
