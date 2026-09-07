@@ -2189,21 +2189,13 @@ body.showing-articles .container {
 #beginner-guide-dim {
     position: absolute;
     inset: 0;
-    background: rgba(11, 15, 25, 0.46);
+    width: 100%;
+    height: 100%;
+    display: block;
     pointer-events: auto;
 }
-#beginner-guide-clone {
-    position: absolute;
-    z-index: 2;
-    pointer-events: none;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
+#beginner-guide-dim path {
+    pointer-events: fill;
 }
 #home-trial-btn, #profile-buy-btn {
     scroll-margin-bottom: 120px;
@@ -3264,8 +3256,9 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
 <div id="beginner-guide" hidden>
-    <div id="beginner-guide-dim"></div>
-    <div id="beginner-guide-clone" aria-hidden="true"></div>
+    <svg id="beginner-guide-dim" xmlns="http://www.w3.org/2000/svg">
+        <path id="beginner-guide-dim-path" fill="rgba(11,15,25,0.46)" fill-rule="evenodd"></path>
+    </svg>
     <div id="beginner-guide-card">
         <p id="beginner-guide-text"></p>
         <div class="beginner-guide-actions">
@@ -3933,7 +3926,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=110'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=111'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -7878,7 +7871,7 @@ function beginnerNavReserve() {
 
 function scrollTargetInContainer(el, cardH) {
     const scroller = document.querySelector('.container');
-    const desiredTop = Math.max(24, (cardH || 170) + 40);
+    const desiredTop = Math.max(24, (cardH || 170) + 44);
     const r = el.getBoundingClientRect();
     if (scroller) {
         scroller.scrollTop += r.top - desiredTop;
@@ -7887,33 +7880,43 @@ function scrollTargetInContainer(el, cardH) {
     try { el.scrollIntoView({ block: 'center', inline: 'nearest' }); } catch (e) {}
 }
 
-function paintBeginnerClone(target) {
-    const clone = document.getElementById('beginner-guide-clone');
-    if (!clone || !target) return;
+function beginnerDimPath(r, w, h) {
+    const rad = Math.min(14, r.height / 2, r.width / 2);
+    const l = r.left;
+    const t = r.top;
+    const right = r.right;
+    const b = r.bottom;
+    return 'M0,0H' + w + 'V' + h + 'H0Z' +
+        'M' + (l + rad) + ',' + t +
+        'H' + (right - rad) +
+        'A' + rad + ',' + rad + ' 0 0 1 ' + right + ',' + (t + rad) +
+        'V' + (b - rad) +
+        'A' + rad + ',' + rad + ' 0 0 1 ' + (right - rad) + ',' + b +
+        'H' + (l + rad) +
+        'A' + rad + ',' + rad + ' 0 0 1 ' + l + ',' + (b - rad) +
+        'V' + (t + rad) +
+        'A' + rad + ',' + rad + ' 0 0 1 ' + (l + rad) + ',' + t +
+        'Z';
+}
+
+function punchBeginnerHole(target) {
+    const svg = document.getElementById('beginner-guide-dim');
+    const path = document.getElementById('beginner-guide-dim-path');
+    if (!svg || !path || !target) return;
     const r = target.getBoundingClientRect();
-    const cs = getComputedStyle(target);
-    clone.innerHTML = target.innerHTML;
-    clone.style.top = r.top + 'px';
-    clone.style.left = r.left + 'px';
-    clone.style.width = r.width + 'px';
-    clone.style.height = r.height + 'px';
-    clone.style.background = cs.backgroundColor;
-    clone.style.border = cs.border;
-    clone.style.borderRadius = cs.borderRadius;
-    clone.style.color = cs.color;
-    clone.style.font = cs.font;
-    clone.style.fontWeight = cs.fontWeight;
-    clone.style.gap = cs.gap;
-    clone.style.flexDirection = cs.flexDirection;
-    clone.style.lineHeight = cs.lineHeight;
-    clone.style.opacity = '1';
-    clone.style.filter = 'none';
+    if (r.width < 8 || r.height < 8) return;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+    svg.setAttribute('width', String(w));
+    svg.setAttribute('height', String(h));
+    path.setAttribute('d', beginnerDimPath(r, w, h));
 }
 
 function placeBeginnerCard(target, card) {
     const r = target.getBoundingClientRect();
     const cardH = card.offsetHeight || 170;
-    const gap = 22;
+    const gap = 24;
     const navH = beginnerNavReserve();
     const spaceAbove = r.top - 12;
     const spaceBelow = window.innerHeight - navH - r.bottom;
@@ -7938,7 +7941,7 @@ function layoutBeginnerGuide(target, skipScroll) {
     const cardH = card.offsetHeight || 170;
     const run = function () {
         if (!skipScroll) scrollTargetInContainer(target, cardH);
-        paintBeginnerClone(target);
+        punchBeginnerHole(target);
         placeBeginnerCard(target, card);
     };
     run();
