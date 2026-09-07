@@ -3921,7 +3921,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=112'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=113'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -7841,20 +7841,16 @@ function showBeginnerGuideStep(step) {
         if (homeNav) changeTab('home', homeNav);
         textEl.textContent = 'ဘာသာရပ်တိုင်းရဲ့ Chapter 1 တွေအကုန်ကိုအစမ်းလေ့ကျင့်လို့ရပါတယ်ခင်ဗျ';
         if (next) next.textContent = 'ရှေ့သို့';
-        setTimeout(function () {
-            layoutBeginnerGuide(document.getElementById('home-trial-btn'));
-        }, 50);
+        setTimeout(function () { layoutBeginnerGuide(beginnerGuideTarget(1)); }, 50);
         return;
     }
     const meNav = document.querySelector('.nav-item[data-tab="profile"]');
     if (meNav) changeTab('profile', meNav);
     textEl.textContent = 'Full Subscription ဝယ်ချင်ရင်တော့ဒီအကောင့်မှာလာဝယ်လို့ရပါတယ်';
     if (next) next.textContent = 'ပြီးပါပြီ';
-    setTimeout(function () {
-        const buy = document.getElementById('profile-buy-btn');
-        const target = (buy && buy.offsetParent !== null && buy.style.display !== 'none') ? buy : meNav;
-        layoutBeginnerGuide(target);
-    }, 80);
+    const placeBuy = function () { layoutBeginnerGuide(beginnerGuideTarget(2)); };
+    setTimeout(placeBuy, 80);
+    setTimeout(placeBuy, 200);
 }
 
 function beginnerNavReserve() {
@@ -7885,18 +7881,30 @@ function setBeginnerShade(id, top, left, width, height) {
 }
 
 function punchBeginnerHole(target) {
+    const overlay = document.getElementById('beginner-guide');
+    if (!overlay || !target) return;
     const r = target.getBoundingClientRect();
     if (r.width < 8 || r.height < 8) return;
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    const top = Math.max(0, r.top);
-    const left = Math.max(0, r.left);
-    const right = Math.min(w, r.right);
-    const bottom = Math.min(h, r.bottom);
+    const ov = overlay.getBoundingClientRect();
+    const top = r.top - ov.top;
+    const left = r.left - ov.left;
+    const w = ov.width;
+    const h = ov.height;
     setBeginnerShade('beginner-shade-t', 0, 0, w, top);
-    setBeginnerShade('beginner-shade-b', bottom, 0, w, h - bottom);
-    setBeginnerShade('beginner-shade-l', top, 0, left, bottom - top);
-    setBeginnerShade('beginner-shade-r', top, right, w - right, bottom - top);
+    setBeginnerShade('beginner-shade-b', top + r.height, 0, w, h - top - r.height);
+    setBeginnerShade('beginner-shade-l', top, 0, left, r.height);
+    setBeginnerShade('beginner-shade-r', top, left + r.width, w - left - r.width, r.height);
+}
+
+function beginnerGuideTarget(step) {
+    if (step === 1) return document.getElementById('home-trial-btn');
+    const buy = document.getElementById('profile-buy-btn');
+    const meNav = document.querySelector('.nav-item[data-tab="profile"]');
+    if (buy) {
+        const st = getComputedStyle(buy);
+        if (st.display !== 'none' && st.visibility !== 'hidden' && buy.getBoundingClientRect().height > 8) return buy;
+    }
+    return meNav;
 }
 
 function placeBeginnerCard(target, card) {
