@@ -2186,6 +2186,15 @@ body.showing-articles .container {
     z-index: 4000;
     pointer-events: auto;
 }
+#beginner-guide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(11, 15, 25, 0.62);
+}
+#home-trial-btn, #profile-buy-btn {
+    scroll-margin-bottom: 230px;
+}
 #beginner-guide-spot {
     position: absolute;
     border: 2px solid #00D5FF;
@@ -7854,15 +7863,13 @@ function showBeginnerGuideStep(step) {
 }
 
 function scrollTargetInContainer(el) {
+    try { el.scrollIntoView({ block: 'center', inline: 'nearest' }); } catch (e) {}
     const scroller = document.querySelector('.container');
-    if (!scroller) {
-        try { el.scrollIntoView({ block: 'center', behavior: 'instant' }); } catch (e) {}
-        return;
-    }
+    if (!scroller) return;
     const s = scroller.getBoundingClientRect();
     const t = el.getBoundingClientRect();
-    const viewH = Math.min(s.height, window.innerHeight - s.top - 80);
-    const mid = s.top + viewH * 0.4;
+    const viewH = Math.min(s.height, window.innerHeight - s.top - 90);
+    const mid = s.top + viewH * 0.38;
     scroller.scrollTop += (t.top + t.height / 2) - mid;
 }
 
