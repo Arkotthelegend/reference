@@ -1,6 +1,11 @@
 /* Reed Education Telegram bot — Cloudflare Worker
-   Secrets: BOT_TOKEN, OPENAI_API_KEY
-   Paste this file into the Worker and deploy. */
+   Secrets: BOT_TOKEN, OPENAI_API_KEY, optional START_VIDEO_FILE_ID
+   Paste this file into the Worker and deploy.
+
+   /start sends a few short Burmese lines as a video caption.
+   Until START_VIDEO_FILE_ID is set, it sends the text alone.
+   To attach the intro video: send it to this bot once, copy the
+   Telegram file_id from getUpdates, then save it as that secret. */
 
 export default {
   async fetch(request, env) {
@@ -16,9 +21,11 @@ export default {
     }
 
     const msg = update && update.message;
-    if (msg && typeof msg.text === 'string' && msg.text.trim()) {
-      const chatId = msg.chat && msg.chat.id;
-      if (chatId) {
+    const chatId = msg && msg.chat && msg.chat.id;
+    if (chatId && msg && typeof msg.text === 'string' && msg.text.trim()) {
+      if (commandName(msg.text) === '/start') {
+        await sendStartWelcome(chatId, env);
+      } else {
         const reply = await getAIReply(msg.text, env.OPENAI_API_KEY);
         await sendTelegramMessage(chatId, reply, env.BOT_TOKEN);
       }
@@ -63,19 +70,10 @@ function aboutReedReply() {
 
 function startReply() {
   return [
-    'Welcome to Reed Education.',
-    '',
-    'You are chatting with @reededucation_bot. This is the place to open the Mini App.',
-    '',
-    'To practice:',
-    '• Tap Start Practice in the menu of this chat',
-    '• Or pin this chat. Then Open App appears on this chat in your list',
-    '',
-    '@REED_education is the channel for news and community only. No quizzes there.',
-    '',
-    'You get 3 free Daily Quiz questions per subject, plus a Chapter 1 trial.',
-    '',
-    'Ask me about grades, timetable, Rank, STEAM 1 or 2, pricing, or how to open the app.'
+    'ရီးဒ်ပညာရေးမှ ကြိုဆိုပါတယ်။',
+    'ကျွန်တော်တို့က ၁၀ တန်း၊ ၁၁ တန်း၊ ၁၂ တန်းအတွက် လေ့ကျင့်ရေး Mini App ပါ။',
+    'Telegram ထဲမှာပဲ ဘာသာရပ်တွေ လေ့ကျင့်လို့ရပါတယ်။',
+    'အက်ပ်ဖွင့်ရန် Start Practice ကို နှိပ်လိုက်ပါ။'
   ].join('\n');
 }
 
@@ -248,6 +246,16 @@ async function getAIReply(question, apiKey) {
   }
 }
 
+async function sendStartWelcome(chatId, env) {
+  var caption = startReply();
+  var videoId = env && env.START_VIDEO_FILE_ID;
+  if (videoId) {
+    await sendTelegramVideo(chatId, videoId, caption, env.BOT_TOKEN);
+    return;
+  }
+  await sendTelegramMessage(chatId, caption, env.BOT_TOKEN);
+}
+
 async function sendTelegramMessage(chatId, text, botToken) {
   var clean = stripFancyText(text);
   if (!clean) return;
@@ -257,6 +265,19 @@ async function sendTelegramMessage(chatId, text, botToken) {
     body: JSON.stringify({
       chat_id: chatId,
       text: clean
+    })
+  });
+}
+
+async function sendTelegramVideo(chatId, video, caption, botToken) {
+  var clean = stripFancyText(caption);
+  await fetch('https://api.telegram.org/bot' + botToken + '/sendVideo', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: chatId,
+      video: video,
+      caption: clean
     })
   });
 }
