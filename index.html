@@ -2198,6 +2198,8 @@ body.showing-articles .container {
     position: absolute;
     left: 16px;
     right: 16px;
+    bottom: calc(88px + var(--tg-safe-bottom, 0px));
+    top: auto;
     max-width: 420px;
     margin: 0 auto;
     background: #162235;
@@ -7819,7 +7821,7 @@ function maybeBeginnerGuide() {
         if (beginnerGuideStep === 1) showBeginnerGuideStep(2);
         else endBeginnerGuide();
     };
-    setTimeout(function () { showBeginnerGuideStep(1); }, 400);
+    setTimeout(function () { showBeginnerGuideStep(1); }, 80);
 }
 
 function showBeginnerGuideStep(step) {
@@ -7866,21 +7868,16 @@ function scrollTargetInContainer(el) {
 
 function layoutBeginnerGuide(target) {
     const spot = document.getElementById('beginner-guide-spot');
-    const card = document.getElementById('beginner-guide-card');
-    if (!spot || !card || !target) return;
+    if (!spot || !target) return;
     scrollTargetInContainer(target);
     requestAnimationFrame(function () {
+        scrollTargetInContainer(target);
         const r = target.getBoundingClientRect();
         const pad = 8;
         spot.style.top = (r.top - pad) + 'px';
         spot.style.left = Math.max(8, r.left - pad) + 'px';
         spot.style.width = Math.min(window.innerWidth - 16, r.width + pad * 2) + 'px';
         spot.style.height = (r.height + pad * 2) + 'px';
-        const cardH = card.offsetHeight || 150;
-        const above = r.top > cardH + 24;
-        let cardTop = above ? r.top - cardH - 16 : r.bottom + 16;
-        cardTop = Math.max(10, Math.min(window.innerHeight - cardH - 12, cardTop));
-        card.style.top = cardTop + 'px';
     });
 }
 
