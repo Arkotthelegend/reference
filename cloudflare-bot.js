@@ -13,7 +13,7 @@
    Easiest: upload start-welcome.mp4 to the GitHub repo root
    (GitHub → Add file → Upload). Pages will serve it at the URL above. */
 
-var DEFAULT_START_VIDEO_URL = 'https://reededucation.net/start-welcome.mp4';
+var DEFAULT_START_VIDEO_URL = 'https://reededucation.net/start-welcome.mp4?v=2';
 
 export default {
   async fetch(request, env) {
@@ -333,6 +333,7 @@ async function sendTelegramVideo(chatId, video, caption, botToken) {
   return telegramApi(botToken, 'sendVideo', {
     chat_id: chatId,
     video: video,
-    caption: clean
+    caption: clean,
+    supports_streaming: true
   });
 }
