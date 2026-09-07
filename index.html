@@ -2179,6 +2179,61 @@ body.showing-articles .container {
     color: #22C55E !important;
     box-shadow: none !important;
 }
+#beginner-guide[hidden] { display: none !important; }
+#beginner-guide {
+    position: fixed;
+    inset: 0;
+    z-index: 4000;
+    pointer-events: auto;
+}
+#beginner-guide-spot {
+    position: absolute;
+    border: 2px solid #00D5FF;
+    border-radius: 16px;
+    box-shadow: 0 0 0 9999px rgba(11, 15, 25, 0.78);
+    pointer-events: none;
+}
+#beginner-guide-card {
+    pointer-events: auto;
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    max-width: 420px;
+    margin: 0 auto;
+    background: #162235;
+    border: 1px solid #00D5FF;
+    border-radius: 16px;
+    padding: 16px 16px 14px;
+    color: #fff;
+    box-sizing: border-box;
+}
+#beginner-guide-text {
+    margin: 0 0 14px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.55;
+    color: #E2E8F0;
+}
+.beginner-guide-actions {
+    display: flex;
+    gap: 8px;
+}
+.beginner-guide-actions .btn {
+    flex: 1;
+    margin: 0 !important;
+    font-size: 0.88rem !important;
+    padding: 11px 10px !important;
+}
+#beginner-guide-skip {
+    background: #1E293B !important;
+    border: 1px solid #334155 !important;
+    color: #94A3B8 !important;
+}
+#beginner-guide-next {
+    background: #00D5FF !important;
+    color: #0B0F19 !important;
+    font-weight: 800 !important;
+}
 .news-outline-btn {
     background: #1E293B !important;
     border: 1px solid #22C55E !important;
@@ -2667,7 +2722,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
     <!-- Free Trial Button (visible on both tabs now) -->
     <div style="padding: 20px; margin-top: 10px;">
-        <button class="btn trial-outline-btn" onclick="openTrialMenu()">
+        <button id="home-trial-btn" class="btn trial-outline-btn" onclick="openTrialMenu()">
             🎁 ဘာသာရပ်များကို အစမ်းသုံးရန်
         </button>
 		    
@@ -2813,7 +2868,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <div class="profile-info-card">
                     <b id="bought-subjects-heading" style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
-                    <button class="btn buy-btn" onclick="copyTelegram()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
+                    <button id="profile-buy-btn" class="btn buy-btn" onclick="copyTelegram()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
 					<div id="quiz-mode-box" style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent);">
     <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
         <span style="font-size: 1.2rem;">⚙️</span>
@@ -3189,6 +3244,17 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <div class="nav-item" data-tab="profile" onclick="changeTab('profile', this)"><span class="nav-ico">👤</span><span class="nav-lbl">Me</span></div>
     <div class="nav-item" id="nav-post" data-tab="post" hidden onclick="changeTab('post', this)"><span class="nav-ico">📸</span><span class="nav-lbl">Post</span></div>
     <div class="nav-item" id="nav-cust" data-tab="cust" hidden onclick="changeTab('cust', this)"><span class="nav-ico">📊</span><span class="nav-lbl">Cust</span></div>
+</div>
+
+<div id="beginner-guide" hidden>
+    <div id="beginner-guide-spot"></div>
+    <div id="beginner-guide-card">
+        <p id="beginner-guide-text"></p>
+        <div class="beginner-guide-actions">
+            <button type="button" class="btn" id="beginner-guide-skip">ကျော်မည်</button>
+            <button type="button" class="btn" id="beginner-guide-next">ရှေ့သို့</button>
+        </div>
+    </div>
 </div>
 
     <script src="./grades.js?v=9"></script>
@@ -3849,7 +3915,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=105'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=106'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -7733,6 +7799,85 @@ function ensureNoGlowCSS() {
     document.head.appendChild(s);
 }
 
+const BEGINNER_GUIDE_KEY = 'reed_beginner_guide_v1';
+let beginnerGuideStep = 0;
+
+function shouldShowBeginnerGuide() {
+    if (!document.getElementById('home-trial-btn') || !document.getElementById('beginner-guide')) return false;
+    try {
+        if (new URLSearchParams(location.search).get('guide') === '1') return true;
+    } catch (e) {}
+    return localStorage.getItem(BEGINNER_GUIDE_KEY) !== 'done';
+}
+
+function maybeBeginnerGuide() {
+    if (!shouldShowBeginnerGuide()) return;
+    const skip = document.getElementById('beginner-guide-skip');
+    const next = document.getElementById('beginner-guide-next');
+    if (skip) skip.onclick = function () { endBeginnerGuide(); };
+    if (next) next.onclick = function () {
+        if (beginnerGuideStep === 1) showBeginnerGuideStep(2);
+        else endBeginnerGuide();
+    };
+    setTimeout(function () { showBeginnerGuideStep(1); }, 400);
+}
+
+function showBeginnerGuideStep(step) {
+    beginnerGuideStep = step;
+    const overlay = document.getElementById('beginner-guide');
+    const textEl = document.getElementById('beginner-guide-text');
+    const next = document.getElementById('beginner-guide-next');
+    if (!overlay || !textEl) return;
+    overlay.hidden = false;
+    if (step === 1) {
+        const homeNav = document.querySelector('.nav-item[data-tab="home"]');
+        if (homeNav) changeTab('home', homeNav);
+        textEl.textContent = 'ဘာသာရပ်တိုင်းရဲ့ Chapter 1 တွေအကုန်ကိုအစမ်းလေ့ကျင့်လို့ရပါတယ်ခင်ဗျ';
+        if (next) next.textContent = 'ရှေ့သို့';
+        requestAnimationFrame(function () {
+            layoutBeginnerGuide(document.getElementById('home-trial-btn'));
+        });
+        return;
+    }
+    const meNav = document.querySelector('.nav-item[data-tab="profile"]');
+    if (meNav) changeTab('profile', meNav);
+    textEl.textContent = 'Full Subscription ဝယ်ချင်ရင်တော့ဒီအကောင့်မှာလာဝယ်လို့ရပါတယ်';
+    if (next) next.textContent = 'ပြီးပါပြီ';
+    setTimeout(function () {
+        const buy = document.getElementById('profile-buy-btn');
+        const target = (buy && buy.style.display !== 'none') ? buy : meNav;
+        layoutBeginnerGuide(target);
+    }, 80);
+}
+
+function layoutBeginnerGuide(target) {
+    const spot = document.getElementById('beginner-guide-spot');
+    const card = document.getElementById('beginner-guide-card');
+    if (!spot || !card || !target) return;
+    try { target.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) {}
+    setTimeout(function () {
+        const r = target.getBoundingClientRect();
+        const pad = 8;
+        spot.style.top = Math.max(8, r.top - pad) + 'px';
+        spot.style.left = Math.max(8, r.left - pad) + 'px';
+        spot.style.width = Math.min(window.innerWidth - 16, r.width + pad * 2) + 'px';
+        spot.style.height = (r.height + pad * 2) + 'px';
+        const cardH = card.offsetHeight || 140;
+        const spaceAbove = r.top - 16;
+        const placeAbove = spaceAbove > cardH + 12;
+        card.style.top = placeAbove
+            ? Math.max(12, r.top - cardH - 16) + 'px'
+            : Math.min(window.innerHeight - cardH - 16, r.bottom + 16) + 'px';
+    }, 120);
+}
+
+function endBeginnerGuide() {
+    const overlay = document.getElementById('beginner-guide');
+    if (overlay) overlay.hidden = true;
+    try { localStorage.setItem(BEGINNER_GUIDE_KEY, 'done'); } catch (e) {}
+    beginnerGuideStep = 0;
+}
+
 window.onload = () => {
     ensureNoGlowCSS();
     applyGradeUI();
@@ -7757,6 +7902,7 @@ window.onload = () => {
     if (randomSwitch) {
         randomSwitch.checked = savedRandomSetting;
     }
+    maybeBeginnerGuide();
 };
        
 		// နေ့စဉ် Quote ပြောင်းလဲရန် Logic
