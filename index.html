@@ -3915,7 +3915,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=106'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=107'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -7828,15 +7828,16 @@ function showBeginnerGuideStep(step) {
     const textEl = document.getElementById('beginner-guide-text');
     const next = document.getElementById('beginner-guide-next');
     if (!overlay || !textEl) return;
+    if (overlay.parentElement !== document.body) document.body.appendChild(overlay);
     overlay.hidden = false;
     if (step === 1) {
         const homeNav = document.querySelector('.nav-item[data-tab="home"]');
         if (homeNav) changeTab('home', homeNav);
         textEl.textContent = 'ဘာသာရပ်တိုင်းရဲ့ Chapter 1 တွေအကုန်ကိုအစမ်းလေ့ကျင့်လို့ရပါတယ်ခင်ဗျ';
         if (next) next.textContent = 'ရှေ့သို့';
-        requestAnimationFrame(function () {
+        setTimeout(function () {
             layoutBeginnerGuide(document.getElementById('home-trial-btn'));
-        });
+        }, 50);
         return;
     }
     const meNav = document.querySelector('.nav-item[data-tab="profile"]');
@@ -7845,30 +7846,42 @@ function showBeginnerGuideStep(step) {
     if (next) next.textContent = 'ပြီးပါပြီ';
     setTimeout(function () {
         const buy = document.getElementById('profile-buy-btn');
-        const target = (buy && buy.style.display !== 'none') ? buy : meNav;
+        const target = (buy && buy.offsetParent !== null && buy.style.display !== 'none') ? buy : meNav;
         layoutBeginnerGuide(target);
     }, 80);
+}
+
+function scrollTargetInContainer(el) {
+    const scroller = document.querySelector('.container');
+    if (!scroller) {
+        try { el.scrollIntoView({ block: 'center', behavior: 'instant' }); } catch (e) {}
+        return;
+    }
+    const s = scroller.getBoundingClientRect();
+    const t = el.getBoundingClientRect();
+    const viewH = Math.min(s.height, window.innerHeight - s.top - 80);
+    const mid = s.top + viewH * 0.4;
+    scroller.scrollTop += (t.top + t.height / 2) - mid;
 }
 
 function layoutBeginnerGuide(target) {
     const spot = document.getElementById('beginner-guide-spot');
     const card = document.getElementById('beginner-guide-card');
     if (!spot || !card || !target) return;
-    try { target.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) {}
-    setTimeout(function () {
+    scrollTargetInContainer(target);
+    requestAnimationFrame(function () {
         const r = target.getBoundingClientRect();
         const pad = 8;
-        spot.style.top = Math.max(8, r.top - pad) + 'px';
+        spot.style.top = (r.top - pad) + 'px';
         spot.style.left = Math.max(8, r.left - pad) + 'px';
         spot.style.width = Math.min(window.innerWidth - 16, r.width + pad * 2) + 'px';
         spot.style.height = (r.height + pad * 2) + 'px';
-        const cardH = card.offsetHeight || 140;
-        const spaceAbove = r.top - 16;
-        const placeAbove = spaceAbove > cardH + 12;
-        card.style.top = placeAbove
-            ? Math.max(12, r.top - cardH - 16) + 'px'
-            : Math.min(window.innerHeight - cardH - 16, r.bottom + 16) + 'px';
-    }, 120);
+        const cardH = card.offsetHeight || 150;
+        const above = r.top > cardH + 24;
+        let cardTop = above ? r.top - cardH - 16 : r.bottom + 16;
+        cardTop = Math.max(10, Math.min(window.innerHeight - cardH - 12, cardTop));
+        card.style.top = cardTop + 'px';
+    });
 }
 
 function endBeginnerGuide() {
