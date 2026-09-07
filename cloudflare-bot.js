@@ -2,10 +2,14 @@
    Secrets: BOT_TOKEN, OPENAI_API_KEY, optional START_VIDEO_FILE_ID
    Paste this file into the Worker and deploy.
 
-   /start sends a few short Burmese lines as a video caption.
-   Until START_VIDEO_FILE_ID is set, it sends the text alone.
-   To attach the intro video: send it to this bot once, copy the
-   Telegram file_id from getUpdates, then save it as that secret. */
+   /start sends a few short Burmese lines. If START_VIDEO_FILE_ID is set
+   and valid, those lines go as the video caption. If the video id is
+   wrong, it still sends the text (a file_id from another bot will fail).
+
+   To attach the intro video: send the clip to THIS bot as a video.
+   The bot replies with the file_id. Save that as START_VIDEO_FILE_ID. */
+
+var ADMIN_TELEGRAM_ID = '8432363664';
 
 export default {
   async fetch(request, env) {
@@ -22,13 +26,21 @@ export default {
 
     const msg = update && update.message;
     const chatId = msg && msg.chat && msg.chat.id;
-    if (chatId && msg && typeof msg.text === 'string' && msg.text.trim()) {
-      if (commandName(msg.text) === '/start') {
-        await sendStartWelcome(chatId, env);
-      } else {
-        const reply = await getAIReply(msg.text, env.OPENAI_API_KEY);
-        await sendTelegramMessage(chatId, reply, env.BOT_TOKEN);
-      }
+    if (chatId && msg) {
+      try {
+        if (commandName(msg.text) === '/start') {
+          await sendStartWelcome(chatId, env);
+        } else if (videoFileIdFromMessage(msg) && isAdminMessage(msg)) {
+          await sendTelegramMessage(
+            chatId,
+            'Save this as Worker secret START_VIDEO_FILE_ID:\n' + videoFileIdFromMessage(msg),
+            env.BOT_TOKEN
+          );
+        } else if (typeof msg.text === 'string' && msg.text.trim()) {
+          const reply = await getAIReply(msg.text, env.OPENAI_API_KEY);
+          await sendTelegramMessage(chatId, reply, env.BOT_TOKEN);
+        }
+      } catch (e) {}
     }
 
     return new Response('OK', { status: 200 });
@@ -246,38 +258,58 @@ async function getAIReply(question, apiKey) {
   }
 }
 
+function isAdminMessage(msg) {
+  var id = msg && msg.from && msg.from.id;
+  return String(id) === ADMIN_TELEGRAM_ID;
+}
+
+function videoFileIdFromMessage(msg) {
+  if (!msg) return '';
+  if (msg.video && msg.video.file_id) return msg.video.file_id;
+  if (msg.document && msg.document.file_id && String(msg.document.mime_type || '').indexOf('video/') === 0) {
+    return msg.document.file_id;
+  }
+  return '';
+}
+
 async function sendStartWelcome(chatId, env) {
   var caption = startReply();
-  var videoId = env && env.START_VIDEO_FILE_ID;
+  var videoId = String((env && env.START_VIDEO_FILE_ID) || '').trim();
   if (videoId) {
-    await sendTelegramVideo(chatId, videoId, caption, env.BOT_TOKEN);
-    return;
+    var sent = await sendTelegramVideo(chatId, videoId, caption, env.BOT_TOKEN);
+    if (sent) return;
   }
   await sendTelegramMessage(chatId, caption, env.BOT_TOKEN);
 }
 
-async function sendTelegramMessage(chatId, text, botToken) {
-  var clean = stripFancyText(text);
-  if (!clean) return;
-  await fetch('https://api.telegram.org/bot' + botToken + '/sendMessage', {
+async function telegramApi(botToken, method, payload) {
+  var res = await fetch('https://api.telegram.org/bot' + botToken + '/' + method, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: clean
-    })
+    body: JSON.stringify(payload)
+  });
+  try {
+    var data = await res.json();
+    return !!(data && data.ok);
+  } catch (e) {
+    return false;
+  }
+}
+
+async function sendTelegramMessage(chatId, text, botToken) {
+  var clean = stripFancyText(text);
+  if (!clean) return false;
+  return telegramApi(botToken, 'sendMessage', {
+    chat_id: chatId,
+    text: clean
   });
 }
 
 async function sendTelegramVideo(chatId, video, caption, botToken) {
   var clean = stripFancyText(caption);
-  await fetch('https://api.telegram.org/bot' + botToken + '/sendVideo', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      video: video,
-      caption: clean
-    })
+  return telegramApi(botToken, 'sendVideo', {
+    chat_id: chatId,
+    video: video,
+    caption: clean
   });
 }
