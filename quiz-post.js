@@ -497,17 +497,32 @@
         return lines;
     }
 
+    function glyphSpan(ctx, text, size, mm) {
+        var m = ctx.measureText(String(text || 'က'));
+        var a = m.actualBoundingBoxAscent;
+        var d = m.actualBoundingBoxDescent;
+        if (!(a > 0) || !(d >= 0) || isNaN(a) || isNaN(d)) {
+            a = size * (mm ? 1.2 : 0.82);
+            d = size * (mm ? 0.9 : 0.3);
+        }
+        return { a: a, d: d, h: a + d };
+    }
+
     function fitBlock(ctx, text, maxW, maxH, weight, minPx, maxPx) {
         var mm = hasMyanmar(text);
         var size = maxPx;
         var lines = [];
         var lineH = size;
-        var ratio = mm ? 2.45 : 1.4;
-        var safeW = Math.max(40, maxW - (mm ? 16 : 4));
+        var safeW = Math.max(40, maxW - (mm ? 20 : 6));
+        ctx.textBaseline = 'alphabetic';
         for (; size >= minPx; size--) {
             setPostFont(ctx, weight, size);
-            lineH = Math.round(size * ratio) + (mm ? 10 : 2);
             lines = wrapWidth(ctx, text, safeW);
+            var spanH = 0;
+            for (var i = 0; i < lines.length; i++) {
+                spanH = Math.max(spanH, glyphSpan(ctx, lines[i], size, mm).h);
+            }
+            lineH = Math.ceil(spanH + (mm ? 24 : 8));
             if (lines.length * lineH <= maxH) break;
         }
         var maxLines = Math.max(1, Math.floor(maxH / lineH));
@@ -515,16 +530,19 @@
             lines = lines.slice(0, maxLines);
             lines[maxLines - 1] = ellipsize(ctx, lines[maxLines - 1], safeW);
         }
-        return { lines: lines, size: size, lineH: lineH, weight: postWeight(weight), maxW: safeW };
+        return { lines: lines, size: size, lineH: lineH, weight: postWeight(weight), maxW: safeW, mm: mm };
     }
 
     function drawFitted(ctx, fit, x, y, accent, textColor) {
         ctx.save();
-        ctx.textBaseline = 'top';
+        ctx.textBaseline = 'alphabetic';
         ctx.textAlign = 'left';
         setPostFont(ctx, fit.weight || '700', fit.size);
+        var mm = fit.mm || hasMyanmar((fit.lines || []).join(''));
+        var topGap = mm ? 12 : 4;
         fit.lines.forEach(function (ln) {
-            drawLineWithBlanks(ctx, ln, x, y, accent, textColor);
+            var g = glyphSpan(ctx, ln, fit.size, mm || hasMyanmar(ln));
+            drawLineWithBlanks(ctx, ln, x, y + topGap + g.a, accent, textColor);
             y += fit.lineH;
         });
         ctx.restore();
@@ -730,12 +748,12 @@
         var top = 208;
         var bottom = H - 78;
         var mm = hasMyanmar(q.q) || (q.options || []).some(hasMyanmar);
-        var qMax = mm ? 26 : 38;
-        var qMin = mm ? 16 : 24;
-        var optMax = mm ? 20 : 28;
-        var optMin = mm ? 14 : 20;
-        var padX = mm ? 36 : 28;
-        var padY = mm ? 32 : 24;
+        var qMax = mm ? 24 : 38;
+        var qMin = mm ? 15 : 24;
+        var optMax = mm ? 18 : 28;
+        var optMin = mm ? 13 : 20;
+        var padX = mm ? 40 : 28;
+        var padY = mm ? 28 : 24;
 
         ctx.fillStyle = hexRgba(accent, 0.16);
         fillRound(ctx, x, top, Math.min(inner, 320), 36, 18, hexRgba(accent, 0.16));
