@@ -275,7 +275,7 @@
         s = s.replace(/\\,/g, ' ').replace(/\\;/g, ' ').replace(/\\!/g, '');
         s = s.replace(/\\([a-zA-Z]+)/g, '$1');
         s = s.replace(/[{}]/g, '');
-        s = s.replace(/_/g, '').replace(/\^/g, '');
+        s = s.replace(/\^/g, '');
         s = s.replace(/\u0000(\d+)\u0000/g, function (_, i) { return blanks[Number(i)] || ''; });
         return s.replace(/\s+/g, ' ').trim();
     }
@@ -343,40 +343,239 @@
         return { kind: 'blank', q: q, correct: cleanLatex(ans), e: e };
     }
 
-    function wrapLines(ctx, text, maxW, maxLines) {
-        text = String(text || '');
-        var words = text.split(/\s+/);
+    var POST_FONT = '"Noto Sans Myanmar",Padauk,"Myanmar Text",Inter,sans-serif';
+    var MY_MARK = /[\u102B-\u103E\u1056-\u1059\u105E-\u1060\u1062-\u1064\u1067-\u106D\u1071-\u1074\u1082-\u108D\u108F\u109A-\u109D\uA9E5\uAA70-\uAA7A\uAA7C-\uAA7D]/;
+    var POST_FONT_SAMPLE = 'မြန်မာစာ ကကက ဈေးနှုန်းအလျော့အတင်း E=1 _____';
+
+    function hasMyanmar(s) {
+        return /[\u1000-\u109F\uAA60-\uAA7F\uA9E0-\uA9FF]/.test(String(s || ''));
+    }
+
+    function graphemes(s) {
+        s = String(s || '');
+        try {
+            if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+                return Array.from(new Intl.Segmenter('my', { granularity: 'grapheme' }).segment(s), function (p) {
+                    return p.segment;
+                });
+            }
+        } catch (e) {}
+        var chars = Array.from(s);
+        var out = [];
+        var i = 0;
+        while (i < chars.length) {
+            var cl = chars[i++];
+            while (i < chars.length) {
+                var n = chars[i];
+                var cp = n.codePointAt(0);
+                if (cp === 0x1039 && i + 1 < chars.length) {
+                    cl += n + chars[i + 1];
+                    i += 2;
+                    continue;
+                }
+                if (cp === 0x200C || cp === 0x200D || MY_MARK.test(n)) {
+                    cl += n;
+                    i++;
+                    continue;
+                }
+                break;
+            }
+            out.push(cl);
+        }
+        return out;
+    }
+
+    function postWeight(weight) {
+        var n = parseInt(weight, 10);
+        if (isNaN(n) || n < 400) return '400';
+        if (n > 700) return '700';
+        return String(weight);
+    }
+
+    function setPostFont(ctx, weight, size) {
+        ctx.font = postWeight(weight) + ' ' + size + 'px ' + POST_FONT;
+    }
+
+    function fontPx(ctx) {
+        var m = String(ctx.font || '').match(/(\d+(?:\.\d+)?)px/);
+        return m ? parseFloat(m[1]) : 24;
+    }
+
+    function measureW(ctx, text) {
+        var w = ctx.measureText(String(text || '')).width;
+        if (w > 0.5) return w;
+        return Math.max(w, graphemes(text).length * fontPx(ctx) * 0.78);
+    }
+
+    function wrapAtoms(text) {
+        var chunks = String(text || '').split(/(_{3,})/);
+        var units = [];
+        chunks.forEach(function (chunk) {
+            if (!chunk) return;
+            if (/^_{3,}$/.test(chunk)) {
+                units.push(chunk);
+                return;
+            }
+            graphemes(chunk).forEach(function (g) { units.push(g); });
+        });
+        return units;
+    }
+
+    function pushWrapped(lines, s) {
+        s = String(s || '').replace(/^\s+|\s+$/g, '');
+        if (s) lines.push(s);
+    }
+
+    function wrapHard(ctx, text, maxW) {
+        var g = wrapAtoms(text);
         var lines = [];
         var cur = '';
-        function flush() {
-            if (cur) { lines.push(cur); cur = ''; }
-        }
-        if (words.length === 1 && words[0].length > 28) {
-            var s = words[0];
-            while (s.length) {
-                var take = s.length;
-                while (take > 4 && ctx.measureText(s.slice(0, take)).width > maxW) take--;
-                lines.push(s.slice(0, take));
-                s = s.slice(take);
-                if (maxLines && lines.length >= maxLines) break;
+        for (var i = 0; i < g.length; i++) {
+            var next = cur + g[i];
+            if (cur && measureW(ctx, next) > maxW) {
+                pushWrapped(lines, cur);
+                cur = /^\s+$/.test(g[i]) ? '' : g[i];
+            } else {
+                cur = next;
             }
-            return lines;
         }
-        for (var i = 0; i < words.length; i++) {
-            var next = cur ? cur + ' ' + words[i] : words[i];
-            if (ctx.measureText(next).width > maxW && cur) {
-                flush();
-                cur = words[i];
-            } else cur = next;
+        pushWrapped(lines, cur);
+        return lines.length ? lines : [String(text || '')];
+    }
+
+    function wrapWidth(ctx, text, maxW) {
+        maxW = Math.max(32, maxW);
+        var units = wrapAtoms(text);
+        var lines = [];
+        var cur = '';
+        function flushOverflow(extra) {
+            var sp = cur.lastIndexOf(' ');
+            if (sp > 0) {
+                pushWrapped(lines, cur.slice(0, sp));
+                cur = cur.slice(sp + 1) + extra;
+            } else {
+                pushWrapped(lines, cur);
+                cur = extra;
+            }
+            if (cur && measureW(ctx, cur) > maxW) {
+                var hard = wrapHard(ctx, cur, maxW);
+                if (hard.length) {
+                    lines.push.apply(lines, hard.slice(0, -1));
+                    cur = hard[hard.length - 1] || '';
+                }
+            }
         }
-        flush();
+        for (var i = 0; i < units.length; i++) {
+            var ch = units[i];
+            var next = cur + ch;
+            if (cur && measureW(ctx, next) > maxW) {
+                flushOverflow(/^\s+$/.test(ch) ? '' : ch);
+            } else {
+                cur = next;
+            }
+        }
+        pushWrapped(lines, cur);
+        return lines;
+    }
+
+    function ellipsize(ctx, text, maxW) {
+        var g = graphemes(text);
+        var out = g.join('');
+        while (g.length > 1 && measureW(ctx, out + '…') > maxW) {
+            g.pop();
+            out = g.join('');
+        }
+        return out ? out + '…' : '…';
+    }
+
+    function wrapLines(ctx, text, maxW, maxLines) {
+        var lines = wrapWidth(ctx, text, maxW);
         if (maxLines && lines.length > maxLines) {
             lines = lines.slice(0, maxLines);
-            var last = lines[lines.length - 1];
-            while (ctx.measureText(last + '…').width > maxW && last.length > 2) last = last.slice(0, -1);
-            lines[lines.length - 1] = last + '…';
+            lines[maxLines - 1] = ellipsize(ctx, lines[maxLines - 1], maxW);
         }
         return lines;
+    }
+
+    function glyphSpan(ctx, text, size, mm) {
+        var m = ctx.measureText(String(text || 'က'));
+        var a = m.actualBoundingBoxAscent;
+        var d = m.actualBoundingBoxDescent;
+        if (!(a > 0) || !(d >= 0) || isNaN(a) || isNaN(d)) {
+            a = size * (mm ? 1.2 : 0.82);
+            d = size * (mm ? 0.9 : 0.3);
+        }
+        return { a: a, d: d, h: a + d };
+    }
+
+    function fitBlock(ctx, text, maxW, maxH, weight, minPx, maxPx) {
+        var mm = hasMyanmar(text);
+        var size = maxPx;
+        var lines = [];
+        var lineH = size;
+        var safeW = Math.max(40, maxW - (mm ? 20 : 6));
+        ctx.textBaseline = 'alphabetic';
+        for (; size >= minPx; size--) {
+            setPostFont(ctx, weight, size);
+            lines = wrapWidth(ctx, text, safeW);
+            var spanH = 0;
+            for (var i = 0; i < lines.length; i++) {
+                spanH = Math.max(spanH, glyphSpan(ctx, lines[i], size, mm).h);
+            }
+            lineH = Math.ceil(spanH + (mm ? 32 : 8));
+            if (lines.length * lineH <= maxH) break;
+        }
+        var maxLines = Math.max(1, Math.floor(maxH / lineH));
+        if (lines.length > maxLines) {
+            lines = lines.slice(0, maxLines);
+            lines[maxLines - 1] = ellipsize(ctx, lines[maxLines - 1], safeW);
+        }
+        return { lines: lines, size: size, lineH: lineH, weight: postWeight(weight), maxW: safeW, mm: mm };
+    }
+
+    function drawFitted(ctx, fit, x, y, accent, textColor) {
+        ctx.save();
+        ctx.textBaseline = 'alphabetic';
+        ctx.textAlign = 'left';
+        setPostFont(ctx, fit.weight || '700', fit.size);
+        var mm = fit.mm || hasMyanmar((fit.lines || []).join(''));
+        var topGap = mm ? 12 : 4;
+        fit.lines.forEach(function (ln) {
+            var g = glyphSpan(ctx, ln, fit.size, mm || hasMyanmar(ln));
+            drawLineWithBlanks(ctx, ln, x, y + topGap + g.a, accent, textColor);
+            y += fit.lineH;
+        });
+        ctx.restore();
+        return y;
+    }
+
+    function clipRound(ctx, x, y, w, h, r, fn) {
+        ctx.save();
+        roundPath(ctx, x, y, w, h, r);
+        ctx.clip();
+        fn();
+        ctx.restore();
+    }
+
+    function ensurePostFonts() {
+        var probe = document.getElementById('post-font-probe');
+        if (!probe && document.body) {
+            probe = document.createElement('div');
+            probe.id = 'post-font-probe';
+            probe.setAttribute('aria-hidden', 'true');
+            probe.style.cssText = 'position:absolute;left:-9999px;top:0;font:700 32px "Noto Sans Myanmar",Padauk,sans-serif;';
+            probe.textContent = POST_FONT_SAMPLE;
+            document.body.appendChild(probe);
+        }
+        if (!document.fonts || !document.fonts.load) return Promise.resolve();
+        var loads = [];
+        ['400', '700'].forEach(function (w) {
+            ['Noto Sans Myanmar', 'Padauk', 'Myanmar Text'].forEach(function (fam) {
+                loads.push(document.fonts.load(w + ' 32px "' + fam + '"', POST_FONT_SAMPLE));
+            });
+        });
+        var ready = document.fonts.ready ? document.fonts.ready : Promise.resolve();
+        return Promise.all(loads.concat([ready])).then(function () { return null; }).catch(function () { return null; });
     }
 
     function roundPath(ctx, x, y, w, h, r) {
@@ -452,17 +651,18 @@
         return 'FILL THE BLANK';
     }
 
-    function drawLineWithBlanks(ctx, line, x, y, accent) {
+    function drawLineWithBlanks(ctx, line, x, y, accent, textColor) {
+        textColor = textColor || WHITE;
         var parts = String(line || '').split(/(_+)/);
         if (parts.length < 2) {
-            ctx.fillStyle = WHITE;
+            ctx.fillStyle = textColor;
             ctx.fillText(line, x, y);
             return;
         }
         var cx = x;
         parts.forEach(function (p) {
             if (!p) return;
-            ctx.fillStyle = /^_+$/.test(p) ? accent : WHITE;
+            ctx.fillStyle = /^_+$/.test(p) ? accent : textColor;
             ctx.fillText(p, cx, y);
             cx += ctx.measureText(p).width;
         });
@@ -515,11 +715,21 @@
 
         ctx.textAlign = 'left';
         ctx.fillStyle = WHITE;
-        ctx.font = '800 24px Inter, system-ui, sans-serif';
-        ctx.fillText(meta.line, 158, 136);
+        var headW = W - 250;
+        var headMm = hasMyanmar(meta.line);
+        if (headMm) setPostFont(ctx, '700', 20);
+        else ctx.font = '800 22px Inter, system-ui, sans-serif';
+        var mLines = wrapWidth(ctx, meta.line, headW).slice(0, 2);
+        var my = mLines.length > 1 ? 118 : 136;
+        var headGap = headMm ? 30 : 26;
+        ctx.textBaseline = headMm ? 'top' : 'alphabetic';
+        mLines.forEach(function (ln, i) {
+            ctx.fillText(ln, 158, headMm ? my + i * headGap : my + i * 26);
+        });
+        ctx.textBaseline = 'alphabetic';
         ctx.fillStyle = MUTED;
         ctx.font = '700 18px Inter, system-ui, sans-serif';
-        ctx.fillText((kind === 'answer' ? 'Answer' : 'Question') + '  ' + idx + ' / ' + total, 158, 168);
+        ctx.fillText((kind === 'answer' ? 'Answer' : 'Question') + '  ' + idx + ' / ' + total, 158, mLines.length > 1 ? 176 : 168);
 
         ctx.fillStyle = MUTED;
         ctx.font = '700 18px Inter, system-ui, sans-serif';
@@ -537,7 +747,13 @@
         var inner = W - 96;
         var top = 208;
         var bottom = H - 78;
-        var fontFace = '"Noto Sans Myanmar","Myanmar Text",Padauk,Inter,sans-serif';
+        var mm = hasMyanmar(q.q) || (q.options || []).some(hasMyanmar);
+        var qMax = mm ? 24 : 38;
+        var qMin = mm ? 15 : 24;
+        var optMax = mm ? 18 : 28;
+        var optMin = mm ? 13 : 20;
+        var padX = mm ? 40 : 28;
+        var padY = mm ? 28 : 24;
 
         ctx.fillStyle = hexRgba(accent, 0.16);
         fillRound(ctx, x, top, Math.min(inner, 320), 36, 18, hexRgba(accent, 0.16));
@@ -548,46 +764,49 @@
 
         if (q.kind === 'mcq') {
             var n = Math.max(1, (q.options || []).length);
-            var optH = n >= 4 ? 92 : 104;
+            var optH = mm ? (n >= 4 ? 88 : 100) : (n >= 4 ? 110 : 124);
             var gap = 12;
             var optsH = n * optH + (n - 1) * gap;
             var qH = bottom - top - optsH - 16;
-            if (qH < 160) {
-                optH = 82;
+            if (qH < (mm ? 240 : 180)) {
+                optH = mm ? (n >= 4 ? 78 : 90) : (n >= 4 ? 96 : 108);
                 optsH = n * optH + (n - 1) * gap;
                 qH = bottom - top - optsH - 16;
             }
             paintCard(ctx, x, top, inner, qH, 22, CARD, accent);
-            ctx.font = '700 40px ' + fontFace;
-            var maxLines = Math.max(3, Math.floor((qH - 44) / 48));
-            var qLines = wrapLines(ctx, q.q, inner - 56, maxLines);
-            drawQuestionLines(ctx, qLines, x + 28, top + 52, 48, accent);
+            var qFit = fitBlock(ctx, q.q, inner - padX * 2, qH - padY * 2, '700', qMin, qMax);
+            clipRound(ctx, x, top, inner, qH, 22, function () {
+                drawFitted(ctx, qFit, x + padX, top + padY, accent, WHITE);
+            });
             var oy = top + qH + 16;
             q.options.forEach(function (opt, i) {
                 paintCard(ctx, x, oy, inner, optH, 18, CARD2, null);
                 ctx.beginPath();
-                ctx.arc(x + 48, oy + optH / 2, 24, 0, Math.PI * 2);
+                ctx.arc(x + 48, oy + optH / 2, 22, 0, Math.PI * 2);
                 ctx.fillStyle = accent;
                 ctx.fill();
                 ctx.fillStyle = BG;
-                ctx.font = '800 24px Inter, sans-serif';
+                ctx.font = '800 22px Inter, sans-serif';
                 ctx.textAlign = 'center';
-                ctx.fillText(LETTERS[i] || String(i + 1), x + 48, oy + optH / 2 + 8);
+                ctx.textBaseline = 'middle';
+                ctx.fillText(LETTERS[i] || String(i + 1), x + 48, oy + optH / 2);
+                ctx.textBaseline = 'alphabetic';
                 ctx.textAlign = 'left';
-                ctx.fillStyle = WHITE;
-                ctx.font = '700 32px Inter, "Noto Sans Myanmar", sans-serif';
-                var ol = wrapLines(ctx, opt, inner - 140, 2);
-                ctx.fillText(ol[0] || '', x + 88, oy + (ol[1] ? optH * 0.4 : optH * 0.62));
-                if (ol[1]) ctx.fillText(ol[1], x + 88, oy + optH * 0.76);
+                var oFit = fitBlock(ctx, opt, inner - 150, optH - 24, '700', optMin, optMax);
+                var oTop = oy + Math.max(10, Math.round((optH - oFit.lines.length * oFit.lineH) / 2));
+                clipRound(ctx, x, oy, inner, optH, 18, function () {
+                    drawFitted(ctx, oFit, x + 88, oTop, accent, WHITE);
+                });
                 oy += optH + gap;
             });
         } else if (q.kind === 'tf') {
             var btnH = 118;
             var tfH = bottom - top - btnH - 16;
             paintCard(ctx, x, top, inner, tfH, 22, CARD, accent);
-            ctx.font = '700 40px ' + fontFace;
-            var tfLines = wrapLines(ctx, q.q, inner - 56, Math.max(4, Math.floor((tfH - 44) / 48)));
-            drawQuestionLines(ctx, tfLines, x + 28, top + 56, 48, accent);
+            var tfFit = fitBlock(ctx, q.q, inner - padX * 2, tfH - padY * 2, '700', qMin, qMax);
+            clipRound(ctx, x, top, inner, tfH, 22, function () {
+                drawFitted(ctx, tfFit, x + padX, top + padY, accent, WHITE);
+            });
             var by = bottom - btnH;
             var bw = (inner - 16) / 2;
             paintCard(ctx, x, by, bw, btnH, 20, CARD2, '#22C55E');
@@ -603,17 +822,19 @@
             ctx.fillStyle = MUTED;
             ctx.font = '700 20px Inter, sans-serif';
             ctx.fillText('Rewrite / complete the sentence', x + 28, top + 44);
-            ctx.font = '700 38px Inter, sans-serif';
-            var rLines = wrapLines(ctx, q.q, inner - 56, Math.max(6, Math.floor((bottom - top - 90) / 48)));
-            drawQuestionLines(ctx, rLines, x + 28, top + 100, 48, accent);
+            var rFit = fitBlock(ctx, q.q, inner - padX * 2, bottom - top - 100, '700', qMin, qMax);
+            clipRound(ctx, x, top, inner, bottom - top, 22, function () {
+                drawFitted(ctx, rFit, x + padX, top + 64, accent, WHITE);
+            });
         } else {
             var hasInline = /_{3,}/.test(q.q || '');
             var blankH = hasInline ? 0 : 118;
             var bH = bottom - top - blankH - (blankH ? 16 : 0);
             paintCard(ctx, x, top, inner, bH, 22, CARD, accent);
-            ctx.font = '700 40px ' + fontFace;
-            var bLines = wrapLines(ctx, q.q, inner - 56, Math.max(4, Math.floor((bH - 44) / 48)));
-            drawQuestionLines(ctx, bLines, x + 28, top + 56, 48, accent);
+            var bFit = fitBlock(ctx, q.q, inner - padX * 2, bH - padY * 2, '700', qMin, qMax);
+            clipRound(ctx, x, top, inner, bH, 22, function () {
+                drawFitted(ctx, bFit, x + padX, top + padY, accent, WHITE);
+            });
             if (!hasInline) {
                 paintCard(ctx, x, bottom - blankH, inner, blankH, 20, CARD2, accent);
                 ctx.fillStyle = MUTED;
@@ -635,15 +856,15 @@
         var inner = W - 96;
         var top = 208;
         var bottom = H - 78;
-        var ansH = q.e ? 300 : Math.min(440, bottom - top);
+        var mmAns = hasMyanmar(q.q) || hasMyanmar(q.e) || (q.options || []).some(hasMyanmar);
+        var padX = mmAns ? 36 : 28;
+        var ansH = q.e ? (mmAns ? 340 : 300) : Math.min(mmAns ? 500 : 440, bottom - top);
 
         paintCard(ctx, x, top, inner, ansH, 24, '#10261A', OK);
 
         ctx.fillStyle = MUTED;
         ctx.font = '700 22px Inter, sans-serif';
-        ctx.fillText('Correct answer', x + 28, top + 52);
-        ctx.fillStyle = OK;
-        ctx.font = '800 46px Inter, "Noto Sans Myanmar", sans-serif';
+        ctx.fillText('Correct answer', x + 28, top + 48);
         var ans = '';
         if (q.kind === 'mcq') {
             ans = (LETTERS[q.correct] || '') + '   ' + (q.options[q.correct] || '');
@@ -652,11 +873,9 @@
         } else {
             ans = q.correct || '—';
         }
-        var aLines = wrapLines(ctx, ans, inner - 56, 4);
-        var ay = top + 116;
-        aLines.forEach(function (ln) {
-            ctx.fillText(ln, x + 28, ay);
-            ay += 56;
+        var aFit = fitBlock(ctx, ans, inner - padX * 2, ansH - 86, '700', mmAns ? 20 : 26, mmAns ? 28 : 40);
+        clipRound(ctx, x, top, inner, ansH, 24, function () {
+            drawFitted(ctx, aFit, x + padX, top + 68, OK, OK);
         });
 
         if (q.e) {
@@ -667,13 +886,9 @@
                 ctx.fillStyle = MUTED;
                 ctx.font = '700 20px Inter, sans-serif';
                 ctx.fillText('Why', x + 28, whyTop + 44);
-                ctx.fillStyle = WHITE;
-                ctx.font = '600 30px Inter, "Noto Sans Myanmar", sans-serif';
-                var eLines = wrapLines(ctx, q.e, inner - 56, Math.max(4, Math.floor((whyH - 70) / 40)));
-                var ey = whyTop + 92;
-                eLines.forEach(function (ln) {
-                    ctx.fillText(ln, x + 28, ey);
-                    ey += 40;
+                var eFit = fitBlock(ctx, q.e, inner - padX * 2, whyH - 70, '700', 18, 26);
+                clipRound(ctx, x, whyTop, inner, whyH, 22, function () {
+                    drawFitted(ctx, eFit, x + padX, whyTop + 58, accent, WHITE);
                 });
             }
         }
@@ -1157,7 +1372,9 @@
             ? fileNameFor(chs[0])
             : (state.sub + ' · ' + chs.length + ' chapters');
         setStatus('Loading ' + label + '…');
-        return Promise.all(chs.map(function (ch) { return loadChapterGroups(ch); })).then(function (packs) {
+        return ensurePostFonts().then(function () {
+            return Promise.all(chs.map(function (ch) { return loadChapterGroups(ch); }));
+        }).then(function (packs) {
             var groups = [];
             packs.forEach(function (pack) {
                 (pack || []).forEach(function (g) { groups.push(g.items || []); });
