@@ -522,7 +522,7 @@
             for (var i = 0; i < lines.length; i++) {
                 spanH = Math.max(spanH, glyphSpan(ctx, lines[i], size, mm).h);
             }
-            lineH = Math.ceil(spanH + (mm ? 24 : 8));
+            lineH = Math.ceil(spanH + (mm ? 32 : 8));
             if (lines.length * lineH <= maxH) break;
         }
         var maxLines = Math.max(1, Math.floor(maxH / lineH));
