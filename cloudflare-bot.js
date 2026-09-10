@@ -89,8 +89,18 @@ function startReply() {
     'ရီးဒ်ပညာရေးမှ ကြိုဆိုပါတယ်။',
     'ကျွန်တော်တို့က ၁၀ တန်း၊ ၁၁ တန်း၊ ၁၂ တန်းအတွက် လေ့ကျင့်ရေး Mini App ပါ။',
     'Telegram ထဲမှာပဲ ဘာသာရပ်တွေ လေ့ကျင့်လို့ရပါတယ်။',
-    'အက်ပ်ဖွင့်ရန် Start Practice ကို နှိပ်လိုက်ပါ။'
+    'အက်ပ်ဖွင့်ရန် Start Practice ကို နှိပ်လိုက်ပါ။',
+    '',
+    'သတင်းနဲ့ အကြောင်းအရာအသစ်တွေအတွက် Channel ကို join ပေးပါ — @REED_education'
   ].join('\n');
+}
+
+function startKeyboard() {
+  return {
+    inline_keyboard: [
+      [{ text: 'Channel join မည်', url: 'https://t.me/REED_education' }]
+    ]
+  };
 }
 
 function howToOpenReply() {
@@ -298,11 +308,12 @@ async function urlIsReachable(url) {
 
 async function sendStartWelcome(chatId, env) {
   var caption = startReply();
+  var markup = startKeyboard();
   var targets = await startVideoTargets(env);
   for (var i = 0; i < targets.length; i++) {
-    if (await sendTelegramVideo(chatId, targets[i], caption, env.BOT_TOKEN)) return;
+    if (await sendTelegramVideo(chatId, targets[i], caption, env.BOT_TOKEN, markup)) return;
   }
-  await sendTelegramMessage(chatId, caption, env.BOT_TOKEN);
+  await sendTelegramMessage(chatId, caption, env.BOT_TOKEN, markup);
 }
 
 async function telegramApi(botToken, method, payload) {
@@ -319,21 +330,25 @@ async function telegramApi(botToken, method, payload) {
   }
 }
 
-async function sendTelegramMessage(chatId, text, botToken) {
+async function sendTelegramMessage(chatId, text, botToken, replyMarkup) {
   var clean = stripFancyText(text);
   if (!clean) return false;
-  return telegramApi(botToken, 'sendMessage', {
+  var payload = {
     chat_id: chatId,
     text: clean
-  });
+  };
+  if (replyMarkup) payload.reply_markup = replyMarkup;
+  return telegramApi(botToken, 'sendMessage', payload);
 }
 
-async function sendTelegramVideo(chatId, video, caption, botToken) {
+async function sendTelegramVideo(chatId, video, caption, botToken, replyMarkup) {
   var clean = stripFancyText(caption);
-  return telegramApi(botToken, 'sendVideo', {
+  var payload = {
     chat_id: chatId,
     video: video,
     caption: clean,
     supports_streaming: true
-  });
+  };
+  if (replyMarkup) payload.reply_markup = replyMarkup;
+  return telegramApi(botToken, 'sendVideo', payload);
 }
