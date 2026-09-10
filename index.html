@@ -9,6 +9,47 @@
 	<link rel="manifest" href="/manifest.json?v=2">
 <meta name="theme-color" content="#00D5FF">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        if (!window.Telegram || !window.Telegram.WebApp) {
+            document.write('<script src="./telegram-web-app.js"><\/script>');
+        }
+    </script>
+    <script>
+    (function () {
+        function mark(kind) { document.documentElement.setAttribute('data-reed-shell', kind); }
+        function inTg() {
+            var tg = window.Telegram && Telegram.WebApp;
+            if (tg) {
+                try { if (typeof tg.ready === 'function') tg.ready(); } catch (e) {}
+                var u = tg.initDataUnsafe && tg.initDataUnsafe.user;
+                if (u && u.id) {
+                    try {
+                        sessionStorage.setItem('reed_tg_user', JSON.stringify({
+                            id: u.id,
+                            first_name: u.first_name || ''
+                        }));
+                    } catch (err) {}
+                    return true;
+                }
+                if (tg.initData && String(tg.initData).length > 8) return true;
+            }
+            if (window.TelegramWebviewProxy || window.TelegramWebview) return true;
+            var href = String(location.href || '');
+            if (href.indexOf('tgWebAppData') !== -1 || href.indexOf('tgWebAppVersion') !== -1) return true;
+            if (/Telegram/i.test(navigator.userAgent || '')) return true;
+            try {
+                var raw = sessionStorage.getItem('reed_tg_user');
+                if (raw && JSON.parse(raw).id) return true;
+            } catch (e) {}
+            return false;
+        }
+        mark(inTg() ? 'app' : 'pending');
+    })();
+    </script>
+    <style>
+        html[data-reed-shell="pending"] { background: #0B0F19; }
+        html[data-reed-shell="pending"] body { visibility: hidden; }
+    </style>
 	<script>
         window.MathJax = {
 		options: {
@@ -3273,7 +3314,52 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./customer-analysis.js?v=2"></script>
     <script>
 
-		if (!window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
+		function reedRememberTgUser(user) {
+		    try {
+		        if (user && user.id) {
+		            sessionStorage.setItem('reed_tg_user', JSON.stringify({
+		                id: user.id,
+		                first_name: user.first_name || ''
+		            }));
+		        }
+		        var app = window.Telegram && Telegram.WebApp;
+		        if (app && app.initData) sessionStorage.setItem('reed_tg_init', app.initData);
+		    } catch (e) {}
+		}
+
+		function reedHasTgUser() {
+		    var tg = window.Telegram && Telegram.WebApp;
+		    if (tg) {
+		        try { if (typeof tg.ready === 'function') tg.ready(); } catch (e) {}
+		        var u = tg.initDataUnsafe && tg.initDataUnsafe.user;
+		        if (u && u.id) {
+		            reedRememberTgUser(u);
+		            return true;
+		        }
+		        if (tg.initData && String(tg.initData).length > 8) return true;
+		    }
+		    try {
+		        var raw = sessionStorage.getItem('reed_tg_user');
+		        if (raw && JSON.parse(raw).id) return true;
+		    } catch (e) {}
+		    return false;
+		}
+
+		function reedInTelegram() {
+		    if (reedHasTgUser()) return true;
+		    if (window.TelegramWebviewProxy || window.TelegramWebview) return true;
+		    try {
+		        var wh = window.webkit && webkit.messageHandlers;
+		        if (wh && (wh.TelegramWebView || wh.TelegramWebviewProxy || wh.TelegramWebViewProxy)) return true;
+		    } catch (e) {}
+		    var href = String(location.href || '');
+		    if (href.indexOf('tgWebAppData') !== -1 || href.indexOf('tgWebAppVersion') !== -1 || href.indexOf('tgWebAppStartParam') !== -1) return true;
+		    if (/Telegram/i.test(navigator.userAgent || '')) return true;
+		    return false;
+		}
+
+		function paintWebsiteLanding() {
+		    document.documentElement.setAttribute('data-reed-shell', 'web');
         document.body.innerHTML = `
     <style>
         html, body { margin: 0; background: #0B0F19 !important; }
@@ -3870,7 +3956,37 @@ body.volunteer-role .vol-report-link { display: block !important; }
         update();
         setInterval(update, 1000);
     })();
-}
+        }
+
+		function reedBootShell() {
+		    if (reedInTelegram()) {
+		        document.documentElement.setAttribute('data-reed-shell', 'app');
+		        return;
+		    }
+		    var started = Date.now();
+		    (function waitTg() {
+		        if (reedInTelegram()) {
+		            document.documentElement.setAttribute('data-reed-shell', 'app');
+		            return;
+		        }
+		        if (Date.now() - started >= 2500) {
+		            paintWebsiteLanding();
+		            return;
+		        }
+		        setTimeout(waitTg, 80);
+		    })();
+		}
+		reedBootShell();
+		(function recoverTelegramShell() {
+		    function maybeReload() {
+		        if (document.documentElement.getAttribute('data-reed-shell') !== 'web') return;
+		        if (reedInTelegram()) location.reload();
+		    }
+		    document.addEventListener('visibilitychange', maybeReload);
+		    window.addEventListener('pageshow', maybeReload);
+		    window.addEventListener('focus', maybeReload);
+		    setInterval(maybeReload, 4000);
+		})();
 
 		// SPEED FIX: only run heavy math renderer when math symbols exist
 function fastMath(scope) {
@@ -3924,7 +4040,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=116'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=117'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
