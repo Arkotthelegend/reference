@@ -148,7 +148,7 @@ def parse_labeled_urls(text: str) -> dict:
         m = re.search(rf"(?im)^\s*{labels}\s*[:\-]?\s*(\S+)", text)
         if m:
             found[key] = m.group(1).strip()
-    urls = re.findall(r"https?://chat\.qwen\.ai/s/[0-9a-fA-F-]+", text)
+    urls = re.findall(r"https?://chat\.qwen\.ai/s/t?_?[0-9a-fA-F-]+", text)
     if len(found) < 3 and len(urls) >= 3:
         found = {"mcq": urls[0], "tf": urls[1], "blank": urls[2]}
     elif len(found) < 3 and len(urls) == 1:
@@ -158,7 +158,7 @@ def parse_labeled_urls(text: str) -> dict:
 
 
 def first_share(text: str) -> str:
-    m = re.search(r"https?://chat\.qwen\.ai/s/[0-9a-fA-F-]+", text or "")
+    m = re.search(r"https?://chat\.qwen\.ai/s/t?_?[0-9a-fA-F-]+", text or "")
     if m:
         return m.group(0)
     raw = (text or "").strip()
