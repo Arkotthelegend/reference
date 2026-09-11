@@ -4,7 +4,7 @@
 
 AI is only a fallback if a chat is messy prose with no JSON and no numbered questions. Give your friend `qwen-quiz-prompt.md` so every chat ends as a JSON array with `"sub":"1.1"`.
 
-Your friend sends 3 Qwen **Share** links per chapter (`https://chat.qwen.ai/s/...`): MCQ, True/False, Fill blank. Each chat holds every sub-chapter (1.1, 1.2, …).
+Your friend sends 3 Qwen **Share** links per chapter (`https://chat.qwen.ai/s/...` or `.../s/t_...`): MCQ, True/False, Fill blank. Each chat holds every sub-chapter (1.1, 1.2, …). A heading `1.1` above a JSON array is enough — items do not need a `"sub"` field.
 
 ## 1. Give them this prompt
 
@@ -69,4 +69,6 @@ tf https://chat.qwen.ai/s/...
 blank https://chat.qwen.ai/s/...
 ```
 
-Private `chat.qwen.ai/c/...` links will not work. Use **Share**.
+Private `chat.qwen.ai/c/...` links will not work. Use **Share** (`/s/...` or `/s/t_...`).
+
+Red text in the Qwen page (for example `100^\circ\text{C}`) is Qwen failing to draw the formula. The importer rewrites that to `$100^{\circ}\text{C}$` so MathJax in the Mini App can render it.

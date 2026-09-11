@@ -56,14 +56,16 @@ function parseArgs(argv) {
 
 function shareIdFrom(input) {
   var s = String(input || '').trim();
-  var m = s.match(/chat\.qwen\.ai\/s\/([0-9a-fA-F-]{8,})/) || s.match(/^[0-9a-fA-F-]{8,}$/);
+  var m = s.match(/chat\.qwen\.ai\/s\/(t_[0-9a-fA-F-]+|[0-9a-fA-F-]{8,})/i) || s.match(/^(t_[0-9a-fA-F-]+|[0-9a-fA-F-]{8,})$/i);
   return m ? (m[1] || m[0]) : '';
 }
 
 async function loadSource(input) {
   var id = shareIdFrom(input);
   if (id) {
-    var url = 'https://chat.qwen.ai/api/v2/chats/share/' + id;
+    var url = /^t_/i.test(id)
+      ? 'https://chat.qwen.ai/api/v2/share/message/' + id
+      : 'https://chat.qwen.ai/api/v2/chats/share/' + id;
     var res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 REED-quiz-import' } });
     if (!res.ok) throw new Error('Qwen share HTTP ' + res.status + ' for ' + url);
     var body = await res.json();
@@ -81,8 +83,8 @@ function assistantTextFromShare(body) {
   var chat = (body && body.data && body.data.chat) || {};
   var chunks = [];
   var hist = (chat.history && chat.history.messages) || {};
-  Object.keys(hist).forEach(function (k) {
-    var m = hist[k];
+  var list = Array.isArray(hist) ? hist : Object.keys(hist).map(function (k) { return hist[k]; });
+  list.forEach(function (m) {
     if (m && m.role === 'assistant') chunks.push(messageContent(m));
   });
   if (Array.isArray(chat.messages)) {
@@ -95,19 +97,44 @@ function assistantTextFromShare(body) {
   return text;
 }
 
+function partText(part) {
+  if (typeof part === 'string') return part;
+  if (!part || typeof part !== 'object') return '';
+  if (part.phase === 'thinking' || part.phase === 'thinking_summary') return '';
+  if (typeof part.content === 'string' && part.content.trim()) return part.content;
+  if (typeof part.text === 'string' && part.text.trim()) return part.text;
+  return '';
+}
+
 function messageContent(m) {
+  if (Array.isArray(m && m.content_list)) {
+    var fromList = m.content_list.map(partText).filter(Boolean);
+    if (fromList.length) return fromList.join('\n\n');
+  }
   var c = m && m.content;
   if (typeof c === 'string') return c;
-  if (Array.isArray(c)) {
-    return c.map(function (part) {
-      if (typeof part === 'string') return part;
-      if (part && typeof part.text === 'string') return part.text;
-      if (part && typeof part.content === 'string') return part.content;
-      return '';
-    }).join('\n');
-  }
+  if (Array.isArray(c)) return c.map(partText).join('\n');
   if (c && typeof c.text === 'string') return c.text;
   return '';
+}
+
+function headingBefore(text, index) {
+  var before = String(text || '').slice(0, index).replace(/\s+$/, '');
+  var m = before.match(/(?:^|\n)\s*(?:#{1,6}\s*)?(\d+\.\d+)\s*$/);
+  return m ? m[1] : '';
+}
+
+function tidyTex(value) {
+  if (typeof value !== 'string') return value;
+  return value.replace(/\^\\circ\b/g, '^{\\circ}');
+}
+
+function parseQuizJson(blob) {
+  try {
+    return JSON.parse(blob);
+  } catch (e) {
+    return JSON.parse(String(blob).replace(/\\(?!["\\/bfnrtu])/g, '\\\\'));
+  }
 }
 
 function extractJsonArrays(text) {
@@ -116,8 +143,8 @@ function extractJsonArrays(text) {
   var m;
   while ((m = fence.exec(text))) {
     try {
-      var v = JSON.parse(m[1]);
-      if (Array.isArray(v)) out.push(v);
+      var v = parseQuizJson(m[1]);
+      if (Array.isArray(v)) out.push({ arr: v, start: m.index });
     } catch (e) {}
   }
   if (out.length) return out;
@@ -136,8 +163,8 @@ function extractJsonArrays(text) {
     }
     if (end === -1) break;
     try {
-      var parsed = JSON.parse(text.slice(from, end + 1));
-      if (Array.isArray(parsed) && parsed.length && parsed[0] && parsed[0].q) out.push(parsed);
+      var parsed = parseQuizJson(text.slice(from, end + 1));
+      if (Array.isArray(parsed) && parsed.length && parsed[0] && parsed[0].q) out.push({ arr: parsed, start: from });
     } catch (e) {}
     start = from + 1;
   }
@@ -155,17 +182,17 @@ function normalizeItem(raw, fallbackType, fallbackSub) {
   if (type === 'true_false' || type === 'truefalse' || type === 'true/false') type = 'tf';
   if (type === 'fill_blank' || type === 'fill-blank' || type === 'fillblank') type = 'blank';
   if (type !== 'mcq' && type !== 'tf' && type !== 'blank') return null;
-  var q = String(raw.q || raw.question || '').replace(/\s+/g, ' ').trim();
+  var q = tidyTex(String(raw.q || raw.question || '').replace(/\s+/g, ' ').trim());
   if (!q) return null;
   var sub = String(raw.sub || raw.section || raw.subchapter || fallbackSub || '').trim();
   var item = { type: type, q: q };
   if (sub) item._sub = sub;
-  if (raw.e) item.e = String(raw.e).trim();
+  if (raw.e) item.e = tidyTex(String(raw.e).trim());
 
   if (type === 'mcq') {
     var opts = raw.a || raw.options || raw.choices;
     if (!Array.isArray(opts) || opts.length < 2) return null;
-    item.a = opts.map(function (o) { return String(o == null ? '' : o).trim(); });
+    item.a = opts.map(function (o) { return tidyTex(String(o == null ? '' : o).trim()); });
     var c = raw.c;
     if (typeof c === 'string' && /^[A-Da-d]$/.test(c.trim())) c = letterIndex(c);
     c = parseInt(c, 10);
@@ -182,7 +209,7 @@ function normalizeItem(raw, fallbackType, fallbackSub) {
   } else {
     var blank = raw.c != null ? raw.c : (raw.a != null && !Array.isArray(raw.a) ? raw.a : raw.answer);
     if (blank == null || String(blank).trim() === '') return null;
-    item.c = String(blank).trim();
+    item.c = tidyTex(String(blank).trim());
   }
   return item;
 }
@@ -270,9 +297,12 @@ function markdownOne(block, fallbackType, sub) {
 
 function parseItems(text, fallbackType) {
   var items = [];
-  extractJsonArrays(text).forEach(function (arr) {
+  extractJsonArrays(text).forEach(function (pack) {
+    var arr = pack.arr || pack;
+    var heading = headingBefore(text, pack.start || 0);
     arr.forEach(function (raw) {
-      var it = normalizeItem(raw, fallbackType, raw && (raw.sub || raw.section));
+      var extra = raw && (raw.sub || raw.section) ? (raw.sub || raw.section) : heading;
+      var it = normalizeItem(raw, fallbackType, extra);
       if (it) items.push(it);
     });
   });

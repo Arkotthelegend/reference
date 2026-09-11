@@ -47,47 +47,67 @@ class ImportError_(Exception):
 
 def share_id_from(value: str) -> str:
     s = (value or "").strip()
-    m = re.search(r"chat\.qwen\.ai/s/([0-9a-fA-F-]{8,})", s)
+    m = re.search(r"chat\.qwen\.ai/s/(t_[0-9a-fA-F-]+|[0-9a-fA-F-]{8,})", s, re.I)
     if m:
         return m.group(1)
-    if re.fullmatch(r"[0-9a-fA-F-]{8,}", s):
+    if re.fullmatch(r"t_[0-9a-fA-F-]+", s, re.I) or re.fullmatch(r"[0-9a-fA-F-]{8,}", s):
         return s
     return ""
 
 
+def _part_text(part) -> str:
+    if isinstance(part, str):
+        return part
+    if not isinstance(part, dict):
+        return ""
+    if part.get("phase") in ("thinking", "thinking_summary"):
+        return ""
+    for key in ("content", "text"):
+        val = part.get(key)
+        if isinstance(val, str) and val.strip():
+            return val
+    return ""
+
+
 def message_content(msg) -> str:
-    c = msg.get("content") if isinstance(msg, dict) else None
+    if not isinstance(msg, dict):
+        return ""
+    parts = []
+    cl = msg.get("content_list")
+    if isinstance(cl, list):
+        for part in cl:
+            t = _part_text(part)
+            if t.strip():
+                parts.append(t)
+    if parts:
+        return "\n\n".join(parts)
+    c = msg.get("content")
     if isinstance(c, str):
         return c
     if isinstance(c, list):
-        parts = []
-        for part in c:
-            if isinstance(part, str):
-                parts.append(part)
-            elif isinstance(part, dict):
-                if isinstance(part.get("text"), str):
-                    parts.append(part["text"])
-                elif isinstance(part.get("content"), str):
-                    parts.append(part["content"])
-        return "\n".join(parts)
+        return "\n".join(_part_text(part) for part in c)
     if isinstance(c, dict) and isinstance(c.get("text"), str):
         return c["text"]
     return ""
 
 
-def assistant_text_from_share(body: dict) -> str:
+def iter_share_messages(body: dict):
     chat = ((body or {}).get("data") or {}).get("chat") or {}
-    chunks = []
-    hist = (chat.get("history") or {}).get("messages") or {}
+    hist = (chat.get("history") or {}).get("messages")
     if isinstance(hist, dict):
-        for msg in hist.values():
-            if isinstance(msg, dict) and msg.get("role") == "assistant":
-                chunks.append(message_content(msg))
+        yield from hist.values()
+    elif isinstance(hist, list):
+        yield from hist
     messages = chat.get("messages")
     if isinstance(messages, list):
-        for msg in messages:
-            if isinstance(msg, dict) and msg.get("role") == "assistant":
-                chunks.append(message_content(msg))
+        yield from messages
+
+
+def assistant_text_from_share(body: dict) -> str:
+    chunks = []
+    for msg in iter_share_messages(body):
+        if isinstance(msg, dict) and msg.get("role") == "assistant":
+            chunks.append(message_content(msg))
     text = "\n\n".join(c for c in chunks if c)
     if not text.strip():
         raise ImportError_(
@@ -97,7 +117,10 @@ def assistant_text_from_share(body: dict) -> str:
 
 
 def fetch_share(share_id: str) -> dict:
-    url = f"https://chat.qwen.ai/api/v2/chats/share/{share_id}"
+    if str(share_id).lower().startswith("t_"):
+        url = f"https://chat.qwen.ai/api/v2/share/message/{share_id}"
+    else:
+        url = f"https://chat.qwen.ai/api/v2/chats/share/{share_id}"
     req = Request(url, headers={"User-Agent": USER_AGENT})
     try:
         with urlopen(req, timeout=45) as resp:
@@ -122,17 +145,33 @@ def load_source(input_path: str) -> dict:
     return {"kind": "file", "id": str(file), "text": file.read_text(encoding="utf-8")}
 
 
+def heading_before(text: str, index: int) -> str:
+    before = text[:index].rstrip()
+    m = re.search(r"(?:^|\n)\s*(?:#{1,6}\s*)?(\d+\.\d+)\s*$", before)
+    return m.group(1) if m else ""
+
+
+def parse_quiz_json(blob: str):
+    try:
+        return json.loads(blob)
+    except json.JSONDecodeError:
+        # Friend files often contain TeX like $^\circ C$ — `\c` is not valid JSON.
+        fixed = re.sub(r'\\(?!["\\/bfnrtu])', r'\\\\', blob)
+        return json.loads(fixed)
+
+
 def extract_json_arrays(text: str) -> list:
-    out = []
+    """Return (array, start_index) pairs so a 1.1 heading above the array can be used as sub."""
+    found = []
     for m in re.finditer(r"```(?:json)?\s*([\s\S]*?)```", text, re.I):
         try:
-            v = json.loads(m.group(1))
+            v = parse_quiz_json(m.group(1))
             if isinstance(v, list):
-                out.append(v)
-        except json.JSONDecodeError:
+                found.append((v, m.start()))
+        except (json.JSONDecodeError, ValueError):
             pass
-    if out:
-        return out
+    if found:
+        return found
     start = 0
     while start < len(text):
         frm = text.find("[", start)
@@ -152,13 +191,20 @@ def extract_json_arrays(text: str) -> list:
         if end == -1:
             break
         try:
-            parsed = json.loads(text[frm : end + 1])
+            parsed = parse_quiz_json(text[frm : end + 1])
             if isinstance(parsed, list) and parsed and isinstance(parsed[0], dict) and parsed[0].get("q"):
-                out.append(parsed)
-        except json.JSONDecodeError:
+                found.append((parsed, frm))
+        except (json.JSONDecodeError, ValueError):
             pass
         start = frm + 1
-    return out
+    return found
+
+
+def tidy_tex(value):
+    """Qwen marks 100^\\circ\\text{C} red; MathJax wants 100^{\\circ}\\text{C}."""
+    if not isinstance(value, str):
+        return value
+    return re.sub(r"\^\\circ\b", r"^{\\circ}", value)
 
 
 def letter_index(ch) -> int:
@@ -179,7 +225,7 @@ def normalize_item(raw, fallback_type, fallback_sub):
         typ = "blank"
     if typ not in ("mcq", "tf", "blank"):
         return None
-    q = re.sub(r"\s+", " ", str(raw.get("q") or raw.get("question") or "")).strip()
+    q = tidy_tex(re.sub(r"\s+", " ", str(raw.get("q") or raw.get("question") or "")).strip())
     if not q:
         return None
     sub = str(raw.get("sub") or raw.get("section") or raw.get("subchapter") or fallback_sub or "").strip()
@@ -187,13 +233,13 @@ def normalize_item(raw, fallback_type, fallback_sub):
     if sub:
         item["_sub"] = sub
     if raw.get("e"):
-        item["e"] = str(raw["e"]).strip()
+        item["e"] = tidy_tex(str(raw["e"]).strip())
 
     if typ == "mcq":
         opts = raw.get("a") or raw.get("options") or raw.get("choices")
         if not isinstance(opts, list) or len(opts) < 2:
             return None
-        item["a"] = [str("" if o is None else o).strip() for o in opts]
+        item["a"] = [tidy_tex(str("" if o is None else o).strip()) for o in opts]
         c = raw.get("c")
         if isinstance(c, str) and re.fullmatch(r"[A-Da-d]", c.strip()):
             c = letter_index(c)
@@ -223,7 +269,7 @@ def normalize_item(raw, fallback_type, fallback_sub):
             blank = a if a is not None and not isinstance(a, list) else raw.get("answer")
         if blank is None or str(blank).strip() == "":
             return None
-        item["c"] = str(blank).strip()
+        item["c"] = tidy_tex(str(blank).strip())
     return item
 
 
@@ -336,9 +382,15 @@ def parse_markdown(text: str, fallback_type: str) -> list:
 
 def parse_items(text: str, fallback_type: str) -> list:
     items = []
-    for arr in extract_json_arrays(text):
+    for arr, start in extract_json_arrays(text):
+        heading = heading_before(text, start)
         for raw in arr:
-            it = normalize_item(raw, fallback_type, raw.get("sub") or raw.get("section") if isinstance(raw, dict) else None)
+            extra = None
+            if isinstance(raw, dict):
+                extra = raw.get("sub") or raw.get("section") or heading
+            else:
+                extra = heading
+            it = normalize_item(raw, fallback_type, extra)
             if it:
                 items.append(it)
     if not items:
@@ -493,6 +545,34 @@ def self_test() -> None:
     blanks = parse_items(blank_md, "blank")
     if len(blanks) != 1 or blanks[0]["c"] != "outermost shell":
         raise AssertionError("markdown blank parse failed")
+
+    headed = "\n".join(
+        [
+            "1.1",
+            '[{"q":"Gas is simple.","type":"tf","c":"true"}]',
+            "1.2",
+            '[{"q":"Gas is heavy.","type":"tf","c":"false"}]',
+        ]
+    )
+    headed_tf = parse_items(headed, "tf")
+    if (
+        len(headed_tf) != 2
+        or headed_tf[0].get("_sub") != "1.1"
+        or headed_tf[1].get("_sub") != "1.2"
+    ):
+        raise AssertionError("headed json sub parse failed")
+
+    sid = share_id_from(
+        "https://chat.qwen.ai/s/t_11e892c9-f711-4195-9256-a5b374ea65bb?fev=0.2.89"
+    )
+    if sid != "t_11e892c9-f711-4195-9256-a5b374ea65bb":
+        raise AssertionError("t_ share id parse failed: " + repr(sid))
+    if tidy_tex(r"$100^\circ\text{C}$") != r"$100^{\circ}\text{C}$":
+        raise AssertionError("latex tidy failed")
+    messy = "1.2\n" + r'[{"q":"Boil at ____ $^\circ C$.","type":"blank","c":"100"}]'
+    messy_items = parse_items(messy, "blank")
+    if len(messy_items) != 1 or messy_items[0].get("_sub") != "1.2":
+        raise AssertionError("invalid tex json parse failed: " + repr(messy_items))
     print("self-test ok")
 
 
