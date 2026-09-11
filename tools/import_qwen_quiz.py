@@ -29,10 +29,42 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import ssl
 import sys
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+
+MAC_SSL_HELP = """
+Mac Python is missing HTTPS certificates. This is a one-time Mac setup, not a bad Qwen link.
+
+Do this:
+
+1. In Finder, open Applications and look for a folder named Python 3.12 (or 3.11 / 3.13).
+2. Double-click "Install Certificates.command".
+3. Wait until that window finishes, then close it.
+
+Or in Terminal paste:
+
+  python3 -m pip install --upgrade certifi
+
+Then run the import command again.
+""".strip()
+
+
+def ssl_context():
+    try:
+        import certifi
+
+        return ssl.create_default_context(cafile=certifi.where())
+    except Exception:
+        return ssl.create_default_context()
+
+
+def is_ssl_error(err) -> bool:
+    text = str(err).lower()
+    return "certificate" in text or "ssl" in text or "certifi" in text
+
 
 ROOT = Path(__file__).resolve().parent.parent
 TYPE_FILE = {"mcq": "MCQ", "tf": "True_False", "blank": "Fill_Blank"}
@@ -123,11 +155,13 @@ def fetch_share(share_id: str) -> dict:
         url = f"https://chat.qwen.ai/api/v2/chats/share/{share_id}"
     req = Request(url, headers={"User-Agent": USER_AGENT})
     try:
-        with urlopen(req, timeout=45) as resp:
+        with urlopen(req, timeout=45, context=ssl_context()) as resp:
             body = json.loads(resp.read().decode("utf-8"))
     except HTTPError as err:
         raise ImportError_(f"Qwen share HTTP {err.code} for {url}") from err
     except URLError as err:
+        if is_ssl_error(err):
+            raise ImportError_(MAC_SSL_HELP) from err
         raise ImportError_(f"Qwen share failed to load: {err}") from err
     if not body or body.get("success") is False:
         raise ImportError_(f"Qwen share failed: {json.dumps(body.get('data') or body)}")

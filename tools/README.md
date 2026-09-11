@@ -29,6 +29,8 @@ That writes:
 
 `--dry-run` prints paths without writing. `--self-test` checks the parser.
 
+On a Mac, if you see `CERTIFICATE_VERIFY_FAILED`, Python is missing certificates. Finder → Applications → **Python 3.xx** → double-click **Install Certificates.command**. Or run `python3 -m pip install --upgrade certifi`, then import again.
+
 If a share link will not load, copy the chat into a `.txt` and pass that path instead of the URL.
 
 Same flags work for `--grade 10` / `--grade 12` and `--sub phy` / `bio` / `eco`.
