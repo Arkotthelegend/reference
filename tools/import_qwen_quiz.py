@@ -1,40 +1,55 @@
 #!/usr/bin/env python3
 """Import Qwen share chats into REED quiz JSON files.
 
-No extra AI. Qwen already wrote the items; this script fetches the Share
-link (or a saved .txt) and writes Mini App quiz files.
+Paste whole Share links (?fev=0.2.89 is OK). Default output is quiz-upload/
+so you can copy files by hand — no GitHub pull request required.
 
-Example — Grade 11 Chemistry chapter 1 from 3 share links:
-
-  python3 tools/import_qwen_quiz.py --grade 11 --sub chem --chapter 1 \\
-    --mcq 'https://chat.qwen.ai/s/UUID-MCQ' \\
-    --tf  'https://chat.qwen.ai/s/UUID-TF' \\
-    --blank 'https://chat.qwen.ai/s/UUID-BLANK'
-
-Writes (and overwrites):
-  quizzes/G11/G11_chem_Chapter_1_1.1_MCQ.json
-  quizzes/G11/G11_chem_Chapter_1_1.2_MCQ.json
-  …
-  quizzes/G11/G11_chem_Chapter_1_MCQ.json          (whole chapter)
-  same pattern for True_False and Fill_Blank
-
-If a share link cannot be fetched, save the chat as a .txt / .md and pass:
-  --mcq ./chem-ch1-mcq.txt
-
-Flags: --dry-run   print files, do not write
-       --self-test run parser checks and exit
+  python3 tools/import_qwen_quiz.py
 """
 from __future__ import annotations
 
 import argparse
 import json
 import re
+import ssl
 import sys
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
+MAC_SSL_HELP = """
+Mac Python is missing HTTPS certificates. This is a one-time Mac setup, not a bad Qwen link.
+
+Do this:
+
+1. In Finder, open Applications and look for a folder named Python 3.12 (or 3.11 / 3.13).
+2. Double-click "Install Certificates.command".
+3. Wait until that window finishes, then close it.
+
+Or in Terminal paste:
+
+  python3 -m pip install --upgrade certifi
+
+Then run the import command again.
+""".strip()
+
+
+def ssl_context():
+    try:
+        import certifi
+
+        return ssl.create_default_context(cafile=certifi.where())
+    except Exception:
+        return ssl.create_default_context()
+
+
+def is_ssl_error(err) -> bool:
+    text = str(err).lower()
+    return "certificate" in text or "ssl" in text or "certifi" in text
+
+
 ROOT = Path(__file__).resolve().parent.parent
+UPLOAD_ROOT = ROOT / "quiz-upload"
 TYPE_FILE = {"mcq": "MCQ", "tf": "True_False", "blank": "Fill_Blank"}
 GRADE_DIR = {10: "G10", 11: "G11", 12: ""}
 GRADE_PREFIX = {10: "G10_", 11: "G11_", 12: ""}
@@ -45,8 +60,17 @@ class ImportError_(Exception):
     """Raised when a share or file cannot be turned into quiz items."""
 
 
+def clean_share_text(value: str) -> str:
+    """Paste the whole browser URL. Drops ?fev=0.2.89, quotes, and stray ]."""
+    s = (value or "").strip().strip("'\"")
+    s = s.replace("]", "").replace("[", "")
+    s = s.split("#", 1)[0]
+    s = s.split("?", 1)[0]
+    return s.strip().rstrip("/")
+
+
 def share_id_from(value: str) -> str:
-    s = (value or "").strip()
+    s = clean_share_text(value)
     m = re.search(r"chat\.qwen\.ai/s/(t_[0-9a-fA-F-]+|[0-9a-fA-F-]{8,})", s, re.I)
     if m:
         return m.group(1)
@@ -123,11 +147,13 @@ def fetch_share(share_id: str) -> dict:
         url = f"https://chat.qwen.ai/api/v2/chats/share/{share_id}"
     req = Request(url, headers={"User-Agent": USER_AGENT})
     try:
-        with urlopen(req, timeout=45) as resp:
+        with urlopen(req, timeout=45, context=ssl_context()) as resp:
             body = json.loads(resp.read().decode("utf-8"))
     except HTTPError as err:
         raise ImportError_(f"Qwen share HTTP {err.code} for {url}") from err
     except URLError as err:
+        if is_ssl_error(err):
+            raise ImportError_(MAC_SSL_HELP) from err
         raise ImportError_(f"Qwen share failed to load: {err}") from err
     if not body or body.get("success") is False:
         raise ImportError_(f"Qwen share failed: {json.dumps(body.get('data') or body)}")
@@ -411,9 +437,10 @@ def group_by_sub(items: list, chapter: int) -> dict:
     return groups
 
 
-def quiz_dir(grade: int) -> Path:
+def quiz_dir(grade: int, out_root: Path | None = None) -> Path:
+    base = Path(out_root) if out_root else UPLOAD_ROOT
     folder = GRADE_DIR.get(grade)
-    return ROOT / "quizzes" / folder if folder else ROOT / "quizzes"
+    return base / folder if folder else base
 
 
 def file_name(grade: int, sub: str, chapter: int, section: str, type_key: str) -> str:
@@ -449,7 +476,10 @@ def sort_subs(keys: list) -> list:
 
 def write_json(file: Path, data: list, dry_run: bool) -> dict:
     payload = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
-    rel = str(file.relative_to(ROOT))
+    try:
+        rel = str(file.relative_to(ROOT))
+    except ValueError:
+        rel = str(file)
     if dry_run:
         print(f"[dry-run] {file} ({len(data)} items)")
         return {"path": rel, "items": len(data), "dry_run": True}
@@ -465,7 +495,7 @@ def import_type(opts: dict, type_key: str, source: str) -> dict:
     if not items:
         raise ImportError_(f"No {type_key} items parsed from {source}")
     groups = group_by_sub(items, opts["chapter"])
-    directory = quiz_dir(opts["grade"])
+    directory = quiz_dir(opts["grade"], opts.get("out_root"))
     combined = []
     files = []
     for section in sort_subs(list(groups.keys())):
@@ -483,7 +513,14 @@ def import_type(opts: dict, type_key: str, source: str) -> dict:
     }
 
 
-def run_import(grade: int, sub: str, chapter: int, sources: dict, dry_run: bool = False) -> list:
+def run_import(
+    grade: int,
+    sub: str,
+    chapter: int,
+    sources: dict,
+    dry_run: bool = False,
+    out_root: Path | None = None,
+) -> list:
     if grade not in (10, 11, 12):
         raise ImportError_("--grade must be 10, 11, or 12")
     if not sub:
@@ -492,7 +529,15 @@ def run_import(grade: int, sub: str, chapter: int, sources: dict, dry_run: bool 
         raise ImportError_("--chapter must be a number")
     if not sources:
         raise ImportError_("Pass at least one of --mcq --tf --blank with a Qwen share URL or a local file.")
-    opts = {"grade": grade, "sub": sub.lower(), "chapter": chapter, "dry_run": dry_run}
+    dest = Path(out_root) if out_root else UPLOAD_ROOT
+    opts = {
+        "grade": grade,
+        "sub": sub.lower(),
+        "chapter": chapter,
+        "dry_run": dry_run,
+        "out_root": dest,
+    }
+    print("Saving into", dest)
     results = []
     for key, source in sources.items():
         if not source:
@@ -567,6 +612,11 @@ def self_test() -> None:
     )
     if sid != "t_11e892c9-f711-4195-9256-a5b374ea65bb":
         raise AssertionError("t_ share id parse failed: " + repr(sid))
+    sid2 = share_id_from(
+        "  'https://chat.qwen.ai/s/t_1aa08bf1-691a-4866-8555-709db4eba0dd?fev=0.2.8]9'  "
+    )
+    if sid2 != "t_1aa08bf1-691a-4866-8555-709db4eba0dd":
+        raise AssertionError("messy pasted url parse failed: " + repr(sid2))
     if tidy_tex(r"$100^\circ\text{C}$") != r"$100^{\circ}\text{C}$":
         raise AssertionError("latex tidy failed")
     messy = "1.2\n" + r'[{"q":"Boil at ____ $^\circ C$.","type":"blank","c":"100"}]'
@@ -578,15 +628,53 @@ def self_test() -> None:
 
 def parse_cli(argv=None) -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Import Qwen share chats into REED quiz JSON files.")
-    p.add_argument("--grade", type=int, default=11)
-    p.add_argument("--sub", default="chem")
-    p.add_argument("--chapter", type=int, default=1)
+    p.add_argument("--grade", type=int, default=None)
+    p.add_argument("--sub", default=None)
+    p.add_argument("--chapter", type=int, default=None)
     p.add_argument("--mcq")
     p.add_argument("--tf", "--true-false", dest="tf")
     p.add_argument("--blank", "--fill", "--fill-blank", dest="blank")
+    p.add_argument(
+        "--out",
+        default=str(UPLOAD_ROOT),
+        help="Folder for JSON files (default: quiz-upload). Copy this folder when you upload by hand.",
+    )
+    p.add_argument(
+        "--into-repo",
+        action="store_true",
+        help="Write into quizzes/ in this repo instead of quiz-upload/",
+    )
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--self-test", action="store_true")
     return p.parse_args(argv)
+
+
+def _ask(prompt: str, default: str = "") -> str:
+    suffix = f" [{default}]" if default else ""
+    raw = input(f"{prompt}{suffix}: ").strip()
+    return raw or default
+
+
+def interactive_sources() -> tuple[int, str, int, dict]:
+    print()
+    print("Paste the WHOLE Qwen Share link. ?fev=0.2.89 is OK — it is removed.")
+    print("Files go into the quiz-upload folder so you can copy them by hand.")
+    print()
+    grade = int(_ask("Grade (10 / 11 / 12)", "11"))
+    sub = _ask("Subject (chem / phy / bio / eco)", "chem").lower()
+    chapter = int(_ask("Chapter number", "1"))
+    print()
+    tf = _ask("Paste True/False link")
+    blank = _ask("Paste Fill-blank link")
+    mcq = _ask("Paste MCQ link")
+    sources = {}
+    if tf:
+        sources["tf"] = tf
+    if blank:
+        sources["blank"] = blank
+    if mcq:
+        sources["mcq"] = mcq
+    return grade, sub, chapter, sources
 
 
 def main(argv=None) -> int:
@@ -601,11 +689,33 @@ def main(argv=None) -> int:
         sources["tf"] = args.tf
     if args.blank:
         sources["blank"] = args.blank
+    grade = args.grade
+    sub = args.sub
+    chapter = args.chapter
+    if not sources:
+        if not sys.stdin.isatty():
+            print("No links given. Run without flags to paste them, or pass --tf --blank --mcq.", file=sys.stderr)
+            return 1
+        try:
+            grade, sub, chapter, sources = interactive_sources()
+        except (EOFError, KeyboardInterrupt):
+            print("\nCancelled.")
+            return 1
+        except ValueError:
+            print("Grade and chapter must be numbers.", file=sys.stderr)
+            return 1
+    grade = 11 if grade is None else grade
+    sub = "chem" if not sub else sub
+    chapter = 1 if chapter is None else chapter
+    out_root = ROOT / "quizzes" if args.into_repo else Path(args.out)
     try:
-        run_import(args.grade, args.sub, args.chapter, sources, dry_run=args.dry_run)
+        run_import(grade, sub, chapter, sources, dry_run=args.dry_run, out_root=out_root)
     except ImportError_ as err:
         print(str(err), file=sys.stderr)
         return 1
+    print()
+    print("Done. Copy the files from that folder and upload them yourself.")
+    print("You do not need a GitHub pull request for this.")
     return 0
 
 
