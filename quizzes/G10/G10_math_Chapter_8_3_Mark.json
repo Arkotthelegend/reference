@@ -1,0 +1,132 @@
+[
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( DE \\parallel BC \\). If \\( AD = 4 \\), \\( DB = x \\), \\( AE = 6 \\), and \\( EC = 9 \\), find the value of \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the Basic Proportionality Theorem (BPT), which states that \\( \\frac{AD}{DB} = \\frac{AE}{EC} \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{4}{x} = \\frac{6}{9} \\)</div><br><br>Step 2<br><br>Cross-multiply to solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6x = 4 \\times 9 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6x = 36 \\)</div><br><br>Step 3<br><br>Divide both sides by 6:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle PQR \\), points \\( S \\) and \\( T \\) are on \\( PQ \\) and \\( PR \\) respectively. If \\( PS = 5 \\), \\( SQ = 10 \\), \\( PT = 7 \\), and \\( TR = 14 \\), determine if \\( ST \\parallel QR \\) and justify your answer.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the ratio of the segments on side \\( PQ \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{PS}{SQ} = \\frac{5}{10} = \\frac{1}{2} \\)</div><br><br>Step 2<br><br>Calculate the ratio of the segments on side \\( PR \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{PT}{TR} = \\frac{7}{14} = \\frac{1}{2} \\)</div><br><br>Step 3<br><br>Since \\( \\frac{PS}{SQ} = \\frac{PT}{TR} \\), by the Converse of the Basic Proportionality Theorem, the line divides the two sides proportionally.<br><br><strong>Final Answer:</strong><br><br>Yes, \\( ST \\parallel QR \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( \\triangle ABC \\sim \\triangle DEF \\). If \\( \\angle A = 50^\\circ \\) and \\( \\angle B = 70^\\circ \\), find the measure of \\( \\angle F \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the measure of \\( \\angle C \\) in \\( \\triangle ABC \\) using the angle sum property of a triangle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\angle C = 180^\\circ - (\\angle A + \\angle B) \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\angle C = 180^\\circ - (50^\\circ + 70^\\circ) = 60^\\circ \\)</div><br><br>Step 2<br><br>State that corresponding angles of similar triangles are equal.<br><br>Step 3<br><br>Therefore, \\( \\angle F \\) corresponds to \\( \\angle C \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\angle F = \\angle C = 60^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\angle F = 60^\\circ \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\) and \\( \\triangle XYZ \\), \\( \\angle B = \\angle Y = 40^\\circ \\). If \\( AB = 6 \\), \\( BC = 8 \\), \\( XY = 9 \\), and \\( YZ = 12 \\), are the triangles similar? State the theorem used.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Check the ratio of the sides including the given equal angles:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{AB}{XY} = \\frac{6}{9} = \\frac{2}{3} \\)</div><br><br>Step 2<br><br>Check the ratio of the other pair of including sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{BC}{YZ} = \\frac{8}{12} = \\frac{2}{3} \\)</div><br><br>Step 3<br><br>Since \\( \\angle B = \\angle Y \\) and the including sides are proportional (\\( \\frac{AB}{XY} = \\frac{BC}{YZ} \\)), the triangles are similar by the SAS Similarity Theorem.<br><br><strong>Final Answer:</strong><br><br>Yes, \\( \\triangle ABC \\sim \\triangle XYZ \\) by SAS Similarity Theorem."
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle PQR \\sim \\triangle STU \\). The side lengths of \\( \\triangle PQR \\) are \\( PQ = 5 \\), \\( QR = 7 \\), and \\( RP = 9 \\). If \\( ST = 10 \\), find the perimeter of \\( \\triangle STU \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the scale factor \\( k \\) using the corresponding sides \\( ST \\) and \\( PQ \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k = \\frac{ST}{PQ} = \\frac{10}{5} = 2 \\)</div><br><br>Step 2<br><br>Calculate the perimeter of \\( \\triangle PQR \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P_{PQR} = 5 + 7 + 9 = 21 \\)</div><br><br>Step 3<br><br>The ratio of perimeters of similar triangles equals the scale factor. Calculate the perimeter of \\( \\triangle STU \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P_{STU} = k \\times P_{PQR} = 2 \\times 21 = 42 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 42 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( AD \\) bisects \\( \\angle A \\). If \\( AB = 12 \\), \\( AC = 8 \\), and \\( BD = 9 \\), find the length of \\( DC \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the Angle Bisector Theorem, which states that \\( \\frac{AB}{AC} = \\frac{BD}{DC} \\).<br><br>Step 2<br><br>Substitute the given values into the proportion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{12}{8} = \\frac{9}{DC} \\)</div><br><br>Step 3<br><br>Cross-multiply and solve for \\( DC \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 12 \\cdot DC = 8 \\times 9 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 12 \\cdot DC = 72 \\implies DC = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( DC = 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A right triangle has legs of length \\( 9 \\) cm and \\( 12 \\) cm. Find the length of the hypotenuse.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>State the Pythagoras Theorem: \\( c^2 = a^2 + b^2 \\), where \\( c \\) is the hypotenuse.<br><br>Step 2<br><br>Substitute the given leg lengths into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( c^2 = 9^2 + 12^2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( c^2 = 81 + 144 = 225 \\)</div><br><br>Step 3<br><br>Take the square root of both sides to find \\( c \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( c = \\sqrt{225} = 15 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 15 \\text{ cm} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine if a triangle with side lengths \\( 10 \\), \\( 24 \\), and \\( 26 \\) is a right triangle.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the longest side as the potential hypotenuse: \\( c = 26 \\). The other sides are \\( a = 10 \\) and \\( b = 24 \\).<br><br>Step 2<br><br>Check the Converse of the Pythagoras Theorem by calculating \\( a^2 + b^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 10^2 + 24^2 = 100 + 576 = 676 \\)</div><br><br>Step 3<br><br>Calculate \\( c^2 \\) and compare:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 26^2 = 676 \\)</div><br><br>Since \\( a^2 + b^2 = c^2 \\), the triangle is a right triangle.<br><br><strong>Final Answer:</strong><br><br>Yes, it is a right triangle."
+  },
+  {
+    "type": "math_show",
+    "q": "In right \\( \\triangle ABC \\) with \\( \\angle B = 90^\\circ \\), altitude \\( BD \\) is drawn to the hypotenuse \\( AC \\). If \\( AD = 4 \\) and \\( DC = 9 \\), find the length of \\( BD \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>State the geometric mean property for the altitude to the hypotenuse: \\( BD^2 = AD \\cdot DC \\).<br><br>Step 2<br><br>Substitute the given segment lengths:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( BD^2 = 4 \\times 9 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( BD^2 = 36 \\)</div><br><br>Step 3<br><br>Take the square root to find \\( BD \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( BD = \\sqrt{36} = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( BD = 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In a \\( 45^\\circ-45^\\circ-90^\\circ \\) triangle, the length of a leg is \\( 7 \\) cm. Find the length of the hypotenuse.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>State the property of a \\( 45^\\circ-45^\\circ-90^\\circ \\) triangle: the hypotenuse is equal to the length of a leg times \\( \\sqrt{2} \\).<br><br>Step 2<br><br>Substitute the given leg length into the relationship:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Hypotenuse} = 7 \\times \\sqrt{2} \\)</div><br><br>Step 3<br><br>Simplify the expression.<br><br><strong>Final Answer:</strong><br><br>\\( 7\\sqrt{2} \\text{ cm} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In a \\( 30^\\circ-60^\\circ-90^\\circ \\) triangle, the side opposite the \\( 30^\\circ \\) angle is \\( 5 \\) cm. Find the length of the side opposite the \\( 60^\\circ \\) angle.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>State the property of a \\( 30^\\circ-60^\\circ-90^\\circ \\) triangle: the leg opposite the \\( 60^\\circ \\) angle is equal to the leg opposite the \\( 30^\\circ \\) angle times \\( \\sqrt{3} \\).<br><br>Step 2<br><br>Substitute the given shorter leg length:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Longer leg} = 5 \\times \\sqrt{3} \\)</div><br><br>Step 3<br><br>Simplify the expression.<br><br><strong>Final Answer:</strong><br><br>\\( 5\\sqrt{3} \\text{ cm} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( DE \\parallel BC \\). If \\( AD = x \\), \\( DB = x + 2 \\), \\( AE = 3 \\), and \\( EC = 5 \\), find the value of \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the Basic Proportionality Theorem: \\( \\frac{AD}{DB} = \\frac{AE}{EC} \\).<br><br>Step 2<br><br>Substitute the given expressions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{x}{x + 2} = \\frac{3}{5} \\)</div><br><br>Step 3<br><br>Cross-multiply and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5x = 3(x + 2) \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5x = 3x + 6 \\implies 2x = 6 \\implies x = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\sim \\triangle DEF \\). The ratio of their corresponding sides is \\( 3:4 \\). If the perimeter of \\( \\triangle ABC \\) is \\( 27 \\), find the perimeter of \\( \\triangle DEF \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>State that the ratio of the perimeters of similar triangles is equal to the ratio of their corresponding sides.<br><br>Step 2<br><br>Set up the proportion with the unknown perimeter \\( P_{DEF} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{27}{P_{DEF}} = \\frac{3}{4} \\)</div><br><br>Step 3<br><br>Cross-multiply and solve for \\( P_{DEF} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3 \\cdot P_{DEF} = 27 \\times 4 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3 \\cdot P_{DEF} = 108 \\implies P_{DEF} = 36 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 36 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle PQR \\), \\( PS \\) bisects \\( \\angle P \\). If \\( PQ = 15 \\), \\( PR = 10 \\), and \\( QR = 20 \\), find the lengths of \\( QS \\) and \\( SR \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>By the Angle Bisector Theorem, \\( \\frac{QS}{SR} = \\frac{PQ}{PR} = \\frac{15}{10} = \\frac{3}{2} \\).<br><br>Step 2<br><br>Let \\( QS = 3k \\) and \\( SR = 2k \\). Since \\( QS + SR = QR \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3k + 2k = 20 \\implies 5k = 20 \\implies k = 4 \\)</div><br><br>Step 3<br><br>Calculate the individual lengths:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( QS = 3(4) = 12 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( SR = 2(4) = 8 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( QS = 12 \\), \\( SR = 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A right triangle has a hypotenuse of \\( 13 \\) cm and one leg of \\( 5 \\) cm. Find the length of the other leg.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>State the Pythagoras Theorem: \\( a^2 + b^2 = c^2 \\), where \\( c \\) is the hypotenuse.<br><br>Step 2<br><br>Substitute the known values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5^2 + b^2 = 13^2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 25 + b^2 = 169 \\)</div><br><br>Step 3<br><br>Solve for \\( b \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b^2 = 169 - 25 = 144 \\implies b = \\sqrt{144} = 12 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12 \\text{ cm} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In right \\( \\triangle ABC \\) (\\( \\angle B = 90^\\circ \\)), altitude \\( BD \\) is drawn to hypotenuse \\( AC \\). If \\( AB = 10 \\) and \\( AD = 5 \\), find the length of \\( AC \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>State the geometric mean property for a leg of a right triangle: \\( AB^2 = AD \\cdot AC \\).<br><br>Step 2<br><br>Substitute the given values into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 10^2 = 5 \\cdot AC \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 100 = 5 \\cdot AC \\)</div><br><br>Step 3<br><br>Solve for \\( AC \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AC = \\frac{100}{5} = 20 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( AC = 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the value of \\( x \\) for which \\( \\triangle ABC \\sim \\triangle DEF \\) by SAS similarity, given \\( \\angle A = \\angle D = 50^\\circ \\), \\( AB = 4 \\), \\( AC = x \\), \\( DE = 6 \\), and \\( DF = 9 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>For SAS similarity, the ratio of the sides including the equal angles must be proportional: \\( \\frac{AB}{DE} = \\frac{AC}{DF} \\).<br><br>Step 2<br><br>Substitute the given values into the proportion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{4}{6} = \\frac{x}{9} \\)</div><br><br>Step 3<br><br>Cross-multiply and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6x = 4 \\times 9 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6x = 36 \\implies x = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In the figure, \\( AB \\parallel CD \\parallel EF \\). If \\( AC = 4 \\), \\( CE = 6 \\), and \\( BD = 5 \\), find the length of \\( DF \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the postulate that three parallel lines intersecting two transversals divide the transversals proportionally: \\( \\frac{AC}{CE} = \\frac{BD}{DF} \\).<br><br>Step 2<br><br>Substitute the given segment lengths:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{4}{6} = \\frac{5}{DF} \\)</div><br><br>Step 3<br><br>Cross-multiply and solve for \\( DF \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4 \\cdot DF = 6 \\times 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4 \\cdot DF = 30 \\implies DF = 7.5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( DF = 7.5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In a \\( 30^\\circ-60^\\circ-90^\\circ \\) triangle, the hypotenuse is \\( 16 \\) cm. Find the length of the shorter leg.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>State the property of a \\( 30^\\circ-60^\\circ-90^\\circ \\) triangle: the leg opposite the \\( 30^\\circ \\) angle is one-half the length of the hypotenuse.<br><br>Step 2<br><br>Substitute the given hypotenuse length:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Shorter leg} = \\frac{16}{2} \\)</div><br><br>Step 3<br><br>Simplify the expression.<br><br><strong>Final Answer:</strong><br><br>\\( 8 \\text{ cm} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( D \\) and \\( E \\) are points on \\( AB \\) and \\( AC \\) such that \\( DE \\parallel BC \\). If \\( AB = 12 \\), \\( AD = 8 \\), and \\( AC = 15 \\), find the length of \\( AE \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the Basic Proportionality Theorem in the form \\( \\frac{AD}{AB} = \\frac{AE}{AC} \\).<br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{8}{12} = \\frac{AE}{15} \\)</div><br><br>Step 3<br><br>Cross-multiply and solve for \\( AE \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 12 \\cdot AE = 8 \\times 15 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 12 \\cdot AE = 120 \\implies AE = 10 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( AE = 10 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine if a triangle with side lengths \\( 8 \\), \\( 15 \\), and \\( 17 \\) is a right triangle.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the longest side as the potential hypotenuse: \\( c = 17 \\). The other sides are \\( a = 8 \\) and \\( b = 15 \\).<br><br>Step 2<br><br>Check the Converse of the Pythagoras Theorem by calculating \\( a^2 + b^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 8^2 + 15^2 = 64 + 225 = 289 \\)</div><br><br>Step 3<br><br>Calculate \\( c^2 \\) and compare:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 17^2 = 289 \\)</div><br><br>Since \\( a^2 + b^2 = c^2 \\), the triangle is a right triangle.<br><br><strong>Final Answer:</strong><br><br>Yes, it is a right triangle."
+  },
+  {
+    "type": "math_show",
+    "q": "In right \\( \\triangle ABC \\) (\\( \\angle C = 90^\\circ \\)), altitude \\( CD \\) is drawn to hypotenuse \\( AB \\). If \\( CD = 6 \\) and \\( AD = 4 \\), find the length of \\( DB \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>State the geometric mean property for the altitude to the hypotenuse: \\( CD^2 = AD \\cdot DB \\).<br><br>Step 2<br><br>Substitute the given values into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6^2 = 4 \\cdot DB \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 36 = 4 \\cdot DB \\)</div><br><br>Step 3<br><br>Solve for \\( DB \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( DB = \\frac{36}{4} = 9 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( DB = 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle PQR \\), \\( PS \\) is the angle bisector of \\( \\angle P \\). If \\( PQ = 18 \\), \\( PR = 12 \\), and \\( QS = 9 \\), find the length of \\( SR \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the Angle Bisector Theorem: \\( \\frac{PQ}{PR} = \\frac{QS}{SR} \\).<br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{18}{12} = \\frac{9}{SR} \\)</div><br><br>Step 3<br><br>Cross-multiply and solve for \\( SR \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 18 \\cdot SR = 12 \\times 9 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 18 \\cdot SR = 108 \\implies SR = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( SR = 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( DE \\parallel BC \\). If \\( AD = 2x \\), \\( DB = 3x \\), and \\( AE = 10 \\), find the length of \\( EC \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the Basic Proportionality Theorem: \\( \\frac{AD}{DB} = \\frac{AE}{EC} \\).<br><br>Step 2<br><br>Substitute the given expressions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{2x}{3x} = \\frac{10}{EC} \\)</div><br><br>Step 3<br><br>Simplify the left side and solve for \\( EC \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{2}{3} = \\frac{10}{EC} \\implies 2 \\cdot EC = 30 \\implies EC = 15 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( EC = 15 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\sim \\triangle DEF \\). The side lengths of \\( \\triangle ABC \\) are \\( AB = 6 \\), \\( BC = 8 \\), and \\( CA = 10 \\). If \\( DE = 9 \\), find the lengths of \\( EF \\) and \\( FD \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the scale factor \\( k \\) using the corresponding sides \\( DE \\) and \\( AB \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k = \\frac{DE}{AB} = \\frac{9}{6} = 1.5 \\)</div><br><br>Step 2<br><br>Calculate \\( EF \\) by multiplying \\( BC \\) by the scale factor:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( EF = 1.5 \\times 8 = 12 \\)</div><br><br>Step 3<br><br>Calculate \\( FD \\) by multiplying \\( CA \\) by the scale factor:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( FD = 1.5 \\times 10 = 15 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( EF = 12 \\), \\( FD = 15 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A right triangle has legs in the ratio \\( 3:4 \\). If the hypotenuse is \\( 20 \\) cm, find the lengths of the legs.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the legs be \\( 3x \\) and \\( 4x \\). Apply the Pythagoras Theorem:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (3x)^2 + (4x)^2 = 20^2 \\)</div><br><br>Step 2<br><br>Expand and simplify the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 9x^2 + 16x^2 = 400 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 25x^2 = 400 \\implies x^2 = 16 \\implies x = 4 \\)</div><br><br>Step 3<br><br>Calculate the lengths of the legs:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3(4) = 12 \\text{ cm} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4(4) = 16 \\text{ cm} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12 \\text{ cm} \\) and \\( 16 \\text{ cm} \\)"
+  }
+]
