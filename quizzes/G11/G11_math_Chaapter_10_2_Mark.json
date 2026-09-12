@@ -1,0 +1,127 @@
+[
+  {
+    "type": "math_show",
+    "q": "Find the basic acute angle of \\( 240^\\circ \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Determine the quadrant of the angle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 240^\\circ \\) lies in the third quadrant.</div><br><br>Step 2<br><br>Subtract \\( 180^\\circ \\) to find the basic acute angle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 240^\\circ - 180^\\circ = 60^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 60^\\circ \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the exact value of \\( \\sin(-120^\\circ) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the negative angle identity:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin(-120^\\circ) = -\\sin(120^\\circ) \\)</div><br><br>Step 2<br><br>Express \\( 120^\\circ \\) using its basic acute angle in the second quadrant:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -\\sin(180^\\circ - 60^\\circ) = -\\sin 60^\\circ = -\\frac{\\sqrt{3}}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{\\sqrt{3}}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve \\( \\cos x = -\\frac{\\sqrt{3}}{2} \\) for \\( 0^\\circ \\le x \\le 360^\\circ \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the basic acute angle and quadrants where cosine is negative:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos 30^\\circ = \\frac{\\sqrt{3}}{2} \\), so the basic acute angle is \\( 30^\\circ \\). Cosine is negative in the second and third quadrants.</div><br><br>Step 2<br><br>Calculate the angles in those quadrants:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 180^\\circ - 30^\\circ = 150^\\circ \\) or \\( x = 180^\\circ + 30^\\circ = 210^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 150^\\circ, 210^\\circ \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the exact value of \\( \\tan 225^\\circ \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Determine the quadrant and basic acute angle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 225^\\circ \\) is in the third quadrant, with a basic acute angle of \\( 225^\\circ - 180^\\circ = 45^\\circ \\).</div><br><br>Step 2<br><br>Apply the sign for tangent in the third quadrant (positive):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\tan 225^\\circ = \\tan 45^\\circ = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the exact value of \\( \\cos 105^\\circ \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Express \\( 105^\\circ \\) as a sum of standard angles:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos 105^\\circ = \\cos(60^\\circ + 45^\\circ) \\)</div><br><br>Step 2<br><br>Apply the compound angle formula for cosine:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos 60^\\circ \\cos 45^\\circ - \\sin 60^\\circ \\sin 45^\\circ = \\left(\\frac{1}{2}\\right)\\left(\\frac{\\sqrt{2}}{2}\\right) - \\left(\\frac{\\sqrt{3}}{2}\\right)\\left(\\frac{\\sqrt{2}}{2}\\right) = \\frac{\\sqrt{2} - \\sqrt{6}}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{\\sqrt{2} - \\sqrt{6}}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( \\sin \\theta = \\frac{3}{5} \\) and \\( \\theta \\) is an acute angle, find the exact value of \\( \\sin 2\\theta \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find \\( \\cos \\theta \\) using the Pythagorean identity for an acute angle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos \\theta = \\sqrt{1 - \\sin^2 \\theta} = \\sqrt{1 - \\left(\\frac{3}{5}\\right)^2} = \\sqrt{\\frac{16}{25}} = \\frac{4}{5} \\)</div><br><br>Step 2<br><br>Apply the double angle formula for sine:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin 2\\theta = 2 \\sin \\theta \\cos \\theta = 2 \\left(\\frac{3}{5}\\right) \\left(\\frac{4}{5}\\right) = \\frac{24}{25} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{24}{25} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( \\cos x = \\frac{1}{3} \\), find the exact value of \\( \\cos 2x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Select the appropriate double angle formula for cosine:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos 2x = 2\\cos^2 x - 1 \\)</div><br><br>Step 2<br><br>Substitute the given value and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos 2x = 2\\left(\\frac{1}{3}\\right)^2 - 1 = 2\\left(\\frac{1}{9}\\right) - 1 = \\frac{2}{9} - \\frac{9}{9} = -\\frac{7}{9} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{7}{9} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express \\( \\sqrt{3} \\sin x + \\cos x \\) in the form \\( R \\sin(x + \\alpha) \\), where \\( R > 0 \\) and \\( 0^\\circ \\le \\alpha \\le 90^\\circ \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the amplitude \\( R \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( R = \\sqrt{(\\sqrt{3})^2 + 1^2} = \\sqrt{3 + 1} = \\sqrt{4} = 2 \\)</div><br><br>Step 2<br><br>Find the phase angle \\( \\alpha \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos \\alpha = \\frac{\\sqrt{3}}{2} \\) and \\( \\sin \\alpha = \\frac{1}{2} \\implies \\alpha = 30^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\sin(x + 30^\\circ) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express \\( \\sin 50^\\circ + \\sin 10^\\circ \\) as a product.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the sum-to-product formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin A + \\sin B = 2 \\sin\\left(\\frac{A+B}{2}\\right) \\cos\\left(\\frac{A-B}{2}\\right) \\)</div><br><br>Step 2<br><br>Substitute \\( A = 50^\\circ \\) and \\( B = 10^\\circ \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2 \\sin\\left(\\frac{60^\\circ}{2}\\right) \\cos\\left(\\frac{40^\\circ}{2}\\right) = 2 \\sin 30^\\circ \\cos 20^\\circ = 2\\left(\\frac{1}{2}\\right)\\cos 20^\\circ = \\cos 20^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\cos 20^\\circ \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express \\( 2 \\cos 70^\\circ \\cos 20^\\circ \\) as a sum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the product-to-sum formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2 \\cos A \\cos B = \\cos(A+B) + \\cos(A-B) \\)</div><br><br>Step 2<br><br>Substitute \\( A = 70^\\circ \\) and \\( B = 20^\\circ \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos(70^\\circ + 20^\\circ) + \\cos(70^\\circ - 20^\\circ) = \\cos 90^\\circ + \\cos 50^\\circ = 0 + \\cos 50^\\circ = \\cos 50^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\cos 50^\\circ \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( a = 5 \\), \\( c = 8 \\), and \\( B = 60^\\circ \\). Find the length of side \\( b \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the Law of Cosines:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b^2 = a^2 + c^2 - 2ac \\cos B \\)</div><br><br>Step 2<br><br>Substitute the given values and solve:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b^2 = 5^2 + 8^2 - 2(5)(8)\\cos 60^\\circ = 25 + 64 - 80\\left(\\frac{1}{2}\\right) = 89 - 40 = 49 \\)</div><br><br>\\( b = \\sqrt{49} = 7 \\)<br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( A = 45^\\circ \\), \\( B = 60^\\circ \\), and \\( a = 10 \\). Find the exact length of side \\( b \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the Law of Sines:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\implies b = \\frac{a \\sin B}{\\sin A} \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b = \\frac{10 \\sin 60^\\circ}{\\sin 45^\\circ} = \\frac{10 \\left(\\frac{\\sqrt{3}}{2}\\right)}{\\frac{\\sqrt{2}}{2}} = \\frac{10\\sqrt{3}}{\\sqrt{2}} = 5\\sqrt{6} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5\\sqrt{6} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the area of \\( \\triangle ABC \\) given \\( a = 6 \\), \\( b = 8 \\), and \\( C = 30^\\circ \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the area formula using two sides and the included angle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\frac{1}{2}ab \\sin C \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\frac{1}{2}(6)(8)\\sin 30^\\circ = 24 \\left(\\frac{1}{2}\\right) = 12 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the area of a triangle with side lengths 5, 5, and 6 using Heron's formula.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the semi-perimeter \\( s \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( s = \\frac{5 + 5 + 6}{2} = \\frac{16}{2} = 8 \\)</div><br><br>Step 2<br><br>Apply Heron's formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\sqrt{s(s-a)(s-b)(s-c)} = \\sqrt{8(8-5)(8-5)(8-6)} = \\sqrt{8 \\times 3 \\times 3 \\times 2} = \\sqrt{144} = 12 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A ship sails from point P to point Q on a bearing of \\( 060^\\circ \\). What is the three-figure bearing of P from Q?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the rule for finding a back bearing:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Back bearing} = \\text{Forward bearing} + 180^\\circ \\) (if forward bearing \\( < 180^\\circ \\))</div><br><br>Step 2<br><br>Calculate the back bearing:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 060^\\circ + 180^\\circ = 240^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 240^\\circ \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve \\( \\sin 2x = \\sin x \\) for \\( 0^\\circ \\le x \\le 360^\\circ \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand using the double angle formula and factorize:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2\\sin x \\cos x - \\sin x = 0 \\implies \\sin x (2\\cos x - 1) = 0 \\)</div><br><br>Step 2<br><br>Solve each factor for \\( x \\) in the given range:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin x = 0 \\implies x = 0^\\circ, 180^\\circ, 360^\\circ \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos x = \\frac{1}{2} \\implies x = 60^\\circ, 300^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 0^\\circ, 60^\\circ, 180^\\circ, 300^\\circ, 360^\\circ \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Simplify the expression \\( \\sin(180^\\circ - \\theta) \\cos(90^\\circ + \\theta) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the trigonometric identities for related angles:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin(180^\\circ - \\theta) = \\sin \\theta \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos(90^\\circ + \\theta) = -\\sin \\theta \\)</div><br><br>Step 2<br><br>Multiply the simplified terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (\\sin \\theta)(-\\sin \\theta) = -\\sin^2 \\theta \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\sin^2 \\theta \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( \\tan \\alpha = \\frac{1}{2} \\) and \\( \\tan \\beta = \\frac{1}{3} \\), find the exact value of \\( \\tan(\\alpha + \\beta) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the compound angle formula for tangent:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\tan(\\alpha + \\beta) = \\frac{\\tan \\alpha + \\tan \\beta}{1 - \\tan \\alpha \\tan \\beta} \\)</div><br><br>Step 2<br><br>Substitute the given values and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{\\frac{1}{2} + \\frac{1}{3}}{1 - \\left(\\frac{1}{2}\\right)\\left(\\frac{1}{3}\\right)} = \\frac{\\frac{5}{6}}{1 - \\frac{1}{6}} = \\frac{\\frac{5}{6}}{\\frac{5}{6}} = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the basic acute angle of \\( -210^\\circ \\) and hence find the exact value of \\( \\cos(-210^\\circ) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the coterminal positive angle and its basic acute angle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -210^\\circ + 360^\\circ = 150^\\circ \\) (second quadrant). Basic acute angle = \\( 180^\\circ - 150^\\circ = 30^\\circ \\).</div><br><br>Step 2<br><br>Evaluate the cosine, noting it is negative in the second quadrant:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos(-210^\\circ) = \\cos(150^\\circ) = -\\cos 30^\\circ = -\\frac{\\sqrt{3}}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{\\sqrt{3}}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve \\( \\tan(x - 30^\\circ) = 1 \\) for \\( 0^\\circ \\le x \\le 360^\\circ \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the principal angles for the tangent function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 30^\\circ = 45^\\circ \\) or \\( x - 30^\\circ = 225^\\circ \\)</div><br><br>Step 2<br><br>Solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 45^\\circ + 30^\\circ = 75^\\circ \\) or \\( x = 225^\\circ + 30^\\circ = 255^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 75^\\circ, 255^\\circ \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( a = 7 \\), \\( b = 8 \\), and \\( c = 9 \\). Find the exact value of \\( \\cos A \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rearrange the Law of Cosines to solve for \\( \\cos A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos A = \\frac{b^2 + c^2 - a^2}{2bc} \\)</div><br><br>Step 2<br><br>Substitute the side lengths and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos A = \\frac{8^2 + 9^2 - 7^2}{2(8)(9)} = \\frac{64 + 81 - 49}{144} = \\frac{96}{144} = \\frac{2}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\frac{\\sin 150^\\circ \\cos 225^\\circ}{\\tan 300^\\circ} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the exact value of each trigonometric ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin 150^\\circ = \\frac{1}{2} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos 225^\\circ = -\\frac{\\sqrt{2}}{2} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\tan 300^\\circ = -\\sqrt{3} \\)</div><br><br>Step 2<br><br>Substitute and simplify the fraction:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{\\left(\\frac{1}{2}\\right)\\left(-\\frac{\\sqrt{2}}{2}\\right)}{-\\sqrt{3}} = \\frac{-\\frac{\\sqrt{2}}{4}}{-\\sqrt{3}} = \\frac{\\sqrt{2}}{4\\sqrt{3}} = \\frac{\\sqrt{6}}{12} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{\\sqrt{6}}{12} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express \\( \\cos 80^\\circ - \\cos 40^\\circ \\) as a product.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the sum-to-product formula for the difference of cosines:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos A - \\cos B = -2 \\sin\\left(\\frac{A+B}{2}\\right) \\sin\\left(\\frac{A-B}{2}\\right) \\)</div><br><br>Step 2<br><br>Substitute \\( A = 80^\\circ \\) and \\( B = 40^\\circ \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -2 \\sin\\left(\\frac{120^\\circ}{2}\\right) \\sin\\left(\\frac{40^\\circ}{2}\\right) = -2 \\sin 60^\\circ \\sin 20^\\circ = -2\\left(\\frac{\\sqrt{3}}{2}\\right)\\sin 20^\\circ = -\\sqrt{3} \\sin 20^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\sqrt{3} \\sin 20^\\circ \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A triangle has sides \\( a = 4 \\) and \\( b = 5 \\), and its area is \\( 5\\sqrt{3} \\). Find the included angle \\( C \\), given that \\( C \\) is acute.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the area formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\frac{1}{2}ab \\sin C \\implies 5\\sqrt{3} = \\frac{1}{2}(4)(5) \\sin C \\)</div><br><br>Step 2<br><br>Solve for \\( \\sin C \\) and find the acute angle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5\\sqrt{3} = 10 \\sin C \\implies \\sin C = \\frac{5\\sqrt{3}}{10} = \\frac{\\sqrt{3}}{2} \\)</div><br><br>Since \\( C \\) is acute, \\( C = 60^\\circ \\).<br><br><strong>Final Answer:</strong><br><br>\\( 60^\\circ \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve \\( \\cos 2x + \\cos x = 0 \\) for \\( 0^\\circ \\le x \\le 360^\\circ \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the double angle identity \\( \\cos 2x = 2\\cos^2 x - 1 \\) and factorize:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2\\cos^2 x + \\cos x - 1 = 0 \\implies (2\\cos x - 1)(\\cos x + 1) = 0 \\)</div><br><br>Step 2<br><br>Solve each factor for \\( x \\) in the given range:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos x = \\frac{1}{2} \\implies x = 60^\\circ, 300^\\circ \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos x = -1 \\implies x = 180^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 60^\\circ, 180^\\circ, 300^\\circ \\)"
+  }
+]
