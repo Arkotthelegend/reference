@@ -1,0 +1,122 @@
+[
+  {
+    "type": "math_show",
+    "q": "Convert the quadratic function \\( y = x^2 - 6x + 11 \\) to vertex form and describe its translation from the graph of \\( y = x^2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Complete the square for the quadratic expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = x^2 - 6x + 11 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (x^2 - 6x + 9) - 9 + 11 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (x - 3)^2 + 2 \\)</div><br><br>Step 2<br><br>Identify the vertex \\( (h, k) \\) from the vertex form \\( y = (x - h)^2 + k \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (h, k) = (3, 2) \\)</div><br><br>Step 3<br><br>Describe the translation from \\( y = x^2 \\):<br><br>The graph is translated 3 units horizontally to the right and 2 units vertically up.<br><br><strong>Final Answer:</strong><br><br>Vertex form: \\( y = (x - 3)^2 + 2 \\). Translation: 3 units right, 2 units up."
+  },
+  {
+    "type": "math_show",
+    "q": "Convert the quadratic function \\( y = -x^2 + 8x - 19 \\) to vertex form and describe its translation from the graph of \\( y = -x^2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor out the negative sign and complete the square:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(x^2 - 8x) - 19 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(x^2 - 8x + 16) + 16 - 19 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(x - 4)^2 - 3 \\)</div><br><br>Step 2<br><br>Identify the vertex \\( (h, k) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (h, k) = (4, -3) \\)</div><br><br>Step 3<br><br>Describe the translation from \\( y = -x^2 \\):<br><br>The graph is translated 4 units horizontally to the right and 3 units vertically down.<br><br><strong>Final Answer:</strong><br><br>Vertex form: \\( y = -(x - 4)^2 - 3 \\). Translation: 4 units right, 3 units down."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the vertex, axis of symmetry, and y-intercept of the quadratic function \\( y = 3x^2 - 12x + 7 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the x-coordinate of the vertex using \\( x = -\\frac{b}{2a} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = -\\frac{-12}{2(3)} = \\frac{12}{6} = 2 \\)</div><br><br>Step 2<br><br>Substitute \\( x = 2 \\) to find the y-coordinate of the vertex:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 3(2)^2 - 12(2) + 7 = 12 - 24 + 7 = -5 \\)</div><br><br>Step 3<br><br>State the axis of symmetry and y-intercept (where \\( x = 0 \\)):<br><br>Axis of symmetry is \\( x = 2 \\).<br><br>y-intercept is \\( (0, 7) \\).<br><br><strong>Final Answer:</strong><br><br>Vertex: \\( (2, -5) \\), Axis of symmetry: \\( x = 2 \\), y-intercept: \\( (0, 7) \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the vertex form, vertex, and range of the quadratic function \\( y = -2x^2 + 4x + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Complete the square to find the vertex form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -2(x^2 - 2x) + 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -2(x^2 - 2x + 1) + 2 + 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -2(x - 1)^2 + 3 \\)</div><br><br>Step 2<br><br>Identify the vertex \\( (h, k) \\) from the vertex form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Vertex} = (1, 3) \\)</div><br><br>Step 3<br><br>Determine the range. Since \\( a = -2 < 0 \\), the parabola opens down and \\( k \\) is the maximum value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Range: } y \\leq 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>Vertex form: \\( y = -2(x - 1)^2 + 3 \\), Vertex: \\( (1, 3) \\), Range: \\( y \\leq 3 \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Find two positive numbers whose sum is 24 and whose product is as large as possible.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the two numbers be \\( x \\) and \\( 24 - x \\). Their product \\( P \\) is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P = x(24 - x) = 24x - x^2 \\)</div><br><br>Step 2<br><br>Rewrite the product function in vertex form to find the maximum:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P = -(x^2 - 24x) = -(x^2 - 24x + 144) + 144 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P = -(x - 12)^2 + 144 \\)</div><br><br>Step 3<br><br>The maximum product occurs at the vertex \\( x = 12 \\). The other number is \\( 24 - 12 = 12 \\).<br><br><strong>Final Answer:</strong><br><br>The two numbers are \\( 12 \\) and \\( 12 \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "What is the largest area possible for a rectangle whose perimeter is 24 cm?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the length be \\( l \\) and the breadth be \\( w \\). The perimeter is \\( 2l + 2w = 24 \\), so \\( l + w = 12 \\) and \\( w = 12 - l \\).<br><br>Step 2<br><br>Express the area \\( A \\) in terms of \\( l \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A = l \\cdot w = l(12 - l) = 12l - l^2 \\)</div><br><br>Step 3<br><br>Complete the square to find the maximum area:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A = -(l^2 - 12l + 36) + 36 = -(l - 6)^2 + 36 \\)</div><br><br>The maximum area is 36 when \\( l = 6 \\).<br><br><strong>Final Answer:</strong><br><br>The largest area is \\( 36 \\text{ cm}^2 \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the discriminant of the quadratic function \\( y = 2x^2 - 5x + 4 \\) and determine the number of x-intercepts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the coefficients \\( a = 2 \\), \\( b = -5 \\), and \\( c = 4 \\).<br><br>Step 2<br><br>Calculate the discriminant \\( \\Delta = b^2 - 4ac \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\Delta = (-5)^2 - 4(2)(4) = 25 - 32 = -7 \\)</div><br><br>Step 3<br><br>Since the discriminant is less than 0 (\\( -7 < 0 \\)), the graph does not cut the x-axis.<br><br><strong>Final Answer:</strong><br><br>Discriminant: \\( -7 \\). Number of x-intercepts: \\( 0 \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the discriminant of the quadratic function \\( y = -x^2 + 6x - 9 \\) and determine the number of x-intercepts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the coefficients \\( a = -1 \\), \\( b = 6 \\), and \\( c = -9 \\).<br><br>Step 2<br><br>Calculate the discriminant \\( \\Delta = b^2 - 4ac \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\Delta = (6)^2 - 4(-1)(-9) = 36 - 36 = 0 \\)</div><br><br>Step 3<br><br>Since the discriminant is equal to 0, the graph meets the x-axis at exactly one point (the vertex).<br><br><strong>Final Answer:</strong><br><br>Discriminant: \\( 0 \\). Number of x-intercepts: \\( 1 \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the intercept form, x-intercepts, and vertex of the quadratic function \\( y = x^2 - 5x + 6 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor the quadratic expression to find the intercept form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (x - 2)(x - 3) \\)</div><br><br>Step 2<br><br>The x-intercepts are the values that make \\( y = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 2 \\text{ and } x = 3 \\)</div><br><br>Step 3<br><br>The x-coordinate of the vertex is the midpoint of the x-intercepts: \\( x = \\frac{2 + 3}{2} = 2.5 \\).<br><br>Substitute \\( x = 2.5 \\) to find the y-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (2.5)^2 - 5(2.5) + 6 = 6.25 - 12.5 + 6 = -0.25 \\)</div><br><br><strong>Final Answer:</strong><br><br>Intercept form: \\( y = (x - 2)(x - 3) \\), x-intercepts: \\( 2, 3 \\), Vertex: \\( (2.5, -0.25) \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the quadratic equation \\( 3x^2 - 5x - 2 = 0 \\) using the quadratic formula.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the coefficients \\( a = 3 \\), \\( b = -5 \\), and \\( c = -2 \\).<br><br>Step 2<br><br>Substitute into the quadratic formula \\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{-(-5) \\pm \\sqrt{(-5)^2 - 4(3)(-2)}}{2(3)} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{5 \\pm \\sqrt{25 + 24}}{6} = \\frac{5 \\pm \\sqrt{49}}{6} \\)</div><br><br>Step 3<br><br>Simplify to find the two solutions:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{5 \\pm 7}{6} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{12}{6} = 2 \\quad \\text{or} \\quad x = \\frac{-2}{6} = -\\frac{1}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 2 \\) or \\( x = -\\frac{1}{3} \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the quadratic equation \\( 2x^2 + 4x + 5 = 0 \\) using the quadratic formula and state the nature of the roots.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the coefficients \\( a = 2 \\), \\( b = 4 \\), and \\( c = 5 \\).<br><br>Step 2<br><br>Calculate the discriminant \\( b^2 - 4ac \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b^2 - 4ac = (4)^2 - 4(2)(5) = 16 - 40 = -24 \\)</div><br><br>Step 3<br><br>Since the discriminant is less than 0, the square root of a negative number is not a real number. Therefore, the equation has no real solutions.<br><br><strong>Final Answer:</strong><br><br>No real solution."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the system of equations: \\( x^2 + y^2 = 20 \\) and \\( y = x - 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( y = x - 2 \\) into the first equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + (x - 2)^2 = 20 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + x^2 - 4x + 4 = 20 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x^2 - 4x - 16 = 0 \\)</div><br><br>Step 2<br><br>Divide by 2 and factor the quadratic equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 2x - 8 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x - 4)(x + 2) = 0 \\)</div><br><br>Step 3<br><br>Solve for \\( x \\) and find the corresponding \\( y \\) values:<br><br>If \\( x = 4 \\), \\( y = 4 - 2 = 2 \\).<br><br>If \\( x = -2 \\), \\( y = -2 - 2 = -4 \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\{(4, 2), (-2, -4)\\} \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the system of equations: \\( x^2 + y^2 = 13 \\) and \\( x + y = 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite the linear equation as \\( y = 5 - x \\) and substitute into the first equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + (5 - x)^2 = 13 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + 25 - 10x + x^2 = 13 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x^2 - 10x + 12 = 0 \\)</div><br><br>Step 2<br><br>Divide by 2 and factor the quadratic equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 5x + 6 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x - 2)(x - 3) = 0 \\)</div><br><br>Step 3<br><br>Solve for \\( x \\) and find the corresponding \\( y \\) values:<br><br>If \\( x = 2 \\), \\( y = 5 - 2 = 3 \\).<br><br>If \\( x = 3 \\), \\( y = 5 - 3 = 2 \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\{(2, 3), (3, 2)\\} \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "A rectangular garden has an area of 500 m². If the length is reduced by 5 m and the breadth is increased by 5 m, the resulting area is the same as the original area. Find the original length and breadth of the garden.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the original length be \\( x \\) and breadth be \\( y \\). We have:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( xy = 500 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x - 5)(y + 5) = 500 \\)</div><br><br>Step 2<br><br>Expand the second equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( xy + 5x - 5y - 25 = 500 \\)</div><br><br>Substitute \\( xy = 500 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 500 + 5x - 5y - 25 = 500 \\implies 5x - 5y = 25 \\implies x - y = 5 \\)</div><br><br>Step 3<br><br>Substitute \\( x = y + 5 \\) into \\( xy = 500 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (y + 5)y = 500 \\implies y^2 + 5y - 500 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (y + 25)(y - 20) = 0 \\)</div><br><br>Since breadth must be positive, \\( y = 20 \\). Then \\( x = 20 + 5 = 25 \\).<br><br><strong>Final Answer:</strong><br><br>Length: \\( 25 \\text{ m} \\), Breadth: \\( 20 \\text{ m} \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the quadratic inequality \\( x^2 - 4x + 5 > 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the coefficients \\( a = 1 \\), \\( b = -4 \\), and \\( c = 5 \\).<br><br>Step 2<br><br>Calculate the discriminant \\( \\Delta = b^2 - 4ac \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\Delta = (-4)^2 - 4(1)(5) = 16 - 20 = -4 \\)</div><br><br>Step 3<br><br>Since \\( a = 1 > 0 \\) and \\( \\Delta < 0 \\), the parabola opens up and does not cut the x-axis. Therefore, \\( y > 0 \\) for all real values of \\( x \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\mathbb{R} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the quadratic inequality \\( -x^2 + 2x - 1 \\leq 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the coefficients \\( a = -1 \\), \\( b = 2 \\), and \\( c = -1 \\).<br><br>Step 2<br><br>Calculate the discriminant \\( \\Delta = b^2 - 4ac \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\Delta = (2)^2 - 4(-1)(-1) = 4 - 4 = 0 \\)</div><br><br>Step 3<br><br>Since \\( a = -1 < 0 \\) and \\( \\Delta = 0 \\), the parabola opens down and meets the x-axis at exactly one point (the vertex). Therefore, \\( y \\leq 0 \\) for all real values of \\( x \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\mathbb{R} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the quadratic inequality \\( 2x^2 - 7x + 3 < 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor the quadratic expression to find the x-intercepts:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x^2 - 7x + 3 = (2x - 1)(x - 3) \\)</div><br><br>The x-intercepts are \\( x = \\frac{1}{2} \\) and \\( x = 3 \\).<br><br>Step 2<br><br>Since \\( a = 2 > 0 \\), the parabola opens up. The values of \\( y \\) are negative between the x-intercepts.<br><br>Step 3<br><br>Write the solution set for \\( y < 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{2} < x < 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{x \\mid \\frac{1}{2} < x < 3\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the quadratic inequality \\( -3x^2 + 5x + 2 \\geq 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply by -1 to make the leading coefficient positive (and flip the inequality sign):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x^2 - 5x - 2 \\leq 0 \\)</div><br><br>Step 2<br><br>Factor the quadratic expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (3x + 1)(x - 2) \\leq 0 \\)</div><br><br>The x-intercepts are \\( x = -\\frac{1}{3} \\) and \\( x = 2 \\).<br><br>Step 3<br><br>Since the original parabola opens down (\\( a = -3 < 0 \\)), the values of \\( y \\) are greater than or equal to 0 between the x-intercepts.<br><br><strong>Final Answer:</strong><br><br>\\( \\{x \\mid -\\frac{1}{3} \\leq x \\leq 2\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "For the quadratic function \\( y = -x^2 + 4x + 5 \\), find the vertex form, vertex, axis of symmetry, and range.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Complete the square to find the vertex form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(x^2 - 4x) + 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(x^2 - 4x + 4) + 4 + 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(x - 2)^2 + 9 \\)</div><br><br>Step 2<br><br>Identify the vertex \\( (h, k) \\) and axis of symmetry \\( x = h \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Vertex} = (2, 9), \\quad \\text{Axis of symmetry: } x = 2 \\)</div><br><br>Step 3<br><br>Determine the range. Since \\( a = -1 < 0 \\), the parabola opens down and \\( k = 9 \\) is the maximum value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Range: } y \\leq 9 \\)</div><br><br><strong>Final Answer:</strong><br><br>Vertex form: \\( y = -(x - 2)^2 + 9 \\), Vertex: \\( (2, 9) \\), Axis: \\( x = 2 \\), Range: \\( y \\leq 9 \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the system of equations: \\( y = x^2 - 4x + 3 \\) and \\( y = 2x - 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set the two expressions for \\( y \\) equal to each other:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 4x + 3 = 2x - 5 \\)</div><br><br>Step 2<br><br>Rearrange into standard quadratic form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 6x + 8 = 0 \\)</div><br><br>Step 3<br><br>Factor and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x - 2)(x - 4) = 0 \\implies x = 2 \\text{ or } x = 4 \\)</div><br><br>Substitute back to find \\( y \\):<br><br>If \\( x = 2 \\), \\( y = 2(2) - 5 = -1 \\).<br><br>If \\( x = 4 \\), \\( y = 2(4) - 5 = 3 \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\{(2, -1), (4, 3)\\} \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the value(s) of \\( k \\) for which the quadratic equation \\( 2x^2 + kx + 8 = 0 \\) has exactly one real solution.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>For a quadratic equation to have exactly one real solution, its discriminant must be equal to zero.<br><br>Step 2<br><br>Identify coefficients \\( a = 2 \\), \\( b = k \\), \\( c = 8 \\) and set \\( b^2 - 4ac = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k^2 - 4(2)(8) = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k^2 - 64 = 0 \\)</div><br><br>Step 3<br><br>Solve for \\( k \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k^2 = 64 \\implies k = 8 \\text{ or } k = -8 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( k = 8 \\) or \\( k = -8 \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Write the quadratic function \\( y = -2x^2 + 8x - 6 \\) in intercept form, and find its x-intercepts and vertex.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor out the common factor and then factor the quadratic expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -2(x^2 - 4x + 3) \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -2(x - 1)(x - 3) \\)</div><br><br>Step 2<br><br>The x-intercepts are the values that make \\( y = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 1 \\text{ and } x = 3 \\)</div><br><br>Step 3<br><br>The x-coordinate of the vertex is the midpoint of the x-intercepts: \\( x = \\frac{1 + 3}{2} = 2 \\).<br><br>Substitute \\( x = 2 \\) to find the y-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -2(2 - 1)(2 - 3) = -2(1)(-1) = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>Intercept form: \\( y = -2(x - 1)(x - 3) \\), x-intercepts: \\( 1, 3 \\), Vertex: \\( (2, 2) \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "What is the largest area possible for a right triangle whose hypotenuse is 10 cm long?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the legs be \\( m \\) and \\( n \\). By Pythagoras, \\( m^2 + n^2 = 100 \\), so \\( n = \\sqrt{100 - m^2} \\).<br><br>The area is \\( A = \\frac{1}{2}mn = \\frac{1}{2}m\\sqrt{100 - m^2} \\).<br><br>Step 2<br><br>To maximize \\( A \\), we can maximize \\( A^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A^2 = \\frac{1}{4}m^2(100 - m^2) = \\frac{1}{4}(100m^2 - m^4) \\)</div><br><br>Let \\( x = m^2 \\). Then \\( f(x) = \\frac{1}{4}(100x - x^2) \\).<br><br>Step 3<br><br>This is a downward-opening parabola. The maximum occurs at the vertex:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = -\\frac{100}{2(-1)} = 50 \\)</div><br><br>So \\( m^2 = 50 \\implies m = 5\\sqrt{2} \\). Then \\( n = \\sqrt{100 - 50} = 5\\sqrt{2} \\).<br><br>Maximum Area \\( A = \\frac{1}{2}(5\\sqrt{2})(5\\sqrt{2}) = \\frac{1}{2}(50) = 25 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 25 \\text{ cm}^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the quadratic equation \\( x^2 - 6x + 7 = 0 \\) using the quadratic formula and verify one of the roots.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify coefficients \\( a = 1 \\), \\( b = -6 \\), \\( c = 7 \\) and apply the quadratic formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{-(-6) \\pm \\sqrt{(-6)^2 - 4(1)(7)}}{2(1)} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{6 \\pm \\sqrt{36 - 28}}{2} = \\frac{6 \\pm \\sqrt{8}}{2} = \\frac{6 \\pm 2\\sqrt{2}}{2} = 3 \\pm \\sqrt{2} \\)</div><br><br>Step 2<br><br>Verify the root \\( x = 3 + \\sqrt{2} \\) by substituting it into the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (3 + \\sqrt{2})^2 - 6(3 + \\sqrt{2}) + 7 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = (9 + 6\\sqrt{2} + 2) - 18 - 6\\sqrt{2} + 7 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = 11 + 6\\sqrt{2} - 18 - 6\\sqrt{2} + 7 = 0 \\)</div><br><br>Step 3<br><br>Since the result is 0, the root is verified.<br><br><strong>Final Answer:</strong><br><br>\\( x = 3 \\pm \\sqrt{2} \\). Verified."
+  }
+]
