@@ -655,14 +655,7 @@ def _ask(prompt: str, default: str = "") -> str:
     return raw or default
 
 
-def interactive_sources() -> tuple[int, str, int, dict]:
-    print()
-    print("Paste the WHOLE Qwen Share link. ?fev=0.2.89 is OK — it is removed.")
-    print("Files go into the quiz-upload folder so you can copy them by hand.")
-    print()
-    grade = int(_ask("Grade (10 / 11 / 12)", "11"))
-    sub = _ask("Subject (chem / phy / bio / eco)", "chem").lower()
-    chapter = int(_ask("Chapter number", "1"))
+def _ask_links() -> dict:
     print()
     tf = _ask("Paste True/False link")
     blank = _ask("Paste Fill-blank link")
@@ -674,7 +667,50 @@ def interactive_sources() -> tuple[int, str, int, dict]:
         sources["blank"] = blank
     if mcq:
         sources["mcq"] = mcq
-    return grade, sub, chapter, sources
+    return sources
+
+
+def interactive_loop(out_root: Path, dry_run: bool) -> int:
+    print()
+    print("Paste the WHOLE Qwen Share link. ?fev=0.2.89 is OK — it is removed.")
+    print("Files go into quiz-upload. After each chapter I will ask for the next one.")
+    print("Type q and Enter when you want to stop.")
+    print()
+    grade = int(_ask("Grade (10 / 11 / 12)", "11"))
+    sub = _ask("Subject (chem / phy / bio / eco)", "chem").lower()
+    chapter = int(_ask("Chapter number", "1"))
+    while True:
+        sources = _ask_links()
+        if not sources:
+            print("No links pasted. Type q to stop, or paste the 3 links.")
+        else:
+            try:
+                run_import(grade, sub, chapter, sources, dry_run=dry_run, out_root=out_root)
+            except ImportError_ as err:
+                print(str(err), file=sys.stderr)
+                print("That chapter failed. You can try again or type q to stop.")
+            else:
+                print()
+                print("Chapter", chapter, "saved. Copy files from quiz-upload when you want.")
+        nxt = _ask(
+            "Next chapter? Enter = "
+            + str(chapter + 1)
+            + ", or type a number / new subject (phy) / q to quit",
+            str(chapter + 1),
+        )
+        low = nxt.lower().strip()
+        if low in ("q", "quit", "n", "no", "stop"):
+            print("Stopped. Upload the files in quiz-upload when you are ready.")
+            return 0
+        if low in ("chem", "phy", "bio", "eco", "math", "en", "mm"):
+            sub = low
+            chapter = int(_ask("Chapter number for " + sub, "1"))
+            continue
+        try:
+            chapter = int(low)
+        except ValueError:
+            print("Type a chapter number, a subject like phy, or q to stop.")
+    return 0
 
 
 def main(argv=None) -> int:
@@ -689,25 +725,22 @@ def main(argv=None) -> int:
         sources["tf"] = args.tf
     if args.blank:
         sources["blank"] = args.blank
-    grade = args.grade
-    sub = args.sub
-    chapter = args.chapter
+    out_root = ROOT / "quizzes" if args.into_repo else Path(args.out)
     if not sources:
         if not sys.stdin.isatty():
             print("No links given. Run without flags to paste them, or pass --tf --blank --mcq.", file=sys.stderr)
             return 1
         try:
-            grade, sub, chapter, sources = interactive_sources()
+            return interactive_loop(out_root, args.dry_run)
         except (EOFError, KeyboardInterrupt):
-            print("\nCancelled.")
-            return 1
+            print("\nStopped.")
+            return 0
         except ValueError:
             print("Grade and chapter must be numbers.", file=sys.stderr)
             return 1
-    grade = 11 if grade is None else grade
-    sub = "chem" if not sub else sub
-    chapter = 1 if chapter is None else chapter
-    out_root = ROOT / "quizzes" if args.into_repo else Path(args.out)
+    grade = 11 if args.grade is None else args.grade
+    sub = "chem" if not args.sub else args.sub
+    chapter = 1 if args.chapter is None else args.chapter
     try:
         run_import(grade, sub, chapter, sources, dry_run=args.dry_run, out_root=out_root)
     except ImportError_ as err:
@@ -715,7 +748,6 @@ def main(argv=None) -> int:
         return 1
     print()
     print("Done. Copy the files from that folder and upload them yourself.")
-    print("You do not need a GitHub pull request for this.")
     return 0
 
 
