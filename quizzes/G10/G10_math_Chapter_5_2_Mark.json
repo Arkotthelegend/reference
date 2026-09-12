@@ -1,0 +1,122 @@
+[
+  {
+    "type": "math_show",
+    "q": "Convert the quadratic function \\( y = x^2 - 6x + 11 \\) to the vertex form \\( y = (x - h)^2 + k \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Complete the square for the quadratic expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (x^2 - 6x + 9) - 9 + 11 \\)</div><br><br>Step 2<br><br>Write in vertex form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (x - 3)^2 + 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = (x - 3)^2 + 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the horizontal and vertical translation of the graph of \\( y = x^2 + 8x + 19 \\) from the graph of \\( y = x^2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Convert the function to vertex form by completing the square:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (x^2 + 8x + 16) - 16 + 19 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (x + 4)^2 + 3 \\)</div><br><br>Step 2<br><br>Identify the translation from \\( y = x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Negative 4 units horizontally, positive 3 units vertically} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Negative 4 units horizontally, positive 3 units vertically} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Convert the quadratic function \\( y = -x^2 + 4x - 1 \\) to the vertex form \\( y = -(x - h)^2 + k \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor out \\( -1 \\) from the \\( x \\) terms and complete the square:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(x^2 - 4x) - 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(x^2 - 4x + 4) + 4 - 1 \\)</div><br><br>Step 2<br><br>Write in vertex form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(x - 2)^2 + 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -(x - 2)^2 + 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If the point \\( (3, 9) \\) is on the graph of \\( y = x^2 \\), find the corresponding point on the graph of \\( y = 3x^2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the relationship between the graphs. For a point \\( (p, q) \\) on \\( y = x^2 \\), the corresponding point on \\( y = ax^2 \\) is \\( (p, aq) \\).<br><br>Step 2<br><br>Substitute \\( p = 3 \\), \\( q = 9 \\), and \\( a = 3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (3, 3 \\times 9) = (3, 27) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (3, 27) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the vertex and the axis of symmetry of the quadratic function \\( y = 2x^2 - 8x + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the x-coordinate of the vertex using \\( x = -\\frac{b}{2a} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = -\\frac{-8}{2(2)} = \\frac{8}{4} = 2 \\)</div><br><br>Step 2<br><br>Substitute \\( x = 2 \\) into the function to find the y-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 2(2)^2 - 8(2) + 5 = 8 - 16 + 5 = -3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Vertex: } (2, -3), \\text{ Axis of symmetry: } x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the y-intercept and the range of the quadratic function \\( y = -x^2 + 6x - 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The y-intercept occurs when \\( x = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(0)^2 + 6(0) - 4 = -4 \\)</div><br><br>Step 2<br><br>Find the vertex to determine the range. \\( x = -\\frac{6}{2(-1)} = 3 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(3)^2 + 6(3) - 4 = -9 + 18 - 4 = 5 \\)</div><br><br>Since \\( a < 0 \\), the range is \\( y \\le 5 \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\text{y-intercept: } (0, -4), \\text{ Range: } y \\le 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Convert the quadratic function \\( y = 3x^2 + 12x + 7 \\) to the vertex form \\( y = a(x - h)^2 + k \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor out \\( 3 \\) from the \\( x \\) terms and complete the square:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 3(x^2 + 4x) + 7 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 3(x^2 + 4x + 4) + 7 - 12 \\)</div><br><br>Step 2<br><br>Write in vertex form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 3(x + 2)^2 - 5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = 3(x + 2)^2 - 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the discriminant of \\( y = 2x^2 - 5x + 3 \\) and state the number of x-intercepts of its graph.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the discriminant \\( b^2 - 4ac \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b^2 - 4ac = (-5)^2 - 4(2)(3) = 25 - 24 = 1 \\)</div><br><br>Step 2<br><br>Since the discriminant is greater than 0, the graph cuts the x-axis at two points.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{Discriminant: } 1, \\text{ Number of x-intercepts: } 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the discriminant of \\( y = x^2 + 4x + 5 \\) and state the number of x-intercepts of its graph.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the discriminant \\( b^2 - 4ac \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b^2 - 4ac = (4)^2 - 4(1)(5) = 16 - 20 = -4 \\)</div><br><br>Step 2<br><br>Since the discriminant is less than 0, the graph does not cut the x-axis.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{Discriminant: } -4, \\text{ Number of x-intercepts: } 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the quadratic function \\( y = x^2 - 5x + 6 \\) in the intercept form \\( y = (x - p)(x - q) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor the quadratic expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 5x + 6 = (x - 2)(x - 3) \\)</div><br><br>Step 2<br><br>Write in intercept form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (x - 2)(x - 3) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = (x - 2)(x - 3) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the quadratic equation \\( x^2 - 5x + 6 = 0 \\) using the quadratic formula.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( a = 1, b = -5, c = 6 \\) and apply the quadratic formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{-(-5) \\pm \\sqrt{(-5)^2 - 4(1)(6)}}{2(1)} \\)</div><br><br>Step 2<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{5 \\pm \\sqrt{25 - 24}}{2} = \\frac{5 \\pm 1}{2} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 3 \\text{ or } x = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 3 \\text{ or } x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the quadratic equation \\( 2x^2 + 4x - 1 = 0 \\) using the quadratic formula.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( a = 2, b = 4, c = -1 \\) and apply the quadratic formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{-4 \\pm \\sqrt{(4)^2 - 4(2)(-1)}}{2(2)} \\)</div><br><br>Step 2<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{-4 \\pm \\sqrt{16 + 8}}{4} = \\frac{-4 \\pm \\sqrt{24}}{4} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{-4 \\pm 2\\sqrt{6}}{4} = \\frac{-2 \\pm \\sqrt{6}}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = \\frac{-2 \\pm \\sqrt{6}}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the quadratic equation \\( 3x^2 - 2x + 1 = 0 \\) using the quadratic formula.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( a = 3, b = -2, c = 1 \\) and calculate the discriminant:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b^2 - 4ac = (-2)^2 - 4(3)(1) = 4 - 12 = -8 \\)</div><br><br>Step 2<br><br>Since the discriminant is less than 0, the equation has no real solutions.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{No real solution} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the system of equations: \\( y = x^2 \\) and \\( y = 2x + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( y = x^2 \\) into the second equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 = 2x + 3 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 2x - 3 = 0 \\)</div><br><br>Step 2<br><br>Factor and solve for \\( x \\), then find \\( y \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x - 3)(x + 1) = 0 \\implies x = 3 \\text{ or } x = -1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{If } x = 3, y = 9. \\text{ If } x = -1, y = 1. \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{(3, 9), (-1, 1)\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the system of equations: \\( x + y = 5 \\) and \\( x^2 + y^2 = 13 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite the linear equation as \\( y = 5 - x \\) and substitute into the quadratic equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + (5 - x)^2 = 13 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + 25 - 10x + x^2 = 13 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x^2 - 10x + 12 = 0 \\implies x^2 - 5x + 6 = 0 \\)</div><br><br>Step 2<br><br>Factor and solve for \\( x \\), then find \\( y \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x - 2)(x - 3) = 0 \\implies x = 2 \\text{ or } x = 3 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{If } x = 2, y = 3. \\text{ If } x = 3, y = 2. \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{(2, 3), (3, 2)\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A rectangle has a perimeter of 24 cm. What is the largest possible area of this rectangle?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let length be \\( l \\) and width be \\( w \\). Perimeter \\( 2(l + w) = 24 \\implies w = 12 - l \\).<br><br>Area \\( A = l(12 - l) = 12l - l^2 \\).<br><br>Step 2<br><br>Find the maximum of the quadratic function \\( A = -l^2 + 12l \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( l = -\\frac{12}{2(-1)} = 6 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A = 12(6) - (6)^2 = 72 - 36 = 36 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 36 \\text{ cm}^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the quadratic inequality \\( x^2 - 4x + 5 > 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( a = 1 \\) and calculate the discriminant:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b^2 - 4ac = (-4)^2 - 4(1)(5) = 16 - 20 = -4 \\)</div><br><br>Step 2<br><br>Since \\( a > 0 \\) and the discriminant is less than 0, the parabola opens up and does not cut the x-axis. Thus, \\( y > 0 \\) for all real \\( x \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\mathbb{R} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the quadratic inequality \\( -x^2 + 6x - 9 \\ge 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor the quadratic expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -(x^2 - 6x + 9) \\ge 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -(x - 3)^2 \\ge 0 \\)</div><br><br>Step 2<br><br>Since \\( (x - 3)^2 \\ge 0 \\) for all real \\( x \\), \\( -(x - 3)^2 \\le 0 \\). It equals 0 only when \\( x = 3 \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\{3\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the quadratic inequality \\( 2x^2 - x - 3 < 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor the quadratic expression to find the x-intercepts:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x^2 - x - 3 = (2x - 3)(x + 1) \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Roots are } x = \\frac{3}{2} \\text{ and } x = -1 \\)</div><br><br>Step 2<br><br>Since \\( a = 2 > 0 \\), the parabola opens up. The expression is negative between the roots.<br><br><strong>Final Answer:</strong><br><br>\\( \\{x \\mid -1 < x < \\frac{3}{2}\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the vertex of the quadratic function \\( y = -2x^2 + 8x - 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the x-coordinate of the vertex using \\( x = -\\frac{b}{2a} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = -\\frac{8}{2(-2)} = \\frac{-8}{-4} = 2 \\)</div><br><br>Step 2<br><br>Substitute \\( x = 2 \\) into the function to find the y-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -2(2)^2 + 8(2) - 5 = -8 + 16 - 5 = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (2, 3) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "For what value of \\( k \\) does the quadratic equation \\( x^2 + 4x + k = 0 \\) have exactly one real solution?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>For exactly one real solution, the discriminant must be equal to 0:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b^2 - 4ac = 0 \\)</div><br><br>Step 2<br><br>Substitute \\( a = 1, b = 4, c = k \\) and solve for \\( k \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (4)^2 - 4(1)(k) = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 16 - 4k = 0 \\implies 4k = 16 \\implies k = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The graph of \\( y = x^2 - 10x + 27 \\) is a translation of the graph of \\( y = x^2 \\). State the horizontal and vertical translation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Convert the function to vertex form by completing the square:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (x^2 - 10x + 25) - 25 + 27 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (x - 5)^2 + 2 \\)</div><br><br>Step 2<br><br>Identify the translation from \\( y = x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Positive 5 units horizontally, positive 2 units vertically} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Positive 5 units horizontally, positive 2 units vertically} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the quadratic equation \\( x^2 + 6x + 9 = 0 \\) using the quadratic formula.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( a = 1, b = 6, c = 9 \\) and apply the quadratic formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{-6 \\pm \\sqrt{(6)^2 - 4(1)(9)}}{2(1)} \\)</div><br><br>Step 2<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{-6 \\pm \\sqrt{36 - 36}}{2} = \\frac{-6 \\pm 0}{2} = -3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = -3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the solution set of the quadratic inequality \\( -2x^2 - 6x + 8 \\le 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor the quadratic expression to find the x-intercepts:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -2(x^2 + 3x - 4) \\le 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -2(x + 4)(x - 1) \\le 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Roots are } x = -4 \\text{ and } x = 1 \\)</div><br><br>Step 2<br><br>Since \\( a = -2 < 0 \\), the parabola opens down. The expression is negative or zero outside the roots.<br><br><strong>Final Answer:</strong><br><br>\\( \\{x \\mid x \\le -4 \\text{ or } x \\ge 1\\} \\)"
+  }
+]
