@@ -1,0 +1,127 @@
+[
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 56,400 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first nonzero digit to get a number between 1 and 10:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5.64 \\)</div><br><br>Step 2<br><br>Count the number of places the decimal point moved to the left (4 places), which gives the positive power of 10:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5.64 \\times 10^4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5.64 \\times 10^4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 0.000812 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first nonzero digit:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 8.12 \\)</div><br><br>Step 2<br><br>Count the number of places the decimal point moved to the right (4 places), which gives the negative power of 10:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 8.12 \\times 10^{-4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 8.12 \\times 10^{-4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express \\( 4.7 \\times 10^{-5} \\) in ordinary decimal form.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since the exponent is negative, move the decimal point 5 places to the left:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 0.000047 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 0.000047 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many significant figures are there in the number \\( 0.03040 \\)?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the significant digits. Leading zeros are not significant, but zeros between nonzero digits and trailing zeros after a decimal point are significant:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3, 0, 4, 0 \\)</div><br><br>Step 2<br><br>Count the significant digits:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( 3.2 \\times 10^3 + 4.5 \\times 10^2 \\) and express the result in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Convert the numbers to have the same power of 10:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3.2 \\times 10^3 + 0.45 \\times 10^3 \\)</div><br><br>Step 2<br><br>Add the coefficients:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (3.2 + 0.45) \\times 10^3 = 3.65 \\times 10^3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3.65 \\times 10^3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( (2.5 \\times 10^4) \\times (4.0 \\times 10^{-2}) \\) and express the result in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply the coefficients and the powers of 10 separately:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2.5 \\times 4.0) \\times (10^4 \\times 10^{-2}) \\)</div><br><br>Step 2<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 10.0 \\times 10^2 = 1.0 \\times 10^3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1.0 \\times 10^3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the exponential equation \\( 7^2 = 49 \\) in logarithmic form.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the definition of logarithm: \\( b^x = N \\) is equivalent to \\( \\log_b N = x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log_7 49 = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\log_7 49 = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the logarithmic equation \\( \\log_5 125 = 3 \\) in exponential form.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the definition of logarithm: \\( \\log_b N = x \\) is equivalent to \\( b^x = N \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5^3 = 125 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5^3 = 125 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the expression \\( \\log_4 64 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( x = \\log_4 64 \\), which means \\( 4^x = 64 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4^x = 4^3 \\)</div><br><br>Step 2<br><br>Equate the exponents:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the expression \\( \\log_3 \\left(\\frac{1}{81}\\right) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( x = \\log_3 \\left(\\frac{1}{81}\\right) \\), which means \\( 3^x = \\frac{1}{81} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3^x = 3^{-4} \\)</div><br><br>Step 2<br><br>Equate the exponents:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = -4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_6 18 + \\log_6 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the product property of logarithms \\( \\log_b M + \\log_b N = \\log_b (MN) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log_6 (18 \\times 2) = \\log_6 36 \\)</div><br><br>Step 2<br><br>Evaluate the logarithm:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log_6 (6^2) = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_5 100 - \\log_5 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the quotient property of logarithms \\( \\log_b M - \\log_b N = \\log_b \\left(\\frac{M}{N}\\right) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log_5 \\left(\\frac{100}{4}\\right) = \\log_5 25 \\)</div><br><br>Step 2<br><br>Evaluate the logarithm:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log_5 (5^2) = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( 4 \\log_3 9 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Evaluate the logarithm \\( \\log_3 9 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log_3 (3^2) = 2 \\)</div><br><br>Step 2<br><br>Multiply by 4:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4 \\times 2 = 8 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log 108 \\) in terms of \\( \\log 2 \\) and \\( \\log 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the prime factorization of 108:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 108 = 4 \\times 27 = 2^2 \\times 3^3 \\)</div><br><br>Step 2<br><br>Apply the product and power properties of logarithms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log(2^2 \\times 3^3) = \\log(2^2) + \\log(3^3) = 2 \\log 2 + 3 \\log 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\log 2 + 3 \\log 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the equation \\( \\log_3 (x - 2) = 2 \\) for \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Convert the logarithmic equation to exponential form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 2 = 3^2 \\)</div><br><br>Step 2<br><br>Solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 2 = 9 \\implies x = 11 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 11 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_3 7 \\times \\log_7 27 \\) using the change of base formula.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the change of base formula \\( \\log_a N = \\frac{\\log_b N}{\\log_b a} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{\\ln 7}{\\ln 3} \\times \\frac{\\ln 27}{\\ln 7} \\)</div><br><br>Step 2<br><br>Cancel \\( \\ln 7 \\) and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{\\ln 27}{\\ln 3} = \\log_3 27 = \\log_3 (3^3) = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the characteristic and the mantissa of \\( \\log_{10} 0.0056 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the number in scientific notation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 0.0056 = 5.6 \\times 10^{-3} \\)</div><br><br>Step 2<br><br>Identify the characteristic (the exponent of 10) and the mantissa (the logarithm of the decimal part):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Characteristic} = -3, \\quad \\text{Mantissa} = \\log_{10} 5.6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Characteristic: } -3, \\text{ Mantissa: } \\log_{10} 5.6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( t \\) in the equation \\( e^{0.05t} = 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Take the natural logarithm of both sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\ln(e^{0.05t}) = \\ln 2 \\)</div><br><br>Step 2<br><br>Simplify and solve for \\( t \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 0.05t = \\ln 2 \\implies t = \\frac{\\ln 2}{0.05} = 20 \\ln 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 20 \\ln 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( 10^{\\log_{10} 3 + 1} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the exponent rule \\( a^{m+n} = a^m \\times a^n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 10^{\\log_{10} 3} \\times 10^1 \\)</div><br><br>Step 2<br><br>Simplify using \\( 10^{\\log_{10} x} = x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3 \\times 10 = 30 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 30 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the equation \\( \\log_2 x + \\log_2 (x - 3) = 2 \\) for \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Combine the logarithms using the product property:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log_2 (x(x - 3)) = 2 \\)</div><br><br>Step 2<br><br>Convert to exponential form and solve the quadratic equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 3x = 2^2 \\implies x^2 - 3x - 4 = 0 \\)</div><br><br>Step 3<br><br>Factor and find valid solutions (\\( x > 3 \\) for the domain):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x - 4)(x + 1) = 0 \\implies x = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the expression \\( 3 \\log a - 2 \\log b + \\log c \\) as a single logarithm.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the power property to move coefficients inside as exponents:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log(a^3) - \\log(b^2) + \\log c \\)</div><br><br>Step 2<br><br>Apply the product and quotient properties to combine:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log\\left(\\frac{a^3}{b^2}\\right) + \\log c = \\log\\left(\\frac{a^3 c}{b^2}\\right) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\log\\left(\\frac{a^3 c}{b^2}\\right) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( \\log_{10} 3 = 0.4771 \\), evaluate \\( \\log_{10} 9 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Express 9 as a power of 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log_{10} (3^2) \\)</div><br><br>Step 2<br><br>Apply the power property and substitute the given value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2 \\log_{10} 3 = 2(0.4771) = 0.9542 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 0.9542 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_8 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( x = \\log_8 4 \\), which means \\( 8^x = 4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2^3)^x = 2^2 \\)</div><br><br>Step 2<br><br>Equate the exponents and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x = 2 \\implies x = \\frac{2}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\frac{8.4 \\times 10^7}{2.1 \\times 10^3} \\) and express the result in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the coefficients and the powers of 10 separately:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{8.4}{2.1} \\times \\frac{10^7}{10^3} \\)</div><br><br>Step 2<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4.0 \\times 10^{7-3} = 4.0 \\times 10^4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4.0 \\times 10^4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the equation \\( 2^{x+1} = 16 \\) for \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Express 16 as a power of 2:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^{x+1} = 2^4 \\)</div><br><br>Step 2<br><br>Equate the exponents and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x + 1 = 4 \\implies x = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  }
+]
