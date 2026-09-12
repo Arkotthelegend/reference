@@ -1,0 +1,122 @@
+[
+  {
+    "type": "math_show",
+    "q": "Convert \\( 150^\\circ \\) to radian measure.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the conversion formula \\( \\text{radians} = \\text{degrees} \\times \\frac{\\pi}{180^\\circ} \\).<br><br>Step 2<br><br>Substitute \\( 150^\\circ \\): \\( 150 \\times \\frac{\\pi}{180} \\).<br><br>Step 3<br><br>Simplify the fraction: \\( \\frac{150}{180} = \\frac{5}{6} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5\\pi}{6} \\) radians."
+  },
+  {
+    "type": "math_show",
+    "q": "Convert \\( \\frac{7\\pi}{12} \\) radians to degree measure.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the conversion formula \\( \\text{degrees} = \\text{radians} \\times \\frac{180^\\circ}{\\pi} \\).<br><br>Step 2<br><br>Substitute \\( \\frac{7\\pi}{12} \\): \\( \\frac{7\\pi}{12} \\times \\frac{180^\\circ}{\\pi} \\).<br><br>Step 3<br><br>Simplify: \\( \\frac{7 \\times 180}{12} = 7 \\times 15 = 105 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 105^\\circ \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "An arc of a circle of radius \\( 12 \\) cm subtends an angle of \\( \\frac{2\\pi}{3} \\) radians at the centre. Find the length of the arc.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the given values: radius \\( r = 12 \\) cm and angle \\( \\theta = \\frac{2\\pi}{3} \\) radians.<br><br>Step 2<br><br>Use the arc length formula \\( s = r\\theta \\).<br><br>Step 3<br><br>Substitute the values: \\( s = 12 \\times \\frac{2\\pi}{3} = 4 \\times 2\\pi = 8\\pi \\).<br><br><strong>Final Answer:</strong><br><br>\\( 8\\pi \\) cm."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the area of a sector of a circle with radius \\( 10 \\) cm if the central angle is \\( 72^\\circ \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Convert the angle to radians: \\( \\theta = 72^\\circ \\times \\frac{\\pi}{180^\\circ} = \\frac{2\\pi}{5} \\) radians.<br><br>Step 2<br><br>Use the area of sector formula \\( A = \\frac{1}{2}r^2\\theta \\).<br><br>Step 3<br><br>Substitute \\( r = 10 \\) and \\( \\theta = \\frac{2\\pi}{5} \\): \\( A = \\frac{1}{2}(10)^2 \\left(\\frac{2\\pi}{5}\\right) = \\frac{1}{2}(100)\\left(\\frac{2\\pi}{5}\\right) = 50 \\times \\frac{2\\pi}{5} = 20\\pi \\).<br><br><strong>Final Answer:</strong><br><br>\\( 20\\pi \\) cm\\(^2\\)."
+  },
+  {
+    "type": "math_show",
+    "q": "In a right triangle \\( ABC \\) with \\( \\angle C = 90^\\circ \\), if \\( a = 5 \\) and \\( c = 13 \\), find \\( \\sin A \\), \\( \\cos A \\), and \\( \\tan A \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the missing side \\( b \\) using Pythagoras theorem: \\( b = \\sqrt{c^2 - a^2} = \\sqrt{13^2 - 5^2} = \\sqrt{169 - 25} = \\sqrt{144} = 12 \\).<br><br>Step 2<br><br>Identify the sides relative to \\( \\angle A \\): opposite \\( = 5 \\), adjacent \\( = 12 \\), hypotenuse \\( = 13 \\).<br><br>Step 3<br><br>Calculate the ratios: \\( \\sin A = \\frac{5}{13} \\), \\( \\cos A = \\frac{12}{13} \\), \\( \\tan A = \\frac{5}{12} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\sin A = \\frac{5}{13} \\), \\( \\cos A = \\frac{12}{13} \\), \\( \\tan A = \\frac{5}{12} \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Given that \\( \\tan \\theta = \\frac{8}{15} \\) and \\( \\theta \\) is an acute angle, find \\( \\sin \\theta \\) and \\( \\sec \\theta \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>In a right triangle, let opposite side \\( = 8k \\) and adjacent side \\( = 15k \\).<br><br>Step 2<br><br>Find the hypotenuse: \\( h = \\sqrt{(8k)^2 + (15k)^2} = \\sqrt{64k^2 + 225k^2} = \\sqrt{289k^2} = 17k \\).<br><br>Step 3<br><br>Calculate the required ratios: \\( \\sin \\theta = \\frac{\\text{opposite}}{\\text{hypotenuse}} = \\frac{8k}{17k} = \\frac{8}{17} \\), and \\( \\sec \\theta = \\frac{\\text{hypotenuse}}{\\text{adjacent}} = \\frac{17k}{15k} = \\frac{17}{15} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\sin \\theta = \\frac{8}{17} \\), \\( \\sec \\theta = \\frac{17}{15} \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Prove the identity \\( \\frac{\\sin \\theta}{1 - \\cos \\theta} = \\csc \\theta + \\cot \\theta \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Start with the left-hand side (LHS) and multiply numerator and denominator by \\( 1 + \\cos \\theta \\).<br><br>Step 2<br><br>LHS \\( = \\frac{\\sin \\theta (1 + \\cos \\theta)}{(1 - \\cos \\theta)(1 + \\cos \\theta)} = \\frac{\\sin \\theta (1 + \\cos \\theta)}{1 - \\cos^2 \\theta} \\).<br><br>Step 3<br><br>Substitute \\( 1 - \\cos^2 \\theta = \\sin^2 \\theta \\): LHS \\( = \\frac{\\sin \\theta (1 + \\cos \\theta)}{\\sin^2 \\theta} = \\frac{1 + \\cos \\theta}{\\sin \\theta} = \\frac{1}{\\sin \\theta} + \\frac{\\cos \\theta}{\\sin \\theta} = \\csc \\theta + \\cot \\theta \\) = RHS.<br><br><strong>Final Answer:</strong><br><br>LHS = RHS, identity proved."
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( 3 \\sin^2 60^\\circ + 2 \\cos^2 30^\\circ - \\tan^2 45^\\circ \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute the known values: \\( \\sin 60^\\circ = \\frac{\\sqrt{3}}{2} \\), \\( \\cos 30^\\circ = \\frac{\\sqrt{3}}{2} \\), \\( \\tan 45^\\circ = 1 \\).<br><br>Step 2<br><br>Calculate the squares: \\( 3 \\left(\\frac{\\sqrt{3}}{2}\\right)^2 + 2 \\left(\\frac{\\sqrt{3}}{2}\\right)^2 - (1)^2 \\).<br><br>Step 3<br><br>Simplify: \\( 3 \\left(\\frac{3}{4}\\right) + 2 \\left(\\frac{3}{4}\\right) - 1 = \\frac{9}{4} + \\frac{6}{4} - 1 = \\frac{15}{4} - \\frac{4}{4} = \\frac{11}{4} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{11}{4} \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the right triangle \\( ABC \\) with \\( \\angle B = 90^\\circ \\), \\( a = 7 \\), and \\( c = 7\\sqrt{3} \\). Find \\( b \\), \\( \\angle A \\), and \\( \\angle C \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find side \\( b \\) using Pythagoras theorem: \\( b = \\sqrt{a^2 + c^2} = \\sqrt{7^2 + (7\\sqrt{3})^2} = \\sqrt{49 + 147} = \\sqrt{196} = 14 \\).<br><br>Step 2<br><br>Find \\( \\angle A \\) using \\( \\tan A = \\frac{a}{c} = \\frac{7}{7\\sqrt{3}} = \\frac{1}{\\sqrt{3}} \\). Thus, \\( \\angle A = 30^\\circ \\).<br><br>Step 3<br><br>Find \\( \\angle C \\): \\( \\angle C = 90^\\circ - \\angle A = 90^\\circ - 30^\\circ = 60^\\circ \\).<br><br><strong>Final Answer:</strong><br><br>\\( b = 14 \\), \\( \\angle A = 30^\\circ \\), \\( \\angle C = 60^\\circ \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the right triangle \\( ABC \\) with \\( \\angle C = 90^\\circ \\), \\( \\angle A = 45^\\circ \\), and \\( b = 9 \\). Find \\( a \\) and \\( c \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find \\( \\angle B \\): \\( \\angle B = 90^\\circ - \\angle A = 90^\\circ - 45^\\circ = 45^\\circ \\).<br><br>Step 2<br><br>Since \\( \\angle A = \\angle B = 45^\\circ \\), the triangle is isosceles, so \\( a = b = 9 \\).<br><br>Step 3<br><br>Find \\( c \\) using \\( \\sin A = \\frac{a}{c} \\implies c = \\frac{a}{\\sin 45^\\circ} = \\frac{9}{\\frac{1}{\\sqrt{2}}} = 9\\sqrt{2} \\).<br><br><strong>Final Answer:</strong><br><br>\\( a = 9 \\), \\( c = 9\\sqrt{2} \\), \\( \\angle B = 45^\\circ \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "A ladder \\( 10 \\) m long leans against a vertical wall. If the foot of the ladder is \\( 5 \\) m away from the wall, find the angle of elevation of the ladder.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the angle of elevation be \\( \\theta \\). The adjacent side (distance from wall) is \\( 5 \\) m, and the hypotenuse (ladder length) is \\( 10 \\) m.<br><br>Step 2<br><br>Use the cosine ratio: \\( \\cos \\theta = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{5}{10} = \\frac{1}{2} \\).<br><br>Step 3<br><br>Solve for \\( \\theta \\): \\( \\theta = 60^\\circ \\).<br><br><strong>Final Answer:</strong><br><br>\\( 60^\\circ \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "From the top of a \\( 40 \\) m high lighthouse, the angle of depression to a boat is \\( 30^\\circ \\). Find the distance of the boat from the base of the lighthouse.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The angle of depression is equal to the angle of elevation from the boat, so the angle inside the triangle at the boat is \\( 30^\\circ \\).<br><br>Step 2<br><br>Let the distance be \\( x \\). Use the tangent ratio: \\( \\tan 30^\\circ = \\frac{\\text{opposite}}{\\text{adjacent}} = \\frac{40}{x} \\).<br><br>Step 3<br><br>Solve for \\( x \\): \\( x = \\frac{40}{\\tan 30^\\circ} = \\frac{40}{\\frac{1}{\\sqrt{3}}} = 40\\sqrt{3} \\).<br><br><strong>Final Answer:</strong><br><br>\\( 40\\sqrt{3} \\) m."
+  },
+  {
+    "type": "math_show",
+    "q": "A sector of a circle has an arc length of \\( 15 \\) cm and a radius of \\( 10 \\) cm. Find the central angle in radians and the area of the sector.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the arc length formula \\( s = r\\theta \\) to find \\( \\theta \\): \\( 15 = 10\\theta \\implies \\theta = 1.5 \\) radians.<br><br>Step 2<br><br>Use the area of sector formula \\( A = \\frac{1}{2}r^2\\theta \\).<br><br>Step 3<br><br>Substitute the values: \\( A = \\frac{1}{2}(10)^2(1.5) = \\frac{1}{2}(100)(1.5) = 50 \\times 1.5 = 75 \\).<br><br><strong>Final Answer:</strong><br><br>Angle \\( = 1.5 \\) radians, Area \\( = 75 \\) cm\\(^2\\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Prove that \\( (1 + \\tan^2 \\theta)(1 - \\sin^2 \\theta) = 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Recall the identities \\( 1 + \\tan^2 \\theta = \\sec^2 \\theta \\) and \\( 1 - \\sin^2 \\theta = \\cos^2 \\theta \\).<br><br>Step 2<br><br>Substitute these into the left-hand side (LHS): LHS \\( = \\sec^2 \\theta \\times \\cos^2 \\theta \\).<br><br>Step 3<br><br>Since \\( \\sec \\theta = \\frac{1}{\\cos \\theta} \\), LHS \\( = \\frac{1}{\\cos^2 \\theta} \\times \\cos^2 \\theta = 1 \\) = RHS.<br><br><strong>Final Answer:</strong><br><br>LHS = RHS, identity proved."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the value of the acute angle \\( \\alpha \\) if \\( \\sin 3\\alpha = \\cos 2\\alpha \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the complementary angle identity: \\( \\cos 2\\alpha = \\sin(90^\\circ - 2\\alpha) \\).<br><br>Step 2<br><br>Equate the angles since the sine values are equal: \\( 3\\alpha = 90^\\circ - 2\\alpha \\).<br><br>Step 3<br><br>Solve for \\( \\alpha \\): \\( 5\\alpha = 90^\\circ \\implies \\alpha = 18^\\circ \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\alpha = 18^\\circ \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "In a right triangle \\( PQR \\) with \\( \\angle R = 90^\\circ \\), \\( PQ = 25 \\), \\( QR = 7 \\), and \\( PR = 24 \\). Find \\( \\cot P \\), \\( \\sec P \\), and \\( \\csc P \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the sides relative to \\( \\angle P \\): opposite \\( = QR = 7 \\), adjacent \\( = PR = 24 \\), hypotenuse \\( = PQ = 25 \\).<br><br>Step 2<br><br>Calculate \\( \\cot P = \\frac{\\text{adjacent}}{\\text{opposite}} = \\frac{24}{7} \\).<br><br>Step 3<br><br>Calculate \\( \\sec P = \\frac{\\text{hypotenuse}}{\\text{adjacent}} = \\frac{25}{24} \\) and \\( \\csc P = \\frac{\\text{hypotenuse}}{\\text{opposite}} = \\frac{25}{7} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\cot P = \\frac{24}{7} \\), \\( \\sec P = \\frac{25}{24} \\), \\( \\csc P = \\frac{25}{7} \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "An observer \\( 1.5 \\) m tall is standing \\( 20 \\) m away from a tree. The angle of elevation from the observer's eye to the top of the tree is \\( 45^\\circ \\). Find the total height of the tree.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the height of the tree above the observer's eye be \\( h \\). Use \\( \\tan 45^\\circ = \\frac{h}{20} \\).<br><br>Step 2<br><br>Since \\( \\tan 45^\\circ = 1 \\), we have \\( 1 = \\frac{h}{20} \\implies h = 20 \\) m.<br><br>Step 3<br><br>Add the observer's height to find the total height: \\( \\text{Total height} = 20 + 1.5 = 21.5 \\) m.<br><br><strong>Final Answer:</strong><br><br>\\( 21.5 \\) m."
+  },
+  {
+    "type": "math_show",
+    "q": "A wheel of radius \\( 21 \\) cm rotates through an angle of \\( 120^\\circ \\). Find the angle in radians and the distance covered by a point on the rim.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Convert \\( 120^\\circ \\) to radians: \\( \\theta = 120 \\times \\frac{\\pi}{180} = \\frac{2\\pi}{3} \\) radians.<br><br>Step 2<br><br>The distance covered is the arc length \\( s = r\\theta \\).<br><br>Step 3<br><br>Substitute \\( r = 21 \\) and \\( \\theta = \\frac{2\\pi}{3} \\): \\( s = 21 \\times \\frac{2\\pi}{3} = 7 \\times 2\\pi = 14\\pi \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2\\pi}{3} \\) radians, \\( 14\\pi \\) cm."
+  },
+  {
+    "type": "math_show",
+    "q": "Prove that \\( \\frac{\\cos \\theta}{1 - \\sin \\theta} + \\frac{\\cos \\theta}{1 + \\sin \\theta} = 2 \\sec \\theta \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find a common denominator for the left-hand side (LHS): LHS \\( = \\frac{\\cos \\theta(1 + \\sin \\theta) + \\cos \\theta(1 - \\sin \\theta)}{(1 - \\sin \\theta)(1 + \\sin \\theta)} \\).<br><br>Step 2<br><br>Simplify the numerator and denominator: LHS \\( = \\frac{\\cos \\theta + \\cos \\theta \\sin \\theta + \\cos \\theta - \\cos \\theta \\sin \\theta}{1 - \\sin^2 \\theta} = \\frac{2 \\cos \\theta}{\\cos^2 \\theta} \\).<br><br>Step 3<br><br>Cancel \\( \\cos \\theta \\): LHS \\( = \\frac{2}{\\cos \\theta} = 2 \\sec \\theta \\) = RHS.<br><br><strong>Final Answer:</strong><br><br>LHS = RHS, identity proved."
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the right triangle \\( ABC \\) with \\( \\angle C = 90^\\circ \\), \\( \\angle A = 60^\\circ \\), and \\( a = 12\\sqrt{3} \\). Find \\( b \\) and \\( c \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find \\( \\angle B \\): \\( \\angle B = 90^\\circ - 60^\\circ = 30^\\circ \\).<br><br>Step 2<br><br>Use \\( \\tan A = \\frac{a}{b} \\implies \\tan 60^\\circ = \\frac{12\\sqrt{3}}{b} \\implies \\sqrt{3} = \\frac{12\\sqrt{3}}{b} \\implies b = 12 \\).<br><br>Step 3<br><br>Use \\( \\sin A = \\frac{a}{c} \\implies \\sin 60^\\circ = \\frac{12\\sqrt{3}}{c} \\implies \\frac{\\sqrt{3}}{2} = \\frac{12\\sqrt{3}}{c} \\implies c = 24 \\).<br><br><strong>Final Answer:</strong><br><br>\\( b = 12 \\), \\( c = 24 \\), \\( \\angle B = 30^\\circ \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "The perimeter of a sector of a circle is \\( 32 \\) cm, and its radius is \\( 12 \\) cm. Find the area of the sector.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The perimeter of a sector is \\( 2r + s \\), where \\( s \\) is the arc length. So, \\( 32 = 2(12) + s \\implies s = 32 - 24 = 8 \\) cm.<br><br>Step 2<br><br>Find the central angle \\( \\theta \\) in radians: \\( \\theta = \\frac{s}{r} = \\frac{8}{12} = \\frac{2}{3} \\) radians.<br><br>Step 3<br><br>Calculate the area \\( A = \\frac{1}{2}r^2\\theta = \\frac{1}{2}(12)^2\\left(\\frac{2}{3}\\right) = \\frac{1}{2}(144)\\left(\\frac{2}{3}\\right) = 72 \\times \\frac{2}{3} = 48 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 48 \\) cm\\(^2\\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\frac{2 \\tan 30^\\circ}{1 - \\tan^2 30^\\circ} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute the value \\( \\tan 30^\\circ = \\frac{1}{\\sqrt{3}} \\).<br><br>Step 2<br><br>Calculate the numerator: \\( 2 \\left(\\frac{1}{\\sqrt{3}}\\right) = \\frac{2}{\\sqrt{3}} \\).<br><br>Step 3<br><br>Calculate the denominator: \\( 1 - \\left(\\frac{1}{\\sqrt{3}}\\right)^2 = 1 - \\frac{1}{3} = \\frac{2}{3} \\). Divide numerator by denominator: \\( \\frac{\\frac{2}{\\sqrt{3}}}{\\frac{2}{3}} = \\frac{2}{\\sqrt{3}} \\times \\frac{3}{2} = \\sqrt{3} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\sqrt{3} \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "From the top of a building, the angle of depression to the top and bottom of a \\( 10 \\) m high pole are \\( 30^\\circ \\) and \\( 45^\\circ \\) respectively. Find the height of the building.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the building height be \\( H \\) and the horizontal distance be \\( x \\). From the bottom, \\( \\tan 45^\\circ = \\frac{H}{x} \\implies x = H \\).<br><br>Step 2<br><br>From the top of the pole, the vertical distance is \\( H - 10 \\). So, \\( \\tan 30^\\circ = \\frac{H - 10}{x} \\).<br><br>Step 3<br><br>Substitute \\( x = H \\): \\( \\frac{1}{\\sqrt{3}} = \\frac{H - 10}{H} \\implies H = \\sqrt{3}H - 10\\sqrt{3} \\implies H(\\sqrt{3} - 1) = 10\\sqrt{3} \\implies H = \\frac{10\\sqrt{3}}{\\sqrt{3} - 1} = \\frac{10\\sqrt{3}(\\sqrt{3} + 1)}{3 - 1} = 5(3 + \\sqrt{3}) = 15 + 5\\sqrt{3} \\).<br><br><strong>Final Answer:</strong><br><br>\\( 15 + 5\\sqrt{3} \\) m."
+  },
+  {
+    "type": "math_show",
+    "q": "Prove that \\( \\sin^4 \\theta - \\cos^4 \\theta = 1 - 2\\cos^2 \\theta \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor the left-hand side (LHS) as a difference of squares: LHS \\( = (\\sin^2 \\theta - \\cos^2 \\theta)(\\sin^2 \\theta + \\cos^2 \\theta) \\).<br><br>Step 2<br><br>Substitute \\( \\sin^2 \\theta + \\cos^2 \\theta = 1 \\): LHS \\( = \\sin^2 \\theta - \\cos^2 \\theta \\).<br><br>Step 3<br><br>Substitute \\( \\sin^2 \\theta = 1 - \\cos^2 \\theta \\): LHS \\( = (1 - \\cos^2 \\theta) - \\cos^2 \\theta = 1 - 2\\cos^2 \\theta \\) = RHS.<br><br><strong>Final Answer:</strong><br><br>LHS = RHS, identity proved."
+  }
+]
