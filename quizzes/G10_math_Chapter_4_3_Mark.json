@@ -1,0 +1,122 @@
+[
+  {
+    "type": "math_show",
+    "q": "Let \\( A = \\{2, 5, 7\\} \\) and \\( B = \\{3, 8\\} \\). Find the Cartesian product \\( A \\times B \\) and state the number of elements in \\( A \\times B \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the Cartesian product \\( A \\times B \\) by pairing each element of \\( A \\) with each element of \\( B \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A \\times B = \\{(2, 3), (2, 8), (5, 3), (5, 8), (7, 3), (7, 8)\\} \\)</div><br><br>Step 2<br><br>Count the number of elements in \\( A \\) and \\( B \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(A) = 3 \\) and \\( n(B) = 2 \\)</div><br><br>Step 3<br><br>Calculate the number of elements in \\( A \\times B \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(A \\times B) = n(A) \\times n(B) = 3 \\times 2 = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( A \\times B = \\{(2, 3), (2, 8), (5, 3), (5, 8), (7, 3), (7, 8)\\} \\), and it has 6 elements."
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( A = \\{1, 2\\} \\) and \\( B = \\{2, 3\\} \\), find \\( (A \\times B) \\cap (B \\times A) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the Cartesian product \\( A \\times B \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A \\times B = \\{(1, 2), (1, 3), (2, 2), (2, 3)\\} \\)</div><br><br>Step 2<br><br>Find the Cartesian product \\( B \\times A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( B \\times A = \\{(2, 1), (2, 2), (3, 1), (3, 2)\\} \\)</div><br><br>Step 3<br><br>Find the intersection of the two sets by identifying common ordered pairs:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (A \\times B) \\cap (B \\times A) = \\{(2, 2)\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{(2, 2)\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( R = \\{(2, 5), (3, 7), (4, 9), (2, 8)\\} \\) be a relation. State the domain and range of \\( R \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the domain of \\( R \\), which is the set of all first elements of the ordered pairs:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{dom}(R) = \\{2, 3, 4\\} \\)</div><br><br>Step 2<br><br>Identify the range of \\( R \\), which is the set of all second elements of the ordered pairs:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{ran}(R) = \\{5, 7, 8, 9\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>Domain: \\( \\{2, 3, 4\\} \\), Range: \\( \\{5, 7, 8, 9\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given the relation \\( S = \\{(x, y) \\mid y = 2x - 1, x \\in \\{1, 2, 3, 4\\}\\} \\). List the ordered pairs of \\( S \\) and state its range.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute each value of \\( x \\) into the equation \\( y = 2x - 1 \\) to find the corresponding \\( y \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 1 \\implies y = 2(1) - 1 = 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 2 \\implies y = 2(2) - 1 = 3 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 3 \\implies y = 2(3) - 1 = 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 4 \\implies y = 2(4) - 1 = 7 \\)</div><br><br>Step 2<br><br>Write the relation as a set of ordered pairs:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S = \\{(1, 1), (2, 3), (3, 5), (4, 7)\\} \\)</div><br><br>Step 3<br><br>State the range, which is the set of all \\( y \\) values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{ran}(S) = \\{1, 3, 5, 7\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( S = \\{(1, 1), (2, 3), (3, 5), (4, 7)\\} \\), Range: \\( \\{1, 3, 5, 7\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f: \\{1, 2, 3, 4, 5\\} \\to \\mathbb{R} \\) be defined by \\( f(x) = x^2 - 2 \\). Find the image of the subset \\( A = \\{2, 4\\} \\) and the inverse image of \\( B = \\{7, 14\\} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the image \\( f(A) \\) by evaluating \\( f(x) \\) for \\( x \\in \\{2, 4\\} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(2) = 2^2 - 2 = 2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(4) = 4^2 - 2 = 14 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(A) = \\{2, 14\\} \\)</div><br><br>Step 2<br><br>Find the inverse image \\( f^{-1}(B) \\) by solving \\( f(x) = 7 \\) and \\( f(x) = 14 \\) for \\( x \\) in the domain:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 2 = 7 \\implies x^2 = 9 \\implies x = 3 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 2 = 14 \\implies x^2 = 16 \\implies x = 4 \\)</div><br><br>Step 3<br><br>Combine the valid \\( x \\) values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f^{-1}(B) = \\{3, 4\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( f(A) = \\{2, 14\\} \\), \\( f^{-1}(B) = \\{3, 4\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain of the function \\( f(x) = \\frac{3x - 1}{x^2 - 9} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The function is undefined when the denominator is zero:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 9 = 0 \\)</div><br><br>Step 2<br><br>Solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x - 3)(x + 3) = 0 \\implies x = 3 \\text{ or } x = -3 \\)</div><br><br>Step 3<br><br>State the domain as all real numbers except these values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{dom}(f) = \\{x \\mid x \\neq 3 \\text{ and } x \\neq -3, x \\in \\mathbb{R}\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{x \\mid x \\neq 3 \\text{ and } x \\neq -3, x \\in \\mathbb{R}\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain of the function \\( h(x) = \\sqrt{2x - 8} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The expression inside the square root must be non-negative for the function to be defined in real numbers:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x - 8 \\geq 0 \\)</div><br><br>Step 2<br><br>Solve the inequality for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x \\geq 8 \\implies x \\geq 4 \\)</div><br><br>Step 3<br><br>State the domain:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{dom}(h) = \\{x \\mid x \\geq 4, x \\in \\mathbb{R}\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{x \\mid x \\geq 4, x \\in \\mathbb{R}\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether \\( f(x) = \\frac{x^2 - 25}{x - 5} \\) and \\( g(x) = x + 5 \\) are equal functions. Give a reason.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the domain of \\( f(x) \\). The denominator cannot be zero:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 5 \\neq 0 \\implies x \\neq 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{dom}(f) = \\{x \\mid x \\neq 5, x \\in \\mathbb{R}\\} \\)</div><br><br>Step 2<br><br>Find the domain of \\( g(x) \\). It is a polynomial, so it is defined for all real numbers:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{dom}(g) = \\mathbb{R} \\)</div><br><br>Step 3<br><br>Compare the domains. Since \\( \\text{dom}(f) \\neq \\text{dom}(g) \\), the functions are not equal.<br><br><strong>Final Answer:</strong><br><br>No, they are not equal functions because their domains are different."
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain and range of the function \\( y = 2x - 4 \\) for \\( 0 \\leq x \\leq 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The domain is explicitly given in the problem:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Domain} = \\{x \\mid 0 \\leq x \\leq 3\\} \\)</div><br><br>Step 2<br><br>Evaluate the function at the endpoints of the domain to find the range, since it is a linear function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{When } x = 0, y = 2(0) - 4 = -4 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{When } x = 3, y = 2(3) - 4 = 2 \\)</div><br><br>Step 3<br><br>State the range based on the minimum and maximum \\( y \\) values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Range} = \\{y \\mid -4 \\leq y \\leq 2\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>Domain: \\( \\{x \\mid 0 \\leq x \\leq 3\\} \\), Range: \\( \\{y \\mid -4 \\leq y \\leq 2\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain and range of the quadratic function \\( y = -x^2 + 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The function is a polynomial, so it is defined for all real numbers:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Domain} = \\mathbb{R} \\)</div><br><br>Step 2<br><br>Analyze the quadratic term. Since \\( x^2 \\geq 0 \\) for all real \\( x \\), it follows that \\( -x^2 \\leq 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -x^2 + 4 \\leq 4 \\)</div><br><br>Step 3<br><br>State the range based on the maximum value of the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Range} = \\{y \\mid y \\leq 4\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>Domain: \\( \\mathbb{R} \\), Range: \\( \\{y \\mid y \\leq 4\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain, range, and the equations of the asymptotes of the function \\( y = \\frac{6}{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The function is undefined when the denominator is zero, so \\( x \\neq 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Domain} = \\{x \\mid x \\neq 0, x \\in \\mathbb{R}\\} \\)</div><br><br>Step 2<br><br>The numerator is non-zero, so \\( y \\) can never be zero. Thus, \\( y \\neq 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Range} = \\{y \\mid y \\neq 0, y \\in \\mathbb{R}\\} \\)</div><br><br>Step 3<br><br>Identify the asymptotes from the restrictions on \\( x \\) and \\( y \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Vertical asymptote: } x = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Horizontal asymptote: } y = 0 \\)</div><br><br><strong>Final Answer:</strong><br><br>Domain: \\( x \\neq 0 \\), Range: \\( y \\neq 0 \\), Asymptotes: \\( x = 0 \\) and \\( y = 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain, range, and the equations of the vertical and horizontal asymptotes of the function \\( y = \\frac{4}{x - 2} + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The function is undefined when the denominator is zero:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 2 = 0 \\implies x = 2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Domain} = \\{x \\mid x \\neq 2, x \\in \\mathbb{R}\\} \\)</div><br><br>Step 2<br><br>Rearrange to solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y - 1 = \\frac{4}{x - 2} \\implies x - 2 = \\frac{4}{y - 1} \\implies x = \\frac{4}{y - 1} + 2 \\)</div><br><br>This is undefined when \\( y - 1 = 0 \\implies y = 1 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Range} = \\{y \\mid y \\neq 1, y \\in \\mathbb{R}\\} \\)</div><br><br>Step 3<br><br>State the asymptotes:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Vertical asymptote: } x = 2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Horizontal asymptote: } y = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>Domain: \\( x \\neq 2 \\), Range: \\( y \\neq 1 \\), Vertical asymptote: \\( x = 2 \\), Horizontal asymptote: \\( y = 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain, range, and the equations of the vertical and horizontal asymptotes of the function \\( y = \\frac{2x + 1}{x - 1} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The function is undefined when the denominator is zero:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 1 = 0 \\implies x = 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Domain} = \\{x \\mid x \\neq 1, x \\in \\mathbb{R}\\} \\)</div><br><br>Step 2<br><br>Rearrange to solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y(x - 1) = 2x + 1 \\implies xy - y = 2x + 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( xy - 2x = y + 1 \\implies x(y - 2) = y + 1 \\implies x = \\frac{y + 1}{y - 2} \\)</div><br><br>This is undefined when \\( y = 2 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Range} = \\{y \\mid y \\neq 2, y \\in \\mathbb{R}\\} \\)</div><br><br>Step 3<br><br>State the asymptotes:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Vertical asymptote: } x = 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Horizontal asymptote: } y = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>Domain: \\( x \\neq 1 \\), Range: \\( y \\neq 2 \\), Vertical asymptote: \\( x = 1 \\), Horizontal asymptote: \\( y = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = 3x - 5 \\) is a one-to-one function. Show your working.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Assume \\( f(x) = f(y) \\) for some \\( x, y \\) in the domain:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x - 5 = 3y - 5 \\)</div><br><br>Step 2<br><br>Solve the equation for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x = 3y \\implies x = y \\)</div><br><br>Step 3<br><br>Since \\( f(x) = f(y) \\) implies \\( x = y \\), the function satisfies the definition of a one-to-one function.<br><br><strong>Final Answer:</strong><br><br>Yes, \\( f(x) = 3x - 5 \\) is a one-to-one function."
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( g(x) = x^2 - 4 \\) is a one-to-one function on \\( \\mathbb{R} \\). Explain why.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Test the definition of a one-to-one function by finding two different inputs that produce the same output.<br><br>Step 2<br><br>Evaluate \\( g(x) \\) at \\( x = 2 \\) and \\( x = -2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g(2) = (2)^2 - 4 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g(-2) = (-2)^2 - 4 = 0 \\)</div><br><br>Step 3<br><br>Since \\( g(2) = g(-2) \\) but \\( 2 \\neq -2 \\), the function is not one-to-one.<br><br><strong>Final Answer:</strong><br><br>No, it is not a one-to-one function because different inputs can produce the same output."
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = 4x + 7 \\). Find the formula for \\( f^{-1}(x) \\) and state its domain.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set \\( y = f(x) \\) and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 4x + 7 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4x = y - 7 \\implies x = \\frac{y - 7}{4} \\)</div><br><br>Step 2<br><br>Replace \\( y \\) with \\( x \\) to write the inverse function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f^{-1}(x) = \\frac{x - 7}{4} \\)</div><br><br>Step 3<br><br>State the domain of the inverse function, which is a linear function defined for all real numbers:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Domain of } f^{-1} = \\mathbb{R} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( f^{-1}(x) = \\frac{x - 7}{4} \\), Domain: \\( \\mathbb{R} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = \\frac{2x - 3}{x + 1} \\), \\( x \\neq -1 \\). Find the formula for \\( f^{-1}(x) \\) and state its domain.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set \\( y = f(x) \\) and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{2x - 3}{x + 1} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y(x + 1) = 2x - 3 \\implies xy + y = 2x - 3 \\)</div><br><br>Step 2<br><br>Isolate \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( xy - 2x = -y - 3 \\implies x(y - 2) = -(y + 3) \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{-(y + 3)}{y - 2} = \\frac{y + 3}{2 - y} \\)</div><br><br>Step 3<br><br>Write the inverse function and state its domain (denominator cannot be zero):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f^{-1}(x) = \\frac{x + 3}{2 - x} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Domain of } f^{-1} = \\{x \\mid x \\neq 2, x \\in \\mathbb{R}\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( f^{-1}(x) = \\frac{x + 3}{2 - x} \\), Domain: \\( \\{x \\mid x \\neq 2, x \\in \\mathbb{R}\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f: [-5, \\infty) \\to [0, \\infty) \\) be defined by \\( f(x) = \\sqrt{x + 5} \\). Find the formula for \\( f^{-1}(x) \\) and state its domain.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set \\( y = f(x) \\) and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\sqrt{x + 5} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y^2 = x + 5 \\implies x = y^2 - 5 \\)</div><br><br>Step 2<br><br>Replace \\( y \\) with \\( x \\) to write the inverse function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f^{-1}(x) = x^2 - 5 \\)</div><br><br>Step 3<br><br>The domain of \\( f^{-1} \\) is the range of \\( f \\), which is given as \\( [0, \\infty) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Domain of } f^{-1} = \\{x \\mid x \\geq 0, x \\in \\mathbb{R}\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( f^{-1}(x) = x^2 - 5 \\) for \\( x \\geq 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = 2x - 1 \\) and \\( g(x) = x^2 + 3 \\). Find \\( (g \\circ f)(x) \\) and \\( (f \\circ g)(x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find \\( (g \\circ f)(x) = g(f(x)) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g(2x - 1) = (2x - 1)^2 + 3 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = 4x^2 - 4x + 1 + 3 = 4x^2 - 4x + 4 \\)</div><br><br>Step 2<br><br>Find \\( (f \\circ g)(x) = f(g(x)) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x^2 + 3) = 2(x^2 + 3) - 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = 2x^2 + 6 - 1 = 2x^2 + 5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (g \\circ f)(x) = 4x^2 - 4x + 4 \\), \\( (f \\circ g)(x) = 2x^2 + 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = \\frac{1}{x} \\) and \\( g(x) = x - 2 \\). Find the domain of \\( f \\) for which the function \\( g \\circ f \\) exists, and find \\( (g \\circ f)(x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the domain of \\( f \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{dom}(f) = \\{x \\mid x \\neq 0, x \\in \\mathbb{R}\\} \\)</div><br><br>Step 2<br><br>For \\( g \\circ f \\) to exist, \\( f(x) \\) must be in the domain of \\( g \\). Since \\( \\text{dom}(g) = \\mathbb{R} \\), any \\( x \\neq 0 \\) is valid:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Domain for } g \\circ f = \\{x \\mid x \\neq 0, x \\in \\mathbb{R}\\} \\)</div><br><br>Step 3<br><br>Find the composite function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (g \\circ f)(x) = g(f(x)) = g\\left(\\frac{1}{x}\\right) = \\frac{1}{x} - 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>Domain: \\( \\{x \\mid x \\neq 0, x \\in \\mathbb{R}\\} \\), \\( (g \\circ f)(x) = \\frac{1}{x} - 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = \\frac{x}{x - 1} \\) and \\( g(x) = \\frac{1}{x} \\). Find \\( (f \\circ g)(x) \\) and its domain.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the composite function \\( (f \\circ g)(x) = f(g(x)) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f\\left(\\frac{1}{x}\\right) = \\frac{\\frac{1}{x}}{\\frac{1}{x} - 1} = \\frac{\\frac{1}{x}}{\\frac{1 - x}{x}} = \\frac{1}{1 - x} \\)</div><br><br>Step 2<br><br>Determine the domain restrictions. First, \\( x \\neq 0 \\) for \\( g(x) \\) to be defined.<br><br>Step 3<br><br>Second, \\( g(x) \\neq 1 \\) for \\( f(g(x)) \\) to be defined:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{x} \\neq 1 \\implies x \\neq 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Domain} = \\{x \\mid x \\neq 0 \\text{ and } x \\neq 1, x \\in \\mathbb{R}\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (f \\circ g)(x) = \\frac{1}{1 - x} \\), Domain: \\( \\{x \\mid x \\neq 0 \\text{ and } x \\neq 1, x \\in \\mathbb{R}\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( f(x) = 3x + 2 \\) and \\( (f \\circ g)(x) = 6x - 4 \\), find the function \\( g(x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the definition of the composite function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (f \\circ g)(x) = f(g(x)) = 3g(x) + 2 \\)</div><br><br>Step 2<br><br>Set this equal to the given expression for \\( (f \\circ g)(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3g(x) + 2 = 6x - 4 \\)</div><br><br>Step 3<br><br>Solve for \\( g(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3g(x) = 6x - 6 \\implies g(x) = 2x - 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( g(x) = 2x - 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f: \\mathbb{R} \\to \\mathbb{R} \\) be defined by \\( f(x) = 2x^2 - 3 \\). Find the inverse image of the set \\( B = \\{-1, 5\\} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find \\( x \\) such that \\( f(x) = -1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x^2 - 3 = -1 \\implies 2x^2 = 2 \\implies x^2 = 1 \\implies x = 1 \\text{ or } x = -1 \\)</div><br><br>Step 2<br><br>Find \\( x \\) such that \\( f(x) = 5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x^2 - 3 = 5 \\implies 2x^2 = 8 \\implies x^2 = 4 \\implies x = 2 \\text{ or } x = -2 \\)</div><br><br>Step 3<br><br>Combine all valid \\( x \\) values to form the inverse image set:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f^{-1}(B) = \\{-2, -1, 1, 2\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{-2, -1, 1, 2\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( A = \\{1, 2\\} \\) and \\( B = \\{3, 4\\} \\). Find \\( A \\times B \\) and state whether the relation \\( R = \\{(1, 3), (2, 4)\\} \\) is a function from \\( A \\) to \\( B \\). Give a reason.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the Cartesian product \\( A \\times B \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A \\times B = \\{(1, 3), (1, 4), (2, 3), (2, 4)\\} \\)</div><br><br>Step 2<br><br>Examine the relation \\( R = \\{(1, 3), (2, 4)\\} \\). The domain of \\( R \\) is \\( \\{1, 2\\} \\), which is equal to \\( A \\).<br><br>Step 3<br><br>Check if each element of \\( A \\) is related to exactly one element of \\( B \\). Since 1 maps only to 3, and 2 maps only to 4, it satisfies the definition of a function.<br><br><strong>Final Answer:</strong><br><br>\\( A \\times B = \\{(1, 3), (1, 4), (2, 3), (2, 4)\\} \\). Yes, \\( R \\) is a function because each element of \\( A \\) is related to exactly one element of \\( B \\)."
+  }
+]
