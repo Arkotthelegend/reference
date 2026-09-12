@@ -1,0 +1,734 @@
+[
+  {
+    "type": "tf",
+    "q": "Organic compounds contain carbon and hydrogen in which there is at least one C-C or C-H bond.",
+    "c": "true",
+    "e": "This is the fundamental definition of organic compounds as stated in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Organic compounds contain carbon and hydrogen in which there is at least one C-O or C-N bond.",
+    "c": "false",
+    "e": "Organic compounds must contain at least one C-C or C-H bond, not necessarily C-O or C-N."
+  },
+  {
+    "type": "tf",
+    "q": "Hydrocarbons are compounds in which carbon and hydrogen atoms are bonded to each other by covalent bonds.",
+    "c": "true",
+    "e": "Hydrocarbons are defined by the covalent bonding between carbon and hydrogen atoms."
+  },
+  {
+    "type": "tf",
+    "q": "Hydrocarbons are compounds in which carbon and hydrogen atoms are bonded to each other by ionic bonds.",
+    "c": "false",
+    "e": "Hydrocarbons are bonded by covalent bonds, not ionic bonds."
+  },
+  {
+    "type": "tf",
+    "q": "The hydrocarbon compounds that contain only single bonds are called saturated hydrocarbons.",
+    "c": "true",
+    "e": "Saturated hydrocarbons, also known as alkanes, contain only single bonds."
+  },
+  {
+    "type": "tf",
+    "q": "The hydrocarbon compounds that contain only single bonds are called unsaturated hydrocarbons.",
+    "c": "false",
+    "e": "Hydrocarbons with only single bonds are called saturated hydrocarbons, not unsaturated."
+  },
+  {
+    "type": "tf",
+    "q": "Those that contain double or triple bonds are called unsaturated hydrocarbons which include alkenes, alkynes and aromatic compounds.",
+    "c": "true",
+    "e": "Unsaturated hydrocarbons are characterized by the presence of double or triple bonds."
+  },
+  {
+    "type": "tf",
+    "q": "The molecular formula of an organic compound is the actual number of atoms of each element present in a molecule.",
+    "c": "true",
+    "e": "The molecular formula represents the exact count of each type of atom in a molecule."
+  },
+  {
+    "type": "tf",
+    "q": "A full structural formula shows every bond and atom in what order atoms are attached, and portrays accurately the three-dimensional geometry of the molecule.",
+    "c": "false",
+    "e": "A full structural formula does not portray accurately the three-dimensional geometry of the molecule."
+  },
+  {
+    "type": "tf",
+    "q": "A condensed structural formula is a more compact way of drawing the structural formula of a molecule.",
+    "c": "true",
+    "e": "Condensed structural formulas group atoms together to provide a more compact representation."
+  },
+  {
+    "type": "tf",
+    "q": "An alkane is a compound that lacks functional groups.",
+    "c": "true",
+    "e": "Alkanes are considered to lack specific functional groups, consisting only of carbon and hydrogen single bonds."
+  },
+  {
+    "type": "tf",
+    "q": "The functional group in an alkene is a carbon-carbon double bond.",
+    "c": "true",
+    "e": "The carbon-carbon double bond ($C=C$) is the defining functional group of alkenes."
+  },
+  {
+    "type": "tf",
+    "q": "The functional group in an alkyne is a carbon-carbon single bond.",
+    "c": "false",
+    "e": "The functional group in an alkyne is a carbon-carbon triple bond, not a single bond."
+  },
+  {
+    "type": "tf",
+    "q": "A functional group is an atom or a group of atoms that determine the chemical properties of a compound.",
+    "c": "true",
+    "e": "Functional groups dictate the characteristic chemical reactions and properties of organic compounds."
+  },
+  {
+    "type": "tf",
+    "q": "Alcohols can often be represented by the general formula ROH, where R is an alkyl group.",
+    "c": "true",
+    "e": "The general formula for alcohols is ROH, with R representing an alkyl group."
+  },
+  {
+    "type": "tf",
+    "q": "Alcohols can often be represented by the general formula ROH, where R is an aryl group.",
+    "c": "false",
+    "e": "In the general formula ROH for alcohols, R represents an alkyl group, not an aryl group."
+  },
+  {
+    "type": "tf",
+    "q": "A homologous series is a group of organic compounds, usually listed in order of increasing size, that have the same functional group and similar structure.",
+    "c": "true",
+    "e": "Members of a homologous series share the same functional group and exhibit similar chemical properties."
+  },
+  {
+    "type": "tf",
+    "q": "In a homologous series, the structures differ only by the number of $CH_3$ units in the main carbon chain.",
+    "c": "false",
+    "e": "In a homologous series, structures differ by the number of $CH_2$ units, not $CH_3$ units."
+  },
+  {
+    "type": "tf",
+    "q": "In a homologous series, all the compounds fit the same general formula.",
+    "c": "true",
+    "e": "All members of a homologous series can be represented by a single general formula."
+  },
+  {
+    "type": "tf",
+    "q": "As the chain gets longer in a homologous series, the compounds show a gradual change in properties.",
+    "c": "true",
+    "e": "Physical properties like boiling point and viscosity change gradually as the carbon chain lengthens."
+  },
+  {
+    "type": "tf",
+    "q": "Saturated hydrocarbons are hydrocarbons that contain only single bonds between carbon atoms.",
+    "c": "true",
+    "e": "Saturated hydrocarbons are defined by the presence of only single covalent bonds between carbon atoms."
+  },
+  {
+    "type": "tf",
+    "q": "Unsaturated hydrocarbons are hydrocarbons that contain double or triple ionic bonds between adjacent carbon atoms.",
+    "c": "false",
+    "e": "Unsaturated hydrocarbons contain double or triple covalent bonds, not ionic bonds."
+  },
+  {
+    "type": "tf",
+    "q": "The alkanes are the simplest family of organic compounds and are referred to as the \"saturated hydrocarbons\".",
+    "c": "true",
+    "e": "Alkanes are the simplest organic compounds and are classified as saturated hydrocarbons."
+  },
+  {
+    "type": "tf",
+    "q": "Every carbon in an alkane has a tetrahedral environment and is bonded to four other atoms by means of a single bond.",
+    "c": "true",
+    "e": "Carbon atoms in alkanes exhibit tetrahedral geometry with four single bonds."
+  },
+  {
+    "type": "tf",
+    "q": "Every carbon in an alkane has a tetrahedral environment and is bonded to four other atoms by means of a double bond.",
+    "c": "false",
+    "e": "Carbon atoms in alkanes are bonded by single bonds, not double bonds."
+  },
+  {
+    "type": "tf",
+    "q": "Alkanes form a homologous series, with the general formula $C_nH_{2n+2}$, where n is a number equal to or greater than 1.",
+    "c": "true",
+    "e": "The general formula for the alkane homologous series is $C_nH_{2n+2}$."
+  },
+  {
+    "type": "tf",
+    "q": "Alkanes form a homologous series, with the general formula $C_nH_{2n}$, where n is a number equal to or greater than 1.",
+    "c": "false",
+    "e": "The general formula for alkanes is $C_nH_{2n+2}$, not $C_nH_{2n}$."
+  },
+  {
+    "type": "tf",
+    "q": "The root name for an organic compound indicates the number of carbon atoms in the longest continuous chain of carbon atoms.",
+    "c": "true",
+    "e": "IUPAC root names are based on the number of carbons in the longest continuous chain."
+  },
+  {
+    "type": "tf",
+    "q": "The root name for an organic compound indicates the number of hydrogen atoms in the longest continuous chain of carbon atoms.",
+    "c": "false",
+    "e": "The root name indicates the number of carbon atoms, not hydrogen atoms."
+  },
+  {
+    "type": "tf",
+    "q": "The alkyl groups are derived from the corresponding alkanes by the removal of a hydrogen (H) atom.",
+    "c": "true",
+    "e": "Alkyl groups are formed when one hydrogen atom is removed from an alkane."
+  },
+  {
+    "type": "tf",
+    "q": "Alkyl groups are represented generally as R-, where R is $C_nH_{2n+1}$.",
+    "c": "true",
+    "e": "The general formula for an alkyl group is $C_nH_{2n+1}$, represented by R-."
+  },
+  {
+    "type": "tf",
+    "q": "In the IUPAC system, identify and name the shortest carbon chain.",
+    "c": "false",
+    "e": "In the IUPAC system, you must identify and name the longest carbon chain, not the shortest."
+  },
+  {
+    "type": "tf",
+    "q": "In the IUPAC system, number the C atoms in this longest chain beginning at the end nearest the first branching.",
+    "c": "true",
+    "e": "Numbering starts from the end closest to the first substituent to give it the lowest possible number."
+  },
+  {
+    "type": "tf",
+    "q": "In the IUPAC system, arrange the substituents in alphabetical order.",
+    "c": "true",
+    "e": "Substituents are listed alphabetically in the final IUPAC name."
+  },
+  {
+    "type": "tf",
+    "q": "In the IUPAC system, use the appropriate prefix to group like substituents: di, tri, tetra, penta, and so on, and consider these prefixes when alphabetising attached groups.",
+    "c": "false",
+    "e": "Prefixes like di, tri, and tetra are not considered when alphabetising attached groups."
+  },
+  {
+    "type": "tf",
+    "q": "In the IUPAC system, write the name as a single word, using hyphens to separate numbers and letters, and commas to separate numbers.",
+    "c": "true",
+    "e": "IUPAC names are written as a single word with specific punctuation rules for numbers and letters."
+  },
+  {
+    "type": "tf",
+    "q": "Two or more compounds with the same molecular formula but different arrangements of atoms and have different properties from each other are called isomers.",
+    "c": "true",
+    "e": "Isomers share a molecular formula but differ in atomic arrangement and properties."
+  },
+  {
+    "type": "tf",
+    "q": "Straight chain and branched-chain isomers are examples of stereoisomers that differ in the order in which the atoms are bonded together.",
+    "c": "false",
+    "e": "Straight chain and branched-chain isomers are examples of structural isomers, not stereoisomers."
+  },
+  {
+    "type": "tf",
+    "q": "All of the alkanes containing four or more carbon atoms show structural isomerism.",
+    "c": "true",
+    "e": "Structural isomerism in alkanes begins with butane, which has four carbon atoms."
+  },
+  {
+    "type": "tf",
+    "q": "All of the alkanes containing three or more carbon atoms show structural isomerism.",
+    "c": "false",
+    "e": "Structural isomerism in alkanes begins with four or more carbon atoms, not three."
+  },
+  {
+    "type": "tf",
+    "q": "In the laboratory, alkanes are prepared by heating the sodium salt of a carboxylic acid with soda lime.",
+    "c": "true",
+    "e": "This decarboxylation reaction is a standard laboratory method for preparing alkanes."
+  },
+  {
+    "type": "tf",
+    "q": "Soda lime is a mixture of calcium oxide (lime) and sodium hydroxide.",
+    "c": "true",
+    "e": "Soda lime consists of calcium oxide and sodium hydroxide."
+  },
+  {
+    "type": "tf",
+    "q": "Soda lime is a mixture of calcium carbonate and sodium hydroxide.",
+    "c": "false",
+    "e": "Soda lime is a mixture of calcium oxide (lime), not calcium carbonate, and sodium hydroxide."
+  },
+  {
+    "type": "tf",
+    "q": "The reduction of alkyl halides with molecular hydrogen takes place in the presence of catalyst like platinum, Pt or palladium, Pd.",
+    "c": "true",
+    "e": "Pt or Pd catalysts are used for the hydrogenation reduction of alkyl halides."
+  },
+  {
+    "type": "tf",
+    "q": "Although platinum and palladium metals in finely divided form catalyse the addition of hydrogen to alkenes at room temperature, higher temperatures are required when nickel is used as the hydrogenating catalyst.",
+    "c": "true",
+    "e": "Nickel catalysts require higher temperatures (e.g., $300^{\\circ} C$) compared to Pt or Pd for hydrogenation."
+  },
+  {
+    "type": "tf",
+    "q": "The normal alkanes from $C_1$ to $C_4$ are colourless liquids.",
+    "c": "false",
+    "e": "The normal alkanes from $C_1$ to $C_4$ are colourless gases, not liquids."
+  },
+  {
+    "type": "tf",
+    "q": "The normal alkanes from $C_5$ to $C_{17}$ are colourless liquids.",
+    "c": "true",
+    "e": "Alkanes in this carbon range exist as colourless liquids at room temperature."
+  },
+  {
+    "type": "tf",
+    "q": "As the chain gets longer, melting and boiling points rise, viscosity increases and flammability decreases.",
+    "c": "true",
+    "e": "Longer carbon chains lead to higher boiling points, increased viscosity, and decreased flammability."
+  },
+  {
+    "type": "tf",
+    "q": "As the chain gets longer, melting and boiling points rise, viscosity decreases and flammability increases.",
+    "c": "false",
+    "e": "As the chain gets longer, viscosity increases and flammability decreases, not the reverse."
+  },
+  {
+    "type": "tf",
+    "q": "The most important chemical reactions of these saturated hydrocarbons are the substitution and combustion reactions.",
+    "c": "true",
+    "e": "Alkanes primarily undergo substitution and combustion reactions due to their saturated nature."
+  },
+  {
+    "type": "tf",
+    "q": "When methane is mixed with chlorine in direct sunlight, the following stepwise reactions occur where one chlorine atom replaces one hydrogen atom in each step.",
+    "c": "false",
+    "e": "The reaction occurs in diffused sunlight, not direct sunlight, to control the substitution."
+  },
+  {
+    "type": "tf",
+    "q": "These reactions are known as chlorination reactions in alkane.",
+    "c": "true",
+    "e": "The stepwise replacement of hydrogen with chlorine is called chlorination."
+  },
+  {
+    "type": "tf",
+    "q": "Haloalkanes such as $CH_3Cl$, $CH_2Cl_2$ and $CCl_4$ are important solvents.",
+    "c": "true",
+    "e": "These chlorinated methanes are widely used as industrial solvents."
+  },
+  {
+    "type": "tf",
+    "q": "The alkanes are highly reactive toward acids, bases, metals and many other chemicals.",
+    "c": "false",
+    "e": "Alkanes are generally unreactive toward acids, bases, metals, and many other chemicals."
+  },
+  {
+    "type": "tf",
+    "q": "Alkanes burn well in a good supply of oxygen, forming carbon dioxide and water vapour, and giving out plenty of heat.",
+    "c": "true",
+    "e": "Complete combustion of alkanes produces $CO_2$, $H_2O$, and significant heat energy."
+  },
+  {
+    "type": "tf",
+    "q": "If there is not enough oxygen, the alkanes undergo incomplete combustion, giving off poisonous carbon monoxide and less heat energy.",
+    "c": "true",
+    "e": "Incomplete combustion due to limited oxygen produces toxic carbon monoxide and less heat."
+  },
+  {
+    "type": "tf",
+    "q": "Hydrogenation is the reaction in which adding pairs of hydrogen atoms to a double or triple bond.",
+    "c": "true",
+    "e": "Hydrogenation involves the addition of hydrogen across unsaturated bonds."
+  },
+  {
+    "type": "tf",
+    "q": "Substitution reaction is a reaction in which an atom or a group of atoms attached to a carbon atom is replaced by another atom or group of atoms.",
+    "c": "true",
+    "e": "Substitution reactions involve the replacement of one atom or group with another."
+  },
+  {
+    "type": "tf",
+    "q": "Alkyne molecules which are unsaturated hydrocarbons contain at least one carbon-carbon triple bond ($C \\equiv C$).",
+    "c": "true",
+    "e": "Alkynes are defined by the presence of at least one carbon-carbon triple bond."
+  },
+  {
+    "type": "tf",
+    "q": "This acetylenic bond is the functional group of alkyne, and largely dictates the alkyne reactions.",
+    "c": "true",
+    "e": "The acetylenic bond is the reactive functional group in alkynes."
+  },
+  {
+    "type": "tf",
+    "q": "They form a homologous series, with the general formula $C_nH_{2n-2}$, where n is a number equal to or greater than 2.",
+    "c": "true",
+    "e": "The general formula for alkynes is $C_nH_{2n-2}$, starting with ethyne (n=2)."
+  },
+  {
+    "type": "tf",
+    "q": "The first member of the series is known as ethyne.",
+    "c": "true",
+    "e": "Ethyne ($C_2H_2$) is the simplest alkyne."
+  },
+  {
+    "type": "tf",
+    "q": "It is commonly called acetylene.",
+    "c": "true",
+    "e": "Acetylene is the common name for ethyne."
+  },
+  {
+    "type": "tf",
+    "q": "The alkynes are named after the alkane having the same number of carbon atoms, and the suffix -ane of the alkane is replaced by -yne.",
+    "c": "true",
+    "e": "IUPAC nomenclature for alkynes replaces the '-ane' suffix of the corresponding alkane with '-yne'."
+  },
+  {
+    "type": "tf",
+    "q": "The chains with three or more carbon atoms lead to the formation of structural isomers.",
+    "c": "false",
+    "e": "Structural isomerism in alkynes begins with four or more carbon atoms, not three."
+  },
+  {
+    "type": "tf",
+    "q": "In alkynes, the chains can be in different ways, and the triple bonds can be in different positions.",
+    "c": "true",
+    "e": "Alkynes exhibit both chain and positional isomerism."
+  },
+  {
+    "type": "tf",
+    "q": "Calcium carbide ($CaC_2$) reacts with water to produce acetylene.",
+    "c": "true",
+    "e": "The reaction of calcium carbide with water is a standard laboratory method for producing ethyne."
+  },
+  {
+    "type": "tf",
+    "q": "The calcium carbide required for this reaction is industrially prepared by heating calcium oxide with coke in an electric furnace.",
+    "c": "true",
+    "e": "Calcium carbide is manufactured by heating calcium oxide and coke at high temperatures."
+  },
+  {
+    "type": "tf",
+    "q": "At room temperature, alkynes containing two to four carbon atoms are liquids.",
+    "c": "false",
+    "e": "Alkynes with two to four carbon atoms are gases at room temperature."
+  },
+  {
+    "type": "tf",
+    "q": "They are all odourless and colourless except ethyne which has a slightly distinctive odour.",
+    "c": "true",
+    "e": "Pure alkynes are odourless and colourless, but ethyne often has a distinctive smell due to impurities."
+  },
+  {
+    "type": "tf",
+    "q": "Owing to the presence of the triple bond, the alkynes are also saturated.",
+    "c": "false",
+    "e": "Owing to the presence of the triple bond, alkynes are unsaturated."
+  },
+  {
+    "type": "tf",
+    "q": "Reactions can be made to add to carbon-carbon triple bond (addition reaction) or to substitute acetylenic hydrogens (substitution reaction).",
+    "c": "true",
+    "e": "Alkynes undergo both addition reactions at the triple bond and substitution of terminal hydrogens."
+  },
+  {
+    "type": "tf",
+    "q": "The reaction of hydrogenation proceeds in two distinct stages.",
+    "c": "true",
+    "e": "Hydrogenation of an alkyne first yields an alkene, and then an alkane."
+  },
+  {
+    "type": "tf",
+    "q": "Chlorine or bromine can be added to ethyne in the light to form ethyne di- and tetra-halides.",
+    "c": "false",
+    "e": "Chlorine or bromine can be added to ethyne in the dark, not in the light."
+  },
+  {
+    "type": "tf",
+    "q": "Iodine can be added but only with difficulty.",
+    "c": "true",
+    "e": "Iodine is less reactive and adds to alkynes with difficulty compared to chlorine or bromine."
+  },
+  {
+    "type": "tf",
+    "q": "The order of the readiness with which the hydrogen halides add to ethyne is $HI > HBr > HCl > HF$.",
+    "c": "true",
+    "e": "Reactivity of hydrogen halides decreases in the order $HI > HBr > HCl > HF$."
+  },
+  {
+    "type": "tf",
+    "q": "The addition reaction of vinyl bromide is in accordance with Markownikoff's rule.",
+    "c": "true",
+    "e": "The second addition of HX to an alkyne follows Markownikoff's rule."
+  },
+  {
+    "type": "tf",
+    "q": "When acetylene is passed over heated sodium, one or both hydrogen atoms may be replaced or substituted by sodium to form mono- and di-sodium acetylides.",
+    "c": "true",
+    "e": "Terminal alkynes react with sodium to form metallic acetylides."
+  },
+  {
+    "type": "tf",
+    "q": "If ethyne is added to an ammoniacal solution of copper(I) chloride, a white precipitate is formed.",
+    "c": "false",
+    "e": "Ethyne reacts with ammoniacal copper(I) chloride to form a red precipitate of dicopper acetylide."
+  },
+  {
+    "type": "tf",
+    "q": "If ethyne is added to an ammoniacal solution of silver oxide, a white precipitate of disilver acetylide is formed.",
+    "c": "true",
+    "e": "Ethyne reacts with ammoniacal silver oxide to form a white precipitate of disilver acetylide."
+  },
+  {
+    "type": "tf",
+    "q": "$CH_3-C \\equiv C-CH_3$ contains no hydrogen on the triple bonded carbon and will not form metallic acetylides.",
+    "c": "true",
+    "e": "Internal alkynes lack acidic terminal hydrogens and do not form metallic acetylides."
+  },
+  {
+    "type": "tf",
+    "q": "$CH_3-C \\equiv CH$ contains a hydrogen atom on the triple bonded carbon and will form metallic acetylides.",
+    "c": "true",
+    "e": "Terminal alkynes have an acidic hydrogen on the triple-bonded carbon, allowing them to form metallic acetylides."
+  },
+  {
+    "type": "tf",
+    "q": "Hydration of alkyne is an addition of water in which H and OH add across a double bond.",
+    "c": "false",
+    "e": "Hydration of an alkyne involves the addition of H and OH across a triple bond, not a double bond."
+  },
+  {
+    "type": "tf",
+    "q": "The alcohols may be considered as derivatives of alkanes.",
+    "c": "true",
+    "e": "Alcohols are structurally derived from alkanes by substituting a hydrogen atom."
+  },
+  {
+    "type": "tf",
+    "q": "The replacement of one hydrogen atom in an alkane by a hydroxyl (OH) group gives the corresponding alcohol.",
+    "c": "true",
+    "e": "This substitution defines the basic structure of an alcohol."
+  },
+  {
+    "type": "tf",
+    "q": "Most of the common reactions of all alcohols are due to the functional group, OH.",
+    "c": "true",
+    "e": "The hydroxyl group is the reactive functional group responsible for alcohol chemistry."
+  },
+  {
+    "type": "tf",
+    "q": "They form a homologous series with the general formula $C_nH_{2n+1}OH$, where n is a number equal to or greater than 1.",
+    "c": "true",
+    "e": "The general formula for aliphatic alcohols is $C_nH_{2n+1}OH$."
+  },
+  {
+    "type": "tf",
+    "q": "The common name of an alcohol combines the name of the alkyl group with the word alcohol.",
+    "c": "true",
+    "e": "Common nomenclature uses the alkyl group name followed by 'alcohol'."
+  },
+  {
+    "type": "tf",
+    "q": "Alcohols are given their respective names by adding -ol instead of -e to the alkane.",
+    "c": "true",
+    "e": "IUPAC naming replaces the '-e' ending of the parent alkane with '-ol'."
+  },
+  {
+    "type": "tf",
+    "q": "The chain is numbered from the end nearest the OH group.",
+    "c": "true",
+    "e": "IUPAC rules prioritize giving the hydroxyl group the lowest possible locant."
+  },
+  {
+    "type": "tf",
+    "q": "Alcohols containing at least two carbon atoms have more than one structure.",
+    "c": "false",
+    "e": "Alcohols must contain at least three carbon atoms to exhibit structural isomerism."
+  },
+  {
+    "type": "tf",
+    "q": "Alcohols form chain isomerism due to the different structures of C-skeleton in the longer chain.",
+    "c": "true",
+    "e": "Chain isomers of alcohols have different carbon backbone arrangements."
+  },
+  {
+    "type": "tf",
+    "q": "The basic carbon skeleton remains unchanged in the isomers, but a hydroxyl group (OH) can be located in different positions, making them positional isomers.",
+    "c": "true",
+    "e": "Positional isomers differ only in the location of the functional group on the same carbon skeleton."
+  },
+  {
+    "type": "tf",
+    "q": "Ethene and steam are passed over a phosphoric acid catalyst at $570^{\\circ} C$ and 60 ~ 70 atmospheric pressure to produce ethanol.",
+    "c": "true",
+    "e": "This is the industrial hydration method for producing ethanol from ethene."
+  },
+  {
+    "type": "tf",
+    "q": "This reaction is reversible; high pressure and a high temperature would give the best yield.",
+    "c": "false",
+    "e": "Because the reaction is exothermic, high pressure and a low temperature would give the best yield."
+  },
+  {
+    "type": "tf",
+    "q": "Starch is used as the raw material for the preparation of ethanol industrially.",
+    "c": "true",
+    "e": "Starchy materials like potatoes, maize, and rice are common raw materials for fermentation."
+  },
+  {
+    "type": "tf",
+    "q": "The cooked starch is cooled and then treated with freshly germinated barley which is called malt for 1 hour at $60^{\\circ} C$.",
+    "c": "true",
+    "e": "Malt provides the enzyme diastase needed to break down starch."
+  },
+  {
+    "type": "tf",
+    "q": "Malt contains the enzyme diastase.",
+    "c": "true",
+    "e": "Diastase is the enzyme in malt that hydrolyzes starch into maltose."
+  },
+  {
+    "type": "tf",
+    "q": "Starch breaks down into a sugar called glucose.",
+    "c": "false",
+    "e": "Starch initially breaks down into a sugar called maltose, not directly into glucose."
+  },
+  {
+    "type": "tf",
+    "q": "Yeast secretes two enzymes: maltase which converts maltose into glucose and zymase which converts glucose into ethanol.",
+    "c": "true",
+    "e": "These two enzymes sequentially convert maltose to glucose and then glucose to ethanol and $CO_2$."
+  },
+  {
+    "type": "tf",
+    "q": "The product contains about 11% ethanol.",
+    "c": "true",
+    "e": "Fermentation naturally yields a dilute ethanol solution of about 11%."
+  },
+  {
+    "type": "tf",
+    "q": "It is fractionally distilled to yield the rectified spirit of commerce which contains about 95% ethanol.",
+    "c": "true",
+    "e": "Fractional distillation concentrates the ethanol to approximately 95%."
+  },
+  {
+    "type": "tf",
+    "q": "Alcohols from methanol to butanol are mobile liquids.",
+    "c": "true",
+    "e": "Lower alcohols are mobile liquids at room temperature."
+  },
+  {
+    "type": "tf",
+    "q": "The first two members; methanol and ethanol are miscible with water in any proportion.",
+    "c": "true",
+    "e": "Methanol and ethanol are completely miscible with water due to hydrogen bonding."
+  },
+  {
+    "type": "tf",
+    "q": "The most toxic member is ethanol.",
+    "c": "false",
+    "e": "The most toxic member of the lower alcohols is methanol, not ethanol."
+  },
+  {
+    "type": "tf",
+    "q": "When a piece of sodium is added to ethanol, reaction occurs at room temperature, liberating hydrogen.",
+    "c": "true",
+    "e": "Sodium reacts with alcohols to produce sodium alkoxide and hydrogen gas."
+  },
+  {
+    "type": "tf",
+    "q": "When ethanol is heated with an excess of concentrated sulphuric acid at $160^{\\circ} C$, ethene is produced.",
+    "c": "true",
+    "e": "Dehydration of ethanol at $160^{\\circ} C$ yields ethene."
+  },
+  {
+    "type": "tf",
+    "q": "With a smaller proportion of concentrated sulphuric acid, diethyl ether is formed when the reaction temperature is kept at $140^{\\circ} C$.",
+    "c": "true",
+    "e": "Intermolecular dehydration at a lower temperature ($140^{\\circ} C$) produces diethyl ether."
+  },
+  {
+    "type": "tf",
+    "q": "Ethanoic acid also reacts with ethanol when a small amount of concentrated sulphuric acid is added as catalyst.",
+    "c": "true",
+    "e": "This reaction is known as esterification."
+  },
+  {
+    "type": "tf",
+    "q": "Ethyl ethanoate is an ester.",
+    "c": "true",
+    "e": "The reaction between ethanoic acid and ethanol produces the ester ethyl ethanoate."
+  },
+  {
+    "type": "tf",
+    "q": "It has a pleasant fruity odour which is a characteristic of most esters.",
+    "c": "true",
+    "e": "Esters are well known for their characteristic pleasant, fruity smells."
+  },
+  {
+    "type": "tf",
+    "q": "When ethanol vapour is passed over freshly reduced copper heated at $300^{\\circ} C$, removal of hydrogen occurs with formation of ethanal.",
+    "c": "true",
+    "e": "Catalytic dehydrogenation of ethanol yields ethanal (acetaldehyde)."
+  },
+  {
+    "type": "tf",
+    "q": "When ethanol is heated with acidified potassium dichromate solution, oxidation takes place in two stages to finally give ethanoic acid.",
+    "c": "true",
+    "e": "Ethanol oxidizes first to ethanal and then to ethanoic acid."
+  },
+  {
+    "type": "tf",
+    "q": "Fermentation is a process in which ethanol is made from glucose using yeast in the presence of air.",
+    "c": "false",
+    "e": "Fermentation occurs in the absence of air (anaerobic conditions)."
+  },
+  {
+    "type": "tf",
+    "q": "Esterification is a reaction of an alcohol with an acid to produce an ester and water.",
+    "c": "true",
+    "e": "Esterification is the condensation reaction between an alcohol and a carboxylic acid."
+  },
+  {
+    "type": "tf",
+    "q": "Dehydrogenation is a chemical reaction in which hydrogen is removed from a compound.",
+    "c": "true",
+    "e": "Dehydrogenation involves the loss of hydrogen atoms from a molecule."
+  },
+  {
+    "type": "tf",
+    "q": "Liquid alkanes have various effects on the body, depending on the part exposed.",
+    "c": "true",
+    "e": "The physiological effects of liquid alkanes vary based on the exposure site."
+  },
+  {
+    "type": "tf",
+    "q": "On the skin, alkanes dissolve body oils, and repeated contact may cause dermatitis.",
+    "c": "true",
+    "e": "Alkanes are nonpolar solvents that can strip natural oils from the skin."
+  },
+  {
+    "type": "tf",
+    "q": "Heavier liquid alkanes, when applied to the skin, act as emollients (skin softeners).",
+    "c": "true",
+    "e": "Heavier alkanes like petroleum jelly are used as protective emollients."
+  },
+  {
+    "type": "tf",
+    "q": "Ripening fruits and vegetables give off ethene, which triggers further ripening.",
+    "c": "true",
+    "e": "Ethene acts as a natural plant hormone that promotes ripening."
+  },
+  {
+    "type": "tf",
+    "q": "Ethyne is used as the fuel for the oxyacetylene blow lamp used in cutting and welding metals.",
+    "c": "true",
+    "e": "The high-temperature flame of oxyacetylene is ideal for metalworking."
+  },
+  {
+    "type": "tf",
+    "q": "Ethanol can be found in medical wipes and the most common antibacterial hand sanitiser gels as an antiseptic.",
+    "c": "true",
+    "e": "Ethanol is widely used for its antiseptic properties in healthcare and hygiene products."
+  }
+]
