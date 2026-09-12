@@ -1,0 +1,127 @@
+[
+  {
+    "type": "math_show",
+    "q": "Let \\( A = \\{1, 3\\} \\) and \\( B = \\{2, 4\\} \\). Find \\( A \\times B \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>List all ordered pairs \\( (a, b) \\) where \\( a \\in A \\) and \\( b \\in B \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A \\times B = \\{(1, 2), (1, 4), (3, 2), (3, 4)\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{(1, 2), (1, 4), (3, 2), (3, 4)\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If set \\( A \\) has 3 elements and set \\( B \\) has 4 elements, find the number of elements in \\( A \\times B \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the formula for the number of elements in a product set.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(A \\times B) = n(A) \\times n(B) \\)</div><br><br>Step 2<br><br>Substitute the given values.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(A \\times B) = 3 \\times 4 = 12 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( R = \\{(2, 4), (3, 6), (4, 8)\\} \\). State the domain and range of \\( R \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The domain is the set of all first elements of the ordered pairs.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{dom}(R) = \\{2, 3, 4\\} \\)</div><br><br>Step 2<br><br>The range is the set of all second elements of the ordered pairs.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{ran}(R) = \\{4, 6, 8\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{dom}(R) = \\{2, 3, 4\\}, \\text{ran}(R) = \\{4, 6, 8\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f = \\{(1, 2), (2, 4), (3, 6), (1, 5)\\} \\). Is \\( f \\) a function? Give a reason.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Check if each element in the domain maps to exactly one element in the range.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{The element } 1 \\text{ maps to both } 2 \\text{ and } 5. \\)</div><br><br>Step 2<br><br>Since one input has more than one output, it violates the definition of a function.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f \\text{ is not a function.} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{No, because the element } 1 \\text{ has two different images.} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f: \\{1, 2, 3\\} \\to \\mathbb{R} \\) be defined by \\( f(x) = 2x + 1 \\). Find the range of \\( f \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Evaluate \\( f(x) \\) for each \\( x \\) in the domain.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(1) = 2(1) + 1 = 3 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(2) = 2(2) + 1 = 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(3) = 2(3) + 1 = 7 \\)</div><br><br>Step 2<br><br>Collect all output values to form the range.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{ran}(f) = \\{3, 5, 7\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{3, 5, 7\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = x^2 - 3x \\). Find the image of \\( -2 \\) under \\( f \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( x = -2 \\) into the function.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-2) = (-2)^2 - 3(-2) \\)</div><br><br>Step 2<br><br>Simplify the expression.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-2) = 4 + 6 = 10 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain of the function \\( f(x) = \\frac{1}{x - 5} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The denominator of a fraction cannot be zero.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 5 \\neq 0 \\)</div><br><br>Step 2<br><br>Solve for \\( x \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x \\neq 5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{x \\mid x \\neq 5, x \\in \\mathbb{R}\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain of the function \\( f(x) = \\sqrt{x + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The expression inside the square root must be non-negative.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x + 4 \\ge 0 \\)</div><br><br>Step 2<br><br>Solve for \\( x \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x \\ge -4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{x \\mid x \\ge -4, x \\in \\mathbb{R}\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether \\( f(x) = x + 2 \\) and \\( g(x) = \\frac{x^2 - 4}{x - 2} \\) are equal functions. Give a reason.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the domain of \\( f(x) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{dom}(f) = \\mathbb{R} \\)</div><br><br>Step 2<br><br>Find the domain of \\( g(x) \\). The denominator cannot be zero, so \\( x \\neq 2 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{dom}(g) = \\{x \\mid x \\neq 2, x \\in \\mathbb{R}\\} \\)</div><br><br>Step 3<br><br>Compare the domains. Since they are not the same, the functions are not equal.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{No, because their domains are not the same.} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the vertical and horizontal asymptotes of the function \\( y = \\frac{2}{x - 3} + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The vertical asymptote occurs where the denominator is zero.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 3 = 0 \\implies x = 3 \\)</div><br><br>Step 2<br><br>The horizontal asymptote is the value \\( y \\) approaches as \\( x \\to \\infty \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Vertical asymptote: } x = 3, \\text{ Horizontal asymptote: } y = 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the domain and range of the function \\( f(x) = x^2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The domain of a quadratic function is all real numbers.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{dom}(f) = \\mathbb{R} \\)</div><br><br>Step 2<br><br>The square of any real number is non-negative.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{ran}(f) = \\{y \\mid y \\ge 0, y \\in \\mathbb{R}\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{dom}(f) = \\mathbb{R}, \\text{ran}(f) = \\{y \\mid y \\ge 0, y \\in \\mathbb{R}\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = 3x - 5 \\) is a one-to-one function.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Assume \\( f(x_1) = f(x_2) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x_1 - 5 = 3x_2 - 5 \\)</div><br><br>Step 2<br><br>Solve for \\( x_1 \\) and \\( x_2 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x_1 = 3x_2 \\implies x_1 = x_2 \\)</div><br><br>Step 3<br><br>Since \\( f(x_1) = f(x_2) \\) implies \\( x_1 = x_2 \\), the function is one-to-one.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{Yes, it is a one-to-one function.} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = x^2 \\) for \\( x \\in \\mathbb{R} \\) is a one-to-one function.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Check if \\( f(x_1) = f(x_2) \\) implies \\( x_1 = x_2 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Let } x_1 = 2 \\text{ and } x_2 = -2 \\)</div><br><br>Step 2<br><br>Evaluate the function for both values.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(2) = 4 \\text{ and } f(-2) = 4 \\)</div><br><br>Step 3<br><br>Since \\( f(2) = f(-2) \\) but \\( 2 \\neq -2 \\), it is not one-to-one.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{No, it is not a one-to-one function.} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = 2x + 3 \\). Find the formula for \\( f^{-1}(x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( y = f(x) \\), so \\( y = 2x + 3 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 2x + 3 \\)</div><br><br>Step 2<br><br>Solve for \\( x \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x = y - 3 \\implies x = \\frac{y - 3}{2} \\)</div><br><br>Step 3<br><br>Replace \\( y \\) with \\( x \\) to get the inverse function.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f^{-1}(x) = \\frac{x - 3}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( f^{-1}(x) = \\frac{x - 3}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = \\frac{x - 1}{2} \\). Find \\( f^{-1}(x) \\) and state its domain.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( y = \\frac{x - 1}{2} \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{x - 1}{2} \\)</div><br><br>Step 2<br><br>Solve for \\( x \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2y = x - 1 \\implies x = 2y + 1 \\)</div><br><br>Step 3<br><br>Write the inverse function and its domain.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f^{-1}(x) = 2x + 1, \\text{ dom}(f^{-1}) = \\mathbb{R} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( f^{-1}(x) = 2x + 1, \\text{ dom}(f^{-1}) = \\mathbb{R} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = 3x - 4 \\). Find the value of \\( f^{-1}(5) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( f^{-1}(5) = a \\), which means \\( f(a) = 5 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3a - 4 = 5 \\)</div><br><br>Step 2<br><br>Solve for \\( a \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3a = 9 \\implies a = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = x + 2 \\) and \\( g(x) = 3x \\). Find \\( (g \\circ f)(x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the definition of composite function.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (g \\circ f)(x) = g(f(x)) \\)</div><br><br>Step 2<br><br>Substitute \\( f(x) \\) into \\( g \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g(x + 2) = 3(x + 2) \\)</div><br><br>Step 3<br><br>Expand the expression.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x + 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3x + 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = 2x - 1 \\) and \\( g(x) = x^2 \\). Find \\( (f \\circ g)(3) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the definition of composite function.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (f \\circ g)(3) = f(g(3)) \\)</div><br><br>Step 2<br><br>Find \\( g(3) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g(3) = 3^2 = 9 \\)</div><br><br>Step 3<br><br>Find \\( f(9) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(9) = 2(9) - 1 = 17 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 17 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = \\frac{1}{x} \\) and \\( g(x) = x - 2 \\). State the domain of \\( g \\circ f \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The domain of \\( g \\circ f \\) requires \\( x \\in \\text{dom}(f) \\) and \\( f(x) \\in \\text{dom}(g) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x \\neq 0 \\text{ for } f(x) \\text{ to be defined.} \\)</div><br><br>Step 2<br><br>Since \\( \\text{dom}(g) = \\mathbb{R} \\), there are no additional restrictions.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{dom}(g \\circ f) = \\{x \\mid x \\neq 0, x \\in \\mathbb{R}\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{x \\mid x \\neq 0, x \\in \\mathbb{R}\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = 3x \\). Find \\( (f \\circ f)(x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the definition of composite function.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (f \\circ f)(x) = f(f(x)) \\)</div><br><br>Step 2<br><br>Substitute \\( f(x) \\) into itself.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(3x) = 3(3x) \\)</div><br><br>Step 3<br><br>Simplify the expression.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 9x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 9x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( A = \\{1, 2\\} \\) and \\( B = \\{a, b, c\\} \\). Find \\( B \\times A \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>List all ordered pairs \\( (b, a) \\) where \\( b \\in B \\) and \\( a \\in A \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( B \\times A = \\{(a, 1), (a, 2), (b, 1), (b, 2), (c, 1), (c, 2)\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{(a, 1), (a, 2), (b, 1), (b, 2), (c, 1), (c, 2)\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = \\frac{2x + 1}{x - 3} \\). Find the vertical and horizontal asymptotes.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The vertical asymptote occurs where the denominator is zero.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 3 = 0 \\implies x = 3 \\)</div><br><br>Step 2<br><br>The horizontal asymptote is the ratio of the leading coefficients of the numerator and denominator.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{2}{1} = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Vertical asymptote: } x = 3, \\text{ Horizontal asymptote: } y = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = x^2 - 1 \\) for \\( x \\ge 0 \\). Find the formula for \\( f^{-1}(x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( y = x^2 - 1 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = x^2 - 1 \\)</div><br><br>Step 2<br><br>Solve for \\( x \\). Since \\( x \\ge 0 \\), we take the positive square root.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 = y + 1 \\implies x = \\sqrt{y + 1} \\)</div><br><br>Step 3<br><br>Replace \\( y \\) with \\( x \\) to get the inverse function.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f^{-1}(x) = \\sqrt{x + 1} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( f^{-1}(x) = \\sqrt{x + 1} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = 2x + 5 \\). Find the inverse image \\( f^{-1}(\\{7, 9\\}) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set \\( f(x) = 7 \\) and solve for \\( x \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x + 5 = 7 \\implies 2x = 2 \\implies x = 1 \\)</div><br><br>Step 2<br><br>Set \\( f(x) = 9 \\) and solve for \\( x \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x + 5 = 9 \\implies 2x = 4 \\implies x = 2 \\)</div><br><br>Step 3<br><br>Collect the solutions to form the inverse image set.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f^{-1}(\\{7, 9\\}) = \\{1, 2\\} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\{1, 2\\} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( f(x) = 2x + 1 \\) and \\( g(x) = 3x \\). Find \\( (f \\circ g)(x) \\) and \\( (g \\circ f)(x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find \\( (f \\circ g)(x) = f(g(x)) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(3x) = 2(3x) + 1 = 6x + 1 \\)</div><br><br>Step 2<br><br>Find \\( (g \\circ f)(x) = g(f(x)) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g(2x + 1) = 3(2x + 1) = 6x + 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (f \\circ g)(x) = 6x + 1, (g \\circ f)(x) = 6x + 3 \\)"
+  }
+]
