@@ -15,7 +15,8 @@ python3 tools/import_qwen_quiz.py
 
 3. Type grade (11), subject (`chem` / `phy` / `bio` / `eco`), chapter number.
 4. Paste True/False link, Fill-blank link, then MCQ link. Enter after each.
-5. Open `quiz-upload/G11/` (or G10) and upload those files.
+5. After that chapter it asks **Next chapter?** Press Enter for the next number, or type `q` to stop.
+6. Open `quiz-upload/G11/` (or G10) and upload those files.
 
 Or double-click `tools/Import Quiz.command`.
 
