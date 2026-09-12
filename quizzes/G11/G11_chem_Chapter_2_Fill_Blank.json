@@ -1,0 +1,476 @@
+[
+  {
+    "type": "blank",
+    "q": "The study of the quantitative relationships implied by a chemical reaction is called ____.",
+    "c": "stoichiometry",
+    "e": "Stoichiometry derives from Greek words meaning 'element' and 'measure', focusing on quantitative relationships in reactions."
+  },
+  {
+    "type": "blank",
+    "q": "The word, stoichiometry derives from the Greek words: ____ (meaning 'element') and metron (meaning to 'measure').",
+    "c": "stoicheion",
+    "e": "The term stoichiometry originates from the Greek word 'stoicheion', which translates to 'element'."
+  },
+  {
+    "type": "blank",
+    "q": "The word, stoichiometry derives from the Greek words: stoicheion (meaning 'element') and ____ (meaning to 'measure').",
+    "c": "metron",
+    "e": "The term stoichiometry originates from the Greek word 'metron', which translates to 'measure'."
+  },
+  {
+    "type": "blank",
+    "q": "Chemists use ____ to describe reactions observed in the laboratory or in nature.",
+    "c": "chemical equations",
+    "e": "Chemical equations provide a concise and useful manner to express the information about chemical reactions."
+  },
+  {
+    "type": "blank",
+    "q": "We often need to calculate the ____ that is either produced from or needed to react with, a given quantity of another substance.",
+    "c": "amount of substance",
+    "e": "Stoichiometry allows chemists to calculate the precise amounts of reactants needed or products formed."
+  },
+  {
+    "type": "blank",
+    "q": "In this chapter, different types of quantitative measurements based on chemical reactions will be highlighted and the calculations for problems will be solved by using the ____.",
+    "c": "unit factor method",
+    "e": "The unit factor method is a systematic approach used to solve stoichiometric calculation problems."
+  },
+  {
+    "type": "blank",
+    "q": "Chemistry is a ____ science, which means that in many cases we measure a property of a substance and compare it with a standard having a known value of that property.",
+    "c": "quantitative",
+    "e": "Chemistry relies on quantitative measurements to express properties of substances with known standard values."
+  },
+  {
+    "type": "blank",
+    "q": "The scientific system of measurement is called the ____ and is abbreviated as SI (Systeme Internationale).",
+    "c": "International System of Units",
+    "e": "The International System of Units (SI) is the modern version of the metric system used globally in science."
+  },
+  {
+    "type": "blank",
+    "q": "It is a modern version of the ____.",
+    "c": "metric system",
+    "e": "The SI system is a modernized and standardized version of the original metric system."
+  },
+  {
+    "type": "blank",
+    "q": "The basic quantities of SI units are shown in Table 2.1, and ____ are described in Table 2.2.",
+    "c": "SI prefixes",
+    "e": "SI prefixes are used to denote multiples or fractions of the basic SI units."
+  },
+  {
+    "type": "blank",
+    "q": "The ____ in a measurement consist of all the certain digits in that measurement plus one uncertain or estimated digit.",
+    "c": "significant figures",
+    "e": "Significant figures represent the precision of a measurement, including all certain digits and one estimated digit."
+  },
+  {
+    "type": "blank",
+    "q": "All ____ digits in a measurement are significant.",
+    "c": "nonzero",
+    "e": "According to the rules of significant figures, any digit that is not zero is always considered significant."
+  },
+  {
+    "type": "blank",
+    "q": "Zeros that appear between other nonzero digits are always ____.",
+    "c": "significant",
+    "e": "Captive zeros between nonzero digits contribute to the precision of the measurement and are always significant."
+  },
+  {
+    "type": "blank",
+    "q": "Zeros that appear in front of all of the nonzero digits are called ____.",
+    "c": "left end zeros",
+    "e": "Left end zeros only serve to locate the decimal point and do not indicate measurement precision."
+  },
+  {
+    "type": "blank",
+    "q": "Left end zeros are ____ significant.",
+    "c": "never",
+    "e": "Left end zeros are placeholders and are never counted as significant figures."
+  },
+  {
+    "type": "blank",
+    "q": "Zeros that appear after all nonzero digits are ____.",
+    "c": "right end zeros",
+    "e": "Right end zeros are trailing zeros that may or may not be significant depending on the presence of a decimal point."
+  },
+  {
+    "type": "blank",
+    "q": "Right end zeros in a number that lacks a decimal point are ____ significant.",
+    "c": "not",
+    "e": "Without a decimal point, right end zeros are considered placeholders and are not significant."
+  },
+  {
+    "type": "blank",
+    "q": "Right end zeros in a number with a decimal point are ____.",
+    "c": "significant",
+    "e": "The presence of a decimal point indicates that right end zeros are measured and therefore significant."
+  },
+  {
+    "type": "blank",
+    "q": "A number with left end zeros, such as 0.000416, can be written as ____, which has three significant figures.",
+    "c": "$4.16 \\times 10^{-4}$",
+    "e": "Scientific notation clearly expresses the coefficient with the exact number of significant figures."
+  },
+  {
+    "type": "blank",
+    "q": "In some cases, ____ is the only way to indicate the correct number of significant figures.",
+    "c": "scientific notation",
+    "e": "Scientific notation avoids ambiguity by clearly showing the significant digits in the coefficient."
+  },
+  {
+    "type": "blank",
+    "q": "The original number of 15000000 only has ____ significant figures.",
+    "c": "two",
+    "e": "Without a decimal point, the trailing zeros in 15000000 are not significant, leaving only the 1 and 5 as significant."
+  },
+  {
+    "type": "blank",
+    "q": "The significant figures of a number are digits that carry meaningful contribution to its ____.",
+    "c": "measurement resolution",
+    "e": "Significant figures reflect the resolution or precision of the measuring instrument used."
+  },
+  {
+    "type": "blank",
+    "q": "To get the specifics of the rules for determining the significant figures in a calculated result, it is needed to be able to ____ correctly.",
+    "c": "round numbers",
+    "e": "Rounding numbers correctly is essential to maintain the appropriate number of significant figures in calculated results."
+  },
+  {
+    "type": "blank",
+    "q": "If it is needed to drop just one digit to round off a number, the rule that must follow is to increase the final digit by one unit if the digit dropped is ____.",
+    "c": "5, 6, 7, 8 or 9",
+    "e": "When rounding, digits 5 or greater cause the preceding digit to round up by one unit."
+  },
+  {
+    "type": "blank",
+    "q": "If it is needed to drop just one digit to round off a number, the rule that must follow is to leave the final digit unchanged if the digit dropped is ____.",
+    "c": "0, 1, 2, 3 or 4",
+    "e": "When rounding, digits 4 or less cause the preceding digit to remain unchanged."
+  },
+  {
+    "type": "blank",
+    "q": "____ describes the quantitative relationships among elements in compounds.",
+    "c": "Composition stoichiometry",
+    "e": "Composition stoichiometry focuses on the mass relationships of elements within a chemical compound."
+  },
+  {
+    "type": "blank",
+    "q": "The calculation of molecular mass, relative molecular mass and relative formula mass, calculation of molecular formula and ____, and calculation of percentage composition by mass of a particular element in a compound are included in composition stoichiometry.",
+    "c": "empirical formula",
+    "e": "Composition stoichiometry includes determining both the molecular and empirical formulas of compounds."
+  },
+  {
+    "type": "blank",
+    "q": "In stoichiometric calculation, the SI unit for the amount of chemical substances is the ____, abbreviated as mol.",
+    "c": "mole",
+    "e": "The mole is the fundamental SI unit for measuring the amount of a chemical substance."
+  },
+  {
+    "type": "blank",
+    "q": "One mole of a substance is defined as the amount of substance that contains the same number of particles as there are atoms in exactly ____ of pure carbon-12 atom.",
+    "c": "12 g",
+    "e": "The mole is defined based on the number of atoms in exactly 12 grams of carbon-12."
+  },
+  {
+    "type": "blank",
+    "q": "One mole of a substance is defined as the amount of substance that contains the same number of particles as there are atoms in exactly 12 g of pure ____ atom.",
+    "c": "carbon-12",
+    "e": "Carbon-12 is the specific isotope used as the standard for defining the mole."
+  },
+  {
+    "type": "blank",
+    "q": "1 mole = ____ particles",
+    "c": "$6.02214179 \\times 10^{23}$",
+    "e": "One mole contains exactly $6.02214179 \\times 10^{23}$ elementary entities, known as Avogadro's number."
+  },
+  {
+    "type": "blank",
+    "q": "This number is often rounded to $6.02 \\times 10^{23}$, and it is called ____.",
+    "c": "Avogadro's number",
+    "e": "Avogadro's number is the approximate number of particles in one mole of a substance."
+  },
+  {
+    "type": "blank",
+    "q": "The mass of one mole of atoms of a pure element in grams is numerically equal to the ____ of that element in atomic mass units.",
+    "c": "atomic mass",
+    "e": "The molar mass of an element in grams per mole is numerically equivalent to its atomic mass in amu."
+  },
+  {
+    "type": "blank",
+    "q": "The mass of one mole of molecules of a compound in grams is numerically equal to the ____ of that compound.",
+    "c": "molecular mass",
+    "e": "The molar mass of a compound in grams per mole is numerically equivalent to its molecular mass."
+  },
+  {
+    "type": "blank",
+    "q": "This is called the ____ of the element or compound; its units are gram per mole ($g \\text{ mol}^{-1}$) or milligram per millimole ($mg \\text{ mmol}^{-1}$).",
+    "c": "molar mass",
+    "e": "Molar mass is the mass of one mole of a substance, expressed in grams per mole."
+  },
+  {
+    "type": "blank",
+    "q": "____ are salts in which one or more water molecules are chemically combined.",
+    "c": "Hydrated salts",
+    "e": "Hydrated salts contain water molecules integrated into their crystal structure."
+  },
+  {
+    "type": "blank",
+    "q": "Some examples of hydrated salts are oxalic acid dihydrate, $(COOH)_2 \\cdot 2H_2O$ and ____, $CuSO_4 \\cdot 5H_2O$.",
+    "c": "copper(II) sulphate pentahydrate",
+    "e": "Copper(II) sulphate pentahydrate is a common example of a hydrated salt containing five water molecules."
+  },
+  {
+    "type": "blank",
+    "q": "The water found in crystals is called ____ and it is defined as water that occurs as a constituent of crystalline substances in a definite stoichiometric ratio.",
+    "c": "water of crystallisation",
+    "e": "Water of crystallisation refers to water molecules that are chemically bound within a crystal lattice in a fixed ratio."
+  },
+  {
+    "type": "blank",
+    "q": "Stoichiometry is a part of chemistry which deals with the ____ taking part in a chemical reaction.",
+    "c": "quantities of substances",
+    "e": "Stoichiometry is fundamentally concerned with the measurable quantities of reactants and products in chemical reactions."
+  },
+  {
+    "type": "blank",
+    "q": "____ is the field of chemistry that is concerned with the relative quantities of reactants and products in chemical reactions.",
+    "c": "Reaction stoichiometry",
+    "e": "Reaction stoichiometry focuses on the quantitative relationships between reactants and products in a chemical reaction."
+  },
+  {
+    "type": "blank",
+    "q": "____ are used to describe chemical reactions; the amount of reactants used up must be equal to the amount of products formed.",
+    "c": "Balanced chemical equations",
+    "e": "Balanced chemical equations ensure that the law of conservation of mass is obeyed by having equal numbers of each type of atom on both sides."
+  },
+  {
+    "type": "blank",
+    "q": "There are three laws of matter concerning chemical reactions: the ____, the Law of Definite Proportions and the Law of Multiple Proportions.",
+    "c": "Law of Conservation of Mass",
+    "e": "The Law of Conservation of Mass states that mass is neither created nor destroyed in an ordinary chemical reaction."
+  },
+  {
+    "type": "blank",
+    "q": "There are three laws of matter concerning chemical reactions: the Law of Conservation of Mass, the ____ and the Law of Multiple Proportions.",
+    "c": "Law of Definite Proportions",
+    "e": "The Law of Definite Proportions states that a chemical compound always contains its component elements in fixed ratio by mass."
+  },
+  {
+    "type": "blank",
+    "q": "There are three laws of matter concerning chemical reactions: the Law of Conservation of Mass, the Law of Definite Proportions and the ____.",
+    "c": "Law of Multiple Proportions",
+    "e": "The Law of Multiple Proportions states that when two elements form more than one compound, the masses of one element that combine with a fixed mass of the other are in a ratio of small whole numbers."
+  },
+  {
+    "type": "blank",
+    "q": "Some common types of chemical reactions are given below: ____, Decomposition reaction, Displacement reaction, Combustion reaction.",
+    "c": "Combination reaction",
+    "e": "A combination reaction is a type of chemical reaction where two or more substances combine to form a single product."
+  },
+  {
+    "type": "blank",
+    "q": "Some common types of chemical reactions are given below: Combination reaction, ____, Displacement reaction, Combustion reaction.",
+    "c": "Decomposition reaction",
+    "e": "A decomposition reaction is a type of chemical reaction where a single compound breaks down into two or more simpler substances."
+  },
+  {
+    "type": "blank",
+    "q": "Some common types of chemical reactions are given below: Combination reaction, Decomposition reaction, ____, Combustion reaction.",
+    "c": "Displacement reaction",
+    "e": "A displacement reaction occurs when a more reactive element displaces a less reactive element from its compound."
+  },
+  {
+    "type": "blank",
+    "q": "Some common types of chemical reactions are given below: Combination reaction, Decomposition reaction, Displacement reaction, ____.",
+    "c": "Combustion reaction",
+    "e": "A combustion reaction is a chemical reaction where a substance reacts rapidly with oxygen, often producing heat and light."
+  },
+  {
+    "type": "blank",
+    "q": "In all reactions, they follow the Law of Conservation of Mass. That is, the ____ of each element in reactants and products must be equal.",
+    "c": "total number of atoms",
+    "e": "Balancing chemical equations ensures that the total number of atoms of each element is conserved."
+  },
+  {
+    "type": "blank",
+    "q": "The ____ is a substance that stoichiometrically limits the amount of product(s) that can be formed in a reaction.",
+    "c": "limiting reactant",
+    "e": "The limiting reactant is completely consumed first, thereby determining the maximum amount of product that can be formed."
+  },
+  {
+    "type": "blank",
+    "q": "The reaction will stop when all amount of the ____ is used up.",
+    "c": "limiting reactant",
+    "e": "Once the limiting reactant is exhausted, the chemical reaction cannot proceed further."
+  },
+  {
+    "type": "blank",
+    "q": "The ____ = (experimental or actual yield of product / theoretical yield of product) $\\times 100\\%$",
+    "c": "percentage yield",
+    "e": "Percentage yield compares the actual amount of product obtained in an experiment to the maximum theoretical amount possible."
+  },
+  {
+    "type": "blank",
+    "q": "The ____ = (mass of pure substance present / mass of sample) $\\times 100\\%$",
+    "c": "percentage purity",
+    "e": "Percentage purity calculates the proportion of the desired pure substance within an impure sample."
+  },
+  {
+    "type": "blank",
+    "q": "____ consist of linked reactions in which the product of the first reaction becomes the reactant of the second reaction.",
+    "c": "Sequential reactions",
+    "e": "Sequential reactions involve a series of steps where the output of one reaction serves as the input for the next."
+  },
+  {
+    "type": "blank",
+    "q": "Law of Conservation of Mass states that the total mass of reactant(s) is equal to the ____ of the product(s).",
+    "c": "total mass",
+    "e": "This law dictates that matter is conserved, so the total mass before and after a reaction remains constant."
+  },
+  {
+    "type": "blank",
+    "q": "Law of Definite Proportions states that every chemical compound contains fixed and constant proportions (by mass) of its ____.",
+    "c": "constituent elements",
+    "e": "A given chemical compound will always have the same elements in the same mass proportions, regardless of its source."
+  },
+  {
+    "type": "blank",
+    "q": "Law of Multiple Proportions states that when two elements combine with each other to form more than one compound, the different masses of one element that combine with a fixed mass of the other are in a ratio of ____.",
+    "c": "small whole numbers",
+    "e": "This law highlights that elemental combinations in different compounds occur in simple, whole-number mass ratios."
+  },
+  {
+    "type": "blank",
+    "q": "Limiting reactant is the reactant in a chemical reaction that limits the amount of product because the reaction stops when the limiting reactant is ____.",
+    "c": "completely consumed",
+    "e": "The reaction halts precisely when the limiting reactant is entirely used up, leaving any excess reactants unreacted."
+  },
+  {
+    "type": "blank",
+    "q": "____ deals with the quantities in chemical reactions taking place in solutions such as to prepare solutions of desirable concentrations, to carry out chemical reactions using correct amount of solutions, and to predict the amount produced in solutions.",
+    "c": "Solution stoichiometry",
+    "e": "Solution stoichiometry applies stoichiometric principles to reactions occurring in liquid solutions."
+  },
+  {
+    "type": "blank",
+    "q": "To measure volume, chemists use ____ ($dm^3$) or litre (L) as the standard unit.",
+    "c": "cubic decimetre",
+    "e": "The cubic decimetre is the standard SI-derived unit for volume in chemistry, equivalent to one litre."
+  },
+  {
+    "type": "blank",
+    "q": "____ of a solution is the quantity in moles of solute dissolved in one cubic decimetre ($1 \\text{ dm}^3$) of solution.",
+    "c": "Molarity (M)",
+    "e": "Molarity is a common measure of concentration, defined as moles of solute per cubic decimetre of solution."
+  },
+  {
+    "type": "blank",
+    "q": "A ____ of a compound is a solution which contains one mole of the compound in one cubic decimetre ($1 \\text{ dm}^3$) of the solution.",
+    "c": "molar solution",
+    "e": "A molar solution has a concentration of exactly 1 mole of solute per cubic decimetre of solution."
+  },
+  {
+    "type": "blank",
+    "q": "____ is the procedure for preparing a less concentrated solution from a more concentrated one.",
+    "c": "Dilution",
+    "e": "Dilution involves adding solvent to a solution to decrease its concentration without changing the amount of solute."
+  },
+  {
+    "type": "blank",
+    "q": "The ____ does not change due to dilution; this is because only water (no solute) is added to accomplish the dilution.",
+    "c": "amount of solute",
+    "e": "During dilution, the number of moles of solute remains constant while the total volume of the solution increases."
+  },
+  {
+    "type": "blank",
+    "q": "The formula for dilution is ____.",
+    "c": "$M_1V_1 = M_2V_2$",
+    "e": "This equation represents the conservation of moles of solute before and after the dilution process."
+  },
+  {
+    "type": "blank",
+    "q": "In volumetric analysis, the term ____ is used for the procedure in which a solution of a standard reagent (reactant) is added to a specific volume of a solution of unknown molarity.",
+    "c": "titration",
+    "e": "Titration is a quantitative analytical method used to determine the unknown concentration of an identified analyte."
+  },
+  {
+    "type": "blank",
+    "q": "The reagent of exactly known concentration that is used in a titration is called a ____.",
+    "c": "standard solution",
+    "e": "A standard solution serves as the reference with a precisely known concentration during a titration."
+  },
+  {
+    "type": "blank",
+    "q": "A ____ is a highly pure and stable compound, used to establish the concentration of the standard solution.",
+    "c": "primary standard",
+    "e": "Primary standards are essential for accurately determining the concentration of standard solutions due to their high purity and stability."
+  },
+  {
+    "type": "blank",
+    "q": "The common types of titrations are: ____ (neutralisation titration), precipitation titration, oxidation-reduction titration (redox titration) and complexometric titration.",
+    "c": "acid-base titration",
+    "e": "Acid-base titration involves the reaction between an acid and a base to determine concentration."
+  },
+  {
+    "type": "blank",
+    "q": "The common types of titrations are: acid-base titration (neutralisation titration), ____, oxidation-reduction titration (redox titration) and complexometric titration.",
+    "c": "precipitation titration",
+    "e": "Precipitation titration relies on the formation of an insoluble precipitate to indicate the end of the reaction."
+  },
+  {
+    "type": "blank",
+    "q": "The common types of titrations are: acid-base titration (neutralisation titration), precipitation titration, ____ (redox titration) and complexometric titration.",
+    "c": "oxidation-reduction titration",
+    "e": "Oxidation-reduction titration involves the transfer of electrons between the titrant and the analyte."
+  },
+  {
+    "type": "blank",
+    "q": "The common types of titrations are: acid-base titration (neutralisation titration), precipitation titration, oxidation-reduction titration (redox titration) and ____.",
+    "c": "complexometric titration",
+    "e": "Complexometric titration involves the formation of a colored complex to indicate the endpoint of the titration."
+  },
+  {
+    "type": "blank",
+    "q": "The apparatus uscd for titration are ____, pipette, conical flask, beaker, funnel and stand.",
+    "c": "burette",
+    "e": "A burette is a graduated glass tube with a tap at one end, used for delivering known volumes of a liquid, especially in titrations."
+  },
+  {
+    "type": "blank",
+    "q": "In general, a precisely known volume of the unknown solution (____), usually measured out by a pipette rs placed in a conical flask.",
+    "c": "titrate",
+    "e": "The titrate is the solution of unknown concentration that is being analyzed during the titration process."
+  },
+  {
+    "type": "blank",
+    "q": "A solution of known concentration (____) is then added gradually from a burette for simple titration.",
+    "c": "titrant",
+    "e": "The titrant is the standard solution added from the burette to react with the titrate."
+  },
+  {
+    "type": "blank",
+    "q": "The ____ of a chemical reaction is the point at which chemically equivalent quantities of reactants have been reacted.",
+    "c": "equivalence point",
+    "e": "The equivalence point is the theoretical point in a titration where the amount of titrant added is stoichiometrically equal to the amount of analyte."
+  },
+  {
+    "type": "blank",
+    "q": "____ is the point at which a titration is complete, usually marked by a change in colour of an indicator.",
+    "c": "End point",
+    "e": "The end point is the observable point in a titration, ideally as close to the equivalence point as possible."
+  },
+  {
+    "type": "blank",
+    "q": "____ occurs due to the difference between end point and equivalence point of the titration.",
+    "c": "Titration error",
+    "e": "Titration error is the discrepancy between the observed end point and the true equivalence point."
+  },
+  {
+    "type": "blank",
+    "q": "Stoichiometry is essential for the production of many things we use in our daily life, such as soaps, tyres, ____, gasoline, deodourants, medicines and chocolates.",
+    "c": "fertilisers",
+    "e": "Stoichiometric calculations are crucial in industrial processes, including the manufacturing of agricultural fertilisers."
+  }
+]
