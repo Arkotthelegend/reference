@@ -1,0 +1,673 @@
+[
+  {
+    "type": "mcq",
+    "q": "Some physical quantities of physics are completely described by a single number (or magnitude) with an appropriate unit. Such quantities are called _____ quantities.",
+    "c": 0,
+    "a": [
+      "scalar",
+      "vector",
+      "tensor"
+    ],
+    "e": "Scalar quantities have only magnitude and an appropriate unit."
+  },
+  {
+    "type": "mcq",
+    "q": "Quantities that have both magnitude and direction are called _____ quantities.",
+    "c": 1,
+    "a": [
+      "tensor",
+      "vector",
+      "scalar"
+    ],
+    "e": "Vector quantities require both magnitude and direction for a complete description."
+  },
+  {
+    "type": "mcq",
+    "q": "In printing, vectors are represented by _____ type, such as $\\mathbf{A}$, $\\mathbf{E}$, $\\mathbf{v}$, $\\mathbf{s}$.",
+    "c": 2,
+    "a": [
+      "italic",
+      "underlined",
+      "boldface"
+    ],
+    "e": "In printing, vectors are represented by boldface type."
+  },
+  {
+    "type": "mcq",
+    "q": "In handwriting, vectors are indicated by placing _____ on the top of their symbols.",
+    "c": 1,
+    "a": [
+      "dots",
+      "arrows",
+      "bars"
+    ],
+    "e": "In handwriting, vectors are indicated by placing arrows on the top of their symbols."
+  },
+  {
+    "type": "mcq",
+    "q": "The magnitude of a vector $\\vec{F}$ is written as _____.",
+    "c": 0,
+    "a": [
+      "$F = |\\vec{F}|$",
+      "$F = -\\vec{F}$",
+      "$F = \\vec{F}$"
+    ],
+    "e": "The magnitude of a vector is a scalar quantity, denoted by absolute value bars."
+  },
+  {
+    "type": "mcq",
+    "q": "If $\\vec{A} = -\\vec{B}$, it means $\\vec{A}$ and $\\vec{B}$ are equal in magnitude but have _____ directions.",
+    "c": 2,
+    "a": [
+      "same",
+      "perpendicular",
+      "opposite"
+    ],
+    "e": "The negative sign indicates that the two vectors have equal magnitude but opposite directions."
+  },
+  {
+    "type": "mcq",
+    "q": "If $\\vec{A} = 2\\vec{B}$, the magnitude of $\\vec{A}$ is two times the magnitude of $\\vec{B}$ and the direction of $\\vec{A}$ is _____ that of $\\vec{B}$.",
+    "c": 0,
+    "a": [
+      "the same as",
+      "opposite to",
+      "perpendicular to"
+    ],
+    "e": "A positive scalar multiplier means the direction remains the same."
+  },
+  {
+    "type": "mcq",
+    "q": "If $\\vec{A} = -3\\vec{B}$, the magnitude of $\\vec{A}$ is three times the magnitude of $\\vec{B}$ and the direction of $\\vec{A}$ is _____ to that of $\\vec{B}$.",
+    "c": 2,
+    "a": [
+      "the same as",
+      "perpendicular",
+      "opposite"
+    ],
+    "e": "A negative scalar multiplier means the direction is opposite."
+  },
+  {
+    "type": "mcq",
+    "q": "Using graphical method, the length of the arrow representing a vector is _____ to the magnitude of the vector.",
+    "c": 0,
+    "a": [
+      "proportional",
+      "inversely proportional",
+      "unrelated"
+    ],
+    "e": "Graphically, the arrow's length is drawn proportional to the vector's magnitude."
+  },
+  {
+    "type": "mcq",
+    "q": "To add $\\vec{A}$ and $\\vec{B}$, first draw $\\vec{A}$. Then draw $\\vec{B}$ in such a way that the _____ of $\\vec{B}$ is at the tip of $\\vec{A}$.",
+    "c": 1,
+    "a": [
+      "tip",
+      "tail",
+      "center"
+    ],
+    "e": "Vector addition graphically requires placing the tail of the second vector at the tip of the first."
+  },
+  {
+    "type": "mcq",
+    "q": "The vector sum $\\vec{A} + \\vec{B}$ is called the _____ vector.",
+    "c": 0,
+    "a": [
+      "resultant",
+      "component",
+      "instantaneous"
+    ],
+    "e": "The single vector drawn from the tail of the first to the tip of the second is the resultant vector."
+  },
+  {
+    "type": "mcq",
+    "q": "Vector addition is _____.",
+    "c": 1,
+    "a": [
+      "non-commutative",
+      "commutative",
+      "distributive"
+    ],
+    "e": "Vector addition is commutative, meaning $\\vec{A} + \\vec{B} = \\vec{B} + \\vec{A}$."
+  },
+  {
+    "type": "mcq",
+    "q": "In algebraic notation, vector subtraction is expressed as $\\vec{A} - \\vec{B} =$ _____.",
+    "c": 2,
+    "a": [
+      "$\\vec{A} + \\vec{B}$",
+      "$-\\vec{A} + \\vec{B}$",
+      "$\\vec{A} + (-\\vec{B})$"
+    ],
+    "e": "Subtracting a vector is equivalent to adding its negative."
+  },
+  {
+    "type": "mcq",
+    "q": "Vector subtraction is _____.",
+    "c": 1,
+    "a": [
+      "commutative",
+      "not commutative",
+      "associative"
+    ],
+    "e": "Vector subtraction is not commutative."
+  },
+  {
+    "type": "mcq",
+    "q": "The process of sub-dividing a vector into two (or) more vectors is called _____ of a vector.",
+    "c": 1,
+    "a": [
+      "addition",
+      "resolution",
+      "subtraction"
+    ],
+    "e": "Resolution of a vector is the process of breaking it down into multiple component vectors."
+  },
+  {
+    "type": "mcq",
+    "q": "The new vectors obtained from the resolution of a vector are called vector _____ of the original vector.",
+    "c": 1,
+    "a": [
+      "sums",
+      "components",
+      "resultants"
+    ],
+    "e": "The subdivided vectors are referred to as the vector components of the original vector."
+  },
+  {
+    "type": "mcq",
+    "q": "A useful application of vector resolution is sub-dividing a vector into two perpendicular components, namely, _____ component and _____ component.",
+    "c": 0,
+    "a": [
+      "horizontal and vertical",
+      "scalar and vector",
+      "positive and negative"
+    ],
+    "e": "Vectors are commonly resolved into horizontal and vertical perpendicular components."
+  },
+  {
+    "type": "mcq",
+    "q": "If $\\vec{A}$ is the original vector and $\\theta$ is the angle with the x-axis, the x-component is given by _____.",
+    "c": 1,
+    "a": [
+      "$A_x = A \\sin \\theta$",
+      "$A_x = A \\cos \\theta$",
+      "$A_x = A \\tan \\theta$"
+    ],
+    "e": "The horizontal component adjacent to the angle is calculated using the cosine function."
+  },
+  {
+    "type": "mcq",
+    "q": "If $\\vec{A}$ is the original vector and $\\theta$ is the angle with the x-axis, the y-component is given by _____.",
+    "c": 2,
+    "a": [
+      "$A_y = A \\cos \\theta$",
+      "$A_y = A \\tan \\theta$",
+      "$A_y = A \\sin \\theta$"
+    ],
+    "e": "The vertical component opposite to the angle is calculated using the sine function."
+  },
+  {
+    "type": "mcq",
+    "q": "Distance travelled by the body is the _____ of the path along which the body moves.",
+    "c": 0,
+    "a": [
+      "length",
+      "displacement",
+      "area"
+    ],
+    "e": "Distance is defined as the total length of the actual path taken by the moving body."
+  },
+  {
+    "type": "mcq",
+    "q": "Displacement is the distance travelled along a _____.",
+    "c": 1,
+    "a": [
+      "curved path",
+      "particular direction",
+      "circular path"
+    ],
+    "e": "Displacement is a vector quantity directed from the starting point to the end point along a particular direction."
+  },
+  {
+    "type": "mcq",
+    "q": "Distance has no specific direction. It has only magnitude; and therefore, it is a _____.",
+    "c": 2,
+    "a": [
+      "vector",
+      "tensor",
+      "scalar"
+    ],
+    "e": "Because distance lacks directional quality, it is classified as a scalar quantity."
+  },
+  {
+    "type": "mcq",
+    "q": "Displacement has both magnitude and direction; and therefore, it is a _____.",
+    "c": 1,
+    "a": [
+      "scalar",
+      "vector",
+      "tensor"
+    ],
+    "e": "Displacement is always directed from the starting point to the end point, making it a vector."
+  },
+  {
+    "type": "mcq",
+    "q": "The average speed, $v_{av}$, is the ratio of total distance $s$ to _____.",
+    "c": 1,
+    "a": [
+      "displacement",
+      "time taken $t$",
+      "velocity"
+    ],
+    "e": "Average speed is calculated as the total distance travelled divided by the total time taken."
+  },
+  {
+    "type": "mcq",
+    "q": "The average velocity, $\\vec{v}_{av}$, is the ratio of total displacement $\\vec{s}$ to _____.",
+    "c": 2,
+    "a": [
+      "total distance $s$",
+      "acceleration",
+      "time taken $t$"
+    ],
+    "e": "Average velocity is the total displacement divided by the time taken."
+  },
+  {
+    "type": "mcq",
+    "q": "If the starting point and the end point are the same, the total displacement is zero. Therefore, average velocity is _____.",
+    "c": 2,
+    "a": [
+      "maximum",
+      "constant",
+      "zero"
+    ],
+    "e": "Since average velocity depends on displacement, a zero displacement results in zero average velocity."
+  },
+  {
+    "type": "mcq",
+    "q": "The speed (or) velocity at a particular instant of time are referred to as _____ speed and _____ velocity.",
+    "c": 1,
+    "a": [
+      "average",
+      "instantaneous",
+      "uniform"
+    ],
+    "e": "Instantaneous speed and velocity represent the motion at a specific, single instant of time."
+  },
+  {
+    "type": "mcq",
+    "q": "Instantaneous speed is defined as the limiting value of $\\frac{\\Delta s}{\\Delta t}$ as time $\\Delta t$ approaches _____.",
+    "c": 2,
+    "a": [
+      "infinity",
+      "one",
+      "zero"
+    ],
+    "e": "Instantaneous values are found by taking the limit as the time interval approaches zero."
+  },
+  {
+    "type": "mcq",
+    "q": "Instantaneous velocity is defined as the time rate of change of _____.",
+    "c": 0,
+    "a": [
+      "displacement",
+      "distance",
+      "acceleration"
+    ],
+    "e": "Instantaneous velocity is the time rate of change of displacement."
+  },
+  {
+    "type": "mcq",
+    "q": "Motion with constant velocity is known as _____ motion.",
+    "c": 1,
+    "a": [
+      "accelerated",
+      "uniform",
+      "non-uniform"
+    ],
+    "e": "Uniform motion occurs when a body moves with constant velocity."
+  },
+  {
+    "type": "mcq",
+    "q": "If either magnitude (or) direction (or) both magnitude and direction of the velocity changes, the body is said to have an _____.",
+    "c": 2,
+    "a": [
+      "uniform motion",
+      "instantaneous speed",
+      "acceleration"
+    ],
+    "e": "Any change in the magnitude or direction of velocity constitutes acceleration."
+  },
+  {
+    "type": "mcq",
+    "q": "The average acceleration $a_{av}$ is defined by the equation $a_{av} =$ _____.",
+    "c": 1,
+    "a": [
+      "$\\frac{v_0 - v}{t}$",
+      "$\\frac{v - v_0}{t}$",
+      "$\\frac{v + v_0}{t}$"
+    ],
+    "e": "Average acceleration is the ratio of the change in velocity to the time taken."
+  },
+  {
+    "type": "mcq",
+    "q": "Instantaneous acceleration is the time rate of change of _____.",
+    "c": 1,
+    "a": [
+      "distance",
+      "velocity",
+      "speed"
+    ],
+    "e": "Instantaneous acceleration is defined as the limiting value of the change in velocity over time."
+  },
+  {
+    "type": "mcq",
+    "q": "Acceleration is said to be positive if the magnitude of velocity is _____.",
+    "c": 2,
+    "a": [
+      "decreasing",
+      "zero",
+      "increasing"
+    ],
+    "e": "Positive acceleration corresponds to an increase in the magnitude of velocity over time."
+  },
+  {
+    "type": "mcq",
+    "q": "Negative acceleration is usually called _____ or retardation.",
+    "c": 1,
+    "a": [
+      "acceleration",
+      "deceleration",
+      "velocity"
+    ],
+    "e": "When the magnitude of velocity decreases, the negative acceleration is commonly referred to as deceleration."
+  },
+  {
+    "type": "mcq",
+    "q": "Motion along a straight line is called _____ motion.",
+    "c": 1,
+    "a": [
+      "circular",
+      "linear",
+      "rotational"
+    ],
+    "e": "Linear motion is the simplest type of motion, occurring along a straight line."
+  },
+  {
+    "type": "mcq",
+    "q": "In linear motion with constant velocity, the acceleration is _____.",
+    "c": 2,
+    "a": [
+      "increasing",
+      "constant",
+      "zero"
+    ],
+    "e": "Since the velocity is non-varying in constant velocity motion, the acceleration is zero."
+  },
+  {
+    "type": "mcq",
+    "q": "The equation of motion for a linear motion with constant velocity is $v =$ _____.",
+    "c": 0,
+    "a": [
+      "$\\frac{s}{t}$",
+      "$\\frac{t}{s}$",
+      "$s \\times t$"
+    ],
+    "e": "For constant velocity, the equation relates displacement and time as $v = \\frac{s}{t}$."
+  },
+  {
+    "type": "mcq",
+    "q": "If the rate of change of velocity is constant, the acceleration is said to be _____.",
+    "c": 1,
+    "a": [
+      "variable",
+      "constant",
+      "zero"
+    ],
+    "e": "A constant rate of change of velocity defines constant acceleration motion."
+  },
+  {
+    "type": "mcq",
+    "q": "The first equation of motion for constant acceleration is $v =$ _____.",
+    "c": 2,
+    "a": [
+      "$v_0 - at$",
+      "$v_0 + \\frac{1}{2}at^2$",
+      "$v_0 + at$"
+    ],
+    "e": "The velocity-time relation for constant acceleration is given by $v = v_0 + at$."
+  },
+  {
+    "type": "mcq",
+    "q": "The equation $v^2 = v_0^2 + 2as$ relates final velocity, initial velocity, acceleration, and _____.",
+    "c": 0,
+    "a": [
+      "displacement",
+      "time",
+      "average velocity"
+    ],
+    "e": "This equation is independent of time and directly relates velocity, acceleration, and displacement."
+  },
+  {
+    "type": "mcq",
+    "q": "The equation for displacement in constant acceleration motion is $s =$ _____.",
+    "c": 1,
+    "a": [
+      "$v_0 t - \\frac{1}{2}at^2$",
+      "$v_0 t + \\frac{1}{2}at^2$",
+      "$v_0 + at$"
+    ],
+    "e": "The displacement-time relation for constant acceleration is $s = v_0 t + \\frac{1}{2}at^2$."
+  },
+  {
+    "type": "mcq",
+    "q": "The average velocity $\\bar{v}$ in constant acceleration motion is given by $\\bar{v} =$ _____.",
+    "c": 2,
+    "a": [
+      "$\\frac{v - v_0}{2}$",
+      "$v_0 \\times v$",
+      "$\\frac{v_0 + v}{2}$"
+    ],
+    "e": "For constant acceleration, the average velocity is the arithmetic mean of the initial and final velocities."
+  },
+  {
+    "type": "mcq",
+    "q": "In the MKS/SI system, the unit of displacement is _____.",
+    "c": 0,
+    "a": [
+      "m",
+      "cm",
+      "ft"
+    ],
+    "e": "The standard SI unit for displacement and distance is the metre."
+  },
+  {
+    "type": "mcq",
+    "q": "In the CGS system, the unit of velocity is _____.",
+    "c": 1,
+    "a": [
+      "m s$^{-1}$",
+      "cm s$^{-1}$",
+      "ft s$^{-1}$"
+    ],
+    "e": "The CGS unit for velocity and speed is centimetre per second."
+  },
+  {
+    "type": "mcq",
+    "q": "In the FPS system, the unit of acceleration is _____.",
+    "c": 2,
+    "a": [
+      "m s$^{-2}$",
+      "cm s$^{-2}$",
+      "ft s$^{-2}$"
+    ],
+    "e": "The FPS unit for acceleration is foot per second square."
+  },
+  {
+    "type": "mcq",
+    "q": "The unit m s$^{-1}$ is read as _____.",
+    "c": 0,
+    "a": [
+      "metre per second",
+      "metre per second square",
+      "centimetre per second"
+    ],
+    "e": "The unit m s$^{-1}$ represents metre per second, which is the SI unit of speed or velocity."
+  },
+  {
+    "type": "mcq",
+    "q": "In a linear motion, the magnitude of the displacement is _____ to the distance moved.",
+    "c": 0,
+    "a": [
+      "equal",
+      "proportional",
+      "unrelated"
+    ],
+    "e": "In straight-line motion without change of direction, the magnitude of displacement equals the distance moved."
+  },
+  {
+    "type": "mcq",
+    "q": "As the body is moving with a non-varying velocity, the instantaneous velocity and average velocity are the _____.",
+    "c": 1,
+    "a": [
+      "different",
+      "same",
+      "opposite"
+    ],
+    "e": "When velocity is constant, it does not change over time, making instantaneous and average velocities identical."
+  },
+  {
+    "type": "mcq",
+    "q": "In the equations of motion, we will use positive (+) and negative (-) signs to describe the two _____ directions along a straight line.",
+    "c": 2,
+    "a": [
+      "parallel",
+      "perpendicular",
+      "opposite"
+    ],
+    "e": "Since vector notation is omitted in 1D motion equations, positive and negative signs indicate opposite directions."
+  },
+  {
+    "type": "mcq",
+    "q": "Except Eq. (2.7), the rest equations of motion can be expressed in _____ form.",
+    "c": 0,
+    "a": [
+      "vector",
+      "scalar",
+      "tensor"
+    ],
+    "e": "Equations like $v = v_0 + at$ can be written with vector arrows, unlike the scalar-only $v^2 = v_0^2 + 2as$."
+  },
+  {
+    "type": "mcq",
+    "q": "Eq. (2.7) and Eq. (2.8) are _____ from Eqs. (2.6), (2.9) and (2.10).",
+    "c": 1,
+    "a": [
+      "independent",
+      "derived",
+      "unrelated"
+    ],
+    "e": "The textbook notes that equations (2.7) and (2.8) are mathematically derived from the other three fundamental equations."
+  },
+  {
+    "type": "mcq",
+    "q": "The instantaneous acceleration $a$ is defined as $a = \\lim_{\\Delta t \\to 0} \\frac{\\Delta v}{\\Delta t} =$ _____.",
+    "c": 0,
+    "a": [
+      "$\\frac{dv}{dt}$",
+      "$\\frac{ds}{dt}$",
+      "$\\frac{d^2s}{dt^2}$"
+    ],
+    "e": "The limiting value of the change in velocity over time is the derivative of velocity with respect to time."
+  },
+  {
+    "type": "mcq",
+    "q": "A body moving with a constant acceleration of 5 m s$^{-2}$ changes its velocity by _____ in every second.",
+    "c": 0,
+    "a": [
+      "5 m s$^{-1}$",
+      "5 m s$^{-2}$",
+      "10 m s$^{-1}$"
+    ],
+    "e": "An acceleration of 5 m s$^{-2}$ means the velocity increases or decreases by 5 m s$^{-1}$ each second."
+  },
+  {
+    "type": "mcq",
+    "q": "The speedometer of a car indicates the _____ speed of the car.",
+    "c": 1,
+    "a": [
+      "average",
+      "instantaneous",
+      "uniform"
+    ],
+    "e": "A speedometer shows the speed at that particular instant of time, which is the instantaneous speed."
+  },
+  {
+    "type": "mcq",
+    "q": "When a body is moving along a straight line with a constant speed, the velocity of the body is also constant because its magnitude and direction remain _____.",
+    "c": 2,
+    "a": [
+      "variable",
+      "zero",
+      "constant"
+    ],
+    "e": "In straight-line motion, constant speed ensures both magnitude and direction of velocity are unchanging."
+  },
+  {
+    "type": "mcq",
+    "q": "Motion can be described or analyzed conveniently with the help of graphs. The motion graphs are of _____ types.",
+    "c": 1,
+    "a": [
+      "two",
+      "three",
+      "four"
+    ],
+    "e": "The textbook lists three types of motion graphs: displacement-time, velocity-time, and acceleration-time graphs."
+  },
+  {
+    "type": "mcq",
+    "q": "The three types of motion graphs are displacement-time graph, velocity-time graph, and _____ graph.",
+    "c": 2,
+    "a": [
+      "force-time",
+      "mass-time",
+      "acceleration-time"
+    ],
+    "e": "The third fundamental motion graph is the acceleration-time graph."
+  },
+  {
+    "type": "mcq",
+    "q": "The slope of the s-t graph gives the _____.",
+    "c": 0,
+    "a": [
+      "velocity",
+      "acceleration",
+      "displacement"
+    ],
+    "e": "The gradient or slope of a displacement-time graph represents the velocity of the body."
+  },
+  {
+    "type": "mcq",
+    "q": "The slope of a v-t graph gives the _____ of a body.",
+    "c": 1,
+    "a": [
+      "displacement",
+      "acceleration",
+      "velocity"
+    ],
+    "e": "The rate of change of velocity with respect to time, which is the slope of a v-t graph, equals acceleration."
+  },
+  {
+    "type": "mcq",
+    "q": "The area under a v-t graph gives the _____ (or) distance moved by the body.",
+    "c": 2,
+    "a": [
+      "acceleration",
+      "velocity",
+      "displacement"
+    ],
+    "e": "Integrating velocity over time yields the total displacement or distance moved."
+  }
+]

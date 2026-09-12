@@ -1,0 +1,818 @@
+[
+  {
+    "type": "tf",
+    "q": "Pressure, density and specific gravity are important quantities in physics and pressure is the basic of hydrostatic and hydrodynamic.",
+    "c": "true",
+    "e": "This is the exact opening statement of the chapter regarding the fundamental role of pressure in fluid mechanics."
+  },
+  {
+    "type": "tf",
+    "q": "Pressure, density and specific gravity are important quantities in physics and density is the basic of hydrostatic and hydrodynamic.",
+    "c": "false",
+    "e": "Pressure, not density, is stated as the basic of hydrostatic and hydrodynamic."
+  },
+  {
+    "type": "tf",
+    "q": "The study of fluids at rest is called hydrostatics.",
+    "c": "true",
+    "e": "Hydrostatics is explicitly defined as the study of fluids at rest."
+  },
+  {
+    "type": "tf",
+    "q": "The study of fluids at rest is called hydrodynamics.",
+    "c": "false",
+    "e": "The study of fluids at rest is called hydrostatics, while hydrodynamics is the study of fluids in motion."
+  },
+  {
+    "type": "tf",
+    "q": "The study of fluids at motion is hydrodynamic.",
+    "c": "true",
+    "e": "Hydrodynamic is the correct term for the study of fluids in motion."
+  },
+  {
+    "type": "tf",
+    "q": "The study of fluids at motion is hydrostatic.",
+    "c": "false",
+    "e": "The study of fluids in motion is hydrodynamic, not hydrostatic."
+  },
+  {
+    "type": "tf",
+    "q": "Pressure is defined as the force exerted normally on unit area.",
+    "c": "true",
+    "e": "This is the exact textbook definition of pressure."
+  },
+  {
+    "type": "tf",
+    "q": "Pressure is defined as the force exerted parallel to unit area.",
+    "c": "false",
+    "e": "Pressure is defined as the force exerted normally (perpendicularly), not parallel, to the unit area."
+  },
+  {
+    "type": "tf",
+    "q": "In SI units, pressure is measured in 'pascal' (Pa).",
+    "c": "true",
+    "e": "The pascal (Pa) is the standard SI unit for pressure."
+  },
+  {
+    "type": "tf",
+    "q": "In SI units, pressure is measured in 'newton' (N).",
+    "c": "false",
+    "e": "In SI units, pressure is measured in 'pascal' (Pa), while newton (N) is the unit of force."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ Pa} = 1 \\text{ N m}^{-2}$",
+    "c": "true",
+    "e": "One pascal is exactly equal to one newton per square metre."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ Pa} = 1 \\text{ N m}^{2}$",
+    "c": "false",
+    "e": "The correct relationship is $1 \\text{ Pa} = 1 \\text{ N m}^{-2}$, not $1 \\text{ N m}^{2}$."
+  },
+  {
+    "type": "tf",
+    "q": "The force in the pressure formula must be normal ($90^{\\circ}$) to the surface.",
+    "c": "true",
+    "e": "The textbook explicitly states the force must be normal ($90^{\\circ}$) to the surface."
+  },
+  {
+    "type": "tf",
+    "q": "The force in the pressure formula must be parallel ($0^{\\circ}$) to the surface.",
+    "c": "false",
+    "e": "The force in the pressure formula must be normal ($90^{\\circ}$) to the surface, not parallel."
+  },
+  {
+    "type": "tf",
+    "q": "Pressure is a scalar quantity.",
+    "c": "true",
+    "e": "Pressure has magnitude but no specific direction, making it a scalar quantity."
+  },
+  {
+    "type": "tf",
+    "q": "Pressure is a vector quantity.",
+    "c": "false",
+    "e": "Pressure is a scalar quantity, not a vector quantity."
+  },
+  {
+    "type": "tf",
+    "q": "Pointed nails penetrate the surfaces because for a definite force, the exerted area is too small.",
+    "c": "true",
+    "e": "A smaller area results in higher pressure for the same force, allowing penetration."
+  },
+  {
+    "type": "tf",
+    "q": "Pointed nails penetrate the surfaces because for a definite force, the exerted area is too large.",
+    "c": "false",
+    "e": "Pointed nails penetrate because the exerted area is too small, which increases the pressure."
+  },
+  {
+    "type": "tf",
+    "q": "Sharp knives can cut easily than blunt knives because of smaller cutting area.",
+    "c": "true",
+    "e": "A smaller cutting area increases the pressure exerted by the knife, making cutting easier."
+  },
+  {
+    "type": "tf",
+    "q": "Sharp knives can cut easily than blunt knives because of larger cutting area.",
+    "c": "false",
+    "e": "Sharp knives cut easily because of a smaller cutting area, not a larger one."
+  },
+  {
+    "type": "tf",
+    "q": "Elephants have four large flat feet so they reduce the pressure and less likely sink into the ground.",
+    "c": "true",
+    "e": "Large flat feet increase the area, thereby reducing the pressure exerted on the ground."
+  },
+  {
+    "type": "tf",
+    "q": "Elephants have four large flat feet so they increase the pressure and less likely sink into the ground.",
+    "c": "false",
+    "e": "Elephants have large flat feet to reduce the pressure, not increase it."
+  },
+  {
+    "type": "tf",
+    "q": "Tractors used for ploughing has large tire areas so that they do not sink in the muddy fields.",
+    "c": "true",
+    "e": "Large tire areas distribute the weight over a larger surface, reducing pressure and preventing sinking."
+  },
+  {
+    "type": "tf",
+    "q": "Tractors used for ploughing has small tire areas so that they do not sink in the muddy fields.",
+    "c": "false",
+    "e": "Tractors have large tire areas, not small, to avoid sinking in muddy fields."
+  },
+  {
+    "type": "tf",
+    "q": "In FPS system, the unit of pressure is pound per square inch (psi).",
+    "c": "true",
+    "e": "The FPS (foot-pound-second) system uses pound per square inch (psi) for pressure."
+  },
+  {
+    "type": "tf",
+    "q": "In FPS system, the unit of pressure is kilogram per square metre.",
+    "c": "false",
+    "e": "In the FPS system, the unit of pressure is pound per square inch (psi)."
+  },
+  {
+    "type": "tf",
+    "q": "In Meteorology, the unit of pressure is hectopascal (hPa).",
+    "c": "true",
+    "e": "Hectopascal (hPa) is the standard unit of pressure used in meteorology."
+  },
+  {
+    "type": "tf",
+    "q": "In Meteorology, the unit of pressure is kilopascal (kPa).",
+    "c": "false",
+    "e": "In Meteorology, the unit of pressure is specifically the hectopascal (hPa)."
+  },
+  {
+    "type": "tf",
+    "q": "Standard Atmospheric Pressure is 1 atmosphere (1 atm).",
+    "c": "true",
+    "e": "Standard atmospheric pressure is defined as exactly 1 atmosphere (1 atm)."
+  },
+  {
+    "type": "tf",
+    "q": "Standard Atmospheric Pressure is 10 atmospheres (10 atm).",
+    "c": "false",
+    "e": "Standard Atmospheric Pressure is 1 atmosphere (1 atm), not 10 atm."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ atm} = 1.013 \\times 10^5 \\text{ Pa}$",
+    "c": "true",
+    "e": "This is the exact conversion factor between atmospheres and pascals provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ atm} = 1.013 \\times 10^4 \\text{ Pa}$",
+    "c": "false",
+    "e": "The correct conversion is $1 \\text{ atm} = 1.013 \\times 10^5 \\text{ Pa}$."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ atm} = 760 \\text{ millimetre mercury (760 mm Hg)}$",
+    "c": "true",
+    "e": "Standard atmospheric pressure is equivalent to 760 mm Hg."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ atm} = 76 \\text{ millimetre mercury (76 mm Hg)}$",
+    "c": "false",
+    "e": "The correct value is 760 millimetre mercury (760 mm Hg), not 76 mm Hg."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ atm} = 1013 \\text{ hPa}$",
+    "c": "true",
+    "e": "One atmosphere is equal to 1013 hectopascals."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ atm} = 101.3 \\text{ hPa}$",
+    "c": "false",
+    "e": "The correct conversion is $1 \\text{ atm} = 1013 \\text{ hPa}$."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ atm} = 1013 \\text{ millibar (1013 mb)}$",
+    "c": "true",
+    "e": "One atmosphere is equivalent to 1013 millibars."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ hPa} = 100 \\text{ Pa}$",
+    "c": "true",
+    "e": "The prefix 'hecto' denotes a factor of 100, so 1 hPa equals 100 Pa."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ hPa} = 10 \\text{ Pa}$",
+    "c": "false",
+    "e": "The correct relationship is $1 \\text{ hPa} = 100 \\text{ Pa}$."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ hPa} = 1 \\text{ mb}$",
+    "c": "true",
+    "e": "One hectopascal is exactly equal to one millibar."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ hPa} = 10 \\text{ mb}$",
+    "c": "false",
+    "e": "The correct relationship is $1 \\text{ hPa} = 1 \\text{ mb}$."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ Pa} = 1.45 \\times 10^{-4} \\text{ lb in}^{-2} \\text{ (psi)}$",
+    "c": "true",
+    "e": "This is the exact conversion factor from pascals to psi provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ Pa} = 1.45 \\times 10^{-3} \\text{ lb in}^{-2} \\text{ (psi)}$",
+    "c": "false",
+    "e": "The correct conversion is $1 \\text{ Pa} = 1.45 \\times 10^{-4} \\text{ lb in}^{-2} \\text{ (psi)}$."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ psi} = 6.90 \\times 10^3 \\text{ Pa}$",
+    "c": "true",
+    "e": "One pound per square inch is equal to $6.90 \\times 10^3$ pascals."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ psi} = 6.90 \\times 10^4 \\text{ Pa}$",
+    "c": "false",
+    "e": "The correct conversion is $1 \\text{ psi} = 6.90 \\times 10^3 \\text{ Pa}$."
+  },
+  {
+    "type": "tf",
+    "q": "Density is the ratio of mass to volume of a substance.",
+    "c": "true",
+    "e": "This is the fundamental definition of density provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Density is the ratio of volume to mass of a substance.",
+    "c": "false",
+    "e": "Density is the ratio of mass to volume, not volume to mass."
+  },
+  {
+    "type": "tf",
+    "q": "Density is the scalar quantity.",
+    "c": "true",
+    "e": "Density has magnitude but no direction, making it a scalar quantity."
+  },
+  {
+    "type": "tf",
+    "q": "Density is the vector quantity.",
+    "c": "false",
+    "e": "Density is a scalar quantity, not a vector quantity."
+  },
+  {
+    "type": "tf",
+    "q": "In SI unit, density is expressed in kilogram per cubic metre ($\\text{kg m}^{-3}$).",
+    "c": "true",
+    "e": "The standard SI unit for density is kilogram per cubic metre."
+  },
+  {
+    "type": "tf",
+    "q": "In SI unit, density is expressed in gram per cubic centimetre ($\\text{g cm}^{-3}$).",
+    "c": "false",
+    "e": "In SI units, density is expressed in $\\text{kg m}^{-3}$; $\\text{g cm}^{-3}$ is the CGS unit."
+  },
+  {
+    "type": "tf",
+    "q": "In CGS unit, it is expressed in gram per cubic centimetre ($\\text{g cm}^{-3}$) or gram per millilitre ($\\text{g mL}^{-1}$).",
+    "c": "true",
+    "e": "These are the correct CGS units for density as stated in the text."
+  },
+  {
+    "type": "tf",
+    "q": "In CGS unit, density is expressed in kilogram per cubic metre ($\\text{kg m}^{-3}$).",
+    "c": "false",
+    "e": "In CGS units, density is expressed in $\\text{g cm}^{-3}$ or $\\text{g mL}^{-1}$, not $\\text{kg m}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "Mass of an object can be measured using a balance.",
+    "c": "true",
+    "e": "A balance is the correct instrument for measuring the mass of an object."
+  },
+  {
+    "type": "tf",
+    "q": "Mass of an object can be measured using a measuring cylinder.",
+    "c": "false",
+    "e": "Mass is measured using a balance, while a measuring cylinder is used for volume."
+  },
+  {
+    "type": "tf",
+    "q": "Volume can be measured using a measuring cylinder.",
+    "c": "true",
+    "e": "A measuring cylinder is the standard tool mentioned for measuring volume."
+  },
+  {
+    "type": "tf",
+    "q": "Volume can be measured using a balance.",
+    "c": "false",
+    "e": "Volume is measured using a measuring cylinder, not a balance."
+  },
+  {
+    "type": "tf",
+    "q": "Mass of the object does not change, but the volume depends on the temperature.",
+    "c": "true",
+    "e": "Mass is constant, but volume can expand or contract with temperature changes."
+  },
+  {
+    "type": "tf",
+    "q": "Mass of the object changes with temperature, but the volume does not change.",
+    "c": "false",
+    "e": "Mass does not change with temperature, but volume does."
+  },
+  {
+    "type": "tf",
+    "q": "If the volume changes, the density will change.",
+    "c": "true",
+    "e": "Since density is mass divided by volume, a change in volume alters the density."
+  },
+  {
+    "type": "tf",
+    "q": "If the volume changes, the density will remain constant.",
+    "c": "false",
+    "e": "If the volume changes, the density will change, assuming mass is constant."
+  },
+  {
+    "type": "tf",
+    "q": "The density of water at $4^{\\circ}\\text{C}$ is $1000 \\text{ kg m}^{-3}$.",
+    "c": "true",
+    "e": "This is the standard density of water at $4^{\\circ}\\text{C}$ as listed in Table 4.1."
+  },
+  {
+    "type": "tf",
+    "q": "The density of water at $4^{\\circ}\\text{C}$ is $100 \\text{ kg m}^{-3}$.",
+    "c": "false",
+    "e": "The correct density of water at $4^{\\circ}\\text{C}$ is $1000 \\text{ kg m}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "The density of water at $4^{\\circ}\\text{C}$ is $1 \\text{ g cm}^{-3}$.",
+    "c": "true",
+    "e": "In CGS units, the density of water at $4^{\\circ}\\text{C}$ is exactly $1 \\text{ g cm}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "The density of aluminium is $2.7 \\text{ g cm}^{-3}$.",
+    "c": "true",
+    "e": "This value is explicitly listed in Table 4.1 for aluminium."
+  },
+  {
+    "type": "tf",
+    "q": "The density of aluminium is $27 \\text{ g cm}^{-3}$.",
+    "c": "false",
+    "e": "The correct density of aluminium is $2.7 \\text{ g cm}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "The density of copper is $8.9 \\text{ g cm}^{-3}$.",
+    "c": "true",
+    "e": "This value is explicitly listed in Table 4.1 for copper."
+  },
+  {
+    "type": "tf",
+    "q": "The density of copper is $89 \\text{ g cm}^{-3}$.",
+    "c": "false",
+    "e": "The correct density of copper is $8.9 \\text{ g cm}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "The density of lead is $11.4 \\text{ g cm}^{-3}$.",
+    "c": "true",
+    "e": "This value is explicitly listed in Table 4.1 for lead."
+  },
+  {
+    "type": "tf",
+    "q": "The density of lead is $1.14 \\text{ g cm}^{-3}$.",
+    "c": "false",
+    "e": "The correct density of lead is $11.4 \\text{ g cm}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "The density of mercury is $13.6 \\text{ g cm}^{-3}$.",
+    "c": "true",
+    "e": "This value is explicitly listed in Table 4.1 for mercury."
+  },
+  {
+    "type": "tf",
+    "q": "The density of mercury is $1.36 \\text{ g cm}^{-3}$.",
+    "c": "false",
+    "e": "The correct density of mercury is $13.6 \\text{ g cm}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "The density of gold is $19.3 \\text{ g cm}^{-3}$.",
+    "c": "true",
+    "e": "This value is explicitly listed in Table 4.1 for gold."
+  },
+  {
+    "type": "tf",
+    "q": "The density of gold is $1.93 \\text{ g cm}^{-3}$.",
+    "c": "false",
+    "e": "The correct density of gold is $19.3 \\text{ g cm}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "The density of uranium is $19.05 \\text{ g cm}^{-3}$.",
+    "c": "true",
+    "e": "This value is explicitly listed in Table 4.1 for uranium."
+  },
+  {
+    "type": "tf",
+    "q": "The density of uranium is $190.5 \\text{ g cm}^{-3}$.",
+    "c": "false",
+    "e": "The correct density of uranium is $19.05 \\text{ g cm}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "Average density of a human body is a little less than water density.",
+    "c": "true",
+    "e": "This note is explicitly provided below Table 4.1 in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Average density of a human body is a little more than water density.",
+    "c": "false",
+    "e": "The average density of a human body is a little less than water density."
+  },
+  {
+    "type": "tf",
+    "q": "The density of helium is $0.164 \\text{ kg m}^{-3}$.",
+    "c": "true",
+    "e": "This value is explicitly listed in Table 4.1 for helium."
+  },
+  {
+    "type": "tf",
+    "q": "The density of helium is $1.64 \\text{ kg m}^{-3}$.",
+    "c": "false",
+    "e": "The correct density of helium is $0.164 \\text{ kg m}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "The density of air is $1.3 \\text{ kg m}^{-3}$.",
+    "c": "true",
+    "e": "This value is explicitly listed in Table 4.1 for air."
+  },
+  {
+    "type": "tf",
+    "q": "The density of air is $13 \\text{ kg m}^{-3}$.",
+    "c": "false",
+    "e": "The correct density of air is $1.3 \\text{ kg m}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "Relative density is how much a substance is denser than water.",
+    "c": "true",
+    "e": "This is the exact conceptual definition of relative density provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Relative density is how much a substance is denser than air.",
+    "c": "false",
+    "e": "Relative density compares a substance's density to water, not air."
+  },
+  {
+    "type": "tf",
+    "q": "Relative density is also known as specific gravity.",
+    "c": "true",
+    "e": "The textbook explicitly states that relative density is also known as specific gravity."
+  },
+  {
+    "type": "tf",
+    "q": "Relative density is also known as specific weight.",
+    "c": "false",
+    "e": "Relative density is also known as specific gravity, not specific weight."
+  },
+  {
+    "type": "tf",
+    "q": "$\\text{relative density} = \\frac{\\text{density of substance}}{\\text{density of water at } 4^{\\circ}\\text{C}}$",
+    "c": "true",
+    "e": "This is the exact formula for relative density as given in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "$\\text{relative density} = \\frac{\\text{density of substance}}{\\text{density of water at } 100^{\\circ}\\text{C}}$",
+    "c": "false",
+    "e": "The denominator must be the density of water at $4^{\\circ}\\text{C}$, not $100^{\\circ}\\text{C}$."
+  },
+  {
+    "type": "tf",
+    "q": "As the density of water is $1 \\text{ g cm}^{-3}$ in CGS units, then density of substance can be taken as the relative density.",
+    "c": "true",
+    "e": "Because water's density is 1 in CGS, the numerical value of the substance's density equals its relative density."
+  },
+  {
+    "type": "tf",
+    "q": "As the density of water is $1 \\text{ g cm}^{-3}$ in SI units, then density of substance can be taken as the relative density.",
+    "c": "false",
+    "e": "The density of water is $1 \\text{ g cm}^{-3}$ in CGS units, not SI units (where it is $1000 \\text{ kg m}^{-3}$)."
+  },
+  {
+    "type": "tf",
+    "q": "As the relative density is the ratio of two densities, it is just a number without unit.",
+    "c": "true",
+    "e": "Since it is a ratio of identical units, relative density is dimensionless."
+  },
+  {
+    "type": "tf",
+    "q": "As the relative density is the ratio of two densities, it has the unit $\\text{kg m}^{-3}$.",
+    "c": "false",
+    "e": "Relative density is a ratio of two densities, so it is just a number without unit."
+  },
+  {
+    "type": "tf",
+    "q": "When an object is partially (or) totally immersed in a liquid, the object displaces liquid volume that is equal to the volume of the immersed portion.",
+    "c": "true",
+    "e": "This is Part I of Archimedes' Principle as stated in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "When an object is partially (or) totally immersed in a liquid, the object displaces liquid volume that is equal to the total volume of the object.",
+    "c": "false",
+    "e": "It displaces liquid volume equal to the volume of the immersed portion, not necessarily the total volume."
+  },
+  {
+    "type": "tf",
+    "q": "The loss in weight of the object is equal to the weight of the liquid displaced.",
+    "c": "true",
+    "e": "This is Part II of Archimedes' Principle as stated in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "The loss in weight of the object is equal to the mass of the liquid displaced.",
+    "c": "false",
+    "e": "The loss in weight is equal to the weight of the liquid displaced, not the mass."
+  },
+  {
+    "type": "tf",
+    "q": "The upward thrust acting on a body which is immersed partially or totally in a liquid is equal to the weight of the liquid displaced by the body.",
+    "c": "true",
+    "e": "This is an alternative statement of Part II of Archimedes' Principle."
+  },
+  {
+    "type": "tf",
+    "q": "The upward thrust acting on a body which is immersed partially or totally in a liquid is equal to the volume of the liquid displaced by the body.",
+    "c": "false",
+    "e": "The upward thrust is equal to the weight of the liquid displaced, not the volume."
+  },
+  {
+    "type": "tf",
+    "q": "upward thrust = uplift force = buoyancy = weight of liquid displaced.",
+    "c": "true",
+    "e": "The textbook explicitly equates these four terms."
+  },
+  {
+    "type": "tf",
+    "q": "upward thrust = uplift force = buoyancy = mass of liquid displaced.",
+    "c": "false",
+    "e": "These terms are equal to the weight of the liquid displaced, not the mass."
+  },
+  {
+    "type": "tf",
+    "q": "By Archimedes' principle, weight of a body is more than buoyancy (or) upward thrust, it will sink in the liquid.",
+    "c": "true",
+    "e": "If the downward weight exceeds the upward buoyant force, the net force is downward, causing it to sink."
+  },
+  {
+    "type": "tf",
+    "q": "By Archimedes' principle, weight of a body is less than buoyancy (or) upward thrust, it will sink in the liquid.",
+    "c": "false",
+    "e": "If the weight is less than the buoyancy, the body will float, not sink."
+  },
+  {
+    "type": "tf",
+    "q": "Substances having relative density greater than one will sink in water.",
+    "c": "true",
+    "e": "A relative density greater than one means the substance is denser than water, so it sinks."
+  },
+  {
+    "type": "tf",
+    "q": "Substances having relative density less than one will sink in water.",
+    "c": "false",
+    "e": "Substances having relative density greater than one will sink; those less than one will float."
+  },
+  {
+    "type": "tf",
+    "q": "The added metal in the crown was copper because it has similar color.",
+    "c": "true",
+    "e": "The textbook hint explicitly states copper was the added metal due to its similar color to gold."
+  },
+  {
+    "type": "tf",
+    "q": "The added metal in the crown was lead because it has similar color.",
+    "c": "false",
+    "e": "The textbook hint states the added metal is copper, not lead, because of its similar color."
+  },
+  {
+    "type": "tf",
+    "q": "When an object is placed in a liquid of a lower density, the object sinks.",
+    "c": "true",
+    "e": "This is the exact behavior described for objects in liquids of lower density."
+  },
+  {
+    "type": "tf",
+    "q": "When an object is placed in a liquid of a lower density, the object floats.",
+    "c": "false",
+    "e": "When placed in a liquid of lower density, the object sinks, it does not float."
+  },
+  {
+    "type": "tf",
+    "q": "If it is placed in a liquid of a greater density, it floats.",
+    "c": "true",
+    "e": "This is the exact behavior described for objects in liquids of greater density."
+  },
+  {
+    "type": "tf",
+    "q": "If it is placed in a liquid of a greater density, it sinks.",
+    "c": "false",
+    "e": "If placed in a liquid of greater density, the object floats, it does not sink."
+  },
+  {
+    "type": "tf",
+    "q": "Since the amount of submerged portion for a floating body is inversely proportional to the specific gravity of the liquid, the more submerged, the less the specific gravity.",
+    "c": "true",
+    "e": "This is the exact cause-effect relationship stated in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Since the amount of submerged portion for a floating body is directly proportional to the specific gravity of the liquid, the more submerged, the less the specific gravity.",
+    "c": "false",
+    "e": "The relationship is inversely proportional, not directly proportional."
+  },
+  {
+    "type": "tf",
+    "q": "The hydrometer is an instrument for measuring the density (or) relative density of liquids.",
+    "c": "true",
+    "e": "This is the exact definition of a hydrometer provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "The hydrometer is an instrument for measuring the pressure of liquids.",
+    "c": "false",
+    "e": "A hydrometer measures density or relative density, not pressure."
+  },
+  {
+    "type": "tf",
+    "q": "It usually consists of a glass tube with a long bulb at one end.",
+    "c": "true",
+    "e": "This accurately describes the physical structure of a hydrometer."
+  },
+  {
+    "type": "tf",
+    "q": "It usually consists of a glass tube with a short bulb at both ends.",
+    "c": "false",
+    "e": "It consists of a glass tube with a long bulb at one end, not short bulbs at both ends."
+  },
+  {
+    "type": "tf",
+    "q": "The bulb is weighted with lead shot so that the device floats vertically in the liquid.",
+    "c": "true",
+    "e": "Lead shot provides the necessary weight for vertical flotation."
+  },
+  {
+    "type": "tf",
+    "q": "The bulb is weighted with gold shot so that the device floats vertically in the liquid.",
+    "c": "false",
+    "e": "The bulb is weighted with lead shot, not gold shot."
+  },
+  {
+    "type": "tf",
+    "q": "The relative density being read off its calibrated stem by the depth of immersion.",
+    "c": "true",
+    "e": "The calibrated stem is used to read the relative density based on immersion depth."
+  },
+  {
+    "type": "tf",
+    "q": "The relative density being read off its calibrated bulb by the depth of immersion.",
+    "c": "false",
+    "e": "The reading is taken from the calibrated stem, not the bulb."
+  },
+  {
+    "type": "tf",
+    "q": "If the hydrometer floats higher, it indicates that the liquid has a higher density.",
+    "c": "true",
+    "e": "Higher density liquids provide more buoyant force, causing the hydrometer to float higher."
+  },
+  {
+    "type": "tf",
+    "q": "If the hydrometer floats higher, it indicates that the liquid has a lower density.",
+    "c": "false",
+    "e": "If the hydrometer floats higher, it indicates the liquid has a higher density."
+  },
+  {
+    "type": "tf",
+    "q": "The hydrometer sinks in the liquid until the weight of the liquid displaced is equal to the weight of the hydrometer.",
+    "c": "true",
+    "e": "This is the equilibrium condition for a floating hydrometer."
+  },
+  {
+    "type": "tf",
+    "q": "The hydrometer sinks in the liquid until the volume of the liquid displaced is equal to the weight of the hydrometer.",
+    "c": "false",
+    "e": "It sinks until the weight of the liquid displaced equals the weight of the hydrometer, not the volume."
+  },
+  {
+    "type": "tf",
+    "q": "The hydrometer is calibrated to measure the density of the liquid in $\\text{kg m}^{-3}$.",
+    "c": "true",
+    "e": "The textbook explicitly states the calibration unit is $\\text{kg m}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "The hydrometer is calibrated to measure the density of the liquid in $\\text{g cm}^{-3}$.",
+    "c": "false",
+    "e": "The hydrometer is calibrated to measure density in $\\text{kg m}^{-3}$, not $\\text{g cm}^{-3}$."
+  },
+  {
+    "type": "tf",
+    "q": "Special hydrometers are used to test the specific gravity of solutions in storage batteries in order to determine the condition of the battery.",
+    "c": "true",
+    "e": "This is a specific application of hydrometers mentioned in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Special hydrometers are used to test the specific gravity of solutions in storage batteries in order to determine the voltage of the battery.",
+    "c": "false",
+    "e": "They are used to determine the condition of the battery, not the voltage."
+  },
+  {
+    "type": "tf",
+    "q": "The relative density of the acid in a fully charged car battery is 1.25.",
+    "c": "true",
+    "e": "This specific value is provided in the textbook for a fully charged car battery."
+  },
+  {
+    "type": "tf",
+    "q": "The relative density of the acid in a fully charged car battery is 1.52.",
+    "c": "false",
+    "e": "The correct relative density is 1.25, not 1.52."
+  },
+  {
+    "type": "tf",
+    "q": "Milk and wine can be tested to make sure they have not been diluted with water.",
+    "c": "true",
+    "e": "This is a practical application of hydrometers mentioned in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Milk and wine can be tested to make sure they have not been diluted with alcohol.",
+    "c": "false",
+    "e": "They are tested to ensure they have not been diluted with water."
+  },
+  {
+    "type": "tf",
+    "q": "Hydrometer is a test tube like cylinder with overall density less than one (or) less than the density of water.",
+    "c": "true",
+    "e": "This is the exact description of the hydrometer's overall density requirement for floating."
+  },
+  {
+    "type": "tf",
+    "q": "Hydrometer is a test tube like cylinder with overall density greater than one (or) greater than the density of water.",
+    "c": "false",
+    "e": "A hydrometer must have an overall density less than one (or less than water) to float."
+  },
+  {
+    "type": "tf",
+    "q": "$\\text{Weight of hydrometer} = \\text{Weight of water displaced} = (\\text{volume of water displaced} \\times \\text{density of water}) \\times g$",
+    "c": "true",
+    "e": "This is the exact equilibrium equation provided for a hydrometer floating in water."
+  },
+  {
+    "type": "tf",
+    "q": "$\\text{Weight of hydrometer} = \\text{Weight of water displaced} = (\\text{volume of water displaced} \\times \\text{density of water}) / g$",
+    "c": "false",
+    "e": "The formula requires multiplication by $g$, not division by $g$."
+  }
+]

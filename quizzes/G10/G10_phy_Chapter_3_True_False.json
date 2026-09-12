@@ -1,0 +1,608 @@
+[
+  {
+    "type": "tf",
+    "q": "The physics describing motion, called kinematics, was discussed in the previous chapter.",
+    "c": "true",
+    "e": "Kinematics is the branch of physics that describes motion, as stated in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Dynamics explains motion in relation to the physical factors that affect motion such as force, momentum, mass etc.",
+    "c": "true",
+    "e": "This is the exact definition of dynamics provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Forces always cause motion.",
+    "c": "false",
+    "e": "Forces do not always cause motion; they can change the state of motion, but a net force of zero means no change."
+  },
+  {
+    "type": "tf",
+    "q": "Force is defined precisely by Newton's laws of motion.",
+    "c": "true",
+    "e": "The textbook states that to make the meaning of force complete and exact, it is defined precisely by Newton's laws of motion."
+  },
+  {
+    "type": "tf",
+    "q": "Newton's first law states that when no net external force acts upon it, a particle at rest will remain at rest and a particle in motion at a constant velocity will continue to move with the same constant velocity.",
+    "c": "true",
+    "e": "This is the exact statement of Newton's first law of motion."
+  },
+  {
+    "type": "tf",
+    "q": "In mathematical form, if $F_{\\text{net}}=0$ then $a=0$, $v=\\text{constant}$ (or) zero.",
+    "c": "true",
+    "e": "This is the correct mathematical representation of Newton's first law."
+  },
+  {
+    "type": "tf",
+    "q": "If no net external force acts on a particle, the initial state of the motion of the particle will be changed.",
+    "c": "false",
+    "e": "If no net external force acts on a particle, the initial state of the motion of the particle will not be changed."
+  },
+  {
+    "type": "tf",
+    "q": "It is more correct to say \"force causes motion\" rather than to say \"force changes the states of motion\".",
+    "c": "false",
+    "e": "It is more correct to say \"force changes the states of motion\" rather than to say \"force causes motion\"."
+  },
+  {
+    "type": "tf",
+    "q": "Newton's first law expresses the idea of inertia.",
+    "c": "true",
+    "e": "The first law is fundamentally about inertia, which is the resistance to change in motion."
+  },
+  {
+    "type": "tf",
+    "q": "Inertia is the natural property of a body which resists the change of its state of motion.",
+    "c": "true",
+    "e": "This is the exact textbook definition of inertia."
+  },
+  {
+    "type": "tf",
+    "q": "Inertia is a body's reluctance to stop moving, but not its reluctance to start moving.",
+    "c": "false",
+    "e": "Inertia is a body's reluctance to start moving, and its reluctance to stop once it has begun moving."
+  },
+  {
+    "type": "tf",
+    "q": "Newton's first law is often referred to as the law of inertia.",
+    "c": "true",
+    "e": "Because it expresses the idea of inertia, the first law is commonly called the law of inertia."
+  },
+  {
+    "type": "tf",
+    "q": "Newton's second law states that the net external force acting upon a particle is equal to the product of the mass and the acceleration of the particle.",
+    "c": "true",
+    "e": "This is the precise statement of Newton's second law of motion."
+  },
+  {
+    "type": "tf",
+    "q": "In mathematical form, Newton's second law is expressed as $F_{\\text{net}}=ma$.",
+    "c": "true",
+    "e": "This is the correct mathematical formula for Newton's second law."
+  },
+  {
+    "type": "tf",
+    "q": "The direction of the acceleration is opposite to that of the net force.",
+    "c": "false",
+    "e": "The direction of the acceleration is the same as that of the net force."
+  },
+  {
+    "type": "tf",
+    "q": "If a net external force acts upon a particle, the ratio of the force to the acceleration is the mass of the particle.",
+    "c": "true",
+    "e": "This is an alternative valid view of the second law, where $m = F/a$."
+  },
+  {
+    "type": "tf",
+    "q": "Acceleration is inversely proportional to force.",
+    "c": "false",
+    "e": "Acceleration is directly proportional to force, as stated by the second law."
+  },
+  {
+    "type": "tf",
+    "q": "Newton's second law is also called the law of force and acceleration.",
+    "c": "true",
+    "e": "Because it relates force and acceleration directly, it is known by this name."
+  },
+  {
+    "type": "tf",
+    "q": "Newton's third law of motion states that whenever two particles interact, the force exerted by the second on the first is equal in magnitude and opposite in direction to the force exerted by the first on the second.",
+    "c": "true",
+    "e": "This is the exact statement of Newton's third law of motion."
+  },
+  {
+    "type": "tf",
+    "q": "In other words, for every action, there is an equal and opposite reaction.",
+    "c": "true",
+    "e": "This is the common phrasing of Newton's third law."
+  },
+  {
+    "type": "tf",
+    "q": "Action and reaction act as a pair at the same time but the pair of forces acts on a single object.",
+    "c": "false",
+    "e": "The pair of forces acts on two separate objects, not a single object."
+  },
+  {
+    "type": "tf",
+    "q": "Action force and reaction force cannot cancel out each other.",
+    "c": "true",
+    "e": "Because they act on two separate objects, they cannot cancel each other out."
+  },
+  {
+    "type": "tf",
+    "q": "According to these observations the third law is also known as the law of action and reaction.",
+    "c": "true",
+    "e": "This is the alternative name for Newton's third law."
+  },
+  {
+    "type": "tf",
+    "q": "In SI units, force that is acting on 1 kg mass to give it an acceleration of $1 \\text{ m s}^{-2}$ is called 1 newton (1 N).",
+    "c": "true",
+    "e": "This is the exact definition of the newton in the SI system."
+  },
+  {
+    "type": "tf",
+    "q": "The relationship between newtons and base SI units is $1 \\text{ N} = 1 \\text{ kg m s}^{-2}$.",
+    "c": "true",
+    "e": "This is derived directly from $F=ma$."
+  },
+  {
+    "type": "tf",
+    "q": "In the CGS system, a force that is acting on 1 g mass to give it an acceleration of $1 \\text{ cm s}^{-2}$ is called 1 dyne.",
+    "c": "true",
+    "e": "This is the exact definition of the dyne in the CGS system."
+  },
+  {
+    "type": "tf",
+    "q": "The conversion between newtons and dynes is $1 \\text{ N} = 10^3 \\text{ dynes}$.",
+    "c": "false",
+    "e": "The correct conversion is $1 \\text{ N} = 10^5 \\text{ dynes}$."
+  },
+  {
+    "type": "tf",
+    "q": "In the FPS system, the unit of force is the pound (lb).",
+    "c": "true",
+    "e": "The pound is the unit of force in the FPS (foot-pound-second) system."
+  },
+  {
+    "type": "tf",
+    "q": "The slug is the unit of force in the British engineering system.",
+    "c": "false",
+    "e": "The slug is the unit of mass, not force, in the British engineering system."
+  },
+  {
+    "type": "tf",
+    "q": "When 1 pound force acts on a body and the acceleration of the body is $1 \\text{ ft s}^{-2}$, the mass of the body is called 1 slug.",
+    "c": "true",
+    "e": "This is the exact definition of a slug."
+  },
+  {
+    "type": "tf",
+    "q": "If two equal and opposite forces act simultaneously on a particle at rest, it will remain at rest because the net force acting on the particle is zero.",
+    "c": "true",
+    "e": "The two forces cancel out, resulting in a net force of zero, so the state of rest is unchanged."
+  },
+  {
+    "type": "tf",
+    "q": "Newton was able to point out and express precisely that all bodies in the universe are attracting one another.",
+    "c": "true",
+    "e": "This is a fundamental premise of Newton's law of gravitation."
+  },
+  {
+    "type": "tf",
+    "q": "Gravitational force causes bodies which are above the earth's surface to fall onto the earth's surface.",
+    "c": "true",
+    "e": "This is a primary effect of the Earth's gravitational force."
+  },
+  {
+    "type": "tf",
+    "q": "The gravitational force enables the sun to go round the moon and the earth to go round the sun.",
+    "c": "false",
+    "e": "The gravitational force enables the moon to go round the earth and the earth to go round the sun."
+  },
+  {
+    "type": "tf",
+    "q": "Newton stated the gravitational law as follows: Everybody attracts every other body in the universe.",
+    "c": "true",
+    "e": "This is the opening statement of Newton's law of gravitation."
+  },
+  {
+    "type": "tf",
+    "q": "The gravitational force between two bodies is directly proportional to the product of the masses and inversely proportional to the square of the distance between them.",
+    "c": "true",
+    "e": "This is the exact statement of the inverse square law of gravitation."
+  },
+  {
+    "type": "tf",
+    "q": "In symbols, the law of gravitation is expressed as $F = G \\frac{m_1 m_2}{r}$.",
+    "c": "false",
+    "e": "The correct formula is $F = G \\frac{m_1 m_2}{r^2}$, as it is an inverse square law."
+  },
+  {
+    "type": "tf",
+    "q": "$G$ is a constant which is the same for all bodies in the universe.",
+    "c": "true",
+    "e": "The universal gravitational constant $G$ does not change depending on the bodies involved."
+  },
+  {
+    "type": "tf",
+    "q": "According to experimental measurements, the value of $G$ in the MKS system is found to be $6.67 \\times 10^{-11} \\text{ m}^3 \\text{kg}^{-1} \\text{s}^{-2}$.",
+    "c": "true",
+    "e": "This is the accepted experimental value of the gravitational constant in MKS units."
+  },
+  {
+    "type": "tf",
+    "q": "The value of $G$ in the MKS system can also be written as $\\text{N m}^2 \\text{kg}^{-2}$.",
+    "c": "true",
+    "e": "This is an equivalent unit representation for the gravitational constant."
+  },
+  {
+    "type": "tf",
+    "q": "The attractions of the moon and the sun upon water of the earth cause tides.",
+    "c": "true",
+    "e": "This is listed as a direct application of Newton's law of gravitation."
+  },
+  {
+    "type": "tf",
+    "q": "Satellites are kept in their circular orbit by the electromagnetic attraction of the earth.",
+    "c": "false",
+    "e": "Satellites are kept in their circular orbit by the gravitational attraction of the earth."
+  },
+  {
+    "type": "tf",
+    "q": "A unit vector is a vector that has the magnitude 1.",
+    "c": "true",
+    "e": "This is the standard definition of a unit vector provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Four fundamental forces in nature are all field forces.",
+    "c": "true",
+    "e": "The text explicitly classifies the four fundamental forces as field forces."
+  },
+  {
+    "type": "tf",
+    "q": "The four fundamental forces are the gravitational force, weak force, electromagnetic force, and nuclear force.",
+    "c": "true",
+    "e": "This is the complete list of the four fundamental forces in nature."
+  },
+  {
+    "type": "tf",
+    "q": "Gravitational force is the strongest of the four fundamental forces.",
+    "c": "false",
+    "e": "Nuclear force is the strongest and the gravitational force is the weakest of these forces."
+  },
+  {
+    "type": "tf",
+    "q": "The electromagnetic force is the second strongest force.",
+    "c": "true",
+    "e": "Among the four fundamental forces, the electromagnetic force ranks second in strength."
+  },
+  {
+    "type": "tf",
+    "q": "Among the four forces, the gravitational and the electromagnetic forces are short-range forces.",
+    "c": "false",
+    "e": "The gravitational and the electromagnetic forces are long-range forces."
+  },
+  {
+    "type": "tf",
+    "q": "The weak force and nuclear force are short-range forces.",
+    "c": "true",
+    "e": "These two forces operate only over very short distances."
+  },
+  {
+    "type": "tf",
+    "q": "The gravitational force acts between objects.",
+    "c": "true",
+    "e": "This is the specific domain of action for the gravitational force."
+  },
+  {
+    "type": "tf",
+    "q": "The electromagnetic force acts between magnetic poles only.",
+    "c": "false",
+    "e": "The electromagnetic force acts between electric charges."
+  },
+  {
+    "type": "tf",
+    "q": "Weak force acts between subatomic particles.",
+    "c": "true",
+    "e": "This is the correct classification for the domain of the weak force."
+  },
+  {
+    "type": "tf",
+    "q": "Strong nuclear force acts between elementary particles such as proton, neutron, pion, and strange particles.",
+    "c": "true",
+    "e": "This accurately lists the particles between which the strong nuclear force acts."
+  },
+  {
+    "type": "tf",
+    "q": "In the study of mechanics, apart from gravitational force, frictional force and elastic force will also be encountered.",
+    "c": "true",
+    "e": "These are the primary mechanical forces discussed alongside gravity."
+  },
+  {
+    "type": "tf",
+    "q": "Frictional force and elastic force are fundamental forces.",
+    "c": "false",
+    "e": "Unlike gravitational force, frictional force and elastic force are not fundamental forces."
+  },
+  {
+    "type": "tf",
+    "q": "When a spring is stretched or a plastic ruler is bent, the force that causes the spring and the ruler to retain their original form is called elastic force.",
+    "c": "true",
+    "e": "This is the exact definition of elastic force provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "When a body is placed on a floor, the force between the two surfaces which resists the motion of the body is frictional force.",
+    "c": "true",
+    "e": "This is the exact definition of frictional force in this context."
+  },
+  {
+    "type": "tf",
+    "q": "The frictional force depends on the smoothness and cleanliness of the surfaces, the force pressing the two surfaces together, and the speed of the body.",
+    "c": "true",
+    "e": "These are the three factors listed in the text that frictional force depends on."
+  },
+  {
+    "type": "tf",
+    "q": "The weight of a body is the force of gravity acting on it which gives its acceleration when it is falling.",
+    "c": "true",
+    "e": "This is the textbook definition of weight."
+  },
+  {
+    "type": "tf",
+    "q": "The acceleration due to gravity is represented by the symbol $g$.",
+    "c": "true",
+    "e": "The symbol $g$ is universally used for acceleration due to gravity."
+  },
+  {
+    "type": "tf",
+    "q": "In the FPS system, $g = 32 \\text{ ft s}^{-2}$.",
+    "c": "true",
+    "e": "This is the value of acceleration due to gravity in the foot-pound-second system."
+  },
+  {
+    "type": "tf",
+    "q": "The attracting force of the earth acting on a body is defined as the mass of the body.",
+    "c": "false",
+    "e": "The attracting force of the earth acting on a body is defined as the weight of the body."
+  },
+  {
+    "type": "tf",
+    "q": "The gravitational force acting on the body, or the weight of the body, is found to be $W = mg$.",
+    "c": "true",
+    "e": "This is derived by substituting $a=g$ into Newton's second law $F=ma$."
+  },
+  {
+    "type": "tf",
+    "q": "Weight is a scalar and is directed toward the center of the Earth.",
+    "c": "false",
+    "e": "Weight is a vector and is directed toward the center of the Earth."
+  },
+  {
+    "type": "tf",
+    "q": "Units of weight are newton, dyne, and pound.",
+    "c": "true",
+    "e": "Since weight is a force, it uses the units of force."
+  },
+  {
+    "type": "tf",
+    "q": "Units of mass are kilogram, gram, and slug.",
+    "c": "true",
+    "e": "These are the standard units of mass in the MKS, CGS, and FPS systems respectively."
+  },
+  {
+    "type": "tf",
+    "q": "Mass is the quantity of matter in a body.",
+    "c": "true",
+    "e": "This is the fundamental definition of mass."
+  },
+  {
+    "type": "tf",
+    "q": "Mass is also a measure of inertia.",
+    "c": "true",
+    "e": "The mass of a body quantifies its resistance to changes in motion."
+  },
+  {
+    "type": "tf",
+    "q": "The mass of a body defined from the point of view of measuring inertia is called gravitational mass.",
+    "c": "false",
+    "e": "The mass of a body defined from the point of view of measuring inertia is called inertial mass."
+  },
+  {
+    "type": "tf",
+    "q": "The mass defined by $m = \\frac{W}{g}$ is called gravitational mass.",
+    "c": "true",
+    "e": "This is the exact definition of gravitational mass provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Mass and weight are two different quantities.",
+    "c": "true",
+    "e": "The text explicitly warns that mass should not be confused with weight."
+  },
+  {
+    "type": "tf",
+    "q": "Mass is a vector and always a constant.",
+    "c": "false",
+    "e": "Mass is a scalar and always a constant."
+  },
+  {
+    "type": "tf",
+    "q": "Wherever a body may be, there is no change in the value of the mass of the body.",
+    "c": "true",
+    "e": "Mass is constant regardless of location, unlike weight."
+  },
+  {
+    "type": "tf",
+    "q": "The weight of the body can change when its location is changed.",
+    "c": "true",
+    "e": "Because weight depends on local gravity ($W=mg$), it changes with location."
+  },
+  {
+    "type": "tf",
+    "q": "The value of $g$ is dependent on the properties of the body.",
+    "c": "false",
+    "e": "The value of $g$ is independent of the properties of the body."
+  },
+  {
+    "type": "tf",
+    "q": "The value of $g$ near the earth's surface is $9.8 \\text{ m s}^{-2}$ (or) $9.8 \\text{ N kg}^{-1}$.",
+    "c": "true",
+    "e": "This is the standard accepted value for acceleration due to gravity near Earth's surface."
+  },
+  {
+    "type": "tf",
+    "q": "If a body is dropped from a height near the earth's surface, the body will fall with a constant acceleration $g$.",
+    "c": "true",
+    "e": "This is the foundational assumption for freely falling bodies near the earth's surface."
+  },
+  {
+    "type": "tf",
+    "q": "If the air resistance is neglected, the fall of the body is defined as free fall.",
+    "c": "true",
+    "e": "This is the exact definition of free fall provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Equations of motion under constant acceleration described in chapter 2 cannot be used in free fall.",
+    "c": "false",
+    "e": "Equations of motion under constant acceleration can be used in free fall."
+  },
+  {
+    "type": "tf",
+    "q": "In free fall equations, we will use the symbol $h$ for displacement $s$ and $g$ for acceleration $a$.",
+    "c": "true",
+    "e": "This is the specific notation adaptation for free fall problems."
+  },
+  {
+    "type": "tf",
+    "q": "The equations of motion for free fall become $v = v_0 + gt$, $v^2 = v_0^2 + 2gh$, and $h = v_0 t + \\frac{1}{2}gt^2$.",
+    "c": "true",
+    "e": "These are the correct adapted kinematic equations for free fall."
+  },
+  {
+    "type": "tf",
+    "q": "The acceleration due to gravity $g$ is directed upwards (away from the centre of the earth).",
+    "c": "false",
+    "e": "The acceleration due to gravity $g$ is directed downwards (towards the centre of the earth)."
+  },
+  {
+    "type": "tf",
+    "q": "The value of $g$ varies only slightly from one place to another, and therefore, its value is assumed to be constant in the calculations.",
+    "c": "true",
+    "e": "This justifies treating $g$ as a constant in standard free fall problems."
+  },
+  {
+    "type": "tf",
+    "q": "Displacement $h$ will be positive if it is below the origin and negative above the origin.",
+    "c": "false",
+    "e": "Displacement $h$ will be positive if it is above the origin and negative below the origin."
+  },
+  {
+    "type": "tf",
+    "q": "Velocities $v_0$ and $v$ will be positive if they are directed upward and negative if directed downward.",
+    "c": "true",
+    "e": "This is the sign convention for velocity in the one-dimensional coordinate system described."
+  },
+  {
+    "type": "tf",
+    "q": "Since acceleration $g$ is always directed downwards, its value will be negative (i.e., $g = -9.8 \\text{ m s}^{-2}$).",
+    "c": "true",
+    "e": "This follows the established sign convention where downward is negative."
+  },
+  {
+    "type": "tf",
+    "q": "In solving free fall problems, we use a one-dimensional coordinate system with its origin taken as the initial position of the body under consideration.",
+    "c": "true",
+    "e": "This is the standard setup for solving the free fall equations presented."
+  },
+  {
+    "type": "tf",
+    "q": "Momentum ($p$) of a body is defined as the product of the mass of the body and its velocity.",
+    "c": "true",
+    "e": "This is the exact definition of momentum."
+  },
+  {
+    "type": "tf",
+    "q": "Momentum is written mathematically as $p = mv$.",
+    "c": "true",
+    "e": "This is the standard formula for momentum."
+  },
+  {
+    "type": "tf",
+    "q": "Momentum of a body is inversely proportional to its velocity.",
+    "c": "false",
+    "e": "Momentum of a body is directly proportional to its velocity."
+  },
+  {
+    "type": "tf",
+    "q": "Momentum is a scalar quantity.",
+    "c": "false",
+    "e": "Momentum is a vector quantity."
+  },
+  {
+    "type": "tf",
+    "q": "The direction of momentum is the same as that of velocity.",
+    "c": "true",
+    "e": "Since mass is a positive scalar, the momentum vector points in the same direction as the velocity vector."
+  },
+  {
+    "type": "tf",
+    "q": "The unit of momentum in the MKS system is $\\text{kg m s}^{-1}$.",
+    "c": "true",
+    "e": "This is derived from the product of mass (kg) and velocity ($\\text{m s}^{-1}$)."
+  },
+  {
+    "type": "tf",
+    "q": "One fundamental law of physics is the law of conservation of momentum.",
+    "c": "true",
+    "e": "This is explicitly stated as a fundamental law of physics."
+  },
+  {
+    "type": "tf",
+    "q": "If there is no net external force acting on an isolated system, the total momentum of the system is constant.",
+    "c": "true",
+    "e": "This is the exact statement of the law of conservation of momentum."
+  },
+  {
+    "type": "tf",
+    "q": "The law of conservation of momentum is true only for macroscopic objects.",
+    "c": "false",
+    "e": "The law of conservation of momentum is true for both macroscopic and microscopic objects."
+  },
+  {
+    "type": "tf",
+    "q": "According to the law of conservation of momentum, total momentum before collision equals total momentum after collision.",
+    "c": "true",
+    "e": "This is the core principle applied to collision problems."
+  },
+  {
+    "type": "tf",
+    "q": "In symbols, the conservation of momentum for two bodies is $m_A v_A + m_B v_B = m_A v'_A + m_B v'_B$.",
+    "c": "true",
+    "e": "This is the correct mathematical representation of momentum conservation in a two-body collision."
+  },
+  {
+    "type": "tf",
+    "q": "When a compressed spring is released between two wooden balls initially at rest, the total initial momentum is zero and so will be the final total momentum.",
+    "c": "true",
+    "e": "Since the initial velocity is zero, initial momentum is zero, and conservation dictates final momentum must also be zero."
+  },
+  {
+    "type": "tf",
+    "q": "The minus sign in the relation $m_B v'_B = -m_A v'_A$ indicates that the two velocity vectors are parallel and in the same direction.",
+    "c": "false",
+    "e": "The minus sign indicates that the two velocity vectors are parallel but opposite in direction."
+  },
+  {
+    "type": "tf",
+    "q": "By using the relation $m_B v'_B = m_A v'_A$ (taking magnitudes), inertial mass can be measured.",
+    "c": "true",
+    "e": "The text explicitly states that inertial mass can be measured using this relation."
+  }
+]

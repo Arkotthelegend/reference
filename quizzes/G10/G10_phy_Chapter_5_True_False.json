@@ -1,0 +1,518 @@
+[
+  {
+    "type": "tf",
+    "q": "Normally, the work is used to describe the different kinds of activities that people do every day.",
+    "c": "true",
+    "e": "This is the ordinary, non-physics definition of work mentioned in the text."
+  },
+  {
+    "type": "tf",
+    "q": "In physics, work is used to describe the different kinds of activities that people do every day.",
+    "c": "false",
+    "e": "In physics, work specifically specifies the action (force) and the movement produced by the force, not just everyday activities."
+  },
+  {
+    "type": "tf",
+    "q": "In physics, work specifies the action (force) and the movement produced by the force.",
+    "c": "true",
+    "e": "This is the exact definition of work in a physics context."
+  },
+  {
+    "type": "tf",
+    "q": "Work is said to be done when a force produces motion.",
+    "c": "true",
+    "e": "Motion produced by a force is the fundamental condition for work to be done."
+  },
+  {
+    "type": "tf",
+    "q": "Work is said to be done when a force produces heat.",
+    "c": "false",
+    "e": "Work is said to be done when a force produces motion, not specifically heat."
+  },
+  {
+    "type": "tf",
+    "q": "Work is defined as the product of force and distance moved in the direction of the force.",
+    "c": "true",
+    "e": "This is the standard definition of work provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Work is defined as the product of force and distance moved in the opposite direction of the force.",
+    "c": "false",
+    "e": "Work is defined using the distance moved in the direction of the force, not the opposite direction."
+  },
+  {
+    "type": "tf",
+    "q": "The mathematical expression for work is $W=Fs$.",
+    "c": "true",
+    "e": "This is the correct formula for work when force and displacement are in the same direction."
+  },
+  {
+    "type": "tf",
+    "q": "The mathematical expression for work is $W=\\frac{F}{s}$.",
+    "c": "false",
+    "e": "The correct mathematical expression for work is the product $W=Fs$, not the quotient."
+  },
+  {
+    "type": "tf",
+    "q": "In the equation $W=Fs$, '$F$' is the force acting on the particle.",
+    "c": "true",
+    "e": "The variable $F$ explicitly represents the force acting on the particle."
+  },
+  {
+    "type": "tf",
+    "q": "In the equation $W=Fs$, '$F$' is the friction acting on the particle.",
+    "c": "false",
+    "e": "In the equation, '$F$' represents the general force acting on the particle, not specifically friction."
+  },
+  {
+    "type": "tf",
+    "q": "In the equation $W=Fs$, '$s$' is the distance moved in the direction of the force.",
+    "c": "true",
+    "e": "The variable $s$ represents the distance moved specifically in the direction of the applied force."
+  },
+  {
+    "type": "tf",
+    "q": "Work is a vector quantity.",
+    "c": "false",
+    "e": "Work is a scalar quantity, as it has magnitude but no direction."
+  },
+  {
+    "type": "tf",
+    "q": "Work is a scalar quantity.",
+    "c": "true",
+    "e": "The text explicitly states that work is a scalar quantity."
+  },
+  {
+    "type": "tf",
+    "q": "The SI unit of work is the joule (J).",
+    "c": "true",
+    "e": "The joule (J) is the standard SI unit for work."
+  },
+  {
+    "type": "tf",
+    "q": "The SI unit of work is the watt (W).",
+    "c": "false",
+    "e": "The SI unit of work is the joule (J); the watt is the unit of power."
+  },
+  {
+    "type": "tf",
+    "q": "1 joule of work is done when a force of 1 newton moves an object through a distance of 1 metre in the direction of the force.",
+    "c": "true",
+    "e": "This is the exact definition of 1 joule of work."
+  },
+  {
+    "type": "tf",
+    "q": "1 joule of work is done when a force of 1 newton moves an object through a distance of 1 centimetre in the direction of the force.",
+    "c": "false",
+    "e": "1 joule is defined using a distance of 1 metre, not 1 centimetre."
+  },
+  {
+    "type": "tf",
+    "q": "When the unit of force is in pound (lb) and the distance is in foot (ft), the unit of work is foot-pound (ft-lb).",
+    "c": "true",
+    "e": "The foot-pound is the correct unit of work in the imperial system as stated."
+  },
+  {
+    "type": "tf",
+    "q": "When the unit of force is in dyne and the distance is in centimetre, the unit of work is erg.",
+    "c": "true",
+    "e": "The erg is the correct CGS unit of work when force is in dynes and distance in centimetres."
+  },
+  {
+    "type": "tf",
+    "q": "When the unit of force is in dyne and the distance is in metre, the unit of work is erg.",
+    "c": "false",
+    "e": "For the unit of work to be an erg, the distance must be in centimetres, not metres."
+  },
+  {
+    "type": "tf",
+    "q": "The relationship between joule and erg is $1 \\text{ J} = 10^7 \\text{ ergs}$.",
+    "c": "true",
+    "e": "This is the correct conversion factor between joules and ergs."
+  },
+  {
+    "type": "tf",
+    "q": "The relationship between joule and erg is $1 \\text{ J} = 10^5 \\text{ ergs}$.",
+    "c": "false",
+    "e": "The correct relationship is $1 \\text{ J} = 10^7 \\text{ ergs}$, not $10^5$."
+  },
+  {
+    "type": "tf",
+    "q": "When the force is constant, and the direction of the force makes an angle $\\theta$ with that of motion, work is defined as $W = (F \\cos \\theta)s = Fs \\cos \\theta$.",
+    "c": "true",
+    "e": "This is the correct formula for work done by a constant force at an angle."
+  },
+  {
+    "type": "tf",
+    "q": "When the force is constant, and the direction of the force makes an angle $\\theta$ with that of motion, work is defined as $W = (F \\sin \\theta)s = Fs \\sin \\theta$.",
+    "c": "false",
+    "e": "The formula uses $\\cos \\theta$, not $\\sin \\theta$, to find the component of force in the direction of motion."
+  },
+  {
+    "type": "tf",
+    "q": "When the directions of the force and the motion are the same, the angle $\\theta = 0^{\\circ}$.",
+    "c": "true",
+    "e": "Parallel vectors in the same direction have an angle of $0^{\\circ}$ between them."
+  },
+  {
+    "type": "tf",
+    "q": "When the directions of the force and the motion are the same, the angle $\\theta = 90^{\\circ}$.",
+    "c": "false",
+    "e": "When the directions are the same, the angle is $0^{\\circ}$, not $90^{\\circ}$."
+  },
+  {
+    "type": "tf",
+    "q": "When the directions of the force and the motion are the same, the work done is $W = Fs$.",
+    "c": "true",
+    "e": "Since $\\cos 0^{\\circ} = 1$, the formula simplifies to $W = Fs$."
+  },
+  {
+    "type": "tf",
+    "q": "When the force and the motion are in opposite directions, the angle $\\theta = 180^{\\circ}$.",
+    "c": "true",
+    "e": "Anti-parallel vectors have an angle of $180^{\\circ}$ between them."
+  },
+  {
+    "type": "tf",
+    "q": "When the force and the motion are in opposite directions, $\\cos 180^{\\circ} = 1$, so $W = Fs$.",
+    "c": "false",
+    "e": "When the angle is $180^{\\circ}$, $\\cos 180^{\\circ} = -1$, so the work done is $W = -Fs$."
+  },
+  {
+    "type": "tf",
+    "q": "When the force and the motion are perpendicular to each other, the angle $\\theta = 90^{\\circ}$.",
+    "c": "true",
+    "e": "Perpendicular vectors have an angle of $90^{\\circ}$ between them."
+  },
+  {
+    "type": "tf",
+    "q": "When the force and the motion are perpendicular to each other, $\\cos 90^{\\circ} = 1$, so $W = Fs$.",
+    "c": "false",
+    "e": "When the angle is $90^{\\circ}$, $\\cos 90^{\\circ} = 0$, so the work done is $W = 0$."
+  },
+  {
+    "type": "tf",
+    "q": "Energy is defined as the capacity to do work.",
+    "c": "true",
+    "e": "This is the fundamental definition of energy provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Energy is defined as the capacity to produce force.",
+    "c": "false",
+    "e": "Energy is defined as the capacity to do work, not specifically to produce force."
+  },
+  {
+    "type": "tf",
+    "q": "The SI unit for energy is joule (J).",
+    "c": "true",
+    "e": "The joule (J) is the standard SI unit for both energy and work."
+  },
+  {
+    "type": "tf",
+    "q": "The SI unit for energy is newton (N).",
+    "c": "false",
+    "e": "The SI unit for energy is the joule (J); the newton is the unit of force."
+  },
+  {
+    "type": "tf",
+    "q": "Energy is a scalar quantity.",
+    "c": "true",
+    "e": "The text explicitly states that energy is a scalar quantity."
+  },
+  {
+    "type": "tf",
+    "q": "Energy is a vector quantity.",
+    "c": "false",
+    "e": "Energy is a scalar quantity, meaning it has magnitude but no direction."
+  },
+  {
+    "type": "tf",
+    "q": "Energy possessed by a body is measured by the amount of work done.",
+    "c": "true",
+    "e": "The amount of work done on a body is the measure of the energy it gains."
+  },
+  {
+    "type": "tf",
+    "q": "Energy possessed by a body is measured by the amount of force applied.",
+    "c": "false",
+    "e": "Energy is measured by the amount of work done, not merely the force applied."
+  },
+  {
+    "type": "tf",
+    "q": "Whenever work is done on the body, the energy gained by the body is equal to the amount of work done.",
+    "c": "true",
+    "e": "This states the direct equivalence between work done on a body and its gained energy."
+  },
+  {
+    "type": "tf",
+    "q": "Different forms of energy include mechanical energy, heat energy, light energy, electrical energy, and nuclear energy.",
+    "c": "true",
+    "e": "These are the specific forms of energy listed in the text."
+  },
+  {
+    "type": "tf",
+    "q": "In this chapter only mechanical energy will be discussed.",
+    "c": "true",
+    "e": "The text explicitly limits the scope of the chapter to mechanical energy."
+  },
+  {
+    "type": "tf",
+    "q": "In this chapter only nuclear energy will be discussed.",
+    "c": "false",
+    "e": "The chapter focuses exclusively on mechanical energy, not nuclear energy."
+  },
+  {
+    "type": "tf",
+    "q": "Mechanical energy is divided into two types: kinetic energy and potential energy.",
+    "c": "true",
+    "e": "These are the two components of mechanical energy as stated in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Mechanical energy is divided into two types: heat energy and light energy.",
+    "c": "false",
+    "e": "Mechanical energy is divided into kinetic energy and potential energy."
+  },
+  {
+    "type": "tf",
+    "q": "Energy acquired by a body due to its motion is called kinetic energy.",
+    "c": "true",
+    "e": "This is the exact definition of kinetic energy."
+  },
+  {
+    "type": "tf",
+    "q": "Energy acquired by a body due to its position is called kinetic energy.",
+    "c": "false",
+    "e": "Energy acquired due to position is called potential energy, not kinetic energy."
+  },
+  {
+    "type": "tf",
+    "q": "According to Newton's second law, the acceleration of a body of mass $m$ under an external force $F_{\\text{external}}$ is $a = \\frac{F_{\\text{external}}}{m}$.",
+    "c": "true",
+    "e": "This is the correct rearrangement of $F=ma$ as presented in the derivation."
+  },
+  {
+    "type": "tf",
+    "q": "Due to the applied force, the body will be in motion and its velocity increases to $v$ after travelling the distance $s$, we have $v^2 = 2as$.",
+    "c": "true",
+    "e": "This is the correct kinematic equation used in the kinetic energy derivation."
+  },
+  {
+    "type": "tf",
+    "q": "In the derivation of kinetic energy, $F_{\\text{external}}s$ is the work done on the body.",
+    "c": "true",
+    "e": "The product of external force and distance represents the work done."
+  },
+  {
+    "type": "tf",
+    "q": "The kinetic energy received by a body is expressed as $KE = \\frac{1}{2}mv^2$.",
+    "c": "true",
+    "e": "This is the standard mathematical formula for kinetic energy."
+  },
+  {
+    "type": "tf",
+    "q": "The kinetic energy received by a body is expressed as $KE = mv^2$.",
+    "c": "false",
+    "e": "The correct formula includes the factor of one-half: $KE = \\frac{1}{2}mv^2$."
+  },
+  {
+    "type": "tf",
+    "q": "If a body is moving with an initial velocity $v_0$ and its final velocity is $v$, then the change in kinetic energy is $\\Delta KE = \\frac{1}{2}mv^2 - \\frac{1}{2}mv_0^2 = F_{\\text{external}}s$.",
+    "c": "true",
+    "e": "This correctly represents the work-energy theorem for changing velocities."
+  },
+  {
+    "type": "tf",
+    "q": "The change in kinetic energy is equal to the work done.",
+    "c": "true",
+    "e": "This is a direct statement of the work-energy theorem."
+  },
+  {
+    "type": "tf",
+    "q": "The energy stored in a body due to its position or configuration is called the potential energy.",
+    "c": "true",
+    "e": "This is the exact definition of potential energy provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "The energy stored in a body due to its motion or configuration is called the potential energy.",
+    "c": "false",
+    "e": "Potential energy is due to position or configuration, not motion."
+  },
+  {
+    "type": "tf",
+    "q": "Gravitational potential energy is the energy which a body possesses because of its position relative to the ground.",
+    "c": "true",
+    "e": "This is the specific definition of gravitational potential energy."
+  },
+  {
+    "type": "tf",
+    "q": "When a body of mass $m$ is raised to a height $h$ above the ground, the amount of work done against the gravitational force $mg$ is $W = Fs = mgh$.",
+    "c": "true",
+    "e": "This correctly calculates the work done against gravity to lift a mass."
+  },
+  {
+    "type": "tf",
+    "q": "The amount of work done ($mgh$) is stored by the body as gravitational potential energy.",
+    "c": "true",
+    "e": "The work done against gravity is converted into stored gravitational potential energy."
+  },
+  {
+    "type": "tf",
+    "q": "The gravitational potential energy is given by the formula $PE = mgh$.",
+    "c": "true",
+    "e": "This is the standard formula for gravitational potential energy near the Earth's surface."
+  },
+  {
+    "type": "tf",
+    "q": "When an object with mass $m$ near the Earth's surface is raised from a height $h_0$ to a height $h$, the change in potential energy is given by $\\Delta PE = mgh - mgh_0$.",
+    "c": "true",
+    "e": "This correctly represents the difference in potential energy between two heights."
+  },
+  {
+    "type": "tf",
+    "q": "In the equation for change in potential energy, $g$ represents the gravitational constant.",
+    "c": "false",
+    "e": "In this equation, $g$ represents the acceleration due to gravity, not the universal gravitational constant."
+  },
+  {
+    "type": "tf",
+    "q": "The change in potential energy is equal to the work done.",
+    "c": "true",
+    "e": "The text states that the change in potential energy is equal to the work done."
+  },
+  {
+    "type": "tf",
+    "q": "The potential energy due to configuration is called elastic potential energy.",
+    "c": "true",
+    "e": "This is the exact definition of elastic potential energy."
+  },
+  {
+    "type": "tf",
+    "q": "Examples of elastic potential energy include the energy stored in compressed or stretched springs, the stretched rubber band of a catapult, or the stretched bow.",
+    "c": "true",
+    "e": "These are the specific examples of elastic potential energy provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "The elastic potential energy in compressed or stretched springs is $\\frac{1}{2}kx^2$.",
+    "c": "true",
+    "e": "This is the correct formula for the elastic potential energy of a spring."
+  },
+  {
+    "type": "tf",
+    "q": "The elastic potential energy in compressed or stretched springs is $kx^2$.",
+    "c": "false",
+    "e": "The correct formula includes the factor of one-half: $\\frac{1}{2}kx^2$."
+  },
+  {
+    "type": "tf",
+    "q": "In the elastic potential energy formula, $k$ is the spring constant.",
+    "c": "true",
+    "e": "The variable $k$ explicitly represents the spring constant."
+  },
+  {
+    "type": "tf",
+    "q": "In the elastic potential energy formula, $x$ is the extension or compression of the spring.",
+    "c": "true",
+    "e": "The variable $x$ represents the displacement from the equilibrium position (extension or compression)."
+  },
+  {
+    "type": "tf",
+    "q": "The law of conservation of energy states that the total energy of an isolated system is constant.",
+    "c": "true",
+    "e": "This is the primary statement of the law of conservation of energy."
+  },
+  {
+    "type": "tf",
+    "q": "The law of conservation of energy states that the total energy of an open system is constant.",
+    "c": "false",
+    "e": "The law specifically applies to an isolated system, not an open system."
+  },
+  {
+    "type": "tf",
+    "q": "The law of conservation of energy is also expressed as: Energy cannot be created or destroyed in any process.",
+    "c": "true",
+    "e": "This is an equivalent and fundamental expression of the conservation law."
+  },
+  {
+    "type": "tf",
+    "q": "The law of conservation of energy can be expressed as: The total energy of the universe is constant.",
+    "c": "true",
+    "e": "This is another valid expression of the law, treating the universe as the ultimate isolated system."
+  },
+  {
+    "type": "tf",
+    "q": "In the statement 'The total energy of the universe is constant', the whole universe is taken as an open system.",
+    "c": "false",
+    "e": "In this statement, the whole universe is taken as an isolated system."
+  },
+  {
+    "type": "tf",
+    "q": "Energy cannot be created or destroyed but energy can be changed from one form to another.",
+    "c": "true",
+    "e": "This correctly describes the transformation aspect of the conservation law."
+  },
+  {
+    "type": "tf",
+    "q": "For an isolated system, the sum of the different forms of energy must be constant.",
+    "c": "true",
+    "e": "This is a direct consequence of the law of conservation of energy."
+  },
+  {
+    "type": "tf",
+    "q": "Physicists believe that the amount of energy in the universe is constant.",
+    "c": "true",
+    "e": "This reflects the fundamental belief stated in the text regarding the universe's energy."
+  },
+  {
+    "type": "tf",
+    "q": "Energy can be changed from one form to another but there is never any more or any less of it.",
+    "c": "true",
+    "e": "This emphasizes that transformation does not alter the total quantity of energy."
+  },
+  {
+    "type": "tf",
+    "q": "The relationship between energy change and work for a freely falling stone is $W = \\frac{1}{2}mv^2 - \\frac{1}{2}mv_0^2$.",
+    "c": "true",
+    "e": "This correctly links the work done to the change in kinetic energy for the falling stone."
+  },
+  {
+    "type": "tf",
+    "q": "For a freely falling stone, the work done is $W = Fs$, where the weight of the stone is $F = mg$ and the distance is $s = h_0 - h$.",
+    "c": "true",
+    "e": "This correctly identifies the force and the downward distance travelled."
+  },
+  {
+    "type": "tf",
+    "q": "The quantity $\\frac{1}{2}mv^2 + mgh$ is the sum of the potential energy and the kinetic energy, or the total mechanical energy at the time $t$ after the stone has started to fall.",
+    "c": "true",
+    "e": "This correctly defines the total mechanical energy at any point during the fall."
+  },
+  {
+    "type": "tf",
+    "q": "The total mechanical energy is conserved throughout the distance travelled by the falling stone.",
+    "c": "true",
+    "e": "In the absence of non-conservative forces, total mechanical energy remains constant."
+  },
+  {
+    "type": "tf",
+    "q": "The conservation of mechanical energy can be remembered by writing it as: kinetic energy + potential energy = total energy = constant.",
+    "c": "true",
+    "e": "This is the exact mnemonic phrase provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "If the symbol $KE$ is used for kinetic energy, $PE$ for potential energy, and $E$ for total energy, the conservation relation can be represented as $E = KE + PE = \\text{constant}$.",
+    "c": "true",
+    "e": "This is the correct symbolic representation of the conservation of mechanical energy."
+  },
+  {
+    "type": "tf",
+    "q": "If the symbol $KE$ is used for kinetic energy, $PE$ for potential energy, and $E$ for total energy, the conservation relation can be represented as $E = KE - PE = \\text{constant}$.",
+    "c": "false",
+    "e": "The correct relation is the sum of kinetic and potential energy ($E = KE + PE$), not the difference."
+  }
+]

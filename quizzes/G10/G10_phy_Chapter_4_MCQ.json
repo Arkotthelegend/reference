@@ -1,0 +1,684 @@
+[
+  {
+    "type": "mcq",
+    "q": "The study of fluids at rest is called _____.",
+    "c": 0,
+    "a": [
+      "hydrostatics",
+      "hydrodynamic",
+      "aerodynamics"
+    ],
+    "e": "The study of fluids at rest is called hydrostatics, while the study of fluids in motion is hydrodynamic."
+  },
+  {
+    "type": "mcq",
+    "q": "The study of fluids at motion is called _____.",
+    "c": 1,
+    "a": [
+      "hydrostatics",
+      "hydrodynamic",
+      "thermodynamics"
+    ],
+    "e": "Hydrodynamic is the study of fluids at motion, whereas hydrostatics is the study of fluids at rest."
+  },
+  {
+    "type": "mcq",
+    "q": "Pressure is defined as the force exerted normally on _____.",
+    "c": 2,
+    "a": [
+      "unit volume",
+      "unit mass",
+      "unit area"
+    ],
+    "e": "Pressure is defined as the force exerted normally on unit area, expressed as $p = \\frac{F}{A}$."
+  },
+  {
+    "type": "mcq",
+    "q": "In SI units, pressure is measured in _____.",
+    "c": 0,
+    "a": [
+      "pascal",
+      "newton",
+      "joule"
+    ],
+    "e": "In SI units, pressure is measured in 'pascal' (Pa)."
+  },
+  {
+    "type": "mcq",
+    "q": "The relation between pascal, newton and metre is $1 \\text{ Pa} =$ _____.",
+    "c": 1,
+    "a": [
+      "$1 \\text{ N m}$",
+      "$1 \\text{ N m}^{-2}$",
+      "$1 \\text{ N}^{-1} \\text{ m}^2$"
+    ],
+    "e": "One pascal is equivalent to one newton per square metre ($1 \\text{ Pa} = 1 \\text{ N m}^{-2}$)."
+  },
+  {
+    "type": "mcq",
+    "q": "The force in the pressure formula must be _____ to the surface.",
+    "c": 2,
+    "a": [
+      "parallel",
+      "tangential",
+      "normal ($90^{\\circ}$)"
+    ],
+    "e": "The force in the pressure formula must be normal ($90^{\\circ}$) to the surface."
+  },
+  {
+    "type": "mcq",
+    "q": "Pressure is a _____ quantity.",
+    "c": 0,
+    "a": [
+      "scalar",
+      "vector",
+      "tensor"
+    ],
+    "e": "Pressure is a scalar quantity because it has magnitude but no specific direction."
+  },
+  {
+    "type": "mcq",
+    "q": "Pointed nails penetrate the surfaces because for a definite force, the exerted area is too _____.",
+    "c": 1,
+    "a": [
+      "large",
+      "small",
+      "rough"
+    ],
+    "e": "For a definite force, a smaller exerted area results in higher pressure, allowing pointed nails to penetrate surfaces."
+  },
+  {
+    "type": "mcq",
+    "q": "Sharp knives can cut more easily than blunt knives because of _____ cutting area.",
+    "c": 2,
+    "a": [
+      "larger",
+      "rougher",
+      "smaller"
+    ],
+    "e": "Sharp knives have a smaller cutting area, which increases the pressure exerted for the same force."
+  },
+  {
+    "type": "mcq",
+    "q": "Elephants have four large flat feet so they _____ the pressure and are less likely to sink into the ground.",
+    "c": 0,
+    "a": [
+      "reduce",
+      "increase",
+      "maintain"
+    ],
+    "e": "Large flat feet increase the area, which reduces the pressure exerted on the ground."
+  },
+  {
+    "type": "mcq",
+    "q": "In the FPS system, the unit of pressure is _____.",
+    "c": 1,
+    "a": [
+      "pascal",
+      "pound per square inch (psi)",
+      "hectopascal"
+    ],
+    "e": "In the FPS system, the unit of pressure is pound per square inch (psi)."
+  },
+  {
+    "type": "mcq",
+    "q": "In Meteorology, the unit of pressure is _____.",
+    "c": 2,
+    "a": [
+      "pascal",
+      "atmosphere",
+      "hectopascal (hPa)"
+    ],
+    "e": "In Meteorology, the unit of pressure is commonly expressed as hectopascal (hPa)."
+  },
+  {
+    "type": "mcq",
+    "q": "Standard Atmospheric Pressure is _____ atmosphere (1 atm).",
+    "c": 0,
+    "a": [
+      "1",
+      "760",
+      "1013"
+    ],
+    "e": "Standard Atmospheric Pressure is defined as 1 atmosphere (1 atm)."
+  },
+  {
+    "type": "mcq",
+    "q": "The relation $1 \\text{ atm} = 1.013 \\times 10^5 \\text{ Pa} =$ _____ millimetre mercury.",
+    "c": 1,
+    "a": [
+      "1013",
+      "760",
+      "100"
+    ],
+    "e": "Standard atmospheric pressure is equivalent to 760 millimetre mercury (760 mm Hg)."
+  },
+  {
+    "type": "mcq",
+    "q": "$1 \\text{ atm} = 1013 \\text{ hPa} =$ _____ millibar (mb).",
+    "c": 2,
+    "a": [
+      "100",
+      "760",
+      "1013"
+    ],
+    "e": "One atmosphere is equal to 1013 hPa, which is also equal to 1013 millibar (mb)."
+  },
+  {
+    "type": "mcq",
+    "q": "$1 \\text{ hPa} = 100 \\text{ Pa} =$ _____ mb.",
+    "c": 0,
+    "a": [
+      "1",
+      "10",
+      "100"
+    ],
+    "e": "One hectopascal is equal to 100 pascals and exactly 1 millibar (mb)."
+  },
+  {
+    "type": "mcq",
+    "q": "$1 \\text{ psi} =$ _____ Pa.",
+    "c": 1,
+    "a": [
+      "$1.45 \\times 10^{-4}$",
+      "$6.90 \\times 10^3$",
+      "$1.013 \\times 10^5$"
+    ],
+    "e": "One pound per square inch (psi) is equivalent to $6.90 \\times 10^3$ Pa."
+  },
+  {
+    "type": "mcq",
+    "q": "Density is the ratio of _____ to volume of a substance.",
+    "c": 2,
+    "a": [
+      "weight",
+      "area",
+      "mass"
+    ],
+    "e": "Density is defined as the ratio of mass to volume of a substance."
+  },
+  {
+    "type": "mcq",
+    "q": "Density is a _____ quantity.",
+    "c": 0,
+    "a": [
+      "scalar",
+      "vector",
+      "derived with direction"
+    ],
+    "e": "Density is a scalar quantity as it only has magnitude and no direction."
+  },
+  {
+    "type": "mcq",
+    "q": "In the density formula, $\\rho$ represents a _____ alphabet.",
+    "c": 1,
+    "a": [
+      "Latin",
+      "Greek",
+      "Cyrillic"
+    ],
+    "e": "The symbol $\\rho$ (rho) used for density is a Greek alphabet letter."
+  },
+  {
+    "type": "mcq",
+    "q": "In SI unit, density is expressed in _____.",
+    "c": 2,
+    "a": [
+      "$\\text{g cm}^{-3}$",
+      "$\\text{g mL}^{-1}$",
+      "$\\text{kg m}^{-3}$"
+    ],
+    "e": "In SI units, density is expressed in kilogram per cubic metre ($\\text{kg m}^{-3}$)."
+  },
+  {
+    "type": "mcq",
+    "q": "In CGS unit, density is expressed in gram per cubic centimetre ($\\text{g cm}^{-3}$) or _____.",
+    "c": 0,
+    "a": [
+      "gram per millilitre ($\\text{g mL}^{-1}$)",
+      "kilogram per litre",
+      "milligram per cubic metre"
+    ],
+    "e": "In CGS units, density can also be expressed as gram per millilitre ($\\text{g mL}^{-1}$)."
+  },
+  {
+    "type": "mcq",
+    "q": "Mass of an object can be measured using a _____.",
+    "c": 1,
+    "a": [
+      "measuring cylinder",
+      "balance",
+      "spring scale"
+    ],
+    "e": "The mass of an object is measured using a balance, while volume is measured using a measuring cylinder."
+  },
+  {
+    "type": "mcq",
+    "q": "Volume of a substance can be measured using a _____.",
+    "c": 2,
+    "a": [
+      "balance",
+      "thermometer",
+      "measuring cylinder"
+    ],
+    "e": "Volume can be measured using a measuring cylinder."
+  },
+  {
+    "type": "mcq",
+    "q": "Mass of the object does not change, but the volume depends on the _____.",
+    "c": 0,
+    "a": [
+      "temperature",
+      "shape",
+      "color"
+    ],
+    "e": "While mass remains constant, the volume of a substance depends on its temperature."
+  },
+  {
+    "type": "mcq",
+    "q": "If the volume changes, the _____ will change.",
+    "c": 1,
+    "a": [
+      "mass",
+      "density",
+      "weight"
+    ],
+    "e": "Since density is mass divided by volume, a change in volume will result in a change in density."
+  },
+  {
+    "type": "mcq",
+    "q": "According to Table 4.1, the density of water at $4^{\\circ}\\text{C}$ is _____ $\\text{kg m}^{-3}$.",
+    "c": 2,
+    "a": [
+      "1",
+      "100",
+      "1000"
+    ],
+    "e": "The density of water at $4^{\\circ}\\text{C}$ is $1000 \\text{ kg m}^{-3}$ (or $1 \\text{ g cm}^{-3}$)."
+  },
+  {
+    "type": "mcq",
+    "q": "According to Table 4.1, the density of mercury is _____ $\\text{kg m}^{-3}$.",
+    "c": 0,
+    "a": [
+      "13600",
+      "11400",
+      "19300"
+    ],
+    "e": "The density of mercury is listed as $13600 \\text{ kg m}^{-3}$."
+  },
+  {
+    "type": "mcq",
+    "q": "According to Table 4.1, the density of gold is _____ $\\text{kg m}^{-3}$.",
+    "c": 1,
+    "a": [
+      "19050",
+      "19300",
+      "8900"
+    ],
+    "e": "The density of gold is $19300 \\text{ kg m}^{-3}$."
+  },
+  {
+    "type": "mcq",
+    "q": "The average density of a human body is a little _____ than water density.",
+    "c": 2,
+    "a": [
+      "greater",
+      "equal",
+      "less"
+    ],
+    "e": "The average density of a human body is a little less than water density, which aids in floating."
+  },
+  {
+    "type": "mcq",
+    "q": "Relative density is how much a substance is denser than _____.",
+    "c": 0,
+    "a": [
+      "water",
+      "air",
+      "mercury"
+    ],
+    "e": "Relative density is defined as how much a substance is denser than water."
+  },
+  {
+    "type": "mcq",
+    "q": "Relative density is also known as _____.",
+    "c": 1,
+    "a": [
+      "absolute density",
+      "specific gravity",
+      "mass density"
+    ],
+    "e": "Relative density is also commonly known as specific gravity."
+  },
+  {
+    "type": "mcq",
+    "q": "The formula for relative density is the density of substance divided by the density of water at _____.",
+    "c": 2,
+    "a": [
+      "$0^{\\circ}\\text{C}$",
+      "$100^{\\circ}\\text{C}$",
+      "$4^{\\circ}\\text{C}$"
+    ],
+    "e": "Relative density is calculated using the density of water at $4^{\\circ}\\text{C}$ as the reference."
+  },
+  {
+    "type": "mcq",
+    "q": "As the density of water is $1 \\text{ g cm}^{-3}$ in CGS units, the density of substance can be taken as the _____.",
+    "c": 0,
+    "a": [
+      "relative density",
+      "absolute density",
+      "specific weight"
+    ],
+    "e": "In CGS units, since water's density is $1 \\text{ g cm}^{-3}$, the numerical value of the substance's density equals its relative density."
+  },
+  {
+    "type": "mcq",
+    "q": "Relative density is just a number without _____.",
+    "c": 1,
+    "a": [
+      "value",
+      "unit",
+      "magnitude"
+    ],
+    "e": "Because it is the ratio of two densities, relative density is a unitless number."
+  },
+  {
+    "type": "mcq",
+    "q": "Archimedes' Principle Part I states that an immersed object displaces liquid volume equal to the volume of the _____ portion.",
+    "c": 2,
+    "a": [
+      "floating",
+      "total",
+      "immersed"
+    ],
+    "e": "Part I of Archimedes' Principle states the displaced liquid volume equals the volume of the immersed portion."
+  },
+  {
+    "type": "mcq",
+    "q": "Archimedes' Principle Part II states that the loss in weight of the object is equal to the _____ of the liquid displaced.",
+    "c": 0,
+    "a": [
+      "weight",
+      "mass",
+      "volume"
+    ],
+    "e": "Part II states that the loss in weight of the object equals the weight of the liquid displaced."
+  },
+  {
+    "type": "mcq",
+    "q": "The upward thrust acting on a body immersed in a liquid is equal to the weight of the _____ displaced by the body.",
+    "c": 1,
+    "a": [
+      "object",
+      "liquid",
+      "air"
+    ],
+    "e": "Upward thrust is equal to the weight of the liquid displaced by the body."
+  },
+  {
+    "type": "mcq",
+    "q": "Upward thrust is also known as uplift force or _____.",
+    "c": 2,
+    "a": [
+      "gravity",
+      "weight",
+      "buoyancy"
+    ],
+    "e": "Upward thrust, uplift force, and buoyancy are synonymous terms in this context."
+  },
+  {
+    "type": "mcq",
+    "q": "By Archimedes' principle, if the weight of a body is more than buoyancy, it will _____ in the liquid.",
+    "c": 0,
+    "a": [
+      "sink",
+      "float",
+      "suspend"
+    ],
+    "e": "If the weight of a body exceeds the upward buoyant force, the body will sink."
+  },
+  {
+    "type": "mcq",
+    "q": "Substances having relative density greater than _____ will sink in water.",
+    "c": 1,
+    "a": [
+      "zero",
+      "one",
+      "ten"
+    ],
+    "e": "Substances with a relative density greater than one are denser than water and will sink."
+  },
+  {
+    "type": "mcq",
+    "q": "When an object is placed in a liquid of a lower density, the object _____.",
+    "c": 2,
+    "a": [
+      "floats",
+      "suspends",
+      "sinks"
+    ],
+    "e": "An object will sink when placed in a liquid that has a lower density than the object itself."
+  },
+  {
+    "type": "mcq",
+    "q": "If an object is placed in a liquid of a greater density, it _____.",
+    "c": 0,
+    "a": [
+      "floats",
+      "sinks",
+      "dissolves"
+    ],
+    "e": "An object will float if it is placed in a liquid of greater density."
+  },
+  {
+    "type": "mcq",
+    "q": "The amount of submerged portion for a floating body is _____ proportional to the specific gravity of the liquid.",
+    "c": 1,
+    "a": [
+      "directly",
+      "inversely",
+      "exponentially"
+    ],
+    "e": "The submerged portion is inversely proportional to the specific gravity of the liquid."
+  },
+  {
+    "type": "mcq",
+    "q": "The more submerged a floating body is, the _____ the specific gravity.",
+    "c": 2,
+    "a": [
+      "greater",
+      "equal",
+      "less"
+    ],
+    "e": "Because of the inverse proportionality, more submersion indicates a lower specific gravity of the liquid."
+  },
+  {
+    "type": "mcq",
+    "q": "The hydrometer is an instrument for measuring the density (or) _____ of liquids.",
+    "c": 0,
+    "a": [
+      "relative density",
+      "absolute temperature",
+      "viscosity"
+    ],
+    "e": "A hydrometer is specifically designed to measure the density or relative density of liquids."
+  },
+  {
+    "type": "mcq",
+    "q": "A hydrometer usually consists of a glass tube with a long _____ at one end.",
+    "c": 1,
+    "a": [
+      "stem",
+      "bulb",
+      "cap"
+    ],
+    "e": "The device typically features a glass tube with a long bulb at one end."
+  },
+  {
+    "type": "mcq",
+    "q": "The bulb of a hydrometer is weighted with _____ so that the device floats vertically.",
+    "c": 2,
+    "a": [
+      "mercury",
+      "gold",
+      "lead shot"
+    ],
+    "e": "The bulb is weighted with lead shot to ensure the hydrometer floats vertically in the liquid."
+  },
+  {
+    "type": "mcq",
+    "q": "The relative density of a liquid is read off the calibrated stem of a hydrometer by the _____.",
+    "c": 0,
+    "a": [
+      "depth of immersion",
+      "color change",
+      "temperature rise"
+    ],
+    "e": "The reading is taken from the calibrated stem based on the depth of immersion."
+  },
+  {
+    "type": "mcq",
+    "q": "If the hydrometer floats higher, it indicates that the liquid has a _____ density.",
+    "c": 1,
+    "a": [
+      "lower",
+      "higher",
+      "zero"
+    ],
+    "e": "Floating higher means less of the device is submerged, indicating a higher density liquid."
+  },
+  {
+    "type": "mcq",
+    "q": "The hydrometer sinks in the liquid until the weight of the liquid displaced is equal to the _____ of the hydrometer.",
+    "c": 2,
+    "a": [
+      "volume",
+      "mass",
+      "weight"
+    ],
+    "e": "It sinks until the buoyant force (weight of displaced liquid) equals the total weight of the hydrometer."
+  },
+  {
+    "type": "mcq",
+    "q": "The hydrometer is calibrated to measure the density of the liquid in _____.",
+    "c": 0,
+    "a": [
+      "$\\text{kg m}^{-3}$",
+      "$\\text{g cm}^{-3}$",
+      "$\\text{lb in}^{-2}$"
+    ],
+    "e": "The hydrometer is calibrated to measure density in $\\text{kg m}^{-3}$."
+  },
+  {
+    "type": "mcq",
+    "q": "Special hydrometers are used to test the specific gravity of solutions in _____ in order to determine the condition of the battery.",
+    "c": 1,
+    "a": [
+      "solar cells",
+      "storage batteries",
+      "generators"
+    ],
+    "e": "Special hydrometers are used to test the acid in storage batteries to determine their condition."
+  },
+  {
+    "type": "mcq",
+    "q": "The relative density of the acid in a fully charged car battery is _____.",
+    "c": 2,
+    "a": [
+      "1.00",
+      "1.10",
+      "1.25"
+    ],
+    "e": "The relative density of the acid in a fully charged car battery is 1.25."
+  },
+  {
+    "type": "mcq",
+    "q": "Milk and wine can be tested with a hydrometer to make sure they have not been diluted with _____.",
+    "c": 0,
+    "a": [
+      "water",
+      "alcohol",
+      "sugar"
+    ],
+    "e": "Hydrometers are used to check if milk and wine have been adulterated or diluted with water."
+  },
+  {
+    "type": "mcq",
+    "q": "A test tube used as a hydrometer must have an overall density less than one or less than the density of _____.",
+    "c": 1,
+    "a": [
+      "mercury",
+      "water",
+      "gold"
+    ],
+    "e": "To function as a hydrometer, the test tube must have an overall density less than that of water so it can float."
+  },
+  {
+    "type": "mcq",
+    "q": "Force exerted on a sail in a low pressure area is due to the atmospheric pressure _____.",
+    "c": 2,
+    "a": [
+      "sum",
+      "average",
+      "difference"
+    ],
+    "e": "As noted in the textbook hints, force exerts due to the atmospheric pressure difference."
+  },
+  {
+    "type": "mcq",
+    "q": "In the Archimedes crown problem, the added metal was suspected to be copper because it has a similar _____ to gold.",
+    "c": 1,
+    "a": [
+      "density",
+      "color",
+      "mass"
+    ],
+    "e": "The textbook hints that copper was the likely added metal because it has a similar color to gold."
+  },
+  {
+    "type": "mcq",
+    "q": "The density of pure gold is _____ $\\text{g cm}^{-3}$.",
+    "c": 2,
+    "a": [
+      "8.9",
+      "11.4",
+      "19.3"
+    ],
+    "e": "The density of gold is stated as $19.3 \\text{ g cm}^{-3}$ in the Archimedes crown example."
+  },
+  {
+    "type": "mcq",
+    "q": "In the crown problem, Archimedes found the actual volume of the crown to be _____ $\\text{cm}^3$.",
+    "c": 1,
+    "a": [
+      "194",
+      "315",
+      "3750"
+    ],
+    "e": "Archimedes found the volume of the crown to be $315 \\text{ cm}^3$, proving it was not pure gold."
+  },
+  {
+    "type": "mcq",
+    "q": "The mass of the King's crown in the Archimedes problem was _____ g.",
+    "c": 0,
+    "a": [
+      "3750",
+      "315",
+      "194"
+    ],
+    "e": "The crown had a mass of 3.75 kg, which is equivalent to 3750 g."
+  },
+  {
+    "type": "mcq",
+    "q": "For a floating hydrometer, the weight of the hydrometer equals the volume of liquid displaced multiplied by the density of the liquid and _____.",
+    "c": 2,
+    "a": [
+      "$h$",
+      "$A$",
+      "$g$"
+    ],
+    "e": "The formula is $\\text{Weight} = (\\text{volume displaced} \\times \\text{density}) \\times g$."
+  }
+]

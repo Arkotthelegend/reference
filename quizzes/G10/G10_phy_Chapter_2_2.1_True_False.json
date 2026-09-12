@@ -1,0 +1,164 @@
+[
+  {
+    "type": "tf",
+    "q": "Some physical quantities of physics are completely described by a single number (or magnitude) with an appropriate unit.",
+    "c": "true",
+    "e": "This is the exact definition of scalar quantities provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Quantities that have only magnitude are called vector quantities.",
+    "c": "false",
+    "e": "Quantities that have only magnitude are called scalar quantities, not vector quantities."
+  },
+  {
+    "type": "tf",
+    "q": "Quantities that have both magnitude and direction are called vectors.",
+    "c": "true",
+    "e": "This is the exact definition of vector quantities provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "The length of a ship being 30 m is an example of a vector quantity.",
+    "c": "false",
+    "e": "The length of a ship is a scalar quantity because it has only magnitude, no direction."
+  },
+  {
+    "type": "tf",
+    "q": "The mass of a block being 500 g is an example of a scalar quantity.",
+    "c": "true",
+    "e": "Mass is completely described by a single number and unit, making it a scalar."
+  },
+  {
+    "type": "tf",
+    "q": "A plane flying with a velocity of 20 mi h⁻¹ towards east is an example of a vector quantity.",
+    "c": "true",
+    "e": "Velocity requires both magnitude (20 mi h⁻¹) and direction (east) for complete description."
+  },
+  {
+    "type": "tf",
+    "q": "A force acting on a body being 20 N upwards is an example of a scalar quantity.",
+    "c": "false",
+    "e": "Force is a vector quantity because it has both magnitude (20 N) and direction (upwards)."
+  },
+  {
+    "type": "tf",
+    "q": "In printing, vectors are represented by boldface type, such as $\\mathbf{A}$, $\\mathbf{E}$, $\\mathbf{v}$, $\\mathbf{s}$.",
+    "c": "true",
+    "e": "This is the standard printing convention for vector symbols as stated in the text."
+  },
+  {
+    "type": "tf",
+    "q": "In handwriting, vectors are indicated by placing arrows on the bottom of their symbols.",
+    "c": "false",
+    "e": "In handwriting, vectors are indicated by placing arrows on the top of their symbols."
+  },
+  {
+    "type": "tf",
+    "q": "The vector relation $\\vec{A} = \\vec{B}$ means $\\vec{A}$ and $\\vec{B}$ are equal in magnitude and have the same direction.",
+    "c": "true",
+    "e": "Equality of vectors requires both equal magnitude and identical direction."
+  },
+  {
+    "type": "tf",
+    "q": "The vector relation $\\vec{A} = -\\vec{B}$ means $\\vec{A}$ and $\\vec{B}$ are equal in magnitude but have opposite directions.",
+    "c": "true",
+    "e": "The negative sign indicates the vectors have the same magnitude but opposite directions."
+  },
+  {
+    "type": "tf",
+    "q": "The vector relation $\\vec{A} = 2\\vec{B}$ means the magnitude of $\\vec{A}$ is two times the magnitude of $\\vec{B}$ and the direction of $\\vec{A}$ is opposite to that of $\\vec{B}$.",
+    "c": "false",
+    "e": "The direction of $\\vec{A}$ is the same as that of $\\vec{B}$, not opposite."
+  },
+  {
+    "type": "tf",
+    "q": "The vector relation $\\vec{A} = -3\\vec{B}$ means the magnitude of $\\vec{A}$ is three times the magnitude of $\\vec{B}$ and the direction of $\\vec{A}$ is opposite to that of $\\vec{B}$.",
+    "c": "true",
+    "e": "The factor of 3 scales the magnitude, and the negative sign reverses the direction."
+  },
+  {
+    "type": "tf",
+    "q": "Using graphical method, a vector may be represented by an arrow.",
+    "c": "true",
+    "e": "An arrow is the standard graphical representation of a vector."
+  },
+  {
+    "type": "tf",
+    "q": "The length of the arrow representing a vector is inversely proportional to the magnitude of the vector.",
+    "c": "false",
+    "e": "The length of the arrow is proportional (directly), not inversely proportional, to the magnitude."
+  },
+  {
+    "type": "tf",
+    "q": "To add $\\vec{A}$ and $\\vec{B}$, first draw $\\vec{A}$, then draw $\\vec{B}$ such that the tail of $\\vec{B}$ is at the tip of $\\vec{A}$.",
+    "c": "true",
+    "e": "This describes the correct head-to-tail method for graphical vector addition."
+  },
+  {
+    "type": "tf",
+    "q": "The vector sum $\\vec{A} + \\vec{B}$ is called the resultant vector.",
+    "c": "true",
+    "e": "The resultant vector is the defined term for the sum of two vectors."
+  },
+  {
+    "type": "tf",
+    "q": "The resultant vector is drawn from the tip of $\\vec{A}$ to the tail of $\\vec{B}$.",
+    "c": "false",
+    "e": "The resultant vector is drawn from the tail of $\\vec{A}$ to the tip of $\\vec{B}$."
+  },
+  {
+    "type": "tf",
+    "q": "Vector addition is commutative, so $\\vec{A} + \\vec{B} = \\vec{B} + \\vec{A}$.",
+    "c": "true",
+    "e": "The order of vector addition does not change the resultant vector."
+  },
+  {
+    "type": "tf",
+    "q": "In algebraic notation, $\\vec{A} - \\vec{B} = \\vec{A} + (-\\vec{B})$.",
+    "c": "true",
+    "e": "Vector subtraction is defined as the addition of the negative of the second vector."
+  },
+  {
+    "type": "tf",
+    "q": "To subtract $\\vec{B}$ from $\\vec{A}$, we add $\\vec{A}$ and a vector with the same magnitude as $\\vec{B}$ but its direction is the same as that of $\\vec{B}$.",
+    "c": "false",
+    "e": "The direction of the added vector must be opposite to that of $\\vec{B}$."
+  },
+  {
+    "type": "tf",
+    "q": "Vector subtraction is commutative.",
+    "c": "false",
+    "e": "Vector subtraction is not commutative; $\\vec{A} - \\vec{B} \\neq \\vec{B} - \\vec{A}$."
+  },
+  {
+    "type": "tf",
+    "q": "The process of sub-dividing a vector into two or more vectors is called resolution of a vector.",
+    "c": "true",
+    "e": "This is the exact definition of vector resolution provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "The new vectors obtained from resolution are called vector components of the original vector.",
+    "c": "true",
+    "e": "The subdivided vectors are formally known as vector components."
+  },
+  {
+    "type": "tf",
+    "q": "A useful application of vector resolution is sub-dividing a vector into two perpendicular components, namely, horizontal component and vertical component.",
+    "c": "true",
+    "e": "Resolving into perpendicular x and y components is a primary application."
+  },
+  {
+    "type": "tf",
+    "q": "The x-component of a vector $\\vec{A}$ inclined at an angle $\\theta$ to the x-axis is $A_x = A \\sin \\theta$.",
+    "c": "false",
+    "e": "The x-component (horizontal) is calculated using cosine: $A_x = A \\cos \\theta$."
+  },
+  {
+    "type": "tf",
+    "q": "The y-component of a vector $\\vec{A}$ inclined at an angle $\\theta$ to the x-axis is $A_y = A \\sin \\theta$.",
+    "c": "true",
+    "e": "The y-component (vertical) is correctly calculated using sine."
+  }
+]

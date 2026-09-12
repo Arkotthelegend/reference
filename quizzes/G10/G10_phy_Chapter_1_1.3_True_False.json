@@ -1,0 +1,86 @@
+[
+  {
+    "type": "tf",
+    "q": "Sometimes a physical quantity is too big or too small to be conveniently expressed in basic SI units.",
+    "c": "true",
+    "e": "Prefixes are introduced to handle extreme magnitudes without writing excessively long strings of zeros."
+  },
+  {
+    "type": "tf",
+    "q": "Prefixes are multiples or sub-multiples of 2.",
+    "c": "false",
+    "e": "Prefixes are multiples or sub-multiples of 10."
+  },
+  {
+    "type": "tf",
+    "q": "The prefix 'femto' has the symbol 'f' and the factor $10^{-15}$.",
+    "c": "true",
+    "e": "Femto represents one quadrillionth, or $10^{-15}$, of a base unit."
+  },
+  {
+    "type": "tf",
+    "q": "The prefix 'pico' has the symbol 'p' and the factor $10^{-9}$.",
+    "c": "false",
+    "e": "The prefix 'pico' has the factor $10^{-12}$, while 'nano' is $10^{-9}$."
+  },
+  {
+    "type": "tf",
+    "q": "The prefix 'micro' has the symbol '$\\mu$' and the factor $10^{-6}$.",
+    "c": "true",
+    "e": "Micro represents one millionth, or $10^{-6}$, of a base unit."
+  },
+  {
+    "type": "tf",
+    "q": "The prefix 'milli' has the symbol 'm' and the factor $10^{3}$.",
+    "c": "false",
+    "e": "The prefix 'milli' has the factor $10^{-3}$, not $10^{3}$."
+  },
+  {
+    "type": "tf",
+    "q": "The prefix 'centi' has the symbol 'c' and the factor $10^{-2}$.",
+    "c": "true",
+    "e": "Centi represents one hundredth, or $10^{-2}$, of a base unit."
+  },
+  {
+    "type": "tf",
+    "q": "The prefix 'kilo' has the symbol 'k' and the factor $10^{3}$.",
+    "c": "true",
+    "e": "Kilo represents one thousand, or $10^{3}$, times the base unit."
+  },
+  {
+    "type": "tf",
+    "q": "The prefix 'mega' has the symbol 'M' and the factor $10^{6}$.",
+    "c": "true",
+    "e": "Mega represents one million, or $10^{6}$, times the base unit."
+  },
+  {
+    "type": "tf",
+    "q": "The prefix 'giga' has the symbol 'G' and the factor $10^{12}$.",
+    "c": "false",
+    "e": "The prefix 'giga' has the factor $10^{9}$, while 'tera' is $10^{12}$."
+  },
+  {
+    "type": "tf",
+    "q": "Scientific notation or standard form is written by placing the decimal point after the first nonzero digit.",
+    "c": "true",
+    "e": "This is the standard rule for formatting numbers in scientific notation."
+  },
+  {
+    "type": "tf",
+    "q": "In scientific notation, the power of 10 is determined by counting the number of places we have moved the original decimal point to the marked decimal point.",
+    "c": "true",
+    "e": "The number of places the decimal moves directly dictates the exponent of 10."
+  },
+  {
+    "type": "tf",
+    "q": "In scientific notation, if we moved the decimal point to the left, then the power is negative.",
+    "c": "false",
+    "e": "If we moved the decimal point to the left, the power is positive."
+  },
+  {
+    "type": "tf",
+    "q": "In scientific notation, if we moved the decimal point to the right, it is negative.",
+    "c": "true",
+    "e": "Moving the decimal to the right indicates a number less than 1, resulting in a negative exponent."
+  }
+]
