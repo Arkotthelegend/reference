@@ -1,0 +1,112 @@
+[
+  {
+    "type": "math_show",
+    "q": "A box contains 3 red, 5 green, and 2 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the total number of marbles in the box:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(S) = 3 + 5 + 2 = 10 \\)</div><br><br>Step 2<br><br>Find the probability of drawing a green marble:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{green}) = \\frac{5}{10} = \\frac{1}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A number is chosen at random from the integers 1 to 15 inclusive. Find the probability that the number is prime.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the sample space and the prime numbers in it:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15\\}, n(S) = 15 \\)</div><br><br>Step 2<br><br>The prime numbers are \\( \\{2, 3, 5, 7, 11, 13\\} \\), so \\( n(A) = 6 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{prime}) = \\frac{6}{15} = \\frac{2}{5} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain tomorrow is \\( \\frac{3}{8} \\). Find the probability that it will not rain tomorrow.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the rule for complementary events:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{not rain}) = 1 - P(\\text{rain}) \\)</div><br><br>Step 2<br><br>Substitute the given probability:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{not rain}) = 1 - \\frac{3}{8} = \\frac{5}{8} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{8} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two fair dice are thrown. Find the probability that the sum of the numbers on the top faces is 5.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of outcomes when two dice are thrown is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(S) = 6 \\times 6 = 36 \\)</div><br><br>Step 2<br><br>The outcomes with a sum of 5 are \\( \\{(1, 4), (2, 3), (3, 2), (4, 1)\\} \\), so \\( n(A) = 4 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{sum is 5}) = \\frac{4}{36} = \\frac{1}{9} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{9} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A bag contains 4 red balls and 6 blue balls. A ball is drawn at random, its colour is noted, and it is replaced. Then a second ball is drawn. Find the probability of drawing a red ball followed by a blue ball.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since the ball is replaced, the events are independent. Find individual probabilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{red}) = \\frac{4}{10} = \\frac{2}{5}, \\quad P(\\text{blue}) = \\frac{6}{10} = \\frac{3}{5} \\)</div><br><br>Step 2<br><br>Multiply the probabilities for the combined event:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{red then blue}) = \\frac{2}{5} \\times \\frac{3}{5} = \\frac{6}{25} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{6}{25} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A bag contains 5 red marbles and 3 green marbles. Two marbles are drawn one after another without replacement. Find the probability that the first is red and the second is green.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the probability of drawing a red marble first:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{1st red}) = \\frac{5}{8} \\)</div><br><br>Step 2<br><br>Find the probability of drawing a green marble second (without replacement):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{2nd green} \\mid \\text{1st red}) = \\frac{3}{7} \\)</div><br><br>Step 3<br><br>Multiply the probabilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{red then green}) = \\frac{5}{8} \\times \\frac{3}{7} = \\frac{15}{56} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{15}{56} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In a class of 30 students, 18 play football, 15 play basketball, and 8 play both. If a student is chosen at random, find the probability that the student plays football or basketball.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the addition rule for probabilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(F \\text{ or } B) = P(F) + P(B) - P(F \\text{ and } B) \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(F \\text{ or } B) = \\frac{18}{30} + \\frac{15}{30} - \\frac{8}{30} = \\frac{25}{30} = \\frac{5}{6} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{6} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 2 red, 3 blue, and 5 yellow cards. A card is drawn at random. Find the probability that the card is red or yellow.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The events are mutually exclusive. Find the total number of cards:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(S) = 2 + 3 + 5 = 10 \\)</div><br><br>Step 2<br><br>Find the probability of red or yellow:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{red or yellow}) = \\frac{2}{10} + \\frac{5}{10} = \\frac{7}{10} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{7}{10} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A fair coin is tossed 200 times. What is the expected frequency of getting a tail?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the probability of getting a tail in a single toss:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{tail}) = \\frac{1}{2} \\)</div><br><br>Step 2<br><br>Calculate the expected frequency:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Expected frequency} = P(\\text{tail}) \\times \\text{Number of trials} = \\frac{1}{2} \\times 200 = 100 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 100 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A fair die is rolled 120 times. Find the expected frequency of getting a number greater than 4.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numbers greater than 4 are 5 and 6. Find the probability:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(>4) = \\frac{2}{6} = \\frac{1}{3} \\)</div><br><br>Step 2<br><br>Calculate the expected frequency:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Expected frequency} = \\frac{1}{3} \\times 120 = 40 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 40 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A letter is chosen at random from the word MATHEMATICS. Find the probability that it is a vowel.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Count the total number of letters and the number of vowels (A, E, I, O, U):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(S) = 11, \\quad \\text{Vowels} = \\{A, E, A, I\\} \\implies n(A) = 4 \\)</div><br><br>Step 2<br><br>Calculate the probability:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{vowel}) = \\frac{4}{11} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{11} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two fair coins are tossed. Find the probability of getting at least one head.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The sample space is \\( \\{HH, HT, TH, TT\\} \\), so \\( n(S) = 4 \\).<br><br>Step 2<br><br>The event \"at least one head\" is \\( \\{HH, HT, TH\\} \\), so \\( n(A) = 3 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{at least one head}) = \\frac{3}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A spinner with numbers 1 to 6 is spun, and a fair coin is tossed. Find the probability of getting a 4 on the spinner and a tail on the coin.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The events are independent. Find their individual probabilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(4) = \\frac{1}{6}, \\quad P(\\text{tail}) = \\frac{1}{2} \\)</div><br><br>Step 2<br><br>Multiply the probabilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(4 \\text{ and tail}) = \\frac{1}{6} \\times \\frac{1}{2} = \\frac{1}{12} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{12} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 10 tickets, 3 of which are winning tickets. Two tickets are drawn one after another without replacement. Find the probability that both are winning tickets.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the probability of drawing a winning ticket first:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{1st winning}) = \\frac{3}{10} \\)</div><br><br>Step 2<br><br>Find the probability of drawing a winning ticket second (without replacement):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{2nd winning} \\mid \\text{1st winning}) = \\frac{2}{9} \\)</div><br><br>Step 3<br><br>Multiply the probabilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{both winning}) = \\frac{3}{10} \\times \\frac{2}{9} = \\frac{6}{90} = \\frac{1}{15} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{15} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In a survey of 50 people, 20 like tea, 25 like coffee, and 10 like both. Find the probability that a randomly selected person likes tea or coffee.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the addition rule for probabilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(T \\text{ or } C) = P(T) + P(C) - P(T \\text{ and } C) \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(T \\text{ or } C) = \\frac{20}{50} + \\frac{25}{50} - \\frac{10}{50} = \\frac{35}{50} = \\frac{7}{10} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{7}{10} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability that a manufactured item is defective is 0.05. In a batch of 400 items, find the expected number of defective items.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the probability and the number of trials:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{defective}) = 0.05, \\quad \\text{Number of trials} = 400 \\)</div><br><br>Step 2<br><br>Calculate the expected frequency:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Expected frequency} = 0.05 \\times 400 = 20 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A number is chosen at random from the integers 1 to 30 inclusive. Find the probability that the number is a multiple of 4.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the multiples of 4 between 1 and 30:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\{4, 8, 12, 16, 20, 24, 28\\} \\)</div><br><br>Step 2<br><br>There are 7 such numbers out of 30. Calculate the probability:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{multiple of 4}) = \\frac{7}{30} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{7}{30} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two fair dice are thrown. Find the probability that the first die shows an even number and the second die shows an odd number.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The events are independent. Find their individual probabilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{1st even}) = \\frac{3}{6} = \\frac{1}{2}, \\quad P(\\text{2nd odd}) = \\frac{3}{6} = \\frac{1}{2} \\)</div><br><br>Step 2<br><br>Multiply the probabilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{even and odd}) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two fair dice are thrown. Find the probability that the sum of the numbers is not 7.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the probability that the sum is 7. The outcomes are \\( \\{(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)\\} \\), so \\( n(A) = 6 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{sum is 7}) = \\frac{6}{36} = \\frac{1}{6} \\)</div><br><br>Step 2<br><br>Use the complementary rule:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{sum is not 7}) = 1 - \\frac{1}{6} = \\frac{5}{6} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{6} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 6 red and 4 white marbles. Two marbles are drawn one after another without replacement. Find the probability that both are red.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the probability of drawing a red marble first:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{1st red}) = \\frac{6}{10} = \\frac{3}{5} \\)</div><br><br>Step 2<br><br>Find the probability of drawing a red marble second (without replacement):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{2nd red} \\mid \\text{1st red}) = \\frac{5}{9} \\)</div><br><br>Step 3<br><br>Multiply the probabilities:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{both red}) = \\frac{3}{5} \\times \\frac{5}{9} = \\frac{15}{45} = \\frac{1}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two-digit numerals are formed using the digits 2, 3, 5, and 7 without repetition. Find the probability that a randomly chosen numeral is odd.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the total number of two-digit numerals:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(S) = 4 \\times 3 = 12 \\)</div><br><br>Step 2<br><br>For the numeral to be odd, the units digit must be 3, 5, or 7 (3 choices). The tens digit can be any of the remaining 3 digits.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(\\text{odd}) = 3 \\times 3 = 9 \\)</div><br><br>Step 3<br><br>Calculate the probability:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{odd}) = \\frac{9}{12} = \\frac{3}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A bag contains 3 red, 4 blue, and 3 green balls. Two balls are drawn with replacement. Find the probability of getting two blue balls.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the total number of balls and the probability of drawing a blue ball:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(S) = 3 + 4 + 3 = 10, \\quad P(\\text{blue}) = \\frac{4}{10} = \\frac{2}{5} \\)</div><br><br>Step 2<br><br>Since the balls are drawn with replacement, the events are independent:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{two blue}) = \\frac{2}{5} \\times \\frac{2}{5} = \\frac{4}{25} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{25} \\)"
+  }
+]
