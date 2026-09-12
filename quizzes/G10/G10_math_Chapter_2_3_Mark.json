@@ -1,0 +1,122 @@
+[
+  {
+    "type": "math_show",
+    "q": "Simplify the expression \\( \\frac{(2x^3 y^{-2})^3}{4x^5 y^{-4}} \\) and express the answer with positive exponents.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand the numerator using the power of a product rule:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2x^3 y^{-2})^3 = 2^3 x^{3 \\times 3} y^{-2 \\times 3} = 8x^9 y^{-6} \\)</div><br><br>Step 2<br><br>Divide by the denominator using the quotient rule for exponents:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{8x^9 y^{-6}}{4x^5 y^{-4}} = \\left(\\frac{8}{4}\\right) x^{9-5} y^{-6 - (-4)} = 2x^4 y^{-2} \\)</div><br><br>Step 3<br><br>Rewrite the expression with positive exponents:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x^4 y^{-2} = \\frac{2x^4}{y^2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x^4}{y^2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the expression \\( 64^{5/6} - 125^{-2/3} + 16^{3/4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Evaluate the first term by expressing 64 as a power of 2:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 64^{5/6} = (2^6)^{5/6} = 2^5 = 32 \\)</div><br><br>Step 2<br><br>Evaluate the second term by expressing 125 as a power of 5:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 125^{-2/3} = (5^3)^{-2/3} = 5^{-2} = \\frac{1}{25} \\)</div><br><br>Step 3<br><br>Evaluate the third term and combine all results:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 16^{3/4} = (2^4)^{3/4} = 2^3 = 8 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 32 - \\frac{1}{25} + 8 = 40 - \\frac{1}{25} = \\frac{1000 - 1}{25} = \\frac{999}{25} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{999}{25} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Simplify the radical expression \\( \\sqrt[3]{54x^4 y^7} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor the radicand into perfect cubes and remaining factors:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 54x^4 y^7 = (27 \\times 2) \\cdot (x^3 \\cdot x) \\cdot (y^6 \\cdot y) = 3^3 \\cdot 2 \\cdot x^3 \\cdot x \\cdot (y^2)^3 \\cdot y \\)</div><br><br>Step 2<br><br>Apply the product rule for radicals to separate perfect cubes:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt[3]{3^3 \\cdot x^3 \\cdot (y^2)^3 \\cdot 2xy} = \\sqrt[3]{3^3} \\cdot \\sqrt[3]{x^3} \\cdot \\sqrt[3]{(y^2)^3} \\cdot \\sqrt[3]{2xy} \\)</div><br><br>Step 3<br><br>Extract the perfect cubes from the radical:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3xy^2 \\sqrt[3]{2xy} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3xy^2 \\sqrt[3]{2xy} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express \\( 2\\sqrt{5} \\) as a single cube root.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the current order of the radical (2) and the target order (3).<br><br>Step 2<br><br>Rewrite the coefficient 2 as a cube root by raising it to the power of 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2 = \\sqrt[3]{2^3} = \\sqrt[3]{8} \\)</div><br><br>Step 3<br><br>Multiply the radicands using the product rule for radicals:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt[3]{8} \\cdot \\sqrt[3]{5} = \\sqrt[3]{8 \\times 5} = \\sqrt[3]{40} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\sqrt[3]{40} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Simplify the expression \\( \\sqrt{75} + \\sqrt{108} - \\sqrt{27} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Simplify each radical by extracting perfect squares:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{75} = \\sqrt{25 \\times 3} = 5\\sqrt{3} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{108} = \\sqrt{36 \\times 3} = 6\\sqrt{3} \\)</div><br><br>Step 2<br><br>Simplify the third radical:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{27} = \\sqrt{9 \\times 3} = 3\\sqrt{3} \\)</div><br><br>Step 3<br><br>Combine the similar radicals by adding and subtracting their coefficients:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5\\sqrt{3} + 6\\sqrt{3} - 3\\sqrt{3} = (5 + 6 - 3)\\sqrt{3} = 8\\sqrt{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 8\\sqrt{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Rationalize the denominator of \\( \\frac{6}{\\sqrt{5} - \\sqrt{2}} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply the numerator and the denominator by the conjugate of the denominator, \\( \\sqrt{5} + \\sqrt{2} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{6}{\\sqrt{5} - \\sqrt{2}} \\times \\frac{\\sqrt{5} + \\sqrt{2}}{\\sqrt{5} + \\sqrt{2}} \\)</div><br><br>Step 2<br><br>Expand the denominator using the difference of squares formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (\\sqrt{5})^2 - (\\sqrt{2})^2 = 5 - 2 = 3 \\)</div><br><br>Step 3<br><br>Simplify the resulting fraction:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{6(\\sqrt{5} + \\sqrt{2})}{3} = 2(\\sqrt{5} + \\sqrt{2}) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2(\\sqrt{5} + \\sqrt{2}) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Rationalize the denominator and simplify \\( \\frac{\\sqrt{3} + \\sqrt{2}}{\\sqrt{3} - \\sqrt{2}} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply the numerator and denominator by the conjugate \\( \\sqrt{3} + \\sqrt{2} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{(\\sqrt{3} + \\sqrt{2})(\\sqrt{3} + \\sqrt{2})}{(\\sqrt{3} - \\sqrt{2})(\\sqrt{3} + \\sqrt{2})} \\)</div><br><br>Step 2<br><br>Simplify the denominator using the difference of squares:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (\\sqrt{3})^2 - (\\sqrt{2})^2 = 3 - 2 = 1 \\)</div><br><br>Step 3<br><br>Expand the numerator as a perfect square:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (\\sqrt{3})^2 + 2(\\sqrt{3})(\\sqrt{2}) + (\\sqrt{2})^2 = 3 + 2\\sqrt{6} + 2 = 5 + 2\\sqrt{6} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5 + 2\\sqrt{6} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the exponential equation \\( 5^{2x-1} = 125 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Express 125 as a power of the base 5:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 125 = 5^3 \\)</div><br><br>Step 2<br><br>Substitute this back into the equation and equate the exponents:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5^{2x-1} = 5^3 \\implies 2x - 1 = 3 \\)</div><br><br>Step 3<br><br>Solve the linear equation for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x = 4 \\implies x = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the exponential equation \\( 4^{x+1} \\cdot 8^{x-2} = 16 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Express all terms with a common base of 2:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2^2)^{x+1} \\cdot (2^3)^{x-2} = 2^4 \\)</div><br><br>Step 2<br><br>Apply the power of a power rule and combine the exponents on the left side:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^{2x+2} \\cdot 2^{3x-6} = 2^4 \\implies 2^{(2x+2) + (3x-6)} = 2^4 \\implies 2^{5x-4} = 2^4 \\)</div><br><br>Step 3<br><br>Equate the exponents and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5x - 4 = 4 \\implies 5x = 8 \\implies x = \\frac{8}{5} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = \\frac{8}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the equation \\( 3^{2x} - 10 \\cdot 3^x + 9 = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = 3^x \\). The equation becomes a quadratic in terms of \\( u \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u^2 - 10u + 9 = 0 \\)</div><br><br>Step 2<br><br>Factor the quadratic equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (u - 9)(u - 1) = 0 \\implies u = 9 \\text{ or } u = 1 \\)</div><br><br>Step 3<br><br>Substitute \\( 3^x \\) back for \\( u \\) and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3^x = 9 \\implies x = 2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3^x = 1 \\implies x = 0 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 0 \\text{ or } x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Simplify \\( \\frac{x^{3/4} y^{1/2}}{x^{-1/4} y^{3/2}} \\) and express the answer with positive exponents.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the quotient rule for exponents to the variable \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^{3/4 - (-1/4)} = x^{4/4} = x^1 = x \\)</div><br><br>Step 2<br><br>Apply the quotient rule for exponents to the variable \\( y \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y^{1/2 - 3/2} = y^{-2/2} = y^{-1} \\)</div><br><br>Step 3<br><br>Combine the results and rewrite with positive exponents:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x \\cdot y^{-1} = \\frac{x}{y} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{x}{y} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Reduce the order of the radical \\( \\sqrt[8]{16x^4 y^{12}} \\) as far as possible.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Express the radicand entirely as powers:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt[8]{2^4 x^4 y^{12}} \\)</div><br><br>Step 2<br><br>Identify the greatest common divisor of the index (8) and all exponents (4, 4, 12), which is 4.<br><br>Step 3<br><br>Divide the index and each exponent by 4 to reduce the order:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt[8/4]{2^{4/4} x^{4/4} y^{12/4}} = \\sqrt[2]{2^1 x^1 y^3} = \\sqrt{2xy^3} \\)</div><br><br>Extract the perfect square from the radicand:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y\\sqrt{2xy} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y\\sqrt{2xy} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Multiply \\( \\sqrt{3} \\) by \\( \\sqrt[3]{9} \\) and express the result in simplest radical form.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Convert both radicals to the same order. The LCM of 2 and 3 is 6:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{3} = 3^{1/2} = 3^{3/6} = \\sqrt[6]{3^3} = \\sqrt[6]{27} \\)</div><br><br>Step 2<br><br>Convert the second radical to order 6:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt[3]{9} = 9^{1/3} = (3^2)^{1/3} = 3^{2/3} = 3^{4/6} = \\sqrt[6]{3^4} = \\sqrt[6]{81} \\)</div><br><br>Step 3<br><br>Multiply the radicals and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt[6]{27} \\cdot \\sqrt[6]{81} = \\sqrt[6]{2187} = \\sqrt[6]{729 \\times 3} = \\sqrt[6]{3^6 \\times 3} = 3\\sqrt[6]{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3\\sqrt[6]{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Simplify \\( \\left( \\frac{a^{-2} b^3}{a^3 b^{-1}} \\right)^{-2} \\) and express the answer with positive exponents.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Simplify the expression inside the parentheses using the quotient rule:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a^{-2-3} b^{3 - (-1)} = a^{-5} b^4 \\)</div><br><br>Step 2<br><br>Apply the outer exponent using the power of a power rule:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (a^{-5} b^4)^{-2} = a^{(-5)(-2)} b^{(4)(-2)} = a^{10} b^{-8} \\)</div><br><br>Step 3<br><br>Rewrite the expression using only positive exponents:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a^{10}}{b^8} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{a^{10}}{b^8} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the exponential equation \\( 9^{x} - 4 \\cdot 3^{x} + 3 = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite \\( 9^x \\) as \\( (3^x)^2 \\) and let \\( u = 3^x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u^2 - 4u + 3 = 0 \\)</div><br><br>Step 2<br><br>Factor the quadratic equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (u - 3)(u - 1) = 0 \\implies u = 3 \\text{ or } u = 1 \\)</div><br><br>Step 3<br><br>Substitute \\( 3^x \\) back for \\( u \\) and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3^x = 3 \\implies x = 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3^x = 1 \\implies x = 0 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 0 \\text{ or } x = 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Rationalize the denominator of \\( \\frac{5}{2\\sqrt{3} + \\sqrt{5}} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply the numerator and denominator by the conjugate \\( 2\\sqrt{3} - \\sqrt{5} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{5(2\\sqrt{3} - \\sqrt{5})}{(2\\sqrt{3} + \\sqrt{5})(2\\sqrt{3} - \\sqrt{5})} \\)</div><br><br>Step 2<br><br>Expand the denominator using the difference of squares:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2\\sqrt{3})^2 - (\\sqrt{5})^2 = 4(3) - 5 = 12 - 5 = 7 \\)</div><br><br>Step 3<br><br>Write the final simplified fraction:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{5(2\\sqrt{3} - \\sqrt{5})}{7} = \\frac{10\\sqrt{3} - 5\\sqrt{5}}{7} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{10\\sqrt{3} - 5\\sqrt{5}}{7} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\left( \\frac{27}{8} \\right)^{-2/3} + \\left( \\frac{16}{81} \\right)^{3/4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Evaluate the first term by applying the negative exponent and then the fractional exponent:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left( \\frac{27}{8} \\right)^{-2/3} = \\left( \\frac{8}{27} \\right)^{2/3} = \\left( \\left(\\frac{2}{3}\\right)^3 \\right)^{2/3} = \\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9} \\)</div><br><br>Step 2<br><br>Evaluate the second term similarly:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left( \\frac{16}{81} \\right)^{3/4} = \\left( \\left(\\frac{2}{3}\\right)^4 \\right)^{3/4} = \\left(\\frac{2}{3}\\right)^3 = \\frac{8}{27} \\)</div><br><br>Step 3<br><br>Add the two results by finding a common denominator:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{4}{9} + \\frac{8}{27} = \\frac{12}{27} + \\frac{8}{27} = \\frac{20}{27} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{20}{27} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Simplify the expression \\( \\frac{\\sqrt{50} - \\sqrt{18}}{\\sqrt{8}} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Simplify each radical in the expression by extracting perfect squares:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{50} = \\sqrt{25 \\times 2} = 5\\sqrt{2} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{18} = \\sqrt{9 \\times 2} = 3\\sqrt{2} \\)</div><br><br>Step 2<br><br>Simplify the denominator:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{8} = \\sqrt{4 \\times 2} = 2\\sqrt{2} \\)</div><br><br>Step 3<br><br>Substitute the simplified radicals back into the fraction and compute:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{5\\sqrt{2} - 3\\sqrt{2}}{2\\sqrt{2}} = \\frac{2\\sqrt{2}}{2\\sqrt{2}} = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the exponential equation \\( 2^{x+3} + 2^{x+1} = 40 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor out the lowest power of 2, which is \\( 2^{x+1} \\), from the left side:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^{x+1}(2^2 + 1) = 40 \\)</div><br><br>Step 2<br><br>Simplify the expression inside the parentheses:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^{x+1}(4 + 1) = 40 \\implies 5 \\cdot 2^{x+1} = 40 \\)</div><br><br>Step 3<br><br>Divide by 5 and solve for \\( x \\) by equating exponents:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^{x+1} = 8 \\implies 2^{x+1} = 2^3 \\implies x + 1 = 3 \\implies x = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand and simplify \\( (\\sqrt{5} + \\sqrt{2})^2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the perfect square binomial formula \\( (a+b)^2 = a^2 + 2ab + b^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (\\sqrt{5})^2 + 2(\\sqrt{5})(\\sqrt{2}) + (\\sqrt{2})^2 \\)</div><br><br>Step 2<br><br>Evaluate the squared terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5 + 2\\sqrt{10} + 2 \\)</div><br><br>Step 3<br><br>Combine the constant terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 7 + 2\\sqrt{10} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 7 + 2\\sqrt{10} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Simplify the expression \\( \\frac{3^{n+2} - 3^{n+1}}{3^n} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor out the lowest power of 3 from the numerator, which is \\( 3^{n+1} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{3^{n+1}(3^1 - 1)}{3^n} \\)</div><br><br>Step 2<br><br>Simplify the expression inside the parentheses:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{3^{n+1}(2)}{3^n} \\)</div><br><br>Step 3<br><br>Apply the quotient rule for exponents to divide the powers of 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2 \\cdot 3^{(n+1) - n} = 2 \\cdot 3^1 = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Rationalize the denominator of \\( \\frac{3}{\\sqrt{7} - 2} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply the numerator and denominator by the conjugate \\( \\sqrt{7} + 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{3(\\sqrt{7} + 2)}{(\\sqrt{7} - 2)(\\sqrt{7} + 2)} \\)</div><br><br>Step 2<br><br>Expand the denominator using the difference of squares:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (\\sqrt{7})^2 - (2)^2 = 7 - 4 = 3 \\)</div><br><br>Step 3<br><br>Simplify the resulting fraction by canceling the common factor of 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{3(\\sqrt{7} + 2)}{3} = \\sqrt{7} + 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\sqrt{7} + 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the exponential equation \\( 25^{x-1} = 5^{3x-4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Express the base 25 as a power of 5:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (5^2)^{x-1} = 5^{3x-4} \\)</div><br><br>Step 2<br><br>Apply the power of a power rule to the left side:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5^{2(x-1)} = 5^{3x-4} \\implies 5^{2x-2} = 5^{3x-4} \\)</div><br><br>Step 3<br><br>Equate the exponents and solve the linear equation for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x - 2 = 3x - 4 \\implies 4 - 2 = 3x - 2x \\implies x = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Simplify the expression \\( \\sqrt{12x^3} + \\sqrt{27x^3} - \\sqrt{3x^3} \\) for \\( x > 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Simplify each radical by extracting perfect squares:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{12x^3} = \\sqrt{4x^2 \\cdot 3x} = 2x\\sqrt{3x} \\)</div><br><br>Step 2<br><br>Simplify the remaining radicals similarly:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{27x^3} = \\sqrt{9x^2 \\cdot 3x} = 3x\\sqrt{3x} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{3x^3} = \\sqrt{x^2 \\cdot 3x} = x\\sqrt{3x} \\)</div><br><br>Step 3<br><br>Combine the similar radicals by adding and subtracting their coefficients:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x\\sqrt{3x} + 3x\\sqrt{3x} - x\\sqrt{3x} = (2x + 3x - x)\\sqrt{3x} = 4x\\sqrt{3x} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4x\\sqrt{3x} \\)"
+  }
+]
