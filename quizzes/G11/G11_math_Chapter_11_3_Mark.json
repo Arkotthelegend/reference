@@ -1,0 +1,127 @@
+[
+  {
+    "type": "math_show",
+    "q": "Evaluate the limit \\( \\lim_{x \\to 3} \\frac{x^2 - 9}{x - 3} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor the numerator as a difference of squares:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 3} \\frac{(x - 3)(x + 3)}{x - 3} \\)</div><br><br>Step 2<br><br>Cancel the common factor \\( (x - 3) \\) since \\( x \\neq 3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 3} (x + 3) \\)</div><br><br>Step 3<br><br>Substitute \\( x = 3 \\) into the simplified expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3 + 3 = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the limit \\( \\lim_{x \\to 0} \\frac{\\sqrt{x + 9} - 3}{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply the numerator and denominator by the conjugate \\( \\sqrt{x + 9} + 3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 0} \\frac{(\\sqrt{x + 9} - 3)(\\sqrt{x + 9} + 3)}{x(\\sqrt{x + 9} + 3)} \\)</div><br><br>Step 2<br><br>Simplify the numerator using the difference of squares:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 0} \\frac{x + 9 - 9}{x(\\sqrt{x + 9} + 3)} = \\lim_{x \\to 0} \\frac{x}{x(\\sqrt{x + 9} + 3)} \\)</div><br><br>Step 3<br><br>Cancel \\( x \\) and substitute \\( x = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 0} \\frac{1}{\\sqrt{x + 9} + 3} = \\frac{1}{\\sqrt{9} + 3} = \\frac{1}{6} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{6} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the limit at infinity \\( \\lim_{x \\to \\infty} \\frac{4x^2 - 3x + 1}{2x^2 + 5} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by the highest power of \\( x \\), which is \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to \\infty} \\frac{\\frac{4x^2}{x^2} - \\frac{3x}{x^2} + \\frac{1}{x^2}}{\\frac{2x^2}{x^2} + \\frac{5}{x^2}} \\)</div><br><br>Step 2<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to \\infty} \\frac{4 - \\frac{3}{x} + \\frac{1}{x^2}}{2 + \\frac{5}{x^2}} \\)</div><br><br>Step 3<br><br>As \\( x \\to \\infty \\), terms with \\( x \\) in the denominator approach 0:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{4 - 0 + 0}{2 + 0} = \\frac{4}{2} = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the one-sided limit \\( \\lim_{x \\to 4^-} \\frac{x}{x - 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Analyze the behavior of the numerator as \\( x \\to 4^- \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 4^-} x = 4 \\)</div><br><br>Step 2<br><br>Analyze the behavior of the denominator as \\( x \\to 4^- \\). Since \\( x \\) is slightly less than 4, \\( x - 4 \\) is a small negative number:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 4^-} (x - 4) = 0^- \\)</div><br><br>Step 3<br><br>A positive constant divided by a value approaching \\( 0^- \\) results in negative infinity:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{4}{0^-} = -\\infty \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\infty \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the value of \\( k \\) that makes the function \\( f(x) = \\begin{cases} \\frac{x^2 - 25}{x - 5} & \\text{if } x \\neq 5 \\\\ k & \\text{if } x = 5 \\end{cases} \\) continuous at \\( x = 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>For \\( f(x) \\) to be continuous at \\( x = 5 \\), we must have \\( \\lim_{x \\to 5} f(x) = f(5) = k \\).<br><br>Step 2<br><br>Evaluate the limit by factoring the numerator:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 5} \\frac{(x - 5)(x + 5)}{x - 5} = \\lim_{x \\to 5} (x + 5) \\)</div><br><br>Step 3<br><br>Substitute \\( x = 5 \\) to find the limit, which equals \\( k \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k = 5 + 5 = 10 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( k = 10 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find \\( f'(3) \\) for \\( f(x) = x^2 - 4x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the definition of the derivative at \\( x = 3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(3) = \\lim_{h \\to 0} \\frac{f(3 + h) - f(3)}{h} \\)</div><br><br>Step 2<br><br>Substitute \\( f(3 + h) = (3 + h)^2 - 4(3 + h) \\) and \\( f(3) = 3^2 - 4(3) = -3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(3) = \\lim_{h \\to 0} \\frac{(9 + 6h + h^2 - 12 - 4h) - (-3)}{h} \\)</div><br><br>Step 3<br><br>Simplify and evaluate the limit:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{h \\to 0} \\frac{h^2 + 2h - 3 + 3}{h} = \\lim_{h \\to 0} \\frac{h(h + 2)}{h} = \\lim_{h \\to 0} (h + 2) = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find \\( f'(1) \\) for \\( f(x) = \\frac{2}{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the definition of the derivative at \\( x = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(1) = \\lim_{h \\to 0} \\frac{f(1 + h) - f(1)}{h} \\)</div><br><br>Step 2<br><br>Substitute \\( f(1 + h) = \\frac{2}{1 + h} \\) and \\( f(1) = 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(1) = \\lim_{h \\to 0} \\frac{\\frac{2}{1 + h} - 2}{h} = \\lim_{h \\to 0} \\frac{2 - 2(1 + h)}{h(1 + h)} \\)</div><br><br>Step 3<br><br>Simplify and evaluate the limit:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{h \\to 0} \\frac{-2h}{h(1 + h)} = \\lim_{h \\to 0} \\frac{-2}{1 + h} = -2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = 3x^4 - \\frac{5}{x^2} + 2x \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite the function using negative exponents:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 3x^4 - 5x^{-2} + 2x \\)</div><br><br>Step 2<br><br>Apply the power rule \\( \\frac{d}{dx}(x^n) = nx^{n-1} \\) to each term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 3(4x^3) - 5(-2x^{-3}) + 2(1) \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 12x^3 + 10x^{-3} + 2 = 12x^3 + \\frac{10}{x^3} + 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12x^3 + \\frac{10}{x^3} + 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = (2x^2 - 1)(x + 3) \\) with respect to \\( x \\) using the product rule.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( u = 2x^2 - 1 \\) and \\( v = x + 3 \\), then find their derivatives:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u' = 4x, \\quad v' = 1 \\)</div><br><br>Step 2<br><br>Apply the product rule \\( \\frac{dy}{dx} = u'v + uv' \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = (4x)(x + 3) + (2x^2 - 1)(1) \\)</div><br><br>Step 3<br><br>Expand and combine like terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 4x^2 + 12x + 2x^2 - 1 = 6x^2 + 12x - 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 6x^2 + 12x - 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\frac{3x + 1}{x - 2} \\) with respect to \\( x \\) using the quotient rule.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( u = 3x + 1 \\) and \\( v = x - 2 \\), then find their derivatives:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u' = 3, \\quad v' = 1 \\)</div><br><br>Step 2<br><br>Apply the quotient rule \\( \\frac{dy}{dx} = \\frac{u'v - uv'}{v^2} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{3(x - 2) - (3x + 1)(1)}{(x - 2)^2} \\)</div><br><br>Step 3<br><br>Expand the numerator and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{3x - 6 - 3x - 1}{(x - 2)^2} = \\frac{-7}{(x - 2)^2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{-7}{(x - 2)^2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = (4x - 1)^5 \\) with respect to \\( x \\) using the chain rule.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( u = 4x - 1 \\), so \\( y = u^5 \\). Find the derivatives of \\( y \\) with respect to \\( u \\) and \\( u \\) with respect to \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{du} = 5u^4, \\quad \\frac{du}{dx} = 4 \\)</div><br><br>Step 2<br><br>Apply the chain rule \\( \\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 5u^4 \\cdot 4 = 20u^4 \\)</div><br><br>Step 3<br><br>Substitute \\( u = 4x - 1 \\) back into the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = 20(4x - 1)^4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 20(4x - 1)^4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\sqrt{3x^2 + 2} \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite the square root as a fractional exponent:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (3x^2 + 2)^{\\frac{1}{2}} \\)</div><br><br>Step 2<br><br>Apply the chain rule (power rule combined with chain rule):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{2}(3x^2 + 2)^{-\\frac{1}{2}} \\cdot \\frac{d}{dx}(3x^2 + 2) \\)</div><br><br>Step 3<br><br>Differentiate the inner function and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1}{2}(3x^2 + 2)^{-\\frac{1}{2}} \\cdot (6x) = \\frac{3x}{\\sqrt{3x^2 + 2}} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3x}{\\sqrt{3x^2 + 2}} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the tangent line to the curve \\( y = x^3 - 3x \\) at the point where \\( x = 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the y-coordinate when \\( x = 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (2)^3 - 3(2) = 8 - 6 = 2 \\)</div><br><br>Step 2<br><br>Find the derivative to get the slope of the tangent:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y' = 3x^2 - 3 \\)</div><br><br>Evaluate at \\( x = 2 \\): \\( m = 3(2)^2 - 3 = 12 - 3 = 9 \\).<br><br>Step 3<br><br>Use the point-slope form \\( y - y_1 = m(x - x_1) \\) with point \\( (2, 2) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y - 2 = 9(x - 2) \\implies y = 9x - 18 + 2 \\implies y = 9x - 16 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = 9x - 16 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the normal line to the curve \\( y = \\frac{4}{x} \\) at the point where \\( x = 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the y-coordinate when \\( x = 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{4}{2} = 2 \\)</div><br><br>Step 2<br><br>Find the derivative and evaluate at \\( x = 2 \\) to get the tangent slope:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y' = -4x^{-2} = -\\frac{4}{x^2} \\)</div><br><br>At \\( x = 2 \\), \\( m_{\\text{tangent}} = -\\frac{4}{4} = -1 \\).<br><br>Step 3<br><br>The normal slope is the negative reciprocal: \\( m_{\\text{normal}} = 1 \\). Use point-slope form with \\( (2, 2) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y - 2 = 1(x - 2) \\implies y = x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative \\( y'' \\) of the function \\( y = x^4 - 2x^3 + 5x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the first derivative \\( y' \\) using the power rule:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y' = \\frac{d}{dx}(x^4 - 2x^3 + 5x) = 4x^3 - 6x^2 + 5 \\)</div><br><br>Step 2<br><br>Differentiate \\( y' \\) to find the second derivative \\( y'' \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y'' = \\frac{d}{dx}(4x^3 - 6x^2 + 5) \\)</div><br><br>Step 3<br><br>Apply the power rule again:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y'' = 12x^2 - 12x \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12x^2 - 12x \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use implicit differentiation to find \\( \\frac{dy}{dx} \\) for the equation \\( x^2 + xy - y^2 = 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Differentiate both sides with respect to \\( x \\), applying the product rule to \\( xy \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x + \\left(1 \\cdot y + x \\cdot \\frac{dy}{dx}\\right) - 2y \\frac{dy}{dx} = 0 \\)</div><br><br>Step 2<br><br>Group the terms containing \\( \\frac{dy}{dx} \\) on one side:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x \\frac{dy}{dx} - 2y \\frac{dy}{dx} = -2x - y \\)</div><br><br>Step 3<br><br>Factor out \\( \\frac{dy}{dx} \\) and solve:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx}(x - 2y) = -(2x + y) \\implies \\frac{dy}{dx} = \\frac{-(2x + y)}{x - 2y} = \\frac{2x + y}{2y - x} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x + y}{2y - x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the tangent line to the curve \\( x^2 + y^2 = 13 \\) at the point \\( (2, 3) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Differentiate implicitly with respect to \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x + 2y \\frac{dy}{dx} = 0 \\implies \\frac{dy}{dx} = -\\frac{x}{y} \\)</div><br><br>Step 2<br><br>Evaluate the derivative at the point \\( (2, 3) \\) to find the slope:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( m = -\\frac{2}{3} \\)</div><br><br>Step 3<br><br>Use the point-slope form with \\( (2, 3) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y - 3 = -\\frac{2}{3}(x - 2) \\implies 3y - 9 = -2x + 4 \\implies 2x + 3y = 13 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2x + 3y = 13 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the limit \\( \\lim_{x \\to -2} (2x^3 + x^2 - 3x + 1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since polynomial functions are continuous everywhere, substitute \\( x = -2 \\) directly into the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2(-2)^3 + (-2)^2 - 3(-2) + 1 \\)</div><br><br>Step 2<br><br>Evaluate the powers:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2(-8) + 4 + 6 + 1 \\)</div><br><br>Step 3<br><br>Perform the arithmetic:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -16 + 4 + 6 + 1 = -5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find \\( f'(1) \\) for \\( f(x) = \\sqrt{x + 3} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the definition of the derivative at \\( x = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(1) = \\lim_{h \\to 0} \\frac{\\sqrt{1 + h + 3} - \\sqrt{1 + 3}}{h} = \\lim_{h \\to 0} \\frac{\\sqrt{h + 4} - 2}{h} \\)</div><br><br>Step 2<br><br>Multiply by the conjugate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{h \\to 0} \\frac{(\\sqrt{h + 4} - 2)(\\sqrt{h + 4} + 2)}{h(\\sqrt{h + 4} + 2)} = \\lim_{h \\to 0} \\frac{h + 4 - 4}{h(\\sqrt{h + 4} + 2)} \\)</div><br><br>Step 3<br><br>Cancel \\( h \\) and evaluate the limit:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{h \\to 0} \\frac{1}{\\sqrt{h + 4} + 2} = \\frac{1}{\\sqrt{4} + 2} = \\frac{1}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = x(2x + 1)^4 \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the product rule with \\( u = x \\) and \\( v = (2x + 1)^4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = (1)(2x + 1)^4 + x \\cdot \\frac{d}{dx}((2x + 1)^4) \\)</div><br><br>Step 2<br><br>Apply the chain rule to differentiate \\( (2x + 1)^4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = (2x + 1)^4 + x \\cdot 4(2x + 1)^3 \\cdot 2 \\)</div><br><br>Step 3<br><br>Simplify by factoring out the common term \\( (2x + 1)^3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = (2x + 1)^3 [ (2x + 1) + 8x ] = (2x + 1)^3 (10x + 1) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (2x + 1)^3 (10x + 1) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the limit \\( \\lim_{x \\to -\\infty} \\frac{5x^3 - 2x}{x^3 + 1} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by the highest power of \\( x \\), which is \\( x^3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to -\\infty} \\frac{\\frac{5x^3}{x^3} - \\frac{2x}{x^3}}{\\frac{x^3}{x^3} + \\frac{1}{x^3}} \\)</div><br><br>Step 2<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to -\\infty} \\frac{5 - \\frac{2}{x^2}}{1 + \\frac{1}{x^3}} \\)</div><br><br>Step 3<br><br>As \\( x \\to -\\infty \\), terms with \\( x \\) in the denominator approach 0:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{5 - 0}{1 + 0} = 5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the value of \\( c \\) that makes the function \\( f(x) = \\begin{cases} 2x + 1 & \\text{if } x < 2 \\\\ cx - 1 & \\text{if } x \\geq 2 \\end{cases} \\) continuous at \\( x = 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>For continuity at \\( x = 2 \\), the left-hand limit must equal the right-hand limit:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 2^-} (2x + 1) = \\lim_{x \\to 2^+} (cx - 1) \\)</div><br><br>Step 2<br><br>Evaluate both limits by substituting \\( x = 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2(2) + 1 = c(2) - 1 \\implies 5 = 2c - 1 \\)</div><br><br>Step 3<br><br>Solve for \\( c \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2c = 6 \\implies c = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use implicit differentiation to find \\( \\frac{dy}{dx} \\) at the point \\( (2, 1) \\) for the curve \\( x^3 y = 8 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Differentiate both sides with respect to \\( x \\) using the product rule:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x^2 y + x^3 \\frac{dy}{dx} = 0 \\)</div><br><br>Step 2<br><br>Substitute the point \\( x = 2 \\) and \\( y = 1 \\) directly into the differentiated equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3(2)^2(1) + (2)^3 \\frac{dy}{dx} = 0 \\)</div><br><br>Step 3<br><br>Simplify and solve for \\( \\frac{dy}{dx} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 12 + 8 \\frac{dy}{dx} = 0 \\implies 8 \\frac{dy}{dx} = -12 \\implies \\frac{dy}{dx} = -\\frac{12}{8} = -\\frac{3}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{3}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\frac{x}{\\sqrt{2x + 1}} \\) with respect to \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the quotient rule with \\( u = x \\) and \\( v = (2x + 1)^{\\frac{1}{2}} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1 \\cdot (2x + 1)^{\\frac{1}{2}} - x \\cdot \\frac{1}{2}(2x + 1)^{-\\frac{1}{2}} \\cdot 2}{((2x + 1)^{\\frac{1}{2}})^2} \\)</div><br><br>Step 2<br><br>Simplify the numerator:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{(2x + 1)^{\\frac{1}{2}} - x(2x + 1)^{-\\frac{1}{2}}}{2x + 1} \\)</div><br><br>Step 3<br><br>Multiply numerator and denominator by \\( (2x + 1)^{\\frac{1}{2}} \\) to clear the negative exponent:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{(2x + 1) - x}{(2x + 1)^{\\frac{3}{2}}} = \\frac{x + 1}{(2x + 1)^{\\frac{3}{2}}} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{x + 1}{(2x + 1)^{\\frac{3}{2}}} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate the limit \\( \\lim_{x \\to 1} \\frac{x^3 - 1}{x^2 - 1} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor both the numerator (difference of cubes) and the denominator (difference of squares):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 1} \\frac{(x - 1)(x^2 + x + 1)}{(x - 1)(x + 1)} \\)</div><br><br>Step 2<br><br>Cancel the common factor \\( (x - 1) \\) since \\( x \\neq 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 1} \\frac{x^2 + x + 1}{x + 1} \\)</div><br><br>Step 3<br><br>Substitute \\( x = 1 \\) into the simplified expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1^2 + 1 + 1}{1 + 1} = \\frac{3}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{2} \\)"
+  }
+]
