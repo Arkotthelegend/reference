@@ -1,0 +1,122 @@
+[
+  {
+    "type": "math_show",
+    "q": "Find the mean and standard deviation of the data set: \\( 3, 5, 7, 9 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the mean:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\bar{x} = \\frac{3 + 5 + 7 + 9}{4} = \\frac{24}{4} = 6 \\)</div><br><br>Step 2<br><br>Calculate the variance and standard deviation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma^2 = \\frac{(-3)^2 + (-1)^2 + 1^2 + 3^2}{4} = \\frac{9 + 1 + 1 + 9}{4} = 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma = \\sqrt{5} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Mean} = 6, \\text{Standard Deviation} = \\sqrt{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the range and interquartile range for the data set: \\( 5, 8, 12, 15, 20, 25, 30 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the range:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Range} = 30 - 5 = 25 \\)</div><br><br>Step 2<br><br>Find the quartiles and interquartile range:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( Q_1 = 8, \\quad Q_3 = 25 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{IQR} = Q_3 - Q_1 = 25 - 8 = 17 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Range} = 25, \\text{IQR} = 17 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( \\sum x = 50 \\), \\( \\sum x^2 = 300 \\), and \\( n = 10 \\), find the variance and standard deviation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the variance using the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma^2 = \\frac{\\sum x^2}{n} - \\left(\\frac{\\sum x}{n}\\right)^2 = \\frac{300}{10} - \\left(\\frac{50}{10}\\right)^2 \\)</div><br><br>Step 2<br><br>Simplify to find variance and standard deviation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma^2 = 30 - 25 = 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma = \\sqrt{5} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Variance} = 5, \\text{Standard Deviation} = \\sqrt{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "For a grouped data set with midpoints \\( x = 10, 20, 30 \\) and frequencies \\( f = 2, 3, 5 \\), find the mean and variance.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate \\( \\sum f \\), \\( \\sum fx \\), and \\( \\sum fx^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sum f = 10, \\quad \\sum fx = 20 + 60 + 150 = 230 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sum fx^2 = 2(100) + 3(400) + 5(900) = 200 + 1200 + 4500 = 5900 \\)</div><br><br>Step 2<br><br>Calculate mean and variance:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\bar{x} = \\frac{230}{10} = 23 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma^2 = \\frac{5900}{10} - (23)^2 = 590 - 529 = 61 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Mean} = 23, \\text{Variance} = 61 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the first quartile \\( Q_1 \\), third quartile \\( Q_3 \\), and interquartile range for the data set: \\( 10, 15, 20, 25, 30, 35, 40, 45 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the lower and upper halves of the data:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Lower half: } 10, 15, 20, 25 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Upper half: } 30, 35, 40, 45 \\)</div><br><br>Step 2<br><br>Calculate \\( Q_1 \\), \\( Q_3 \\), and IQR:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( Q_1 = \\frac{15 + 20}{2} = 17.5, \\quad Q_3 = \\frac{35 + 40}{2} = 37.5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{IQR} = 37.5 - 17.5 = 20 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( Q_1 = 17.5, Q_3 = 37.5, \\text{IQR} = 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "From a cumulative frequency curve with total frequency \\( N = 100 \\), the lower quartile is estimated at \\( 12 \\) and the upper quartile at \\( 28 \\). Find the interquartile range.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the given quartile values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( Q_1 = 12, \\quad Q_3 = 28 \\)</div><br><br>Step 2<br><br>Calculate the interquartile range:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{IQR} = Q_3 - Q_1 = 28 - 12 = 16 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 16 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Calculate the correlation coefficient \\( r \\) given: \\( n = 5 \\), \\( \\sum x = 20 \\), \\( \\sum y = 30 \\), \\( \\sum x^2 = 90 \\), \\( \\sum y^2 = 190 \\), \\( \\sum xy = 130 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the numerator:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n\\sum xy - \\sum x \\sum y = 5(130) - (20)(30) = 650 - 600 = 50 \\)</div><br><br>Step 2<br><br>Calculate the denominator and \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{(5(90) - 20^2)(5(190) - 30^2)} = \\sqrt{(450 - 400)(950 - 900)} = \\sqrt{50 \\times 50} = 50 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = \\frac{50}{50} = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Using the data from the previous question, calculate the slope \\( b \\) of the regression line.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the formula for the slope \\( b \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b = \\frac{n\\sum xy - \\sum x \\sum y}{n\\sum x^2 - (\\sum x)^2} \\)</div><br><br>Step 2<br><br>Substitute the values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b = \\frac{50}{5(90) - 20^2} = \\frac{50}{450 - 400} = \\frac{50}{50} = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Using the same data, calculate the intercept \\( a \\) of the regression line.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the formula for the intercept \\( a \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = \\frac{\\sum y \\sum x^2 - \\sum x \\sum xy}{n\\sum x^2 - (\\sum x)^2} \\)</div><br><br>Step 2<br><br>Substitute the values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = \\frac{30(90) - 20(130)}{50} = \\frac{2700 - 2600}{50} = \\frac{100}{50} = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the equation of the regression line using the calculated \\( a = 2 \\) and \\( b = 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>State the general form of the regression line:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = a + bx \\)</div><br><br>Step 2<br><br>Substitute the values of \\( a \\) and \\( b \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 2 + 1x \\implies y = x + 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = x + 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Using the regression line \\( y = x + 2 \\), predict the value of \\( y \\) when \\( x = 15 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( x = 15 \\) into the regression equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 15 + 2 \\)</div><br><br>Step 2<br><br>Calculate the predicted value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 17 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 17 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the mean and variance of the data set: \\( 12, 14, 16, 18, 20 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the mean:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\bar{x} = \\frac{12 + 14 + 16 + 18 + 20}{5} = \\frac{80}{5} = 16 \\)</div><br><br>Step 2<br><br>Calculate the variance:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma^2 = \\frac{(-4)^2 + (-2)^2 + 0^2 + 2^2 + 4^2}{5} = \\frac{16 + 4 + 0 + 4 + 16}{5} = \\frac{40}{5} = 8 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Mean} = 16, \\text{Variance} = 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "For grouped data with midpoints \\( x = 5, 15, 25 \\) and frequencies \\( f = 4, 6, 10 \\), find the mean and standard deviation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate \\( \\sum f \\), \\( \\sum fx \\), and \\( \\sum fx^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sum f = 20, \\quad \\sum fx = 20 + 90 + 250 = 360 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sum fx^2 = 4(25) + 6(225) + 10(625) = 100 + 1350 + 6250 = 7700 \\)</div><br><br>Step 2<br><br>Calculate mean and standard deviation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\bar{x} = \\frac{360}{20} = 18 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma = \\sqrt{\\frac{7700}{20} - 18^2} = \\sqrt{385 - 324} = \\sqrt{61} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Mean} = 18, \\text{Standard Deviation} = \\sqrt{61} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In a test of 100 students, the cumulative frequency of students scoring 60 marks or less is 75. How many students scored more than 60 marks?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the total number of students and the cumulative frequency up to 60 marks:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Total students} = 100, \\quad \\text{CF}(\\le 60) = 75 \\)</div><br><br>Step 2<br><br>Subtract to find the number of students scoring more than 60:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 100 - 75 = 25 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 25 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "From a cumulative frequency table, the cumulative frequency at \\( x = 40 \\) is 30. How many students scored 40 marks or less?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Understand the definition of cumulative frequency:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Cumulative frequency at } x = 40 \\text{ represents the count of values } \\le 40 \\)</div><br><br>Step 2<br><br>State the value directly from the given information:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Number of students} = 30 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 30 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Interpret the meaning of a correlation coefficient \\( r = -0.85 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Analyze the sign of \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Negative sign indicates a negative correlation.} \\)</div><br><br>Step 2<br><br>Analyze the magnitude of \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( | -0.85 | \\text{ is close to 1, indicating a strong relationship.} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Strong negative linear correlation} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the median of the data set: \\( 11, 13, 15, 17, 19, 21, 23 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Count the number of data points:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n = 7 \\text{ (odd number)} \\)</div><br><br>Step 2<br><br>Identify the middle value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{The 4th value is } 17 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 17 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the range of the data set: \\( 5, 12, 8, 19, 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the largest and smallest values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Largest} = 19, \\quad \\text{Smallest} = 3 \\)</div><br><br>Step 2<br><br>Calculate the range:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Range} = 19 - 3 = 16 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 16 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( \\sum x = 100 \\), \\( \\sum x^2 = 1200 \\), and \\( n = 20 \\), find the mean and standard deviation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the mean:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\bar{x} = \\frac{100}{20} = 5 \\)</div><br><br>Step 2<br><br>Calculate variance and standard deviation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma^2 = \\frac{1200}{20} - 5^2 = 60 - 25 = 35 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma = \\sqrt{35} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Mean} = 5, \\text{Standard Deviation} = \\sqrt{35} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "For a frequency distribution, \\( \\sum f = 50 \\), \\( \\sum fx = 250 \\), and \\( \\sum fx^2 = 1500 \\). Find the mean and standard deviation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the mean:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\bar{x} = \\frac{\\sum fx}{\\sum f} = \\frac{250}{50} = 5 \\)</div><br><br>Step 2<br><br>Calculate variance and standard deviation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma^2 = \\frac{\\sum fx^2}{\\sum f} - (\\bar{x})^2 = \\frac{1500}{50} - 5^2 = 30 - 25 = 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sigma = \\sqrt{5} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Mean} = 5, \\text{Standard Deviation} = \\sqrt{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "From a cumulative frequency curve for \\( N = 200 \\) items, the median position corresponds to an \\( x \\)-value of 45. What is the estimated median?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the median position:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Median position} = 0.5 \\times 200 = 100 \\)</div><br><br>Step 2<br><br>Read the corresponding \\( x \\)-value from the curve:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Estimated median} = 45 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 45 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "From a cumulative frequency curve, the lower quartile is estimated at \\( x = 30 \\) and the upper quartile at \\( x = 60 \\). Find the interquartile range.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the given quartile values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( Q_1 = 30, \\quad Q_3 = 60 \\)</div><br><br>Step 2<br><br>Calculate the interquartile range:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{IQR} = Q_3 - Q_1 = 60 - 30 = 30 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 30 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Calculate the correlation coefficient \\( r \\) given: \\( n = 5 \\), \\( \\sum x = 15 \\), \\( \\sum y = 20 \\), \\( \\sum x^2 = 55 \\), \\( \\sum y^2 = 90 \\), \\( \\sum xy = 65 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the numerator:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n\\sum xy - \\sum x \\sum y = 5(65) - (15)(20) = 325 - 300 = 25 \\)</div><br><br>Step 2<br><br>Calculate the denominator and \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{(5(55) - 15^2)(5(90) - 20^2)} = \\sqrt{(275 - 225)(450 - 400)} = \\sqrt{50 \\times 50} = 50 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = \\frac{25}{50} = 0.5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 0.5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Using the data from the previous question, find the equation of the regression line \\( y = a + bx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the slope \\( b \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b = \\frac{25}{5(55) - 15^2} = \\frac{25}{50} = 0.5 \\)</div><br><br>Step 2<br><br>Calculate the intercept \\( a \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = \\frac{20(55) - 15(65)}{50} = \\frac{1100 - 975}{50} = \\frac{125}{50} = 2.5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = 2.5 + 0.5x \\)"
+  }
+]
