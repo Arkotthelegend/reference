@@ -614,6 +614,7 @@ input:checked + .slider:before {
     line-height: 1;
     filter: grayscale(100%);
 }
+.nav-ico:empty { display: none; }
 .nav-lbl {
     letter-spacing: 0;
 }
@@ -680,12 +681,15 @@ input:checked + .slider:before {
 #glossary-screen { padding-bottom: 8px; }
 #glossary-screen .mini-head h2,
 #glossary-title {
-    flex: 0 0 auto !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
     width: auto !important;
     max-width: none !important;
     margin: 0 !important;
     text-align: left !important;
     white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
     word-break: keep-all !important;
     overflow-wrap: normal !important;
     line-height: 1.4 !important;
@@ -727,9 +731,22 @@ input:checked + .slider:before {
     flex: 1;
     font-size: 1.02rem;
     font-weight: 600;
-    line-height: 1.45;
-    white-space: nowrap;
+    line-height: 1.5;
     word-break: keep-all;
+    overflow-wrap: break-word;
+}
+#glossary-test-btn {
+    margin-left: auto;
+    flex: 0 0 auto;
+    width: auto !important;
+    min-width: 72px;
+    padding: 8px 14px !important;
+    font-size: 0.9rem !important;
+}
+#glossary-test-btn.on {
+    background: #0B3A4A !important;
+    color: #00D5FF !important;
+    border: 1px solid #00D5FF !important;
 }
 .gloss-chevron {
     width: 7px;
@@ -1790,18 +1807,7 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     margin-top: 3px;
 }
 .rank-match-badge {
-    display: none;
-    text-align: center;
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--accent);
-    background: #1E293B;
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    padding: 5px 12px;
-    margin: 0 auto 10px;
-    width: fit-content;
-    max-width: 100%;
+    display: none !important;
 }
 .rank-copy-btn {
     width: auto !important;
@@ -2061,14 +2067,25 @@ body.math-expand-page .container {
 
 #question-box {
     flex-shrink: 0;
-    height: 130px;          /* fixed length */
-    overflow-y: auto;       /* scroll only the question text */
-    margin-bottom: 8px;
-    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    min-height: 88px;
+    max-height: 42vh;
+    overflow-y: auto;
+    margin: 0 0 12px 0;
+    font-size: 1.12rem;
     text-align: center;
-    line-height: 1.5;
-    padding: 8px;
+    line-height: 1.75;
+    padding: 16px 18px;
     box-sizing: border-box;
+    background: var(--card-bg);
+    border: 1px solid #334155;
+    border-radius: 14px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 #question-box svg,
 #math-solution-content svg {
@@ -3014,7 +3031,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 		<!-- Statistics Screen -->
 <!-- Statistics Screen -->
 <div id="stats-screen" class="screen">
-    <h2 style="text-align: center; color: var(--accent);">🏅 Rank</h2>
+    <h2 style="text-align: center; color: var(--accent);">Rank</h2>
     <div class="grade-picker" style="margin: 0 10px 12px;">
         <div class="grade-picker-row" id="stats-grade-row">
             <button type="button" class="grade-btn" data-grade="12" onclick="onStatsGradeClick(12)">12</button>
@@ -3025,9 +3042,9 @@ body.volunteer-role .vol-report-link { display: block !important; }
     
     <!-- Tab Buttons -->
                          <div style="display: flex; gap: 6px; padding: 0 10px; margin-bottom: 15px;">
-        <button class="btn stats-tab-btn stats-tab-active" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')"><span class="stats-tab-ico">🏅</span><span class="stats-tab-lbl">Rank</span></button>
+        <button class="btn stats-tab-btn stats-tab-active" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')"><span class="stats-tab-lbl">Rank</span></button>
         <button class="btn stats-tab-btn stats-tab-inactive" id="tab-summary" onclick="switchStatsTab('summary')"><span class="stats-tab-ico">📈</span><span class="stats-tab-lbl">Summary</span></button>
-        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-best" onclick="switchStatsTab('best')"><span class="stats-tab-ico">🏆</span><span class="stats-tab-lbl">Best</span></button>
+        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-best" onclick="switchStatsTab('best')"><span class="stats-tab-lbl">Best</span></button>
         <button class="btn stats-tab-btn stats-tab-inactive" id="tab-old" onclick="switchStatsTab('old')"><span class="stats-tab-ico">📜</span><span class="stats-tab-lbl">Old</span></button>
     </div>
     
@@ -3123,6 +3140,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <div class="mini-head">
                 <button type="button" class="mini-back" id="glossary-back-btn" aria-label="နောက်သို့">←</button>
                 <h2 id="glossary-title">ခက်ဆစ်</h2>
+                <button type="button" id="glossary-test-btn" class="btn">Test</button>
             </div>
             <div id="glossary-list" class="gloss-list"></div>
             <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">Report a mistake</button>
@@ -3181,11 +3199,11 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none; margin: 0;">🔄</button>
         </div>
     </div>
-    <div id="rank-match-badge" class="rank-match-badge">🏅 Rank Match</div>
+    <div id="rank-match-badge" class="rank-match-badge" hidden></div>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
     
-   <div id="question-box" style="font-size: 1.15rem; text-align: center; margin: 0 0 8px 0; line-height: 1.5; overflow-x: auto; max-width: 100%; box-sizing: border-box; padding: 8px; height: 130px; overflow-y: auto;"></div> 
+   <div id="question-box"></div> 
     <div id="quiz-options"></div>
     <div id="quiz-keys-hint" class="quiz-keys-hint"></div>
     
@@ -3368,7 +3386,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <div class="nav-item nav-active" data-tab="home" onclick="changeTab('home', this)"><span class="nav-ico">🏠</span><span class="nav-lbl">Study</span></div>
     <div class="nav-item" data-tab="plan" onclick="changeTab('plan', this)"><span class="nav-ico">📅</span><span class="nav-lbl">Plan</span></div>
     <div class="nav-item" data-tab="time" onclick="changeTab('time', this)"><span class="nav-ico">🕒</span><span class="nav-lbl">Time</span></div>
-    <div class="nav-item" data-tab="stats" onclick="changeTab('stats', this)"><span class="nav-ico">🏅</span><span class="nav-lbl">Rank</span></div>
+    <div class="nav-item" data-tab="stats" onclick="changeTab('stats', this)"><span class="nav-ico"></span><span class="nav-lbl">Rank</span></div>
     <div class="nav-item" data-tab="profile" onclick="changeTab('profile', this)"><span class="nav-ico">👤</span><span class="nav-lbl">Me</span></div>
     <div class="nav-item" id="nav-post" data-tab="post" hidden onclick="changeTab('post', this)"><span class="nav-ico">📸</span><span class="nav-lbl">Post</span></div>
     <div class="nav-item" id="nav-cust" data-tab="cust" hidden onclick="changeTab('cust', this)"><span class="nav-ico">📊</span><span class="nav-lbl">Cust</span></div>
@@ -4225,17 +4243,7 @@ function isRankMatchActive() {
 }
 function updateRankMatchBadge() {
     const badge = document.getElementById('rank-match-badge');
-    if (!badge) return;
-    if (!isRankableQuizFile(currentQuizFile) || !isTestPlay()) {
-        badge.style.display = 'none';
-        return;
-    }
-    if (currentQuizFile && (currentQuizFile.includes('2_Marks') || currentQuizFile.includes('3_Marks'))) {
-        badge.style.display = 'none';
-        return;
-    }
-    badge.style.display = 'block';
-    badge.innerText = isTimerRunning ? '🏅' : '⏱ 🏅';
+    if (badge) badge.style.display = 'none';
 }
 function setRankPeriod(period) {
     rankPeriod = period === 'all' ? 'all' : 'week';
@@ -6699,11 +6707,11 @@ function showSubMenu(typeName, cat, titles) {
     if (typeName === "အလင်္ကာ") {
         // အလင်္ကာအတွက် သီးသန့်ခွဲထားသော ခလုတ် (၅) ခု
         const backToAlinkar = () => { showScreen('activity'); showMMFlashcardOptions(typeName); };
-        createBtn("ဥပမာအလင်္ကာ", content, () => initFlashcards("mm_ဥပမာအလင်္ကာ", "Flashcard", backToAlinkar));
-        createBtn("ရူပကအလင်္ကာ", content, () => initFlashcards("mm_ရူပကအလင်္ကာ", "Flashcard", backToAlinkar));
-        createBtn("ဝင်္ကဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_ဝင်္ကဝုတ္တိအလင်္ကာ", "Flashcard", backToAlinkar));
-        createBtn("အတိယဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_အတိသယဝုတ္တိအလင်္ကာ", "Flashcard", backToAlinkar));
-        createBtn("မြည်သံစွဲအလင်္ကာ", content, () => initFlashcards("mm_မြည်သံစွဲအလင်္ကာ", "Flashcard", backToAlinkar));
+        createBtn("ဥပမာအလင်္ကာ", content, () => initFlashcards("mm_ဥပမာအလင်္ကာ", "ဥပမာအလင်္ကာ", backToAlinkar));
+        createBtn("ရူပကအလင်္ကာ", content, () => initFlashcards("mm_ရူပကအလင်္ကာ", "ရူပကအလင်္ကာ", backToAlinkar));
+        createBtn("ဝင်္ကဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_ဝင်္ကဝုတ္တိအလင်္ကာ", "ဝင်္ကဝုတ္တိအလင်္ကာ", backToAlinkar));
+        createBtn("အတိယဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_အတိသယဝုတ္တိအလင်္ကာ", "အတိသယဝုတ္တိအလင်္ကာ", backToAlinkar));
+        createBtn("မြည်သံစွဲအလင်္ကာ", content, () => initFlashcards("mm_မြည်သံစွဲအလင်္ကာ", "မြည်သံစွဲအလင်္ကာ", backToAlinkar));
 
     } else {
         // ကျန်တဲ့ စကားပြေ၊ ကဗျာ၊ ရေသည် များအတွက် မူလအတိုင်း
@@ -7038,8 +7046,8 @@ function showMyanmarTrialChapters(typeName) {
   let currentFlashMark = ""; // ခေါင်းစဉ်မှတ်ရန် variable အသစ်
 
 async function initFlashcards(fileName, markTitle = "Flashcard", onBack = null) {
-    if (String(fileName || '').includes('ခက်ဆစ်')) {
-        return initGlossary(fileName, markTitle === 'Flashcard' ? 'ခက်ဆစ်' : markTitle, onBack);
+    if (isGlossaryFile(fileName, markTitle)) {
+        return initGlossary(fileName, glossaryTitle(fileName, markTitle), onBack);
     }
     currentFlashMark = markTitle; // လက်ရှိနှိပ်လိုက်တဲ့ Mark နာမည်ကို သိမ်းမယ်
     fileName = withGradePrefix(fileName);
@@ -8461,6 +8469,88 @@ function updateRandomizeSetting() {
 // Flashcard မူလဒေတာကို သိမ်းထားရန်
 let originalFlashCards = [];
 let isFlashcardShuffled = false;
+let glossaryItems = [];
+let glossaryTestOn = false;
+
+function isGlossaryFile(fileName, markTitle) {
+    const s = String(fileName || '') + String(markTitle || '');
+    return s.indexOf('ခက်ဆစ်') !== -1 || s.indexOf('အလင်္ကာ') !== -1;
+}
+
+function glossaryTitle(fileName, markTitle) {
+    if (markTitle && markTitle !== 'Flashcard') return markTitle;
+    const name = String(fileName || '');
+    if (name.indexOf('အလင်္ကာ') !== -1) return 'အလင်္ကာ';
+    return 'ခက်ဆစ်';
+}
+
+function setGlossaryTestBtn() {
+    const btn = document.getElementById('glossary-test-btn');
+    if (!btn) return;
+    btn.textContent = 'Test';
+    btn.classList.toggle('on', !!glossaryTestOn);
+}
+
+function renderGlossaryList(items) {
+    const list = document.getElementById('glossary-list');
+    if (!list) return;
+    list.innerHTML = '';
+    (items || []).forEach(function (item, i) {
+        const term = item.q || item.term || item.title || '';
+        const def = item.a || item.definition || item.content || '';
+        const row = document.createElement('div');
+        row.className = 'gloss-item';
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'gloss-term';
+        btn.setAttribute('aria-expanded', 'false');
+        const num = document.createElement('span');
+        num.className = 'gloss-num';
+        num.textContent = String(i + 1);
+        const word = document.createElement('span');
+        word.className = 'gloss-word';
+        word.textContent = term;
+        const chev = document.createElement('span');
+        chev.className = 'gloss-chevron';
+        chev.setAttribute('aria-hidden', 'true');
+        btn.appendChild(num);
+        btn.appendChild(word);
+        btn.appendChild(chev);
+        const defEl = document.createElement('div');
+        defEl.className = 'gloss-def';
+        defEl.hidden = true;
+        defEl.textContent = def;
+        btn.onclick = function () {
+            const open = row.classList.contains('open');
+            list.querySelectorAll('.gloss-item.open').forEach(function (el) {
+                el.classList.remove('open');
+                const t = el.querySelector('.gloss-term');
+                const d = el.querySelector('.gloss-def');
+                if (t) t.setAttribute('aria-expanded', 'false');
+                if (d) d.hidden = true;
+            });
+            if (!open) {
+                row.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                defEl.hidden = false;
+                flashIdx = i;
+            }
+        };
+        row.appendChild(btn);
+        row.appendChild(defEl);
+        list.appendChild(row);
+    });
+    flashIdx = 0;
+}
+
+function toggleGlossaryTest() {
+    glossaryTestOn = !glossaryTestOn;
+    setGlossaryTestBtn();
+    const items = glossaryTestOn
+        ? shuffleArray(glossaryItems.slice())
+        : glossaryItems.slice();
+    renderGlossaryList(items);
+}
 
 async function initGlossary(fileName, markTitle, onBack) {
     currentFlashMark = markTitle || 'ခက်ဆစ်';
@@ -8470,10 +8560,11 @@ async function initGlossary(fileName, markTitle, onBack) {
         const res = await fetch(quizUrl(fileName));
         if (!res.ok) throw new Error();
         const data = await res.json();
+        glossaryItems = Array.isArray(data) ? data.slice() : [];
+        glossaryTestOn = false;
         showScreen('glossary');
         document.getElementById('glossary-title').textContent = currentFlashMark;
-        const list = document.getElementById('glossary-list');
-        list.innerHTML = '';
+        setGlossaryTestBtn();
         const backBtn = document.getElementById('glossary-back-btn');
         if (backBtn) {
             backBtn.onclick = function () {
@@ -8481,52 +8572,9 @@ async function initGlossary(fileName, markTitle, onBack) {
                 else showScreen('activity');
             };
         }
-        (Array.isArray(data) ? data : []).forEach(function (item, i) {
-            const term = item.q || item.term || item.title || '';
-            const def = item.a || item.definition || item.content || '';
-            const row = document.createElement('div');
-            row.className = 'gloss-item';
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'gloss-term';
-            btn.setAttribute('aria-expanded', 'false');
-            const num = document.createElement('span');
-            num.className = 'gloss-num';
-            num.textContent = String(i + 1);
-            const word = document.createElement('span');
-            word.className = 'gloss-word';
-            word.textContent = term;
-            const chev = document.createElement('span');
-            chev.className = 'gloss-chevron';
-            chev.setAttribute('aria-hidden', 'true');
-            btn.appendChild(num);
-            btn.appendChild(word);
-            btn.appendChild(chev);
-            const defEl = document.createElement('div');
-            defEl.className = 'gloss-def';
-            defEl.hidden = true;
-            defEl.textContent = def;
-            btn.onclick = function () {
-                const open = row.classList.contains('open');
-                list.querySelectorAll('.gloss-item.open').forEach(function (el) {
-                    el.classList.remove('open');
-                    const t = el.querySelector('.gloss-term');
-                    const d = el.querySelector('.gloss-def');
-                    if (t) t.setAttribute('aria-expanded', 'false');
-                    if (d) d.hidden = true;
-                });
-                if (!open) {
-                    row.classList.add('open');
-                    btn.setAttribute('aria-expanded', 'true');
-                    defEl.hidden = false;
-                    flashIdx = i;
-                }
-            };
-            row.appendChild(btn);
-            row.appendChild(defEl);
-            list.appendChild(row);
-        });
-        flashIdx = 0;
+        const testBtn = document.getElementById('glossary-test-btn');
+        if (testBtn) testBtn.onclick = toggleGlossaryTest;
+        renderGlossaryList(glossaryItems);
     } catch (e) {
         tg.showAlert("ဖိုင်မတွေ့သေးပါ- " + fileName);
     }
@@ -8534,8 +8582,8 @@ async function initGlossary(fileName, markTitle, onBack) {
 
 // မူလ initFlashcards function ကို အောက်ပါအတိုင်း အစားထိုးပါ
 async function initFlashcards(fileName, markTitle = "Flashcard", onBack = null) {
-    if (String(fileName || '').includes('ခက်ဆစ်')) {
-        return initGlossary(fileName, markTitle === 'Flashcard' ? 'ခက်ဆစ်' : markTitle, onBack);
+    if (isGlossaryFile(fileName, markTitle)) {
+        return initGlossary(fileName, glossaryTitle(fileName, markTitle), onBack);
     }
     currentFlashMark = markTitle; 
     fileName = withGradePrefix(fileName);
@@ -8782,13 +8830,13 @@ function percentileForRank(rank, total) {
 function fillRankSnapshotCard(el, snap) {
     if (!el) return;
     if (!snap) {
-        el.innerHTML = '<div class="rank-snapshot-kicker">🏅 Rank</div><div class="rank-snapshot-row"><div class="rank-snapshot-rank">—</div><div class="rank-snapshot-meta">ရမှတ်မရှိသေးပါ</div></div>';
+        el.innerHTML = '<div class="rank-snapshot-kicker">Rank</div><div class="rank-snapshot-row"><div class="rank-snapshot-rank">—</div><div class="rank-snapshot-meta">ရမှတ်မရှိသေးပါ</div></div>';
         return;
     }
     const periodLabel = 'စုစုပေါင်း';
     const rankText = snap.myRank ? ('#' + snap.myRank) : '—';
     const pctText = snap.percentile ? ('Top ' + snap.percentile + '%') : 'Rank စာရင်းထဲ မဝင်သေးပါ';
-    el.innerHTML = '<div class="rank-snapshot-kicker">🏅 ' + periodLabel + ' · Grade ' + snap.grade + '</div>' +
+    el.innerHTML = '<div class="rank-snapshot-kicker">' + periodLabel + ' · Grade ' + snap.grade + '</div>' +
         '<div class="rank-snapshot-row"><div class="rank-snapshot-rank">' + rankText + '</div>' +
         '<div class="rank-snapshot-meta">' + pctText + '<br>' + (snap.acc != null ? snap.acc + '% မှန်' : 'Rank ကြည့်ရန်') + '</div></div>';
 }
@@ -8828,7 +8876,7 @@ function copyRankCard() {
         tg.showAlert('No scores yet');
         return;
     }
-    const text = '🏅 G' + snap.grade + ' #' + snap.myRank + (snap.percentile ? ' · ' + snap.percentile + '%' : '') + (snap.acc != null ? '\n' + snap.acc + '%' : '');
+    const text = 'G' + snap.grade + ' #' + snap.myRank + (snap.percentile ? ' · ' + snap.percentile + '%' : '') + (snap.acc != null ? '\n' + snap.acc + '%' : '');
     navigator.clipboard.writeText(text).then(function () {
         tg.showAlert('Copied');
     }).catch(function () {
@@ -8879,7 +8927,6 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
     const listDiv = document.getElementById('leaderboard-list');
     listDiv.innerHTML = '';
     
-    const medals = ['🥇', '🥈', '🥉'];
     const TOP_N = 10;
     
     let myRank = -1;
@@ -8912,7 +8959,6 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
         div.className = `leaderboard-item ${isMe ? 'is-me' : ''}`;
         
         const rankClass = rank <= 3 ? `rank-${rank}` : 'rank-other';
-        const medal = rank <= 3 ? medals[rank - 1] : '';
         const nameInitial = (entry.userName || 'A').charAt(0).toUpperCase();
         
         let displayName = entry.userName || 'Anonymous';
@@ -8931,7 +8977,6 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
                 <div class="leaderboard-acc">${acc}%</div>
                 <div class="leaderboard-detail">${entry.totalPossible}</div>
             </div>
-            <div class="leaderboard-medal">${medal}</div>
         `;
         
         listDiv.appendChild(div);
