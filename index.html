@@ -678,7 +678,11 @@ input:checked + .slider:before {
     align-items: center !important;
     justify-content: center !important;
 }
-#glossary-screen { padding-bottom: 8px; }
+#glossary-screen {
+    padding-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+}
 #glossary-screen .mini-head h2,
 #glossary-title {
     flex: 1 1 auto !important;
@@ -736,17 +740,21 @@ input:checked + .slider:before {
     overflow-wrap: break-word;
 }
 #glossary-test-btn {
-    margin-left: auto;
-    flex: 0 0 auto;
-    width: auto !important;
-    min-width: 72px;
-    padding: 8px 14px !important;
-    font-size: 0.9rem !important;
+    width: 100% !important;
+    margin: 0 0 10px 0 !important;
+    padding: 12px 14px !important;
+    font-size: 1rem !important;
 }
 #glossary-test-btn.on {
     background: #0B3A4A !important;
     color: #00D5FF !important;
     border: 1px solid #00D5FF !important;
+}
+#glossary-list.gloss-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 .gloss-chevron {
     width: 7px;
@@ -770,8 +778,7 @@ input:checked + .slider:before {
     overflow-wrap: break-word;
 }
 #quiz-screen.quiz-practice #markcount,
-#quiz-screen.quiz-practice #timer-area,
-#quiz-screen.quiz-practice #rank-match-badge {
+#quiz-screen.quiz-practice #timer-area {
     display: none !important;
 }
 #quiz-screen.quiz-test #timer-start-btn,
@@ -1806,9 +1813,6 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
     font-size: 0.72rem;
     margin-top: 3px;
 }
-.rank-match-badge {
-    display: none !important;
-}
 .rank-copy-btn {
     width: auto !important;
     display: inline-block !important;
@@ -1977,8 +1981,7 @@ body.math-expand-page .container {
     overflow: hidden;
     padding-top: 8px !important;
 }
-#quiz-screen.math-expand #quiz-top-bar,
-#quiz-screen.math-expand #rank-match-badge {
+#quiz-screen.math-expand #quiz-top-bar {
     display: none !important;
 }
 #quiz-screen.math-expand #question-box {
@@ -2066,13 +2069,13 @@ body.math-expand-page .container {
 }
 
 #question-box {
-    flex-shrink: 0;
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     height: auto;
-    min-height: 88px;
+    min-height: 0;
     max-height: 42vh;
     overflow-y: auto;
     margin: 0 0 12px 0;
@@ -2082,7 +2085,7 @@ body.math-expand-page .container {
     padding: 16px 18px;
     box-sizing: border-box;
     background: var(--card-bg);
-    border: 1px solid #334155;
+    border: 1px solid #475569;
     border-radius: 14px;
     word-break: keep-all;
     overflow-wrap: break-word;
@@ -2637,8 +2640,8 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
     }
     #question-box {
         height: auto !important;
-        min-height: 180px;
-        flex: 1 1 auto;
+        min-height: 0;
+        flex: 0 0 auto;
         max-height: min(42vh, 380px);
     }
     #quiz-options {
@@ -3140,8 +3143,8 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <div class="mini-head">
                 <button type="button" class="mini-back" id="glossary-back-btn" aria-label="နောက်သို့">←</button>
                 <h2 id="glossary-title">ခက်ဆစ်</h2>
-                <button type="button" id="glossary-test-btn" class="btn">Test</button>
             </div>
+            <button type="button" id="glossary-test-btn" class="btn">Test</button>
             <div id="glossary-list" class="gloss-list"></div>
             <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">Report a mistake</button>
         </div>
@@ -3199,7 +3202,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <button id="timer-reset-btn" class="timer-btn" onclick="resetTimer()" style="display: none; margin: 0;">🔄</button>
         </div>
     </div>
-    <div id="rank-match-badge" class="rank-match-badge" hidden></div>
     
     <div id="quiz-progress" style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 10px;"></div>
     
@@ -4238,13 +4240,6 @@ function isRankableQuizFile(fileName) {
     if (isSubChapter(fileName)) return false;
     return true;
 }
-function isRankMatchActive() {
-    return isTestPlay() && isTimerRunning && isRankableQuizFile(currentQuizFile);
-}
-function updateRankMatchBadge() {
-    const badge = document.getElementById('rank-match-badge');
-    if (badge) badge.style.display = 'none';
-}
 function setRankPeriod(period) {
     rankPeriod = period === 'all' ? 'all' : 'week';
     const weekBtn = document.getElementById('rank-period-week');
@@ -4489,7 +4484,7 @@ async function submitScore(timeTaken = 0) {
         if (data.status === 'ok') {
             invalidateLeaderboardCache();
             if (data.action === 'replaced') {
-                console.log(`🏆 Record replaced: ${data.oldScore} → ${data.newScore}`);
+                console.log(`Record replaced: ${data.oldScore} → ${data.newScore}`);
             } else if (data.action === 'inserted') {
                 console.log(`✅ New score saved at row ${data.row}`);
             } else if (data.action === 'skipped') {
@@ -7234,7 +7229,6 @@ function startTestTimer() {
         const s = (quizSeconds % 60).toString().padStart(2, '0');
         if (display) display.innerText = `${m}:${s}`;
     }, 1000);
-    updateRankMatchBadge();
 }
 
 function applyQuizPlayChrome() {
@@ -7265,7 +7259,6 @@ function applyQuizPlayChrome() {
             display.innerText = '00:00';
             display.style.display = 'none';
         }
-        updateRankMatchBadge();
         return;
     }
     if (mark) mark.style.display = '';
@@ -7275,7 +7268,6 @@ function applyQuizPlayChrome() {
     if (resetBtn) resetBtn.style.display = 'none';
     if (display) display.style.display = 'inline';
     if (!isTimerRunning) startTestTimer();
-    updateRankMatchBadge();
 }
 
        async function initQuiz(fileName) {
@@ -7428,7 +7420,6 @@ function loadQuestion() {
         } else {
             timerArea.style.display = 'flex';
         }
-    updateRankMatchBadge();
 
     const oldChip = isOldQuestionFlow ? ' <span class="old-q-chip">Old question</span>' : '';
     document.getElementById('quiz-progress').innerHTML = `${currentIdx + 1} / ${currentQuestions.length}${oldChip}`;
@@ -8462,10 +8453,6 @@ quizPlayMode = 'test';
     }
 }
 
-function updateRandomizeSetting() {
-    updateRankMatchBadge();
-}
-
 // Flashcard မူလဒေတာကို သိမ်းထားရန်
 let originalFlashCards = [];
 let isFlashcardShuffled = false;
@@ -8683,7 +8670,6 @@ function toggleTimer() {
             document.getElementById('timer-display').innerText = `${m}:${s}`;
         }, 1000);
     }
-    updateRankMatchBadge();
 }
 		
 // ပြန်စသည့်အခါ ရမှတ်ကိုပါ ၀ ပြန်ဖြစ်စေရန် resetTimer() ကို ပြင်ဆင်ခြင်း
@@ -8707,7 +8693,6 @@ function resetTimer() {
     // 🎯 ရမှတ်ကို ၀ ပြန်ပြောင်းပြီး Screen ပေါ်မှာ ပြန်ပြင်ပေးရန်
     score = 0;
     document.getElementById('score-display').innerText = "ရမှတ်: 0";
-    updateRankMatchBadge();
 }
 function switchStatsTab(tabName) {
     ['summary', 'best', 'old', 'leaderboard'].forEach(t => {
