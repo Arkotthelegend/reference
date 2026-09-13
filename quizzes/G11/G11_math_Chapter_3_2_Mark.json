@@ -1,0 +1,122 @@
+[
+  {
+    "type": "math_show",
+    "q": "Find the equation of the graph of \\( y = x^2 \\) after a vertical translation of 3 units down.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the vertical translation rule \\( y = f(x) + k \\) with \\( k = -3 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = x^2 - 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = x^2 - 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the graph of \\( y = \\sqrt{x} \\) after a horizontal translation of 5 units to the right.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the horizontal translation rule \\( y = f(x - h) \\) with \\( h = 5 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\sqrt{x - 5} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = \\sqrt{x - 5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the graph of \\( y = x^3 \\) after a reflection on the x-axis.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the reflection on the x-axis rule \\( y = -f(x) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -x^3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -x^3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the graph of \\( y = \\frac{1}{x} \\) after a reflection on the y-axis.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the reflection on the y-axis rule \\( y = f(-x) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{1}{-x} = -\\frac{1}{x} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -\\frac{1}{x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the graph of \\( y = |x| \\) after a vertical scaling with scale factor 3.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the vertical scaling rule \\( y = p f(x) \\) with \\( p = 3 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 3|x| \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = 3|x| \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the graph of \\( y = \\sqrt{x} \\) after a horizontal scaling with scale factor \\( \\frac{1}{2} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>A horizontal scale factor of \\( \\frac{1}{2} \\) means \\( \\frac{1}{q} = \\frac{1}{2} \\), so \\( q = 2 \\).<br><br>Step 2<br><br>Apply the horizontal scaling rule \\( y = f(qx) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\sqrt{2x} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = \\sqrt{2x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = x^3 \\) is even, odd, or neither.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Evaluate \\( f(-x) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = (-x)^3 = -x^3 \\)</div><br><br>Step 2<br><br>Compare with \\( f(x) \\). Since \\( f(-x) = -f(x) \\), the function is odd.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{Odd} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = x^2 + 1 \\) is even, odd, or neither.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Evaluate \\( f(-x) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = (-x)^2 + 1 = x^2 + 1 \\)</div><br><br>Step 2<br><br>Compare with \\( f(x) \\). Since \\( f(-x) = f(x) \\), the function is even.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{Even} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (2, 4) \\) lies on the graph of \\( y = f(x) \\). Find the corresponding point on the graph of \\( y = f(x) + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the vertical translation mapping \\( (x, y) \\to (x, y + k) \\) with \\( k = 3 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2, 4) \\to (2, 4 + 3) = (2, 7) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (2, 7) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (9, 3) \\) lies on the graph of \\( y = \\sqrt{x} \\). Find the corresponding point on the graph of \\( y = \\sqrt{x - 2} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the horizontal translation mapping \\( (x, y) \\to (x + h, y) \\) with \\( h = 2 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (9, 3) \\to (9 + 2, 3) = (11, 3) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (11, 3) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (1, 1) \\) lies on the graph of \\( y = x^3 \\). Find the corresponding point on the graph of \\( y = -x^3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the reflection on the x-axis mapping \\( (x, y) \\to (x, -y) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1, 1) \\to (1, -1) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (1, -1) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (4, 2) \\) lies on the graph of \\( y = \\sqrt{x} \\). Find the corresponding point on the graph of \\( y = \\sqrt{2x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the horizontal scaling mapping \\( (x, y) \\to \\left(\\frac{x}{q}, y\\right) \\) with \\( q = 2 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (4, 2) \\to \\left(\\frac{4}{2}, 2\\right) = (2, 2) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (2, 2) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Describe the translation applied to \\( y = f(x) \\) to obtain the graph of \\( y = f(x + 4) - 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( h \\) and \\( k \\) from \\( y = f(x - h) + k \\). Here, \\( h = -4 \\) and \\( k = -1 \\).<br><br>Step 2<br><br>State the direction of translation.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{4 units left and 1 unit down} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{4 units left and 1 unit down} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the graph of \\( y = x^2 \\) after a reflection on the origin.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the reflection on the origin rule \\( y = -f(-x) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(-x)^2 = -x^2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -x^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Describe the step-by-step transformations to obtain the graph of \\( y = 2|x - 3| \\) from \\( y = |x| \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the horizontal translation from \\( x - 3 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Translation 3 units right} \\)</div><br><br>Step 2<br><br>Identify the vertical scaling from the factor 2.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Vertical scaling with scale factor 2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Translation 3 units right, then vertical scaling with scale factor 2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Describe the step-by-step transformations to obtain the graph of \\( y = -\\sqrt{x + 1} \\) from \\( y = \\sqrt{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the horizontal translation from \\( x + 1 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Translation 1 unit left} \\)</div><br><br>Step 2<br><br>Identify the reflection from the negative sign.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Reflection on the x-axis} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\text{Translation 1 unit left, then reflection on the x-axis} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = \\frac{1}{x} \\) is even, odd, or neither.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Evaluate \\( f(-x) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = \\frac{1}{-x} = -\\frac{1}{x} \\)</div><br><br>Step 2<br><br>Compare with \\( f(x) \\). Since \\( f(-x) = -f(x) \\), the function is odd.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{Odd} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (-2, -8) \\) lies on the graph of \\( y = x^3 \\). Find the corresponding point on the graph of \\( y = (x - 1)^3 + 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the translation mapping \\( (x, y) \\to (x + h, y + k) \\) with \\( h = 1 \\) and \\( k = 2 \\).<br><br>Step 2<br><br>Apply the mapping to the point.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (-2, -8) \\to (-2 + 1, -8 + 2) = (-1, -6) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (-1, -6) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the graph of \\( y = \\frac{1}{x} \\) after a reflection on the y-axis followed by a vertical translation of 2 units up.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply reflection on the y-axis: \\( y = f(-x) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{1}{-x} = -\\frac{1}{x} \\)</div><br><br>Step 2<br><br>Apply vertical translation 2 units up: \\( y = f(x) + 2 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -\\frac{1}{x} + 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -\\frac{1}{x} + 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = |x| - 2 \\) is even, odd, or neither.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Evaluate \\( f(-x) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = |-x| - 2 = |x| - 2 \\)</div><br><br>Step 2<br><br>Compare with \\( f(x) \\). Since \\( f(-x) = f(x) \\), the function is even.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{Even} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the horizontal scale factor when transforming the graph of \\( y = f(x) \\) to obtain \\( y = f(5x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( q \\) from the horizontal scaling form \\( y = f(qx) \\). Here, \\( q = 5 \\).<br><br>Step 2<br><br>The horizontal scale factor is \\( \\frac{1}{q} \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Scale factor} = \\frac{1}{5} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (3, 1) \\) lies on the graph of \\( y = \\frac{1}{x} \\). Find the corresponding point on the graph of \\( y = \\frac{3}{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the vertical scaling mapping \\( (x, y) \\to (x, py) \\) with \\( p = 3 \\).<br><br>Step 2<br><br>Apply the mapping to the point.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (3, 1) \\to (3, 3 \\times 1) = (3, 3) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (3, 3) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (x, y) \\) lies on the graph of \\( y = f(x) \\). Find the corresponding point on the graph of \\( y = f(-x) + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply reflection on the y-axis: \\( (x, y) \\to (-x, y) \\).<br><br>Step 2<br><br>Apply vertical translation 5 units up: \\( (-x, y) \\to (-x, y + 5) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (-x, y + 5) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (-x, y + 5) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the equation of the graph of \\( y = x^2 \\) after a reflection on the x-axis followed by a reflection on the y-axis.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply reflection on the x-axis: \\( y = -f(x) = -x^2 \\).<br><br>Step 2<br><br>Apply reflection on the y-axis to the new function: \\( y = -(-x)^2 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -x^2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -x^2 \\)"
+  }
+]
