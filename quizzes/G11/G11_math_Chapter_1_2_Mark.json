@@ -1,0 +1,127 @@
+[
+  {
+    "type": "math_show",
+    "q": "Use synthetic division to find the quotient and remainder when \\( x^3 - 2x^2 + 5x - 4 \\) is divided by \\( x - 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up synthetic division with \\( k = 2 \\) and coefficients \\( 1, -2, 5, -4 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{array}{c|rrrr} 2 & 1 & -2 & 5 & -4 \\\\ & & 2 & 0 & 10 \\\\ \\hline & 1 & 0 & 5 & 6 \\end{array} \\)</div><br><br>Step 2<br><br>The bottom row gives the coefficients of the quotient and the remainder. The degree of the quotient is one less than the dividend.<br><br><strong>Final Answer:</strong><br><br>Quotient: \\( x^2 + 5 \\), Remainder: \\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the Remainder Theorem to find the remainder when \\( 3x^3 - 4x^2 + x - 7 \\) is divided by \\( x + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>According to the Remainder Theorem, the remainder is \\( f(-1) \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-1) = 3(-1)^3 - 4(-1)^2 + (-1) - 7 \\)</div><br><br>Step 2<br><br>Evaluate the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-1) = 3(-1) - 4(1) - 1 - 7 = -3 - 4 - 1 - 7 = -15 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -15 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "When the polynomial \\( f(x) = x^3 + px^2 - 3x + 4 \\) is divided by \\( x - 2 \\), the remainder is 14. Find the value of \\( p \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>By the Remainder Theorem, \\( f(2) = 14 \\). Substitute \\( x = 2 \\) into the polynomial.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2)^3 + p(2)^2 - 3(2) + 4 = 14 \\)</div><br><br>Step 2<br><br>Simplify and solve for \\( p \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 8 + 4p - 6 + 4 = 14 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4p + 6 = 14 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4p = 8 \\implies p = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the remainder when \\( 4x^2 - 3x + 5 \\) is divided by \\( 2x - 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set the divisor to zero to find \\( x \\): \\( 2x - 1 = 0 \\implies x = \\frac{1}{2} \\).<br><br>Step 2<br><br>Substitute \\( x = \\frac{1}{2} \\) into the polynomial to find the remainder:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f\\left(\\frac{1}{2}\\right) = 4\\left(\\frac{1}{2}\\right)^2 - 3\\left(\\frac{1}{2}\\right) + 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f\\left(\\frac{1}{2}\\right) = 4\\left(\\frac{1}{4}\\right) - \\frac{3}{2} + 5 = 1 - \\frac{3}{2} + 5 = 6 - \\frac{3}{2} = \\frac{9}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{9}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Show that \\( x - 3 \\) is a factor of \\( f(x) = x^3 - 6x^2 + 11x - 6 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>By the Factor Theorem, \\( x - 3 \\) is a factor if \\( f(3) = 0 \\).<br><br>Step 2<br><br>Substitute \\( x = 3 \\) into the polynomial:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(3) = (3)^3 - 6(3)^2 + 11(3) - 6 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(3) = 27 - 54 + 33 - 6 = 60 - 60 = 0 \\)</div><br><br>Since \\( f(3) = 0 \\), \\( x - 3 \\) is a factor.<br><br><strong>Final Answer:</strong><br><br>\\( f(3) = 0 \\), so \\( x - 3 \\) is a factor."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the value of \\( k \\) if \\( x + 2 \\) is a factor of \\( x^3 + 3x^2 + kx + 10 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>By the Factor Theorem, if \\( x + 2 \\) is a factor, then \\( f(-2) = 0 \\).<br><br>Step 2<br><br>Substitute \\( x = -2 \\) and solve for \\( k \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (-2)^3 + 3(-2)^2 + k(-2) + 10 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -8 + 12 - 2k + 10 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 14 - 2k = 0 \\implies 2k = 14 \\implies k = 7 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Factorize \\( x^3 - 7x + 6 \\) completely.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Test possible rational roots (factors of 6). Let \\( x = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(1) = (1)^3 - 7(1) + 6 = 1 - 7 + 6 = 0 \\)</div><br><br>So, \\( x - 1 \\) is a factor.<br><br>Step 2<br><br>Divide \\( x^3 - 7x + 6 \\) by \\( x - 1 \\) to get \\( x^2 + x - 6 \\), which factors further into \\( (x - 2)(x + 3) \\).<br><br><strong>Final Answer:</strong><br><br>\\( (x - 1)(x - 2)(x + 3) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "List all possible rational roots of the equation \\( 2x^3 - 3x^2 - 8x + 3 = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the constant term (3) and the leading coefficient (2).<br><br>Step 2<br><br>Factors of the constant term \\( p \\): \\( \\pm 1, \\pm 3 \\).<br>Factors of the leading coefficient \\( q \\): \\( \\pm 1, \\pm 2 \\).<br><br>Step 3<br><br>Form all possible ratios \\( \\frac{p}{q} \\):<br><br><strong>Final Answer:</strong><br><br>\\( \\pm 1, \\pm 3, \\pm \\frac{1}{2}, \\pm \\frac{3}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the equation \\( x^3 - 2x^2 - 5x + 6 = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Test \\( x = 1 \\): \\( f(1) = 1 - 2 - 5 + 6 = 0 \\). Thus, \\( x - 1 \\) is a factor.<br><br>Step 2<br><br>Divide by \\( x - 1 \\) to get the quadratic quotient \\( x^2 - x - 6 \\).<br><br>Step 3<br><br>Factor the quadratic: \\( x^2 - x - 6 = (x - 3)(x + 2) \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 1, x = 3, x = -2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the equation \\( 2x^3 + x^2 - 13x + 6 = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Test \\( x = 2 \\): \\( f(2) = 2(8) + 4 - 26 + 6 = 16 + 4 - 26 + 6 = 0 \\). Thus, \\( x - 2 \\) is a factor.<br><br>Step 2<br><br>Divide by \\( x - 2 \\) to get the quadratic quotient \\( 2x^2 + 5x - 3 \\).<br><br>Step 3<br><br>Factor the quadratic: \\( 2x^2 + 5x - 3 = (2x - 1)(x + 3) \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 2, x = \\frac{1}{2}, x = -3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The polynomial \\( f(x) = x^3 + ax^2 + bx - 4 \\) leaves a remainder of 2 when divided by \\( x - 1 \\) and a remainder of -10 when divided by \\( x + 2 \\). Find the values of \\( a \\) and \\( b \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the Remainder Theorem for \\( x = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(1) = 1 + a + b - 4 = 2 \\implies a + b = 5 \\)</div><br><br>Step 2<br><br>Apply the Remainder Theorem for \\( x = -2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-2) = -8 + 4a - 2b - 4 = -10 \\implies 4a - 2b = 2 \\implies 2a - b = 1 \\)</div><br><br>Step 3<br><br>Add the two equations: \\( (a + b) + (2a - b) = 5 + 1 \\implies 3a = 6 \\implies a = 2 \\).<br>Substitute \\( a = 2 \\) into \\( a + b = 5 \\) to get \\( b = 3 \\).<br><br><strong>Final Answer:</strong><br><br>\\( a = 2, b = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The expressions \\( x^3 - 2x^2 + 3x + 4 \\) and \\( 2x^3 + x^2 - 5x + k \\) have the same remainder when divided by \\( x + 1 \\). Find the value of \\( k \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the remainder of the first expression when \\( x = -1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f_1(-1) = (-1)^3 - 2(-1)^2 + 3(-1) + 4 = -1 - 2 - 3 + 4 = -2 \\)</div><br><br>Step 2<br><br>Set the remainder of the second expression at \\( x = -1 \\) equal to -2:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f_2(-1) = 2(-1)^3 + (-1)^2 - 5(-1) + k = -2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -2 + 1 + 5 + k = -2 \\implies 4 + k = -2 \\implies k = -6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The equations \\( x^3 + ax^2 - 4x - 12 = 0 \\) and \\( x^3 - 2x^2 + x - 2 = 0 \\) have a common real root. Find the value of \\( a \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the real root of the second equation by factoring by grouping:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2(x - 2) + 1(x - 2) = 0 \\implies (x^2 + 1)(x - 2) = 0 \\)</div><br><br>The only real root is \\( x = 2 \\).<br><br>Step 2<br><br>Substitute \\( x = 2 \\) into the first equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2)^3 + a(2)^2 - 4(2) - 12 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 8 + 4a - 8 - 12 = 0 \\implies 4a = 12 \\implies a = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use synthetic division to find the remainder when \\( x^4 - 3x^3 + 2x^2 - x + 5 \\) is divided by \\( x + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up synthetic division with \\( k = -1 \\) and coefficients \\( 1, -3, 2, -1, 5 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{array}{c|rrrrr} -1 & 1 & -3 & 2 & -1 & 5 \\\\ & & -1 & 4 & -6 & 7 \\\\ \\hline & 1 & -4 & 6 & -7 & 12 \\end{array} \\)</div><br><br>Step 2<br><br>The last number in the bottom row is the remainder.<br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( f(x) = x^4 - 5x^3 + 7x^2 - 5x + 6 \\), show that \\( x - 2 \\) is a factor and find the quotient.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Check if \\( f(2) = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(2) = 16 - 5(8) + 7(4) - 5(2) + 6 = 16 - 40 + 28 - 10 + 6 = 0 \\)</div><br><br>Thus, \\( x - 2 \\) is a factor.<br><br>Step 2<br><br>Use synthetic division by \\( x - 2 \\) to find the quotient:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{array}{c|rrrrr} 2 & 1 & -5 & 7 & -5 & 6 \\\\ & & 2 & -6 & 2 & -6 \\\\ \\hline & 1 & -3 & 1 & -3 & 0 \\end{array} \\)</div><br><br><strong>Final Answer:</strong><br><br>Quotient: \\( x^3 - 3x^2 + x - 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the equation \\( 3x^3 - 2x^2 - 7x - 2 = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Test \\( x = -1 \\): \\( f(-1) = -3 - 2 + 7 - 2 = 0 \\). Thus, \\( x + 1 \\) is a factor.<br><br>Step 2<br><br>Divide by \\( x + 1 \\) to get the quadratic quotient \\( 3x^2 - 5x - 2 \\).<br><br>Step 3<br><br>Factor the quadratic: \\( 3x^2 - 5x - 2 = (3x + 1)(x - 2) \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = -1, x = -\\frac{1}{3}, x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The polynomial \\( f(x) = 2x^3 - 5x^2 + px + 3 \\) leaves the same remainder when divided by \\( x - 1 \\) and \\( x + 2 \\). Find the value of \\( p \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the remainder when divided by \\( x - 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(1) = 2(1) - 5(1) + p(1) + 3 = p \\)</div><br><br>Step 2<br><br>Find the remainder when divided by \\( x + 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-2) = 2(-8) - 5(4) + p(-2) + 3 = -16 - 20 - 2p + 3 = -33 - 2p \\)</div><br><br>Step 3<br><br>Set the remainders equal and solve for \\( p \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( p = -33 - 2p \\implies 3p = -33 \\implies p = -11 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -11 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the value of \\( k \\) if \\( x - 1 \\) is a factor of \\( kx^3 - 2x^2 + 25x - 15 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>By the Factor Theorem, if \\( x - 1 \\) is a factor, then \\( f(1) = 0 \\).<br><br>Step 2<br><br>Substitute \\( x = 1 \\) and solve for \\( k \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k(1)^3 - 2(1)^2 + 25(1) - 15 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k - 2 + 25 - 15 = 0 \\implies k + 8 = 0 \\implies k = -8 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Factorize \\( 2x^3 - 3x^2 - 11x + 6 \\) completely.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Test \\( x = 3 \\): \\( f(3) = 2(27) - 3(9) - 11(3) + 6 = 54 - 27 - 33 + 6 = 0 \\). Thus, \\( x - 3 \\) is a factor.<br><br>Step 2<br><br>Divide by \\( x - 3 \\) to get the quadratic quotient \\( 2x^2 + 3x - 2 \\).<br><br>Step 3<br><br>Factor the quadratic: \\( 2x^2 + 3x - 2 = (2x - 1)(x + 2) \\).<br><br><strong>Final Answer:</strong><br><br>\\( (x - 3)(2x - 1)(x + 2) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The polynomial \\( f(x) = x^3 + px^2 - 7x + q \\) is exactly divisible by \\( x - 1 \\) and \\( x + 3 \\). Find the values of \\( p \\) and \\( q \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since \\( x - 1 \\) is a factor, \\( f(1) = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 + p - 7 + q = 0 \\implies p + q = 6 \\)</div><br><br>Step 2<br><br>Since \\( x + 3 \\) is a factor, \\( f(-3) = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\(-27 + 9p + 21 + q = 0 \\implies 9p + q = 6 \\)</div><br><br>Step 3<br><br>Subtract the first equation from the second:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (9p + q) - (p + q) = 6 - 6 \\implies 8p = 0 \\implies p = 0 \\)</div><br><br>Substitute \\( p = 0 \\) into \\( p + q = 6 \\) to get \\( q = 6 \\).<br><br><strong>Final Answer:</strong><br><br>\\( p = 0, q = 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the remainder when \\( x^4 + 3x^2 + 2 \\) is divided by \\( x - 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>By the Remainder Theorem, the remainder is \\( f(1) \\).<br><br>Step 2<br><br>Substitute \\( x = 1 \\) into the polynomial:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(1) = (1)^4 + 3(1)^2 + 2 = 1 + 3 + 2 = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( x - 2 \\) is a factor of \\( x^3 - ax^2 + bx - 12 \\) and the remainder when divided by \\( x + 1 \\) is -24, find the values of \\( a \\) and \\( b \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since \\( x - 2 \\) is a factor, \\( f(2) = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 8 - 4a + 2b - 12 = 0 \\implies -4a + 2b = 4 \\implies -2a + b = 2 \\)</div><br><br>Step 2<br><br>Since the remainder when divided by \\( x + 1 \\) is -24, \\( f(-1) = -24 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -1 - a - b - 12 = -24 \\implies -a - b = -11 \\implies a + b = 11 \\)</div><br><br>Step 3<br><br>Substitute \\( b = 2a + 2 \\) into \\( a + b = 11 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a + (2a + 2) = 11 \\implies 3a = 9 \\implies a = 3 \\)</div><br><br>Then \\( b = 2(3) + 2 = 8 \\).<br><br><strong>Final Answer:</strong><br><br>\\( a = 3, b = 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve the equation \\( 4x^3 - 8x^2 - 3x + 9 = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Test \\( x = -1 \\): \\( f(-1) = -4 - 8 + 3 + 9 = 0 \\). Thus, \\( x + 1 \\) is a factor.<br><br>Step 2<br><br>Divide by \\( x + 1 \\) to get the quadratic quotient \\( 4x^2 - 12x + 9 \\).<br><br>Step 3<br><br>Factor the quadratic: \\( 4x^2 - 12x + 9 = (2x - 3)^2 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = -1, x = \\frac{3}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the Remainder Theorem to find the remainder when \\( 4x^3 + 4x^2 - x + 2 \\) is divided by \\( 2x - 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set the divisor to zero to find \\( x \\): \\( 2x - 1 = 0 \\implies x = \\frac{1}{2} \\).<br><br>Step 2<br><br>Substitute \\( x = \\frac{1}{2} \\) into the polynomial:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f\\left(\\frac{1}{2}\\right) = 4\\left(\\frac{1}{2}\\right)^3 + 4\\left(\\frac{1}{2}\\right)^2 - \\left(\\frac{1}{2}\\right) + 2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f\\left(\\frac{1}{2}\\right) = 4\\left(\\frac{1}{8}\\right) + 4\\left(\\frac{1}{4}\\right) - \\frac{1}{2} + 2 = \\frac{1}{2} + 1 - \\frac{1}{2} + 2 = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( f(x) = x^3 + 2x^2 + kx - 6 \\), the remainder when divided by \\( x - 2 \\) is 3 more than the remainder when divided by \\( x + 1 \\). Find the value of \\( k \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the remainder when divided by \\( x - 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(2) = (2)^3 + 2(2)^2 + k(2) - 6 = 8 + 8 + 2k - 6 = 10 + 2k \\)</div><br><br>Step 2<br><br>Find the remainder when divided by \\( x + 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-1) = (-1)^3 + 2(-1)^2 + k(-1) - 6 = -1 + 2 - k - 6 = -5 - k \\)</div><br><br>Step 3<br><br>Set up the equation based on the given condition:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 10 + 2k = (-5 - k) + 3 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 10 + 2k = -2 - k \\implies 3k = -12 \\implies k = -4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -4 \\)"
+  }
+]
