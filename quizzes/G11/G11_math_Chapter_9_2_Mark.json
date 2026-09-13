@@ -1,0 +1,127 @@
+[
+  {
+    "type": "math_show",
+    "q": "Simplify the vector expression \\( \\vec{AB} + \\vec{BC} - \\vec{DC} \\) for a quadrilateral \\( ABCD \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the triangle rule for vector addition to the first two terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AB} + \\vec{BC} = \\vec{AC} \\)</div><br><br>Step 2<br><br>Substitute this back and use the property of negative vectors:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AC} - \\vec{DC} = \\vec{AC} + \\vec{CD} \\)</div><br><br>Step 3<br><br>Apply the triangle rule again to find the final simplified vector:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AC} + \\vec{CD} = \\vec{AD} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\vec{AD} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( \\vec{u} = 2\\vec{a} - \\vec{b} \\) and \\( \\vec{v} = \\vec{a} + 3\\vec{b} \\), express \\( 2\\vec{u} - \\vec{v} \\) in terms of \\( \\vec{a} \\) and \\( \\vec{b} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute the expressions for \\( \\vec{u} \\) and \\( \\vec{v} \\) into the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2(2\\vec{a} - \\vec{b}) - (\\vec{a} + 3\\vec{b}) \\)</div><br><br>Step 2<br><br>Expand the brackets:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4\\vec{a} - 2\\vec{b} - \\vec{a} - 3\\vec{b} \\)</div><br><br>Step 3<br><br>Collect like terms to simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (4 - 1)\\vec{a} + (-2 - 3)\\vec{b} = 3\\vec{a} - 5\\vec{b} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3\\vec{a} - 5\\vec{b} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In a regular hexagon \\( ABCDEF \\), \\( \\vec{AB} = \\vec{x} \\) and \\( \\vec{BC} = \\vec{y} \\). Express \\( \\vec{CD} \\) in terms of \\( \\vec{x} \\) and \\( \\vec{y} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify that the main diagonal \\( \\vec{AD} \\) is parallel to \\( \\vec{BC} \\) and twice its length:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AD} = 2\\vec{BC} = 2\\vec{y} \\)</div><br><br>Step 2<br><br>Find \\( \\vec{AC} \\) using the triangle rule:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AC} = \\vec{AB} + \\vec{BC} = \\vec{x} + \\vec{y} \\)</div><br><br>Step 3<br><br>Use vector subtraction to find \\( \\vec{CD} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{CD} = \\vec{AD} - \\vec{AC} = 2\\vec{y} - (\\vec{x} + \\vec{y}) = \\vec{y} - \\vec{x} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\vec{y} - \\vec{x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( \\vec{AB} = 2\\vec{i} - 3\\vec{j} \\) and \\( \\vec{BC} = -4\\vec{i} + 6\\vec{j} \\), show that the points \\( A, B, \\) and \\( C \\) are collinear.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor out the scalar from \\( \\vec{BC} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{BC} = -2(2\\vec{i} - 3\\vec{j}) \\)</div><br><br>Step 2<br><br>Substitute \\( \\vec{AB} \\) into the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{BC} = -2\\vec{AB} \\)</div><br><br>Step 3<br><br>Since \\( \\vec{BC} \\) is a scalar multiple of \\( \\vec{AB} \\) and they share the common point \\( B \\), the points are collinear.<br><br><strong>Final Answer:</strong><br><br>\\( \\vec{BC} = -2\\vec{AB} \\), so \\( A, B, C \\) are collinear."
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( \\vec{u} = \\begin{pmatrix} 3 \\\\ -2 \\end{pmatrix} \\) and \\( \\vec{v} = \\begin{pmatrix} -1 \\\\ 4 \\end{pmatrix} \\), find \\( 2\\vec{u} + 3\\vec{v} \\) as a column vector.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply each vector by its respective scalar:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2\\vec{u} = \\begin{pmatrix} 6 \\\\ -4 \\end{pmatrix}, \\quad 3\\vec{v} = \\begin{pmatrix} -3 \\\\ 12 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Add the resulting column vectors:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 6 \\\\ -4 \\end{pmatrix} + \\begin{pmatrix} -3 \\\\ 12 \\end{pmatrix} = \\begin{pmatrix} 6 + (-3) \\\\ -4 + 12 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 8 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 3 \\\\ 8 \\end{pmatrix} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The position vectors of \\( A \\) and \\( B \\) relative to the origin \\( O \\) are \\( \\vec{OA} = 3\\vec{i} + 4\\vec{j} \\) and \\( \\vec{OB} = 7\\vec{i} - 2\\vec{j} \\). Find the position vector of the midpoint \\( M \\) of \\( AB \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the midpoint formula for position vectors:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{OM} = \\frac{1}{2}(\\vec{OA} + \\vec{OB}) \\)</div><br><br>Step 2<br><br>Substitute the given vectors and add them:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{OM} = \\frac{1}{2}((3\\vec{i} + 4\\vec{j}) + (7\\vec{i} - 2\\vec{j})) = \\frac{1}{2}(10\\vec{i} + 2\\vec{j}) \\)</div><br><br>Step 3<br><br>Multiply by \\( \\frac{1}{2} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{OM} = 5\\vec{i} + \\vec{j} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5\\vec{i} + \\vec{j} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Point \\( P \\) divides the line segment \\( AB \\) in the ratio \\( 2:3 \\). If \\( \\vec{OA} = \\vec{i} + 2\\vec{j} \\) and \\( \\vec{OB} = 6\\vec{i} + 7\\vec{j} \\), find the position vector \\( \\vec{OP} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the section formula with \\( m=2 \\) and \\( n=3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{OP} = \\frac{3\\vec{OA} + 2\\vec{OB}}{2 + 3} \\)</div><br><br>Step 2<br><br>Substitute the vectors and expand:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{OP} = \\frac{3(\\vec{i} + 2\\vec{j}) + 2(6\\vec{i} + 7\\vec{j})}{5} = \\frac{3\\vec{i} + 6\\vec{j} + 12\\vec{i} + 14\\vec{j}}{5} \\)</div><br><br>Step 3<br><br>Combine like terms and divide by 5:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{OP} = \\frac{15\\vec{i} + 20\\vec{j}}{5} = 3\\vec{i} + 4\\vec{j} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3\\vec{i} + 4\\vec{j} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the magnitude of the vector \\( \\vec{v} = -5\\vec{i} + 12\\vec{j} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the magnitude formula for a two-dimensional vector:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |\\vec{v}| = \\sqrt{(-5)^2 + 12^2} \\)</div><br><br>Step 2<br><br>Calculate the squares and their sum:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |\\vec{v}| = \\sqrt{25 + 144} = \\sqrt{169} \\)</div><br><br>Step 3<br><br>Take the square root:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |\\vec{v}| = 13 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 13 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the unit vector in the same direction as \\( \\vec{a} = 6\\vec{i} - 8\\vec{j} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the magnitude of \\( \\vec{a} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |\\vec{a}| = \\sqrt{6^2 + (-8)^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10 \\)</div><br><br>Step 2<br><br>Divide the vector by its magnitude to find the unit vector:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\hat{a} = \\frac{\\vec{a}}{|\\vec{a}|} = \\frac{1}{10}(6\\vec{i} - 8\\vec{j}) \\)</div><br><br>Step 3<br><br>Simplify the components:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\hat{a} = \\frac{3}{5}\\vec{i} - \\frac{4}{5}\\vec{j} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{5}\\vec{i} - \\frac{4}{5}\\vec{j} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given points \\( P(2, 5) \\) and \\( Q(8, -3) \\), find the vector \\( \\vec{PQ} \\) in the form \\( x\\vec{i} + y\\vec{j} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the formula \\( \\vec{PQ} = \\vec{OQ} - \\vec{OP} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{PQ} = (8\\vec{i} - 3\\vec{j}) - (2\\vec{i} + 5\\vec{j}) \\)</div><br><br>Step 2<br><br>Subtract the corresponding components:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{PQ} = (8 - 2)\\vec{i} + (-3 - 5)\\vec{j} \\)</div><br><br>Step 3<br><br>Simplify to get the final vector:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{PQ} = 6\\vec{i} - 8\\vec{j} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 6\\vec{i} - 8\\vec{j} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( D \\) is the midpoint of \\( BC \\). Express \\( \\vec{AD} \\) in terms of \\( \\vec{AB} \\) and \\( \\vec{AC} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Express \\( \\vec{AD} \\) using the triangle rule:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AD} = \\vec{AB} + \\vec{BD} \\)</div><br><br>Step 2<br><br>Since \\( D \\) is the midpoint, \\( \\vec{BD} = \\frac{1}{2}\\vec{BC} \\). Also, \\( \\vec{BC} = \\vec{AC} - \\vec{AB} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AD} = \\vec{AB} + \\frac{1}{2}(\\vec{AC} - \\vec{AB}) \\)</div><br><br>Step 3<br><br>Expand and collect like terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AD} = \\vec{AB} - \\frac{1}{2}\\vec{AB} + \\frac{1}{2}\\vec{AC} = \\frac{1}{2}\\vec{AB} + \\frac{1}{2}\\vec{AC} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2}\\vec{AB} + \\frac{1}{2}\\vec{AC} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given non-parallel vectors \\( \\vec{a} \\) and \\( \\vec{b} \\), if \\( (2x - 1)\\vec{a} + 3\\vec{b} = 5\\vec{a} + (y + 2)\\vec{b} \\), find the values of \\( x \\) and \\( y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>By Corollary 9.2, equate the coefficients of \\( \\vec{a} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x - 1 = 5 \\implies 2x = 6 \\implies x = 3 \\)</div><br><br>Step 2<br><br>Equate the coefficients of \\( \\vec{b} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3 = y + 2 \\implies y = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 3, y = 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Points \\( A, B, \\) and \\( C \\) have position vectors \\( 2\\vec{i} + 3\\vec{j} \\), \\( 4\\vec{i} + 7\\vec{j} \\), and \\( 6\\vec{i} + 11\\vec{j} \\) respectively. Show that \\( A, B, \\) and \\( C \\) are collinear.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the vector \\( \\vec{AB} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AB} = (4 - 2)\\vec{i} + (7 - 3)\\vec{j} = 2\\vec{i} + 4\\vec{j} \\)</div><br><br>Step 2<br><br>Find the vector \\( \\vec{BC} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{BC} = (6 - 4)\\vec{i} + (11 - 7)\\vec{j} = 2\\vec{i} + 4\\vec{j} \\)</div><br><br>Step 3<br><br>Since \\( \\vec{AB} = \\vec{BC} \\) and they share the common point \\( B \\), the points are collinear.<br><br><strong>Final Answer:</strong><br><br>\\( \\vec{AB} = \\vec{BC} \\), so \\( A, B, C \\) are collinear."
+  },
+  {
+    "type": "math_show",
+    "q": "Find the value of \\( k \\) if the vectors \\( \\vec{u} = 3\\vec{i} - 2\\vec{j} \\) and \\( \\vec{v} = 6\\vec{i} + k\\vec{j} \\) are parallel.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since the vectors are parallel, \\( \\vec{v} = c\\vec{u} \\) for some scalar \\( c \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6\\vec{i} + k\\vec{j} = c(3\\vec{i} - 2\\vec{j}) \\)</div><br><br>Step 2<br><br>Equate the \\( \\vec{i} \\) components to find \\( c \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6 = 3c \\implies c = 2 \\)</div><br><br>Step 3<br><br>Equate the \\( \\vec{j} \\) components and substitute \\( c = 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k = -2c = -2(2) = -4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( k = -4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( \\vec{p} = \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix} \\) and \\( \\vec{q} = \\begin{pmatrix} -2 \\\\ 5 \\end{pmatrix} \\), find \\( 3\\vec{p} - \\vec{q} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply \\( \\vec{p} \\) by 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3\\vec{p} = \\begin{pmatrix} 12 \\\\ -3 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Subtract \\( \\vec{q} \\) from \\( 3\\vec{p} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 12 \\\\ -3 \\end{pmatrix} - \\begin{pmatrix} -2 \\\\ 5 \\end{pmatrix} = \\begin{pmatrix} 12 - (-2) \\\\ -3 - 5 \\end{pmatrix} \\)</div><br><br>Step 3<br><br>Simplify the components:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 14 \\\\ -8 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 14 \\\\ -8 \\end{pmatrix} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Point \\( P \\) has position vector \\( 4\\vec{i} + 5\\vec{j} \\). Points \\( A \\) and \\( B \\) have position vectors \\( 2\\vec{i} + 3\\vec{j} \\) and \\( 8\\vec{i} + 9\\vec{j} \\) respectively. Find the ratio \\( AP : PB \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the vector \\( \\vec{AP} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AP} = (4 - 2)\\vec{i} + (5 - 3)\\vec{j} = 2\\vec{i} + 2\\vec{j} \\)</div><br><br>Step 2<br><br>Find the vector \\( \\vec{PB} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{PB} = (8 - 4)\\vec{i} + (9 - 5)\\vec{j} = 4\\vec{i} + 4\\vec{j} \\)</div><br><br>Step 3<br><br>Observe the relationship between the vectors:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{PB} = 2(2\\vec{i} + 2\\vec{j}) = 2\\vec{AP} \\)</div><br><br>Thus, the ratio of their magnitudes is \\( 1 : 2 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1 : 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Simplify the vector expression \\( \\vec{AB} + \\vec{BC} + \\vec{CA} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the triangle rule to the first two vectors:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AB} + \\vec{BC} = \\vec{AC} \\)</div><br><br>Step 2<br><br>Add the third vector to the result:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AC} + \\vec{CA} \\)</div><br><br>Step 3<br><br>Since \\( \\vec{CA} = -\\vec{AC} \\), the sum is the zero vector:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AC} - \\vec{AC} = \\vec{0} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\vec{0} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( \\vec{a} = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} \\) and \\( \\vec{b} = \\begin{pmatrix} 3 \\\\ -1 \\end{pmatrix} \\), find the magnitude of \\( \\vec{a} + \\vec{b} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Add the two vectors:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{a} + \\vec{b} = \\begin{pmatrix} 1 + 3 \\\\ 2 + (-1) \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 1 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Calculate the magnitude of the resulting vector:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |\\vec{a} + \\vec{b}| = \\sqrt{4^2 + 1^2} = \\sqrt{16 + 1} \\)</div><br><br>Step 3<br><br>Simplify the square root:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |\\vec{a} + \\vec{b}| = \\sqrt{17} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\sqrt{17} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In parallelogram \\( ABCD \\), \\( \\vec{AB} = \\vec{a} \\) and \\( \\vec{AD} = \\vec{b} \\). Express the diagonal vector \\( \\vec{DB} \\) in terms of \\( \\vec{a} \\) and \\( \\vec{b} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the triangle rule in \\( \\triangle ABD \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AD} + \\vec{DB} = \\vec{AB} \\)</div><br><br>Step 2<br><br>Rearrange the equation to solve for \\( \\vec{DB} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{DB} = \\vec{AB} - \\vec{AD} \\)</div><br><br>Step 3<br><br>Substitute the given vectors:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{DB} = \\vec{a} - \\vec{b} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\vec{a} - \\vec{b} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The position vector of \\( A \\) is \\( 3\\vec{i} - 2\\vec{j} \\) and \\( \\vec{AB} = 5\\vec{i} + 4\\vec{j} \\). Find the coordinates of point \\( B \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the relationship \\( \\vec{OB} = \\vec{OA} + \\vec{AB} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{OB} = (3\\vec{i} - 2\\vec{j}) + (5\\vec{i} + 4\\vec{j}) \\)</div><br><br>Step 2<br><br>Add the corresponding components:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{OB} = (3 + 5)\\vec{i} + (-2 + 4)\\vec{j} = 8\\vec{i} + 2\\vec{j} \\)</div><br><br>Step 3<br><br>Extract the coordinates from the position vector:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( B = (8, 2) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (8, 2) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Point \\( M \\) lies on \\( AB \\) such that \\( AM : MB = 3 : 1 \\). If \\( \\vec{OA} = \\vec{a} \\) and \\( \\vec{OB} = \\vec{b} \\), express \\( \\vec{OM} \\) in terms of \\( \\vec{a} \\) and \\( \\vec{b} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the section formula with \\( m=3 \\) and \\( n=1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{OM} = \\frac{n\\vec{a} + m\\vec{b}}{m + n} \\)</div><br><br>Step 2<br><br>Substitute the values into the formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{OM} = \\frac{1\\vec{a} + 3\\vec{b}}{3 + 1} \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{OM} = \\frac{1}{4}\\vec{a} + \\frac{3}{4}\\vec{b} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{4}\\vec{a} + \\frac{3}{4}\\vec{b} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In pentagon \\( ABCDE \\), simplify the vector expression \\( \\vec{AB} - \\vec{CB} + \\vec{CD} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite \\( -\\vec{CB} \\) as \\( +\\vec{BC} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AB} + \\vec{BC} + \\vec{CD} \\)</div><br><br>Step 2<br><br>Apply the polygon rule sequentially:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (\\vec{AB} + \\vec{BC}) + \\vec{CD} = \\vec{AC} + \\vec{CD} \\)</div><br><br>Step 3<br><br>Complete the addition to find the resultant vector:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{AC} + \\vec{CD} = \\vec{AD} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\vec{AD} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the unit vector in the same direction as \\( \\vec{v} = -3\\vec{i} + 4\\vec{j} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the magnitude of \\( \\vec{v} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |\\vec{v}| = \\sqrt{(-3)^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5 \\)</div><br><br>Step 2<br><br>Divide the vector by its magnitude:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\hat{v} = \\frac{1}{5}(-3\\vec{i} + 4\\vec{j}) \\)</div><br><br>Step 3<br><br>Distribute the scalar to find the components:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\hat{v} = -\\frac{3}{5}\\vec{i} + \\frac{4}{5}\\vec{j} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{3}{5}\\vec{i} + \\frac{4}{5}\\vec{j} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Points \\( P, Q, \\) and \\( R \\) have position vectors \\( \\vec{i} + 2\\vec{j} \\), \\( 3\\vec{i} + 4\\vec{j} \\), and \\( 5\\vec{i} + k\\vec{j} \\) respectively. Find the value of \\( k \\) if \\( P, Q, \\) and \\( R \\) are collinear.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the vector \\( \\vec{PQ} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{PQ} = (3 - 1)\\vec{i} + (4 - 2)\\vec{j} = 2\\vec{i} + 2\\vec{j} \\)</div><br><br>Step 2<br><br>Find the vector \\( \\vec{QR} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{QR} = (5 - 3)\\vec{i} + (k - 4)\\vec{j} = 2\\vec{i} + (k - 4)\\vec{j} \\)</div><br><br>Step 3<br><br>For collinearity, \\( \\vec{QR} = c\\vec{PQ} \\). Since the \\( \\vec{i} \\) components are equal, \\( c = 1 \\). Thus:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k - 4 = 2 \\implies k = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( k = 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If the magnitude of vector \\( \\vec{a} \\) is \\( 5 \\), find the magnitude of \\( -3\\vec{a} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the property of scalar multiplication for magnitudes:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |-3\\vec{a}| = |-3| \\times |\\vec{a}| \\)</div><br><br>Step 2<br><br>Substitute the given magnitude \\( |\\vec{a}| = 5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |-3\\vec{a}| = 3 \\times 5 \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |-3\\vec{a}| = 15 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 15 \\)"
+  }
+]
