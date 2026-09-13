@@ -1,0 +1,142 @@
+[
+  {
+    "type": "math_show",
+    "q": "Expand \\( (1 + 3x)^4 \\) in ascending powers of \\( x \\) up to the term in \\( x^2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the binomial expansion formula for \\( (1 + y)^n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 + y)^n = 1 + ny + \\frac{n(n-1)}{2}y^2 + ... \\)</div><br><br>Step 2<br><br>Substitute \\( n = 4 \\) and \\( y = 3x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 + 3x)^4 = 1 + 4(3x) + \\frac{4 \\times 3}{2}(3x)^2 + ... \\)</div><br><br>Step 3<br><br>Simplify the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = 1 + 12x + 6(9x^2) = 1 + 12x + 54x^2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 + 12x + 54x^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^3 \\) in the expansion of \\( (2 - x)^6 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the general term of the expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_{r+1} = {}^6C_r (2)^{6-r} (-x)^r \\)</div><br><br>Step 2<br><br>To find the coefficient of \\( x^3 \\), let \\( r = 3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_4 = {}^6C_3 (2)^{6-3} (-x)^3 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_4 = 20 \\times 8 \\times (-x^3) = -160x^3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -160 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the first three terms in ascending powers of \\( x \\) of \\( (1 - 2x)^5 \\). Hence, find the coefficient of \\( x^2 \\) in the expansion of \\( (1 - 2x)^5(1 + x) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand \\( (1 - 2x)^5 \\) up to \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 - 2x)^5 = 1 + 5(-2x) + \\frac{5 \\times 4}{2}(-2x)^2 = 1 - 10x + 40x^2 \\)</div><br><br>Step 2<br><br>Multiply by \\( (1 + x) \\) and identify terms producing \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 - 10x + 40x^2)(1 + x) \\)</div><br><br>Step 3<br><br>Extract the coefficient of \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1(0) + (-10)(1) + 40(1) = -10 + 40 = 30 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 30 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of \\( x \\) in the expansion of \\( \\left(x^2 + \\frac{2}{x}\\right)^6 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the general term of the expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_{r+1} = {}^6C_r (x^2)^{6-r} \\left(\\frac{2}{x}\\right)^r = {}^6C_r x^{12-2r} 2^r x^{-r} = {}^6C_r 2^r x^{12-3r} \\)</div><br><br>Step 2<br><br>For the term independent of \\( x \\), set the power of \\( x \\) to 0:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 12 - 3r = 0 \\implies r = 4 \\)</div><br><br>Step 3<br><br>Substitute \\( r = 4 \\) to find the term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_5 = {}^6C_4 2^4 = 15 \\times 16 = 240 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 240 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the middle term in the expansion of \\( \\left(2x - \\frac{1}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since \\( n = 4 \\) is even, the middle term is the \\( \\left(\\frac{4+2}{2}\\right) = 3 \\)rd term, so \\( r = 2 \\).<br><br>Step 2<br><br>Write the expression for the 3rd term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_3 = {}^4C_2 (2x)^{4-2} \\left(-\\frac{1}{x}\\right)^2 \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_3 = 6 \\times 4x^2 \\times \\frac{1}{x^2} = 24 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 24 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the two middle terms in the expansion of \\( \\left(x + \\frac{1}{x}\\right)^7 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since \\( n = 7 \\) is odd, the middle terms are the \\( \\left(\\frac{7+1}{2}\\right) = 4 \\)th and \\( \\left(\\frac{7+3}{2}\\right) = 5 \\)th terms.<br><br>Step 2<br><br>Calculate the 4th term (\\( r = 3 \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_4 = {}^7C_3 x^{7-3} \\left(\\frac{1}{x}\\right)^3 = 35 x^4 x^{-3} = 35x \\)</div><br><br>Step 3<br><br>Calculate the 5th term (\\( r = 4 \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_5 = {}^7C_4 x^{7-4} \\left(\\frac{1}{x}\\right)^4 = 35 x^3 x^{-4} = \\frac{35}{x} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 35x \\) and \\( \\frac{35}{x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given that the first three terms in the expansion of \\( (1 + ax)^n \\) are \\( 1 + 12x + 54x^2 \\), find the values of \\( n \\) and \\( a \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the first three terms of the general expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 + nax + \\frac{n(n-1)}{2}a^2 x^2 \\)</div><br><br>Step 2<br><br>Equate coefficients with the given expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( na = 12 \\) and \\( \\frac{n(n-1)}{2}a^2 = 54 \\)</div><br><br>Step 3<br><br>Substitute \\( a = \\frac{12}{n} \\) into the second equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{n(n-1)}{2} \\left(\\frac{144}{n^2}\\right) = 54 \\implies \\frac{72(n-1)}{n} = 54 \\implies 72n - 72 = 54n \\implies 18n = 72 \\implies n = 4 \\)</div><br>Then \\( a = \\frac{12}{4} = 3 \\).<br><br><strong>Final Answer:</strong><br><br>\\( n = 4, a = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the binomial expansion of \\( (1 - 0.01)^5 \\) to evaluate \\( 0.99^5 \\) correct to 4 decimal places.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand \\( (1 - 0.01)^5 \\) up to the term in \\( x^3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 - 0.01)^5 = 1 + 5(-0.01) + 10(-0.01)^2 + 10(-0.01)^3 + ... \\)</div><br><br>Step 2<br><br>Calculate the numerical values of the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = 1 - 0.05 + 0.0010 - 0.000010 + ... \\)</div><br><br>Step 3<br><br>Sum the terms to 4 decimal places:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 0.99^5 \\approx 0.95099 \\approx 0.9510 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 0.9510 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^4 \\) in the expansion of \\( (3 + 2x)^5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the general term of the expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_{r+1} = {}^5C_r (3)^{5-r} (2x)^r \\)</div><br><br>Step 2<br><br>To find the coefficient of \\( x^4 \\), let \\( r = 4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_5 = {}^5C_4 (3)^{5-4} (2x)^4 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_5 = 5 \\times 3 \\times 16x^4 = 240x^4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 240 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In the expansion of \\( (1 + x)^n \\), the coefficients of \\( x^2 \\) and \\( x^3 \\) are in the ratio \\( 1:2 \\). Find the value of \\( n \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the expressions for the coefficients:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Coeff of } x^2 = {}^nC_2 = \\frac{n(n-1)}{2} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Coeff of } x^3 = {}^nC_3 = \\frac{n(n-1)(n-2)}{6} \\)</div><br><br>Step 2<br><br>Set up the ratio equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{\\frac{n(n-1)}{2}}{\\frac{n(n-1)(n-2)}{6}} = \\frac{1}{2} \\)</div><br><br>Step 3<br><br>Simplify and solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{3}{n-2} = \\frac{1}{2} \\implies n - 2 = 6 \\implies n = 8 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n = 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 5th term in the expansion of \\( \\left(x - \\frac{2}{x}\\right)^8 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The 5th term corresponds to \\( r = 4 \\). Write the general term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_5 = {}^8C_4 (x)^{8-4} \\left(-\\frac{2}{x}\\right)^4 \\)</div><br><br>Step 2<br><br>Simplify the powers and constants:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_5 = 70 \\times x^4 \\times \\frac{16}{x^4} \\)</div><br><br>Step 3<br><br>Calculate the final value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_5 = 70 \\times 16 = 1120 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1120 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand \\( (2 + x)^5 \\) in ascending powers of \\( x \\). Hence, find the value of \\( (2.01)^5 \\) correct to 3 decimal places.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand \\( (2 + x)^5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2 + x)^5 = 2^5 + 5(2^4)x + 10(2^3)x^2 + 10(2^2)x^3 + ... = 32 + 80x + 80x^2 + 40x^3 + ... \\)</div><br><br>Step 2<br><br>Substitute \\( x = 0.01 \\) to find \\( (2.01)^5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2.01)^5 \\approx 32 + 80(0.01) + 80(0.01)^2 + 40(0.01)^3 \\)</div><br><br>Step 3<br><br>Calculate the sum:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = 32 + 0.8 + 0.008 + 0.00004 = 32.80804 \\approx 32.808 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 32.808 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in the expansion of \\( (1 + 2x)^3 (1 - x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand both binomials up to \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 + 2x)^3 = 1 + 3(2x) + 3(2x)^2 + ... = 1 + 6x + 12x^2 + ... \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 - x)^4 = 1 + 4(-x) + 6(-x)^2 + ... = 1 - 4x + 6x^2 + ... \\)</div><br><br>Step 2<br><br>Multiply the expansions and identify terms producing \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 + 6x + 12x^2)(1 - 4x + 6x^2) \\)</div><br><br>Step 3<br><br>Calculate the coefficient of \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1(6) + 6(-4) + 12(1) = 6 - 24 + 12 = -6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given that the first three terms of the binomial expansion of \\( (1 + ax)^n \\) are \\( 1 + 10x + 40x^2 \\), find the values of \\( n \\) and \\( a \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the first three terms of the general expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 + nax + \\frac{n(n-1)}{2}a^2 x^2 \\)</div><br><br>Step 2<br><br>Equate coefficients:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( na = 10 \\) and \\( \\frac{n(n-1)}{2}a^2 = 40 \\)</div><br><br>Step 3<br><br>Substitute \\( a = \\frac{10}{n} \\) into the second equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{n(n-1)}{2} \\left(\\frac{100}{n^2}\\right) = 40 \\implies \\frac{50(n-1)}{n} = 40 \\implies 50n - 50 = 40n \\implies 10n = 50 \\implies n = 5 \\)</div><br>Then \\( a = \\frac{10}{5} = 2 \\).<br><br><strong>Final Answer:</strong><br><br>\\( n = 5, a = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of \\( x \\) in the expansion of \\( \\left(2x^3 - \\frac{1}{x^2}\\right)^{10} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the general term of the expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_{r+1} = {}^{10}C_r (2x^3)^{10-r} \\left(-\\frac{1}{x^2}\\right)^r = {}^{10}C_r 2^{10-r} x^{30-3r} (-1)^r x^{-2r} = {}^{10}C_r 2^{10-r} (-1)^r x^{30-5r} \\)</div><br><br>Step 2<br><br>For the term independent of \\( x \\), set the power of \\( x \\) to 0:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 30 - 5r = 0 \\implies r = 6 \\)</div><br><br>Step 3<br><br>Substitute \\( r = 6 \\) to find the term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_7 = {}^{10}C_6 2^4 (-1)^6 = 210 \\times 16 \\times 1 = 3360 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3360 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In the expansion of \\( (1 + kx)^6 \\), the coefficient of \\( x^2 \\) is 60. Given that \\( k > 0 \\), find the value of \\( k \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the expression for the coefficient of \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Coeff of } x^2 = {}^6C_2 k^2 = 15k^2 \\)</div><br><br>Step 2<br><br>Equate to the given coefficient:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 15k^2 = 60 \\)</div><br><br>Step 3<br><br>Solve for \\( k \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k^2 = 4 \\implies k = 2 \\) (since \\( k > 0 \\))</div><br><br><strong>Final Answer:</strong><br><br>\\( k = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the middle term in the expansion of \\( \\left(\\sqrt{x} - \\frac{2}{\\sqrt{x}}\\right)^6 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since \\( n = 6 \\) is even, the middle term is the \\( \\left(\\frac{6+2}{2}\\right) = 4 \\)th term, so \\( r = 3 \\).<br><br>Step 2<br><br>Write the expression for the 4th term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_4 = {}^6C_3 (\\sqrt{x})^{6-3} \\left(-\\frac{2}{\\sqrt{x}}\\right)^3 \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_4 = 20 \\times x^{3/2} \\times \\left(-\\frac{8}{x^{3/2}}\\right) = -160 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -160 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write down the general term in the expansion of \\( \\left(3x - \\frac{1}{x^2}\\right)^9 \\). Hence, find the coefficient of \\( x^3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the general term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_{r+1} = {}^9C_r (3x)^{9-r} \\left(-\\frac{1}{x^2}\\right)^r = {}^9C_r 3^{9-r} (-1)^r x^{9-r-2r} = {}^9C_r 3^{9-r} (-1)^r x^{9-3r} \\)</div><br><br>Step 2<br><br>To find the coefficient of \\( x^3 \\), set the power of \\( x \\) to 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 9 - 3r = 3 \\implies 3r = 6 \\implies r = 2 \\)</div><br><br>Step 3<br><br>Substitute \\( r = 2 \\) to find the coefficient:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Coeff} = {}^9C_2 3^7 (-1)^2 = 36 \\times 2187 \\times 1 = 78732 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 78732 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given that the coefficient of \\( x^3 \\) in the expansion of \\( (2 - ax)^5 \\) is \\( -80 \\), find the possible value of \\( a \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the general term of the expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_{r+1} = {}^5C_r (2)^{5-r} (-ax)^r \\)</div><br><br>Step 2<br><br>To find the coefficient of \\( x^3 \\), let \\( r = 3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_4 = {}^5C_3 (2)^2 (-a)^3 x^3 = 10 \\times 4 \\times (-a^3) x^3 = -40a^3 x^3 \\)</div><br><br>Step 3<br><br>Equate to the given coefficient and solve:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -40a^3 = -80 \\implies a^3 = 2 \\implies a = \\sqrt[3]{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( a = \\sqrt[3]{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the first three terms in the expansion of \\( \\left(1 + \\frac{x}{2}\\right)^6 \\). Hence, estimate the value of \\( (1.05)^6 \\) correct to 3 decimal places.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand \\( \\left(1 + \\frac{x}{2}\\right)^6 \\) up to \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left(1 + \\frac{x}{2}\\right)^6 = 1 + 6\\left(\\frac{x}{2}\\right) + \\frac{6 \\times 5}{2}\\left(\\frac{x}{2}\\right)^2 = 1 + 3x + \\frac{15}{4}x^2 \\)</div><br><br>Step 2<br><br>Let \\( \\frac{x}{2} = 0.05 \\implies x = 0.1 \\). Substitute into the expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1.05)^6 \\approx 1 + 3(0.1) + 3.75(0.1)^2 \\)</div><br><br>Step 3<br><br>Calculate the sum:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = 1 + 0.3 + 0.0375 = 1.3375 \\approx 1.338 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1.338 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In the expansion of \\( \\left(x + \\frac{2}{x^2}\\right)^n \\), the coefficient of the 4th term is 160. Find the value of \\( n \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The 4th term corresponds to \\( r = 3 \\). Write the general term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_4 = {}^nC_3 (x)^{n-3} \\left(\\frac{2}{x^2}\\right)^3 = {}^nC_3 2^3 x^{n-9} \\)</div><br><br>Step 2<br><br>Equate the coefficient to 160:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( {}^nC_3 \\times 8 = 160 \\implies {}^nC_3 = 20 \\)</div><br><br>Step 3<br><br>Solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{n(n-1)(n-2)}{6} = 20 \\implies n(n-1)(n-2) = 120 \\)</div><br>Since \\( 6 \\times 5 \\times 4 = 120 \\), \\( n = 6 \\).<br><br><strong>Final Answer:</strong><br><br>\\( n = 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^3 \\) in the expansion of \\( (1 - 3x)^5 (1 + 2x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand both binomials up to \\( x^3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 - 3x)^5 = 1 - 15x + 90x^2 - 270x^3 + ... \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 + 2x)^4 = 1 + 8x + 24x^2 + 32x^3 + ... \\)</div><br><br>Step 2<br><br>Multiply the expansions and identify terms producing \\( x^3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 - 15x + 90x^2 - 270x^3)(1 + 8x + 24x^2 + 32x^3) \\)</div><br><br>Step 3<br><br>Calculate the coefficient of \\( x^3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1(32) + (-15)(24) + 90(8) + (-270)(1) = 32 - 360 + 720 - 270 = 122 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 122 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If the coefficients of \\( x^2 \\) and \\( x^3 \\) in the expansion of \\( (1 + ax)^n \\) are equal, and \\( n > 3 \\), express \\( n \\) in terms of \\( a \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the expressions for the coefficients:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Coeff of } x^2 = \\frac{n(n-1)}{2}a^2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Coeff of } x^3 = \\frac{n(n-1)(n-2)}{6}a^3 \\)</div><br><br>Step 2<br><br>Equate the two coefficients:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{n(n-1)}{2}a^2 = \\frac{n(n-1)(n-2)}{6}a^3 \\)</div><br><br>Step 3<br><br>Since \\( n > 3 \\) and \\( a \\neq 0 \\), divide by \\( \\frac{n(n-1)}{2}a^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 = \\frac{n-2}{3}a \\implies 3 = a(n-2) \\implies n - 2 = \\frac{3}{a} \\implies n = \\frac{3}{a} + 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n = \\frac{3}{a} + 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of \\( x \\) in the expansion of \\( \\left(x^2 + \\frac{3}{x}\\right)^9 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the general term of the expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_{r+1} = {}^9C_r (x^2)^{9-r} \\left(\\frac{3}{x}\\right)^r = {}^9C_r x^{18-2r} 3^r x^{-r} = {}^9C_r 3^r x^{18-3r} \\)</div><br><br>Step 2<br><br>For the term independent of \\( x \\), set the power of \\( x \\) to 0:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 18 - 3r = 0 \\implies r = 6 \\)</div><br><br>Step 3<br><br>Substitute \\( r = 6 \\) to find the term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_7 = {}^9C_6 3^6 = 84 \\times 729 = 61236 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 61236 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand \\( (1 - 2x)^4 \\) in ascending powers of \\( x \\). Hence, find the coefficient of \\( x^2 \\) in the expansion of \\( (1 - 2x)^4 (3 + x)^2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand \\( (1 - 2x)^4 \\) up to \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 - 2x)^4 = 1 + 4(-2x) + 6(-2x)^2 + ... = 1 - 8x + 24x^2 + ... \\)</div><br><br>Step 2<br><br>Expand \\( (3 + x)^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (3 + x)^2 = 9 + 6x + x^2 \\)</div><br><br>Step 3<br><br>Multiply and extract the coefficient of \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1(1) + (-8)(6) + 24(9) = 1 - 48 + 216 = 169 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 169 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^4 \\) in the expansion of \\( (2x - 1)^6 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the general term of the expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_{r+1} = {}^6C_r (2x)^{6-r} (-1)^r \\)</div><br><br>Step 2<br><br>To find the coefficient of \\( x^4 \\), let \\( 6 - r = 4 \\implies r = 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_3 = {}^6C_2 (2x)^4 (-1)^2 \\)</div><br><br>Step 3<br><br>Calculate the value:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( T_3 = 15 \\times 16x^4 \\times 1 = 240x^4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 240 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In the expansion of \\( (1 + x)^n \\), the sum of the coefficients is 64. Find the value of \\( n \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The sum of the coefficients is found by substituting \\( x = 1 \\) into the expansion:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 + 1)^n = 2^n \\)</div><br><br>Step 2<br><br>Equate this to the given sum:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^n = 64 \\)</div><br><br>Step 3<br><br>Solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^n = 2^6 \\implies n = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n = 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x \\) in the expansion of \\( (1 + x)^5 (1 - x)^5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Simplify the expression using the difference of squares:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 + x)^5 (1 - x)^5 = ((1 + x)(1 - x))^5 = (1 - x^2)^5 \\)</div><br><br>Step 2<br><br>Observe the powers of \\( x \\) in the expansion of \\( (1 - x^2)^5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 - x^2)^5 = 1 - 5x^2 + 10x^4 - ... \\)</div><br><br>Step 3<br><br>Since the expansion contains only even powers of \\( x \\), the coefficient of \\( x \\) (an odd power) is 0.<br><br><strong>Final Answer:</strong><br><br>\\( 0 \\)"
+  }
+]
