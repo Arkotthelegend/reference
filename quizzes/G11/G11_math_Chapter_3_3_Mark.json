@@ -1,0 +1,142 @@
+[
+  {
+    "type": "math_show",
+    "q": "Given \\( f(x) = x^2 \\), find the equation of the graph after reflection on the y-axis, followed by vertical scaling with scale factor 3, and then translation 2 units right and 4 units down.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Reflection on the y-axis replaces \\( x \\) with \\( -x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (-x)^2 = x^2 \\)</div><br><br>Step 2<br><br>Vertical scaling with scale factor 3 multiplies the function by 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 3x^2 \\)</div><br><br>Step 3<br><br>Translation 2 units right and 4 units down replaces \\( x \\) with \\( x - 2 \\) and subtracts 4:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 3(x - 2)^2 - 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = 3(x - 2)^2 - 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (4, 2) \\) lies on the graph of \\( y = f(x) \\). Find the corresponding point on the graph of \\( y = -2f(x - 3) + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set the argument of the new function equal to the original x-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x_{new} - 3 = 4 \\)</div><br><br>Step 2<br><br>Solve for \\( x_{new} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x_{new} = 4 + 3 = 7 \\)</div><br><br>Step 3<br><br>Calculate the new y-coordinate using the transformation \\( y_{new} = -2y_{old} + 5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y_{new} = -2(2) + 5 = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (7, 1) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = x^3 - x \\) is even, odd, or neither.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( -x \\) into the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = (-x)^3 - (-x) = -x^3 + x \\)</div><br><br>Step 2<br><br>Factor out \\( -1 \\) to compare with \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = -(x^3 - x) = -f(x) \\)</div><br><br>Step 3<br><br>Since \\( f(-x) = -f(x) \\), the function satisfies the condition for an odd function.<br><br><strong>Final Answer:</strong><br><br>Odd function"
+  },
+  {
+    "type": "math_show",
+    "q": "Describe the step-by-step transformations to obtain \\( y = \\sqrt{-2x + 4} + 3 \\) from \\( y = \\sqrt{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Translation 4 units left and 3 units up:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\sqrt{x + 4} + 3 \\)</div><br><br>Step 2<br><br>Horizontal scaling with scale factor \\( \\frac{1}{2} \\) (replace \\( x \\) with \\( 2x \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\sqrt{2x + 4} + 3 \\)</div><br><br>Step 3<br><br>Reflection on the y-axis (replace \\( x \\) with \\( -x \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\sqrt{2(-x) + 4} + 3 = \\sqrt{-2x + 4} + 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>Translate 4 units left and 3 units up, horizontally scale by \\( \\frac{1}{2} \\), then reflect on the y-axis."
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( f(x) = |x| \\), find the equation of the graph after reflection on the x-axis, followed by horizontal scaling with scale factor \\( \\frac{1}{4} \\), and then vertical translation 5 units up.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Reflection on the x-axis multiplies the function by \\( -1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -|x| \\)</div><br><br>Step 2<br><br>Horizontal scaling with scale factor \\( \\frac{1}{4} \\) replaces \\( x \\) with \\( 4x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -|4x| \\)</div><br><br>Step 3<br><br>Vertical translation 5 units up adds 5 to the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -|4x| + 5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -|4x| + 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (-2, 8) \\) lies on the graph of \\( y = f(x) \\). Find the corresponding point on the graph of \\( y = 3f(-x + 1) - 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set the argument of the new function equal to the original x-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -x_{new} + 1 = -2 \\)</div><br><br>Step 2<br><br>Solve for \\( x_{new} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -x_{new} = -3 \\implies x_{new} = 3 \\)</div><br><br>Step 3<br><br>Calculate the new y-coordinate using the transformation \\( y_{new} = 3y_{old} - 4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y_{new} = 3(8) - 4 = 20 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (3, 20) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = \\frac{1}{x^2 + 1} \\) is even, odd, or neither.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( -x \\) into the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = \\frac{1}{(-x)^2 + 1} = \\frac{1}{x^2 + 1} \\)</div><br><br>Step 2<br><br>Compare the result with the original function \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = f(x) \\)</div><br><br>Step 3<br><br>Since \\( f(-x) = f(x) \\), the function satisfies the condition for an even function.<br><br><strong>Final Answer:</strong><br><br>Even function"
+  },
+  {
+    "type": "math_show",
+    "q": "Describe the step-by-step transformations to obtain \\( y = -(x + 2)^3 + 1 \\) from \\( y = x^3 \\), and find the new coordinates of the point \\( (1, 1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Translation 2 units left:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (x + 2)^3 \\)</div><br><br>Point \\( (1, 1) \\) becomes \\( (1 - 2, 1) = (-1, 1) \\).<br><br>Step 2<br><br>Reflection on the x-axis:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(x + 2)^3 \\)</div><br><br>Point \\( (-1, 1) \\) becomes \\( (-1, -1) \\).<br><br>Step 3<br><br>Translation 1 unit up:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(x + 2)^3 + 1 \\)</div><br><br>Point \\( (-1, -1) \\) becomes \\( (-1, -1 + 1) = (-1, 0) \\).<br><br><strong>Final Answer:</strong><br><br>Translate 2 units left, reflect on x-axis, translate 1 unit up. New point: \\( (-1, 0) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( f(x) = x^2 \\), find the equation of the graph after vertical scaling with scale factor 3, reflection on the origin, and translation 2 units left.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Vertical scaling with scale factor 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 3x^2 \\)</div><br><br>Step 2<br><br>Reflection on the origin replaces \\( x \\) with \\( -x \\) and \\( y \\) with \\( -y \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -y = 3(-x)^2 \\implies y = -3x^2 \\)</div><br><br>Step 3<br><br>Translation 2 units left replaces \\( x \\) with \\( x + 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -3(x + 2)^2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -3(x + 2)^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (9, 3) \\) lies on the graph of \\( y = \\sqrt{x} \\). Find the corresponding point on the graph of \\( y = -2\\sqrt{3x - 9} + 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set the argument of the new function equal to the original x-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x_{new} - 9 = 9 \\)</div><br><br>Step 2<br><br>Solve for \\( x_{new} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x_{new} = 18 \\implies x_{new} = 6 \\)</div><br><br>Step 3<br><br>Calculate the new y-coordinate using the transformation \\( y_{new} = -2y_{old} + 4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y_{new} = -2(3) + 4 = -2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (6, -2) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = x|x| \\) is even, odd, or neither.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( -x \\) into the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = (-x)|-x| = -x|x| \\)</div><br><br>Step 2<br><br>Compare the result with \\( -f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -f(x) = -(x|x|) = -x|x| \\)</div><br><br>Step 3<br><br>Since \\( f(-x) = -f(x) \\), the function satisfies the condition for an odd function.<br><br><strong>Final Answer:</strong><br><br>Odd function"
+  },
+  {
+    "type": "math_show",
+    "q": "Describe the step-by-step transformations to obtain \\( y = \\frac{1}{-2x + 6} - 1 \\) from \\( y = \\frac{1}{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Translation 6 units left and 1 unit down:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{1}{x + 6} - 1 \\)</div><br><br>Step 2<br><br>Horizontal scaling with scale factor \\( \\frac{1}{2} \\) (replace \\( x \\) with \\( 2x \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{1}{2x + 6} - 1 \\)</div><br><br>Step 3<br><br>Reflection on the y-axis (replace \\( x \\) with \\( -x \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{1}{2(-x) + 6} - 1 = \\frac{1}{-2x + 6} - 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>Translate 6 units left and 1 unit down, horizontally scale by \\( \\frac{1}{2} \\), then reflect on the y-axis."
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( f(x) = x^3 \\), find the equation of the graph after horizontal scaling with scale factor \\( \\frac{1}{2} \\), reflection on the x-axis, and vertical translation 5 units up.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Horizontal scaling with scale factor \\( \\frac{1}{2} \\) replaces \\( x \\) with \\( 2x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (2x)^3 = 8x^3 \\)</div><br><br>Step 2<br><br>Reflection on the x-axis multiplies the function by \\( -1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -8x^3 \\)</div><br><br>Step 3<br><br>Vertical translation 5 units up adds 5 to the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -8x^3 + 5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -8x^3 + 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (-4, 2) \\) lies on the graph of \\( y = f(x) \\). Find the corresponding point on the graph of \\( y = f\\left(-\\frac{1}{2}x - 1\\right) + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set the argument of the new function equal to the original x-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -\\frac{1}{2}x_{new} - 1 = -4 \\)</div><br><br>Step 2<br><br>Solve for \\( x_{new} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -\\frac{1}{2}x_{new} = -3 \\implies x_{new} = 6 \\)</div><br><br>Step 3<br><br>Calculate the new y-coordinate using the transformation \\( y_{new} = y_{old} + 3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y_{new} = 2 + 3 = 5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (6, 5) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = x^4 - 3x^2 + 5 \\) is even, odd, or neither.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( -x \\) into the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = (-x)^4 - 3(-x)^2 + 5 = x^4 - 3x^2 + 5 \\)</div><br><br>Step 2<br><br>Compare the result with the original function \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = f(x) \\)</div><br><br>Step 3<br><br>Since \\( f(-x) = f(x) \\), the function satisfies the condition for an even function.<br><br><strong>Final Answer:</strong><br><br>Even function"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( f(x) = |x| \\), find the equation of the graph after translation 4 units left, vertical scaling with scale factor \\( \\frac{1}{2} \\), and reflection on the x-axis.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Translation 4 units left replaces \\( x \\) with \\( x + 4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = |x + 4| \\)</div><br><br>Step 2<br><br>Vertical scaling with scale factor \\( \\frac{1}{2} \\) multiplies the function by \\( \\frac{1}{2} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{1}{2}|x + 4| \\)</div><br><br>Step 3<br><br>Reflection on the x-axis multiplies the function by \\( -1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -\\frac{1}{2}|x + 4| \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -\\frac{1}{2}|x + 4| \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (2, 4) \\) lies on the graph of \\( y = x^2 \\). Find the corresponding point on the graph of \\( y = -3(2x - 6)^2 + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set the argument of the new function equal to the original x-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x_{new} - 6 = 2 \\)</div><br><br>Step 2<br><br>Solve for \\( x_{new} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x_{new} = 8 \\implies x_{new} = 4 \\)</div><br><br>Step 3<br><br>Calculate the new y-coordinate using the transformation \\( y_{new} = -3y_{old} + 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y_{new} = -3(4) + 1 = -11 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (4, -11) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Describe the step-by-step transformations to obtain \\( y = 3\\sqrt[3]{-x + 5} - 2 \\) from \\( y = \\sqrt[3]{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Translation 5 units left and 2 units down:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\sqrt[3]{x + 5} - 2 \\)</div><br><br>Step 2<br><br>Reflection on the y-axis (replace \\( x \\) with \\( -x \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\sqrt[3]{-x + 5} - 2 \\)</div><br><br>Step 3<br><br>Vertical scaling with scale factor 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 3\\sqrt[3]{-x + 5} - 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>Translate 5 units left and 2 units down, reflect on the y-axis, then vertically scale by 3."
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = \\frac{x}{x^2 - 1} \\) is even, odd, or neither.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( -x \\) into the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = \\frac{-x}{(-x)^2 - 1} = \\frac{-x}{x^2 - 1} \\)</div><br><br>Step 2<br><br>Compare the result with \\( -f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -f(x) = -\\left(\\frac{x}{x^2 - 1}\\right) = \\frac{-x}{x^2 - 1} \\)</div><br><br>Step 3<br><br>Since \\( f(-x) = -f(x) \\), the function satisfies the condition for an odd function.<br><br><strong>Final Answer:</strong><br><br>Odd function"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( f(x) = x^2 \\), find the equation of the graph after reflection on the origin, horizontal scaling with scale factor \\( \\frac{1}{3} \\), and vertical translation 4 units up.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Reflection on the origin replaces \\( x \\) with \\( -x \\) and \\( y \\) with \\( -y \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -y = (-x)^2 \\implies y = -x^2 \\)</div><br><br>Step 2<br><br>Horizontal scaling with scale factor \\( \\frac{1}{3} \\) replaces \\( x \\) with \\( 3x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -(3x)^2 = -9x^2 \\)</div><br><br>Step 3<br><br>Vertical translation 4 units up adds 4 to the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -9x^2 + 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -9x^2 + 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (-3, 5) \\) lies on the graph of \\( y = f(x) \\). Find the corresponding point on the graph of \\( y = 4f(-3x + 6) - 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set the argument of the new function equal to the original x-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -3x_{new} + 6 = -3 \\)</div><br><br>Step 2<br><br>Solve for \\( x_{new} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -3x_{new} = -9 \\implies x_{new} = 3 \\)</div><br><br>Step 3<br><br>Calculate the new y-coordinate using the transformation \\( y_{new} = 4y_{old} - 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y_{new} = 4(5) - 1 = 19 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (3, 19) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Describe the step-by-step transformations to obtain \\( y = 2(-x - 4)^3 + 3 \\) from \\( y = x^3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Reflection on the y-axis (replace \\( x \\) with \\( -x \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (-x)^3 \\)</div><br><br>Step 2<br><br>Translation 4 units left (replace \\( x \\) with \\( x + 4 \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = (-(x + 4))^3 = (-x - 4)^3 \\)</div><br><br>Step 3<br><br>Vertical scaling with scale factor 2 and translation 3 units up:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 2(-x - 4)^3 + 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>Reflect on the y-axis, translate 4 units left, then vertically scale by 2 and translate 3 units up."
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = x^5 + x \\) is even, odd, or neither.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( -x \\) into the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = (-x)^5 + (-x) = -x^5 - x \\)</div><br><br>Step 2<br><br>Factor out \\( -1 \\) to compare with \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = -(x^5 + x) = -f(x) \\)</div><br><br>Step 3<br><br>Since \\( f(-x) = -f(x) \\), the function satisfies the condition for an odd function.<br><br><strong>Final Answer:</strong><br><br>Odd function"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( f(x) = \\sqrt{x} \\), find the equation of the graph after horizontal scaling with scale factor \\( \\frac{1}{5} \\), reflection on the x-axis, and translation 2 units right and 7 units down.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Horizontal scaling with scale factor \\( \\frac{1}{5} \\) replaces \\( x \\) with \\( 5x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\sqrt{5x} \\)</div><br><br>Step 2<br><br>Reflection on the x-axis multiplies the function by \\( -1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -\\sqrt{5x} \\)</div><br><br>Step 3<br><br>Translation 2 units right and 7 units down replaces \\( x \\) with \\( x - 2 \\) and subtracts 7:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -\\sqrt{5(x - 2)} - 7 = -\\sqrt{5x - 10} - 7 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -\\sqrt{5x - 10} - 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A point \\( (4, -2) \\) lies on the graph of \\( y = f(x) \\). Find the corresponding point on the graph of \\( y = -f\\left(\\frac{1}{2}x + 1\\right) + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set the argument of the new function equal to the original x-coordinate:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{2}x_{new} + 1 = 4 \\)</div><br><br>Step 2<br><br>Solve for \\( x_{new} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{2}x_{new} = 3 \\implies x_{new} = 6 \\)</div><br><br>Step 3<br><br>Calculate the new y-coordinate using the transformation \\( y_{new} = -y_{old} + 5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y_{new} = -(-2) + 5 = 7 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (6, 7) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Describe the step-by-step transformations to obtain \\( y = -\\frac{1}{3x - 9} + 2 \\) from \\( y = \\frac{1}{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Horizontal scaling with scale factor \\( \\frac{1}{3} \\) (replace \\( x \\) with \\( 3x \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{1}{3x} \\)</div><br><br>Step 2<br><br>Translation 3 units right (replace \\( x \\) with \\( x - 3 \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = \\frac{1}{3(x - 3)} = \\frac{1}{3x - 9} \\)</div><br><br>Step 3<br><br>Reflection on the x-axis and translation 2 units up:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -\\frac{1}{3x - 9} + 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>Horizontally scale by \\( \\frac{1}{3} \\), translate 3 units right, then reflect on the x-axis and translate 2 units up."
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the function \\( f(x) = 0 \\) is even, odd, or neither (or both).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( -x \\) into the function:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = 0 \\)</div><br><br>Step 2<br><br>Compare the result with \\( f(x) \\) and \\( -f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(-x) = f(x) = 0 \\quad \\text{and} \\quad f(-x) = -f(x) = 0 \\)</div><br><br>Step 3<br><br>Since it satisfies both \\( f(-x) = f(x) \\) and \\( f(-x) = -f(x) \\), the function is both even and odd.<br><br><strong>Final Answer:</strong><br><br>Both even and odd"
+  },
+  {
+    "type": "math_show",
+    "q": "Given \\( f(x) = x^3 \\), find the equation of the graph after vertical scaling with scale factor 4, reflection on the y-axis, and translation 1 unit left and 3 units down.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Vertical scaling with scale factor 4:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 4x^3 \\)</div><br><br>Step 2<br><br>Reflection on the y-axis replaces \\( x \\) with \\( -x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = 4(-x)^3 = -4x^3 \\)</div><br><br>Step 3<br><br>Translation 1 unit left and 3 units down replaces \\( x \\) with \\( x + 1 \\) and subtracts 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( y = -4(x + 1)^3 - 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( y = -4(x + 1)^3 - 3 \\)"
+  }
+]
