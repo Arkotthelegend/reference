@@ -1,0 +1,497 @@
+[
+  {
+    "type": "mcq",
+    "q": "What is a quantity that has both magnitude and direction called?",
+    "a": [
+      "\\( \\text{Vector} \\)",
+      "\\( \\text{Scalar} \\)",
+      "\\( \\text{Tensor} \\)",
+      "\\( \\text{Matrix} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "What is the magnitude of a zero vector?",
+    "a": [
+      "\\( 1 \\)",
+      "\\( 0 \\)",
+      "\\( -1 \\)",
+      "\\( \\text{undefined} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The vector \\( -\\vec{a} \\) has the same magnitude as \\( \\vec{a} \\) but its direction is:",
+    "a": [
+      "\\( \\text{perpendicular} \\)",
+      "\\( \\text{the same} \\)",
+      "\\( \\text{opposite} \\)",
+      "\\( \\text{random} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "According to the Triangle Rule, \\( \\vec{AB} + \\vec{BC} \\) is equal to:",
+    "a": [
+      "\\( \\vec{CA} \\)",
+      "\\( \\vec{BA} \\)",
+      "\\( \\vec{CB} \\)",
+      "\\( \\vec{AC} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "In parallelogram \\( ABCD \\), \\( \\vec{AB} + \\vec{AD} \\) is equal to the diagonal:",
+    "a": [
+      "\\( \\vec{AC} \\)",
+      "\\( \\vec{BD} \\)",
+      "\\( \\vec{CA} \\)",
+      "\\( \\vec{DB} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "For a closed polygon \\( A_1A_2A_3...A_n \\), the sum \\( \\vec{A_1A_2} + \\vec{A_2A_3} + ... + \\vec{A_nA_1} \\) is:",
+    "a": [
+      "\\( \\vec{A_1A_n} \\)",
+      "\\( \\vec{0} \\)",
+      "\\( \\vec{A_nA_1} \\)",
+      "\\( \\vec{A_1A_1} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The difference \\( \\vec{a} - \\vec{b} \\) is defined as:",
+    "a": [
+      "\\( \\vec{a} + \\vec{b} \\)",
+      "\\( -\\vec{a} + \\vec{b} \\)",
+      "\\( \\vec{a} + (-\\vec{b}) \\)",
+      "\\( -\\vec{a} - \\vec{b} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "Which property states that \\( \\vec{a} + \\vec{b} = \\vec{b} + \\vec{a} \\)?",
+    "a": [
+      "\\( \\text{Associative} \\)",
+      "\\( \\text{Distributive} \\)",
+      "\\( \\text{Identity} \\)",
+      "\\( \\text{Commutative} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "The associative property of vector addition is:",
+    "a": [
+      "\\( \\vec{a} + (\\vec{b} + \\vec{c}) = (\\vec{a} + \\vec{b}) + \\vec{c} \\)",
+      "\\( \\vec{a} + \\vec{b} = \\vec{b} + \\vec{a} \\)",
+      "\\( \\vec{a} + \\vec{0} = \\vec{a} \\)",
+      "\\( \\vec{a} + (-\\vec{a}) = \\vec{0} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "The additive identity for vectors is:",
+    "a": [
+      "\\( 1 \\)",
+      "\\( \\vec{0} \\)",
+      "\\( -\\vec{a} \\)",
+      "\\( \\vec{a} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The additive inverse of \\( \\vec{a} \\) is:",
+    "a": [
+      "\\( \\vec{a} \\)",
+      "\\( \\vec{0} \\)",
+      "\\( -\\vec{a} \\)",
+      "\\( 1 \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( k \\) is a negative scalar, the direction of \\( k\\vec{a} \\) is:",
+    "a": [
+      "\\( \\text{same as } \\vec{a} \\)",
+      "\\( \\text{perpendicular to } \\vec{a} \\)",
+      "\\( \\text{zero} \\)",
+      "\\( \\text{opposite to } \\vec{a} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "Two non-zero vectors \\( \\vec{a} \\) and \\( \\vec{b} \\) are parallel if and only if:",
+    "a": [
+      "\\( \\vec{a} = k\\vec{b} \\text{ for some non-zero scalar } k \\)",
+      "\\( \\vec{a} + \\vec{b} = \\vec{0} \\)",
+      "\\( \\vec{a} = \\vec{b} \\)",
+      "\\( |\\vec{a}| = |\\vec{b}| \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "Points \\( A, B, C \\) are collinear if and only if:",
+    "a": [
+      "\\( \\vec{AB} = \\vec{BC} \\)",
+      "\\( \\vec{AB} = h\\vec{BC} \\text{ for some non-zero scalar } h \\)",
+      "\\( \\vec{AB} + \\vec{BC} = \\vec{0} \\)",
+      "\\( |\\vec{AB}| = |\\vec{BC}| \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The distributive law of scalar multiplication over vector addition is:",
+    "a": [
+      "\\( k_1(k_2\\vec{a}) = (k_1k_2)\\vec{a} \\)",
+      "\\( (k_1+k_2)\\vec{a} = k_1\\vec{a} + k_2\\vec{a} \\)",
+      "\\( k(\\vec{a} + \\vec{b}) = k\\vec{a} + k\\vec{b} \\)",
+      "\\( 1\\vec{a} = \\vec{a} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( h\\vec{a} = k\\vec{b} \\) where \\( \\vec{a} \\) and \\( \\vec{b} \\) are non-zero and non-parallel, then:",
+    "a": [
+      "\\( h=1 \\text{ and } k=1 \\)",
+      "\\( h=-k \\)",
+      "\\( h=k \\)",
+      "\\( h=0 \\text{ and } k=0 \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( h\\vec{a} + k\\vec{b} = m\\vec{a} + n\\vec{b} \\) for non-zero, non-parallel \\( \\vec{a}, \\vec{b} \\), then:",
+    "a": [
+      "\\( h=m \\text{ and } k=n \\)",
+      "\\( h=n \\text{ and } k=m \\)",
+      "\\( h+k = m+n \\)",
+      "\\( h-m = k-n \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "The position vector of a point \\( P \\) relative to the origin \\( O \\) is denoted by:",
+    "a": [
+      "\\( \\vec{PO} \\)",
+      "\\( \\vec{OP} \\)",
+      "\\( \\vec{P} \\)",
+      "\\( \\vec{O} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "For any points \\( A \\) and \\( B \\), the vector \\( \\vec{AB} \\) can be represented by position vectors as:",
+    "a": [
+      "\\( \\vec{OA} + \\vec{OB} \\)",
+      "\\( \\vec{OB} + \\vec{OA} \\)",
+      "\\( \\vec{OB} - \\vec{OA} \\)",
+      "\\( \\vec{OA} - \\vec{OB} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( P \\) divides \\( AB \\) in the ratio \\( m:n \\), the position vector of \\( P \\) is:",
+    "a": [
+      "\\( \\frac{m\\vec{a} - n\\vec{b}}{m-n} \\)",
+      "\\( \\frac{n\\vec{a} + m\\vec{b}}{m+n} \\)",
+      "\\( \\frac{m\\vec{a} + n\\vec{b}}{m-n} \\)",
+      "\\( \\frac{m\\vec{b} + n\\vec{a}}{m+n} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "The midpoint formula for position vectors \\( \\vec{a} \\) and \\( \\vec{b} \\) is:",
+    "a": [
+      "\\( \\frac{1}{2}(\\vec{a} + \\vec{b}) \\)",
+      "\\( \\vec{a} - \\vec{b} \\)",
+      "\\( \\frac{1}{2}(\\vec{a} - \\vec{b}) \\)",
+      "\\( \\vec{a} + \\vec{b} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "The magnitude of a 2D vector \\( \\vec{v} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} \\) is:",
+    "a": [
+      "\\( x + y \\)",
+      "\\( \\sqrt{x^2 + y^2} \\)",
+      "\\( x^2 + y^2 \\)",
+      "\\( \\sqrt{x + y} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "A unit vector has a magnitude of:",
+    "a": [
+      "\\( 0 \\)",
+      "\\( -1 \\)",
+      "\\( 1 \\)",
+      "\\( \\text{infinity} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "The unit vector in the direction of a non-zero vector \\( \\vec{a} \\) is:",
+    "a": [
+      "\\( \\frac{\\vec{a}}{|\\vec{a}|^2} \\)",
+      "\\( |\\vec{a}|\\vec{a} \\)",
+      "\\( \\frac{|\\vec{a}|}{\\vec{a}} \\)",
+      "\\( \\frac{\\vec{a}}{|\\vec{a}|} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "The standard unit vectors in a Cartesian coordinate system are:",
+    "a": [
+      "\\( \\vec{i} \\text{ and } \\vec{j} \\)",
+      "\\( \\vec{x} \\text{ and } \\vec{y} \\)",
+      "\\( \\vec{a} \\text{ and } \\vec{b} \\)",
+      "\\( \\vec{u} \\text{ and } \\vec{v} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( \\vec{a} = x_1\\vec{i} + y_1\\vec{j} \\) and \\( \\vec{b} = x_2\\vec{i} + y_2\\vec{j} \\), then \\( \\vec{a} + \\vec{b} = \\):",
+    "a": [
+      "\\( (x_1+x_2)\\vec{i} - (y_1+y_2)\\vec{j} \\)",
+      "\\( (x_1+x_2)\\vec{i} + (y_1+y_2)\\vec{j} \\)",
+      "\\( (x_1-x_2)\\vec{i} + (y_1-y_2)\\vec{j} \\)",
+      "\\( x_1x_2\\vec{i} + y_1y_2\\vec{j} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( \\vec{p} = \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix} \\) and \\( \\vec{q} = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} \\), then \\( \\vec{p} - \\vec{q} = \\):",
+    "a": [
+      "\\( \\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 3 \\\\ 8 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 2 \\\\ 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -2 \\\\ -2 \\end{pmatrix} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( \\vec{v} = \\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix} \\), then \\( 3\\vec{v} = \\):",
+    "a": [
+      "\\( \\begin{pmatrix} 5 \\\\ -3 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 2 \\\\ -9 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 6 \\\\ -3 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 6 \\\\ -9 \\end{pmatrix} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "The magnitude of \\( 3\\vec{i} + 4\\vec{j} \\) is:",
+    "a": [
+      "\\( 5 \\)",
+      "\\( 7 \\)",
+      "\\( 12 \\)",
+      "\\( 25 \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "The unit vector in the direction of \\( 6\\vec{i} - 8\\vec{j} \\) is:",
+    "a": [
+      "\\( 3\\vec{i} - 4\\vec{j} \\)",
+      "\\( \\frac{3}{5}\\vec{i} - \\frac{4}{5}\\vec{j} \\)",
+      "\\( \\frac{4}{5}\\vec{i} - \\frac{3}{5}\\vec{j} \\)",
+      "\\( 6\\vec{i} - 8\\vec{j} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "Given points \\( A(1, 2) \\) and \\( B(4, 6) \\), the vector \\( \\vec{AB} \\) is:",
+    "a": [
+      "\\( \\begin{pmatrix} 5 \\\\ 8 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -3 \\\\ -4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "The position vector of the midpoint of \\( A(2, 4) \\) and \\( B(6, 8) \\) is:",
+    "a": [
+      "\\( \\begin{pmatrix} 8 \\\\ 12 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 4 \\\\ 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 3 \\\\ 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "Point \\( R \\) divides \\( PQ \\) in the ratio \\( 2:3 \\). If \\( \\vec{OP} = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} \\) and \\( \\vec{OQ} = \\begin{pmatrix} 6 \\\\ 6 \\end{pmatrix} \\), then \\( \\vec{OR} = \\):",
+    "a": [
+      "\\( \\begin{pmatrix} 3 \\\\ 3 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 4 \\\\ 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 2 \\\\ 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 5 \\\\ 5 \\end{pmatrix} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "If vectors \\( \\vec{a} = 2\\vec{i} + 3\\vec{j} \\) and \\( \\vec{b} = 4\\vec{i} + k\\vec{j} \\) are parallel, the value of \\( k \\) is:",
+    "a": [
+      "\\( 3 \\)",
+      "\\( 6 \\)",
+      "\\( 8 \\)",
+      "\\( 12 \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "Solve for \\( \\vec{x} \\) in \\( 2\\vec{x} + \\vec{a} = 5\\vec{a} \\):",
+    "a": [
+      "\\( 3\\vec{a} \\)",
+      "\\( 4\\vec{a} \\)",
+      "\\( 2\\vec{a} \\)",
+      "\\( \\frac{1}{2}\\vec{a} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "In a regular hexagon \\( ABCDEF \\), if \\( \\vec{AB} = \\vec{a} \\) and \\( \\vec{BC} = \\vec{b} \\), then \\( \\vec{AC} = \\):",
+    "a": [
+      "\\( \\vec{a} - \\vec{b} \\)",
+      "\\( \\vec{b} - \\vec{a} \\)",
+      "\\( -\\vec{a} - \\vec{b} \\)",
+      "\\( \\vec{a} + \\vec{b} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "The quadrilateral formed by joining the midpoints of the sides of any quadrilateral is a:",
+    "a": [
+      "\\( \\text{parallelogram} \\)",
+      "\\( \\text{rectangle} \\)",
+      "\\( \\text{rhombus} \\)",
+      "\\( \\text{square} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "For any quadrilateral \\( ABCD \\), \\( \\vec{AB} + \\vec{BC} + \\vec{CD} + \\vec{DA} = \\):",
+    "a": [
+      "\\( \\vec{AC} \\)",
+      "\\( \\vec{0} \\)",
+      "\\( \\vec{BD} \\)",
+      "\\( 2\\vec{AB} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( \\vec{p} = 2\\vec{a} - \\vec{b} \\) and \\( \\vec{q} = -\\vec{a} + 3\\vec{b} \\), then \\( \\vec{p} + \\vec{q} = \\):",
+    "a": [
+      "\\( 3\\vec{a} + 2\\vec{b} \\)",
+      "\\( \\vec{a} - 4\\vec{b} \\)",
+      "\\( \\vec{a} + 2\\vec{b} \\)",
+      "\\( -\\vec{a} - 2\\vec{b} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "The magnitude of \\( 5\\vec{i} + 12\\vec{j} \\) is:",
+    "a": [
+      "\\( 7 \\)",
+      "\\( 17 \\)",
+      "\\( 60 \\)",
+      "\\( 13 \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "The magnitude of \\( -3\\vec{i} + 4\\vec{j} \\) is:",
+    "a": [
+      "\\( 5 \\)",
+      "\\( 7 \\)",
+      "\\( 1 \\)",
+      "\\( 25 \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( \\vec{u} = \\begin{pmatrix} 3 \\\\ -2 \\end{pmatrix} \\), what is \\( -2\\vec{u} \\)?",
+    "a": [
+      "\\( \\begin{pmatrix} 1 \\\\ -4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -6 \\\\ 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 6 \\\\ -4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -5 \\\\ 0 \\end{pmatrix} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The position vector of a point dividing \\( AB \\) internally in the ratio \\( 1:2 \\) (where \\( \\vec{OA}=\\vec{a}, \\vec{OB}=\\vec{b} \\)) is:",
+    "a": [
+      "\\( \\frac{\\vec{a} + \\vec{b}}{3} \\)",
+      "\\( \\frac{\\vec{a} + 2\\vec{b}}{3} \\)",
+      "\\( \\frac{2\\vec{a} + \\vec{b}}{3} \\)",
+      "\\( \\frac{2\\vec{a} - \\vec{b}}{3} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( \\vec{OA} = \\vec{a} \\) and \\( \\vec{OB} = \\vec{b} \\), the position vector of the midpoint of \\( AB \\) is:",
+    "a": [
+      "\\( \\vec{a} - \\vec{b} \\)",
+      "\\( \\frac{\\vec{a} - \\vec{b}}{2} \\)",
+      "\\( \\vec{a} + \\vec{b} \\)",
+      "\\( \\frac{\\vec{a} + \\vec{b}}{2} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "The sum of the squares of the diagonals of a parallelogram is equal to:",
+    "a": [
+      "\\( \\text{the sum of the squares of its four sides} \\)",
+      "\\( \\text{twice the square of one side} \\)",
+      "\\( \\text{the product of its diagonals} \\)",
+      "\\( \\text{zero} \\)"
+    ],
+    "c": 0
+  }
+]
