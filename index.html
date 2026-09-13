@@ -677,91 +677,28 @@ input:checked + .slider:before {
     align-items: center !important;
     justify-content: center !important;
 }
-#activity-content.play-pick,
-#old-menu-content.play-pick {
-    grid-template-columns: 1fr !important;
-    grid-auto-rows: auto !important;
-    gap: 8px !important;
-}
-.play-pick-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    text-align: left;
-    background: #141A24;
-    border: 1px solid #2A3444;
-    border-radius: 10px;
-    padding: 14px 16px;
-    color: #F1F5F9;
-    cursor: pointer;
-}
-.play-pick-row:active { background: #1A2230; }
-.play-pick-copy { flex: 1; min-width: 0; }
-.play-pick-label {
-    display: block;
-    font-size: 1.02rem;
-    font-weight: 700;
-    margin-bottom: 3px;
-}
-.play-pick-hint {
-    display: block;
-    font-size: 0.78rem;
-    color: #8B9BB0;
-    font-weight: 400;
-    line-height: 1.4;
-}
-.play-pick-go {
-    color: #6B7A8D;
-    font-size: 1.45rem;
-    line-height: 1;
-    font-weight: 400;
-}
-.play-pick-study {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-    margin-top: 6px;
-    padding-top: 10px;
-    border-top: 1px solid #243042;
-}
-
 #glossary-screen { padding-bottom: 8px; }
-.gloss-head {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-    width: 100%;
-    margin: 0 0 12px;
-    padding: 2px 2px 0;
-}
-.gloss-back {
-    background: none;
-    border: none;
-    color: #E2E8F0;
-    font-size: 1.35rem;
-    line-height: 1;
-    padding: 4px 10px 4px 2px;
-    cursor: pointer;
-}
+#glossary-screen .mini-head h2,
 #glossary-title {
-    flex: 0 1 auto;
+    flex: 0 0 auto !important;
     width: auto !important;
+    max-width: none !important;
     margin: 0 !important;
     text-align: left !important;
-    color: #F8FAFC;
-    font-size: 1.12rem;
-    font-weight: 700;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    line-height: 1.4 !important;
+    color: var(--accent);
 }
-.gloss-list { width: 100%; }
 .gloss-list {
-    background: #121820;
-    border: 1px solid #2A3444;
-    border-radius: 12px;
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid #334155;
+    border-radius: 14px;
     overflow: hidden;
 }
-.gloss-item + .gloss-item { border-top: 1px solid #243042; }
+.gloss-item + .gloss-item { border-top: 1px solid #334155; }
 .gloss-term {
     width: 100%;
     display: flex;
@@ -769,8 +706,8 @@ input:checked + .slider:before {
     gap: 12px;
     background: none;
     border: none;
-    color: #F1F5F9;
-    padding: 14px 14px;
+    color: var(--white);
+    padding: 14px 16px;
     text-align: left;
     cursor: pointer;
 }
@@ -778,7 +715,7 @@ input:checked + .slider:before {
     flex: 0 0 24px;
     width: 24px;
     height: 24px;
-    border: 1px solid #3D4A5C;
+    border: 1px solid #334155;
     border-radius: 50%;
     color: #94A3B8;
     font-size: 0.72rem;
@@ -790,13 +727,15 @@ input:checked + .slider:before {
     flex: 1;
     font-size: 1.02rem;
     font-weight: 600;
-    line-height: 1.35;
+    line-height: 1.45;
+    white-space: nowrap;
+    word-break: keep-all;
 }
 .gloss-chevron {
     width: 7px;
     height: 7px;
-    border-right: 1.6px solid #7C8A9C;
-    border-bottom: 1.6px solid #7C8A9C;
+    border-right: 1.6px solid #64748B;
+    border-bottom: 1.6px solid #64748B;
     transform: rotate(45deg);
     margin-top: -3px;
 }
@@ -805,11 +744,13 @@ input:checked + .slider:before {
     margin-top: 3px;
 }
 .gloss-def {
-    padding: 0 14px 14px 50px;
-    color: #B8C4D4;
-    font-size: 0.92rem;
-    line-height: 1.65;
+    padding: 6px 28px 20px 28px;
+    color: #CBD5E1;
+    font-size: 0.95rem;
+    line-height: 1.9;
     font-weight: 400;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 #quiz-screen.quiz-practice #markcount,
 #quiz-screen.quiz-practice #timer-area,
@@ -3063,7 +3004,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     <b id="bought-subjects-heading" style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
                     <button id="profile-buy-btn" class="btn buy-btn" onclick="copyTelegram()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
-					<p style="color: #8B9BB0; font-size: 0.82rem; line-height: 1.5; margin: 12px 0 0;">အခန်းထဲတွင် လေ့ကျင့်ရန် သို့မဟုတ် စစ်ဆေးရန် ရွေးပါ။ စစ်ဆေးရန်သာ Rank ဝင်သည်။</p>
 					<button type="button" class="btn news-outline-btn" onclick="openNewsFromProfile()" style="margin-top: 12px;">📰 News</button>
 					 </div>
 					 
@@ -5688,7 +5628,7 @@ function showOldGeneralActivities(subId, partName, modePicked) {
     const list = document.getElementById('old-menu-content');
     list.classList.remove('play-pick');
     list.innerHTML = '';
-    const modeLabel = isTestPlay() ? 'စစ်ဆေးရန်' : 'လေ့ကျင့်ရန်';
+    const modeLabel = isTestPlay() ? 'Test' : 'Practice';
     setOldMenuTitle(`${partName} · ${modeLabel}`);
     document.getElementById('old-menu-back-btn').onclick = () => showOldGeneralActivities(subId, partName);
 
@@ -5886,33 +5826,14 @@ function clearPlayPick(el) {
 function fillPlayModeList(container, onChosen) {
     if (!container) return;
     container.innerHTML = '';
-    function row(mode, label, hint) {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'play-pick-row';
-        const copy = document.createElement('span');
-        copy.className = 'play-pick-copy';
-        const title = document.createElement('span');
-        title.className = 'play-pick-label';
-        title.textContent = label;
-        const sub = document.createElement('span');
-        sub.className = 'play-pick-hint';
-        sub.textContent = hint;
-        copy.appendChild(title);
-        copy.appendChild(sub);
-        const go = document.createElement('span');
-        go.className = 'play-pick-go';
-        go.textContent = '›';
-        btn.appendChild(copy);
-        btn.appendChild(go);
-        btn.onclick = function () {
-            quizPlayMode = mode;
-            onChosen(mode);
-        };
-        container.appendChild(btn);
-    }
-    row('practice', 'လေ့ကျင့်ရန်', 'စာအုပ်အစဉ်အတိုင်း။ ရမှတ်မတွက်။ အချိန်ပိတ်။');
-    row('test', 'စစ်ဆေးရန်', 'ကျပန်းမေးခွန်း။ အချိန်ဖွင့်။ ရမှတ်တွက်သည်။');
+    createBtn('Practice', container, function () {
+        quizPlayMode = 'practice';
+        onChosen('practice');
+    });
+    createBtn('Test', container, function () {
+        quizPlayMode = 'test';
+        onChosen('test');
+    });
 }
 
 function showPlayModePicker(title, onBack, onChosen, oldMenu) {
@@ -5920,13 +5841,10 @@ function showPlayModePicker(title, onBack, onChosen, oldMenu) {
         showScreen('old-menu');
         setOldMenuTitle(title);
         const list = document.getElementById('old-menu-content');
-        list.classList.add('play-pick');
         document.getElementById('old-menu-back-btn').onclick = function () {
-            clearPlayPick(list);
             onBack();
         };
         fillPlayModeList(list, function (mode) {
-            clearPlayPick(list);
             onChosen(mode);
         });
         return;
@@ -5934,13 +5852,10 @@ function showPlayModePicker(title, onBack, onChosen, oldMenu) {
     showScreen('activity');
     document.getElementById('activity-title').innerText = title;
     const content = document.getElementById('activity-content');
-    content.classList.add('play-pick');
     document.getElementById('activity-back-btn').onclick = function () {
-        clearPlayPick(content);
         onBack();
     };
     fillPlayModeList(content, function (mode) {
-        clearPlayPick(content);
         onChosen(mode);
     });
 }
@@ -6830,11 +6745,8 @@ function showSubChaptersMenu(subId, chapterName) {
     showScreen('activity');
     document.getElementById('activity-title').innerText = chapterName;
     const content = document.getElementById('activity-content');
-    content.innerHTML = '';
-    content.classList.add('play-pick');
     
     document.getElementById('activity-back-btn').onclick = () => {
-        content.classList.remove('play-pick');
         if (isTrialFlow) {
             openTrialMenu();
         } else if (checkAccess(subId)) {
@@ -6844,40 +6756,24 @@ function showSubChaptersMenu(subId, chapterName) {
         }
     };
 
-    fillPlayModeList(content, function (mode) {
-        content.classList.remove('play-pick');
+    fillPlayModeList(content, function () {
         showChapterQuizTypes(subId, chapterName);
     });
 
-    const extras = document.createElement('div');
-    extras.className = 'play-pick-study';
-    content.appendChild(extras);
-
-    // Definition / Formula / Key terms stay as study lists, not quizzes
     if (subId === 'phy' || subId === 'eco') {
-        createBtn("Definition", extras, () => {
-            content.classList.remove('play-pick');
-            loadDefinitions(subId, chapterName);
-        });
+        createBtn("Definition", content, () => loadDefinitions(subId, chapterName));
     }
     if (subId === 'phy') {
-        createBtn("Formula", extras, () => {
-            content.classList.remove('play-pick');
-            loadFormulas(subId, chapterName);
-        });
+        createBtn("Formula", content, () => loadFormulas(subId, chapterName));
     }
     if (subId === 'chem') {
-        createBtn("Key terms", extras, () => {
-            content.classList.remove('play-pick');
-            loadKeyTerms(subId, chapterName);
-        });
+        createBtn("Key terms", content, () => loadKeyTerms(subId, chapterName));
     }
-    if (!extras.childElementCount) extras.remove();
 }
 
 function showChapterQuizTypes(subId, chapterName) {
     showScreen('activity');
-    const modeLabel = isTestPlay() ? 'စစ်ဆေးရန်' : 'လေ့ကျင့်ရန်';
+    const modeLabel = isTestPlay() ? 'Test' : 'Practice';
     document.getElementById('activity-title').innerText = `${chapterName} · ${modeLabel}`;
     const content = document.getElementById('activity-content');
     content.classList.remove('play-pick');
@@ -7275,7 +7171,7 @@ function updateFlashUI() {
     
     // အခန်းခွဲ ဖြစ်နေလျှင် ဖြတ်ထုတ်ပြသရန်
     document.getElementById('activity-title').innerText = subId === 'math'
-        ? `${displayTitle} · ${isTestPlay() ? 'စစ်ဆေးရန်' : 'လေ့ကျင့်ရန်'}`
+        ? `${displayTitle} · ${isTestPlay() ? 'Test' : 'Practice'}`
         : displayTitle;
     
     const content = document.getElementById('activity-content');
