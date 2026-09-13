@@ -1,0 +1,127 @@
+[
+  {
+    "type": "math_show",
+    "q": "If \\( \\triangle ABC \\sim \\triangle DEF \\) and the ratio of their corresponding sides \\( AB : DE = 3 : 5 \\), find the ratio of their areas \\( a(\\triangle ABC) : a(\\triangle DEF) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the theorem that the ratio of areas of similar triangles equals the square of the ratio of their corresponding sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle ABC)}{a(\\triangle DEF)} = \\left(\\frac{AB}{DE}\\right)^2 \\)</div><br><br>Step 2<br><br>Substitute the given ratio and compute:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left(\\frac{3}{5}\\right)^2 = \\frac{9}{25} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 9 : 25 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\sim \\triangle PQR \\). Given \\( BC = 6 \\) cm, \\( QR = 9 \\) cm, and \\( a(\\triangle ABC) = 18 \\) cm\\(^2\\), find \\( a(\\triangle PQR) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the ratio of the areas using the corresponding sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle ABC)}{a(\\triangle PQR)} = \\left(\\frac{BC}{QR}\\right)^2 = \\left(\\frac{6}{9}\\right)^2 = \\frac{4}{9} \\)</div><br><br>Step 2<br><br>Substitute \\( a(\\triangle ABC) = 18 \\) and solve for \\( a(\\triangle PQR) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{18}{a(\\triangle PQR)} = \\frac{4}{9} \\implies a(\\triangle PQR) = \\frac{18 \\times 9}{4} = 40.5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 40.5 \\text{ cm}^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The areas of two similar triangles are \\( 121 \\) cm\\(^2\\) and \\( 169 \\) cm\\(^2\\). Find the ratio of their corresponding altitudes.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The ratio of the areas equals the square of the ratio of their corresponding altitudes:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a_1}{a_2} = \\left(\\frac{h_1}{h_2}\\right)^2 = \\frac{121}{169} \\)</div><br><br>Step 2<br><br>Take the square root of both sides to find the ratio of the altitudes:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{h_1}{h_2} = \\sqrt{\\frac{121}{169}} = \\frac{11}{13} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 11 : 13 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\sim \\triangle DEF \\). The ratio of their areas is \\( 16 : 49 \\). If the median of \\( \\triangle ABC \\) is \\( 8 \\) cm, find the corresponding median of \\( \\triangle DEF \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The ratio of corresponding medians is the square root of the ratio of their areas:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{m_1}{m_2} = \\sqrt{\\frac{16}{49}} = \\frac{4}{7} \\)</div><br><br>Step 2<br><br>Substitute \\( m_1 = 8 \\) and solve for \\( m_2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{8}{m_2} = \\frac{4}{7} \\implies m_2 = \\frac{8 \\times 7}{4} = 14 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 14 \\text{ cm} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two similar triangles have areas \\( 50 \\) cm\\(^2\\) and \\( 128 \\) cm\\(^2\\). Find the ratio of their corresponding angle bisectors.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Simplify the ratio of the areas:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{50}{128} = \\frac{25}{64} \\)</div><br><br>Step 2<br><br>The ratio of corresponding angle bisectors is the square root of the area ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{\\frac{25}{64}} = \\frac{5}{8} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5 : 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( DE \\parallel BC \\). Given \\( AD = 4 \\) cm, \\( DB = 6 \\) cm, and \\( a(\\triangle ABC) = 100 \\) cm\\(^2\\), find \\( a(\\triangle ADE) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the ratio of the corresponding sides \\( AD \\) and \\( AB \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AB = AD + DB = 4 + 6 = 10 \\text{ cm} \\)</div><br><br>Step 2<br><br>Use the area ratio theorem for similar triangles \\( \\triangle ADE \\sim \\triangle ABC \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle ADE)}{a(\\triangle ABC)} = \\left(\\frac{AD}{AB}\\right)^2 = \\left(\\frac{4}{10}\\right)^2 = \\frac{16}{100} \\)</div><br><br>Step 3<br><br>Solve for \\( a(\\triangle ADE) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a(\\triangle ADE) = 100 \\times \\frac{16}{100} = 16 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 16 \\text{ cm}^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle PQR \\), \\( XY \\parallel QR \\). Given \\( a(\\triangle PXY) = 9 \\) cm\\(^2\\) and \\( a(\\text{quadrilateral } XYRQ) = 16 \\) cm\\(^2\\), find the ratio \\( PX : XR \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the area of the whole triangle \\( \\triangle PQR \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a(\\triangle PQR) = a(\\triangle PXY) + a(\\text{quadrilateral } XYRQ) = 9 + 16 = 25 \\text{ cm}^2 \\)</div><br><br>Step 2<br><br>Use the area ratio to find the side ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{PX}{PR} = \\sqrt{\\frac{a(\\triangle PXY)}{a(\\triangle PQR)}} = \\sqrt{\\frac{9}{25}} = \\frac{3}{5} \\)</div><br><br>Step 3<br><br>Deduce the ratio \\( PX : XR \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( PX : XR = 3 : (5 - 3) = 3 : 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 : 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In trapezium \\( ABCD \\), \\( AB \\parallel DC \\) and \\( AB = 3 DC \\). Diagonals \\( AC \\) and \\( BD \\) intersect at \\( O \\). Find \\( a(\\triangle AOB) : a(\\triangle COD) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify that \\( \\triangle AOB \\sim \\triangle COD \\) because \\( AB \\parallel DC \\).<br><br>Step 2<br><br>The ratio of their areas is the square of the ratio of their corresponding parallel sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle AOB)}{a(\\triangle COD)} = \\left(\\frac{AB}{DC}\\right)^2 = \\left(\\frac{3}{1}\\right)^2 = \\frac{9}{1} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 9 : 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\) is a right triangle with \\( \\angle A = 90^\\circ \\) and \\( AB = AC \\). Equilateral triangles \\( ACD \\) and \\( BCE \\) are drawn on \\( AC \\) and \\( BC \\) respectively. Find \\( a(\\triangle BCE) : a(\\triangle ACD) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use Pythagoras theorem to find the relationship between \\( BC \\) and \\( AC \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( BC = \\sqrt{AB^2 + AC^2} = \\sqrt{AC^2 + AC^2} = AC\\sqrt{2} \\)</div><br><br>Step 2<br><br>Since all equilateral triangles are similar, the ratio of their areas is the square of the ratio of their sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle BCE)}{a(\\triangle ACD)} = \\left(\\frac{BC}{AC}\\right)^2 = \\left(\\frac{AC\\sqrt{2}}{AC}\\right)^2 = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 : 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In a circle, \\( PA \\) is a tangent at \\( A \\) and \\( PBC \\) is a secant. If \\( PB = 4 \\) cm and \\( PC = 9 \\) cm, find \\( a(\\triangle PAB) : a(\\triangle PCA) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\triangle PAB \\sim \\triangle PCA \\) by AA corollary (common \\( \\angle P \\) and alternate segment angle).<br><br>Step 2<br><br>The ratio of their areas equals the ratio of the squares of corresponding sides, which simplifies to the ratio of the secant segments:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle PAB)}{a(\\triangle PCA)} = \\frac{PB}{PC} = \\frac{4}{9} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 : 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\) and \\( \\triangle DEF \\) have equal bases \\( BC = EF \\). If the altitude of \\( \\triangle ABC \\) is \\( 10 \\) cm and the altitude of \\( \\triangle DEF \\) is \\( 6 \\) cm, find \\( a(\\triangle ABC) : a(\\triangle DEF) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>For triangles with equal bases, the ratio of their areas equals the ratio of their corresponding altitudes:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle ABC)}{a(\\triangle DEF)} = \\frac{h_1}{h_2} \\)</div><br><br>Step 2<br><br>Substitute the given altitudes and simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{10}{6} = \\frac{5}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5 : 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\) and \\( \\triangle DEF \\) have equal altitudes. If \\( a(\\triangle ABC) = 45 \\) cm\\(^2\\), \\( a(\\triangle DEF) = 30 \\) cm\\(^2\\), and \\( EF = 8 \\) cm, find \\( BC \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>For triangles with equal altitudes, the ratio of their areas equals the ratio of their bases:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle ABC)}{a(\\triangle DEF)} = \\frac{BC}{EF} \\)</div><br><br>Step 2<br><br>Substitute the known values and solve for \\( BC \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{45}{30} = \\frac{BC}{8} \\implies \\frac{3}{2} = \\frac{BC}{8} \\implies BC = \\frac{3 \\times 8}{2} = 12 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12 \\text{ cm} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\) and \\( \\triangle BDE \\) are equilateral triangles such that \\( D \\) is the midpoint of \\( BC \\). Find \\( a(\\triangle ABC) : a(\\triangle BDE) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since \\( D \\) is the midpoint of \\( BC \\), the ratio of their corresponding sides is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{BC}{BD} = \\frac{2}{1} \\)</div><br><br>Step 2<br><br>The ratio of their areas is the square of the ratio of their sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle ABC)}{a(\\triangle BDE)} = \\left(\\frac{2}{1}\\right)^2 = \\frac{4}{1} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 : 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A line \\( PQ \\) is drawn parallel to the base \\( BC \\) of \\( \\triangle ABC \\) such that it bisects the area of \\( \\triangle ABC \\). Find the ratio \\( AP : PB \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since \\( PQ \\) bisects the area, the ratio of the areas is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle APQ)}{a(\\triangle ABC)} = \\frac{1}{2} \\)</div><br><br>Step 2<br><br>The ratio of corresponding sides is the square root of the area ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{AP}{AB} = \\sqrt{\\frac{1}{2}} = \\frac{1}{\\sqrt{2}} \\)</div><br><br>Step 3<br><br>Find the ratio \\( AP : PB \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AP : PB = 1 : (\\sqrt{2} - 1) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 : (\\sqrt{2} - 1) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two chords \\( AC \\) and \\( BD \\) of a circle intersect at \\( O \\). If \\( OA = 6 \\) cm and \\( OD = 4 \\) cm, find \\( a(\\triangle AOB) : a(\\triangle DOC) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\triangle AOB \\sim \\triangle DOC \\) because angles subtended by the same arc are equal and vertically opposite angles are equal.<br><br>Step 2<br><br>The ratio of their areas is the square of the ratio of corresponding sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle AOB)}{a(\\triangle DOC)} = \\left(\\frac{OA}{OD}\\right)^2 = \\left(\\frac{6}{4}\\right)^2 = \\frac{36}{16} = \\frac{9}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 9 : 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( \\angle A = 90^\\circ \\) and \\( AD \\perp BC \\). If \\( BD = 5 \\) cm and \\( DC = 20 \\) cm, find \\( a(\\triangle ABD) : a(\\triangle CAD) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\triangle ABD \\) and \\( \\triangle CAD \\) share the same altitude \\( AD \\) relative to bases \\( BD \\) and \\( DC \\).<br><br>Step 2<br><br>The ratio of their areas equals the ratio of their bases:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle ABD)}{a(\\triangle CAD)} = \\frac{BD}{DC} = \\frac{5}{20} = \\frac{1}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1 : 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( DE \\parallel BC \\). Given \\( AD : DB = 2 : 3 \\) and \\( a(\\triangle ADE) = 16 \\) cm\\(^2\\), find \\( a(\\triangle ABC) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the ratio of \\( AD \\) to the whole side \\( AB \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{AD}{AB} = \\frac{2}{2 + 3} = \\frac{2}{5} \\)</div><br><br>Step 2<br><br>Use the area ratio theorem for similar triangles \\( \\triangle ADE \\sim \\triangle ABC \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle ADE)}{a(\\triangle ABC)} = \\left(\\frac{2}{5}\\right)^2 = \\frac{4}{25} \\)</div><br><br>Step 3<br><br>Solve for \\( a(\\triangle ABC) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a(\\triangle ABC) = 16 \\times \\frac{25}{4} = 100 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 100 \\text{ cm}^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\sim \\triangle DEF \\). Given \\( a(\\triangle ABC) = 72 \\) cm\\(^2\\), \\( a(\\triangle DEF) = 50 \\) cm\\(^2\\), and the altitude of \\( \\triangle DEF \\) is \\( 10 \\) cm, find the corresponding altitude of \\( \\triangle ABC \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Simplify the ratio of the areas:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle ABC)}{a(\\triangle DEF)} = \\frac{72}{50} = \\frac{36}{25} \\)</div><br><br>Step 2<br><br>The ratio of corresponding altitudes is the square root of the area ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{h_1}{h_2} = \\sqrt{\\frac{36}{25}} = \\frac{6}{5} \\)</div><br><br>Step 3<br><br>Substitute \\( h_2 = 10 \\) and solve for \\( h_1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( h_1 = 10 \\times \\frac{6}{5} = 12 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12 \\text{ cm} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle PQR \\), \\( XY \\parallel QR \\). Given \\( PX = 3 \\) cm, \\( XR = 2 \\) cm, and \\( a(\\text{quadrilateral } XYRQ) = 40 \\) cm\\(^2\\), find \\( a(\\triangle PQR) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the ratio of \\( PX \\) to \\( PR \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{PX}{PR} = \\frac{3}{3 + 2} = \\frac{3}{5} \\)</div><br><br>Step 2<br><br>The ratio of areas of \\( \\triangle PXY \\) and \\( \\triangle PQR \\) is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle PXY)}{a(\\triangle PQR)} = \\left(\\frac{3}{5}\\right)^2 = \\frac{9}{25} \\)</div><br><br>Step 3<br><br>Let \\( a(\\triangle PXY) = 9k \\) and \\( a(\\triangle PQR) = 25k \\). The quadrilateral area is \\( 25k - 9k = 16k = 40 \\), so \\( k = 2.5 \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a(\\triangle PQR) = 25 \\times 2.5 = 62.5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 62.5 \\text{ cm}^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\) is a right triangle with \\( \\angle B = 90^\\circ \\). Given \\( AB = 6 \\) cm and \\( BC = 8 \\) cm. Equilateral triangles are drawn on \\( AB \\) and \\( AC \\). Find the ratio of their areas.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use Pythagoras theorem to find \\( AC \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AC = \\sqrt{AB^2 + BC^2} = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = 10 \\text{ cm} \\)</div><br><br>Step 2<br><br>All equilateral triangles are similar. The ratio of their areas is the square of the ratio of their sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\left(\\frac{AB}{AC}\\right)^2 = \\left(\\frac{6}{10}\\right)^2 = \\frac{36}{100} = \\frac{9}{25} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 9 : 25 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two similar triangles have corresponding medians of \\( 9 \\) cm and \\( 15 \\) cm. If the area of the smaller triangle is \\( 54 \\) cm\\(^2\\), find the area of the larger triangle.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the ratio of the corresponding medians:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{9}{15} = \\frac{3}{5} \\)</div><br><br>Step 2<br><br>The ratio of their areas is the square of the ratio of their medians:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a_{\\text{small}}}{a_{\\text{large}}} = \\left(\\frac{3}{5}\\right)^2 = \\frac{9}{25} \\)</div><br><br>Step 3<br><br>Substitute \\( a_{\\text{small}} = 54 \\) and solve for \\( a_{\\text{large}} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a_{\\text{large}} = 54 \\times \\frac{25}{9} = 6 \\times 25 = 150 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 150 \\text{ cm}^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In \\( \\triangle ABC \\), \\( D \\) is on \\( AC \\) such that \\( AD = 3 CD \\). \\( E \\) is on \\( BC \\) such that \\( DE \\parallel AB \\). If \\( a(\\triangle CDE) = 10 \\) cm\\(^2\\), find \\( a(\\triangle ABC) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the ratio of \\( CD \\) to \\( CA \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{CD}{CA} = \\frac{CD}{3CD + CD} = \\frac{1}{4} \\)</div><br><br>Step 2<br><br>Since \\( DE \\parallel AB \\), \\( \\triangle CDE \\sim \\triangle CAB \\). The ratio of their areas is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle CDE)}{a(\\triangle ABC)} = \\left(\\frac{1}{4}\\right)^2 = \\frac{1}{16} \\)</div><br><br>Step 3<br><br>Solve for \\( a(\\triangle ABC) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a(\\triangle ABC) = 10 \\times 16 = 160 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 160 \\text{ cm}^2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\sim \\triangle DEF \\). The ratio of their areas is \\( 49 : 100 \\). If the angle bisector of \\( \\triangle ABC \\) is \\( 7 \\) cm, find the corresponding angle bisector of \\( \\triangle DEF \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The ratio of corresponding angle bisectors is the square root of the area ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{b_1}{b_2} = \\sqrt{\\frac{49}{100}} = \\frac{7}{10} \\)</div><br><br>Step 2<br><br>Substitute \\( b_1 = 7 \\) and solve for \\( b_2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{7}{b_2} = \\frac{7}{10} \\implies b_2 = 10 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10 \\text{ cm} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In a circle, chords \\( AB \\) and \\( CD \\) intersect at \\( P \\). Given \\( AP = 8 \\) cm, \\( PB = 2 \\) cm, and \\( CP = 4 \\) cm, find \\( a(\\triangle APC) : a(\\triangle DPB) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the intersecting chords theorem to find \\( DP \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AP \\cdot PB = CP \\cdot DP \\implies 8 \\cdot 2 = 4 \\cdot DP \\implies DP = 4 \\text{ cm} \\)</div><br><br>Step 2<br><br>\\( \\triangle APC \\sim \\triangle DPB \\). The ratio of their areas is the square of the ratio of corresponding sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle APC)}{a(\\triangle DPB)} = \\left(\\frac{AP}{DP}\\right)^2 = \\left(\\frac{8}{4}\\right)^2 = \\frac{64}{16} = \\frac{4}{1} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 : 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "\\( \\triangle ABC \\) has \\( BC = 12 \\) cm. A line \\( DE \\parallel BC \\) cuts \\( AB \\) and \\( AC \\) such that \\( a(\\triangle ADE) = \\frac{1}{4} a(\\triangle ABC) \\). Find the length of \\( DE \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The ratio of the areas of the similar triangles \\( \\triangle ADE \\) and \\( \\triangle ABC \\) is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(\\triangle ADE)}{a(\\triangle ABC)} = \\frac{1}{4} \\)</div><br><br>Step 2<br><br>The ratio of their corresponding bases is the square root of the area ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{DE}{BC} = \\sqrt{\\frac{1}{4}} = \\frac{1}{2} \\)</div><br><br>Step 3<br><br>Substitute \\( BC = 12 \\) and solve for \\( DE \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( DE = 12 \\times \\frac{1}{2} = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 6 \\text{ cm} \\)"
+  }
+]
