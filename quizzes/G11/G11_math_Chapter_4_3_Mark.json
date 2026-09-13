@@ -1,0 +1,142 @@
+[
+  {
+    "type": "math_show",
+    "q": "Find the first four terms of the sequence defined by the general term \\( u_n = 3n^2 - 2n + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( n = 1 \\) into the general term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_1 = 3(1)^2 - 2(1) + 1 = 3 - 2 + 1 = 2 \\)</div><br><br>Step 2<br><br>Substitute \\( n = 2, 3, 4 \\) into the general term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = 3(2)^2 - 2(2) + 1 = 12 - 4 + 1 = 9 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = 3(3)^2 - 2(3) + 1 = 27 - 6 + 1 = 22 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_4 = 3(4)^2 - 2(4) + 1 = 48 - 8 + 1 = 41 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2, 9, 22, 41 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A sequence is defined recursively by \\( u_1 = 3 \\) and \\( u_n = 2u_{n-1} - 1 \\) for \\( n \\geq 2 \\). Find the first four terms of this sequence.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is given as:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_1 = 3 \\)</div><br><br>Step 2<br><br>Use the recursive formula to find the next terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = 2(3) - 1 = 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = 2(5) - 1 = 9 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_4 = 2(9) - 1 = 17 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3, 5, 9, 17 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 20th term of the arithmetic progression \\( 7, 12, 17, 22, \\dots \\)",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a \\) and the common difference \\( d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 7, \\quad d = 12 - 7 = 5 \\)</div><br><br>Step 2<br><br>Use the formula for the \\( n \\)th term of an A.P., \\( u_n = a + (n-1)d \\), with \\( n = 20 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_{20} = 7 + (20 - 1)5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_{20} = 7 + 19(5) = 7 + 95 = 102 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 102 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many terms are there in the arithmetic progression \\( 15, 21, 27, \\dots, 159 \\)?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a \\), common difference \\( d \\), and last term \\( l \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 15, \\quad d = 21 - 15 = 6, \\quad l = 159 \\)</div><br><br>Step 2<br><br>Use the formula \\( l = a + (n-1)d \\) to solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 159 = 15 + (n - 1)6 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 144 = 6(n - 1) \\implies n - 1 = 24 \\implies n = 25 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 25 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The 5th term of an arithmetic progression is 18 and the 12th term is 46. Find the first term and the common difference.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up the equations using \\( u_n = a + (n-1)d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a + 4d = 18 \\quad \\text{(1)} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a + 11d = 46 \\quad \\text{(2)} \\)</div><br><br>Step 2<br><br>Subtract equation (1) from equation (2):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 7d = 28 \\implies d = 4 \\)</div><br><br>Step 3<br><br>Substitute \\( d = 4 \\) into equation (1):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a + 4(4) = 18 \\implies a + 16 = 18 \\implies a = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>First term \\( a = 2 \\), common difference \\( d = 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert three arithmetic means between 10 and 30.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the sequence be \\( 10, u_2, u_3, u_4, 30 \\). Here, \\( a = 10 \\) and \\( u_5 = 30 \\).<br><br>Step 2<br><br>Use the formula \\( u_5 = a + 4d \\) to find the common difference \\( d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 10 + 4d = 30 \\implies 4d = 20 \\implies d = 5 \\)</div><br><br>Step 3<br><br>Calculate the three arithmetic means:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = 10 + 5 = 15 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = 15 + 5 = 20 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_4 = 20 + 5 = 25 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 15, 20, 25 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of the first 25 terms of the arithmetic progression \\( 4, 9, 14, 19, \\dots \\)",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a \\), common difference \\( d \\), and number of terms \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 4, \\quad d = 5, \\quad n = 25 \\)</div><br><br>Step 2<br><br>Use the sum formula \\( S_n = \\frac{n}{2} \\{2a + (n-1)d\\} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{25} = \\frac{25}{2} \\{2(4) + (25 - 1)5\\} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{25} = \\frac{25}{2} \\{8 + 120\\} = \\frac{25}{2}(128) = 25 \\times 64 = 1600 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1600 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of all positive integers less than 100 that are divisible by 7.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The sequence is \\( 7, 14, 21, \\dots, 98 \\). Identify \\( a = 7 \\), \\( d = 7 \\), and \\( l = 98 \\).<br><br>Step 2<br><br>Find the number of terms \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 98 = 7 + (n - 1)7 \\implies 91 = 7(n - 1) \\implies n - 1 = 13 \\implies n = 14 \\)</div><br><br>Step 3<br><br>Use the sum formula \\( S_n = \\frac{n}{2}(a + l) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{14} = \\frac{14}{2}(7 + 98) = 7(105) = 735 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 735 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The sum of the first \\( n \\) terms of a sequence is given by \\( S_n = 3n^2 + 2n \\). Find the 5th term of the sequence.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the relation \\( u_n = S_n - S_{n-1} \\) for \\( n = 5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = S_5 - S_4 \\)</div><br><br>Step 2<br><br>Calculate \\( S_5 \\) and \\( S_4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_5 = 3(5)^2 + 2(5) = 75 + 10 = 85 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_4 = 3(4)^2 + 2(4) = 48 + 8 = 56 \\)</div><br><br>Step 3<br><br>Subtract to find \\( u_5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = 85 - 56 = 29 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 29 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 8th term of the geometric progression \\( 3, -6, 12, -24, \\dots \\)",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a \\) and the common ratio \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 3, \\quad r = \\frac{-6}{3} = -2 \\)</div><br><br>Step 2<br><br>Use the formula for the \\( n \\)th term of a G.P., \\( u_n = ar^{n-1} \\), with \\( n = 8 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_8 = 3(-2)^{8-1} = 3(-2)^7 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_8 = 3(-128) = -384 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -384 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The second term of a geometric progression is 12 and the fifth term is 324. Find the first term and the common ratio, given that all terms are positive.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up the equations using \\( u_n = ar^{n-1} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ar = 12 \\quad \\text{(1)} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ar^4 = 324 \\quad \\text{(2)} \\)</div><br><br>Step 2<br><br>Divide equation (2) by equation (1):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{ar^4}{ar} = \\frac{324}{12} \\implies r^3 = 27 \\implies r = 3 \\)</div><br><br>Step 3<br><br>Substitute \\( r = 3 \\) into equation (1):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a(3) = 12 \\implies a = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>First term \\( a = 4 \\), common ratio \\( r = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two geometric means between 4 and 108.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the sequence be \\( 4, u_2, u_3, 108 \\). Here, \\( a = 4 \\) and \\( u_4 = 108 \\).<br><br>Step 2<br><br>Use the formula \\( u_4 = ar^3 \\) to find the common ratio \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4r^3 = 108 \\implies r^3 = 27 \\implies r = 3 \\)</div><br><br>Step 3<br><br>Calculate the two geometric means:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = 4(3) = 12 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = 12(3) = 36 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12, 36 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of the first 6 terms of the geometric progression \\( 2, 6, 18, 54, \\dots \\)",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a \\), common ratio \\( r \\), and number of terms \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 2, \\quad r = \\frac{6}{2} = 3, \\quad n = 6 \\)</div><br><br>Step 2<br><br>Use the sum formula \\( S_n = \\frac{a(r^n - 1)}{r - 1} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_6 = \\frac{2(3^6 - 1)}{3 - 1} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_6 = \\frac{2(729 - 1)}{2} = 728 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 728 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of the first 7 terms of the geometric progression \\( 16, -8, 4, -2, \\dots \\)",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a \\), common ratio \\( r \\), and number of terms \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 16, \\quad r = \\frac{-8}{16} = -\\frac{1}{2}, \\quad n = 7 \\)</div><br><br>Step 2<br><br>Use the sum formula \\( S_n = \\frac{a(1 - r^n)}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_7 = \\frac{16(1 - (-\\frac{1}{2})^7)}{1 - (-\\frac{1}{2})} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_7 = \\frac{16(1 + \\frac{1}{128})}{\\frac{3}{2}} = \\frac{16(\\frac{129}{128})}{\\frac{3}{2}} \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_7 = \\frac{129}{8} \\times \\frac{2}{3} = \\frac{129}{12} = \\frac{43}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{43}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum to infinity of the geometric series \\( 27 + 9 + 3 + 1 + \\dots \\)",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a \\) and the common ratio \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 27, \\quad r = \\frac{9}{27} = \\frac{1}{3} \\)</div><br><br>Step 2<br><br>Check the condition for sum to infinity: \\( |r| = \\frac{1}{3} < 1 \\), so the sum exists.<br><br>Step 3<br><br>Use the formula \\( S_\\infty = \\frac{a}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_\\infty = \\frac{27}{1 - \\frac{1}{3}} = \\frac{27}{\\frac{2}{3}} = 27 \\times \\frac{3}{2} = \\frac{81}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{81}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The sum to infinity of a geometric series is 40, and its first term is 10. Find the common ratio.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the sum to infinity formula \\( S_\\infty = \\frac{a}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 40 = \\frac{10}{1 - r} \\)</div><br><br>Step 2<br><br>Solve for \\( 1 - r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 - r = \\frac{10}{40} = \\frac{1}{4} \\)</div><br><br>Step 3<br><br>Solve for \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = 1 - \\frac{1}{4} = \\frac{3}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A stack of logs has 25 logs in the bottom row, 23 in the next row, 21 in the next, and so on, until there is only 1 log in the top row. Find the total number of logs in the stack.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The number of logs forms an A.P. with \\( a = 25 \\), \\( d = -2 \\), and \\( l = 1 \\).<br><br>Step 2<br><br>Find the number of rows \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 = 25 + (n - 1)(-2) \\implies -24 = -2(n - 1) \\implies n - 1 = 12 \\implies n = 13 \\)</div><br><br>Step 3<br><br>Calculate the total sum using \\( S_n = \\frac{n}{2}(a + l) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{13} = \\frac{13}{2}(25 + 1) = \\frac{13}{2}(26) = 13 \\times 13 = 169 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 169 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of the first 5 terms of a geometric progression whose first term is 81 and common ratio is \\( \\frac{2}{3} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the parameters: \\( a = 81 \\), \\( r = \\frac{2}{3} \\), and \\( n = 5 \\).<br><br>Step 2<br><br>Use the sum formula \\( S_n = \\frac{a(1 - r^n)}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_5 = \\frac{81(1 - (\\frac{2}{3})^5)}{1 - \\frac{2}{3}} \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_5 = \\frac{81(1 - \\frac{32}{243})}{\\frac{1}{3}} = 243 \\left( \\frac{211}{243} \\right) = 211 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 211 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The four angles of a quadrilateral are in arithmetic progression. The largest angle is twice the smallest angle. Find the four angles.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the angles be \\( a, a+d, a+2d, a+3d \\). The sum of angles in a quadrilateral is \\( 360^\\circ \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4a + 6d = 360 \\implies 2a + 3d = 180 \\quad \\text{(1)} \\)</div><br><br>Step 2<br><br>The largest angle is twice the smallest:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a + 3d = 2a \\implies a = 3d \\quad \\text{(2)} \\)</div><br><br>Step 3<br><br>Substitute (2) into (1):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2(3d) + 3d = 180 \\implies 9d = 180 \\implies d = 20 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 3(20) = 60 \\)</div><br><br>The angles are \\( 60^\\circ, 80^\\circ, 100^\\circ, 120^\\circ \\).<br><br><strong>Final Answer:</strong><br><br>\\( 60^\\circ, 80^\\circ, 100^\\circ, 120^\\circ \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The sum of the first \\( n \\) terms of an arithmetic progression is given by \\( S_n = 2n^2 + 3n \\). Find the common difference and the 10th term.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the first term \\( a = u_1 = S_1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_1 = 2(1)^2 + 3(1) = 5 \\implies a = 5 \\)</div><br><br>Step 2<br><br>Find the second term \\( u_2 = S_2 - S_1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_2 = 2(2)^2 + 3(2) = 8 + 6 = 14 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = 14 - 5 = 9 \\)</div><br><br>Step 3<br><br>Calculate the common difference \\( d \\) and the 10th term \\( u_{10} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( d = u_2 - u_1 = 9 - 5 = 4 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_{10} = a + 9d = 5 + 9(4) = 5 + 36 = 41 \\)</div><br><br><strong>Final Answer:</strong><br><br>Common difference \\( d = 4 \\), 10th term \\( u_{10} = 41 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The sum of the first three terms of a geometric progression is 21, and the product of the first three terms is 216. Find the first term and the common ratio, given \\( r > 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the three terms be \\( \\frac{a}{r}, a, ar \\). Their product is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a}{r} \\times a \\times ar = a^3 = 216 \\implies a = 6 \\)</div><br><br>Step 2<br><br>Their sum is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{6}{r} + 6 + 6r = 21 \\implies \\frac{6}{r} + 6r = 15 \\)</div><br><br>Multiply by \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6r^2 - 15r + 6 = 0 \\implies 2r^2 - 5r + 2 = 0 \\)</div><br><br>Step 3<br><br>Factor the quadratic equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2r - 1)(r - 2) = 0 \\implies r = \\frac{1}{2} \\text{ or } r = 2 \\)</div><br><br>Since \\( r > 1 \\), \\( r = 2 \\). The first term is \\( \\frac{a}{r} = \\frac{6}{2} = 3 \\).<br><br><strong>Final Answer:</strong><br><br>First term \\( = 3 \\), common ratio \\( r = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Express the recurring decimal \\( 0.\\overline{45} \\) as a fraction in simplest form using the sum to infinity of a geometric series.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the decimal as an infinite geometric series:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 0.454545\\dots = \\frac{45}{100} + \\frac{45}{10000} + \\dots \\)</div><br><br>Step 2<br><br>Identify the first term \\( a \\) and common ratio \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = \\frac{45}{100}, \\quad r = \\frac{1}{100} \\)</div><br><br>Step 3<br><br>Use the sum to infinity formula \\( S_\\infty = \\frac{a}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_\\infty = \\frac{\\frac{45}{100}}{1 - \\frac{1}{100}} = \\frac{\\frac{45}{100}}{\\frac{99}{100}} = \\frac{45}{99} = \\frac{5}{11} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{11} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Three numbers form an arithmetic progression. Their sum is 15. If 1, 3, and 9 are added to the first, second, and third numbers respectively, the resulting numbers form a geometric progression. Find the original three numbers, given the common difference is positive.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the A.P. terms be \\( a-d, a, a+d \\). Their sum is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (a-d) + a + (a+d) = 15 \\implies 3a = 15 \\implies a = 5 \\)</div><br><br>Step 2<br><br>The new terms are \\( (5-d)+1, 5+3, (5+d)+9 \\), which simplifies to \\( 6-d, 8, 14+d \\).<br><br>Since they form a G.P., \\( 8^2 = (6-d)(14+d) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 64 = 84 - 8d - d^2 \\implies d^2 + 8d - 20 = 0 \\)</div><br><br>Step 3<br><br>Factor the quadratic:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (d+10)(d-2) = 0 \\implies d = -10 \\text{ or } d = 2 \\)</div><br><br>Since \\( d > 0 \\), \\( d = 2 \\). The original numbers are \\( 5-2, 5, 5+2 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 3, 5, 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In an arithmetic progression, the sum of the 4th and 8th terms is 24, and the sum of the 6th and 10th terms is 44. Find the first term and the common difference.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up the equations using \\( u_n = a + (n-1)d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (a+3d) + (a+7d) = 24 \\implies 2a + 10d = 24 \\implies a + 5d = 12 \\quad \\text{(1)} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (a+5d) + (a+9d) = 44 \\implies 2a + 14d = 44 \\implies a + 7d = 22 \\quad \\text{(2)} \\)</div><br><br>Step 2<br><br>Subtract equation (1) from equation (2):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (a + 7d) - (a + 5d) = 22 - 12 \\implies 2d = 10 \\implies d = 5 \\)</div><br><br>Step 3<br><br>Substitute \\( d = 5 \\) into equation (1):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a + 5(5) = 12 \\implies a + 25 = 12 \\implies a = -13 \\)</div><br><br><strong>Final Answer:</strong><br><br>First term \\( a = -13 \\), common difference \\( d = 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The sum of the first 3 terms of a geometric progression is 13, and the sum of the first 6 terms is 364. Find the common ratio and the first term.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the sum formulas:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_3 = \\frac{a(r^3 - 1)}{r - 1} = 13 \\quad \\text{(1)} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_6 = \\frac{a(r^6 - 1)}{r - 1} = 364 \\quad \\text{(2)} \\)</div><br><br>Step 2<br><br>Divide equation (2) by equation (1):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{S_6}{S_3} = \\frac{r^6 - 1}{r^3 - 1} = r^3 + 1 = \\frac{364}{13} = 28 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r^3 = 27 \\implies r = 3 \\)</div><br><br>Step 3<br><br>Substitute \\( r = 3 \\) into equation (1):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a(3^3 - 1)}{3 - 1} = 13 \\implies \\frac{a(26)}{2} = 13 \\implies 13a = 13 \\implies a = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>First term \\( a = 1 \\), common ratio \\( r = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A sequence is defined by the recursive formula \\( u_1 = 2 \\) and \\( u_n = u_{n-1} + 2n - 1 \\) for \\( n \\geq 2 \\). Find the first four terms and deduce the general formula for \\( u_n \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the first four terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_1 = 2 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = 2 + 2(2) - 1 = 5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = 5 + 2(3) - 1 = 10 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_4 = 10 + 2(4) - 1 = 17 \\)</div><br><br>Step 2<br><br>Observe the pattern of the terms \\( 2, 5, 10, 17 \\). The differences are \\( 3, 5, 7 \\), which suggests a quadratic sequence.<br><br>Step 3<br><br>Test the formula \\( u_n = n^2 + 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1^2 + 1 = 2, \\quad 2^2 + 1 = 5, \\quad 3^2 + 1 = 10, \\quad 4^2 + 1 = 17 \\)</div><br><br>The formula holds true.<br><br><strong>Final Answer:</strong><br><br>First four terms: \\( 2, 5, 10, 17 \\); General formula: \\( u_n = n^2 + 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A geometric series has a first term of \\( x \\) and a second term of \\( x - 2 \\). Find the range of values of \\( x \\) for which the sum to infinity of this series exists.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a = x \\) and the common ratio \\( r = \\frac{x-2}{x} \\).<br><br>Step 2<br><br>The condition for the sum to infinity to exist is \\( |r| < 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -1 < \\frac{x-2}{x} < 1 \\)</div><br><br>Step 3<br><br>Solve the inequalities. For \\( x > 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -x < x - 2 < x \\)</div><br><br>Left part: \\( -x < x - 2 \\implies 2 < 2x \\implies x > 1 \\).<br><br>Right part: \\( x - 2 < x \\implies -2 < 0 \\) (always true).<br><br>For \\( x < 0 \\), the inequality \\( x - 2 > x \\implies -2 > 0 \\) is false. Thus, the valid range is \\( x > 1 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x > 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "An arithmetic progression has 20 terms. The sum of the odd-numbered terms is 200, and the sum of the even-numbered terms is 250. Find the first term and the common difference.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The odd-numbered terms \\( u_1, u_3, \\dots, u_{19} \\) form an A.P. with 10 terms. Their sum is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{\\text{odd}} = \\frac{10}{2}(u_1 + u_{19}) = 5(2a + 18d) = 10a + 90d = 200 \\implies a + 9d = 20 \\quad \\text{(1)} \\)</div><br><br>Step 2<br><br>The even-numbered terms \\( u_2, u_4, \\dots, u_{20} \\) form an A.P. with 10 terms. Their sum is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{\\text{even}} = \\frac{10}{2}(u_2 + u_{20}) = 5(2a + 20d) = 10a + 100d = 250 \\implies a + 10d = 25 \\quad \\text{(2)} \\)</div><br><br>Step 3<br><br>Subtract equation (1) from equation (2):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (a + 10d) - (a + 9d) = 25 - 20 \\implies d = 5 \\)</div><br><br>Substitute \\( d = 5 \\) into equation (1):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a + 9(5) = 20 \\implies a + 45 = 20 \\implies a = -25 \\)</div><br><br><strong>Final Answer:</strong><br><br>First term \\( a = -25 \\), common difference \\( d = 5 \\)"
+  }
+]
