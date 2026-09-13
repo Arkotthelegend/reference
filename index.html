@@ -156,12 +156,13 @@ html {
     body { 
         background-color: var(--bg); 
         color: var(--white); 
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+        font-family: 'Noto Sans Myanmar', 'Padauk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
         margin: 0; padding: 0; height: var(--tg-viewport-stable-height, 100vh); display: flex; flex-direction: column; overflow: hidden;
         overscroll-behavior: none;
         padding-top: var(--tg-safe-top, 0px);
         padding-bottom: var(--tg-safe-bottom, 0px);
     }
+    button, input, textarea, select { font-family: inherit; }
     html { overscroll-behavior: none; }
 
     h2, h3, h4, span, div, button, .nav-item {
@@ -211,7 +212,7 @@ body.page-no-nav .container {
     
     .screen { display: none; }
     .active-screen { display: block; }
-    h2, h3, h4 { letter-spacing: 0.5px; }
+    h2, h3, h4 { letter-spacing: 0; }
 
     /* --- 2. Subject Cards --- */
     .subject-card { 
@@ -675,6 +676,90 @@ input:checked + .slider:before {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+}
+#glossary-screen { padding-bottom: 8px; }
+#glossary-screen .mini-head h2,
+#glossary-title {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    line-height: 1.4 !important;
+    color: var(--accent);
+}
+.gloss-list {
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid #334155;
+    border-radius: 14px;
+    overflow: hidden;
+}
+.gloss-item + .gloss-item { border-top: 1px solid #334155; }
+.gloss-term {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: none;
+    border: none;
+    color: var(--white);
+    padding: 14px 16px;
+    text-align: left;
+    cursor: pointer;
+}
+.gloss-num {
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #334155;
+    border-radius: 50%;
+    color: #94A3B8;
+    font-size: 0.72rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gloss-word {
+    flex: 1;
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.45;
+    white-space: nowrap;
+    word-break: keep-all;
+}
+.gloss-chevron {
+    width: 7px;
+    height: 7px;
+    border-right: 1.6px solid #64748B;
+    border-bottom: 1.6px solid #64748B;
+    transform: rotate(45deg);
+    margin-top: -3px;
+}
+.gloss-item.open .gloss-chevron {
+    transform: rotate(-135deg);
+    margin-top: 3px;
+}
+.gloss-def {
+    padding: 6px 28px 20px 28px;
+    color: #CBD5E1;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    font-weight: 400;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+#quiz-screen.quiz-practice #markcount,
+#quiz-screen.quiz-practice #timer-area,
+#quiz-screen.quiz-practice #rank-match-badge {
+    display: none !important;
+}
+#quiz-screen.quiz-test #timer-start-btn,
+#quiz-screen.quiz-test #timer-reset-btn {
+    display: none !important;
 }
         /* ၂။ Daily Study Tracker ကို ၂ ကော်လံ ခွဲခြင်း */
         #checklist-container {
@@ -2494,6 +2579,7 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
     #cust-screen.active-screen,
     #poem-screen.active-screen,
     #flashcard-screen.active-screen,
+    #glossary-screen.active-screen,
     #activity-screen.active-screen,
     #daily-screen.active-screen {
         display: flex;
@@ -2502,6 +2588,7 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
     }
     body.page-no-nav #poem-screen.active-screen,
     body.page-no-nav #flashcard-screen.active-screen,
+    body.page-no-nav #glossary-screen.active-screen,
     body.page-no-nav #activity-screen.active-screen,
     body.page-no-nav #daily-screen.active-screen {
         min-height: calc(var(--tg-viewport-stable-height, 100vh) - var(--tg-safe-top, 0px) - 28px);
@@ -2713,7 +2800,8 @@ body.volunteer-role .vol-chip { display: inline-block; }
 body.volunteer-role .vol-report-link { display: block !important; }
 #quiz-screen .vol-report-link,
 #math-solution-screen .vol-report-link,
-#flashcard-screen .vol-report-link {
+#flashcard-screen .vol-report-link,
+#glossary-screen .vol-report-link {
     flex-shrink: 0;
 }
 
@@ -2916,22 +3004,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     <b id="bought-subjects-heading" style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
                     <button id="profile-buy-btn" class="btn buy-btn" onclick="copyTelegram()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
-					<div id="quiz-mode-box" style="background: var(--card); padding: 18px; border-radius: 15px; text-align: center; margin-top: 15px; border: 2px solid var(--accent);">
-    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
-        <span style="font-size: 1.2rem;">⚙️</span>
-        <b style="color: var(--accent); font-size: 1.1rem;">မေးခွန်းဖြေဆိုမှု ပုံစံ</b>
-    </div>
-    <p style="color: #94A3B8; font-size: 0.85rem; margin-top: 0; margin-bottom: 15px; line-height: 1.5;">ကျပန်းနှင့် Timer ဖွင့်မှ အဆင့်ဝင်သည်။</p>
-    
-    <div class="quiz-mode-toggle-inner">
-    <span class="toggle-label">အစဉ်လိုက်</span>
-    <label class="switch">
-        <input type="checkbox" id="random-switch" onchange="updateRandomizeSetting()">
-        <span class="slider"></span>
-    </label>
-    <span class="toggle-label">ကျပန်း</span>
-</div>
-					 </div>
 					<button type="button" class="btn news-outline-btn" onclick="openNewsFromProfile()" style="margin-top: 12px;">📰 News</button>
 					 </div>
 					 
@@ -3045,6 +3117,15 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <h2 id="activity-title" style="text-align: center; color: var(--accent);"></h2>
             <div id="activity-content"></div>
             <button class="btn back-btn" id="activity-back-btn">နောက်သို့</button>
+        </div>
+
+        <div id="glossary-screen" class="screen">
+            <div class="mini-head">
+                <button type="button" class="mini-back" id="glossary-back-btn" aria-label="နောက်သို့">←</button>
+                <h2 id="glossary-title">ခက်ဆစ်</h2>
+            </div>
+            <div id="glossary-list" class="gloss-list"></div>
+            <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">Report a mistake</button>
         </div>
 
         <div id="flashcard-screen" class="screen">
@@ -4047,6 +4128,8 @@ function setQuizKeysHint(text) {
         window.PAID_USERS_GAS_URL = PAID_USERS_GAS_URL;
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
+        let quizPlayMode = 'practice';
+        function isTestPlay() { return quizPlayMode === 'test'; }
         let pendingStatsTab = 'leaderboard';
         let leaderboardCache = { at: 0, rows: null };
         let lastRankSnapshot = null;
@@ -4138,14 +4221,12 @@ function isRankableQuizFile(fileName) {
     return true;
 }
 function isRankMatchActive() {
-    const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
-    return isRandom && isTimerRunning && isRankableQuizFile(currentQuizFile);
+    return isTestPlay() && isTimerRunning && isRankableQuizFile(currentQuizFile);
 }
 function updateRankMatchBadge() {
     const badge = document.getElementById('rank-match-badge');
     if (!badge) return;
-    const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
-    if (!isRankableQuizFile(currentQuizFile) || !isRandom) {
+    if (!isRankableQuizFile(currentQuizFile) || !isTestPlay()) {
         badge.style.display = 'none';
         return;
     }
@@ -4305,9 +4386,8 @@ async function submitScore(timeTaken = 0) {
         return;
     }
     
-    const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
-    if (!isRandom) {
-        console.log("Stats not saved: Random mode is OFF");
+    if (!isTestPlay()) {
+        console.log("Stats not saved: Practice mode");
         resetTimer();
         return;
     }
@@ -5481,11 +5561,8 @@ function showOldENUnits(typeName) {
 
     for (let i = 1; i <= 12; i++) {
         createOldBtn(`Unit ${i}`, list, () => {
-            initQuiz(`old_en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`);
-            document.getElementById('quiz-back-btn').onclick = () => {
-                showScreen('old-menu');
-                showOldENUnits(typeName);
-            };
+            const fileName = `old_en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`;
+            chooseThenQuiz(`Unit ${i}`, fileName, () => showOldENUnits(typeName), true);
         });
     }
 }
@@ -5518,17 +5595,10 @@ function showOldMMQuizOptions(typeName) {
                 showOldMMChapters(typeName, cat);
             } else if (cat === 'ရေသည်') {
                 const fileName = `old_mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-                initQuiz(fileName);
-                document.getElementById('quiz-back-btn').onclick = () => {
-                    showScreen('old-menu');
-                    showOldMMQuizOptions(typeName);
-                };
+                chooseThenQuiz(cat, fileName, () => showOldMMQuizOptions(typeName), true);
             } else {
-                initQuiz(`old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_"));
-                document.getElementById('quiz-back-btn').onclick = () => {
-                    showScreen('old-menu');
-                    showOldMMQuizOptions(typeName);
-                };
+                const fileName = `old_mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+                chooseThenQuiz(cat, fileName, () => showOldMMQuizOptions(typeName), true);
             }
         });
     });
@@ -5543,20 +5613,24 @@ function showOldMMChapters(typeName, cat) {
     ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
         createOldBtn(chapter, list, () => {
             const fileName = `old_mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-            initQuiz(fileName);
-            document.getElementById('quiz-back-btn').onclick = () => {
-                showScreen('old-menu');
-                showOldMMChapters(typeName, cat);
-            };
+            chooseThenQuiz(chapter, fileName, () => showOldMMChapters(typeName, cat), true);
         });
     });
 }
 
-function showOldGeneralActivities(subId, partName) {
+function showOldGeneralActivities(subId, partName, modePicked) {
+    if (!modePicked) {
+        showPlayModePicker(partName, () => showOldMenu(currentSubject), function () {
+            showOldGeneralActivities(subId, partName, true);
+        }, true);
+        return;
+    }
     const list = document.getElementById('old-menu-content');
+    list.classList.remove('play-pick');
     list.innerHTML = '';
-    setOldMenuTitle(partName);
-    document.getElementById('old-menu-back-btn').onclick = () => showOldMenu(currentSubject);
+    const modeLabel = isTestPlay() ? 'Test' : 'Practice';
+    setOldMenuTitle(`${partName} · ${modeLabel}`);
+    document.getElementById('old-menu-back-btn').onclick = () => showOldGeneralActivities(subId, partName);
 
     if (subId === 'math') {
         let marksArray = ['1_Mark', '2_Marks', '3_Marks'];
@@ -5566,11 +5640,7 @@ function showOldGeneralActivities(subId, partName) {
         marksArray.forEach(mark => {
             createOldBtn(mark.replace('_', ' '), list, () => {
                 const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
-                initQuiz(fileName);
-                document.getElementById('quiz-back-btn').onclick = () => {
-                    showScreen('old-menu');
-                    showOldGeneralActivities(subId, partName);
-                };
+                startQuizFile(fileName, () => showOldGeneralActivities(subId, partName, true));
             });
         });
     } else {
@@ -5578,11 +5648,7 @@ function showOldGeneralActivities(subId, partName) {
         types.forEach(type => {
             createOldBtn(type.replace('_', ' '), list, () => {
                 const fileName = `old_${subId}_${partName}_${type}`.replace(/ /g, "_");
-                initQuiz(fileName);
-                document.getElementById('quiz-back-btn').onclick = () => {
-                    showScreen('old-menu');
-                    showOldGeneralActivities(subId, partName);
-                };
+                startQuizFile(fileName, () => showOldGeneralActivities(subId, partName, true));
             });
         });
     }
@@ -5630,9 +5696,13 @@ function reportQuestionMistake() {
     const subName = (currentSubject && currentSubject.name) || '';
     const quizOn = document.getElementById('quiz-screen') && document.getElementById('quiz-screen').classList.contains('active-screen');
     const flashOn = document.getElementById('flashcard-screen') && document.getElementById('flashcard-screen').classList.contains('active-screen');
+    const glossOn = document.getElementById('glossary-screen') && document.getElementById('glossary-screen').classList.contains('active-screen');
     let qIndex = 1;
     let file = currentQuizFile || '';
-    if (flashOn) {
+    if (glossOn) {
+        qIndex = (typeof flashIdx === 'number' ? flashIdx : 0) + 1;
+        file = file || currentFlashMark || 'ခက်ဆစ်';
+    } else if (flashOn) {
         qIndex = (typeof flashIdx === 'number' ? flashIdx : 0) + 1;
         file = file || currentFlashMark || 'flashcard';
     } else if (quizOn || (document.getElementById('math-solution-screen') && document.getElementById('math-solution-screen').classList.contains('active-screen'))) {
@@ -5749,17 +5819,73 @@ function openSubjectMenu(sub) {
 
 
         
+function clearPlayPick(el) {
+    if (el) el.classList.remove('play-pick');
+}
+
+function fillPlayModeList(container, onChosen) {
+    if (!container) return;
+    container.innerHTML = '';
+    createBtn('Practice', container, function () {
+        quizPlayMode = 'practice';
+        onChosen('practice');
+    });
+    createBtn('Test', container, function () {
+        quizPlayMode = 'test';
+        onChosen('test');
+    });
+}
+
+function showPlayModePicker(title, onBack, onChosen, oldMenu) {
+    if (oldMenu) {
+        showScreen('old-menu');
+        setOldMenuTitle(title);
+        const list = document.getElementById('old-menu-content');
+        document.getElementById('old-menu-back-btn').onclick = function () {
+            onBack();
+        };
+        fillPlayModeList(list, function (mode) {
+            onChosen(mode);
+        });
+        return;
+    }
+    showScreen('activity');
+    document.getElementById('activity-title').innerText = title;
+    const content = document.getElementById('activity-content');
+    document.getElementById('activity-back-btn').onclick = function () {
+        onBack();
+    };
+    fillPlayModeList(content, function (mode) {
+        onChosen(mode);
+    });
+}
+
+function startQuizFile(fileName, onBack) {
+    initQuiz(fileName);
+    const back = document.getElementById('quiz-back-btn');
+    if (back) back.onclick = onBack;
+}
+
+function chooseThenQuiz(title, fileName, onBackToList, oldMenu) {
+    showPlayModePicker(title, onBackToList, function () {
+        startQuizFile(fileName, function () {
+            chooseThenQuiz(title, fileName, onBackToList, oldMenu);
+        });
+    }, oldMenu);
+}
+
         function showENUnits(typeName) {
             showScreen('activity');
             document.getElementById('activity-title').innerText = typeName;
             const content = document.getElementById('activity-content');
+            content.classList.remove('play-pick');
             content.innerHTML = '';
             document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
             const unitCount = (currentSubject && currentSubject.units) || getGradeCfg().enUnits || 12;
             for (let i = 1; i <= unitCount; i++) {
                 createBtn(`Unit ${i}`, content, () => {
-                    initQuiz(`en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`);
-                    document.getElementById('quiz-back-btn').onclick = () => showENUnits(typeName);
+                    const fileName = `en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`;
+                    chooseThenQuiz(`Unit ${i}`, fileName, () => showENUnits(typeName));
                 });
             }
         }
@@ -6470,6 +6596,7 @@ function showMMQuizOptions(typeName) {
     showScreen('activity');
     document.getElementById('activity-title').innerText = typeName;
     const content = document.getElementById('activity-content');
+    content.classList.remove('play-pick');
     content.innerHTML = '';
     
     // Back button နှိပ်ပါက Subject Menu သို့ ပြန်သွားရန်
@@ -6485,8 +6612,7 @@ function showMMQuizOptions(typeName) {
                 showSubMenu(typeName, cat, poetryTitles);
             }         else if (cat === 'ရေသည်') {
             const fileName = `mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-            initQuiz(fileName);  // ✅ initFlashcards ကို initQuiz အစားထိုး
-            document.getElementById('quiz-back-btn').onclick = () => { showScreen('activity'); showMMQuizOptions(typeName); };
+            chooseThenQuiz(cat, fileName, () => { showScreen('activity'); showMMQuizOptions(typeName); });
         } else {
                 // အပြော နှင့် အရေး အတွက် မူလအတိုင်း ဆက်သွားရန်
                 { showMMChapters(typeName, cat) };
@@ -6509,25 +6635,19 @@ function showMMChapters(typeName, cat) {
     const allBtn = document.createElement('button');
     allBtn.className = 'btn';
     allBtn.innerText = `${cat}အကုန်လေ့ကျင့်မည်`;
-    allBtn.style.background = '#00FF80';
-    allBtn.style.color = '#000000';
-    allBtn.style.border = 'none';
-    allBtn.style.boxShadow = '0 4px 15px rgba(0, 213, 255, 0.3)';
-    allBtn.style.marginBottom = '5px';
-    allBtn.style.fontWeight = 'bold';
     allBtn.style.gridColumn = '1 / -1';
+    allBtn.style.marginBottom = '4px';
+    allBtn.style.fontWeight = '700';
     allBtn.onclick = () => {
         const fileName = `mm_${cat}_all_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-        initQuiz(fileName);
-        document.getElementById('quiz-back-btn').onclick = () => showMMChapters(typeName, cat);
+        chooseThenQuiz(`${cat} အကုန်`, fileName, () => showMMChapters(typeName, cat));
     };
     content.appendChild(allBtn);
 
     (getGradeCfg().mmChapters || ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃']).forEach(chapter => {
         createBtn(chapter, content, () => {
             const fileName = `mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-            initQuiz(fileName);
-            document.getElementById('quiz-back-btn').onclick = () => showMMChapters(typeName, cat);
+            chooseThenQuiz(chapter, fileName, () => showMMChapters(typeName, cat));
         });
     });
 }
@@ -6546,31 +6666,25 @@ function showSubMenu(typeName, cat, titles) {
     const allBtn = document.createElement('button');
     allBtn.className = 'btn';
     allBtn.innerText = `${cat}အကုန်လေ့ကျင့်မည်`;
-    allBtn.style.background = '#00FF80';
-    allBtn.style.color = '#000000';
-    allBtn.style.border = 'none';
-    allBtn.style.boxShadow = '0 4px 15px rgba(0, 213, 255, 0.3)';
-    allBtn.style.marginBottom = '5px';
-    allBtn.style.fontWeight = 'bold';
     allBtn.style.gridColumn = '1 / -1';
+    allBtn.style.marginBottom = '4px';
+    allBtn.style.fontWeight = '700';
     allBtn.onclick = () => {
         const fileName = `mm_${cat}_all_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-        initQuiz(fileName);
-        document.getElementById('quiz-back-btn').onclick = () => {
+        chooseThenQuiz(`${cat} အကုန်`, fileName, () => {
             showScreen('activity');
             showSubMenu(typeName, cat, titles);
-        };
+        });
     };
     content.appendChild(allBtn);
     
     titles.forEach(title => {
         createBtn(title, content, () => {
             const fileName = `mm_${cat}_${title}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-            initQuiz(fileName);
-            document.getElementById('quiz-back-btn').onclick = () => {
+            chooseThenQuiz(title, fileName, () => {
                 showScreen('activity');
                 showSubMenu(typeName, cat, titles);
-            };
+            });
         });
     });
 }
@@ -6578,6 +6692,7 @@ function showSubMenu(typeName, cat, titles) {
     showScreen('activity');
     document.getElementById('activity-title').innerText = typeName;
     const content = document.getElementById('activity-content');
+    content.classList.remove('play-pick');
     content.innerHTML = '';
     document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
 
@@ -6594,7 +6709,7 @@ function showSubMenu(typeName, cat, titles) {
         // ကျန်တဲ့ စကားပြေ၊ ကဗျာ၊ ရေသည် များအတွက် မူလအတိုင်း
         createBtn("စကားပြေ", content, () => showMMSubTopics(typeName, "စကားပြေ"));
         createBtn("ကဗျာ", content, () => showMMSubTopics(typeName, "ကဗျာ"));
-        createBtn("ရေသည်", content, () => initFlashcards("mm_ရေသည်_ခက်ဆစ်", "Flashcard", () => {
+        createBtn("ရေသည်", content, () => initFlashcards("mm_ရေသည်_ခက်ဆစ်", "ခက်ဆစ်", () => {
             showScreen('activity');
             showMMFlashcardOptions(typeName);
         }));
@@ -6617,7 +6732,7 @@ function showSubMenu(typeName, cat, titles) {
             topics.forEach(t => {
                 createBtn(t, content, () => {
                     const fName = `${currentSubject.id}_${category}_${typeName}_${t}`.replace(/ /g, "_");
-                    initFlashcards(fName, "Flashcard", () => {
+                    initFlashcards(fName, "ခက်ဆစ်", () => {
                         showScreen('activity');
                         showMMSubTopics(typeName, category);
                     });
@@ -6630,7 +6745,6 @@ function showSubChaptersMenu(subId, chapterName) {
     showScreen('activity');
     document.getElementById('activity-title').innerText = chapterName;
     const content = document.getElementById('activity-content');
-    content.innerHTML = '';
     
     document.getElementById('activity-back-btn').onclick = () => {
         if (isTrialFlow) {
@@ -6642,33 +6756,35 @@ function showSubChaptersMenu(subId, chapterName) {
         }
     };
 
-    // 1) Quiz types
+    fillPlayModeList(content, function () {
+        showChapterQuizTypes(subId, chapterName);
+    });
+
+    if (subId === 'phy' || subId === 'eco') {
+        createBtn("Definition", content, () => loadDefinitions(subId, chapterName));
+    }
+    if (subId === 'phy') {
+        createBtn("Formula", content, () => loadFormulas(subId, chapterName));
+    }
+    if (subId === 'chem') {
+        createBtn("Key terms", content, () => loadKeyTerms(subId, chapterName));
+    }
+}
+
+function showChapterQuizTypes(subId, chapterName) {
+    showScreen('activity');
+    const modeLabel = isTestPlay() ? 'Test' : 'Practice';
+    document.getElementById('activity-title').innerText = `${chapterName} · ${modeLabel}`;
+    const content = document.getElementById('activity-content');
+    content.classList.remove('play-pick');
+    content.innerHTML = '';
+    document.getElementById('activity-back-btn').onclick = () => showSubChaptersMenu(subId, chapterName);
+
     ['True_False', 'Fill_Blank', 'MCQ'].forEach(type => {
         createBtn(type.replace('_', ' '), content, () => {
             showQuizSubChapters(subId, chapterName, type);
         });
     });
-
-    // 2) Definition (Physics & Economy only)
-    if (subId === 'phy' || subId === 'eco') {
-        createBtn("Definition", content, () => {
-            loadDefinitions(subId, chapterName);
-        });
-    }
-
-    // 3) Formula (Physics all chapters, Economy only ch 1,2,3,7)
-    if (subId === 'phy') {
-        createBtn("Formula", content, () => {
-            loadFormulas(subId, chapterName);
-        });
-    }
-
-    // 4) Key terms (Chemistry only)
-    if (subId === 'chem') {
-        createBtn("Key terms", content, () => {
-            loadKeyTerms(subId, chapterName);
-        });
-    }
 }
 
 		function isFormulaChapter(chapterName) {
@@ -6686,18 +6802,11 @@ function showQuizSubChapters(subId, chapterName, quizType) {
 
     const fullBtn = document.createElement('button');
     fullBtn.className = 'btn';
-    fullBtn.innerText = "တစ်ခန်းလုံးလေ့ကျင့်ရန်";
-    fullBtn.style.gridColumn = "1 / -1"; 
-    fullBtn.style.background = "#00FF80"; 
-    fullBtn.style.color = "#000000"; 
-    fullBtn.style.border = "none";
-    fullBtn.style.boxShadow = "0 4px 15px rgba(0, 213, 255, 0.3)";
-    fullBtn.style.marginBottom = "5px"; 
-    fullBtn.style.fontWeight = "bold";
+    fullBtn.innerText = "တစ်ခန်းလုံး";
+    fullBtn.style.gridColumn = "1 / -1";
     fullBtn.onclick = () => {
         const fileName = `${subId}_${chapterName}_${quizType}`.replace(/ /g, "_");
-        initQuiz(fileName);
-        document.getElementById('quiz-back-btn').onclick = () => showQuizSubChapters(subId, chapterName, quizType);
+        startQuizFile(fileName, () => showQuizSubChapters(subId, chapterName, quizType));
     };
     content.appendChild(fullBtn);
 
@@ -6706,8 +6815,7 @@ function showQuizSubChapters(subId, chapterName, quizType) {
         createBtn(subChap, content, () => {
             const activityPartName = `${chapterName}_${subChap}`;
             const fileName = `${subId}_${activityPartName}_${quizType}`.replace(/ /g, "_");
-            initQuiz(fileName);
-            document.getElementById('quiz-back-btn').onclick = () => showQuizSubChapters(subId, chapterName, quizType);
+            startQuizFile(fileName, () => showQuizSubChapters(subId, chapterName, quizType));
         });
     });
 }
@@ -6862,9 +6970,8 @@ async function loadFormulas(subId, chapterName) {
 
     ['True_False', 'Fill_Blank', 'MCQ'].forEach(type => {
         createBtn(type.replace('_', ' '), content, () => {
-            initQuiz(`${subId}_${partName}_${type}`.replace(/ /g, "_"));
-            // Quiz ကနေ ပြန်ထွက်လျှင် လက်ရှိ menu သို့ ပြန်လာရန်
-            document.getElementById('quiz-back-btn').onclick = () => showPhyChemActivities(subId, partName, parentChapter);
+            const fileName = `${subId}_${partName}_${type}`.replace(/ /g, "_");
+            chooseThenQuiz(type.replace('_', ' '), fileName, () => showPhyChemActivities(subId, partName, parentChapter));
         });
     });
 }
@@ -6923,8 +7030,7 @@ function showMyanmarTrialChapters(typeName) {
     ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
         createBtn(chapter, content, () => {
             const fileName = `mm_အပြော_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-            initQuiz(fileName);
-            document.getElementById('quiz-back-btn').onclick = () => showMyanmarTrialChapters(typeName);
+            chooseThenQuiz(chapter, fileName, () => showMyanmarTrialChapters(typeName));
         });
     });
 }
@@ -6932,6 +7038,9 @@ function showMyanmarTrialChapters(typeName) {
   let currentFlashMark = ""; // ခေါင်းစဉ်မှတ်ရန် variable အသစ်
 
 async function initFlashcards(fileName, markTitle = "Flashcard", onBack = null) {
+    if (String(fileName || '').includes('ခက်ဆစ်')) {
+        return initGlossary(fileName, markTitle === 'Flashcard' ? 'ခက်ဆစ်' : markTitle, onBack);
+    }
     currentFlashMark = markTitle; // လက်ရှိနှိပ်လိုက်တဲ့ Mark နာမည်ကို သိမ်းမယ်
     fileName = withGradePrefix(fileName);
     currentQuizFile = fileName;
@@ -7039,29 +7148,42 @@ function updateFlashUI() {
             if (flashIdx > 0) { flashIdx--; updateFlashUI(); }
         }
 
-       function showGeneralActivities(subId, partName, parentChapter = null) {
+       function showGeneralActivities(subId, partName, parentChapter = null, modePicked = false) {
+    let displayTitle = partName.includes('_') ? partName.split('_')[1] : partName;
+    const backFromChapter = () => {
+        if (parentChapter) {
+            showSubChaptersMenu(subId, parentChapter);
+        } else if (isTrialFlow) {
+            openTrialMenu();
+        } else if (checkAccess(subId)) {
+            openSubjectMenu(currentSubject);
+        } else {
+            openTrialMenu();
+        }
+    };
+    if (subId === 'math' && !modePicked) {
+        showPlayModePicker(displayTitle, backFromChapter, function () {
+            showGeneralActivities(subId, partName, parentChapter, true);
+        });
+        return;
+    }
     showScreen('activity');
     
     // အခန်းခွဲ ဖြစ်နေလျှင် ဖြတ်ထုတ်ပြသရန်
-    let displayTitle = partName.includes('_') ? partName.split('_')[1] : partName;
-    document.getElementById('activity-title').innerText = displayTitle;
+    document.getElementById('activity-title').innerText = subId === 'math'
+        ? `${displayTitle} · ${isTestPlay() ? 'Test' : 'Practice'}`
+        : displayTitle;
     
     const content = document.getElementById('activity-content');
+    content.classList.remove('play-pick');
     content.innerHTML = '';
 
-    // နောက်သို့နှိပ်လျှင် သက်ဆိုင်ရာ နေရာများသို့ ပြန်သွားရန်
     document.getElementById('activity-back-btn').onclick = () => {
-        if (parentChapter) {
-            showSubChaptersMenu(subId, parentChapter);
-        } else {
-            if (isTrialFlow) {
-                openTrialMenu();
-            } else if (checkAccess(subId)) {
-                openSubjectMenu(currentSubject);
-            } else {
-                openTrialMenu();
-            }
+        if (subId === 'math' && modePicked) {
+            showGeneralActivities(subId, partName, parentChapter, false);
+            return;
         }
+        backFromChapter();
     };
 
     if(subId === 'math') {
@@ -7073,8 +7195,7 @@ function updateFlashUI() {
         mathMarks.forEach(mark => {
             createBtn(mark.replace('_', ' '), content, () => {
                 const fileName = `math_${partName}_${mark}`.replace(/ /g, "_");
-                initQuiz(fileName);
-                document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName, parentChapter);
+                startQuizFile(fileName, () => showGeneralActivities(subId, partName, parentChapter, true));
             });
         });
     } else {
@@ -7094,6 +7215,61 @@ function updateFlashUI() {
         });
     }
 }
+function startTestTimer() {
+    if (isTimerRunning) return;
+    isTimerRunning = true;
+    const display = document.getElementById('timer-display');
+    if (display) display.style.display = 'inline';
+    quizTimerInterval = setInterval(() => {
+        quizSeconds++;
+        const m = Math.floor(quizSeconds / 60).toString().padStart(2, '0');
+        const s = (quizSeconds % 60).toString().padStart(2, '0');
+        if (display) display.innerText = `${m}:${s}`;
+    }, 1000);
+    updateRankMatchBadge();
+}
+
+function applyQuizPlayChrome() {
+    const quizScreen = document.getElementById('quiz-screen');
+    const mark = document.getElementById('markcount');
+    const scoreDisplay = document.getElementById('score-display');
+    const timerArea = document.getElementById('timer-area');
+    const startBtn = document.getElementById('timer-start-btn');
+    const resetBtn = document.getElementById('timer-reset-btn');
+    const display = document.getElementById('timer-display');
+    const hideTimerForMath = !!(currentQuizFile && (currentQuizFile.includes('2_Marks') || currentQuizFile.includes('3_Marks')));
+    const testOn = isTestPlay() && !hideTimerForMath;
+
+    if (quizScreen) {
+        quizScreen.classList.toggle('quiz-practice', !testOn);
+        quizScreen.classList.toggle('quiz-test', testOn);
+    }
+    if (scoreDisplay) scoreDisplay.innerText = `ရမှတ်: ${score}`;
+    if (!testOn) {
+        if (mark) mark.style.display = 'none';
+        if (timerArea) timerArea.style.display = 'none';
+        if (isTimerRunning) {
+            clearInterval(quizTimerInterval);
+            isTimerRunning = false;
+        }
+        quizSeconds = 0;
+        if (display) {
+            display.innerText = '00:00';
+            display.style.display = 'none';
+        }
+        updateRankMatchBadge();
+        return;
+    }
+    if (mark) mark.style.display = '';
+    if (scoreDisplay) scoreDisplay.style.display = 'inline-block';
+    if (timerArea) timerArea.style.display = 'flex';
+    if (startBtn) startBtn.style.display = 'none';
+    if (resetBtn) resetBtn.style.display = 'none';
+    if (display) display.style.display = 'inline';
+    if (!isTimerRunning) startTestTimer();
+    updateRankMatchBadge();
+}
+
        async function initQuiz(fileName) {
     fileName = withGradePrefix(fileName);
     currentQuizFile = fileName;
@@ -7108,15 +7284,21 @@ function updateFlashUI() {
             return;
         }
         
-        const isRandom = localStorage.getItem('randomQuizSetting') !== 'false';
-        if (isRandom) {
+        if (isTestPlay()) {
             currentQuestions = shuffleArray(data); 
         } else {
             currentQuestions = [...data];
         }
         
-        currentIdx = 0; 
-        showScreen('quiz'); 
+        currentIdx = 0;
+        score = 0;
+        quizSeconds = 0;
+        if (isTimerRunning) {
+            clearInterval(quizTimerInterval);
+            isTimerRunning = false;
+        }
+        showScreen('quiz');
+        applyQuizPlayChrome();
         loadQuestion();
     } catch (e) { 
         tg.showAlert("မေးခွန်းဖိုင်မတွေ့သေးပါ- " + fileName); 
@@ -7222,16 +7404,19 @@ function loadQuestion() {
     if (isMathExpand) nextBtn.innerText = 'နောက်သို့ →';
 
     const scoreDisplay = document.getElementById('score-display');
-    if (isMath2Or3Mark) {
+    if (isMath2Or3Mark || !isTestPlay()) {
         scoreDisplay.style.display = 'none';
     } else {
         scoreDisplay.style.display = 'inline-block';
     }
 
            const timerArea = document.getElementById('timer-area');
-        if (isMath2Or3Mark) {
+        if (isMath2Or3Mark || !isTestPlay()) {
             timerArea.style.display = 'none';
-            if (isTimerRunning) resetTimer();
+            if (isMath2Or3Mark && isTimerRunning) {
+                clearInterval(quizTimerInterval);
+                isTimerRunning = false;
+            }
         } else {
             timerArea.style.display = 'flex';
         }
@@ -7312,9 +7497,11 @@ function loadQuestion() {
         } else {
             let originalCorrectAnswer = String(q.a[q.c]).trim();
             opts = [...q.a];
-            for (let i = opts.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [opts[i], opts[j]] = [opts[j], opts[i]];
+            if (isTestPlay()) {
+                for (let i = opts.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [opts[i], opts[j]] = [opts[j], opts[i]];
+                }
             }
             correctIdx = opts.map(opt => String(opt).trim()).indexOf(originalCorrectAnswer);
             if (correctIdx === -1) {
@@ -7344,7 +7531,7 @@ function loadQuestion() {
 
                 if (isCorrect) {
                     options[i].classList.add('correct-answer');
-                    if (typeof score !== 'undefined') {
+                    if (typeof score !== 'undefined' && isTestPlay()) {
                         score++;
                         document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
                     }
@@ -7397,7 +7584,7 @@ function loadQuestion() {
             if(isCorrect) {
                 input.style.borderColor = '#10B981';
                 input.style.background = 'rgba(16, 185, 129, 0.1)';
-                if (typeof score !== 'undefined') {
+                if (typeof score !== 'undefined' && isTestPlay()) {
                     score++;
                     document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
                 }
@@ -8091,11 +8278,6 @@ window.onload = () => {
     
     document.body.setAttribute('data-theme', savedTheme);
     
-    const savedRandomSetting = localStorage.getItem('randomQuizSetting') !== 'false';
-    const randomSwitch = document.getElementById('random-switch');
-    if (randomSwitch) {
-        randomSwitch.checked = savedRandomSetting;
-    }
     maybeBeginnerGuide();
 };
        
@@ -8195,6 +8377,7 @@ function getFileNamesForSubject(subId) {
 }
 async function startDailyQuiz(subId) {
 currentQuizFile = 'daily_' + subId;
+quizPlayMode = 'test';
     const backBtn = document.getElementById('quiz-back-btn');
     backBtn.innerText = "ခဏစောင့်ပါ...";
     backBtn.disabled = true;
@@ -8253,12 +8436,15 @@ currentQuizFile = 'daily_' + subId;
 
         currentQuestions = shuffled.slice(0, 3);
         currentIdx = 0;
+        score = 0;
+        quizSeconds = 0;
         
         backBtn.innerText = "ထွက်မည်";
         backBtn.disabled = false;
         backBtn.onclick = () => showScreen('daily');
 
         showScreen('quiz');
+        applyQuizPlayChrome();
         loadQuestion();
 
     } catch (error) {
@@ -8269,8 +8455,6 @@ currentQuizFile = 'daily_' + subId;
 }
 
 function updateRandomizeSetting() {
-    const isRandom = document.getElementById('random-switch').checked;
-    localStorage.setItem('randomQuizSetting', isRandom ? 'true' : 'false');
     updateRankMatchBadge();
 }
 
@@ -8278,8 +8462,81 @@ function updateRandomizeSetting() {
 let originalFlashCards = [];
 let isFlashcardShuffled = false;
 
+async function initGlossary(fileName, markTitle, onBack) {
+    currentFlashMark = markTitle || 'ခက်ဆစ်';
+    fileName = withGradePrefix(fileName);
+    currentQuizFile = fileName;
+    try {
+        const res = await fetch(quizUrl(fileName));
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        showScreen('glossary');
+        document.getElementById('glossary-title').textContent = currentFlashMark;
+        const list = document.getElementById('glossary-list');
+        list.innerHTML = '';
+        const backBtn = document.getElementById('glossary-back-btn');
+        if (backBtn) {
+            backBtn.onclick = function () {
+                if (typeof onBack === 'function') onBack();
+                else showScreen('activity');
+            };
+        }
+        (Array.isArray(data) ? data : []).forEach(function (item, i) {
+            const term = item.q || item.term || item.title || '';
+            const def = item.a || item.definition || item.content || '';
+            const row = document.createElement('div');
+            row.className = 'gloss-item';
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'gloss-term';
+            btn.setAttribute('aria-expanded', 'false');
+            const num = document.createElement('span');
+            num.className = 'gloss-num';
+            num.textContent = String(i + 1);
+            const word = document.createElement('span');
+            word.className = 'gloss-word';
+            word.textContent = term;
+            const chev = document.createElement('span');
+            chev.className = 'gloss-chevron';
+            chev.setAttribute('aria-hidden', 'true');
+            btn.appendChild(num);
+            btn.appendChild(word);
+            btn.appendChild(chev);
+            const defEl = document.createElement('div');
+            defEl.className = 'gloss-def';
+            defEl.hidden = true;
+            defEl.textContent = def;
+            btn.onclick = function () {
+                const open = row.classList.contains('open');
+                list.querySelectorAll('.gloss-item.open').forEach(function (el) {
+                    el.classList.remove('open');
+                    const t = el.querySelector('.gloss-term');
+                    const d = el.querySelector('.gloss-def');
+                    if (t) t.setAttribute('aria-expanded', 'false');
+                    if (d) d.hidden = true;
+                });
+                if (!open) {
+                    row.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                    defEl.hidden = false;
+                    flashIdx = i;
+                }
+            };
+            row.appendChild(btn);
+            row.appendChild(defEl);
+            list.appendChild(row);
+        });
+        flashIdx = 0;
+    } catch (e) {
+        tg.showAlert("ဖိုင်မတွေ့သေးပါ- " + fileName);
+    }
+}
+
 // မူလ initFlashcards function ကို အောက်ပါအတိုင်း အစားထိုးပါ
 async function initFlashcards(fileName, markTitle = "Flashcard", onBack = null) {
+    if (String(fileName || '').includes('ခက်ဆစ်')) {
+        return initGlossary(fileName, markTitle === 'Flashcard' ? 'ခက်ဆစ်' : markTitle, onBack);
+    }
     currentFlashMark = markTitle; 
     fileName = withGradePrefix(fileName);
     currentQuizFile = fileName;
