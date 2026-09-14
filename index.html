@@ -117,31 +117,35 @@ html {
     --tg-safe-bottom: 0px;
     --tg-viewport-stable-height: 100vh;
     --app-max: 600px;
-    --bg: #0B0F19;
-    --card-bg: #162235;
-    --white: #FFFFFF;
-    --text-muted: #64748B;
-    --lock: #1E293B;
-    --success: #10B981;
-    --error: #EF4444;
+    --bg: #0B0E11;
+    --card-bg: #1E2329;
+    --white: #EAECEF;
+    --text-muted: #848E9C;
+    --lock: #181A20;
+    --success: #0ECB81;
+    --error: #F6465D;
+    --bn-yellow: #F0B90B;
+    --bn-yellow-2: #FCD535;
+    --bn-line: #2B3139;
+    --bn-btn: #2B3139;
     
     /* 🆕 Nav Bar Variables (Default/Dark Theme) */
-    --nav-bg: #111827;
-    --nav-border: #1F2937;
-    --nav-icon-inactive: #64748B;  /* မရွေးရသေးတဲ့ icon အရောင် */
-    --nav-icon-active: #00D5FF;    /* ရွေးထားတဲ့ icon အရောင် */
+    --nav-bg: #181A20;
+    --nav-border: #2B3139;
+    --nav-icon-inactive: #848E9C;
+    --nav-icon-active: #F0B90B;
 	
-	 --switch-bg-off: #1E293B;
-    --switch-border-off: #334155;
-    --switch-bg-on: #00D5FF;
-    --switch-knob-off: #FFFFFF;
-    --switch-knob-on: #0B0F19;
+	 --switch-bg-off: #2B3139;
+    --switch-border-off: #474D57;
+    --switch-bg-on: #F0B90B;
+    --switch-knob-off: #EAECEF;
+    --switch-knob-on: #0B0E11;
     
     /* 📋 Study Tracker Variables */
-    --tracker-bg: #0B0F19;
-    --tracker-border: #334155;
-    --tracker-text: #CBD5E1;
-    --tracker-check-accent: #00D5FF;
+    --tracker-bg: #0B0E11;
+    --tracker-border: #2B3139;
+    --tracker-text: #EAECEF;
+    --tracker-check-accent: #F0B90B;
     
     /* ⚙️ Quiz Mode Toggle Box */
     --toggle-inner-bg: #0F172A;
@@ -217,7 +221,7 @@ body.page-no-nav .container {
     /* --- 2. Subject Cards --- */
     .subject-card { 
         background: var(--card-bg) !important; 
-        padding: 20px; border-radius: 16px; margin-bottom: 14px; 
+        padding: 20px; border-radius: 8px; margin-bottom: 14px; 
         font-size: 1.1rem; font-weight: 700; 
         display: flex; justify-content: space-between; align-items: center; 
         cursor: pointer; color: var(--white); transition: transform 0.1s ease; 
@@ -228,9 +232,9 @@ body.page-no-nav .container {
 
     /* Tab Colors */
     #subject-list .subject-card,
-    #old-subject-list .subject-card { border: 2px solid #00D5FF !important; color: var(--white) !important; }
+    #old-subject-list .subject-card { border: 1px solid var(--bn-line, #2B3139) !important; color: var(--white) !important; }
     #subject-list .subject-card span:last-child,
-    #old-subject-list .subject-card span:last-child { color: #00D5FF !important; }
+    #old-subject-list .subject-card span:last-child { color: var(--bn-yellow, #F0B90B) !important; }
     #daily-screen .subject-card { border: 2px solid #22C55E !important; }
     #daily-screen .subject-card span:last-child { color: #22C55E !important; }
 
@@ -241,13 +245,39 @@ body.page-no-nav .container {
         white-space: normal !important; word-wrap: break-word !important; overflow-wrap: break-word !important;
     }
     .btn { 
-        background: #00D5FF; color: #000000; border: none; padding: 15px; border-radius: 14px; 
+        background: var(--bn-btn, #2B3139); color: var(--white); border: 1px solid var(--bn-line, #2B3139); padding: 15px; border-radius: 8px; 
         font-weight: 700; margin: 8px 0; cursor: pointer; text-align: center; font-size: 1rem; 
-        transition: transform 0.1s ease;
+        transition: transform 0.1s ease, background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
     }
     .btn:active { transform: scale(0.97); }
-    .back-btn { background: #1E293B !important; border: 1px solid #334155 !important; color: var(--white) !important; margin-top: 25px !important; }
-    .btn.locked { background: #1E293B; border: 1px solid #334155; color: #475569; opacity: 0.5; cursor: not-allowed; }
+    .back-btn { background: #181A20 !important; border: 1px solid #2B3139 !important; color: #848E9C !important; margin-top: 25px !important; }
+    .btn.locked { background: #181A20; border: 1px solid #2B3139; color: #474D57; opacity: 0.5; cursor: not-allowed; }
+    .btn-practice, .btn-all-chapter {
+        background: #F0B90B !important;
+        color: #0B0E11 !important;
+        border: 1px solid #F0B90B !important;
+        font-weight: 800 !important;
+    }
+    .btn-test {
+        background: #2B3139 !important;
+        color: #FCD535 !important;
+        border: 1px solid #F0B90B !important;
+        font-weight: 800 !important;
+    }
+    .btn-all-chapter {
+        grid-column: 1 / -1 !important;
+        letter-spacing: 0.02em;
+        min-height: 52px;
+    }
+    #activity-content .btn.btn-practice,
+    #activity-content .btn.btn-test,
+    #old-menu-content .btn.btn-practice,
+    #old-menu-content .btn.btn-test,
+    #activity-content .btn.btn-all-chapter,
+    #old-menu-content .btn.btn-all-chapter {
+        font-size: 1.05rem !important;
+        min-height: 52px;
+    }
 
     /* Quiz Option Buttons */
     .option-btn { background: var(--card-bg) !important; border: 1px solid #334155; color: var(--white); font-weight: 600; border-radius: 12px; }
@@ -540,7 +570,7 @@ input:checked + .slider:before {
 
     /* Stats & Badges */
     .countdown-unit { display: flex; flex-direction: column; align-items: center; min-width: 55px; }
-    .countdown-value { font-size: 1.4rem; font-weight: 800; font-family: monospace; color: #00D5FF; }
+    .countdown-value { font-size: 1.4rem; font-weight: 800; font-family: monospace; color: #F0B90B; }
     .countdown-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin-top: 2px; }
     .premium-card { border: 2px solid #F59E0B !important; }
     .premium-card span:last-child { color: #F59E0B !important; }
@@ -548,7 +578,7 @@ input:checked + .slider:before {
 
     /* Timer & Score */
     .timer-wrapper { display: flex; align-items: center; justify-content: center; margin-top: 20px; gap: 10px; }
-    .timer-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 8px 16px; border-radius: 10px; font-size: 0.9rem; }
+    .timer-btn { background: #1E2329; color: #F0B90B; border: 1px solid #F0B90B; padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; }
     .timer-display { font-size: 1.1rem; color: var(--white); font-family: monospace; font-weight: 700; background: #000; padding: 6px 12px; border-radius: 8px; border: 1px solid #334155; display: none; }
 	
     .markcount { 
@@ -572,8 +602,8 @@ input:checked + .slider:before {
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
     
-    .shuffle-btn { background: #1E293B; color: #00D5FF; border: 1px solid #00D5FF; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; }
-    .shuffle-active { background: #00D5FF; color: #000; }
+    .shuffle-btn { background: #1E2329; color: #F0B90B; border: 1px solid #F0B90B; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; }
+    .shuffle-active { background: #F0B90B; color: #0B0E11; }
 
 	
 	/* --- 7. Floating Nav --- */
@@ -588,7 +618,7 @@ input:checked + .slider:before {
     display: flex; 
     justify-content: space-around; 
     align-items: center; 
-    border-radius: 20px; 
+    border-radius: 8px; 
     border: 1px solid var(--nav-border);  /* 🆕 Variable သုံးလိုက်တယ် */
     z-index: 100; 
 }
@@ -746,9 +776,9 @@ input:checked + .slider:before {
     font-size: 1rem !important;
 }
 #glossary-test-btn.on {
-    background: #0B3A4A !important;
-    color: #00D5FF !important;
-    border: 1px solid #00D5FF !important;
+    background: #F0B90B !important;
+    color: #0B0E11 !important;
+    border: 1px solid #F0B90B !important;
 }
 #glossary-list.gloss-list {
     flex: 1 1 auto;
@@ -1114,20 +1144,20 @@ body[data-theme] .container {
 }
 
 	   body[data-theme="default"] {
-    --t-bg: #0B0F19;
-    --t-card: #162235;
-    --t-text: #FFFFFF;
-    --t-muted: #94A3B8;
-    --t-accent: #00D5FF;
-    --t-success: #10B981;
-    --t-error: #EF4444;
+    --t-bg: #0B0E11;
+    --t-card: #1E2329;
+    --t-text: #EAECEF;
+    --t-muted: #848E9C;
+    --t-accent: #F0B90B;
+    --t-success: #0ECB81;
+    --t-error: #F6465D;
     
     /* Detail/Definition/Formula screen variables */
-    --detail-bg: #162235;
-    --detail-border: #00D5FF;
-    --detail-text: #fff;
-    --detail-secondary-text: #CBD5E1;
-    --detail-accent-text: #00D5FF;
+    --detail-bg: #1E2329;
+    --detail-border: #F0B90B;
+    --detail-text: #EAECEF;
+    --detail-secondary-text: #848E9C;
+    --detail-accent-text: #F0B90B;
 }
 	   /* Leaderboard Styles */
 .leaderboard-item {
@@ -1236,11 +1266,26 @@ body[data-theme] {
 }
 
 /* Theme-specific contrast colors for buttons on accent background */
-body[data-theme="default"] { --t-accent-contrast: #000000; }
+body[data-theme="default"] { --t-accent-contrast: #0B0E11; }
 body[data-theme="joker"] { --t-accent-contrast: #FFFFFF; }
 body[data-theme="heaven"] { --t-accent-contrast: #000000; }
 body[data-theme="itachi"] { --t-accent-contrast: #FFFFFF; }
 body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
+
+html body .btn.btn-practice,
+html body .btn.btn-all-chapter,
+html body[data-theme] .btn.btn-practice,
+html body[data-theme] .btn.btn-all-chapter {
+    background: #F0B90B !important;
+    color: #0B0E11 !important;
+    border: 1px solid #F0B90B !important;
+}
+html body .btn.btn-test,
+html body[data-theme] .btn.btn-test {
+    background: #2B3139 !important;
+    color: #FCD535 !important;
+    border: 1px solid #F0B90B !important;
+}
 
 /* ===== STATISTICS SCREEN FIXES ===== */
 .stats-tabs-row {
@@ -1690,13 +1735,13 @@ body[data-theme="infinity"] { --t-accent-contrast: #FFFFFF; }
 }
 .grade-btn {
     flex: 1;
-    border: 1px solid #00D5FF;
+    border: 1px solid #2B3139;
     padding: 12px 6px;
-    border-radius: 12px;
+    border-radius: 8px;
     font-weight: 700;
     font-size: 0.85rem;
     cursor: pointer;
-    background: #1E293B;
+    background: #1E2329;
     color: var(--white);
     opacity: 0.85;
 }
@@ -2863,8 +2908,8 @@ body.volunteer-role .vol-report-link { display: block !important; }
         <div id="home-screen" class="screen active-screen">
     <!-- Two Tabs -->
   <div id="home-tabs-row" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 0 5px;">
-    <button id="home-tab-current" class="btn" style="flex:1; background: var(--accent); color: #000;" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
-    <button id="home-tab-old" class="btn" style="flex:1; background: #1E293B; color: var(--white); opacity: 0.6;" onclick="switchHomeTab('old')">မေးခွန်းဟောင်းများ</button>
+    <button id="home-tab-current" class="btn" style="flex:1; background: #F0B90B; color: #0B0E11;" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
+    <button id="home-tab-old" class="btn" style="flex:1; background: #1E2329; color: var(--white); opacity: 0.6;" onclick="switchHomeTab('old')">မေးခွန်းဟောင်းများ</button>
 </div>
     
     <!-- Current Subjects Section -->
@@ -3150,7 +3195,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <button type="button" class="mini-back" id="glossary-back-btn" aria-label="နောက်သို့">←</button>
                 <h2 id="glossary-title">ခက်ဆစ်</h2>
             </div>
-            <button type="button" id="glossary-test-btn" class="btn">Test</button>
+            <button type="button" id="glossary-test-btn" class="btn btn-test">Test</button>
             <div id="glossary-list" class="gloss-list"></div>
             <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">Report a mistake</button>
         </div>
@@ -5874,20 +5919,24 @@ function openSubjectMenu(sub) {
 
         
 function clearPlayPick(el) {
-    if (el) el.classList.remove('play-pick');
+    if (el) {
+        el.classList.remove('play-pick');
+        el.classList.remove('play-modes');
+    }
 }
 
 function fillPlayModeList(container, onChosen) {
     if (!container) return;
     container.innerHTML = '';
+    container.classList.add('play-modes');
     createBtn('Practice', container, function () {
         quizPlayMode = 'practice';
         onChosen('practice');
-    });
+    }, 'btn-practice');
     createBtn('Test', container, function () {
         quizPlayMode = 'test';
         onChosen('test');
-    });
+    }, 'btn-test');
 }
 
 function showPlayModePicker(title, onBack, onChosen, oldMenu) {
@@ -6048,7 +6097,7 @@ function chooseThenQuiz(title, fileName, onBackToList, oldMenu) {
             content.innerHTML = '';
             document.getElementById('activity-back-btn').onclick = () => showENDialogues();
             createBtn('Review', content, () => showENDialogueDetail(data, index, 'review'));
-            createBtn('Practice', content, () => showENDialogueDetail(data, index, 'practice'));
+            createBtn('Practice', content, () => showENDialogueDetail(data, index, 'practice'), 'btn-practice');
         }
 
         function showENDialogueDetail(data, index, mode) {
@@ -6703,11 +6752,10 @@ function showMMChapters(typeName, cat) {
 
     // 🆕 GREEN "All" button (e.g. "အပြောအကုန်လေ့ကျင့်မည်")
     const allBtn = document.createElement('button');
-    allBtn.className = 'btn';
+    allBtn.className = 'btn btn-all-chapter';
     allBtn.innerText = `${cat}အကုန်လေ့ကျင့်မည်`;
     allBtn.style.gridColumn = '1 / -1';
     allBtn.style.marginBottom = '4px';
-    allBtn.style.fontWeight = '700';
     allBtn.onclick = () => {
         const fileName = `mm_${cat}_all_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
         chooseThenQuiz(`${cat} အကုန်`, fileName, () => showMMChapters(typeName, cat));
@@ -6734,11 +6782,10 @@ function showSubMenu(typeName, cat, titles) {
     
     // 🆕 GREEN "All" button (e.g. "စကားပြေအကုန်လေ့ကျင့်မည်")
     const allBtn = document.createElement('button');
-    allBtn.className = 'btn';
+    allBtn.className = 'btn btn-all-chapter';
     allBtn.innerText = `${cat}အကုန်လေ့ကျင့်မည်`;
     allBtn.style.gridColumn = '1 / -1';
     allBtn.style.marginBottom = '4px';
-    allBtn.style.fontWeight = '700';
     allBtn.onclick = () => {
         const fileName = `mm_${cat}_all_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
         chooseThenQuiz(`${cat} အကုန်`, fileName, () => {
@@ -6876,7 +6923,7 @@ function showQuizSubChapters(subId, chapterName, quizType) {
     document.getElementById('activity-back-btn').onclick = () => showChapterQuizTypes(subId, chapterName);
 
     const fullBtn = document.createElement('button');
-    fullBtn.className = 'btn';
+    fullBtn.className = 'btn btn-all-chapter';
     fullBtn.innerText = "တစ်ခန်းလုံး";
     fullBtn.style.gridColumn = "1 / -1";
     fullBtn.onclick = () => {
@@ -7765,8 +7812,12 @@ function nextQuestion() {
             if(save) localStorage.setItem('userGender', isFemale ? 'female' : 'male');
         }
 
-        function createBtn(txt, parent, act) {
-            const b = document.createElement('button'); b.className = 'btn'; b.innerText = txt; b.onclick = act; parent.appendChild(b);
+        function createBtn(txt, parent, act, extraClass) {
+            const b = document.createElement('button');
+            b.className = extraClass ? ('btn ' + extraClass) : 'btn';
+            b.innerText = txt;
+            b.onclick = act;
+            parent.appendChild(b);
         }
 
       function showScreen(id) {
@@ -8003,8 +8054,8 @@ function applyGradeUI() {
         currentBtn.style.cursor = cfg.showOldQuestions ? '' : 'default';
         if (!cfg.showOldQuestions) {
             currentBtn.style.opacity = '1';
-            currentBtn.style.background = 'var(--accent)';
-            currentBtn.style.color = '#000';
+            currentBtn.style.background = '#F0B90B';
+            currentBtn.style.color = '#0B0E11';
         }
     }
     if (oldBtn) oldBtn.style.display = cfg.showOldQuestions ? '' : 'none';
