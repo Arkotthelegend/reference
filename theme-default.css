@@ -4,46 +4,46 @@
    ============================================================ */
 
 body[data-theme="default"] {
-  /* Base Colors - Pure Black / OLED Dark tones */
-  --t-bg: #000000;          /* Pure Black Background */
-  --t-card: #0A0A0F;        /* Near-Black Card with subtle blue tint */
+  /* Base Colors — quiet Binance-like charcoal */
+  --t-bg: #0B0E11;
+  --t-card: #1E2329;
 
-  /* Muted Accents - No Neon */
-  --t-accent: #3B82F6;      /* Soft Ocean Blue */
-  --t-accent2: #6366F1;     /* Calm Indigo */
-  --t-success: #10B981;     /* Emerald Green */
-  --t-danger:  #E11D48;     /* Soft Rose/Red */
+  /* Gold accent, not neon cyan */
+  --t-accent: #F0B90B;
+  --t-accent2: #FCD535;
+  --t-success: #0ECB81;
+  --t-danger:  #F6465D;
 
   /* Text hierarchy (used by stats screen & leaderboard) */
-  --t-text: #F8FAFC;        /* Primary text (headings, names) */
-  --t-muted: #94A3B8;       /* Secondary text (meta, details) */
+  --t-text: #EAECEF;
+  --t-muted: #848E9C;
 
-  --t-border-home: #3B82F6;
-  --t-border-old: #00D5FF;
-  --t-border-daily: #10B981;
-  --t-border-subtle: #1A1A2E; /* Subtle border for clean UI */
+  --t-border-home: #2B3139;
+  --t-border-old: #F0B90B;
+  --t-border-daily: #0ECB81;
+  --t-border-subtle: #2B3139;
 
   /* Detail / Definition / Formula screens */
-  --detail-bg: #162235;
-  --detail-border: #00D5FF;
-  --detail-text: #fff;
-  --detail-secondary-text: #CBD5E1;
-  --detail-accent-text: #00D5FF;
+  --detail-bg: #1E2329;
+  --detail-border: #F0B90B;
+  --detail-text: #EAECEF;
+  --detail-secondary-text: #848E9C;
+  --detail-accent-text: #F0B90B;
 
   /* ===== STATISTICS & PROFILE BUTTON VARIABLES =====
      Change these per theme to customize the stats screen. */
-  --stats-tab-active-bg: var(--t-accent);
-  --stats-tab-active-text: #000000;          /* Black text on bright accent */
-  --stats-tab-inactive-bg: var(--t-card);
-  --stats-tab-inactive-text: var(--t-text);
+    --stats-tab-active-bg: #F0B90B;
+    --stats-tab-active-text: #0B0E11;
+    --stats-tab-inactive-bg: var(--t-card);
+    --stats-tab-inactive-text: var(--t-text);
 
-  --profile-stat-btn-bg: linear-gradient(135deg, #3B82F6, #06B6D4);
-  --profile-stat-btn-text: #FFFFFF;
-  --profile-stat-btn-shadow: rgba(59, 130, 246, 0.3);
+  --profile-stat-btn-bg: #2B3139;
+  --profile-stat-btn-text: #EAECEF;
+  --profile-stat-btn-shadow: transparent;
 
-  --profile-theme-btn-bg: linear-gradient(135deg, #8B5CF6, #EC4899);
-  --profile-theme-btn-text: #FFFFFF;
-  --profile-theme-btn-shadow: rgba(139, 92, 246, 0.3);
+  --profile-theme-btn-bg: #2B3139;
+  --profile-theme-btn-text: #EAECEF;
+  --profile-theme-btn-shadow: transparent;
 
     /* Score display (quiz screen top-left) */
   --score-bg: rgba(16, 185, 129, 0.15);
@@ -53,7 +53,7 @@ body[data-theme="default"] {
 
 /* Background gradient */
 body[data-theme="default"] {
-    background: linear-gradient(180deg, #000000 0%, #0A0A0F 100%);
+    background: #0B0E11;
     background-attachment: fixed;
 }
 
@@ -96,9 +96,21 @@ body[data-theme="default"] #daily-screen .subject-card span:last-child {
 
 /* Buttons */
 body[data-theme="default"] .btn { 
-    background: var(--t-accent) !important; 
-    color: #FFFFFF !important; 
-    border: none !important; 
+    background: #2B3139 !important; 
+    color: #EAECEF !important; 
+    border: 1px solid #2B3139 !important; 
+    border-radius: 8px !important;
+}
+body[data-theme="default"] .btn.btn-practice,
+body[data-theme="default"] .btn.btn-all-chapter {
+    background: #F0B90B !important;
+    color: #0B0E11 !important;
+    border: 1px solid #F0B90B !important;
+}
+body[data-theme="default"] .btn.btn-test {
+    background: #2B3139 !important;
+    color: #FCD535 !important;
+    border: 1px solid #F0B90B !important;
 }
 body[data-theme="default"] .back-btn { 
     background: var(--t-card) !important; 
