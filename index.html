@@ -5531,7 +5531,12 @@ function backToOldSubjects() {
     switchHomeTab('old');
 }
 
+function openOldMenu() {
+    showScreen('old-menu');
+}
+
 function showOldMenu(sub) {
+    openOldMenu();
     setOldMenuTitle(sub.name);
     const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
@@ -5558,6 +5563,7 @@ function showOldMenu(sub) {
 }
 
 function showOldENUnits(typeName) {
+    openOldMenu();
     const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
     setOldMenuTitle(typeName);
@@ -5572,6 +5578,7 @@ function showOldENUnits(typeName) {
 }
 
 function showOldENGrammarOptions() {
+    openOldMenu();
     const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
     setOldMenuTitle("Grammar");
@@ -5588,6 +5595,7 @@ function showOldENGrammarOptions() {
 }
 
 function showOldMMQuizOptions(typeName) {
+    openOldMenu();
     const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
     setOldMenuTitle(typeName);
@@ -5609,6 +5617,7 @@ function showOldMMQuizOptions(typeName) {
 }
 
 function showOldMMChapters(typeName, cat) {
+    openOldMenu();
     const list = document.getElementById('old-menu-content');
     list.innerHTML = '';
     setOldMenuTitle(`${cat} (${typeName})`);
@@ -5629,6 +5638,7 @@ function showOldGeneralActivities(subId, partName, modePicked) {
         }, true);
         return;
     }
+    openOldMenu();
     const list = document.getElementById('old-menu-content');
     list.classList.remove('play-pick');
     list.innerHTML = '';
@@ -5864,21 +5874,27 @@ function showPlayModePicker(title, onBack, onChosen, oldMenu) {
     });
 }
 
+function leaveCurrentQuiz(onBack) {
+    if (typeof onBack === 'function') onBack();
+    const quiz = document.getElementById('quiz-screen');
+    if (quiz && quiz.classList.contains('active-screen')) {
+        showScreen(isOldQuestionFlow ? 'old-menu' : 'activity');
+    }
+}
+
 function startQuizFile(fileName, onBack) {
     const back = document.getElementById('quiz-back-btn');
     if (back) {
         back.innerText = "ထွက်မည်";
         back.disabled = false;
-        back.onclick = onBack;
+        back.onclick = function () { leaveCurrentQuiz(onBack); };
     }
-    initQuiz(fileName);
+    return initQuiz(fileName);
 }
 
 function chooseThenQuiz(title, fileName, onBackToList, oldMenu) {
     showPlayModePicker(title, onBackToList, function () {
-        startQuizFile(fileName, function () {
-            chooseThenQuiz(title, fileName, onBackToList, oldMenu);
-        });
+        startQuizFile(fileName, onBackToList);
     }, oldMenu);
 }
 
