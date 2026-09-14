@@ -2,16 +2,16 @@
 (function (root) {
     var W = 1080;
     var H = 1080;
-    var BG = '#0B0F19';
-    var CARD = '#162235';
-    var CARD2 = '#1B2A41';
-    var CYAN = '#00D5FF';
+    var BG = '#0B0E11';
+    var CARD = '#1E2329';
+    var CARD2 = '#2B3139';
+    var CYAN = '#F0B90B';
     var WHITE = '#FFFFFF';
-    var MUTED = '#94A3B8';
-    var OK = '#22C55E';
+    var MUTED = '#848E9C';
+    var OK = '#0ECB81';
     var LETTERS = 'ABCD';
     var ACCENTS = {
-        phy: '#00D5FF',
+        phy: '#F0B90B',
         chem: '#F5A623',
         bio: '#3DDC97',
         eco: '#C084FC',
@@ -185,6 +185,9 @@
     }
 
     function quizPaths(grade, name) {
+        if (typeof root.quizUrlCandidatesForGrade === 'function') {
+            return root.quizUrlCandidatesForGrade(grade, name);
+        }
         var cfg = gradeCfg(grade);
         var prefix = cfg.filePrefix || '';
         var folder = cfg.quizFolder || '';

@@ -15,6 +15,11 @@ Same pattern for every subject:
   mm_အပြော_အမှန်ရွေး.json          →  quizzes/G11/G11_mm_အပြော_အမှန်ရွေး.json
   phy_Chapter_1_1.1_MCQ.json     →  quizzes/G11/G11_phy_Chapter_1_1.1_MCQ.json
 
+Grade 10 / 11 files often use slightly different spellings
+(chme, Blank, Def, eng_UnIt, unprefixed eco, 2_Mark). Buttons still
+use the Grade 12 names. quizUrlCandidates / fetchQuizJson try those
+aliases without renaming the JSON files.
+
 HOW TO CHANGE CHAPTERS
   1. Change the numbers in subjectsList({ math: ?, phy: ?, ... })
   2. Edit subChapters below. Example:
@@ -389,17 +394,163 @@ function isMmPlayQuizFile(fileName) {
         baseName.startsWith('old_mm_မဲဇာတောင်ခြေ_');
 }
 
-function quizUrl(fileName) {
+function quizUrlForGrade(grade, fileName) {
+    const cfg = getGradeCfgFor(grade);
     if (isSharedEnGrammarFile(fileName)) {
         const base = stripGradeFilePrefix(fileName).replace(/\.json$/i, '');
         return './quizzes/' + base + '.json';
     }
-    const prefixed = withGradePrefix(fileName);
-    const folder = getGradeCfg().quizFolder || '';
-    if (!folder || prefixed.startsWith('old_') || prefixed.startsWith('daily_')) {
-        return './quizzes/' + prefixed + '.json';
+    const raw = String(fileName || '').replace(/\.json$/i, '');
+    if (raw.startsWith('old_') || raw.startsWith('daily_')) {
+        return './quizzes/' + raw + '.json';
     }
+    const prefix = cfg.filePrefix || '';
+    const folder = cfg.quizFolder || '';
+    const base = stripGradeFilePrefix(raw);
+    if (base.startsWith('old_') || base.startsWith('daily_')) {
+        return './quizzes/' + raw + '.json';
+    }
+    const prefixed = prefix ? (prefix + base) : base;
+    if (!folder) return './quizzes/' + prefixed + '.json';
     return './quizzes/' + folder + '/' + prefixed + '.json';
+}
+
+function quizUrl(fileName) {
+    return quizUrlForGrade(getSelectedGrade(), fileName);
+}
+
+function quizAliasStems(base) {
+    const stems = [];
+    function add(s) {
+        if (s && stems.indexOf(s) === -1) stems.push(s);
+    }
+    const transforms = [
+        function (s) { return s.replace(/^chem_/, 'chme_'); },
+        function (s) { return s.replace(/^chem_/, 'Chme_'); },
+        function (s) { return s.replace(/^chem_/, 'C_chme_'); },
+        function (s) { return s.replace(/^chem_/, 'chne_'); },
+        function (s) { return s.replace(/_Fill_Blank/g, '_Blank'); },
+        function (s) { return s.replace(/_definition$/i, '_Def'); },
+        function (s) { return s.replace(/_definition$/i, '_Key_Terms'); },
+        function (s) { return s.replace(/_formula$/i, '_Formula'); },
+        function (s) { return s.replace(/_(\d)_Marks$/, '_$1_Mark'); },
+        function (s) { return s.replace(/_1_Mark$/, '_1-Mark'); },
+        function (s) { return s.replace(/_2_Mark$/, '_2_mark'); },
+        function (s) { return s.replace(/_Chapter_/, '_Chaapter_'); },
+        function (s) { return s.replace(/_Chapter_/, '_Chaptr_'); },
+        function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter$1_$2'); },
+        function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter_$1-$2'); },
+        function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter_$2'); },
+        function (s) {
+            const m = s.match(/^en_unit(\d+)_mcq$/i);
+            return m ? ('eng_Unit_' + m[1] + '_MCQ') : s;
+        },
+        function (s) {
+            const m = s.match(/^en_unit(\d+)_mcq$/i);
+            return m ? ('eng_UnIt_' + m[1] + '_MCQ') : s;
+        },
+        function (s) {
+            const m = s.match(/^en_unit(\d+)_initial_letter$/i);
+            return m ? ('eng_Unit_' + m[1] + '_Initial') : s;
+        }
+    ];
+    add(base);
+    for (let i = 0; i < stems.length && i < 80; i++) {
+        const cur = stems[i];
+        for (let t = 0; t < transforms.length; t++) add(transforms[t](cur));
+    }
+    return stems;
+}
+
+function quizUrlCandidatesForGrade(grade, fileName) {
+    const primary = quizUrlForGrade(grade, fileName);
+    const list = [primary];
+    function add(url) {
+        if (url && list.indexOf(url) === -1) list.push(url);
+    }
+    const cfg = getGradeCfgFor(grade);
+    const folder = cfg.quizFolder || '';
+    const raw = String(fileName || '').replace(/\.json$/i, '');
+    if (!folder || raw.startsWith('old_') || raw.startsWith('daily_') || isSharedEnGrammarFile(fileName)) {
+        return list;
+    }
+    const prefix = cfg.filePrefix || '';
+    const base = stripGradeFilePrefix(raw);
+    const dir = './quizzes/' + folder + '/';
+    const prefixes = [prefix];
+    if (prefix) {
+        prefixes.push(prefix.toLowerCase());
+        prefixes.push(prefix.replace('_', ''));
+    }
+    prefixes.push('');
+    quizAliasStems(base).forEach(function (stem) {
+        prefixes.forEach(function (p) {
+            add(dir + p + stem + '.json');
+            if (/definition|_Def|Key_Terms/i.test(stem)) add(dir + p + stem + '_.json');
+            if (/Initial/i.test(stem)) add(dir + p + stem + '.jason');
+        });
+    });
+    return list;
+}
+
+function quizUrlCandidates(fileName) {
+    return quizUrlCandidatesForGrade(getSelectedGrade(), fileName);
+}
+
+const _quizHitCache = {};
+
+function quizCacheKey(fileName) {
+    return String(getSelectedGrade()) + ':' + stripGradeFilePrefix(String(fileName || '').replace(/\.json$/i, ''));
+}
+
+function quizBust(url) {
+    return url + (url.indexOf('?') >= 0 ? '&' : '?') + 'cb=' + Date.now();
+}
+
+function fetchQuizResponse(fileName) {
+    const urls = quizUrlCandidates(fileName);
+    const key = quizCacheKey(fileName);
+    function tryOne(url) {
+        return fetch(quizBust(url)).then(function (res) {
+            return res.ok ? { url: url, res: res } : null;
+        }).catch(function () { return null; });
+    }
+    const cached = _quizHitCache[key];
+    const start = cached
+        ? tryOne(cached).then(function (hit) {
+            if (hit) return hit;
+            delete _quizHitCache[key];
+            return null;
+        })
+        : Promise.resolve(null);
+    return start.then(function (hit) {
+        if (hit) return hit;
+        return tryOne(urls[0]);
+    }).then(function (hit) {
+        if (hit) {
+            _quizHitCache[key] = hit.url;
+            return hit.res;
+        }
+        const rest = urls.slice(1);
+        function batch(i) {
+            if (i >= rest.length) return Promise.reject(new Error('missing'));
+            const chunk = rest.slice(i, i + 6);
+            return Promise.all(chunk.map(tryOne)).then(function (results) {
+                for (let n = 0; n < results.length; n++) {
+                    if (results[n]) {
+                        _quizHitCache[key] = results[n].url;
+                        return results[n].res;
+                    }
+                }
+                return batch(i + 6);
+            });
+        }
+        return batch(0);
+    });
+}
+
+function fetchQuizJson(fileName) {
+    return fetchQuizResponse(fileName).then(function (res) { return res.json(); });
 }
 
 refreshSubjectsFromGrade();
