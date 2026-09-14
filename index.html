@@ -3414,7 +3414,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     </div>
 </div>
 
-    <script src="./grades.js?v=9"></script>
+    <script src="./grades.js?v=10"></script>
     <script src="./timetable.js?v=28"></script>
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=12"></script>
@@ -6652,9 +6652,15 @@ Just an orange!`, 'Christina Rossetti')
     }));
 }
 
-        // စကားပြေနှင့် ကဗျာ ခေါင်းစဉ် (၈) မျိုးစီကို Array အဖြစ် ကြိုတင်သတ်မှတ်ထားခြင်း
-const proseTitles = ['ညောင်ရမ်းကြီးသမီး', 'သစ္စာနှင့်ပညာ', 'ခေတ်', 'မလုပ်မစား', 'စာဘူးတောင်း', 'ဦးဖေမောင်တင်', 'အဖြူနှင့်အနက်', 'စိတ်ဓာတ်ရင့်ကျက်တည်ငြိမ်ခြင်း'];
-const poetryTitles = ['ပေါ်နွေလလျှင်', 'ငါ့ကိုလွယ်အမယ်ကြီးနှင့်', 'ဩဝါဒထူးပျို့', 'ပေါင်းရှစ်ယောက်ကောက်စိုက်သူ', 'အညာမင်္ဂလာဆောင်', 'ကမ္ဗောဇသို့', 'လက်ဖက်ရည်ကြမ်းဝိုင်း', 'ပဒေသာလက်ရာ'];
+        // စကားပြေနှင့် ကဗျာ ခေါင်းစဉ်များကို အတန်းအလိုက် grades.js မှ ယူသည်
+function proseTitlesForGrade() {
+    const titles = (typeof mmProseTitles === 'function') ? mmProseTitles() : [];
+    return titles.length ? titles : ['ညောင်ရမ်းကြီးသမီး', 'သစ္စာနှင့်ပညာ', 'ခေတ်', 'မလုပ်မစား', 'စာဘူးတောင်း', 'ဦးဖေမောင်တင်', 'အဖြူနှင့်အနက်', 'စိတ်ဓာတ်ရင့်ကျက်တည်ငြိမ်ခြင်း'];
+}
+function poetryTitlesForGrade() {
+    const titles = (typeof mmPoetryTitles === 'function') ? mmPoetryTitles() : [];
+    return titles.length ? titles : ['ပေါ်နွေလလျှင်', 'ငါ့ကိုလွယ်အမယ်ကြီးနှင့်', 'ဩဝါဒထူးပျို့', 'ပေါင်းရှစ်ယောက်ကောက်စိုက်သူ', 'အညာမင်္ဂလာဆောင်', 'ကမ္ဗောဇသို့', 'လက်ဖက်ရည်ကြမ်းဝိုင်း', 'ပဒေသာလက်ရာ'];
+}
 
 function showMMQuizOptions(typeName) {
     showScreen('activity');
@@ -6669,11 +6675,11 @@ function showMMQuizOptions(typeName) {
     (getGradeCfg().mmCategories || ['အပြော', 'စကားပြေ' , 'ကဗျာ' , 'ရေသည်', 'အရေး']).forEach(cat => {
         createBtn(cat, content, () => {
             if (cat === 'စကားပြေ') {
-                // စကားပြေကို ရွေးချယ်ပါက စကားပြေ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
-                showSubMenu(typeName, cat, proseTitles);
+                // စကားပြေကို ရွေးချယ်ပါက အတန်းအလိုက် ခေါင်းစဉ်များ ထပ်ပြရန်
+                showSubMenu(typeName, cat, proseTitlesForGrade());
             } else if (cat === 'ကဗျာ') {
-                // ကဗျာကို ရွေးချယ်ပါက ကဗျာ ခေါင်းစဉ် ၈ မျိုး ထပ်ပြရန်
-                showSubMenu(typeName, cat, poetryTitles);
+                // ကဗျာကို ရွေးချယ်ပါက အတန်းအလိုက် ခေါင်းစဉ်များ ထပ်ပြရန်
+                showSubMenu(typeName, cat, poetryTitlesForGrade());
             }         else if (cat === 'ရေသည်') {
             const fileName = `mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
             chooseThenQuiz(cat, fileName, () => { showScreen('activity'); showMMQuizOptions(typeName); });
@@ -6773,10 +6779,12 @@ function showSubMenu(typeName, cat, titles) {
         // ကျန်တဲ့ စကားပြေ၊ ကဗျာ၊ ရေသည် များအတွက် မူလအတိုင်း
         createBtn("စကားပြေ", content, () => showMMSubTopics(typeName, "စကားပြေ"));
         createBtn("ကဗျာ", content, () => showMMSubTopics(typeName, "ကဗျာ"));
-        createBtn("ရေသည်", content, () => initFlashcards("mm_ရေသည်_ခက်ဆစ်", "ခက်ဆစ်", () => {
-            showScreen('activity');
-            showMMFlashcardOptions(typeName);
-        }));
+        if (typeof mmHasYeThae !== 'function' || mmHasYeThae()) {
+            createBtn("ရေသည်", content, () => initFlashcards("mm_ရေသည်_ခက်ဆစ်", "ခက်ဆစ်", () => {
+                showScreen('activity');
+                showMMFlashcardOptions(typeName);
+            }));
+        }
     }
 }
 
@@ -6788,14 +6796,16 @@ function showSubMenu(typeName, cat, titles) {
 
             let topics = [];
             if (category === "စကားပြေ") {
-                topics = ["ညောင်ရမ်းကြီးသမီး", "သစ္စာနှင့်ပညာ", "ခေတ်", "မလုပ်မစား", "စာဘူးတောင်း", "ဦးဖေမောင်တင်", "အဖြူနှင့်အနက်", "စိတ်ဓာတ်ရင့်ကျက်တည်ငြိမ်ခြင်း"];
+                topics = proseTitlesForGrade();
             } else if (category === "ကဗျာ") {
-                topics = ["ပေါ်နွေလလျှင်", "ငါ့ကိုလွယ်အမယ်ကြီးနှင့်", "ဩဝါဒထူးပျို့", "ပေါင်းရှစ်ယောက် ကောက်စိုက်သူ", "အညာမင်္ဂလာဆောင်", "ကမ္ဗောဇသို့", "လက်ဖက်ရည်ကြမ်းဝိုင်း", "ပဒေသာလက်ရာ"];
+                topics = poetryTitlesForGrade();
             }
 
             topics.forEach(t => {
                 createBtn(t, content, () => {
-                    const fName = `${currentSubject.id}_${category}_${typeName}_${t}`.replace(/ /g, "_");
+                    let fileTitle = String(t).replace(/ /g, "_");
+                    if (fileTitle === "ပေါင်းရှစ်ယောက်ကောက်စိုက်သူ") fileTitle = "ပေါင်းရှစ်ယောက်_ကောက်စိုက်သူ";
+                    const fName = `${currentSubject.id}_${category}_${typeName}_${fileTitle}`;
                     initFlashcards(fName, "ခက်ဆစ်", () => {
                         showScreen('activity');
                         showMMSubTopics(typeName, category);
