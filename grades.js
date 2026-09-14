@@ -66,6 +66,7 @@ const GRADE_CONFIG = {
         showOldQuestions: true,
         enUnits: 12,
         mmCategories: ['အပြော', 'စကားပြေ', 'ကဗျာ', 'ရေသည်', 'အရေး'],
+        mmPlayCategory: 'ရေသည်',
         mmProseTitles: ['ညောင်ရမ်းကြီးသမီး', 'သစ္စာနှင့်ပညာ', 'ခေတ်', 'မလုပ်မစား', 'စာဘူးတောင်း', 'ဦးဖေမောင်တင်', 'အဖြူနှင့်အနက်', 'စိတ်ဓာတ်ရင့်ကျက်တည်ငြိမ်ခြင်း'],
         mmPoetryTitles: ['ပေါ်နွေလလျှင်', 'ငါ့ကိုလွယ်အမယ်ကြီးနှင့်', 'ဩဝါဒထူးပျို့', 'ပေါင်းရှစ်ယောက်ကောက်စိုက်သူ', 'အညာမင်္ဂလာဆောင်', 'ကမ္ဗောဇသို့', 'လက်ဖက်ရည်ကြမ်းဝိုင်း', 'ပဒေသာလက်ရာ'],
         mmChapters: ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'],
@@ -130,7 +131,8 @@ const GRADE_CONFIG = {
         sheetPrefix: 'g11_',
         showOldQuestions: false,
         enUnits: 12,
-        mmCategories: ['အပြော', 'စကားပြေ', 'ကဗျာ', 'ရေသည်', 'အရေး'],
+        mmCategories: ['အပြော', 'စကားပြေ', 'ကဗျာ', 'မဲဇာတောင်ခြေ', 'အရေး'],
+        mmPlayCategory: 'မဲဇာတောင်ခြေ',
         mmProseTitles: ['သိင်္ဃသူ့သမီး', 'ပတ္တမြားပြဿနာဖြင့်စုံစမ်းခန်း', 'ဝဇီကိုင်', 'မျိုးချစ်ဇာတ်မင်းသားကြီးမင်္ဂလာဦးအောင်မောင်း', 'အလုပ်', 'ဆားဒယ်', 'လူလည်းတစ်ထွေရေလည်းတခြား', 'ကျွန်ုပ်တို့၏နိုင်ငံတော်'],
         mmPoetryTitles: ['ရွှေနှင့်ယိုးမှားပန်းစံကား', 'ဝိဇ္ဇာသိပ္ပလူ့ကိစ္စ', 'မပန်ရလည်းမပန်ချင်', 'နွေဦးကာလမြူထသောခါ', 'မဲဇာတောင်ခြေ', 'သင်သေသွားသော်', 'အလှရှိရာ', 'ဂျိန်းဖော့ပွဲတော်'],
         mmChapters: ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'],
@@ -371,8 +373,20 @@ function mmPoetryTitles() {
     return (getGradeCfg().mmPoetryTitles || []).slice();
 }
 
+function mmPlayCategory() {
+    return getGradeCfg().mmPlayCategory || '';
+}
+
 function mmHasYeThae() {
-    return (getGradeCfg().mmCategories || []).indexOf('ရေသည်') !== -1;
+    return mmPlayCategory() === 'ရေသည်';
+}
+
+function isMmPlayQuizFile(fileName) {
+    const baseName = stripGradeFilePrefix(fileName || '');
+    return baseName.startsWith('mm_ရေသည်_') ||
+        baseName.startsWith('old_mm_ရေသည်_') ||
+        baseName.startsWith('mm_မဲဇာတောင်ခြေ_') ||
+        baseName.startsWith('old_mm_မဲဇာတောင်ခြေ_');
 }
 
 function quizUrl(fileName) {

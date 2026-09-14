@@ -3414,7 +3414,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     </div>
 </div>
 
-    <script src="./grades.js?v=10"></script>
+    <script src="./grades.js?v=11"></script>
     <script src="./timetable.js?v=28"></script>
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=12"></script>
@@ -4355,8 +4355,8 @@ function isMyanmarIndividualQuiz(fileName) {
     if (!isMm) return false;
     // ✅ Allow combined "all" quizzes (e.g. mm_စကားပြေ_all_မှား_မှန်)
     if (baseName.includes('_all_')) return false;
-    // ✅ Allow ရေသည် (no sub-chapters)
-    if (baseName.includes('_ရေသည်_')) return false;
+    // ✅ Allow play quizzes (ရေသည် / မဲဇာတောင်ခြေ) — no sub-chapters
+    if (typeof isMmPlayQuizFile === 'function' ? isMmPlayQuizFile(fileName) : baseName.includes('_ရေသည်_')) return false;
     // ❌ Everything else is individual chapter/title → skip from rank/stats
     return true;
 }
@@ -4400,8 +4400,8 @@ function getStatDisplayName(key, item) {
             return `${category} ${typeClean}`;
         }
     }
-    // 🆕 Handle ရေသည် quizzes: mm_ရေသည်_မှား_မှန် → "ရေသည် မှား မှန်"
-    if (item.subject === 'mm' && cleanKey.includes('_ရေသည်_')) {
+    // Play quizzes: mm_ရေသည်_မှား_မှန် / mm_မဲဇာတောင်ခြေ_မှား_မှန် (not mm_ကဗျာ_မဲဇာတောင်ခြေ_...)
+    if (item.subject === 'mm' && (typeof isMmPlayQuizFile === 'function' ? isMmPlayQuizFile(cleanKey) : cleanKey.includes('_ရေသည်_'))) {
         const parts = cleanKey.split('_');
         if (parts.length >= 3) {
             return parts.slice(1).join(' ');
@@ -6680,8 +6680,8 @@ function showMMQuizOptions(typeName) {
             } else if (cat === 'ကဗျာ') {
                 // ကဗျာကို ရွေးချယ်ပါက အတန်းအလိုက် ခေါင်းစဉ်များ ထပ်ပြရန်
                 showSubMenu(typeName, cat, poetryTitlesForGrade());
-            }         else if (cat === 'ရေသည်') {
-            const fileName = `mm_ရေသည်_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+            } else if ((typeof mmPlayCategory === 'function' && cat === mmPlayCategory()) || cat === 'ရေသည်' || cat === 'မဲဇာတောင်ခြေ') {
+            const fileName = `mm_${cat}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
             chooseThenQuiz(cat, fileName, () => { showScreen('activity'); showMMQuizOptions(typeName); });
         } else {
                 // အပြော နှင့် အရေး အတွက် မူလအတိုင်း ဆက်သွားရန်
@@ -6776,11 +6776,12 @@ function showSubMenu(typeName, cat, titles) {
         createBtn("မြည်သံစွဲအလင်္ကာ", content, () => initFlashcards("mm_မြည်သံစွဲအလင်္ကာ", "မြည်သံစွဲအလင်္ကာ", backToAlinkar));
 
     } else {
-        // ကျန်တဲ့ စကားပြေ၊ ကဗျာ၊ ရေသည် များအတွက် မူလအတိုင်း
+        // စကားပြေ၊ ကဗျာ၊ ပြဇာတ် (ရေသည် သို့မဟုတ် မဲဇာတောင်ခြေ)
         createBtn("စကားပြေ", content, () => showMMSubTopics(typeName, "စကားပြေ"));
         createBtn("ကဗျာ", content, () => showMMSubTopics(typeName, "ကဗျာ"));
-        if (typeof mmHasYeThae !== 'function' || mmHasYeThae()) {
-            createBtn("ရေသည်", content, () => initFlashcards("mm_ရေသည်_ခက်ဆစ်", "ခက်ဆစ်", () => {
+        const playCat = (typeof mmPlayCategory === 'function') ? mmPlayCategory() : 'ရေသည်';
+        if (playCat) {
+            createBtn(playCat, content, () => initFlashcards("mm_" + playCat + "_ခက်ဆစ်", "ခက်ဆစ်", () => {
                 showScreen('activity');
                 showMMFlashcardOptions(typeName);
             }));
