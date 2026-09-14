@@ -5426,6 +5426,7 @@ async function fetchPaidUsers() {
         let flashCards = [];
         let isAnswered = false;
 		let currentQuizFile = '';
+        let quizLoadSequence = 0;
         // မူလရှိနေသော const userId နှင့် const userBought နေရာများကို အပေါ်သို့ ရွှေ့လိုက်ပါပြီ။
 
 
@@ -5864,9 +5865,13 @@ function showPlayModePicker(title, onBack, onChosen, oldMenu) {
 }
 
 function startQuizFile(fileName, onBack) {
-    initQuiz(fileName);
     const back = document.getElementById('quiz-back-btn');
-    if (back) back.onclick = onBack;
+    if (back) {
+        back.innerText = "ထွက်မည်";
+        back.disabled = false;
+        back.onclick = onBack;
+    }
+    initQuiz(fileName);
 }
 
 function chooseThenQuiz(title, fileName, onBackToList, oldMenu) {
@@ -6801,7 +6806,7 @@ function showQuizSubChapters(subId, chapterName, quizType) {
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
     
-    document.getElementById('activity-back-btn').onclick = () => showSubChaptersMenu(subId, chapterName);
+    document.getElementById('activity-back-btn').onclick = () => showChapterQuizTypes(subId, chapterName);
 
     const fullBtn = document.createElement('button');
     fullBtn.className = 'btn';
@@ -7271,14 +7276,21 @@ function applyQuizPlayChrome() {
 }
 
        async function initQuiz(fileName) {
+    const loadId = ++quizLoadSequence;
     fileName = withGradePrefix(fileName);
     currentQuizFile = fileName;
+    const backBtn = document.getElementById('quiz-back-btn');
+    if (backBtn) {
+        backBtn.innerText = "ထွက်မည်";
+        backBtn.disabled = false;
+    }
     try {
         // 🆕 Cache-bust so updated JSON files are never stale
         const cb = Date.now();
         const res = await fetch(quizUrl(fileName) + `?cb=${cb}`);
         if(!res.ok) throw new Error();
         let data = await res.json();
+        if (loadId !== quizLoadSequence) return;
         if (!Array.isArray(data) || data.length === 0) {
             tg.showAlert("မေးခွန်းမရှိပါ- " + fileName);
             return;
@@ -7300,7 +7312,8 @@ function applyQuizPlayChrome() {
         showScreen('quiz');
         applyQuizPlayChrome();
         loadQuestion();
-    } catch (e) { 
+    } catch (e) {
+        if (loadId !== quizLoadSequence) return;
         tg.showAlert("မေးခွန်းဖိုင်မတွေ့သေးပါ- " + fileName); 
     }
 }
@@ -7691,6 +7704,7 @@ function nextQuestion() {
 
       function showScreen(id) {
     if (id !== 'quiz') {
+        quizLoadSequence++;
         resetTimer(); 
     }
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
@@ -8375,6 +8389,7 @@ function getFileNamesForSubject(subId) {
     return fileNames;
 }
 async function startDailyQuiz(subId) {
+const loadId = ++quizLoadSequence;
 currentQuizFile = 'daily_' + subId;
 quizPlayMode = 'test';
     const backBtn = document.getElementById('quiz-back-btn');
@@ -8402,6 +8417,7 @@ quizPlayMode = 'test';
         });
 
         const chaptersData = await Promise.all(fetchPromises);
+        if (loadId !== quizLoadSequence) return;
         
         chaptersData.forEach((chapterQuestions) => {
             if (Array.isArray(chapterQuestions)) {
@@ -8447,6 +8463,7 @@ quizPlayMode = 'test';
         loadQuestion();
 
     } catch (error) {
+        if (loadId !== quizLoadSequence) return;
         tg.showAlert("Error: " + error.message);
         backBtn.innerText = "ထွက်မည်";
         backBtn.disabled = false;
