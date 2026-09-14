@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Myanmar:wght@400;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="manifest" href="/manifest.json?v=2">
 <meta name="theme-color" content="#00D5FF">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -156,7 +156,7 @@ html {
     body { 
         background-color: var(--bg); 
         color: var(--white); 
-        font-family: 'Noto Sans Myanmar', 'Padauk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, 'Noto Sans Myanmar', Padauk, sans-serif;
         margin: 0; padding: 0; height: var(--tg-viewport-stable-height, 100vh); display: flex; flex-direction: column; overflow: hidden;
         overscroll-behavior: none;
         padding-top: var(--tg-safe-top, 0px);
@@ -2068,12 +2068,18 @@ body.math-expand-page .container {
     flex-wrap: wrap;
 }
 
+#question-box,
+#quiz-options,
+#explanation-box,
+#math-solution-content,
+.flash-face,
+.rw-prompt,
+.rw-answer {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, 'Noto Sans Myanmar', Padauk, sans-serif;
+}
 #question-box {
     flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    display: block;
     height: auto;
     min-height: 0;
     max-height: 42vh;
@@ -2087,7 +2093,7 @@ body.math-expand-page .container {
     background: var(--card-bg);
     border: 1px solid #475569;
     border-radius: 14px;
-    word-break: keep-all;
+    word-break: normal;
     overflow-wrap: break-word;
 }
 #question-box svg,
@@ -4094,9 +4100,43 @@ function fastMath(scope) {
     if (!window.MathJax) return;
     var box = scope || document.body;
     var txt = box.innerText || box.textContent || '';
-    if (txt.indexOf('$') !== -1 || txt.indexOf('\\(') !== -1 || txt.indexOf('\\[') !== -1) {
+    if (txt.indexOf('$') !== -1 || txt.indexOf('\\(') !== -1 || txt.indexOf('\\[') !== -1 || /\\[a-zA-Z]/.test(txt)) {
         MathJax.typesetPromise(scope ? [scope] : undefined);
     }
+}
+
+function stashMathBlocks(html) {
+    var stash = [];
+    var out = String(html || '').replace(/\$\$[\s\S]+?\$\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\)|\$[^$\n]+\$/g, function (m) {
+        stash.push(m);
+        return '@@MATH' + (stash.length - 1) + '@@';
+    });
+    return { html: out, stash: stash };
+}
+
+function restoreMathBlocks(html, stash) {
+    return String(html || '').replace(/@@MATH(\d+)@@/g, function (_, i) {
+        return stash[Number(i)] || '';
+    });
+}
+
+function formatQuizMath(html) {
+    html = String(html == null ? '' : html);
+    if (!html) return html;
+    var parts = stashMathBlocks(html);
+    var next = parts.html.replace(/\\[a-zA-Z]+(?:\s*\{[^{}]*\})*(?:_(?:\{[^{}]*\}|[A-Za-z0-9]+))?(?:\^(?:\{[^{}]*\}|[A-Za-z0-9]+))?/g, '$$$&$');
+    return restoreMathBlocks(next, parts.stash);
+}
+
+function typesetQuizMath() {
+    if (!window.MathJax || !MathJax.typesetPromise) return;
+    var nodes = [
+        document.getElementById('question-box'),
+        document.getElementById('quiz-options'),
+        document.getElementById('explanation-box')
+    ].filter(Boolean);
+    if (!nodes.length) return;
+    MathJax.typesetPromise(nodes).catch(function () {});
 }
 
 function tidyMathSolutionHtml(html) {
@@ -7155,8 +7195,8 @@ function updateFlashUI() {
         resetRewriteSheet();
         return;
     }
-    document.getElementById('flash-front-content').innerHTML = flashCards[flashIdx].q;
-    document.getElementById('flash-back-content').innerHTML = flashCards[flashIdx].a;
+    document.getElementById('flash-front-content').innerHTML = formatQuizMath(flashCards[flashIdx].q);
+    document.getElementById('flash-back-content').innerHTML = formatQuizMath(flashCards[flashIdx].a);
     fastMath();
 }
 
@@ -7368,11 +7408,11 @@ function renderExplanationPanel(rawText, isCorrect, correctAnswerText) {
     const skipAnswer = !answer || answer.toLowerCase() === 'undefined' || answer.toLowerCase() === 'null';
     const answerHtml = skipAnswer
         ? ''
-        : `<div class="expl-answer"><span class="expl-answer-label">အဖြေမှန်</span><span class="expl-answer-value">${escapeExplanationAnswer(answer)}</span></div>`;
+        : `<div class="expl-answer"><span class="expl-answer-label">အဖြေမှန်</span><span class="expl-answer-value">${formatQuizMath(escapeExplanationAnswer(answer))}</span></div>`;
 
     let noteHtml = '';
     if (text.length > 0) {
-        noteHtml = `<div class="expl-note">${text}</div>`;
+        noteHtml = `<div class="expl-note">${formatQuizMath(text)}</div>`;
     } else if (!answerHtml) {
         noteHtml = `<div class="expl-note" style="color:#94A3B8;font-style:italic;">${isCorrect ? 'သင့်အဖြေမှာ မှန်ကန်ပါသည်။' : 'အဖြေမှားနေပါသည်။ နောက်တစ်ပုဒ်တွင် ကြိုးစားကြည့်ပါ။'}</div>`;
     }
@@ -7452,7 +7492,7 @@ function loadQuestion() {
 
     const oldChip = isOldQuestionFlow ? ' <span class="old-q-chip">Old question</span>' : '';
     document.getElementById('quiz-progress').innerHTML = `${currentIdx + 1} / ${currentQuestions.length}${oldChip}`;
-    document.getElementById('question-box').innerHTML = q.q;
+    document.getElementById('question-box').innerHTML = formatQuizMath(q.q);
 
     const optDiv = document.getElementById('quiz-options');
     optDiv.innerHTML = '';
@@ -7547,7 +7587,7 @@ function loadQuestion() {
             keyBadge.className = 'opt-key';
             keyBadge.textContent = String(i + 1);
             const label = document.createElement('span');
-            label.innerHTML = a;
+            label.innerHTML = formatQuizMath(a);
             btn.appendChild(keyBadge);
             btn.appendChild(label);
 
@@ -7643,7 +7683,7 @@ function loadQuestion() {
         setQuizKeysHint('');
     }
 
-    if (window.MathJax) MathJax.typesetPromise();
+    typesetQuizMath();
 }
 
 function selectOption(index) {
