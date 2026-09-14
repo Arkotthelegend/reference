@@ -8,7 +8,7 @@
       "continuous"
     ],
     "c": 0,
-    "e": "Digital electronics deals with discrete signals, contrasting directly with analog electronics."
+    "e": "Digital electronics သည် analog electronics နှင့် တိုက်ရိုက် ဆန့်ကျင်ပြီး discrete signal များကို ကိုင်တွယ်သည်။"
   },
   {
     "q": "An advantage of digital circuits when compared to analog circuits is that signals represented digitally can be transmitted without degradation caused by _____.",
@@ -19,7 +19,7 @@
       "light"
     ],
     "c": 1,
-    "e": "Digital signals are highly immune to noise degradation during transmission."
+    "e": "Digital signal များသည် transmission အတွင်း noise degradation ကို ခံနိုင်ရည် မြင့်သည်။"
   },
   {
     "q": "An IC, sometimes called a chip (or) microchip, is a semiconductor wafer on which thousands (or) millions of tiny resistors, capacitors and _____ are fabricated.",
@@ -30,7 +30,7 @@
       "transistors"
     ],
     "c": 2,
-    "e": "Integrated circuits primarily consist of microscopic transistors, resistors, and capacitors."
+    "e": "Integrated circuit များသည် အဓိကအားဖြင့် microscopic transistor, resistor နှင့် capacitor များဖြင့် ဖွဲ့စည်းသည်။"
   },
   {
     "q": "Linear ICs have continuously variable output that depends on the input signal level and are used as af (audio-frequency) and _____ amplifiers.",
@@ -41,7 +41,7 @@
       "ac"
     ],
     "c": 0,
-    "e": "Linear ICs are commonly used as amplifiers for audio-frequency (af) and radio-frequency (rf) signals."
+    "e": "Linear IC များကို audio-frequency (af) နှင့် radio-frequency (rf) signal အတွက် amplifier အဖြစ် အသုံးများသည်။"
   },
   {
     "q": "Digital ICs operate at only a few defined levels or states, rather than over a continuous range of signal _____.",
@@ -52,7 +52,7 @@
       "phases"
     ],
     "c": 1,
-    "e": "Digital ICs process discrete signal amplitudes (usually logic 0 and logic 1)."
+    "e": "Digital IC များသည် discrete signal amplitude (ပုံမှန်အားဖြင့် logic 0 နှင့် logic 1) ကို စီမံသည်။"
   },
   {
     "q": "The fundamental building blocks of digital ICs are logic gates, which work with binary data, that is, signals that have only two different states, called LOW (logic 0) and _____ (logic 1).",
@@ -63,7 +63,7 @@
       "HIGH"
     ],
     "c": 2,
-    "e": "Binary logic states are universally referred to as LOW and HIGH."
+    "e": "Binary logic state များကို LOW နှင့် HIGH ဟု အများအားဖြင့် ခေါ်သည်။"
   },
   {
     "q": "There are two common types of logic IC package available, known as TTL (Transistor-Transistor Logic) and _____ (Complementary Metal Oxide Semiconductor).",
@@ -74,7 +74,7 @@
       "FET"
     ],
     "c": 0,
-    "e": "TTL and CMOS are the two dominant logic families in digital IC packaging."
+    "e": "TTL နှင့် CMOS သည် digital IC packaging တွင် အဓိက logic family နှစ်ခုဖြစ်သည်။"
   },
   {
     "q": "The AND gate with inverted output is called a _____ gate.",
@@ -85,7 +85,7 @@
       "XOR"
     ],
     "c": 1,
-    "e": "Adding an inverter to an AND gate creates a NAND (NOT-AND) gate."
+    "e": "AND gate တွင် inverter ထည့်လျှင် NAND (NOT-AND) gate ဖြစ်လာသည်။"
   },
   {
     "q": "In an XOR gate, the output is HIGH if one, and only one, of the inputs is _____.",
@@ -96,7 +96,7 @@
       "HIGH"
     ],
     "c": 2,
-    "e": "The Exclusive-OR (XOR) gate outputs HIGH exclusively when inputs differ (one is HIGH)."
+    "e": "Exclusive-OR (XOR) gate သည် input မတူသောအခါ (တစ်ခု HIGH) သာ HIGH ထုတ်သည်။"
   },
   {
     "q": "The XOR gate produces a 0 when both inputs _____.",
@@ -107,7 +107,7 @@
       "invert"
     ],
     "c": 0,
-    "e": "If both inputs to an XOR gate are identical (both 0 or both 1), the output is 0."
+    "e": "XOR gate ၏ input နှစ်ခု တူညီလျှင် (နှစ်ခုလုံး 0 သို့မဟုတ် နှစ်ခုလုံး 1) output သည် 0 ဖြစ်သည်။"
   },
   {
     "q": "Boolean algebra is a branch of mathematics where variables can have only two possible values: false and true, (or) logic values 0 and _____.",
@@ -118,7 +118,7 @@
       "-1"
     ],
     "c": 1,
-    "e": "Boolean algebra operates strictly on the binary values 0 and 1."
+    "e": "Boolean algebra သည် binary value 0 နှင့် 1 ပေါ်တွင်သာ တိကျစွာ လည်ပတ်သည်။"
   },
   {
     "q": "Boolean algebra gives a more compact way to describe a combinational logic circuit than _____ alone.",
@@ -129,7 +129,7 @@
       "diagrams"
     ],
     "c": 2,
-    "e": "Algebraic expressions are more compact than enumerating all states in truth tables."
+    "e": "Algebraic expression များသည် truth table တွင် state အားလုံး စာရင်းပြုခြင်းထက် ပိုကျစ်လစ်သည်။"
   },
   {
     "q": "The commutative law of addition in Boolean algebra is expressed as $A+B =$ _____.",
@@ -140,7 +140,7 @@
       "$A-B$"
     ],
     "c": 0,
-    "e": "The commutative law states that the order of variables in addition does not matter."
+    "e": "Commutative law က addition တွင် variable အစီအစဉ်သည် အရေးမကြီးကြောင်း ဖော်ပြသည်။"
   },
   {
     "q": "The distributive law in Boolean algebra is expressed as $A(B+C) =$ _____.",
@@ -151,7 +151,7 @@
       "$AB+AC$"
     ],
     "c": 1,
-    "e": "Distributing A across the sum (B+C) yields AB + AC."
+    "e": "A ကို sum (B+C) ပေါ် distribute လုပ်လျှင် AB + AC ရသည်။"
   },
   {
     "q": "According to the basic rules of Boolean algebra, the expression $A \\cdot 1$ is equal to _____.",
@@ -162,7 +162,7 @@
       "$A$"
     ],
     "c": 2,
-    "e": "ANDing any variable with logic 1 leaves the variable unchanged."
+    "e": "Variable မည်သည့်ကိုမဆို logic 1 နှင့် AND လုပ်လျှင် ထို variable မပြောင်းလဲပါ။"
   },
   {
     "q": "According to the basic rules of Boolean algebra, the expression $A + \\overline{A}$ is equal to _____.",
@@ -173,7 +173,7 @@
       "$A$"
     ],
     "c": 0,
-    "e": "A variable ORed with its complement always results in logic 1."
+    "e": "Variable ကို ၎င်း၏ complement နှင့် OR လုပ်လျှင် အမြဲ logic 1 ရသည်။"
   },
   {
     "q": "De Morgan's first theorem states that the complement of two or more ANDed variables is equivalent to the OR of the _____ of the individual variables.",
@@ -184,7 +184,7 @@
       "reciprocals"
     ],
     "c": 1,
-    "e": "De Morgan's theorem replaces AND with OR and complements each individual variable."
+    "e": "De Morgan's theorem သည် AND ကို OR ဖြင့် အစားထိုးပြီး variable တစ်ခုချင်းစီကို complement လုပ်သည်။"
   },
   {
     "q": "The formula for expressing De Morgan's first theorem for two variables is $\\overline{AB} =$ _____.",
@@ -195,7 +195,7 @@
       "$\\overline{A}+\\overline{B}$"
     ],
     "c": 2,
-    "e": "The complement of an AND operation equals the OR of the individual complements."
+    "e": "AND operation ၏ complement သည် တစ်ခုချင်း complement များ၏ OR နှင့် ညီသည်။"
   },
   {
     "q": "The formula for expressing De Morgan's second theorem for two variables is $\\overline{A+B} =$ _____.",
@@ -206,7 +206,7 @@
       "$AB$"
     ],
     "c": 0,
-    "e": "The complement of an OR operation equals the AND of the individual complements."
+    "e": "OR operation ၏ complement သည် တစ်ခုချင်း complement များ၏ AND နှင့် ညီသည်။"
   },
   {
     "q": "In a fire alarm system, the fire extinguisher will be set to operate if both smoke and _____ are detected.",
@@ -217,7 +217,7 @@
       "sound"
     ],
     "c": 1,
-    "e": "The textbook fire alarm logic triggers the extinguisher only when both smoke and heat detectors are active."
+    "e": "သင်ခန်းစာရှိ fire alarm logic သည် smoke နှင့် heat detector နှစ်ခုလုံး active ဖြစ်မှသာ extinguisher ကို trigger လုပ်သည်။"
   },
   {
     "q": "In a street lighting system, the OR gate gives a 1 output when either or both of its inputs are _____.",
@@ -228,7 +228,7 @@
       "1"
     ],
     "c": 2,
-    "e": "An OR gate outputs 1 if any or all of its inputs are 1."
+    "e": "OR gate သည် input တစ်ခုခု သို့မဟုတ် အားလုံး 1 ဖြစ်လျှင် 1 ထုတ်သည်။"
   },
   {
     "q": "Complex devices may have simple electronic representations of Boolean logic functions, and digital electronic circuits are usually made from large assemblies of logic gates often packaged in integrated _____.",
@@ -239,7 +239,7 @@
       "wires"
     ],
     "c": 0,
-    "e": "Logic gates are packaged into Integrated Circuits (ICs)."
+    "e": "Logic gate များကို Integrated Circuit (IC) များအဖြစ် ထုပ်ပိုးသည်။"
   },
   {
     "q": "Linear ICs have continuously variable output that theoretically capable of attaining an infinite number of states and the output signal level is a linear function of the input signal _____.",
@@ -250,7 +250,7 @@
       "phase"
     ],
     "c": 1,
-    "e": "The output of a linear IC is directly proportional to its input signal level."
+    "e": "Linear IC ၏ output သည် ၎င်း၏ input signal level နှင့် တိုက်ရိုက် အချိုးကျသည်။"
   },
   {
     "q": "These logic ICs are usually supplied in plastic DIL packages containing several logic gates of the same type, where DIL stands for dual in _____.",
@@ -261,7 +261,7 @@
       "line"
     ],
     "c": 2,
-    "e": "DIL stands for Dual In-Line package."
+    "e": "DIL သည် Dual In-Line package ကို ဆိုလိုသည်။"
   },
   {
     "q": "An XNOR gate is an XOR gate with inverted _____.",
@@ -272,7 +272,7 @@
       "power"
     ],
     "c": 0,
-    "e": "An XNOR gate is simply an XOR gate followed by an inverter on its output."
+    "e": "XNOR gate သည် XOR gate ၏ output နောက်တွင် inverter တစ်ခု ထည့်ထားခြင်းသာ ဖြစ်သည်။"
   },
   {
     "q": "Boolean algebra is also called Binary algebra or Logical algebra and is used to analyze and simplify the digital logic _____.",
@@ -283,7 +283,7 @@
       "waves"
     ],
     "c": 1,
-    "e": "The primary purpose of Boolean algebra is the analysis and simplification of digital logic circuits."
+    "e": "Boolean algebra ၏ အဓိက ရည်ရွယ်ချက်မှာ digital logic circuit များကို ခွဲခြမ်းစိတ်ဖြာ၍ ရိုးရှင်းအောင် လုပ်ရန်ဖြစ်သည်။"
   },
   {
     "q": "The commutative law of multiplication in Boolean algebra is expressed as $AB =$ _____.",
@@ -294,7 +294,7 @@
       "$BA$"
     ],
     "c": 2,
-    "e": "The order of variables in a logical AND operation does not change the result."
+    "e": "Logical AND operation တွင် variable အစီအစဉ်သည် ရလဒ် မပြောင်းလဲပါ။"
   },
   {
     "q": "The associative law of addition in Boolean algebra is expressed as $A+(B+C) =$ _____.",
@@ -305,7 +305,7 @@
       "$AB+C$"
     ],
     "c": 0,
-    "e": "Grouping of variables in an OR operation does not affect the final sum."
+    "e": "OR operation တွင် variable များကို အုပ်စုဖွဲ့ခြင်းသည် နောက်ဆုံး sum ကို မထိခိုက်ပါ။"
   },
   {
     "q": "According to the basic rules of Boolean algebra, the expression $A \\cdot A$ is equal to _____.",
@@ -316,7 +316,7 @@
       "$0$"
     ],
     "c": 1,
-    "e": "ANDing a variable with itself yields the original variable."
+    "e": "Variable ကို ၎င်းကိုယ်တိုင် AND လုပ်လျှင် မူလ variable ရသည်။"
   },
   {
     "q": "According to the basic rules of Boolean algebra, the expression $A \\cdot \\overline{A}$ is equal to _____.",
@@ -327,6 +327,6 @@
       "$0$"
     ],
     "c": 2,
-    "e": "ANDing a variable with its logical complement always results in 0."
+    "e": "Variable ကို ၎င်း၏ logical complement နှင့် AND လုပ်လျှင် အမြဲ 0 ရသည်။"
   }
 ]

@@ -8,7 +8,7 @@
       "thermodynamics"
     ],
     "c": 0,
-    "e": "Electronics is defined exactly as the branch of physics and technology concerned with the design of circuits and movement of electrons in semiconductors, conductors, or vacuums."
+    "e": "Electronics ကို semiconductor, conductor သို့မဟုတ် vacuum တွင် circuit ဒီဇိုင်းနှင့် electron ရွေ့လျားမှုနှင့် သက်ဆိုင်သော physics နှင့် technology ဌာနခွဲအဖြစ် အတိအကျ သတ်မှတ်သည်။"
   },
   {
     "q": "Active electrical components are vacuum tubes, transistors, diodes, ICs, TRIACs, SCRs, LEDs, etc. and requires a _____ source to operate.",
@@ -19,7 +19,7 @@
       "current"
     ],
     "c": 1,
-    "e": "Active electrical components require an external power source to operate."
+    "e": "Active electrical component များသည် လည်ပတ်ရန် ပြင်ပ power source လိုအပ်သည်။"
   },
   {
     "q": "Passive electrical components are capable of operating without an _____ power source.",
@@ -30,7 +30,7 @@
       "external"
     ],
     "c": 2,
-    "e": "Passive components like resistors and capacitors can operate without an external power source."
+    "e": "Resistor နှင့် capacitor ကဲ့သို့ passive component များသည် ပြင်ပ power source မလိုဘဲ လည်ပတ်နိုင်သည်။"
   },
   {
     "q": "Zener diode is a _____ doped semiconductor (silicon or germanium) pn junction diode.",
@@ -41,7 +41,7 @@
       "moderately"
     ],
     "c": 0,
-    "e": "A zener diode is specifically designed to be heavily doped to achieve a narrow depletion layer."
+    "e": "Zener diode ကို heavily doped လုပ်၍ ကျဉ်းသော depletion layer ရရှိရန် အထူးဒီဇိုင်းလုပ်ထားသည်။"
   },
   {
     "q": "When the voltage across the terminals of a zener diode is reversed and the potential reaches the zener voltage, the junction breaks down and the current flows in the _____ direction.",
@@ -52,7 +52,7 @@
       "lateral"
     ],
     "c": 1,
-    "e": "Zener diodes allow current to flow in the reverse direction when the breakdown voltage is reached."
+    "e": "Breakdown voltage ရောက်သောအခါ zener diode များသည် reverse direction တွင် current စီးခွင့်ပေးသည်။"
   },
   {
     "q": "When the potential reaches the zener voltage (breakdown voltage or _____ voltage), the junction breaks down.",
@@ -63,7 +63,7 @@
       "knee"
     ],
     "c": 2,
-    "e": "The breakdown voltage is also referred to as the knee voltage in zener diode characteristics."
+    "e": "Breakdown voltage ကို zener diode characteristic တွင် knee voltage ဟုလည်း ခေါ်သည်။"
   },
   {
     "q": "Avalanche breakdown occurs at junctions which being lightly doped have _____ depletion layers.",
@@ -74,7 +74,7 @@
       "thin"
     ],
     "c": 0,
-    "e": "Lightly doped junctions have wide depletion layers, leading to avalanche breakdown."
+    "e": "Lightly doped junction များတွင် depletion layer ကျယ်သောကြောင့် avalanche breakdown ဖြစ်သည်။"
   },
   {
     "q": "Zener breakdown occurs at junctions which being heavily doped have _____ depletion layers.",
@@ -85,7 +85,7 @@
       "thick"
     ],
     "c": 1,
-    "e": "Heavily doped junctions have narrow depletion layers, resulting in zener breakdown."
+    "e": "Heavily doped junction များတွင် depletion layer ကျဉ်းသောကြောင့် zener breakdown ဖြစ်သည်။"
   },
   {
     "q": "The voltage drop across the zener diode always remains _____ irrespective of the applied voltage.",
@@ -96,7 +96,7 @@
       "constant"
     ],
     "c": 2,
-    "e": "In the breakdown region, the voltage drop across a zener diode remains remarkably constant."
+    "e": "Breakdown region တွင် zener diode တစ်လျှောက် voltage drop သည် အလွန် constant ဖြစ်သည်။"
   },
   {
     "q": "This feature of the zener diode makes it suitable for voltage regulation as _____ elements.",
@@ -107,7 +107,7 @@
       "passive"
     ],
     "c": 0,
-    "e": "Because of its constant voltage drop, it is used as a reference element in voltage regulators."
+    "e": "Constant voltage drop ကြောင့် voltage regulator တွင် reference element အဖြစ် သုံးသည်။"
   },
   {
     "q": "A LED is a semiconductor light source capable of emitting a fairly narrow bandwidth of visible (or) invisible light when its internal diode junction attains a forward-biased current (or) _____.",
@@ -118,7 +118,7 @@
       "capacitance"
     ],
     "c": 1,
-    "e": "LEDs emit light when their internal junction attains a forward-biased current or voltage."
+    "e": "LED များသည် internal junction တွင် forward-biased current သို့မဟုတ် voltage ရောက်သောအခါ light ထုတ်သည်။"
   },
   {
     "q": "LEDs do not directly produce white light but use a blue LED with a phosphor coating to convert blue light to white light by a process called _____.",
@@ -129,7 +129,7 @@
       "fluorescence"
     ],
     "c": 2,
-    "e": "White light in LEDs is produced via fluorescence using a phosphor coating."
+    "e": "LED တွင် white light ကို phosphor coating ဖြင့် fluorescence မှ ထုတ်သည်။"
   },
   {
     "q": "A current limiting resistor should be connected in _____ with LED in the circuit to protect the LED.",
@@ -140,7 +140,7 @@
       "series-parallel"
     ],
     "c": 0,
-    "e": "A series resistor limits the current to prevent damage to the LED."
+    "e": "Series resistor သည် current ကို ကန့်သတ်၍ LED မပျက်စီးစေရန် ကာကွယ်သည်။"
   },
   {
     "q": "Fast action and no warmup time is an advantage of LED, and the response time is about _____ ns.",
@@ -151,7 +151,7 @@
       "100"
     ],
     "c": 1,
-    "e": "The response time of an LED is very fast, approximately 10 ns."
+    "e": "LED ၏ response time သည် အလွန်မြန်ပြီး ခန့်မှန်းခြေ 10 ns ဖြစ်သည်။"
   },
   {
     "q": "A photodiode is a semiconductor device that converts light into _____ current.",
@@ -162,7 +162,7 @@
       "electrical"
     ],
     "c": 2,
-    "e": "Photodiodes convert absorbed photons into electrical current."
+    "e": "Photodiode များသည် absorbed photon များကို electrical current အဖြစ် ပြောင်းသည်။"
   },
   {
     "q": "Photodiodes work in _____ biased mode.",
@@ -173,7 +173,7 @@
       "zero"
     ],
     "c": 0,
-    "e": "Photodiodes are always operated in reverse bias to detect changes in minority carrier current."
+    "e": "Photodiode များကို minority carrier current ပြောင်းလဲမှု detect လုပ်ရန် အမြဲ reverse bias တွင် လည်ပတ်သည်။"
   },
   {
     "q": "When the photodiode is illuminated with light (photons) of energy $hv$ greater than the energy gap $E_g$ of the semiconductor, then _____ pairs are generated.",
@@ -184,7 +184,7 @@
       "ion-electron"
     ],
     "c": 1,
-    "e": "Absorption of photons generates electron-hole pairs in the depletion region."
+    "e": "Photon absorption ကြောင့် depletion region တွင် electron-hole pair များ ဖြစ်ပေါ်သည်။"
   },
   {
     "q": "A small amount of current, due to the flow of minority carriers, is also produced when no light is falling and is called _____ current.",
@@ -195,7 +195,7 @@
       "dark"
     ],
     "c": 2,
-    "e": "The small reverse bias current flowing in the absence of light is termed dark current."
+    "e": "Light မရှိချိန် စီးသော small reverse bias current ကို dark current ဟု ခေါ်သည်။"
   },
   {
     "q": "A light dependent resistor (LDR) is a light controlled _____ resistor.",
@@ -206,7 +206,7 @@
       "linear"
     ],
     "c": 0,
-    "e": "LDRs act as variable resistors whose resistance changes with light intensity."
+    "e": "LDR များသည် light intensity အလိုက် resistance ပြောင်းသော variable resistor အဖြစ် လုပ်သည်။"
   },
   {
     "q": "Special semiconductor crystal, such as cadmium sulfide (or) _____ sulfide is used to make photo resistors.",
@@ -217,7 +217,7 @@
       "lead"
     ],
     "c": 2,
-    "e": "Cadmium sulfide and lead sulfide are common materials for LDRs."
+    "e": "Cadmium sulfide နှင့် lead sulfide သည် LDR အတွက် အသုံးများသော material များဖြစ်သည်။"
   },
   {
     "q": "A thermistor is a temperature sensor that exhibits a large change in resistance proportional to a change in _____.",
@@ -228,7 +228,7 @@
       "light"
     ],
     "c": 0,
-    "e": "Thermistors are specifically designed to change resistance with temperature variations."
+    "e": "Thermistor များကို temperature ပြောင်းလဲမှုနှင့်အတူ resistance ပြောင်းရန် အထူးဒီဇိုင်းလုပ်ထားသည်။"
   },
   {
     "q": "In the Negative Temperature Coefficient (NTC) thermistor, the resistance _____ as the temperature increases.",
@@ -239,7 +239,7 @@
       "remains constant"
     ],
     "c": 1,
-    "e": "NTC thermistors exhibit a decrease in resistance as temperature rises."
+    "e": "NTC thermistor များသည် temperature တက်လျှင် resistance ကျဆင်းသည်။"
   },
   {
     "q": "In the Positive Temperature Coefficient (PTC) thermistor, the resistance increases as the temperature increases, and is used to break the circuit at _____ temperatures.",
@@ -250,7 +250,7 @@
       "preset"
     ],
     "c": 2,
-    "e": "PTC thermistors act as resettable fuses, breaking the circuit at preset high temperatures."
+    "e": "PTC thermistor များသည် သတ်မှတ်မြင့် temperature တွင် circuit ဖြတ်၍ resettable fuse အဖြစ် လုပ်သည်။"
   },
   {
     "q": "A liquid crystal display (LCD) is a flat-panel display that uses the light-modulating properties of liquid crystals combined with _____.",
@@ -261,7 +261,7 @@
       "inductors"
     ],
     "c": 0,
-    "e": "LCDs rely on polarizers to block or transmit light through the liquid crystal layer."
+    "e": "LCD များသည် liquid crystal layer မှ light ကို တားဆီး သို့မဟုတ် ဖြတ်သန်းခွင့်ပေးရန် polarizer ကို အားကိုးသည်။"
   },
   {
     "q": "Liquid crystals do not emit light directly, instead using a backlight or _____ to produce images in color or monochrome.",
@@ -272,7 +272,7 @@
       "emitter"
     ],
     "c": 1,
-    "e": "LCDs use a backlight or a reflector to provide the necessary illumination."
+    "e": "LCD များသည် လိုအပ်သော illumination ပေးရန် backlight သို့မဟုတ် reflector သုံးသည်။"
   },
   {
     "q": "LCDs consume much less power than LEDs and gas-plasma displays because they work on the principle of _____ light rather than emitting it.",
@@ -283,7 +283,7 @@
       "blocking"
     ],
     "c": 2,
-    "e": "LCDs function by selectively blocking light from a backlight source."
+    "e": "LCD များသည် backlight source မှ light ကို ရွေးချယ်၍ တားဆီးခြင်းဖြင့် လုပ်ဆောင်သည်။"
   },
   {
     "q": "The main difference between a zener diode and a normal diode lies in the passage of current, where a normal diode allows current to flow only in one direction while zener diode allows current to flow in both _____.",
@@ -294,7 +294,7 @@
       "phases"
     ],
     "c": 0,
-    "e": "Zener diodes conduct in both forward and reverse breakdown directions."
+    "e": "Zener diode များသည် forward နှင့် reverse breakdown direction နှစ်ခုလုံးတွင် conduct သည်။"
   },
   {
     "q": "For normal operation of a zener diode, in breakdown region, the current through the diode should be limited by an external _____.",
@@ -305,7 +305,7 @@
       "capacitor"
     ],
     "c": 1,
-    "e": "An external series resistor (circuit) is required to limit current and prevent thermal runaway."
+    "e": "Current ကန့်သတ်၍ thermal runaway မဖြစ်စေရန် ပြင်ပ series resistor (circuit) လိုအပ်သည်။"
   },
   {
     "q": "The voltage drop feature makes the zener diode suitable for voltage regulation as reference elements, surge suppressors, and in switching applications and _____ circuits.",
@@ -316,6 +316,6 @@
       "clipper"
     ],
     "c": 2,
-    "e": "Zener diodes are frequently used to build clipper circuits due to their sharp breakdown voltage."
+    "e": "Zener diode များသည် sharp breakdown voltage ကြောင့် clipper circuit တည်ဆောက်ရန် မကြာခဏ သုံးသည်။"
   }
 ]

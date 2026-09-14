@@ -8,7 +8,7 @@
       "thermodynamics"
     ],
     "c": 0,
-    "e": "Electronics is defined exactly as the branch of physics and technology concerned with the design of circuits and movement of electrons in semiconductors, conductors, or vacuums."
+    "e": "Electronics ကို semiconductor, conductor သို့မဟုတ် vacuum တွင် circuit ဒီဇိုင်းနှင့် electron ရွေ့လျားမှုနှင့် သက်ဆိုင်သော physics နှင့် technology ဌာနခွဲအဖြစ် အတိအကျ သတ်မှတ်သည်။"
   },
   {
     "q": "Active electrical components are vacuum tubes, transistors, diodes, ICs, TRIACs, SCRs, LEDs, etc. and requires a _____ source to operate.",
@@ -19,7 +19,7 @@
       "current"
     ],
     "c": 1,
-    "e": "Active electrical components require an external power source to operate."
+    "e": "Active electrical component များသည် လည်ပတ်ရန် ပြင်ပ power source လိုအပ်သည်။"
   },
   {
     "q": "Passive electrical components are capable of operating without an _____ power source.",
@@ -30,7 +30,7 @@
       "external"
     ],
     "c": 2,
-    "e": "Passive components like resistors and capacitors can operate without an external power source."
+    "e": "Resistor နှင့် capacitor ကဲ့သို့ passive component များသည် ပြင်ပ power source မလိုဘဲ လည်ပတ်နိုင်သည်။"
   },
   {
     "q": "Zener diode is a _____ doped semiconductor (silicon or germanium) pn junction diode.",
@@ -41,7 +41,7 @@
       "moderately"
     ],
     "c": 0,
-    "e": "A zener diode is specifically designed to be heavily doped to achieve a narrow depletion layer."
+    "e": "Zener diode ကို heavily doped လုပ်၍ ကျဉ်းသော depletion layer ရရှိရန် အထူးဒီဇိုင်းလုပ်ထားသည်။"
   },
   {
     "q": "When the voltage across the terminals of a zener diode is reversed and the potential reaches the zener voltage, the junction breaks down and the current flows in the _____ direction.",
@@ -52,7 +52,7 @@
       "lateral"
     ],
     "c": 1,
-    "e": "Zener diodes allow current to flow in the reverse direction when the breakdown voltage is reached."
+    "e": "Breakdown voltage ရောက်သောအခါ zener diode များသည် reverse direction တွင် current စီးခွင့်ပေးသည်။"
   },
   {
     "q": "When the potential reaches the zener voltage (breakdown voltage or _____ voltage), the junction breaks down.",
@@ -63,7 +63,7 @@
       "knee"
     ],
     "c": 2,
-    "e": "The breakdown voltage is also referred to as the knee voltage in zener diode characteristics."
+    "e": "Breakdown voltage ကို zener diode characteristic တွင် knee voltage ဟုလည်း ခေါ်သည်။"
   },
   {
     "q": "Avalanche breakdown occurs at junctions which being lightly doped have _____ depletion layers.",
@@ -74,7 +74,7 @@
       "thin"
     ],
     "c": 0,
-    "e": "Lightly doped junctions have wide depletion layers, leading to avalanche breakdown."
+    "e": "Lightly doped junction များတွင် depletion layer ကျယ်သောကြောင့် avalanche breakdown ဖြစ်သည်။"
   },
   {
     "q": "Zener breakdown occurs at junctions which being heavily doped have _____ depletion layers.",
@@ -85,7 +85,7 @@
       "thick"
     ],
     "c": 1,
-    "e": "Heavily doped junctions have narrow depletion layers, resulting in zener breakdown."
+    "e": "Heavily doped junction များတွင် depletion layer ကျဉ်းသောကြောင့် zener breakdown ဖြစ်သည်။"
   },
   {
     "q": "The voltage drop across the zener diode always remains _____ irrespective of the applied voltage.",
@@ -96,7 +96,7 @@
       "constant"
     ],
     "c": 2,
-    "e": "In the breakdown region, the voltage drop across a zener diode remains remarkably constant."
+    "e": "Breakdown region တွင် zener diode တစ်လျှောက် voltage drop သည် အလွန် constant ဖြစ်သည်။"
   },
   {
     "q": "This feature of the zener diode makes it suitable for voltage regulation as _____ elements.",
@@ -107,7 +107,7 @@
       "passive"
     ],
     "c": 0,
-    "e": "Because of its constant voltage drop, it is used as a reference element in voltage regulators."
+    "e": "Constant voltage drop ကြောင့် voltage regulator တွင် reference element အဖြစ် သုံးသည်။"
   },
   {
     "q": "A LED is a semiconductor light source capable of emitting a fairly narrow bandwidth of visible (or) invisible light when its internal diode junction attains a forward-biased current (or) _____.",
@@ -118,7 +118,7 @@
       "capacitance"
     ],
     "c": 1,
-    "e": "LEDs emit light when their internal junction attains a forward-biased current or voltage."
+    "e": "LED များသည် internal junction တွင် forward-biased current သို့မဟုတ် voltage ရောက်သောအခါ light ထုတ်သည်။"
   },
   {
     "q": "LEDs do not directly produce white light but use a blue LED with a phosphor coating to convert blue light to white light by a process called _____.",
@@ -129,7 +129,7 @@
       "fluorescence"
     ],
     "c": 2,
-    "e": "White light in LEDs is produced via fluorescence using a phosphor coating."
+    "e": "LED တွင် white light ကို phosphor coating ဖြင့် fluorescence မှ ထုတ်သည်။"
   },
   {
     "q": "A current limiting resistor should be connected in _____ with LED in the circuit to protect the LED.",
@@ -140,7 +140,7 @@
       "series-parallel"
     ],
     "c": 0,
-    "e": "A series resistor limits the current to prevent damage to the LED."
+    "e": "Series resistor သည် current ကို ကန့်သတ်၍ LED မပျက်စီးစေရန် ကာကွယ်သည်။"
   },
   {
     "q": "Fast action and no warmup time is an advantage of LED, and the response time is about _____ ns.",
@@ -151,7 +151,7 @@
       "100"
     ],
     "c": 1,
-    "e": "The response time of an LED is very fast, approximately 10 ns."
+    "e": "LED ၏ response time သည် အလွန်မြန်ပြီး ခန့်မှန်းခြေ 10 ns ဖြစ်သည်။"
   },
   {
     "q": "A photodiode is a semiconductor device that converts light into _____ current.",
@@ -162,7 +162,7 @@
       "electrical"
     ],
     "c": 2,
-    "e": "Photodiodes convert absorbed photons into electrical current."
+    "e": "Photodiode များသည် absorbed photon များကို electrical current အဖြစ် ပြောင်းသည်။"
   },
   {
     "q": "Photodiodes work in _____ biased mode.",
@@ -173,7 +173,7 @@
       "zero"
     ],
     "c": 0,
-    "e": "Photodiodes are always operated in reverse bias to detect changes in minority carrier current."
+    "e": "Photodiode များကို minority carrier current ပြောင်းလဲမှု detect လုပ်ရန် အမြဲ reverse bias တွင် လည်ပတ်သည်။"
   },
   {
     "q": "When the photodiode is illuminated with light (photons) of energy $hv$ greater than the energy gap $E_g$ of the semiconductor, then _____ pairs are generated.",
@@ -184,7 +184,7 @@
       "ion-electron"
     ],
     "c": 1,
-    "e": "Absorption of photons generates electron-hole pairs in the depletion region."
+    "e": "Photon absorption ကြောင့် depletion region တွင် electron-hole pair များ ဖြစ်ပေါ်သည်။"
   },
   {
     "q": "A small amount of current, due to the flow of minority carriers, is also produced when no light is falling and is called _____ current.",
@@ -195,7 +195,7 @@
       "dark"
     ],
     "c": 2,
-    "e": "The small reverse bias current flowing in the absence of light is termed dark current."
+    "e": "Light မရှိချိန် စီးသော small reverse bias current ကို dark current ဟု ခေါ်သည်။"
   },
   {
     "q": "A light dependent resistor (LDR) is a light controlled _____ resistor.",
@@ -206,7 +206,7 @@
       "linear"
     ],
     "c": 0,
-    "e": "LDRs act as variable resistors whose resistance changes with light intensity."
+    "e": "LDR များသည် light intensity အလိုက် resistance ပြောင်းသော variable resistor အဖြစ် လုပ်သည်။"
   },
   {
     "q": "Special semiconductor crystal, such as cadmium sulfide (or) _____ sulfide is used to make photo resistors.",
@@ -217,7 +217,7 @@
       "lead"
     ],
     "c": 2,
-    "e": "Cadmium sulfide and lead sulfide are common materials for LDRs."
+    "e": "Cadmium sulfide နှင့် lead sulfide သည် LDR အတွက် အသုံးများသော material များဖြစ်သည်။"
   },
   {
     "q": "A thermistor is a temperature sensor that exhibits a large change in resistance proportional to a change in _____.",
@@ -228,7 +228,7 @@
       "light"
     ],
     "c": 0,
-    "e": "Thermistors are specifically designed to change resistance with temperature variations."
+    "e": "Thermistor များကို temperature ပြောင်းလဲမှုနှင့်အတူ resistance ပြောင်းရန် အထူးဒီဇိုင်းလုပ်ထားသည်။"
   },
   {
     "q": "In the Negative Temperature Coefficient (NTC) thermistor, the resistance _____ as the temperature increases.",
@@ -239,7 +239,7 @@
       "remains constant"
     ],
     "c": 1,
-    "e": "NTC thermistors exhibit a decrease in resistance as temperature rises."
+    "e": "NTC thermistor များသည် temperature တက်လျှင် resistance ကျဆင်းသည်။"
   },
   {
     "q": "In the Positive Temperature Coefficient (PTC) thermistor, the resistance increases as the temperature increases, and is used to break the circuit at _____ temperatures.",
@@ -250,7 +250,7 @@
       "preset"
     ],
     "c": 2,
-    "e": "PTC thermistors act as resettable fuses, breaking the circuit at preset high temperatures."
+    "e": "PTC thermistor များသည် သတ်မှတ်မြင့် temperature တွင် circuit ဖြတ်၍ resettable fuse အဖြစ် လုပ်သည်။"
   },
   {
     "q": "A liquid crystal display (LCD) is a flat-panel display that uses the light-modulating properties of liquid crystals combined with _____.",
@@ -261,7 +261,7 @@
       "inductors"
     ],
     "c": 0,
-    "e": "LCDs rely on polarizers to block or transmit light through the liquid crystal layer."
+    "e": "LCD များသည် liquid crystal layer မှ light ကို တားဆီး သို့မဟုတ် ဖြတ်သန်းခွင့်ပေးရန် polarizer ကို အားကိုးသည်။"
   },
   {
     "q": "Liquid crystals do not emit light directly, instead using a backlight or _____ to produce images in color or monochrome.",
@@ -272,7 +272,7 @@
       "emitter"
     ],
     "c": 1,
-    "e": "LCDs use a backlight or a reflector to provide the necessary illumination."
+    "e": "LCD များသည် လိုအပ်သော illumination ပေးရန် backlight သို့မဟုတ် reflector သုံးသည်။"
   },
   {
     "q": "LCDs consume much less power than LEDs and gas-plasma displays because they work on the principle of _____ light rather than emitting it.",
@@ -283,7 +283,7 @@
       "blocking"
     ],
     "c": 2,
-    "e": "LCDs function by selectively blocking light from a backlight source."
+    "e": "LCD များသည် backlight source မှ light ကို ရွေးချယ်၍ တားဆီးခြင်းဖြင့် လုပ်ဆောင်သည်။"
   },
   {
     "q": "The main difference between a zener diode and a normal diode lies in the passage of current, where a normal diode allows current to flow only in one direction while zener diode allows current to flow in both _____.",
@@ -294,7 +294,7 @@
       "phases"
     ],
     "c": 0,
-    "e": "Zener diodes conduct in both forward and reverse breakdown directions."
+    "e": "Zener diode များသည် forward နှင့် reverse breakdown direction နှစ်ခုလုံးတွင် conduct သည်။"
   },
   {
     "q": "For normal operation of a zener diode, in breakdown region, the current through the diode should be limited by an external _____.",
@@ -305,7 +305,7 @@
       "capacitor"
     ],
     "c": 1,
-    "e": "An external series resistor (circuit) is required to limit current and prevent thermal runaway."
+    "e": "Current ကန့်သတ်၍ thermal runaway မဖြစ်စေရန် ပြင်ပ series resistor (circuit) လိုအပ်သည်။"
   },
   {
     "q": "The voltage drop feature makes the zener diode suitable for voltage regulation as reference elements, surge suppressors, and in switching applications and _____ circuits.",
@@ -316,7 +316,7 @@
       "clipper"
     ],
     "c": 2,
-    "e": "Zener diodes are frequently used to build clipper circuits due to their sharp breakdown voltage."
+    "e": "Zener diode များသည် sharp breakdown voltage ကြောင့် clipper circuit တည်ဆောက်ရန် မကြာခဏ သုံးသည်။"
   },
   {
     "q": "Digital electronics is a field of electronics involving the study of digital signals and the engineering of devices that use or produce them, which is in contrast to _____ electronics.",
@@ -327,7 +327,7 @@
       "continuous"
     ],
     "c": 0,
-    "e": "Digital electronics deals with discrete signals, contrasting directly with analog electronics."
+    "e": "Digital electronics သည် analog electronics နှင့် တိုက်ရိုက် ဆန့်ကျင်ပြီး discrete signal များကို ကိုင်တွယ်သည်။"
   },
   {
     "q": "An advantage of digital circuits when compared to analog circuits is that signals represented digitally can be transmitted without degradation caused by _____.",
@@ -338,7 +338,7 @@
       "light"
     ],
     "c": 1,
-    "e": "Digital signals are highly immune to noise degradation during transmission."
+    "e": "Digital signal များသည် transmission အတွင်း noise degradation ကို ခံနိုင်ရည် မြင့်သည်။"
   },
   {
     "q": "An IC, sometimes called a chip (or) microchip, is a semiconductor wafer on which thousands (or) millions of tiny resistors, capacitors and _____ are fabricated.",
@@ -349,7 +349,7 @@
       "transistors"
     ],
     "c": 2,
-    "e": "Integrated circuits primarily consist of microscopic transistors, resistors, and capacitors."
+    "e": "Integrated circuit များသည် အဓိကအားဖြင့် microscopic transistor, resistor နှင့် capacitor များဖြင့် ဖွဲ့စည်းသည်။"
   },
   {
     "q": "Linear ICs have continuously variable output that depends on the input signal level and are used as af (audio-frequency) and _____ amplifiers.",
@@ -360,7 +360,7 @@
       "ac"
     ],
     "c": 0,
-    "e": "Linear ICs are commonly used as amplifiers for audio-frequency (af) and radio-frequency (rf) signals."
+    "e": "Linear IC များကို audio-frequency (af) နှင့် radio-frequency (rf) signal အတွက် amplifier အဖြစ် အသုံးများသည်။"
   },
   {
     "q": "Digital ICs operate at only a few defined levels or states, rather than over a continuous range of signal _____.",
@@ -371,7 +371,7 @@
       "phases"
     ],
     "c": 1,
-    "e": "Digital ICs process discrete signal amplitudes (usually logic 0 and logic 1)."
+    "e": "Digital IC များသည် discrete signal amplitude (ပုံမှန်အားဖြင့် logic 0 နှင့် logic 1) ကို စီမံသည်။"
   },
   {
     "q": "The fundamental building blocks of digital ICs are logic gates, which work with binary data, that is, signals that have only two different states, called LOW (logic 0) and _____ (logic 1).",
@@ -382,7 +382,7 @@
       "HIGH"
     ],
     "c": 2,
-    "e": "Binary logic states are universally referred to as LOW and HIGH."
+    "e": "Binary logic state များကို LOW နှင့် HIGH ဟု အများအားဖြင့် ခေါ်သည်။"
   },
   {
     "q": "There are two common types of logic IC package available, known as TTL (Transistor-Transistor Logic) and _____ (Complementary Metal Oxide Semiconductor).",
@@ -393,7 +393,7 @@
       "FET"
     ],
     "c": 0,
-    "e": "TTL and CMOS are the two dominant logic families in digital IC packaging."
+    "e": "TTL နှင့် CMOS သည် digital IC packaging တွင် အဓိက logic family နှစ်ခုဖြစ်သည်။"
   },
   {
     "q": "The AND gate with inverted output is called a _____ gate.",
@@ -404,7 +404,7 @@
       "XOR"
     ],
     "c": 1,
-    "e": "Adding an inverter to an AND gate creates a NAND (NOT-AND) gate."
+    "e": "AND gate တွင် inverter ထည့်လျှင် NAND (NOT-AND) gate ဖြစ်လာသည်။"
   },
   {
     "q": "In an XOR gate, the output is HIGH if one, and only one, of the inputs is _____.",
@@ -415,7 +415,7 @@
       "HIGH"
     ],
     "c": 2,
-    "e": "The Exclusive-OR (XOR) gate outputs HIGH exclusively when inputs differ (one is HIGH)."
+    "e": "Exclusive-OR (XOR) gate သည် input မတူသောအခါ (တစ်ခု HIGH) သာ HIGH ထုတ်သည်။"
   },
   {
     "q": "The XOR gate produces a 0 when both inputs _____.",
@@ -426,7 +426,7 @@
       "invert"
     ],
     "c": 0,
-    "e": "If both inputs to an XOR gate are identical (both 0 or both 1), the output is 0."
+    "e": "XOR gate ၏ input နှစ်ခု တူညီလျှင် (နှစ်ခုလုံး 0 သို့မဟုတ် နှစ်ခုလုံး 1) output သည် 0 ဖြစ်သည်။"
   },
   {
     "q": "Boolean algebra is a branch of mathematics where variables can have only two possible values: false and true, (or) logic values 0 and _____.",
@@ -437,7 +437,7 @@
       "-1"
     ],
     "c": 1,
-    "e": "Boolean algebra operates strictly on the binary values 0 and 1."
+    "e": "Boolean algebra သည် binary value 0 နှင့် 1 ပေါ်တွင်သာ တိကျစွာ လည်ပတ်သည်။"
   },
   {
     "q": "Boolean algebra gives a more compact way to describe a combinational logic circuit than _____ alone.",
@@ -448,7 +448,7 @@
       "diagrams"
     ],
     "c": 2,
-    "e": "Algebraic expressions are more compact than enumerating all states in truth tables."
+    "e": "Algebraic expression များသည် truth table တွင် state အားလုံး စာရင်းပြုခြင်းထက် ပိုကျစ်လစ်သည်။"
   },
   {
     "q": "The commutative law of addition in Boolean algebra is expressed as $A+B =$ _____.",
@@ -459,7 +459,7 @@
       "$A-B$"
     ],
     "c": 0,
-    "e": "The commutative law states that the order of variables in addition does not matter."
+    "e": "Commutative law က addition တွင် variable အစီအစဉ်သည် အရေးမကြီးကြောင်း ဖော်ပြသည်။"
   },
   {
     "q": "The distributive law in Boolean algebra is expressed as $A(B+C) =$ _____.",
@@ -470,7 +470,7 @@
       "$AB+AC$"
     ],
     "c": 1,
-    "e": "Distributing A across the sum (B+C) yields AB + AC."
+    "e": "A ကို sum (B+C) ပေါ် distribute လုပ်လျှင် AB + AC ရသည်။"
   },
   {
     "q": "According to the basic rules of Boolean algebra, the expression $A \\cdot 1$ is equal to _____.",
@@ -481,7 +481,7 @@
       "$A$"
     ],
     "c": 2,
-    "e": "ANDing any variable with logic 1 leaves the variable unchanged."
+    "e": "Variable မည်သည့်ကိုမဆို logic 1 နှင့် AND လုပ်လျှင် ထို variable မပြောင်းလဲပါ။"
   },
   {
     "q": "According to the basic rules of Boolean algebra, the expression $A + \\overline{A}$ is equal to _____.",
@@ -492,7 +492,7 @@
       "$A$"
     ],
     "c": 0,
-    "e": "A variable ORed with its complement always results in logic 1."
+    "e": "Variable ကို ၎င်း၏ complement နှင့် OR လုပ်လျှင် အမြဲ logic 1 ရသည်။"
   },
   {
     "q": "De Morgan's first theorem states that the complement of two or more ANDed variables is equivalent to the OR of the _____ of the individual variables.",
@@ -503,7 +503,7 @@
       "reciprocals"
     ],
     "c": 1,
-    "e": "De Morgan's theorem replaces AND with OR and complements each individual variable."
+    "e": "De Morgan's theorem သည် AND ကို OR ဖြင့် အစားထိုးပြီး variable တစ်ခုချင်းစီကို complement လုပ်သည်။"
   },
   {
     "q": "The formula for expressing De Morgan's first theorem for two variables is $\\overline{AB} =$ _____.",
@@ -514,7 +514,7 @@
       "$\\overline{A}+\\overline{B}$"
     ],
     "c": 2,
-    "e": "The complement of an AND operation equals the OR of the individual complements."
+    "e": "AND operation ၏ complement သည် တစ်ခုချင်း complement များ၏ OR နှင့် ညီသည်။"
   },
   {
     "q": "The formula for expressing De Morgan's second theorem for two variables is $\\overline{A+B} =$ _____.",
@@ -525,7 +525,7 @@
       "$AB$"
     ],
     "c": 0,
-    "e": "The complement of an OR operation equals the AND of the individual complements."
+    "e": "OR operation ၏ complement သည် တစ်ခုချင်း complement များ၏ AND နှင့် ညီသည်။"
   },
   {
     "q": "In a fire alarm system, the fire extinguisher will be set to operate if both smoke and _____ are detected.",
@@ -536,7 +536,7 @@
       "sound"
     ],
     "c": 1,
-    "e": "The textbook fire alarm logic triggers the extinguisher only when both smoke and heat detectors are active."
+    "e": "သင်ခန်းစာရှိ fire alarm logic သည် smoke နှင့် heat detector နှစ်ခုလုံး active ဖြစ်မှသာ extinguisher ကို trigger လုပ်သည်။"
   },
   {
     "q": "In a street lighting system, the OR gate gives a 1 output when either or both of its inputs are _____.",
@@ -547,7 +547,7 @@
       "1"
     ],
     "c": 2,
-    "e": "An OR gate outputs 1 if any or all of its inputs are 1."
+    "e": "OR gate သည် input တစ်ခုခု သို့မဟုတ် အားလုံး 1 ဖြစ်လျှင် 1 ထုတ်သည်။"
   },
   {
     "q": "Complex devices may have simple electronic representations of Boolean logic functions, and digital electronic circuits are usually made from large assemblies of logic gates often packaged in integrated _____.",
@@ -558,7 +558,7 @@
       "wires"
     ],
     "c": 0,
-    "e": "Logic gates are packaged into Integrated Circuits (ICs)."
+    "e": "Logic gate များကို Integrated Circuit (IC) များအဖြစ် ထုပ်ပိုးသည်။"
   },
   {
     "q": "Linear ICs have continuously variable output that theoretically capable of attaining an infinite number of states and the output signal level is a linear function of the input signal _____.",
@@ -569,7 +569,7 @@
       "phase"
     ],
     "c": 1,
-    "e": "The output of a linear IC is directly proportional to its input signal level."
+    "e": "Linear IC ၏ output သည် ၎င်း၏ input signal level နှင့် တိုက်ရိုက် အချိုးကျသည်။"
   },
   {
     "q": "These logic ICs are usually supplied in plastic DIL packages containing several logic gates of the same type, where DIL stands for dual in _____.",
@@ -580,7 +580,7 @@
       "line"
     ],
     "c": 2,
-    "e": "DIL stands for Dual In-Line package."
+    "e": "DIL သည် Dual In-Line package ကို ဆိုလိုသည်။"
   },
   {
     "q": "An XNOR gate is an XOR gate with inverted _____.",
@@ -591,7 +591,7 @@
       "power"
     ],
     "c": 0,
-    "e": "An XNOR gate is simply an XOR gate followed by an inverter on its output."
+    "e": "XNOR gate သည် XOR gate ၏ output နောက်တွင် inverter တစ်ခု ထည့်ထားခြင်းသာ ဖြစ်သည်။"
   },
   {
     "q": "Boolean algebra is also called Binary algebra or Logical algebra and is used to analyze and simplify the digital logic _____.",
@@ -602,7 +602,7 @@
       "waves"
     ],
     "c": 1,
-    "e": "The primary purpose of Boolean algebra is the analysis and simplification of digital logic circuits."
+    "e": "Boolean algebra ၏ အဓိက ရည်ရွယ်ချက်မှာ digital logic circuit များကို ခွဲခြမ်းစိတ်ဖြာ၍ ရိုးရှင်းအောင် လုပ်ရန်ဖြစ်သည်။"
   },
   {
     "q": "The commutative law of multiplication in Boolean algebra is expressed as $AB =$ _____.",
@@ -613,7 +613,7 @@
       "$BA$"
     ],
     "c": 2,
-    "e": "The order of variables in a logical AND operation does not change the result."
+    "e": "Logical AND operation တွင် variable အစီအစဉ်သည် ရလဒ် မပြောင်းလဲပါ။"
   },
   {
     "q": "The associative law of addition in Boolean algebra is expressed as $A+(B+C) =$ _____.",
@@ -624,7 +624,7 @@
       "$AB+C$"
     ],
     "c": 0,
-    "e": "Grouping of variables in an OR operation does not affect the final sum."
+    "e": "OR operation တွင် variable များကို အုပ်စုဖွဲ့ခြင်းသည် နောက်ဆုံး sum ကို မထိခိုက်ပါ။"
   },
   {
     "q": "According to the basic rules of Boolean algebra, the expression $A \\cdot A$ is equal to _____.",
@@ -635,7 +635,7 @@
       "$0$"
     ],
     "c": 1,
-    "e": "ANDing a variable with itself yields the original variable."
+    "e": "Variable ကို ၎င်းကိုယ်တိုင် AND လုပ်လျှင် မူလ variable ရသည်။"
   },
   {
     "q": "According to the basic rules of Boolean algebra, the expression $A \\cdot \\overline{A}$ is equal to _____.",
@@ -646,7 +646,7 @@
       "$0$"
     ],
     "c": 2,
-    "e": "ANDing a variable with its logical complement always results in 0."
+    "e": "Variable ကို ၎င်း၏ logical complement နှင့် AND လုပ်လျှင် အမြဲ 0 ရသည်။"
   },
   {
     "q": "In general, an electronic communication system is composed of the transmission, reception, and processing of information between two or more locations with the use of electronic _____.",
@@ -657,7 +657,7 @@
       "signals"
     ],
     "c": 0,
-    "e": "Electronic communication systems rely fundamentally on electronic circuits to process information."
+    "e": "Electronic communication system များသည် information စီမံရန် electronic circuit များကို အခြေခံအားကိုးသည်။"
   },
   {
     "q": "The basic components of an electronic communication system are the transmitter, communication channel or medium, receiver and _____ (as a source of disturbance).",
@@ -668,7 +668,7 @@
       "data"
     ],
     "c": 1,
-    "e": "Noise is universally recognized as the unwanted disturbance in communication block diagrams."
+    "e": "Noise ကို communication block diagram တွင် မလိုလားသော disturbance အဖြစ် အများက အသိအမှတ်ပြုသည်။"
   },
   {
     "q": "The information source is a device that generates information (messages or data) to be transmitted, and the messages generated by source may be voice, audio, music, video, or _____ (text, image, email....).",
@@ -679,7 +679,7 @@
       "noise"
     ],
     "c": 2,
-    "e": "Information sources generate various forms of data including text, images, and emails."
+    "e": "Information source များသည် text, image နှင့် email အပါအဝင် data ပုံစံအမျိုးမျိုး ထုတ်ပေးသည်။"
   },
   {
     "q": "The transmitter is the arrangement that processes the message signal into an appropriate form for transmission and subsequent _____.",
@@ -690,7 +690,7 @@
       "absorption"
     ],
     "c": 0,
-    "e": "The transmitter prepares the signal specifically for successful reception at the destination."
+    "e": "Transmitter သည် destination တွင် အောင်မြင်စွာ လက်ခံရန် signal ကို အထူးပြင်ဆင်သည်။"
   },
   {
     "q": "Depending upon the type of communication system, a channel may be copper wires, coaxial cable, optical fibre, radio links, _____ channel or combination of any of these.",
@@ -701,7 +701,7 @@
       "underwater"
     ],
     "c": 1,
-    "e": "Satellite channels are a primary medium for long-distance wireless communication."
+    "e": "Satellite channel များသည် အကွာအဝေးရှည် wireless communication အတွက် အဓိက medium ဖြစ်သည်။"
   },
   {
     "q": "Noise is an unwanted signal that disturbs, interferes and affects the transmitted signal, and the measure of noise is usually expressed in terms of _____ (signal to noise ratio).",
@@ -712,7 +712,7 @@
       "SNR"
     ],
     "c": 2,
-    "e": "Signal quality in the presence of noise is quantified using the SNR."
+    "e": "Noise ရှိနေချိန် signal quality ကို SNR ဖြင့် တိုင်းတာသည်။"
   },
   {
     "q": "Digital signals are more immune to noise than _____ signals.",
@@ -723,7 +723,7 @@
       "optical"
     ],
     "c": 0,
-    "e": "The discrete nature of digital signals makes them highly resistant to analog noise degradation."
+    "e": "Digital signal များ၏ discrete သဘာဝကြောင့် analog noise degradation ကို ခံနိုင်ရည် မြင့်သည်။"
   },
   {
     "q": "The receiver accepts the transmitted message from the channel and converts to a form understandable by _____.",
@@ -734,7 +734,7 @@
       "computers"
     ],
     "c": 1,
-    "e": "The ultimate goal of the receiver is to present the information in a format understandable by humans."
+    "e": "Receiver ၏ နောက်ဆုံး ရည်ရွယ်ချက်မှာ information ကို လူနားလည်သော ပုံစံဖြင့် တင်ပြရန်ဖြစ်သည်။"
   },
   {
     "q": "Receivers contain amplifiers, oscillators, mixers, tuned circuits, filters and a _____ (detector).",
@@ -745,7 +745,7 @@
       "demodulator"
     ],
     "c": 2,
-    "e": "The demodulator is the critical component in a receiver that extracts the original baseband signal."
+    "e": "Demodulator သည် receiver တွင် မူလ baseband signal ကို ထုတ်ယူသော အရေးကြီး component ဖြစ်သည်။"
   },
   {
     "q": "In point-to-point mode, communication takes place over a link between a single transmitter and a _____.",
@@ -756,7 +756,7 @@
       "satellite"
     ],
     "c": 0,
-    "e": "Point-to-point communication is defined by a direct link between one transmitter and one receiver."
+    "e": "Point-to-point communication ကို transmitter တစ်ခုနှင့် receiver တစ်ခုကြား တိုက်ရိုက် link ဖြင့် သတ်မှတ်သည်။"
   },
   {
     "q": "In the broadcast mode, there are a large number of receivers corresponding to a single _____.",
@@ -767,7 +767,7 @@
       "channel"
     ],
     "c": 1,
-    "e": "Broadcast mode involves a single transmitter sending signals to numerous receivers simultaneously."
+    "e": "Broadcast mode တွင် transmitter တစ်ခုက receiver အများအပြားသို့ တစ်ပြိုင်နက် signal ပို့သည်။"
   },
   {
     "q": "Analog communication uses an analog signal which varies in amplitude, phase, or some other property with _____.",
@@ -778,7 +778,7 @@
       "frequency"
     ],
     "c": 2,
-    "e": "Analog signals are continuous functions of time."
+    "e": "Analog signal များသည် time ၏ continuous function များဖြစ်သည်။"
   },
   {
     "q": "Transfer of data in digital communication occurs in the form of digital bit stream, i.e. 0 or 1 over a point-to-point (or) point-to-multipoint transmission _____.",
@@ -789,7 +789,7 @@
       "wave"
     ],
     "c": 0,
-    "e": "Digital bit streams are transmitted over various physical or wireless transmission media."
+    "e": "Digital bit stream များကို physical သို့မဟုတ် wireless transmission medium အမျိုးမျိုးမှ ပို့သည်။"
   },
   {
     "q": "With digital communication, data can be broken into packets as discrete messages and transmission errors can be detected and _____.",
@@ -800,7 +800,7 @@
       "ignored"
     ],
     "c": 1,
-    "e": "Digital protocols allow for both the detection and correction of bit errors."
+    "e": "Digital protocol များသည် bit error များကို detect နှင့် ပြင်ဆင်ရန် ခွင့်ပြုသည်။"
   },
   {
     "q": "In line communication, there is a physical connection between source and destination, and the wires that are most popular are co-axial, parallel wire lines, twisted pair cables and _____.",
@@ -811,7 +811,7 @@
       "optical fibre"
     ],
     "c": 2,
-    "e": "Optical fibre is a premier physical transmission line for high-speed communication."
+    "e": "Optical fibre သည် high-speed communication အတွက် ထိပ်တန်း physical transmission line ဖြစ်သည်။"
   },
   {
     "q": "A transmitter encodes a message onto electromagnetic waves through modulation, which changes properties of the wave to represent the _____.",
@@ -822,7 +822,7 @@
       "power"
     ],
     "c": 0,
-    "e": "Modulation alters wave properties specifically to encode and transmit the underlying data."
+    "e": "Modulation သည် အောက်ရှိ data ကို encode ၍ ပို့ရန် wave property များကို ပြောင်းသည်။"
   },
   {
     "q": "A transducer is a device for converting a non-electrical input into an electrical signal (or) vice versa, and the process of converting energy from one form to another is known as _____.",
@@ -833,7 +833,7 @@
       "induction"
     ],
     "c": 1,
-    "e": "The fundamental energy conversion process within a transducer is called transduction."
+    "e": "Transducer အတွင်း အခြေခံ energy ပြောင်းလဲမှု process ကို transduction ဟု ခေါ်သည်။"
   },
   {
     "q": "Transducer contains two parts that are closely related to each other, i.e. the sensing element and _____ element.",
@@ -844,7 +844,7 @@
       "transmission"
     ],
     "c": 2,
-    "e": "A transducer pairs a sensing element with a transduction element to produce an electrical output."
+    "e": "Transducer သည် sensing element နှင့် transduction element ကို တွဲ၍ electrical output ထုတ်သည်။"
   },
   {
     "q": "The sensing element is called the sensor, which is a device which produces a measurable response due to a change in physical _____.",
@@ -855,7 +855,7 @@
       "phases"
     ],
     "c": 0,
-    "e": "Sensors react directly to changes in physical conditions like heat, light, or pressure."
+    "e": "Sensor များသည် heat, light သို့မဟုတ် pressure ကဲ့သို့ physical အခြေအနေ ပြောင်းလဲမှုကို တိုက်ရိုက် တုံ့ပြန်သည်။"
   },
   {
     "q": "The process of changing some characteristics (e.g. amplitude, frequency or phase) of a carrier wave (e.g. radio wave) in accordance with the intensity of the signal is known as _____.",
@@ -866,7 +866,7 @@
       "amplification"
     ],
     "c": 1,
-    "e": "Modulation is the process of impressing a baseband signal onto a higher frequency carrier."
+    "e": "Modulation သည် baseband signal ကို ပိုမြင့်သော frequency ရှိ carrier ပေါ် တင်သော process ဖြစ်သည်။"
   },
   {
     "q": "In modulation, the sound wave is electrically impressed on an _____ wave.",
@@ -877,7 +877,7 @@
       "electromagnetic"
     ],
     "c": 2,
-    "e": "Audio signals are impressed onto electromagnetic carrier waves for wireless transmission."
+    "e": "Audio signal များကို wireless transmission အတွက် electromagnetic carrier wave ပေါ် တင်သည်။"
   },
   {
     "q": "Modulation permits the transmission to occur at high frequency while it simultaneously allows the carrying of the _____ signal.",
@@ -888,7 +888,7 @@
       "data"
     ],
     "c": 0,
-    "e": "The primary purpose of RF modulation is to carry low-frequency audio signals over long distances."
+    "e": "RF modulation ၏ အဓိက ရည်ရွယ်ချက်မှာ low-frequency audio signal များကို အကွာအဝေးရှည် သယ်ဆောင်ရန်ဖြစ်သည်။"
   },
   {
     "q": "When the amplitude of high frequency carrier wave is changed in accordance with the intensity of the signal, it is called _____ modulation.",
@@ -899,7 +899,7 @@
       "phase"
     ],
     "c": 1,
-    "e": "Varying the carrier's amplitude in step with the modulating signal defines Amplitude Modulation."
+    "e": "Carrier ၏ amplitude ကို modulating signal နှင့်အတူ ပြောင်းခြင်းကို Amplitude Modulation ဟု သတ်မှတ်သည်။"
   },
   {
     "q": "In amplitude modulation, only the amplitude of the carrier wave is changed in accordance with the intensity of the signal but the frequency of the modulated wave (i.e. carrier frequency) remains the _____.",
@@ -910,7 +910,7 @@
       "same"
     ],
     "c": 2,
-    "e": "In AM, the carrier frequency is strictly held constant while its amplitude fluctuates."
+    "e": "AM တွင် carrier frequency ကို တိကျစွာ constant ထားပြီး amplitude သာ ပြောင်းလဲသည်။"
   },
   {
     "q": "Amplitude modulation is commonly used to transmit information in portable two-way radios, VHF (Very High Frequency), aircraft radios and in computer _____.",
@@ -921,7 +921,7 @@
       "switches"
     ],
     "c": 0,
-    "e": "Computer modems historically relied heavily on amplitude (and phase) modulation techniques."
+    "e": "Computer modem များသည် သမိုင်းတွင် amplitude (နှင့် phase) modulation နည်းလမ်းများကို အားကိုးခဲ့သည်။"
   },
   {
     "q": "When the frequency of carrier wave is changed in accordance with the intensity of the signal, it is called frequency modulation (FM), and the amplitude of the modulated wave (i.e. carrier wave amplitude) remains the _____.",
@@ -932,7 +932,7 @@
       "high"
     ],
     "c": 1,
-    "e": "A key feature of FM is that the carrier amplitude remains constant, providing noise immunity."
+    "e": "FM ၏ အဓိက လက္ခဏာမှာ carrier amplitude constant ဖြစ်၍ noise immunity ပေးခြင်းဖြစ်သည်။"
   },
   {
     "q": "The frequency variations of carrier wave in FM depend upon the instantaneous _____ of the signal.",
@@ -943,7 +943,7 @@
       "amplitude"
     ],
     "c": 2,
-    "e": "In FM, the carrier's frequency shifts proportionally to the instantaneous amplitude of the baseband signal."
+    "e": "FM တွင် carrier ၏ frequency သည် baseband signal ၏ instantaneous amplitude နှင့် အချိုးကျ ရွေ့သည်။"
   },
   {
     "q": "Phase modulation is a modulation pattern that encodes information as variations in the instantaneous _____ of a carrier wave.",
@@ -954,7 +954,7 @@
       "frequency"
     ],
     "c": 0,
-    "e": "Phase modulation encodes data directly into the phase angle shifts of the carrier."
+    "e": "Phase modulation သည် data ကို carrier ၏ phase angle shift များတွင် တိုက်ရိုက် encode လုပ်သည်။"
   },
   {
     "q": "Unlike FM, phase modulation is not widely used for transmitting radio waves, but is used for signal and waveform generation in digital _____.",
@@ -965,7 +965,7 @@
       "receivers"
     ],
     "c": 1,
-    "e": "Phase modulation is a core technique used within digital waveform synthesizers."
+    "e": "Phase modulation သည် digital waveform synthesizer တွင် သုံးသော အဓိက နည်းလမ်းဖြစ်သည်။"
   },
   {
     "q": "The process of recovering the audio signal from the modulated wave is known as demodulation or _____.",
@@ -976,6 +976,6 @@
       "detection"
     ],
     "c": 2,
-    "e": "Demodulation is synonymously referred to as detection in radio receiver terminology."
+    "e": "Demodulation ကို radio receiver အခေါ်အဝေါ်တွင် detection ဟုလည်း ခေါ်သည်။"
   }
 ]
