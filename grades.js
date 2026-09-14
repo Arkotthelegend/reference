@@ -424,38 +424,49 @@ function quizAliasStems(base) {
     function add(s) {
         if (s && stems.indexOf(s) === -1) stems.push(s);
     }
-    const transforms = [
-        function (s) { return s.replace(/^chem_/, 'chme_'); },
-        function (s) { return s.replace(/^chem_/, 'Chme_'); },
-        function (s) { return s.replace(/^chem_/, 'C_chme_'); },
-        function (s) { return s.replace(/^chem_/, 'chne_'); },
-        function (s) { return s.replace(/_Fill_Blank/g, '_Blank'); },
-        function (s) { return s.replace(/_definition$/i, '_Def'); },
-        function (s) { return s.replace(/_definition$/i, '_Key_Terms'); },
-        function (s) { return s.replace(/_formula$/i, '_Formula'); },
-        function (s) { return s.replace(/_(\d)_Marks$/, '_$1_Mark'); },
-        function (s) { return s.replace(/_1_Mark$/, '_1-Mark'); },
-        function (s) { return s.replace(/_2_Mark$/, '_2_mark'); },
-        function (s) { return s.replace(/_Chapter_/, '_Chaapter_'); },
-        function (s) { return s.replace(/_Chapter_/, '_Chaptr_'); },
-        function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter$1_$2'); },
-        function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter_$1-$2'); },
-        function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter_$2'); },
-        function (s) {
+    const isChem = /^chem_/i.test(base);
+    const isEn = /^en_unit/i.test(base);
+    const isMath = /^math_/i.test(base);
+    const isPhy = /^phy_/i.test(base);
+    const transforms = [];
+    if (isChem) {
+        transforms.push(function (s) { return s.replace(/^chem_/, 'chme_'); });
+        transforms.push(function (s) { return s.replace(/^chem_/, 'Chme_'); });
+        transforms.push(function (s) { return s.replace(/^chem_/, 'C_chme_'); });
+        transforms.push(function (s) { return s.replace(/^chem_/, 'chne_'); });
+        transforms.push(function (s) { return s.replace(/_Fill_Blank/g, '_Blank'); });
+        transforms.push(function (s) { return s.replace(/_definition$/i, '_Key_Terms'); });
+        transforms.push(function (s) { return s.replace(/_Chapter_/, '_Chaptr_'); });
+        transforms.push(function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter$1_$2'); });
+        transforms.push(function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter_$1-$2'); });
+        transforms.push(function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter_$2'); });
+    }
+    if (isPhy) {
+        transforms.push(function (s) { return s.replace(/_definition$/i, '_Def'); });
+        transforms.push(function (s) { return s.replace(/_formula$/i, '_Formula'); });
+    }
+    if (isMath) {
+        transforms.push(function (s) { return s.replace(/_(\d)_Marks$/, '_$1_Mark'); });
+        transforms.push(function (s) { return s.replace(/_1_Mark$/, '_1-Mark'); });
+        transforms.push(function (s) { return s.replace(/_2_Mark$/, '_2_mark'); });
+        transforms.push(function (s) { return s.replace(/_Chapter_/, '_Chaapter_'); });
+    }
+    if (isEn) {
+        transforms.push(function (s) {
             const m = s.match(/^en_unit(\d+)_mcq$/i);
             return m ? ('eng_Unit_' + m[1] + '_MCQ') : s;
-        },
-        function (s) {
+        });
+        transforms.push(function (s) {
             const m = s.match(/^en_unit(\d+)_mcq$/i);
             return m ? ('eng_UnIt_' + m[1] + '_MCQ') : s;
-        },
-        function (s) {
+        });
+        transforms.push(function (s) {
             const m = s.match(/^en_unit(\d+)_initial_letter$/i);
             return m ? ('eng_Unit_' + m[1] + '_Initial') : s;
-        }
-    ];
+        });
+    }
     add(base);
-    for (let i = 0; i < stems.length && i < 80; i++) {
+    for (let i = 0; i < stems.length && i < 40; i++) {
         const cur = stems[i];
         for (let t = 0; t < transforms.length; t++) add(transforms[t](cur));
     }
@@ -477,12 +488,11 @@ function quizUrlCandidatesForGrade(grade, fileName) {
     const prefix = cfg.filePrefix || '';
     const base = stripGradeFilePrefix(raw);
     const dir = './quizzes/' + folder + '/';
-    const prefixes = [prefix];
-    if (prefix) {
+    const prefixes = [prefix, ''];
+    if (/^chem_/i.test(base) && prefix) {
         prefixes.push(prefix.toLowerCase());
         prefixes.push(prefix.replace('_', ''));
     }
-    prefixes.push('');
     quizAliasStems(base).forEach(function (stem) {
         prefixes.forEach(function (p) {
             add(dir + p + stem + '.json');
