@@ -25,6 +25,9 @@ HOW TO CHANGE CHAPTERS
   2. Edit subChapters below. Example:
        'Chapter 3': ['3.1', '3.2', '3.3']
   3. Add matching JSON files using the names above.
+  Grade 10 / 11 also have quizLayout built from the JSON names in
+  quizzes/G10 and quizzes/G11. Menus only show chapters, sub-chapters,
+  and quiz types that exist in those folders. Do not copy Grade 12 lists.
 
 GOOGLE SHEET (paid users)
   Grade 12 keeps your current columns:
@@ -128,7 +131,7 @@ const GRADE_CONFIG = {
         }
     },
 
-    // ---------- GRADE 11  (files in quizzes/G11/ named G11_...) ----------
+    // ---------- GRADE 11  (files in quizzes/G11/ named G11_...)
     11: {
         label: 'Grade 11',
         filePrefix: 'G11_',
@@ -136,51 +139,50 @@ const GRADE_CONFIG = {
         sheetPrefix: 'g11_',
         showOldQuestions: false,
         enUnits: 12,
-        mmCategories: ['အပြော', 'စကားပြေ', 'ကဗျာ', 'မဲဇာတောင်ခြေ', 'အရေး'],
+        mmCategories: ["အပြော", "စကားပြေ", "ကဗျာ", "မဲဇာတောင်ခြေ", "အရေး"],
         mmPlayCategory: 'မဲဇာတောင်ခြေ',
-        mmProseTitles: ['သိင်္ဃသူ့သမီး', 'ပတ္တမြားပြဿနာဖြင့်စုံစမ်းခန်း', 'ဝဇီကိုင်', 'မျိုးချစ်ဇာတ်မင်းသားကြီးမင်္ဂလာဦးအောင်မောင်း', 'အလုပ်', 'ဆားဒယ်', 'လူလည်းတစ်ထွေရေလည်းတခြား', 'ကျွန်ုပ်တို့၏နိုင်ငံတော်'],
-        mmPoetryTitles: ['ရွှေနှင့်ယိုးမှားပန်းစံကား', 'ဝိဇ္ဇာသိပ္ပလူ့ကိစ္စ', 'မပန်ရလည်းမပန်ချင်', 'နွေဦးကာလမြူထသောခါ', 'မဲဇာတောင်ခြေ', 'သင်သေသွားသော်', 'အလှရှိရာ', 'ဂျိန်းဖော့ပွဲတော်'],
-        mmChapters: ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'],
+        mmProseTitles: ["သိင်္ဃသူ့သမီး", "ပတ္တမြားပြဿနာဖြင့်စုံစမ်းခန်း", "ဝဇီကိုင်", "မျိုးချစ်ဇာတ်မင်းသားကြီးမင်္ဂလာဦးအောင်မောင်း", "အလုပ်", "ဆားဒယ်", "လူလည်းတစ်ထွေရေလည်းတခြား", "ကျွန်ုပ်တို့၏နိုင်ငံတော်"],
+        mmPoetryTitles: ["ရွှေနှင့်ယိုးမှားပန်းစံကား", "ဝိဇ္ဇာသိပ္ပလူ့ကိစ္စ", "မပန်ရလည်းမပန်ချင်", "နွေဦးကာလမြူထသောခါ", "မဲဇာတောင်ခြေ", "သင်သေသွားသော်", "အလှရှိရာ", "ဂျိန်းဖော့ပွဲတော်"],
+        mmChapters: ["အခန်း ၁", "အခန်း ၂", "အခန်း ၃"],
         mmDailyFiles: [
             'mm_အပြော_အမှန်ရွေး',
             'mm_စကားပြေ_အမှန်ရွေး',
             'mm_ကဗျာ_အမှန်ရွေး',
             'mm_အဖတ်_အမှန်ရွေး'
         ],
-        subjects: subjectsList({ math: 11, phy: 13, chem: 8, bio: 6, eco: 8, enUnits: 12, ecoSkip: [6] }),
+        subjects: subjectsList({ math: 11, phy: 12, chem: 8, bio: 6, eco: 6, enUnits: 12 }),
         subChapters: {
             phy: {
-                'Chapter 1': ['1.1', '1.2', '1.3'],
-                'Chapter 2': ['2.1', '2.2'],
-                'Chapter 3': ['3.1', '3.2', '3.3', '3.4', '3.5', '3.6'],
-                'Chapter 4': ['4.1', '4.2', '4.3', '4.4', '4.5'],
-                'Chapter 5': ['5.1', '5.2', '5.3'],
-                'Chapter 6': ['6.1', '6.2', '6.3', '6.4', '6.5'],
-                'Chapter 7': ['7.1', '7.2', '7.3', '7.4', '7.5', '7.6', '7.7', '7.8'],
-                'Chapter 8': ['8.1', '8.2', '8.3', '8.4'],
-                'Chapter 9': ['9.1', '9.2', '9.3', '9.4', '9.5'],
-                'Chapter 10': ['10.1', '10.2', '10.3', '10.4', '10.5'],
-                'Chapter 11': ['11.1', '11.2', '11.3', '11.4', '11.5', '11.6', '11.7'],
-                'Chapter 12': ['12.1', '12.2', '12.3'],
-                'Chapter 13': ['13.1', '13.2', '13.3', '13.4']
+                'Chapter 1': [],
+                'Chapter 2': [],
+                'Chapter 3': [],
+                'Chapter 4': [],
+                'Chapter 5': [],
+                'Chapter 6': [],
+                'Chapter 7': [],
+                'Chapter 8': [],
+                'Chapter 9': [],
+                'Chapter 10': [],
+                'Chapter 11': [],
+                'Chapter 12': []
             },
             chem: {
-                'Chapter 1': ['1.1', '1.2', '1.3', '1.4', '1.5'],
-                'Chapter 2': ['2.1', '2.2', '2.3'],
-                'Chapter 3': ['3.1', '3.2', '3.3'],
-                'Chapter 4': ['4.1', '4.2', '4.3'],
-                'Chapter 5': ['5.1', '5.2', '5.3', '5.4', '5.5'],
-                'Chapter 6': ['6.1', '6.2', '6.3'],
-                'Chapter 7': ['7.1', '7.2', '7.3', '7.4'],
-                'Chapter 8': ['8.1', '8.2', '8.3']
+                'Chapter 1': ["1.1", "1.2", "1.3", "1.4"],
+                'Chapter 2': ["2.1", "2.2", "2.3", "2.4"],
+                'Chapter 3': ["3.1", "3.2", "3.3", "3.4", "3.5"],
+                'Chapter 4': ["4.1", "4.2", "4.3", "4.4", "4.5"],
+                'Chapter 5': ["5.1", "5.2", "5.3", "5.4", "5.5"],
+                'Chapter 6': ["6.1", "6.2", "6.3", "6.4"],
+                'Chapter 7': ["7.1", "7.2", "7.3", "7.4"],
+                'Chapter 8': ["8.1", "8.2", "8.3", "8.4", "8.5"]
             },
             bio: {
-                'Chapter 1': ['1.1', '1.2'],
-                'Chapter 2': ['2.1', '2.2', '2.3', '2.4'],
-                'Chapter 3': ['3.1', '3.2', '3.3', '3.4', '3.5', '3.6', '3.7', '3.8'],
-                'Chapter 4': ['4.1', '4.2'],
-                'Chapter 5': ['5.1', '5.2', '5.3', '5.4', '5.5'],
-                'Chapter 6': ['6.1', '6.2', '6.3', '6.4']
+                'Chapter 1': ["1.1", "1.2", "1.3", "1.4", "1.5"],
+                'Chapter 2': ["2.1", "2.2"],
+                'Chapter 3': ["3.1", "3.2", "3.3"],
+                'Chapter 4': ["4.1", "4.2", "4.3"],
+                'Chapter 5': ["5.1", "5.2", "5.3", "5.4", "5.5"],
+                'Chapter 6': ["6.1", "6.2", "6.3", "6.4", "6.5"]
             },
             eco: {
                 'Chapter 1': [],
@@ -188,13 +190,13 @@ const GRADE_CONFIG = {
                 'Chapter 3': [],
                 'Chapter 4': [],
                 'Chapter 5': [],
-                'Chapter 7': [],
-                'Chapter 8': []
+                'Chapter 6': []
             }
-        }
+        },
+        quizLayout: {"bio": {"chapters": {"1": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"1.1": ["Fill_Blank", "MCQ", "True_False"], "1.2": ["Fill_Blank", "MCQ", "True_False"], "1.3": ["Fill_Blank", "MCQ", "True_False"], "1.4": ["Fill_Blank", "MCQ", "True_False"], "1.5": ["Fill_Blank", "MCQ", "True_False"]}}, "2": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"2.1": ["Fill_Blank", "MCQ", "True_False"], "2.2": ["Fill_Blank", "MCQ"]}}, "3": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"3.1": ["Fill_Blank", "MCQ", "True_False"], "3.2": ["Fill_Blank", "MCQ", "True_False"], "3.3": ["Fill_Blank", "MCQ", "True_False"]}}, "4": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"4.1": ["Fill_Blank", "MCQ", "True_False"], "4.2": ["Fill_Blank", "MCQ", "True_False"], "4.3": ["Fill_Blank", "MCQ", "True_False"]}}, "5": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"5.1": ["Fill_Blank", "MCQ", "True_False"], "5.2": ["Fill_Blank", "MCQ", "True_False"], "5.3": ["Fill_Blank", "MCQ", "True_False"], "5.4": ["Fill_Blank", "MCQ"], "5.5": ["Fill_Blank", "MCQ", "True_False"]}}, "6": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"6.1": ["Fill_Blank", "MCQ", "True_False"], "6.2": ["Fill_Blank", "MCQ", "True_False"], "6.3": ["Fill_Blank", "MCQ", "True_False"], "6.4": ["Fill_Blank", "MCQ", "True_False"], "6.5": ["Fill_Blank", "MCQ", "True_False"]}}}}, "chem": {"chapters": {"1": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"1.1": ["Fill_Blank", "MCQ", "True_False"], "1.2": ["Fill_Blank", "MCQ", "True_False"], "1.3": ["Fill_Blank", "MCQ", "True_False"], "1.4": ["Fill_Blank", "MCQ", "True_False"]}, "def": true}, "2": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"2.1": ["Fill_Blank", "MCQ", "True_False"], "2.2": ["Fill_Blank", "MCQ", "True_False"], "2.3": ["Fill_Blank", "MCQ", "True_False"], "2.4": ["Fill_Blank", "MCQ", "True_False"]}, "def": true}, "3": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"3.1": ["Fill_Blank", "MCQ", "True_False"], "3.2": ["Fill_Blank", "MCQ", "True_False"], "3.3": ["Fill_Blank", "MCQ", "True_False"], "3.4": ["Fill_Blank", "MCQ", "True_False"], "3.5": ["Fill_Blank", "MCQ", "True_False"]}, "def": true}, "4": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"4.1": ["Fill_Blank", "MCQ", "True_False"], "4.2": ["Fill_Blank", "MCQ", "True_False"], "4.3": ["Fill_Blank", "MCQ", "True_False"], "4.4": ["Fill_Blank", "MCQ", "True_False"], "4.5": ["Fill_Blank", "MCQ", "True_False"]}, "def": true}, "5": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"5.1": ["Fill_Blank", "MCQ", "True_False"], "5.2": ["Fill_Blank", "MCQ", "True_False"], "5.3": ["Fill_Blank", "MCQ", "True_False"], "5.4": ["Fill_Blank", "MCQ", "True_False"], "5.5": ["Fill_Blank", "MCQ", "True_False"]}, "def": true}, "6": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"6.1": ["Fill_Blank", "MCQ", "True_False"], "6.2": ["Fill_Blank", "MCQ", "True_False"], "6.3": ["Fill_Blank", "MCQ", "True_False"], "6.4": ["Fill_Blank", "MCQ", "True_False"]}, "def": true}, "7": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"7.1": ["Fill_Blank", "MCQ", "True_False"], "7.2": ["MCQ", "True_False"], "7.3": ["Fill_Blank", "MCQ", "True_False"], "7.4": ["Fill_Blank", "MCQ", "True_False"]}, "def": true}, "8": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"8.1": ["Fill_Blank", "MCQ", "True_False"], "8.2": ["Fill_Blank", "MCQ", "True_False"], "8.3": ["Fill_Blank", "MCQ"], "8.4": ["Fill_Blank", "MCQ", "True_False"], "8.5": ["Fill_Blank", "MCQ", "True_False"]}, "def": true}}}, "eco": {"chapters": {"1": {"types": ["Fill_Blank", "MCQ"], "whole": ["Fill_Blank", "MCQ"]}, "2": {"types": ["Fill_Blank", "MCQ"], "whole": ["Fill_Blank", "MCQ"]}, "3": {"types": ["Fill_Blank", "MCQ"], "whole": ["Fill_Blank", "MCQ"]}, "4": {"types": ["Fill_Blank", "MCQ"], "whole": ["Fill_Blank", "MCQ"]}, "5": {"types": ["Fill_Blank", "MCQ"], "whole": ["Fill_Blank", "MCQ"]}, "6": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"]}}}, "math": {"chapters": {"1": {"marks": ["3_Mark", "1_Mark", "2_Marks"]}, "2": {"marks": ["3_Mark", "2_Mark", "1_Mark"]}, "3": {"marks": ["1_Mark", "2_Mark", "3_Mark"]}, "4": {"marks": ["3_Mark", "2_Mark", "1_Mark"]}, "5": {"marks": ["2_Mark", "1_Mark", "3_Mark"]}, "6": {"marks": ["2_Mark", "1_Mark", "3_Mark"]}, "7": {"marks": ["1_Mark", "2_Mark", "3_Mark"]}, "8": {"marks": ["1_Mark", "2_Mark"]}, "9": {"marks": ["1_Mark", "3_Mark", "2_Mark"]}, "10": {"marks": ["2_Mark", "3_Mark", "1_Mark"]}, "11": {"marks": ["2_Mark", "3_Mark", "1-Mark"]}}}, "phy": {"chapters": {"1": {"def": true, "formula": true}, "2": {"def": true, "formula": true}, "3": {"def": true, "formula": true}, "4": {"def": true, "formula": true}, "5": {"def": true, "formula": true}, "6": {"def": true, "formula": true}, "7": {"def": true, "formula": true}, "8": {"def": true, "formula": true}, "9": {"def": true, "formula": true}, "10": {"def": true, "formula": true}, "11": {"def": true, "formula": true}, "12": {"def": true, "formula": true}}}, "en": {"mcq": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "initial": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}, "mm": {"အရေး": ["အခန်း ၁", "အခန်း ၂", "အခန်း ၃"], "အပြော": ["အခန်း ၁", "အခန်း ၂", "အခန်း ၃"]}}
     },
 
-    // ---------- GRADE 10  (files in quizzes/G10/ named G10_...) ----------
+    // ---------- GRADE 10  (files in quizzes/G10/ named G10_...)
     10: {
         label: 'Grade 10',
         filePrefix: 'G10_',
@@ -202,50 +204,47 @@ const GRADE_CONFIG = {
         sheetPrefix: 'g10_',
         showOldQuestions: false,
         enUnits: 12,
-        mmCategories: ['အပြော', 'စကားပြေ', 'ကဗျာ', 'အရေး'],
-        mmProseTitles: ['ယောမင်းကြီးစိတ်ဓာတ်', 'ဝီရိယနှစ်မျိုး', 'စာဖတ်ခြင်းအလေ့', 'ယောက်ျားအမှန်', 'ဗိုလ်ချုပ်အောင်ဆန်း၏ကျောင်းသားဘဝနှင့်ပညာရေးအမြင်', 'အိမ်သူအိမ်သားကောင်း၏အရည်အချင်းများ', 'ပြည်သူပြည်သားတာဝန်', 'ဂီတစာဆိုလှိုင်ထိပ်ခေါင်တင်', 'အိုးစည်သံ', 'လူ့မနော'],
-        mmPoetryTitles: ['သီကုံးပန်းသွင်နေ့တိုင်းဆင်', 'နှမထွေးမယ့်ကိုလိုလျှင်', 'ဝသန်ကာလမိုးကျတည့်လျှင်', 'လက်ဆောင်', 'ဗုံတော်သား', 'အင်းလယ်ကရွှေကြာပန်း', 'ပတ္တမြားရွှေဂူ', 'လှိုင်ကလေးသင်', 'သပြေညို', 'အလွမ်းပြေစာတစ်စောင်'],
-        mmChapters: ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'],
+        mmCategories: ["အပြော", "စကားပြေ", "ကဗျာ", "အရေး"],
+        mmProseTitles: ["ယောမင်းကြီးစိတ်ဓာတ်", "ဝီရိယနှစ်မျိုး", "စာဖတ်ခြင်းအလေ့", "ယောက်ျားအမှန်", "ဗိုလ်ချုပ်အောင်ဆန်း၏ကျောင်းသားဘဝနှင့်ပညာရေးအမြင်", "အိမ်သူအိမ်သားကောင်း၏အရည်အချင်းများ", "ပြည်သူပြည်သားတာဝန်", "ဂီတစာဆိုလှိုင်ထိပ်ခေါင်တင်", "အိုးစည်သံ", "လူ့မနော"],
+        mmPoetryTitles: ["သီကုံးပန်းသွင်နေ့တိုင်းဆင်", "နှမထွေးမယ့်ကိုလိုလျှင်", "ဝသန်ကာလမိုးကျတည့်လျှင်", "လက်ဆောင်", "ဗုံတော်သား", "အင်းလယ်ကရွှေကြာပန်း", "ပတ္တမြားရွှေဂူ", "လှိုင်ကလေးသင်", "သပြေညို", "အလွမ်းပြေစာတစ်စောင်"],
+        mmChapters: ["အခန်း ၁", "အခန်း ၂", "အခန်း ၃"],
         mmDailyFiles: [
             'mm_အပြော_အမှန်ရွေး',
             'mm_စကားပြေ_အမှန်ရွေး',
             'mm_ကဗျာ_အမှန်ရွေး',
             'mm_အဖတ်_အမှန်ရွေး'
         ],
-        subjects: subjectsList({ math: 11, phy: 13, chem: 8, bio: 6, eco: 8, enUnits: 12, ecoSkip: [6] }),
+        subjects: subjectsList({ math: 10, phy: 11, chem: 8, bio: 5, eco: 10, enUnits: 12 }),
         subChapters: {
             phy: {
-                'Chapter 1': ['1.1', '1.2', '1.3'],
-                'Chapter 2': ['2.1', '2.2'],
-                'Chapter 3': ['3.1', '3.2', '3.3', '3.4', '3.5', '3.6'],
-                'Chapter 4': ['4.1', '4.2', '4.3', '4.4', '4.5'],
-                'Chapter 5': ['5.1', '5.2', '5.3'],
-                'Chapter 6': ['6.1', '6.2', '6.3', '6.4', '6.5'],
-                'Chapter 7': ['7.1', '7.2', '7.3', '7.4', '7.5', '7.6', '7.7', '7.8'],
-                'Chapter 8': ['8.1', '8.2', '8.3', '8.4'],
-                'Chapter 9': ['9.1', '9.2', '9.3', '9.4', '9.5'],
-                'Chapter 10': ['10.1', '10.2', '10.3', '10.4', '10.5'],
-                'Chapter 11': ['11.1', '11.2', '11.3', '11.4', '11.5', '11.6', '11.7'],
-                'Chapter 12': ['12.1', '12.2', '12.3'],
-                'Chapter 13': ['13.1', '13.2', '13.3', '13.4']
+                'Chapter 1': ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7"],
+                'Chapter 2': ["2.1", "2.2", "2.3", "2.4"],
+                'Chapter 3': ["3.1", "3.2", "3.3", "3.4", "3.5", "3.6"],
+                'Chapter 4': ["4.1", "4.2", "4.3", "4.4"],
+                'Chapter 5': ["5.1", "5.2"],
+                'Chapter 6': ["6.1", "6.2", "6.3", "6.4"],
+                'Chapter 7': ["7.1", "7.2", "7.3", "7.4", "7.5", "7.6"],
+                'Chapter 8': ["8.1", "8.2", "8.3", "8.4"],
+                'Chapter 9': ["9.1", "9.2", "9.3", "9.4", "9.5", "9.6"],
+                'Chapter 10': ["10.1", "10.2", "10.3", "10.4", "10.5"],
+                'Chapter 11': ["11.1", "11.2", "11.3", "11.4", "11.5"]
             },
             chem: {
-                'Chapter 1': ['1.1', '1.2', '1.3', '1.4', '1.5'],
-                'Chapter 2': ['2.1', '2.2', '2.3'],
-                'Chapter 3': ['3.1', '3.2', '3.3'],
-                'Chapter 4': ['4.1', '4.2', '4.3'],
-                'Chapter 5': ['5.1', '5.2', '5.3', '5.4', '5.5'],
-                'Chapter 6': ['6.1', '6.2', '6.3'],
-                'Chapter 7': ['7.1', '7.2', '7.3', '7.4'],
-                'Chapter 8': ['8.1', '8.2', '8.3']
+                'Chapter 1': ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6"],
+                'Chapter 2': ["2.1", "2.2", "2.3", "2.4"],
+                'Chapter 3': ["3.1", "3.2", "3.3", "3.4", "3.5"],
+                'Chapter 4': [],
+                'Chapter 5': [],
+                'Chapter 6': [],
+                'Chapter 7': [],
+                'Chapter 8': []
             },
             bio: {
-                'Chapter 1': ['1.1', '1.2'],
-                'Chapter 2': ['2.1', '2.2', '2.3', '2.4'],
-                'Chapter 3': ['3.1', '3.2', '3.3', '3.4', '3.5', '3.6', '3.7', '3.8'],
-                'Chapter 4': ['4.1', '4.2'],
-                'Chapter 5': ['5.1', '5.2', '5.3', '5.4', '5.5'],
-                'Chapter 6': ['6.1', '6.2', '6.3', '6.4']
+                'Chapter 1': ["1.1", "1.2", "1.3"],
+                'Chapter 2': ["2.1", "2.2", "2.3"],
+                'Chapter 3': ["3.1", "3.2", "3.3"],
+                'Chapter 4': ["4.1", "4.2", "4.3"],
+                'Chapter 5': ["5.1", "5.2", "5.3"]
             },
             eco: {
                 'Chapter 1': [],
@@ -253,10 +252,14 @@ const GRADE_CONFIG = {
                 'Chapter 3': [],
                 'Chapter 4': [],
                 'Chapter 5': [],
+                'Chapter 6': [],
                 'Chapter 7': [],
-                'Chapter 8': []
+                'Chapter 8': [],
+                'Chapter 9': [],
+                'Chapter 10': []
             }
-        }
+        },
+        quizLayout: {"bio": {"chapters": {"1": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"1.1": ["Fill_Blank", "True_False"], "1.2": ["Fill_Blank", "True_False"], "1.3": ["Fill_Blank", "True_False"]}}, "2": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"2.1": ["Fill_Blank", "MCQ", "True_False"], "2.2": ["Fill_Blank", "MCQ", "True_False"], "2.3": ["True_False"]}}, "3": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"3.1": ["Fill_Blank", "MCQ", "True_False"], "3.2": ["Fill_Blank", "MCQ", "True_False"], "3.3": ["Fill_Blank", "MCQ", "True_False"]}}, "4": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"4.1": ["Fill_Blank", "MCQ", "True_False"], "4.2": ["Fill_Blank", "MCQ", "True_False"], "4.3": ["Fill_Blank", "MCQ", "True_False"]}}, "5": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"5.1": ["Fill_Blank", "MCQ", "True_False"], "5.2": ["Fill_Blank", "MCQ", "True_False"], "5.3": ["True_False"]}}}}, "chem": {"chapters": {"1": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"1.1": ["Fill_Blank", "MCQ"], "1.2": ["Fill_Blank", "MCQ"], "1.3": ["Fill_Blank", "MCQ", "True_False"], "1.4": ["Fill_Blank", "MCQ", "True_False"], "1.5": ["Fill_Blank", "True_False"], "1.6": ["Fill_Blank", "MCQ", "True_False"]}, "def": true}, "2": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "True_False"], "subs": {"2.1": ["Fill_Blank", "MCQ", "True_False"], "2.2": ["Fill_Blank", "MCQ", "True_False"], "2.3": ["Fill_Blank", "MCQ", "True_False"], "2.4": ["Fill_Blank", "MCQ", "True_False"]}, "def": true}, "3": {"types": ["Fill_Blank", "True_False"], "whole": ["Fill_Blank", "True_False"], "subs": {"3.1": ["Fill_Blank", "True_False"], "3.2": ["True_False"], "3.3": ["Fill_Blank", "True_False"], "3.4": ["Fill_Blank", "True_False"], "3.5": ["Fill_Blank", "True_False"]}, "def": true}, "4": {"def": true}, "5": {"def": true}, "6": {"def": true}, "7": {"def": true}, "8": {"def": true}}}, "eco": {"chapters": {"1": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"]}, "2": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"]}, "3": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"]}, "4": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"]}, "5": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"]}, "6": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"]}, "7": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"]}, "8": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"]}, "9": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"]}, "10": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"]}}}, "math": {"chapters": {"1": {"marks": ["2_Mark", "3_Mark", "1_Mark"]}, "2": {"marks": ["3_Mark", "1-Mark", "2_Mark"]}, "3": {"marks": ["2_Mark", "1_Mark", "3_Mark"]}, "4": {"marks": ["2_Mark", "1_Mark", "3_Mark"]}, "5": {"marks": ["3_Mark", "2_Mark", "1_Mark"]}, "6": {"marks": ["1_Mark", "3_Mark", "2_Mark"]}, "7": {"marks": ["2_mark", "3_Mark", "1_Mark"]}, "8": {"marks": ["2_Mark", "3_Mark", "1_Mark"]}, "9": {"marks": ["1_Mark", "2_Mark", "3_Mark"]}, "10": {"marks": ["2_Mark", "1_Mark", "3_Mark"]}}}, "phy": {"chapters": {"1": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"1.1": ["Fill_Blank", "MCQ", "True_False"], "1.2": ["Fill_Blank", "MCQ", "True_False"], "1.3": ["Fill_Blank", "MCQ", "True_False"], "1.4": ["Fill_Blank", "MCQ", "True_False"], "1.5": ["Fill_Blank", "MCQ"], "1.6": ["Fill_Blank", "MCQ", "True_False"], "1.7": ["Fill_Blank", "MCQ", "True_False"]}, "def": true, "formula": true}, "2": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"2.1": ["Fill_Blank", "MCQ", "True_False"], "2.2": ["Fill_Blank", "MCQ", "True_False"], "2.3": ["Fill_Blank", "MCQ", "True_False"], "2.4": ["Fill_Blank", "MCQ", "True_False"]}, "def": true, "formula": true}, "3": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"3.1": ["Fill_Blank", "MCQ", "True_False"], "3.2": ["Fill_Blank", "MCQ", "True_False"], "3.3": ["Fill_Blank", "MCQ", "True_False"], "3.4": ["Fill_Blank", "MCQ", "True_False"], "3.5": ["Fill_Blank", "MCQ", "True_False"], "3.6": ["Fill_Blank", "MCQ", "True_False"]}, "def": true, "formula": true}, "4": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"4.1": ["Fill_Blank", "MCQ", "True_False"], "4.2": ["Fill_Blank", "MCQ", "True_False"], "4.3": ["Fill_Blank", "MCQ", "True_False"], "4.4": ["Fill_Blank", "MCQ", "True_False"]}, "def": true, "formula": true}, "5": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"5.1": ["Fill_Blank", "MCQ", "True_False"], "5.2": ["Fill_Blank", "MCQ", "True_False"]}, "def": true, "formula": true}, "6": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"6.1": ["Fill_Blank", "MCQ", "True_False"], "6.2": ["Fill_Blank", "MCQ", "True_False"], "6.3": ["Fill_Blank", "MCQ", "True_False"], "6.4": ["Fill_Blank", "MCQ", "True_False"]}, "def": true, "formula": true}, "7": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"7.1": ["Fill_Blank", "MCQ", "True_False"], "7.2": ["Fill_Blank", "MCQ", "True_False"], "7.3": ["Fill_Blank", "MCQ", "True_False"], "7.4": ["Fill_Blank", "MCQ", "True_False"], "7.5": ["Fill_Blank", "MCQ", "True_False"], "7.6": ["Fill_Blank", "MCQ", "True_False"]}, "def": true, "formula": true}, "8": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"8.1": ["Fill_Blank", "MCQ", "True_False"], "8.2": ["Fill_Blank", "MCQ", "True_False"], "8.3": ["MCQ", "True_False"], "8.4": ["MCQ", "True_False"]}, "def": true, "formula": true}, "9": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"9.1": ["Fill_Blank", "MCQ", "True_False"], "9.2": ["Fill_Blank", "MCQ", "True_False"], "9.3": ["Fill_Blank", "MCQ", "True_False"], "9.4": ["Fill_Blank", "MCQ", "True_False"], "9.5": ["Fill_Blank", "MCQ"], "9.6": ["Fill_Blank"]}, "def": true, "formula": true}, "10": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"10.1": ["Fill_Blank", "MCQ", "True_False"], "10.2": ["Fill_Blank", "MCQ", "True_False"], "10.3": ["Fill_Blank", "MCQ", "True_False"], "10.4": ["Fill_Blank", "MCQ", "True_False"], "10.5": ["Fill_Blank", "MCQ", "True_False"]}, "def": true, "formula": true}, "11": {"types": ["Fill_Blank", "MCQ", "True_False"], "whole": ["Fill_Blank", "MCQ", "True_False"], "subs": {"11.1": ["Fill_Blank", "MCQ", "True_False"], "11.2": ["Fill_Blank", "True_False"], "11.3": ["Fill_Blank", "MCQ", "True_False"], "11.4": ["Fill_Blank", "MCQ", "True_False"], "11.5": ["Fill_Blank", "True_False"]}, "def": true, "formula": true}}}, "en": {"mcq": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "initial": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}, "mm": {"အပြော": ["အခန်း ၁", "အခန်း ၂"], "အရေး": ["အခန်း ၁", "အခန်း ၂", "အခန်း ၃"]}}
     }
 };
 
@@ -333,6 +336,99 @@ function getGradeCfg() {
 function getGradeCfgFor(grade) {
     var g = parseInt(grade, 10);
     return GRADE_CONFIG[g] || GRADE_CONFIG[12];
+}
+
+
+function chapterNumFromName(chapterName) {
+    const m = String(chapterName || '').match(/(\d+)/);
+    return m ? parseInt(m[1], 10) : 0;
+}
+
+function quizLayoutRoot() {
+    return getGradeCfg().quizLayout || null;
+}
+
+function quizChapterLayout(subId, chapterName) {
+    const root = quizLayoutRoot();
+    if (!root || !root[subId] || !root[subId].chapters) return null;
+    const n = chapterNumFromName(chapterName);
+    return root[subId].chapters[String(n)] || null;
+}
+
+function gradeQuizTypes(subId, chapterName) {
+    const lay = quizChapterLayout(subId, chapterName);
+    if (!lay) return ['True_False', 'Fill_Blank', 'MCQ'];
+    return (lay.types || []).slice();
+}
+
+function gradeHasWholeQuiz(subId, chapterName, quizType) {
+    const lay = quizChapterLayout(subId, chapterName);
+    if (!lay) return true;
+    return (lay.whole || []).indexOf(quizType) >= 0;
+}
+
+function gradeSubChaptersForType(subId, chapterName, quizType) {
+    const lay = quizChapterLayout(subId, chapterName);
+    const fallback = (getGradeCfg().subChapters[subId] && getGradeCfg().subChapters[subId][chapterName]) || [];
+    if (!lay) return fallback.slice();
+    const subs = lay.subs || {};
+    const keys = Object.keys(subs);
+    keys.sort(function (a, b) {
+        const pa = a.split('.').map(Number);
+        const pb = b.split('.').map(Number);
+        for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+            const da = pa[i] || 0, db = pb[i] || 0;
+            if (da !== db) return da - db;
+        }
+        return 0;
+    });
+    if (!quizType) return keys;
+    return keys.filter(function (k) { return (subs[k] || []).indexOf(quizType) >= 0; });
+}
+
+function gradeHasDefinition(subId, chapterName) {
+    const lay = quizChapterLayout(subId, chapterName);
+    if (!lay) return true;
+    return !!lay.def;
+}
+
+function gradeHasFormula(subId, chapterName) {
+    const lay = quizChapterLayout(subId, chapterName);
+    if (!lay) return true;
+    return !!lay.formula;
+}
+
+function gradeMathMarks(chapterName) {
+    const lay = quizChapterLayout('math', chapterName);
+    if (!lay || !lay.marks || !lay.marks.length) return null;
+    const raw = lay.marks;
+    function pick(re) {
+        for (let i = 0; i < raw.length; i++) if (re.test(raw[i])) return raw[i];
+        return null;
+    }
+    const out = [];
+    const one = pick(/1[-_]Mark/i);
+    const two = pick(/2_Marks/) || pick(/2_Mark/i);
+    const three = pick(/3_Marks/) || pick(/3_Mark/i);
+    if (one) out.push(one);
+    if (two) out.push(two);
+    if (three) out.push(three);
+    return out;
+}
+
+function gradeEnUnitsForType(typeName) {
+    const root = quizLayoutRoot();
+    if (!root || !root.en) return null;
+    const t = String(typeName || '').toLowerCase();
+    if (t.indexOf('mcq') >= 0) return (root.en.mcq || []).slice();
+    if (t.indexOf('initial') >= 0) return (root.en.initial || []).slice();
+    return null;
+}
+
+function gradeMmChaptersFor(cat) {
+    const root = quizLayoutRoot();
+    if (root && root.mm && root.mm[cat] && root.mm[cat].length) return root.mm[cat].slice();
+    return (getGradeCfg().mmChapters || ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃']).slice();
 }
 
 function getEnGrammarTopics() {
@@ -440,6 +536,7 @@ function quizAliasStems(base) {
         transforms.push(function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter$1_$2'); });
         transforms.push(function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter_$1-$2'); });
         transforms.push(function (s) { return s.replace(/_Chapter_(\d+)_(\d+\.\d+)/, '_Chapter_$2'); });
+        transforms.push(function (s) { return s.replace(/_Chapter_/g, '_chapter_'); });
     }
     if (isPhy) {
         transforms.push(function (s) { return s.replace(/_definition$/i, '_Def'); });
@@ -459,6 +556,10 @@ function quizAliasStems(base) {
         transforms.push(function (s) {
             const m = s.match(/^en_unit(\d+)_mcq$/i);
             return m ? ('eng_UnIt_' + m[1] + '_MCQ') : s;
+        });
+        transforms.push(function (s) {
+            const m = s.match(/^en_unit(\d+)_mcq$/i);
+            return m ? ('en_Unit_' + m[1] + '_MCQ') : s;
         });
         transforms.push(function (s) {
             const m = s.match(/^en_unit(\d+)_initial_letter$/i);
@@ -498,6 +599,7 @@ function quizUrlCandidatesForGrade(grade, fileName) {
             add(dir + p + stem + '.json');
             if (/definition|_Def|Key_Terms/i.test(stem)) add(dir + p + stem + '_.json');
             if (/Initial/i.test(stem)) add(dir + p + stem + '.jason');
+            if (/^math_/i.test(stem) && /_\d_Mark$/i.test(stem)) add(dir + p + stem);
         });
     });
     return list;
