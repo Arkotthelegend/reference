@@ -668,8 +668,23 @@ function fetchQuizResponse(fileName) {
     });
 }
 
+function parseQuizJsonText(text) {
+    const t = String(text || '').replace(/^\uFEFF/, '').trim();
+    if (!t) throw new Error('empty');
+    try {
+        return JSON.parse(t);
+    } catch (e) { /* some files have a heading line before the array */ }
+    const startArr = t.indexOf('[');
+    const startObj = t.indexOf('{');
+    let start = -1;
+    if (startArr >= 0 && (startObj < 0 || startArr < startObj)) start = startArr;
+    else if (startObj >= 0) start = startObj;
+    if (start < 0) throw new Error('invalid json');
+    return JSON.parse(t.slice(start));
+}
+
 function fetchQuizJson(fileName) {
-    return fetchQuizResponse(fileName).then(function (res) { return res.json(); });
+    return fetchQuizResponse(fileName).then(function (res) { return res.text(); }).then(parseQuizJsonText);
 }
 
 refreshSubjectsFromGrade();
