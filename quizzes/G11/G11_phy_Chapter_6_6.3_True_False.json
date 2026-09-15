@@ -1,0 +1,218 @@
+[
+  {
+    "type": "tf",
+    "q": "If one of the pendulums is set up into oscillation, the others will begin to oscillate because they are coupled by vibrations in a flexible beam.",
+    "c": "true",
+    "e": "The text explains that pendulums suspended from a flexible beam are coupled by vibrations in the beam."
+  },
+  {
+    "type": "tf",
+    "q": "Pendulum C, whose length is the same as that of A, will oscillate with the greatest amplitude since its natural frequency matches that of pendulum A.",
+    "c": "true",
+    "e": "Matching natural frequencies lead to maximum amplitude oscillation, which is the condition for resonance."
+  },
+  {
+    "type": "tf",
+    "q": "The amplitude of the motion reaches a maximum when the frequency of the driving force equals the natural frequency of the system.",
+    "c": "true",
+    "e": "This is the defining condition for resonance as stated in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Under the condition of maximum amplitude, the system is said to be in resonance.",
+    "c": "true",
+    "e": "When the driving frequency equals the natural frequency, the system is in resonance."
+  },
+  {
+    "type": "tf",
+    "q": "Natural frequency is the frequency at which a system tends to oscillate in the presence of any driving force.",
+    "c": "false",
+    "e": "Natural frequency is the frequency at which a system tends to oscillate in the absence of any driving force."
+  },
+  {
+    "type": "tf",
+    "q": "Natural frequency is the frequency at which a system tends to oscillate in the absence of any driving force.",
+    "c": "true",
+    "e": "This is the exact definition of natural frequency provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "If a vibrating tuning fork is placed over the open end of a glass tube partly filled with water, the sound of the tuning fork can be greatly amplified under certain conditions.",
+    "c": "true",
+    "e": "This describes the resonance column experiment where amplification occurs at specific air column lengths."
+  },
+  {
+    "type": "tf",
+    "q": "The length of the air column in the resonance tube can be varied by raising or lowering the water level.",
+    "c": "true",
+    "e": "Adjusting the water level changes the length of the air column to find resonance points."
+  },
+  {
+    "type": "tf",
+    "q": "The wave is sent down the air column in the tube and it is reflected upwards when it hits the water surface.",
+    "c": "true",
+    "e": "The water surface acts as a closed end, reflecting the wave upwards."
+  },
+  {
+    "type": "tf",
+    "q": "The resonance tube will have an antinode near the open end and a node at the water surface.",
+    "c": "true",
+    "e": "Air molecules can move freely at the open end (antinode) but cannot move at the water surface (node)."
+  },
+  {
+    "type": "tf",
+    "q": "The water at the closed end will not allow the air molecules to move downward, so an antinode will be formed.",
+    "c": "false",
+    "e": "Because the air molecules cannot move at the water surface, a node is formed, not an antinode."
+  },
+  {
+    "type": "tf",
+    "q": "Resonance can only be produced under the situation where a node is formed at the water surface and an antinode is formed at the open end.",
+    "c": "true",
+    "e": "This boundary condition is necessary for resonance in a closed-end air column."
+  },
+  {
+    "type": "tf",
+    "q": "Since the antinodes lie just beyond the end of the tube, a correction $c$ is added to the length of the air column.",
+    "c": "true",
+    "e": "End correction $c$ accounts for the fact that the antinode is slightly outside the physical open end of the tube."
+  },
+  {
+    "type": "tf",
+    "q": "For the first resonance, the length of the air column is given by $l_1 + c = rac{\\lambda}{4}$.",
+    "c": "true",
+    "e": "The first resonance occurs when the effective length of the air column is one-quarter of the wavelength."
+  },
+  {
+    "type": "tf",
+    "q": "For the second resonance, the length of the air column is given by $l_2 + c = rac{3\\lambda}{4}$.",
+    "c": "true",
+    "e": "The second resonance occurs when the effective length of the air column is three-quarters of the wavelength."
+  },
+  {
+    "type": "tf",
+    "q": "Using the resonance equations, the wavelength of the vibrating air column is $\\lambda = 2(l_2 - l_1)$.",
+    "c": "true",
+    "e": "Subtracting the first resonance equation from the second eliminates $c$ and yields $\\lambda = 2(l_2 - l_1)$."
+  },
+  {
+    "type": "tf",
+    "q": "At resonance, the frequency $f$ of the tuning fork is equal to the frequency of the vibrating air column.",
+    "c": "true",
+    "e": "Resonance occurs when the driving frequency (tuning fork) matches the natural frequency of the air column."
+  },
+  {
+    "type": "tf",
+    "q": "The velocity of sound can be found using the formula $v = f\\lambda$.",
+    "c": "true",
+    "e": "Once the wavelength is determined from resonance lengths, the velocity of sound is calculated using $v = f\\lambda$."
+  },
+  {
+    "type": "tf",
+    "q": "In a closed organ pipe, one end is opened and another end is closed.",
+    "c": "true",
+    "e": "This is the defining structural characteristic of a closed organ pipe."
+  },
+  {
+    "type": "tf",
+    "q": "A whistle is an example of an open organ pipe.",
+    "c": "false",
+    "e": "A whistle is given as an example of a closed organ pipe, not an open organ pipe."
+  },
+  {
+    "type": "tf",
+    "q": "In closed organ pipes, an antinode exists near the open end while a node is formed at the closed end.",
+    "c": "true",
+    "e": "This matches the boundary conditions for a closed organ pipe."
+  },
+  {
+    "type": "tf",
+    "q": "The wavelength of the $n^{th}$ harmonic for a vibrating air column in a closed organ pipe is $\\lambda_n = rac{4l}{n}$ where $n=1, 3, 5, ...$.",
+    "c": "true",
+    "e": "This is the correct formula for the wavelengths of harmonics in a closed organ pipe."
+  },
+  {
+    "type": "tf",
+    "q": "The wavelength of the $n^{th}$ harmonic for a vibrating air column in a closed organ pipe is $\\lambda_n = rac{2l}{n}$ where $n=1, 2, 3, ...$.",
+    "c": "false",
+    "e": "The formula $\\lambda_n = \frac{2l}{n}$ applies to open organ pipes, not closed organ pipes."
+  },
+  {
+    "type": "tf",
+    "q": "The frequency of a closed organ pipe is given by $f_n = rac{nv}{4l}$ where $n=1, 3, 5, ...$.",
+    "c": "true",
+    "e": "This is the correct formula for the resonant frequencies of a closed organ pipe."
+  },
+  {
+    "type": "tf",
+    "q": "A closed organ pipe produces both odd and even harmonics.",
+    "c": "false",
+    "e": "A closed organ pipe produces only odd harmonics ($n=1, 3, 5, ...$)."
+  },
+  {
+    "type": "tf",
+    "q": "In a closed organ pipe, the third harmonic is called the first overtone.",
+    "c": "true",
+    "e": "Since even harmonics are missing, the next harmonic after the fundamental ($n=1$) is the third harmonic ($n=3$), which is the first overtone."
+  },
+  {
+    "type": "tf",
+    "q": "In a closed organ pipe, the fifth harmonic is called the second overtone.",
+    "c": "true",
+    "e": "Following the fundamental and first overtone, the fifth harmonic ($n=5$) is the second overtone."
+  },
+  {
+    "type": "tf",
+    "q": "The stationary wave with a single node in the open organ pipe corresponds to the fundamental frequency (first harmonic).",
+    "c": "true",
+    "e": "In an open organ pipe, the fundamental frequency has a single node in the middle and antinodes at both ends."
+  },
+  {
+    "type": "tf",
+    "q": "In an open organ pipe, the stationary wave with two nodes is the second harmonic (or) first overtone.",
+    "c": "true",
+    "e": "The text states that the stationary wave with two nodes in an open organ pipe corresponds to the second harmonic or first overtone."
+  },
+  {
+    "type": "tf",
+    "q": "A flute is an example of an open organ pipe.",
+    "c": "true",
+    "e": "The textbook explicitly identifies a flute as an open organ pipe."
+  },
+  {
+    "type": "tf",
+    "q": "A clarinet can be modeled as a pipe closed at one end.",
+    "c": "true",
+    "e": "The text states that a clarinet can be modeled as a pipe closed at one end."
+  },
+  {
+    "type": "tf",
+    "q": "The wavelength for the $n^{th}$ harmonic in an open organ pipe is $\\lambda_n = rac{2l}{n}$ where $n=1, 2, 3, ...$.",
+    "c": "true",
+    "e": "This is the correct formula for the wavelengths of harmonics in an open organ pipe."
+  },
+  {
+    "type": "tf",
+    "q": "The frequencies of a vibrating air column in an open organ pipe are $f_n = rac{nv}{2l}$ where $n=1, 2, 3, ...$.",
+    "c": "true",
+    "e": "This is the correct formula for the resonant frequencies of an open organ pipe."
+  },
+  {
+    "type": "tf",
+    "q": "Beats are the periodic fluctuation heard in the intensity of sound when two sound waves of slightly different frequencies interfere with one another.",
+    "c": "true",
+    "e": "This is the exact definition of beats provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "The number of beats per second is the sum of the frequencies of the two sources.",
+    "c": "false",
+    "e": "The number of beats per second (beat frequency) is the difference in frequency between the two sources, not the sum."
+  },
+  {
+    "type": "tf",
+    "q": "The beat frequency is given by the formula $f_b = |f_1 - f_2|$.",
+    "c": "true",
+    "e": "The beat frequency is the absolute difference between the frequencies of the two interfering sound sources."
+  }
+]
