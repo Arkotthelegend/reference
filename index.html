@@ -3460,7 +3460,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     </div>
 </div>
 
-    <script src="./grades.js?v=13"></script>
+    <script src="./grades.js?v=14"></script>
     <script src="./timetable.js?v=28"></script>
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
@@ -5999,12 +5999,14 @@ function chooseThenQuiz(title, fileName, onBackToList, oldMenu) {
             content.innerHTML = '';
             document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
             const unitCount = (currentSubject && currentSubject.units) || getGradeCfg().enUnits || 12;
-            for (let i = 1; i <= unitCount; i++) {
+            const listed = (typeof gradeEnUnitsForType === 'function') ? gradeEnUnitsForType(typeName) : null;
+            const units = (listed && listed.length) ? listed : Array.from({ length: unitCount }, (_, i) => i + 1);
+            units.forEach(i => {
                 createBtn(`Unit ${i}`, content, () => {
                     const fileName = `en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`;
                     chooseThenQuiz(`Unit ${i}`, fileName, () => showENUnits(typeName));
                 });
-            }
+            });
         }
 
         async function showENDialogues() {
@@ -6764,7 +6766,10 @@ function showMMChapters(typeName, cat) {
     };
     content.appendChild(allBtn);
 
-    (getGradeCfg().mmChapters || ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃']).forEach(chapter => {
+    const mmChapters = (typeof gradeMmChaptersFor === 'function')
+        ? gradeMmChaptersFor(cat)
+        : (getGradeCfg().mmChapters || ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃']);
+    mmChapters.forEach(chapter => {
         createBtn(chapter, content, () => {
             const fileName = `mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
             chooseThenQuiz(chapter, fileName, () => showMMChapters(typeName, cat));
@@ -6880,17 +6885,27 @@ function showSubChaptersMenu(subId, chapterName) {
         }
     };
 
-    fillPlayModeList(content, function () {
-        showChapterQuizTypes(subId, chapterName);
-    });
+    const quizTypes = (typeof gradeQuizTypes === 'function') ? gradeQuizTypes(subId, chapterName) : ['True_False', 'Fill_Blank', 'MCQ'];
+    const hasDef = (typeof gradeHasDefinition !== 'function') || gradeHasDefinition(subId, chapterName);
+    const hasFormula = (typeof gradeHasFormula !== 'function') || gradeHasFormula(subId, chapterName);
 
-    if (subId === 'phy' || subId === 'eco') {
+    if (quizTypes.length) {
+        fillPlayModeList(content, function () {
+            showChapterQuizTypes(subId, chapterName);
+        });
+    } else {
+        content.innerHTML = '';
+        content.classList.remove('play-pick');
+        content.classList.remove('play-modes');
+    }
+
+    if ((subId === 'phy' || subId === 'eco') && hasDef) {
         createBtn("Definition", content, () => loadDefinitions(subId, chapterName));
     }
-    if (subId === 'phy') {
+    if (subId === 'phy' && hasFormula) {
         createBtn("Formula", content, () => loadFormulas(subId, chapterName));
     }
-    if (subId === 'chem') {
+    if (subId === 'chem' && hasDef) {
         createBtn("Key terms", content, () => loadKeyTerms(subId, chapterName));
     }
 }
@@ -6904,7 +6919,8 @@ function showChapterQuizTypes(subId, chapterName) {
     content.innerHTML = '';
     document.getElementById('activity-back-btn').onclick = () => showSubChaptersMenu(subId, chapterName);
 
-    ['True_False', 'Fill_Blank', 'MCQ'].forEach(type => {
+    const quizTypes = (typeof gradeQuizTypes === 'function') ? gradeQuizTypes(subId, chapterName) : ['True_False', 'Fill_Blank', 'MCQ'];
+    quizTypes.forEach(type => {
         createBtn(type.replace('_', ' '), content, () => {
             showQuizSubChapters(subId, chapterName, type);
         });
@@ -6924,17 +6940,22 @@ function showQuizSubChapters(subId, chapterName, quizType) {
     
     document.getElementById('activity-back-btn').onclick = () => showChapterQuizTypes(subId, chapterName);
 
-    const fullBtn = document.createElement('button');
-    fullBtn.className = 'btn btn-all-chapter';
-    fullBtn.innerText = "တစ်ခန်းလုံး";
-    fullBtn.style.gridColumn = "1 / -1";
-    fullBtn.onclick = () => {
-        const fileName = `${subId}_${chapterName}_${quizType}`.replace(/ /g, "_");
-        startQuizFile(fileName, () => showQuizSubChapters(subId, chapterName, quizType));
-    };
-    content.appendChild(fullBtn);
+    const hasWhole = (typeof gradeHasWholeQuiz !== 'function') || gradeHasWholeQuiz(subId, chapterName, quizType);
+    if (hasWhole) {
+        const fullBtn = document.createElement('button');
+        fullBtn.className = 'btn btn-all-chapter';
+        fullBtn.innerText = "တစ်ခန်းလုံး";
+        fullBtn.style.gridColumn = "1 / -1";
+        fullBtn.onclick = () => {
+            const fileName = `${subId}_${chapterName}_${quizType}`.replace(/ /g, "_");
+            startQuizFile(fileName, () => showQuizSubChapters(subId, chapterName, quizType));
+        };
+        content.appendChild(fullBtn);
+    }
 
-    const subChapters = (getGradeCfg().subChapters[subId] && getGradeCfg().subChapters[subId][chapterName]) || [];
+    const subChapters = (typeof gradeSubChaptersForType === 'function')
+        ? gradeSubChaptersForType(subId, chapterName, quizType)
+        : ((getGradeCfg().subChapters[subId] && getGradeCfg().subChapters[subId][chapterName]) || []);
     subChapters.forEach(subChap => {
         createBtn(subChap, content, () => {
             const activityPartName = `${chapterName}_${subChap}`;
@@ -7306,6 +7327,10 @@ function updateFlashUI() {
         let mathMarks = ['1_Mark', '2_Marks', '3_Marks'];
         if (partName === 'Chapter 2') {
             mathMarks = ['3_Marks'];
+        }
+        if (typeof gradeMathMarks === 'function') {
+            const fromFiles = gradeMathMarks(partName);
+            if (fromFiles && fromFiles.length) mathMarks = fromFiles;
         }
         
         mathMarks.forEach(mark => {
