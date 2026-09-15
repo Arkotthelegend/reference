@@ -1,0 +1,233 @@
+[
+  {
+    "type": "mcq",
+    "q": "A logic gate is an electronic device which takes information from the environment, makes a decision, and then gives out the ______.",
+    "c": 1,
+    "a": [
+      "input",
+      "result",
+      "voltage"
+    ],
+    "e": "The textbook defines it as outputting the result of a decision."
+  },
+  {
+    "type": "mcq",
+    "q": "Logic gates are commonly built using ______.",
+    "c": 1,
+    "a": [
+      "vacuum tubes",
+      "small integrated circuits (ICs)",
+      "mechanical relays"
+    ],
+    "e": "ICs are more convenient than discrete components."
+  },
+  {
+    "type": "mcq",
+    "q": "The five common logic gates are ______.",
+    "c": 1,
+    "a": [
+      "AND, OR, XOR, XNOR, BUFFER",
+      "AND, OR, NAND, NOR, NOT",
+      "ADD, SUB, MUL, DIV, MOD"
+    ],
+    "e": "These are the five listed in the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "A NOT gate has ______ input(s).",
+    "c": 0,
+    "a": [
+      "one",
+      "two",
+      "three"
+    ],
+    "e": "The inverter (NOT gate) operates on a single input."
+  },
+  {
+    "type": "mcq",
+    "q": "For a 2-input AND gate, the output is HIGH only when ______.",
+    "c": 2,
+    "a": [
+      "both inputs are LOW",
+      "either input is HIGH",
+      "both inputs are HIGH"
+    ],
+    "e": "AND requires all inputs HIGH for a HIGH output."
+  },
+  {
+    "type": "mcq",
+    "q": "For a 2-input OR gate, the output is LOW only when ______.",
+    "c": 2,
+    "a": [
+      "both inputs are HIGH",
+      "either input is HIGH",
+      "both inputs are LOW"
+    ],
+    "e": "OR outputs LOW only if all inputs are LOW."
+  },
+  {
+    "type": "mcq",
+    "q": "For a 2-input NAND gate, the output is LOW only when ______.",
+    "c": 2,
+    "a": [
+      "both inputs are LOW",
+      "either input is LOW",
+      "both inputs are HIGH"
+    ],
+    "e": "NAND is the inverse of AND—LOW only when both inputs HIGH."
+  },
+  {
+    "type": "mcq",
+    "q": "For a 2-input NOR gate, the output is HIGH only when ______.",
+    "c": 2,
+    "a": [
+      "both inputs are HIGH",
+      "either input is HIGH",
+      "both inputs are LOW"
+    ],
+    "e": "NOR is the inverse of OR—HIGH only when all inputs LOW."
+  },
+  {
+    "type": "mcq",
+    "q": "The Boolean expression for a 2-input AND gate is ______.",
+    "c": 1,
+    "a": [
+      "$X = A + B$",
+      "$X = AB$",
+      "$X = \\overline{AB}$"
+    ],
+    "e": "AND is represented by multiplication: $X = AB$."
+  },
+  {
+    "type": "mcq",
+    "q": "The Boolean expression for a 2-input OR gate is ______.",
+    "c": 1,
+    "a": [
+      "$X = AB$",
+      "$X = A + B$",
+      "$X = \\overline{A + B}$"
+    ],
+    "e": "OR is represented by addition: $X = A + B$."
+  },
+  {
+    "type": "mcq",
+    "q": "The Boolean expression for a 2-input NAND gate is ______.",
+    "c": 1,
+    "a": [
+      "$X = AB$",
+      "$X = \\overline{AB}$",
+      "$X = \\overline{A + B}$"
+    ],
+    "e": "NAND is the complement of AND: $X = \\overline{AB}$."
+  },
+  {
+    "type": "mcq",
+    "q": "The Boolean expression for a 2-input NOR gate is ______.",
+    "c": 2,
+    "a": [
+      "$X = \\overline{AB}$",
+      "$X = A + B$",
+      "$X = \\overline{A + B}$"
+    ],
+    "e": "NOR is the complement of OR: $X = \\overline{A + B}$."
+  },
+  {
+    "type": "mcq",
+    "q": "The Boolean expression for a NOT gate is ______.",
+    "c": 1,
+    "a": [
+      "$X = A$",
+      "$X = \\overline{A}$",
+      "$X = A + 1$"
+    ],
+    "e": "NOT inverts the input: $X = \\overline{A}$."
+  },
+  {
+    "type": "mcq",
+    "q": "NAND and NOR gates are called universal gates because they ______.",
+    "c": 1,
+    "a": [
+      "consume less power",
+      "can replace any other gate type when combined",
+      "are faster than others"
+    ],
+    "e": "They can construct any logic function by combination."
+  },
+  {
+    "type": "mcq",
+    "q": "The inverter (NOT gate) changes a LOW input to a ______ output.",
+    "c": 2,
+    "a": [
+      "LOW",
+      "ZERO",
+      "HIGH"
+    ],
+    "e": "Inversion means LOW → HIGH and HIGH → LOW."
+  },
+  {
+    "type": "mcq",
+    "q": "A basic 2-input logic circuit has a HIGH on one input and a LOW on the other, and the output is HIGH. The gate is most likely a(n) ______.",
+    "c": 1,
+    "a": [
+      "AND gate",
+      "OR gate",
+      "NAND gate"
+    ],
+    "e": "OR gives HIGH if at least one input is HIGH."
+  },
+  {
+    "type": "mcq",
+    "q": "A logic circuit requires HIGHs on all its inputs to make the output HIGH. This describes a(n) ______.",
+    "c": 1,
+    "a": [
+      "OR gate",
+      "AND gate",
+      "NOR gate"
+    ],
+    "e": "AND requires all inputs HIGH for HIGH output."
+  },
+  {
+    "type": "mcq",
+    "q": "An OR gate can be constructed using ______ NAND gates.",
+    "c": 1,
+    "a": [
+      "two",
+      "three",
+      "four"
+    ],
+    "e": "The textbook shows OR built from three NAND gates."
+  },
+  {
+    "type": "mcq",
+    "q": "A NOT gate can be constructed using ______ NAND gate(s).",
+    "c": 0,
+    "a": [
+      "one",
+      "two",
+      "three"
+    ],
+    "e": "Connecting both inputs of a NAND gate together makes a NOT gate."
+  },
+  {
+    "type": "mcq",
+    "q": "An AND gate can be constructed using ______ NAND gates.",
+    "c": 1,
+    "a": [
+      "one",
+      "two",
+      "three"
+    ],
+    "e": "Two NAND gates: first as NAND, second as inverter."
+  },
+  {
+    "type": "mcq",
+    "q": "A NOR gate can be constructed using ______ NAND gates.",
+    "c": 1,
+    "a": [
+      "three",
+      "four",
+      "five"
+    ],
+    "e": "The textbook diagram uses four NAND gates for NOR."
+  }
+]

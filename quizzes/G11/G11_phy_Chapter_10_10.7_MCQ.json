@@ -1,0 +1,222 @@
+[
+  {
+    "type": "mcq",
+    "q": "An ammeter is a device used for measuring _____.",
+    "c": 1,
+    "a": [
+      "potential difference",
+      "current",
+      "resistance"
+    ],
+    "e": "An ammeter is specifically designed to measure electric current."
+  },
+  {
+    "type": "mcq",
+    "q": "A voltmeter is a device used for measuring _____.",
+    "c": 2,
+    "a": [
+      "current",
+      "resistance",
+      "potential difference"
+    ],
+    "e": "A voltmeter is specifically designed to measure potential difference (voltage)."
+  },
+  {
+    "type": "mcq",
+    "q": "Ammeters and voltmeters are constructed based on the principle of a _____.",
+    "c": 0,
+    "a": [
+      "moving coil galvanometer",
+      "solenoid",
+      "rheostat"
+    ],
+    "e": "Both ammeters and voltmeters are modifications of a moving coil galvanometer."
+  },
+  {
+    "type": "mcq",
+    "q": "A moving coil galvanometer is a sensitive electromagnetic device which can measure low currents even of the order of a few _____.",
+    "c": 2,
+    "a": [
+      "amperes",
+      "milliamperes",
+      "microamperes"
+    ],
+    "e": "The moving coil galvanometer can measure low currents of the order of a few microamperes."
+  },
+  {
+    "type": "mcq",
+    "q": "In a moving coil galvanometer, the coil is suspended in a uniform _____ magnetic field.",
+    "c": 1,
+    "a": [
+      "linear",
+      "radial",
+      "circular"
+    ],
+    "e": "The coil is suspended in a uniform radial magnetic field."
+  },
+  {
+    "type": "mcq",
+    "q": "A cylindrical soft iron core is positioned inside the galvanometer coil to improve the strength of the magnetic field and to make the field _____.",
+    "c": 0,
+    "a": [
+      "radial",
+      "uniform",
+      "parallel"
+    ],
+    "e": "The soft iron core improves the magnetic field strength and makes the field radial."
+  },
+  {
+    "type": "mcq",
+    "q": "The spring in a moving coil galvanometer is used to produce a _____ which balances the magnetic torque.",
+    "c": 1,
+    "a": [
+      "magnetic field",
+      "counter torque",
+      "potential difference"
+    ],
+    "e": "The spring produces a counter torque to balance the magnetic torque, allowing a steady angular deflection."
+  },
+  {
+    "type": "mcq",
+    "q": "The principle of function of a moving coil galvanometer is that the current-carrying coil when placed in an external magnetic field experiences _____.",
+    "c": 0,
+    "a": [
+      "magnetic torque",
+      "chemical reaction",
+      "heating effect"
+    ],
+    "e": "The coil experiences a magnetic torque when current flows through it in an external magnetic field."
+  },
+  {
+    "type": "mcq",
+    "q": "The angle through which the galvanometer coil is deflected is proportional to the _____ of current in the coil.",
+    "c": 1,
+    "a": [
+      "square",
+      "magnitude",
+      "reciprocal"
+    ],
+    "e": "The deflection angle is directly proportional to the magnitude of the current in the coil."
+  },
+  {
+    "type": "mcq",
+    "q": "A galvanometer is converted into an ammeter by connecting it in parallel with a wire of low resistance called _____ resistance.",
+    "c": 1,
+    "a": [
+      "multiplier",
+      "shunt",
+      "series"
+    ],
+    "e": "A low resistance wire connected in parallel to convert a galvanometer to an ammeter is called a shunt resistance."
+  },
+  {
+    "type": "mcq",
+    "q": "The formula for calculating the shunt resistance $r$ is _____.",
+    "c": 0,
+    "a": [
+      "$r = \\frac{i}{I - i} R_G$",
+      "$r = \\frac{I - i}{i} R_G$",
+      "$r = i(I - i) R_G$"
+    ],
+    "e": "Since the voltages are equal in parallel, $i R_G = (I - i) r$, which rearranges to $r = \\frac{i}{I - i} R_G$."
+  },
+  {
+    "type": "mcq",
+    "q": "An ammeter is a _____ resistance device.",
+    "c": 1,
+    "a": [
+      "high",
+      "low",
+      "infinite"
+    ],
+    "e": "An ammeter must have very low resistance so it does not significantly alter the current it is measuring."
+  },
+  {
+    "type": "mcq",
+    "q": "An ammeter is connected in _____ with the circuit component.",
+    "c": 1,
+    "a": [
+      "parallel",
+      "series",
+      "isolation"
+    ],
+    "e": "To measure the current flowing through a component, the ammeter must be connected in series with it."
+  },
+  {
+    "type": "mcq",
+    "q": "A galvanometer is converted into a voltmeter by connecting it in series with a _____ resistance resistor.",
+    "c": 2,
+    "a": [
+      "low",
+      "shunt",
+      "high"
+    ],
+    "e": "A high resistance resistor (multiplier) is connected in series to convert a galvanometer into a voltmeter."
+  },
+  {
+    "type": "mcq",
+    "q": "The formula for calculating the multiplier resistance $R$ for a voltmeter is _____.",
+    "c": 1,
+    "a": [
+      "$R = \\frac{V}{i} + R_G$",
+      "$R = \\frac{V}{i} - R_G$",
+      "$R = V \\cdot i - R_G$"
+    ],
+    "e": "From $V = i(R_G + R)$, solving for $R$ gives $R = \\frac{V}{i} - R_G$."
+  },
+  {
+    "type": "mcq",
+    "q": "A voltmeter is a _____ resistance device.",
+    "c": 1,
+    "a": [
+      "low",
+      "high",
+      "zero"
+    ],
+    "e": "A voltmeter must have high resistance so it draws minimal current and does not alter the potential difference it is measuring."
+  },
+  {
+    "type": "mcq",
+    "q": "A voltmeter is connected in _____ with the circuit component.",
+    "c": 1,
+    "a": [
+      "series",
+      "parallel",
+      "isolation"
+    ],
+    "e": "To measure the potential difference across a component, the voltmeter must be connected in parallel with it."
+  },
+  {
+    "type": "mcq",
+    "q": "The moving coil galvanometer coil is made up of many turns of fine _____ wire.",
+    "c": 1,
+    "a": [
+      "aluminum",
+      "copper",
+      "tungsten"
+    ],
+    "e": "The textbook specifies that the coil is made of many turns of fine copper wire."
+  },
+  {
+    "type": "mcq",
+    "q": "It is necessary for the shunt of an ammeter to have a very low resistance so that it can _____.",
+    "c": 0,
+    "a": [
+      "measure large currents without affecting the circuit",
+      "increase the voltage drop",
+      "act as a fuse"
+    ],
+    "e": "A very low shunt resistance ensures most of the current bypasses the delicate galvanometer coil, allowing measurement of large currents with minimal circuit disruption."
+  },
+  {
+    "type": "mcq",
+    "q": "To convert a galvanometer into a voltmeter reading up to a higher voltage, the value of the multiplier resistance must be _____.",
+    "c": 1,
+    "a": [
+      "decreased",
+      "increased",
+      "kept the same"
+    ],
+    "e": "According to $R = \\frac{V}{i} - R_G$, a higher maximum voltage $V$ requires a larger multiplier resistance $R$."
+  }
+]

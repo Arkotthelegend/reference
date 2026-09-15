@@ -1,0 +1,893 @@
+[
+  {
+    "type": "mcq",
+    "q": "Materials which have an electrical resistance that lies between the high resistance values of insulators and the low resistance values of metals are called ______.",
+    "c": 2,
+    "a": [
+      "conductors",
+      "insulators",
+      "semiconductors"
+    ],
+    "e": "Semiconductors have resistivity between conductors and insulators."
+  },
+  {
+    "type": "mcq",
+    "q": "In semiconductors, the charge carriers are ______.",
+    "c": 1,
+    "a": [
+      "only electrons",
+      "electrons and positive holes",
+      "only positive holes"
+    ],
+    "e": "Both electrons and positive holes act as charge carriers in semiconductors."
+  },
+  {
+    "type": "mcq",
+    "q": "A vacancy which is left by an electron in the semiconductor atom is called a ______.",
+    "c": 2,
+    "a": [
+      "free electron",
+      "valence gap",
+      "positive hole"
+    ],
+    "e": "The textbook defines a positive hole as the vacancy left by an electron."
+  },
+  {
+    "type": "mcq",
+    "q": "Pure semiconductors have poor conductivity at normal temperature because ______.",
+    "c": 1,
+    "a": [
+      "they contain no charge carriers",
+      "the number of electrons and holes is relatively few",
+      "they are made of non-metallic elements"
+    ],
+    "e": "Few charge carriers exist in pure semiconductors at room temperature."
+  },
+  {
+    "type": "mcq",
+    "q": "When arsenic atoms are added to pure germanium or silicon, the resulting semiconductor is called ______.",
+    "c": 1,
+    "a": [
+      "p-type semiconductor",
+      "n-type semiconductor",
+      "compound semiconductor"
+    ],
+    "e": "Arsenic has five valence electrons, creating excess electrons—hence n-type."
+  },
+  {
+    "type": "mcq",
+    "q": "In an n-type semiconductor, the majority charge carriers are ______.",
+    "c": 2,
+    "a": [
+      "positive holes",
+      "protons",
+      "electrons"
+    ],
+    "e": "Electrons are the majority carriers in n-type semiconductors."
+  },
+  {
+    "type": "mcq",
+    "q": "When indium atoms are added to pure silicon or germanium, the resulting semiconductor is called ______.",
+    "c": 1,
+    "a": [
+      "n-type semiconductor",
+      "p-type semiconductor",
+      "intrinsic semiconductor"
+    ],
+    "e": "Indium has three valence electrons, creating more holes—hence p-type."
+  },
+  {
+    "type": "mcq",
+    "q": "In a p-type semiconductor, the majority charge carriers are ______.",
+    "c": 1,
+    "a": [
+      "electrons",
+      "positive holes",
+      "neutrons"
+    ],
+    "e": "Positive holes dominate conduction in p-type semiconductors."
+  },
+  {
+    "type": "mcq",
+    "q": "Germanium and silicon are examples of ______.",
+    "c": 1,
+    "a": [
+      "compound semiconductors",
+      "elemental semiconductors",
+      "insulators"
+    ],
+    "e": "Ge and Si are elemental (single-element) semiconductors."
+  },
+  {
+    "type": "mcq",
+    "q": "Gallium arsenide (GaAs) is an example of a ______.",
+    "c": 1,
+    "a": [
+      "metallic conductor",
+      "compound semiconductor",
+      "pure insulator"
+    ],
+    "e": "GaAs is a compound made from two elements, hence a compound semiconductor."
+  },
+  {
+    "type": "mcq",
+    "q": "The process of adding impurity atoms to a pure semiconductor to increase its conductivity is called ______.",
+    "c": 1,
+    "a": [
+      "ionization",
+      "doping",
+      "excitation"
+    ],
+    "e": "Doping introduces impurities to enhance conductivity."
+  },
+  {
+    "type": "mcq",
+    "q": "A boundary formed between p-type and n-type semiconductors is called a ______.",
+    "c": 1,
+    "a": [
+      "depletion layer",
+      "p-n junction",
+      "bias region"
+    ],
+    "e": "The interface between p- and n-type materials is the p-n junction."
+  },
+  {
+    "type": "mcq",
+    "q": "A device which consists of a p-n junction is called a ______.",
+    "c": 2,
+    "a": [
+      "transistor",
+      "rectifier",
+      "p-n junction diode"
+    ],
+    "e": "The textbook explicitly defines it as a p-n junction diode."
+  },
+  {
+    "type": "mcq",
+    "q": "When the positive terminal of a battery is connected to the p-type and the negative to the n-type semiconductor, the diode is said to be ______.",
+    "c": 1,
+    "a": [
+      "reverse-biased",
+      "forward-biased",
+      "unbiased"
+    ],
+    "e": "This connection reduces the junction barrier, allowing current—forward bias."
+  },
+  {
+    "type": "mcq",
+    "q": "When the negative terminal of a battery is connected to the p-type and the positive to the n-type semiconductor, the diode is said to be ______.",
+    "c": 1,
+    "a": [
+      "forward-biased",
+      "reverse-biased",
+      "neutral"
+    ],
+    "e": "This increases the junction barrier, blocking most current—reverse bias."
+  },
+  {
+    "type": "mcq",
+    "q": "In a forward-biased p-n junction diode, ______.",
+    "c": 0,
+    "a": [
+      "a large current flows",
+      "no current flows",
+      "only minority carriers flow"
+    ],
+    "e": "Forward bias allows significant current due to majority carrier movement."
+  },
+  {
+    "type": "mcq",
+    "q": "In a reverse-biased p-n junction diode, ______.",
+    "c": 1,
+    "a": [
+      "a large current flows",
+      "only a very small reverse current flows",
+      "current flows equally in both directions"
+    ],
+    "e": "Only a tiny reverse current due to minority carriers flows under reverse bias."
+  },
+  {
+    "type": "mcq",
+    "q": "Anode and cathode of an unconnected p-n junction are not at the same electric potential because ______.",
+    "c": 1,
+    "a": [
+      "external voltage is applied",
+      "there is initially a potential difference across the junction",
+      "the materials are different"
+    ],
+    "e": "A built-in potential exists across the junction even without external connection."
+  },
+  {
+    "type": "mcq",
+    "q": "A rectifier is a device which converts ______.",
+    "c": 1,
+    "a": [
+      "DC to AC",
+      "AC to unidirectional current (DC)",
+      "high voltage to low voltage"
+    ],
+    "e": "Rectifiers convert alternating current into direct/unidirectional current."
+  },
+  {
+    "type": "mcq",
+    "q": "Diodes can be used as rectifiers because ______.",
+    "c": 1,
+    "a": [
+      "they amplify signals",
+      "current flows in one direction only",
+      "they store electric charge"
+    ],
+    "e": "The unidirectional current property enables rectification."
+  },
+  {
+    "type": "mcq",
+    "q": "A half-wave rectifier uses ______ diode(s).",
+    "c": 0,
+    "a": [
+      "one",
+      "two",
+      "four"
+    ],
+    "e": "The textbook shows a single diode in the half-wave rectifier circuit."
+  },
+  {
+    "type": "mcq",
+    "q": "A full-wave rectifier uses ______ diode(s).",
+    "c": 1,
+    "a": [
+      "one",
+      "two",
+      "three"
+    ],
+    "e": "The full-wave rectifier circuit described uses two diodes."
+  },
+  {
+    "type": "mcq",
+    "q": "In a half-wave rectifier, current flows through the load resistor during ______.",
+    "c": 1,
+    "a": [
+      "both halves of the AC cycle",
+      "only the first half of the AC cycle",
+      "only when voltage is zero"
+    ],
+    "e": "Current flows only during the half-cycle when the diode is forward-biased."
+  },
+  {
+    "type": "mcq",
+    "q": "In a full-wave rectifier, current flows through the load resistor during ______.",
+    "c": 2,
+    "a": [
+      "only the positive half-cycle",
+      "only the negative half-cycle",
+      "both half-cycles"
+    ],
+    "e": "Each diode conducts during alternate half-cycles, so output is continuous."
+  },
+  {
+    "type": "mcq",
+    "q": "Rectifiers are used in the power supply units of devices such as ______.",
+    "c": 1,
+    "a": [
+      "electric heaters",
+      "radio, television, and mobile phone chargers",
+      "incandescent bulbs"
+    ],
+    "e": "These electronic devices require DC power, supplied via rectifiers."
+  },
+  {
+    "type": "mcq",
+    "q": "A transistor is a semiconductor device which works as a(n) ______.",
+    "c": 1,
+    "a": [
+      "oscillator",
+      "amplifier",
+      "insulator"
+    ],
+    "e": "The textbook states a transistor functions as an amplifier."
+  },
+  {
+    "type": "mcq",
+    "q": "The transistor was invented in ______ by Shockley, Bardeen and Brattain.",
+    "c": 1,
+    "a": [
+      "1947",
+      "1949",
+      "1952"
+    ],
+    "e": "The textbook specifies the year as 1949."
+  },
+  {
+    "type": "mcq",
+    "q": "A pnp transistor consists of ______.",
+    "c": 1,
+    "a": [
+      "two n-layers with a p-layer in between",
+      "two p-layers with an n-layer in between",
+      "three p-layers"
+    ],
+    "e": "A thin n-layer is sandwiched between two p-layers in a pnp transistor."
+  },
+  {
+    "type": "mcq",
+    "q": "An npn transistor consists of ______.",
+    "c": 1,
+    "a": [
+      "two p-layers with an n-layer in between",
+      "two n-layers with a p-layer in between",
+      "three n-layers"
+    ],
+    "e": "A thin p-layer is sandwiched between two n-layers in an npn transistor."
+  },
+  {
+    "type": "mcq",
+    "q": "The three electrodes of a transistor are called ______.",
+    "c": 1,
+    "a": [
+      "anode, cathode, grid",
+      "emitter, base, collector",
+      "source, drain, gate"
+    ],
+    "e": "These are the standard terminals of a bipolar junction transistor."
+  },
+  {
+    "type": "mcq",
+    "q": "In a transistor biasing circuit, the relationship among currents is ______.",
+    "c": 0,
+    "a": [
+      "$I_E = I_C + I_B$",
+      "$I_C = I_E + I_B$",
+      "$I_B = I_E + I_C$"
+    ],
+    "e": "Emitter current equals the sum of collector and base currents."
+  },
+  {
+    "type": "mcq",
+    "q": "In a typical transistor, the base current $I_B$ is approximately ______ of the emitter current $I_E$.",
+    "c": 0,
+    "a": [
+      "0.02 $I_E$",
+      "0.5 $I_E$",
+      "0.98 $I_E$"
+    ],
+    "e": "The textbook states $I_B \\approx 0.02 I_E$ due to the thin base layer."
+  },
+  {
+    "type": "mcq",
+    "q": "The collector current $I_C$ is approximately ______ of the emitter current $I_E$.",
+    "c": 2,
+    "a": [
+      "0.02 $I_E$",
+      "0.5 $I_E$",
+      "0.98 $I_E$"
+    ],
+    "e": "Most emitter current reaches the collector: $I_C \\approx 0.98 I_E$."
+  },
+  {
+    "type": "mcq",
+    "q": "Because a small base current controls a large collector current, a transistor acts as a ______.",
+    "c": 1,
+    "a": [
+      "voltage stabilizer",
+      "current amplifier",
+      "frequency modulator"
+    ],
+    "e": "This current control property defines its role as a current amplifier."
+  },
+  {
+    "type": "mcq",
+    "q": "The emitter junction in a transistor biasing circuit is ______.",
+    "c": 1,
+    "a": [
+      "reverse-biased",
+      "forward-biased",
+      "unbiased"
+    ],
+    "e": "The emitter-base junction is forward-biased for proper operation."
+  },
+  {
+    "type": "mcq",
+    "q": "The collector junction in a transistor biasing circuit is ______.",
+    "c": 1,
+    "a": [
+      "forward-biased",
+      "reverse-biased",
+      "neutral"
+    ],
+    "e": "The collector-base junction is reverse-biased."
+  },
+  {
+    "type": "mcq",
+    "q": "The resistance of the forward-biased emitter junction is ______.",
+    "c": 1,
+    "a": [
+      "large",
+      "small",
+      "infinite"
+    ],
+    "e": "Forward bias results in low resistance at the emitter junction."
+  },
+  {
+    "type": "mcq",
+    "q": "The resistance of the reverse-biased collector junction is ______.",
+    "c": 2,
+    "a": [
+      "small",
+      "zero",
+      "large"
+    ],
+    "e": "Reverse bias leads to high resistance at the collector junction."
+  },
+  {
+    "type": "mcq",
+    "q": "Because power = $I^2R$, and $I_C \\approx I_E$ but $R_C > R_E$, the transistor acts as a ______.",
+    "c": 1,
+    "a": [
+      "current limiter",
+      "power amplifier",
+      "signal filter"
+    ],
+    "e": "Higher power output at collector side enables power amplification."
+  },
+  {
+    "type": "mcq",
+    "q": "The base layer of a transistor is very thin, about ______.",
+    "c": 2,
+    "a": [
+      "$10^{-1}$ cm",
+      "$10^{-2}$ cm",
+      "$10^{-3}$ cm"
+    ],
+    "e": "The textbook gives the thickness as about $10^{-3}$ cm."
+  },
+  {
+    "type": "mcq",
+    "q": "An arrangement whereby connections of electronic components such as resistors, capacitors and transistors are made is called a(n) ______.",
+    "c": 1,
+    "a": [
+      "integrated circuit",
+      "electronic circuit",
+      "logic network"
+    ],
+    "e": "This is the textbook's definition of an electronic circuit."
+  },
+  {
+    "type": "mcq",
+    "q": "In an integrated circuit (IC), all components and connections are made on ______.",
+    "c": 1,
+    "a": [
+      "a printed circuit board",
+      "one single semiconductor crystal",
+      "multiple vacuum tubes"
+    ],
+    "e": "ICs integrate everything onto a single crystal like silicon."
+  },
+  {
+    "type": "mcq",
+    "q": "Integrated circuits are used in ______.",
+    "c": 1,
+    "a": [
+      "electric stoves",
+      "televisions, computers and advanced electronic devices",
+      "mechanical watches"
+    ],
+    "e": "These modern devices rely on ICs for compact, reliable electronics."
+  },
+  {
+    "type": "mcq",
+    "q": "Analog electronics involves quantities with ______ values.",
+    "c": 1,
+    "a": [
+      "discrete",
+      "continuous",
+      "binary"
+    ],
+    "e": "Analog signals vary smoothly over a range—continuous values."
+  },
+  {
+    "type": "mcq",
+    "q": "Digital electronics involves quantities with ______ values.",
+    "c": 2,
+    "a": [
+      "continuous",
+      "random",
+      "discrete"
+    ],
+    "e": "Digital systems use distinct, separate levels (e.g., 0 and 1)."
+  },
+  {
+    "type": "mcq",
+    "q": "In digital systems, the two states are represented by ______.",
+    "c": 0,
+    "a": [
+      "HIGH (logic 1) and LOW (logic 0)",
+      "positive and negative current",
+      "on and off frequency"
+    ],
+    "e": "Voltage levels define logic states: HIGH=1, LOW=0."
+  },
+  {
+    "type": "mcq",
+    "q": "The decimal number system is also called the ______ number system.",
+    "c": 1,
+    "a": [
+      "base 2",
+      "base 10",
+      "binary"
+    ],
+    "e": "It uses 10 digits (0–9), so it is base 10."
+  },
+  {
+    "type": "mcq",
+    "q": "The binary number system has a base of ______.",
+    "c": 0,
+    "a": [
+      "2",
+      "10",
+      "16"
+    ],
+    "e": "Binary uses only two digits: 0 and 1, so base 2."
+  },
+  {
+    "type": "mcq",
+    "q": "In the decimal number 28, the value is calculated as ______.",
+    "c": 0,
+    "a": [
+      "$(2 \\times 10^1) + (8 \\times 10^0)$",
+      "$(2 \\times 10^0) + (8 \\times 10^1)$",
+      "$(2 + 8) \\times 10$"
+    ],
+    "e": "Place values increase from right: $28 = 2\\times10 + 8\\times1$."
+  },
+  {
+    "type": "mcq",
+    "q": "The binary number 1001$_2$ equals ______ in decimal.",
+    "c": 2,
+    "a": [
+      "7",
+      "8",
+      "9"
+    ],
+    "e": "$1\\times8 + 0\\times4 + 0\\times2 + 1\\times1 = 9$."
+  },
+  {
+    "type": "mcq",
+    "q": "The decimal number 12 equals ______ in binary.",
+    "c": 0,
+    "a": [
+      "1100$_2$",
+      "1010$_2$",
+      "1110$_2$"
+    ],
+    "e": "$12 = 8 + 4 = 1\\times2^3 + 1\\times2^2 + 0\\times2^1 + 0\\times2^0 = 1100_2$."
+  },
+  {
+    "type": "mcq",
+    "q": "In a binary whole number, the right-most bit is called the ______.",
+    "c": 1,
+    "a": [
+      "MSB",
+      "LSB",
+      "sign bit"
+    ],
+    "e": "LSB stands for Least Significant Bit, weight $2^0 = 1$."
+  },
+  {
+    "type": "mcq",
+    "q": "In a binary whole number, the left-most bit is called the ______.",
+    "c": 2,
+    "a": [
+      "parity bit",
+      "LSB",
+      "MSB"
+    ],
+    "e": "MSB is the Most Significant Bit, with highest weight."
+  },
+  {
+    "type": "mcq",
+    "q": "The smallest unit of memory or instruction in a computer is a ______.",
+    "c": 2,
+    "a": [
+      "byte",
+      "word",
+      "bit"
+    ],
+    "e": "A bit is a single binary digit: 0 or 1."
+  },
+  {
+    "type": "mcq",
+    "q": "A group of 8 bits is called a ______.",
+    "c": 2,
+    "a": [
+      "kilobyte",
+      "nibble",
+      "byte"
+    ],
+    "e": "One byte = 8 bits."
+  },
+  {
+    "type": "mcq",
+    "q": "One kilobyte equals ______ bytes.",
+    "c": 1,
+    "a": [
+      "1000",
+      "1024",
+      "2048"
+    ],
+    "e": "In computing, 1 kB = 1024 bytes (powers of 2)."
+  },
+  {
+    "type": "mcq",
+    "q": "One megabyte equals ______ kilobytes.",
+    "c": 1,
+    "a": [
+      "1000",
+      "1024",
+      "512"
+    ],
+    "e": "1 MB = 1024 kB."
+  },
+  {
+    "type": "mcq",
+    "q": "One gigabyte equals ______ megabytes.",
+    "c": 1,
+    "a": [
+      "1000",
+      "1024",
+      "2048"
+    ],
+    "e": "1 GB = 1024 MB."
+  },
+  {
+    "type": "mcq",
+    "q": "One terabyte equals ______ gigabytes.",
+    "c": 1,
+    "a": [
+      "1000",
+      "1024",
+      "512"
+    ],
+    "e": "1 TB = 1024 GB."
+  },
+  {
+    "type": "mcq",
+    "q": "The letter 'A' requires ______ of storage.",
+    "c": 2,
+    "a": [
+      "1 bit",
+      "1 nibble",
+      "1 byte"
+    ],
+    "e": "One character typically uses one byte (8 bits)."
+  },
+  {
+    "type": "mcq",
+    "q": "A logic gate is an electronic device which takes information from the environment, makes a decision, and then gives out the ______.",
+    "c": 1,
+    "a": [
+      "input",
+      "result",
+      "voltage"
+    ],
+    "e": "The textbook defines it as outputting the result of a decision."
+  },
+  {
+    "type": "mcq",
+    "q": "Logic gates are commonly built using ______.",
+    "c": 1,
+    "a": [
+      "vacuum tubes",
+      "small integrated circuits (ICs)",
+      "mechanical relays"
+    ],
+    "e": "ICs are more convenient than discrete components."
+  },
+  {
+    "type": "mcq",
+    "q": "The five common logic gates are ______.",
+    "c": 1,
+    "a": [
+      "AND, OR, XOR, XNOR, BUFFER",
+      "AND, OR, NAND, NOR, NOT",
+      "ADD, SUB, MUL, DIV, MOD"
+    ],
+    "e": "These are the five listed in the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "A NOT gate has ______ input(s).",
+    "c": 0,
+    "a": [
+      "one",
+      "two",
+      "three"
+    ],
+    "e": "The inverter (NOT gate) operates on a single input."
+  },
+  {
+    "type": "mcq",
+    "q": "For a 2-input AND gate, the output is HIGH only when ______.",
+    "c": 2,
+    "a": [
+      "both inputs are LOW",
+      "either input is HIGH",
+      "both inputs are HIGH"
+    ],
+    "e": "AND requires all inputs HIGH for a HIGH output."
+  },
+  {
+    "type": "mcq",
+    "q": "For a 2-input OR gate, the output is LOW only when ______.",
+    "c": 2,
+    "a": [
+      "both inputs are HIGH",
+      "either input is HIGH",
+      "both inputs are LOW"
+    ],
+    "e": "OR outputs LOW only if all inputs are LOW."
+  },
+  {
+    "type": "mcq",
+    "q": "For a 2-input NAND gate, the output is LOW only when ______.",
+    "c": 2,
+    "a": [
+      "both inputs are LOW",
+      "either input is LOW",
+      "both inputs are HIGH"
+    ],
+    "e": "NAND is the inverse of AND—LOW only when both inputs HIGH."
+  },
+  {
+    "type": "mcq",
+    "q": "For a 2-input NOR gate, the output is HIGH only when ______.",
+    "c": 2,
+    "a": [
+      "both inputs are HIGH",
+      "either input is HIGH",
+      "both inputs are LOW"
+    ],
+    "e": "NOR is the inverse of OR—HIGH only when all inputs LOW."
+  },
+  {
+    "type": "mcq",
+    "q": "The Boolean expression for a 2-input AND gate is ______.",
+    "c": 1,
+    "a": [
+      "$X = A + B$",
+      "$X = AB$",
+      "$X = \\overline{AB}$"
+    ],
+    "e": "AND is represented by multiplication: $X = AB$."
+  },
+  {
+    "type": "mcq",
+    "q": "The Boolean expression for a 2-input OR gate is ______.",
+    "c": 1,
+    "a": [
+      "$X = AB$",
+      "$X = A + B$",
+      "$X = \\overline{A + B}$"
+    ],
+    "e": "OR is represented by addition: $X = A + B$."
+  },
+  {
+    "type": "mcq",
+    "q": "The Boolean expression for a 2-input NAND gate is ______.",
+    "c": 1,
+    "a": [
+      "$X = AB$",
+      "$X = \\overline{AB}$",
+      "$X = \\overline{A + B}$"
+    ],
+    "e": "NAND is the complement of AND: $X = \\overline{AB}$."
+  },
+  {
+    "type": "mcq",
+    "q": "The Boolean expression for a 2-input NOR gate is ______.",
+    "c": 2,
+    "a": [
+      "$X = \\overline{AB}$",
+      "$X = A + B$",
+      "$X = \\overline{A + B}$"
+    ],
+    "e": "NOR is the complement of OR: $X = \\overline{A + B}$."
+  },
+  {
+    "type": "mcq",
+    "q": "The Boolean expression for a NOT gate is ______.",
+    "c": 1,
+    "a": [
+      "$X = A$",
+      "$X = \\overline{A}$",
+      "$X = A + 1$"
+    ],
+    "e": "NOT inverts the input: $X = \\overline{A}$."
+  },
+  {
+    "type": "mcq",
+    "q": "NAND and NOR gates are called universal gates because they ______.",
+    "c": 1,
+    "a": [
+      "consume less power",
+      "can replace any other gate type when combined",
+      "are faster than others"
+    ],
+    "e": "They can construct any logic function by combination."
+  },
+  {
+    "type": "mcq",
+    "q": "The inverter (NOT gate) changes a LOW input to a ______ output.",
+    "c": 2,
+    "a": [
+      "LOW",
+      "ZERO",
+      "HIGH"
+    ],
+    "e": "Inversion means LOW → HIGH and HIGH → LOW."
+  },
+  {
+    "type": "mcq",
+    "q": "A basic 2-input logic circuit has a HIGH on one input and a LOW on the other, and the output is HIGH. The gate is most likely a(n) ______.",
+    "c": 1,
+    "a": [
+      "AND gate",
+      "OR gate",
+      "NAND gate"
+    ],
+    "e": "OR gives HIGH if at least one input is HIGH."
+  },
+  {
+    "type": "mcq",
+    "q": "A logic circuit requires HIGHs on all its inputs to make the output HIGH. This describes a(n) ______.",
+    "c": 1,
+    "a": [
+      "OR gate",
+      "AND gate",
+      "NOR gate"
+    ],
+    "e": "AND requires all inputs HIGH for HIGH output."
+  },
+  {
+    "type": "mcq",
+    "q": "An OR gate can be constructed using ______ NAND gates.",
+    "c": 1,
+    "a": [
+      "two",
+      "three",
+      "four"
+    ],
+    "e": "The textbook shows OR built from three NAND gates."
+  },
+  {
+    "type": "mcq",
+    "q": "A NOT gate can be constructed using ______ NAND gate(s).",
+    "c": 0,
+    "a": [
+      "one",
+      "two",
+      "three"
+    ],
+    "e": "Connecting both inputs of a NAND gate together makes a NOT gate."
+  },
+  {
+    "type": "mcq",
+    "q": "An AND gate can be constructed using ______ NAND gates.",
+    "c": 1,
+    "a": [
+      "one",
+      "two",
+      "three"
+    ],
+    "e": "Two NAND gates: first as NAND, second as inverter."
+  },
+  {
+    "type": "mcq",
+    "q": "A NOR gate can be constructed using ______ NAND gates.",
+    "c": 1,
+    "a": [
+      "three",
+      "four",
+      "five"
+    ],
+    "e": "The textbook diagram uses four NAND gates for NOR."
+  }
+]

@@ -1,0 +1,116 @@
+[
+  {
+    "type": "blank",
+    "q": "A ____ is an electronic device which takes an information from the environment, makes a decision based on that information and then gives out the result.",
+    "c": "logic gate",
+    "e": "Logic gates are the fundamental building blocks of digital circuits, performing basic logical operations."
+  },
+  {
+    "type": "blank",
+    "q": "Logic gates can be built up using ____ of resistors, diodes and transistors.",
+    "c": "discrete components",
+    "e": "Early logic gates were constructed by wiring individual components together."
+  },
+  {
+    "type": "blank",
+    "q": "However, it is more convenient to use small ____.",
+    "c": "integrated circuits (ICs)",
+    "e": "Modern logic gates are fabricated as compact, reliable integrated circuits."
+  },
+  {
+    "type": "blank",
+    "q": "The five common logic gates are ____ gates.",
+    "c": "AND, OR, NAND, NOR and NOT (inverter)",
+    "e": "These five gates form the basis of all digital logic design."
+  },
+  {
+    "type": "blank",
+    "q": "Logic gate can have two or more inputs but only ____.",
+    "c": "one output",
+    "e": "A standard logic gate processes multiple input signals to produce a single logical result."
+  },
+  {
+    "type": "blank",
+    "q": "But, NOT gate has only ____.",
+    "c": "one input",
+    "e": "The NOT gate is unique among basic gates as it operates on a single input signal."
+  },
+  {
+    "type": "blank",
+    "q": "For a 2-input AND gate, output X is HIGH only when inputs A and B are ____.",
+    "c": "HIGH",
+    "e": "The AND gate requires all inputs to be true (HIGH) to produce a true (HIGH) output."
+  },
+  {
+    "type": "blank",
+    "q": "The Boolean expression for a 2-input AND gate is ____.",
+    "c": "$X=AB$",
+    "e": "In Boolean algebra, the AND operation is represented by multiplication or juxtaposition."
+  },
+  {
+    "type": "blank",
+    "q": "For a 2-input OR gate, output X is LOW only when both A and B are ____.",
+    "c": "LOW",
+    "e": "The OR gate produces a LOW output only if all of its inputs are LOW."
+  },
+  {
+    "type": "blank",
+    "q": "The Boolean expression for a 2-input OR gate is ____.",
+    "c": "$X=A+B$",
+    "e": "In Boolean algebra, the OR operation is represented by addition."
+  },
+  {
+    "type": "blank",
+    "q": "For a 2-input NAND gate, output X is LOW only when inputs A and B are ____.",
+    "c": "HIGH",
+    "e": "A NAND gate is an AND gate followed by a NOT gate, so it outputs LOW only when all inputs are HIGH."
+  },
+  {
+    "type": "blank",
+    "q": "The Boolean expression for a 2-input NAND gate is ____.",
+    "c": "$X=\\overline{AB}$",
+    "e": "The overline indicates the logical complement (NOT) of the AND operation."
+  },
+  {
+    "type": "blank",
+    "q": "For a 2-input NOR gate, output X is HIGH only when both A and B are ____.",
+    "c": "LOW",
+    "e": "A NOR gate is an OR gate followed by a NOT gate, so it outputs HIGH only when all inputs are LOW."
+  },
+  {
+    "type": "blank",
+    "q": "The Boolean expression for a 2-input NOR gate is ____.",
+    "c": "$X=\\overline{A+B}$",
+    "e": "The overline indicates the logical complement (NOT) of the OR operation."
+  },
+  {
+    "type": "blank",
+    "q": "The NAND gate and NOR gate are popular logic gates because they can be used as ____, that is, they alone can be used in combination to perform the functions of any other types of gates.",
+    "c": "universal gates",
+    "e": "NAND and NOR gates are functionally complete, meaning any digital circuit can be built using only one of these gate types."
+  },
+  {
+    "type": "blank",
+    "q": "The inverter (NOT gate) performs the operation called ____.",
+    "c": "inversion",
+    "e": "Inversion, or complementation, flips the logical state of the input signal."
+  },
+  {
+    "type": "blank",
+    "q": "The inverter changes one logic level to the ____.",
+    "c": "opposite level",
+    "e": "A NOT gate outputs a 1 when the input is 0, and a 0 when the input is 1."
+  },
+  {
+    "type": "blank",
+    "q": "When a LOW level is applied to its input, a ____ will appear on its output.",
+    "c": "HIGH level",
+    "e": "This demonstrates the inverting nature of the NOT gate."
+  },
+  {
+    "type": "blank",
+    "q": "The Boolean expression for a NOT gate is ____.",
+    "c": "$X=\\overline{A}$",
+    "e": "The overline over the variable A denotes the logical NOT operation."
+  }
+]

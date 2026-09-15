@@ -1,0 +1,222 @@
+[
+  {
+    "type": "mcq",
+    "q": "An arrangement whereby connections of electronic components such as resistors, capacitors and transistors are made is called a(n) ______.",
+    "c": 1,
+    "a": [
+      "integrated circuit",
+      "electronic circuit",
+      "logic network"
+    ],
+    "e": "This is the textbook's definition of an electronic circuit."
+  },
+  {
+    "type": "mcq",
+    "q": "In an integrated circuit (IC), all components and connections are made on ______.",
+    "c": 1,
+    "a": [
+      "a printed circuit board",
+      "one single semiconductor crystal",
+      "multiple vacuum tubes"
+    ],
+    "e": "ICs integrate everything onto a single crystal like silicon."
+  },
+  {
+    "type": "mcq",
+    "q": "Integrated circuits are used in ______.",
+    "c": 1,
+    "a": [
+      "electric stoves",
+      "televisions, computers and advanced electronic devices",
+      "mechanical watches"
+    ],
+    "e": "These modern devices rely on ICs for compact, reliable electronics."
+  },
+  {
+    "type": "mcq",
+    "q": "Analog electronics involves quantities with ______ values.",
+    "c": 1,
+    "a": [
+      "discrete",
+      "continuous",
+      "binary"
+    ],
+    "e": "Analog signals vary smoothly over a range—continuous values."
+  },
+  {
+    "type": "mcq",
+    "q": "Digital electronics involves quantities with ______ values.",
+    "c": 2,
+    "a": [
+      "continuous",
+      "random",
+      "discrete"
+    ],
+    "e": "Digital systems use distinct, separate levels (e.g., 0 and 1)."
+  },
+  {
+    "type": "mcq",
+    "q": "In digital systems, the two states are represented by ______.",
+    "c": 0,
+    "a": [
+      "HIGH (logic 1) and LOW (logic 0)",
+      "positive and negative current",
+      "on and off frequency"
+    ],
+    "e": "Voltage levels define logic states: HIGH=1, LOW=0."
+  },
+  {
+    "type": "mcq",
+    "q": "The decimal number system is also called the ______ number system.",
+    "c": 1,
+    "a": [
+      "base 2",
+      "base 10",
+      "binary"
+    ],
+    "e": "It uses 10 digits (0–9), so it is base 10."
+  },
+  {
+    "type": "mcq",
+    "q": "The binary number system has a base of ______.",
+    "c": 0,
+    "a": [
+      "2",
+      "10",
+      "16"
+    ],
+    "e": "Binary uses only two digits: 0 and 1, so base 2."
+  },
+  {
+    "type": "mcq",
+    "q": "In the decimal number 28, the value is calculated as ______.",
+    "c": 0,
+    "a": [
+      "$(2 \\times 10^1) + (8 \\times 10^0)$",
+      "$(2 \\times 10^0) + (8 \\times 10^1)$",
+      "$(2 + 8) \\times 10$"
+    ],
+    "e": "Place values increase from right: $28 = 2\\times10 + 8\\times1$."
+  },
+  {
+    "type": "mcq",
+    "q": "The binary number 1001$_2$ equals ______ in decimal.",
+    "c": 2,
+    "a": [
+      "7",
+      "8",
+      "9"
+    ],
+    "e": "$1\\times8 + 0\\times4 + 0\\times2 + 1\\times1 = 9$."
+  },
+  {
+    "type": "mcq",
+    "q": "The decimal number 12 equals ______ in binary.",
+    "c": 0,
+    "a": [
+      "1100$_2$",
+      "1010$_2$",
+      "1110$_2$"
+    ],
+    "e": "$12 = 8 + 4 = 1\\times2^3 + 1\\times2^2 + 0\\times2^1 + 0\\times2^0 = 1100_2$."
+  },
+  {
+    "type": "mcq",
+    "q": "In a binary whole number, the right-most bit is called the ______.",
+    "c": 1,
+    "a": [
+      "MSB",
+      "LSB",
+      "sign bit"
+    ],
+    "e": "LSB stands for Least Significant Bit, weight $2^0 = 1$."
+  },
+  {
+    "type": "mcq",
+    "q": "In a binary whole number, the left-most bit is called the ______.",
+    "c": 2,
+    "a": [
+      "parity bit",
+      "LSB",
+      "MSB"
+    ],
+    "e": "MSB is the Most Significant Bit, with highest weight."
+  },
+  {
+    "type": "mcq",
+    "q": "The smallest unit of memory or instruction in a computer is a ______.",
+    "c": 2,
+    "a": [
+      "byte",
+      "word",
+      "bit"
+    ],
+    "e": "A bit is a single binary digit: 0 or 1."
+  },
+  {
+    "type": "mcq",
+    "q": "A group of 8 bits is called a ______.",
+    "c": 2,
+    "a": [
+      "kilobyte",
+      "nibble",
+      "byte"
+    ],
+    "e": "One byte = 8 bits."
+  },
+  {
+    "type": "mcq",
+    "q": "One kilobyte equals ______ bytes.",
+    "c": 1,
+    "a": [
+      "1000",
+      "1024",
+      "2048"
+    ],
+    "e": "In computing, 1 kB = 1024 bytes (powers of 2)."
+  },
+  {
+    "type": "mcq",
+    "q": "One megabyte equals ______ kilobytes.",
+    "c": 1,
+    "a": [
+      "1000",
+      "1024",
+      "512"
+    ],
+    "e": "1 MB = 1024 kB."
+  },
+  {
+    "type": "mcq",
+    "q": "One gigabyte equals ______ megabytes.",
+    "c": 1,
+    "a": [
+      "1000",
+      "1024",
+      "2048"
+    ],
+    "e": "1 GB = 1024 MB."
+  },
+  {
+    "type": "mcq",
+    "q": "One terabyte equals ______ gigabytes.",
+    "c": 1,
+    "a": [
+      "1000",
+      "1024",
+      "512"
+    ],
+    "e": "1 TB = 1024 GB."
+  },
+  {
+    "type": "mcq",
+    "q": "The letter 'A' requires ______ of storage.",
+    "c": 2,
+    "a": [
+      "1 bit",
+      "1 nibble",
+      "1 byte"
+    ],
+    "e": "One character typically uses one byte (8 bits)."
+  }
+]

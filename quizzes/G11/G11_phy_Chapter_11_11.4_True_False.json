@@ -1,0 +1,152 @@
+[
+  {
+    "type": "tf",
+    "q": "A logic gate is an electronic device which takes an information from the environment, makes a decision based on that information and then gives out the result.",
+    "c": "true",
+    "e": "This is the exact textbook definition of a logic gate."
+  },
+  {
+    "type": "tf",
+    "q": "Logic gates can only be built up using small integrated circuits (ICs), not discrete components.",
+    "c": "false",
+    "e": "Logic gates can be built using discrete components of resistors, diodes, and transistors, though ICs are more convenient."
+  },
+  {
+    "type": "tf",
+    "q": "Different types of logic gates can be built from different arrangements of electronic components.",
+    "c": "true",
+    "e": "The text confirms that varying arrangements of components create different types of logic gates."
+  },
+  {
+    "type": "tf",
+    "q": "The five common logic gates are AND, OR, NAND, NOR and NOT (inverter) gates.",
+    "c": "true",
+    "e": "The textbook lists these five specific gates as the common types."
+  },
+  {
+    "type": "tf",
+    "q": "A logic gate can have two or more inputs but only one output, except the NOT gate which has only one input.",
+    "c": "true",
+    "e": "The text specifies the input/output rules for standard gates and the single-input exception for the NOT gate."
+  },
+  {
+    "type": "tf",
+    "q": "For a 2-input AND gate, output X is HIGH only when inputs A and B are HIGH.",
+    "c": "true",
+    "e": "This is the fundamental logical condition for an AND gate to output HIGH."
+  },
+  {
+    "type": "tf",
+    "q": "For a 2-input AND gate, X is LOW when either A or B is LOW, or both A and B are LOW.",
+    "c": "true",
+    "e": "If any input to an AND gate is LOW, the output X will be LOW."
+  },
+  {
+    "type": "tf",
+    "q": "For a 2-input OR gate, output X is LOW when either input A or input B is HIGH.",
+    "c": "false",
+    "e": "For an OR gate, output X is HIGH when either input A or input B is HIGH."
+  },
+  {
+    "type": "tf",
+    "q": "For a 2-input OR gate, X is LOW only when both A and B are LOW.",
+    "c": "true",
+    "e": "The OR gate outputs LOW exclusively when both of its inputs are LOW."
+  },
+  {
+    "type": "tf",
+    "q": "The Boolean expression for an OR gate is $X = AB$.",
+    "c": "false",
+    "e": "The Boolean expression for an OR gate is $X = A + B$, while $X = AB$ is for an AND gate."
+  },
+  {
+    "type": "tf",
+    "q": "For a 2-input NAND gate, output X is LOW only when inputs A and B are HIGH.",
+    "c": "true",
+    "e": "The NAND gate is the inverse of the AND gate, so it outputs LOW only when both inputs are HIGH."
+  },
+  {
+    "type": "tf",
+    "q": "For a 2-input NAND gate, X is HIGH when either A or B is LOW, or both A and B are LOW.",
+    "c": "true",
+    "e": "Any LOW input to a NAND gate forces the output X to be HIGH."
+  },
+  {
+    "type": "tf",
+    "q": "For a 2-input NOR gate, output X is HIGH only when both A and B are LOW.",
+    "c": "true",
+    "e": "The NOR gate outputs HIGH exclusively when both inputs are LOW."
+  },
+  {
+    "type": "tf",
+    "q": "For a 2-input NOR gate, X is LOW when either input A or input B is HIGH, or both A and B are HIGH.",
+    "c": "true",
+    "e": "If any input to a NOR gate is HIGH, the output X becomes LOW."
+  },
+  {
+    "type": "tf",
+    "q": "The NAND gate and NOR gate are popular logic gates because they can be used as universal gates.",
+    "c": "true",
+    "e": "The textbook identifies NAND and NOR as popular due to their status as universal gates."
+  },
+  {
+    "type": "tf",
+    "q": "Universal gates cannot be used in combination to perform the functions of any other types of gates.",
+    "c": "false",
+    "e": "Universal gates alone can be used in combination to perform the functions of any other types of gates."
+  },
+  {
+    "type": "tf",
+    "q": "The inverter (NOT gate) performs the operation called inversion or complementation.",
+    "c": "true",
+    "e": "The text defines the function of the NOT gate as inversion or complementation."
+  },
+  {
+    "type": "tf",
+    "q": "The inverter changes one logic level to the opposite logic level.",
+    "c": "true",
+    "e": "The NOT gate outputs the exact opposite logic level of whatever is applied to its input."
+  },
+  {
+    "type": "tf",
+    "q": "When a LOW level is applied to the input of a NOT gate, a LOW level will appear on its output.",
+    "c": "false",
+    "e": "When a LOW level is applied to the input of a NOT gate, a HIGH level will appear on its output."
+  },
+  {
+    "type": "tf",
+    "q": "When a HIGH level is applied to the input of a NOT gate, a LOW level will appear on its output.",
+    "c": "true",
+    "e": "The NOT gate inverts the HIGH input to a LOW output."
+  },
+  {
+    "type": "tf",
+    "q": "One NAND gate can be used to form a NOT gate.",
+    "c": "true",
+    "e": "The textbook illustrates that a single NAND gate can be configured to act as a NOT gate."
+  },
+  {
+    "type": "tf",
+    "q": "Two NAND gates can be combined to form an AND gate.",
+    "c": "true",
+    "e": "The text shows that combining two NAND gates creates the function of an AND gate."
+  },
+  {
+    "type": "tf",
+    "q": "Three NAND gates can be combined to form a NOR gate.",
+    "c": "false",
+    "e": "Three NAND gates form an OR gate; it requires four NAND gates to form a NOR gate."
+  },
+  {
+    "type": "tf",
+    "q": "Four NAND gates can be combined to form a NOR gate.",
+    "c": "true",
+    "e": "The textbook demonstrates that four NAND gates are needed to construct a NOR gate."
+  },
+  {
+    "type": "tf",
+    "q": "The Boolean expression for an AND gate is $X = AB$.",
+    "c": "true",
+    "e": "The table of Boolean expressions lists $X = AB$ for the AND gate."
+  }
+]

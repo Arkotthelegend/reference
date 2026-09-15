@@ -1,0 +1,590 @@
+[
+  {
+    "type": "blank",
+    "q": "Lenses produce images similar to images formed by curved mirrors, but they do so by ____ light rather than reflecting it.",
+    "c": "refracting",
+    "e": "Lenses work by bending (refracting) light as it passes through the transparent material, unlike mirrors which reflect light."
+  },
+  {
+    "type": "blank",
+    "q": "As a preliminary study for refraction through lenses, we first look at refraction at a single ____ surface.",
+    "c": "spherical",
+    "e": "Understanding refraction at a single spherical surface is the foundational step before analyzing double-surfaced lenses."
+  },
+  {
+    "type": "blank",
+    "q": "Consider a spherical surface of radius $R$ separating the two ____ 1 and 2.",
+    "c": "media",
+    "e": "Refraction occurs at the boundary where two different optical media with different refractive indices meet."
+  },
+  {
+    "type": "blank",
+    "q": "The ray incident at the curved surface will be ____ and meet the ray propagating along the axis.",
+    "c": "refracted",
+    "e": "When light passes from one medium to another at a curved boundary, its path bends, which is called refraction."
+  },
+  {
+    "type": "blank",
+    "q": "The light ray along the axis is incident on the surface normally and hence is not ____.",
+    "c": "bent",
+    "e": "A ray striking a surface at a 90-degree angle (normally) does not change direction, so it remains unbent."
+  },
+  {
+    "type": "blank",
+    "q": "If the rays are ____, then the angles are very small.",
+    "c": "paraxial",
+    "e": "Paraxial rays are those that travel close to the principal axis, allowing small-angle approximations in calculations."
+  },
+  {
+    "type": "blank",
+    "q": "From ____ law, $n_1 \\sin \\theta_1 = n_2 \\sin \\theta_2$.",
+    "c": "Snell's",
+    "e": "Snell's law describes the relationship between the angles of incidence and refraction and the refractive indices of the two media."
+  },
+  {
+    "type": "blank",
+    "q": "If an angle is small and expressed in ____, $\\sin \\theta = \\theta$.",
+    "c": "radian",
+    "e": "For very small angles measured in radians, the sine of the angle is approximately equal to the angle itself."
+  },
+  {
+    "type": "blank",
+    "q": "For refraction at spherical surface, the radius $R$ is positive if the surface is ____ toward the object.",
+    "c": "convex",
+    "e": "By sign convention, a surface that bulges toward the incoming light (convex) has a positive radius of curvature."
+  },
+  {
+    "type": "blank",
+    "q": "For refraction at spherical surface, the radius $R$ is negative if the surface is ____ toward the object.",
+    "c": "concave",
+    "e": "By sign convention, a surface that caves in away from the incoming light (concave) has a negative radius of curvature."
+  },
+  {
+    "type": "blank",
+    "q": "A transparent material which can converge (or) diverge rays of light is called a ____.",
+    "c": "lens",
+    "e": "This is the fundamental definition of a lens as summarized in the chapter."
+  },
+  {
+    "type": "blank",
+    "q": "A lens has at least one ____ surface.",
+    "c": "curved",
+    "e": "A curved surface is the necessary geometric feature that allows a lens to refract light effectively."
+  },
+  {
+    "type": "blank",
+    "q": "The distance between centre of a convex lens and its focus is called the ____ length of the convex lens.",
+    "c": "focal",
+    "e": "This summarizes the definition of focal length specifically for converging lenses."
+  },
+  {
+    "type": "blank",
+    "q": "The distance between centre of a concave lens and its focus is called the focal length of the ____ lens.",
+    "c": "concave",
+    "e": "This summarizes the definition of focal length specifically for diverging lenses."
+  },
+  {
+    "type": "blank",
+    "q": "The power of lens is ____ proportional to the focal length of the lens.",
+    "c": "inversely",
+    "e": "This is the core mathematical relationship defining optical power: as focal length decreases, power increases."
+  },
+  {
+    "type": "blank",
+    "q": "The image formed at the first surface acts as the ____ for the second surface of the lens.",
+    "c": "object",
+    "e": "In a thick lens, the image created by the first refracting surface serves as the object for the second refracting surface."
+  },
+  {
+    "type": "blank",
+    "q": "Negative sign is inserted because the first image is the ____ object for the second surface.",
+    "c": "virtual",
+    "e": "If the first image forms beyond the second surface, it acts as a virtual object for the second refraction, requiring a negative sign."
+  },
+  {
+    "type": "blank",
+    "q": "Considering the lens as a single entity, the object distance for the lens is $u = u_1$ and the image distance is $v = $ ____.",
+    "c": "$v_2$",
+    "e": "For a thin lens treated as a single entity, the final image distance $v$ corresponds to the image distance from the second surface, $v_2$."
+  },
+  {
+    "type": "blank",
+    "q": "We define focal length, $f$ of a lens as the image distance when the object is at ____.",
+    "c": "infinity",
+    "e": "The focal length is the distance from the lens to the point where parallel rays (from an object at infinity) converge or appear to diverge."
+  },
+  {
+    "type": "blank",
+    "q": "Substituting $u = \\infty$ and $v = f$ gives the following ____ equation.",
+    "c": "lens-makers'",
+    "e": "The lens-maker's equation relates the focal length of a lens to its refractive index and the radii of curvature of its surfaces."
+  },
+  {
+    "type": "blank",
+    "q": "Combining the refraction equation and the lens-makers' equation, we obtain the ____ equation.",
+    "c": "lens",
+    "e": "The general lens equation ($\\frac{1}{u} + \\frac{1}{v} = \\frac{1}{f}$) is derived by combining the refraction formula with the lens-maker's equation."
+  },
+  {
+    "type": "blank",
+    "q": "The lens equation is the general formula for the ____ lens.",
+    "c": "thin",
+    "e": "The standard lens equation assumes the thickness of the lens is negligible, making it applicable to thin lenses."
+  },
+  {
+    "type": "blank",
+    "q": "The object distance $u$ and the image distance $v$ are measured from the ____ of the lens.",
+    "c": "centre",
+    "e": "In thin lens approximations, all distances are measured from the optical centre of the lens."
+  },
+  {
+    "type": "blank",
+    "q": "Distances of real object, real image and real focus are ____.",
+    "c": "positive",
+    "e": "According to the sign convention, distances measured in the direction of incident light for real entities are taken as positive."
+  },
+  {
+    "type": "blank",
+    "q": "Distances of virtual object, virtual image and virtual focus are ____.",
+    "c": "negative",
+    "e": "According to the sign convention, distances associated with virtual entities are assigned a negative value."
+  },
+  {
+    "type": "blank",
+    "q": "The perpendicular distance measured above the principal axis is positive and that below the principal axis is ____.",
+    "c": "negative",
+    "e": "Heights measured upward from the principal axis are positive, while downward heights (like inverted images) are negative."
+  },
+  {
+    "type": "blank",
+    "q": "A transparent material which can diverge or converge rays of light is called a ____.",
+    "c": "lens",
+    "e": "A lens is defined as a transparent optical device that refracts light to either converge or diverge the rays."
+  },
+  {
+    "type": "blank",
+    "q": "Generally, lenses are made up of glass with two ____ surfaces.",
+    "c": "spherical",
+    "e": "Most common lenses are bounded by two spherical surfaces, which are easier to manufacture and analyze."
+  },
+  {
+    "type": "blank",
+    "q": "There are two main types of lenses, known as convex (or) converging lens and concave (or) ____ lens.",
+    "c": "diverging",
+    "e": "Concave lenses spread parallel light rays apart, earning them the name diverging lenses."
+  },
+  {
+    "type": "blank",
+    "q": "Lenses are used in spectacles, cameras, projectors, telescopes and ____.",
+    "c": "microscopes",
+    "e": "Lenses are fundamental optical components in a wide variety of instruments, including microscopes for magnifying small objects."
+  },
+  {
+    "type": "blank",
+    "q": "The convex lens (or) converging lens is used as a magnifying ____.",
+    "c": "glass",
+    "e": "A single convex lens is commonly used as a simple magnifying glass to produce an enlarged virtual image."
+  },
+  {
+    "type": "blank",
+    "q": "The lenses in spectacles used by a short-sighted person are ____ lenses.",
+    "c": "concave",
+    "e": "Concave lenses diverge light before it enters the eye, correcting the focal point for short-sighted (myopic) individuals."
+  },
+  {
+    "type": "blank",
+    "q": "The lenses in spectacles used by a long-sighted person are ____ lenses.",
+    "c": "convex",
+    "e": "Convex lenses converge light before it enters the eye, correcting the focal point for long-sighted (hyperopic) individuals."
+  },
+  {
+    "type": "blank",
+    "q": "A lens which can converge the parallel rays is called a ____ lens.",
+    "c": "convex",
+    "e": "Convex lenses are thicker in the middle, causing parallel incident rays to bend inward and meet at a focal point."
+  },
+  {
+    "type": "blank",
+    "q": "A convex lens is thicker in the ____ than at the edges.",
+    "c": "middle",
+    "e": "The physical shape of a convex lens features a greater thickness at its center compared to its periphery."
+  },
+  {
+    "type": "blank",
+    "q": "Three types of convex lens are bi-convex, plano-convex and converging ____.",
+    "c": "meniscus",
+    "e": "A converging meniscus lens has one convex and one concave surface, but is thicker at the center, making it overall converging."
+  },
+  {
+    "type": "blank",
+    "q": "A lens which can diverge the parallel rays is called ____ lens.",
+    "c": "concave",
+    "e": "Concave lenses cause parallel incident rays to spread outward, appearing to originate from a virtual focal point."
+  },
+  {
+    "type": "blank",
+    "q": "A concave lens is thinner in the middle than at the ____.",
+    "c": "edges",
+    "e": "The physical shape of a concave lens features a reduced thickness at its center compared to its periphery."
+  },
+  {
+    "type": "blank",
+    "q": "Three types of concave lens are bi-concave lens, plano-concave lens and diverging ____.",
+    "c": "meniscus",
+    "e": "A diverging meniscus lens has one convex and one concave surface, but is thinner at the center, making it overall diverging."
+  },
+  {
+    "type": "blank",
+    "q": "Bi-convex and bi-concave lens are ____ used.",
+    "c": "widely",
+    "e": "Due to their symmetry and predictable optical properties, bi-convex and bi-concave lenses are the most commonly used types."
+  },
+  {
+    "type": "blank",
+    "q": "Each surface of a lens has a centre of ____.",
+    "c": "curvature",
+    "e": "Since each surface of a lens is part of a sphere, each has its own center of curvature."
+  },
+  {
+    "type": "blank",
+    "q": "Since a lens has two surfaces it has two centres of ____.",
+    "c": "curvature",
+    "e": "A standard lens with two spherical surfaces will inherently possess two distinct centers of curvature."
+  },
+  {
+    "type": "blank",
+    "q": "The line joining the centres of curvature of two surfaces is the ____ axis of a lens.",
+    "c": "principal",
+    "e": "The principal axis is the straight line that passes through both centers of curvature and the optical centre of the lens."
+  },
+  {
+    "type": "blank",
+    "q": "The principal axis passes through the ____ of the lens.",
+    "c": "middle",
+    "e": "The principal axis geometrically bisects the lens, passing directly through its central optical region."
+  },
+  {
+    "type": "blank",
+    "q": "If the radii of curvature of the two surfaces of a lens are equal, the lens is said to be ____.",
+    "c": "symmetric",
+    "e": "A symmetric lens has identical curvature on both sides, such as a standard bi-convex or bi-concave lens."
+  },
+  {
+    "type": "blank",
+    "q": "A point in the middle of a symmetric lens on the principal axis is the centre of a lens (or) the ____ centre of a lens.",
+    "c": "optical",
+    "e": "The optical centre is the specific point on the principal axis where light rays pass through without any deviation."
+  },
+  {
+    "type": "blank",
+    "q": "The rays parallel to the principal axis converge at a point on the principal axis after refraction through a ____ lens.",
+    "c": "convex",
+    "e": "A defining property of a convex lens is its ability to bring parallel rays to a real convergence point."
+  },
+  {
+    "type": "blank",
+    "q": "This point is called the principal focus of the convex lens and is denoted by ____.",
+    "c": "$F$",
+    "e": "The principal focus, denoted by $F$, is the specific point where parallel rays meet after refraction."
+  },
+  {
+    "type": "blank",
+    "q": "Since these rays actually pass through the focus, the focus of the convex lens is ____.",
+    "c": "real",
+    "e": "Because light rays physically intersect at this point, the principal focus of a convex lens is a real focus."
+  },
+  {
+    "type": "blank",
+    "q": "The distance between centre of a convex lens and its focus is called ____ length of the convex lens.",
+    "c": "focal",
+    "e": "The focal length is the measurable distance from the optical centre of the lens to its principal focus."
+  },
+  {
+    "type": "blank",
+    "q": "The rays parallel to the principal axis are divergent after refraction through a ____ lens.",
+    "c": "concave",
+    "e": "A concave lens causes parallel incident rays to spread apart (diverge) upon exiting the lens."
+  },
+  {
+    "type": "blank",
+    "q": "Those divergent rays appear to come from a point on the ____ axis.",
+    "c": "principal",
+    "e": "When traced backward, the diverging rays from a concave lens appear to originate from a point on the principal axis."
+  },
+  {
+    "type": "blank",
+    "q": "This point is called the principal focus of the ____ lens.",
+    "c": "concave",
+    "e": "The point from which diverging rays appear to originate is defined as the principal focus of a concave lens."
+  },
+  {
+    "type": "blank",
+    "q": "Since the divergent rays do not actually pass through that point, the focus of the concave lens is ____.",
+    "c": "virtual",
+    "e": "Because the light rays do not physically intersect at this point, the focus of a concave lens is virtual."
+  },
+  {
+    "type": "blank",
+    "q": "The distance between centre of a concave lens and its focus is called the ____ length of the concave lens.",
+    "c": "focal",
+    "e": "Just like convex lenses, the distance from the optical centre to the virtual focus of a concave lens is its focal length."
+  },
+  {
+    "type": "blank",
+    "q": "The rays parallel to the principal axis enter the convex lens from the left and pass through the focus on the ____.",
+    "c": "right",
+    "e": "Light entering a convex lens from one side will converge at the focal point on the opposite side."
+  },
+  {
+    "type": "blank",
+    "q": "If the rays parallel to the principal axis enter the convex lens from the right, they will pass through the focus on the ____.",
+    "c": "left",
+    "e": "Due to the reversibility of light, rays entering from the right will converge at the focal point on the left."
+  },
+  {
+    "type": "blank",
+    "q": "Thus, a lens has two ____.",
+    "c": "foci",
+    "e": "Because light can enter from either side, every lens possesses two principal focal points, one on each side."
+  },
+  {
+    "type": "blank",
+    "q": "Like a convex lens, a concave lens has two focal points or ____.",
+    "c": "foci",
+    "e": "Concave lenses also have two virtual focal points, one for each direction of incident light."
+  },
+  {
+    "type": "blank",
+    "q": "The points at a distance of twice the focal length from the centre of lens are represented by ____.",
+    "c": "$2F$",
+    "e": "The point $2F$ is a critical reference point in ray diagrams, located at twice the distance of the focal length from the optical centre."
+  },
+  {
+    "type": "blank",
+    "q": "A ray parallel to the principal axis passes through the focus after refraction through a ____ lens.",
+    "c": "convex",
+    "e": "This is the first principal ray rule for convex lenses: parallel incident rays refract through the focal point."
+  },
+  {
+    "type": "blank",
+    "q": "A ray parallel to the principal axis is refracted through a concave lens and the refracted ray produced backward passes through the ____.",
+    "c": "focus",
+    "e": "This is the first principal ray rule for concave lenses: parallel incident rays diverge as if coming from the virtual focus."
+  },
+  {
+    "type": "blank",
+    "q": "A ray passing through the focus of a convex lens emerges ____ to the principal axis after refraction.",
+    "c": "parallel",
+    "e": "This is the second principal ray rule: rays directed toward the focus refract to become parallel to the principal axis."
+  },
+  {
+    "type": "blank",
+    "q": "A ray passing through the centre of lens emerges in the ____ direction.",
+    "c": "same",
+    "e": "This is the third principal ray rule: rays passing through the optical centre are undeviated and continue in a straight line."
+  },
+  {
+    "type": "blank",
+    "q": "Only two of the principal rays are sufficient to locate the ____ of an object in various positions.",
+    "c": "image",
+    "e": "The intersection of any two principal refracted rays is enough to determine the precise location and size of the image."
+  },
+  {
+    "type": "blank",
+    "q": "When the object is at infinity, its image is at $F$, real, inverted, and ____ than the object.",
+    "c": "smaller",
+    "e": "An object at infinity produces a highly diminished, point-like real image at the focal point of a convex lens."
+  },
+  {
+    "type": "blank",
+    "q": "Due to this property, convex lens can be used as object lens of a ____.",
+    "c": "telescope",
+    "e": "Telescopes use a convex objective lens to gather light from distant objects and form a small real image at the focus."
+  },
+  {
+    "type": "blank",
+    "q": "When the object is beyond $2F$, its image is between $F$ and $2F$, real, inverted, and smaller than the ____.",
+    "c": "object",
+    "e": "Objects placed beyond twice the focal length produce diminished, real, and inverted images."
+  },
+  {
+    "type": "blank",
+    "q": "Due to this property, convex lens can be used in a ____.",
+    "c": "camera",
+    "e": "Cameras use this property to project a smaller, real image of a distant scene onto the film or sensor."
+  },
+  {
+    "type": "blank",
+    "q": "When the object is at $2F$, its image is at $2F$, real, inverted, and of the ____ size as the object.",
+    "c": "same",
+    "e": "Placing an object exactly at $2F$ results in an image that is also at $2F$ on the opposite side, with identical dimensions."
+  },
+  {
+    "type": "blank",
+    "q": "Due to this property, convex lens can be used in a photocopier making ____-sized copy.",
+    "c": "equal",
+    "e": "Photocopiers utilize the $2F$ to $2F$ image formation property to produce 1:1 scale reproductions of documents."
+  },
+  {
+    "type": "blank",
+    "q": "When the object is between $F$ and $2F$, its image is beyond $2F$, real, inverted, and ____ than the object.",
+    "c": "larger",
+    "e": "Objects placed in this region produce magnified, real, and inverted images on the opposite side of the lens."
+  },
+  {
+    "type": "blank",
+    "q": "When the object is at $F$, its image is at ____.",
+    "c": "infinity",
+    "e": "Rays from an object at the focal point refract to become parallel, meaning they never converge to form a finite image."
+  },
+  {
+    "type": "blank",
+    "q": "Due to this property, convex lens can be used as in a spotlight to produce ____ beam.",
+    "c": "parallel",
+    "e": "Spotlights place the light source at the focal point to generate a strong, collimated (parallel) beam of light."
+  },
+  {
+    "type": "blank",
+    "q": "When the object is between $F$ and $P$, its image is behind the object, virtual, erect (upright), and larger than the ____.",
+    "c": "object",
+    "e": "Objects placed inside the focal length produce a magnified, upright, virtual image on the same side as the object."
+  },
+  {
+    "type": "blank",
+    "q": "Due to this property a convex lens can be used as a magnifying ____.",
+    "c": "glass",
+    "e": "This specific image formation is the operating principle of a simple magnifying glass."
+  },
+  {
+    "type": "blank",
+    "q": "The image formed by a concave lens is always virtual, erect (upright) and ____ than the object.",
+    "c": "smaller",
+    "e": "Regardless of object position, a concave lens always produces a diminished, upright, virtual image."
+  },
+  {
+    "type": "blank",
+    "q": "It is formed between $P$ and $F$ on the ____ side of the lens as the object.",
+    "c": "same",
+    "e": "Virtual images formed by single lenses always appear on the same side of the lens as the incident object."
+  },
+  {
+    "type": "blank",
+    "q": "Convex lens can produce both real and virtual images depending on the ____ of the object.",
+    "c": "position",
+    "e": "The nature of the image formed by a convex lens is entirely dependent on where the object is placed relative to $F$ and $2F$."
+  },
+  {
+    "type": "blank",
+    "q": "However, a concave lens can produce only ____ image.",
+    "c": "virtual",
+    "e": "Due to its diverging nature, a concave lens cannot bring light rays to a real intersection, thus only forming virtual images."
+  },
+  {
+    "type": "blank",
+    "q": "The virtual image formed by the convex (or) concave lens is the same size as the object only when the object is in ____ with the lens.",
+    "c": "contact",
+    "e": "When an object is placed directly against the lens, the image forms at the same location with a magnification of 1."
+  },
+  {
+    "type": "blank",
+    "q": "The magnification is the ratio of the height of the image to the height of the ____.",
+    "c": "object",
+    "e": "Magnification quantifies how much larger or smaller the image is compared to the original object's height."
+  },
+  {
+    "type": "blank",
+    "q": "Magnification is usually denoted by the letter ____.",
+    "c": "$m$",
+    "e": "In optical formulas, the lowercase letter $m$ is the standard symbol used to represent linear magnification."
+  },
+  {
+    "type": "blank",
+    "q": "The power of a lens is inversely proportional to the ____ length of the lens.",
+    "c": "focal",
+    "e": "Lens power measures its ability to bend light, which increases as the focal length decreases."
+  },
+  {
+    "type": "blank",
+    "q": "The power of a lens is denoted by the letter ____.",
+    "c": "$P$",
+    "e": "In optical physics, the uppercase letter $P$ is the standard symbol for the power of a lens."
+  },
+  {
+    "type": "blank",
+    "q": "The lens having greater power can make the rays parallel to the principal axis more convergent (or) ____.",
+    "c": "divergent",
+    "e": "Higher power means a stronger refractive effect, causing rays to converge or diverge more sharply."
+  },
+  {
+    "type": "blank",
+    "q": "The shorter the focal length the ____ is the power of the lens.",
+    "c": "greater",
+    "e": "Because power is the reciprocal of focal length ($P = 1/f$), a shorter focal length mathematically results in a greater power value."
+  },
+  {
+    "type": "blank",
+    "q": "Since the focal length of a convex lens is positive in sign it has a ____ power.",
+    "c": "positive",
+    "e": "Convex lenses have real foci and positive focal lengths, which directly translates to a positive power value."
+  },
+  {
+    "type": "blank",
+    "q": "The focal length of a concave lens is negative so that it has a ____ power.",
+    "c": "negative",
+    "e": "Concave lenses have virtual foci and negative focal lengths, which directly translates to a negative power value."
+  },
+  {
+    "type": "blank",
+    "q": "The sign of the powers of the lenses used here are the same as those used by the ____ makers.",
+    "c": "lens",
+    "e": "The sign convention for lens power aligns with the standard optical industry practices used by lens manufacturers."
+  },
+  {
+    "type": "blank",
+    "q": "If a lens has a focal length of 1 metre, it has one unit power (or) one ____.",
+    "c": "dioptre",
+    "e": "The dioptre is the SI unit of lens power, defined as the reciprocal of the focal length in metres."
+  },
+  {
+    "type": "blank",
+    "q": "One unit of power of a lens is denoted by ____.",
+    "c": "$D$",
+    "e": "The uppercase letter $D$ is the standard abbreviation for the unit dioptre."
+  },
+  {
+    "type": "blank",
+    "q": "If the focal length $f$ is measured in metre, the power is $P = $ ____.",
+    "c": "$\\frac{1}{f \\text{ (m)}}$",
+    "e": "When focal length is in metres, the power in dioptres is simply the reciprocal of that value."
+  },
+  {
+    "type": "blank",
+    "q": "If the focal length $f$ is measured in centimetre, the power is $P = $ ____.",
+    "c": "$\\frac{100}{f \\text{ (cm)}}$",
+    "e": "When focal length is in centimetres, it must be converted to metres by dividing 100 by the focal length value."
+  },
+  {
+    "type": "blank",
+    "q": "If the power of a lens is $+2 \\text{ D}$, it is a ____ lens.",
+    "c": "convex",
+    "e": "A positive power value indicates a converging lens, which is a convex lens."
+  },
+  {
+    "type": "blank",
+    "q": "If the power of a lens is $+2 \\text{ D}$, its focal length is ____ m.",
+    "c": "0.5",
+    "e": "Using $f = 1/P$, a power of $+2 \\text{ D}$ yields a focal length of $1/2 = 0.5$ metres."
+  },
+  {
+    "type": "blank",
+    "q": "If the power of a lens is $-4 \\text{ D}$, it is a ____ lens.",
+    "c": "concave",
+    "e": "A negative power value indicates a diverging lens, which is a concave lens."
+  },
+  {
+    "type": "blank",
+    "q": "If the power of a lens is $-4 \\text{ D}$, its focal length is ____ cm.",
+    "c": "25",
+    "e": "Using $f = 100/P$, a power of $-4 \\text{ D}$ yields a focal length of $100/4 = 25$ centimetres."
+  }
+]

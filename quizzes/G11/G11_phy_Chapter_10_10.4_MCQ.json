@@ -1,0 +1,112 @@
+[
+  {
+    "type": "mcq",
+    "q": "Resistors are said to be connected in series if the _____ flows through each resistor.",
+    "c": 0,
+    "a": [
+      "same current",
+      "same potential difference",
+      "different current"
+    ],
+    "e": "In a series connection, the same current flows through each resistor."
+  },
+  {
+    "type": "mcq",
+    "q": "For resistors connected in series, the total potential difference $V$ is equal to _____.",
+    "c": 1,
+    "a": [
+      "$V_1 \\times V_2 \\times V_3$",
+      "$V_1 + V_2 + V_3$",
+      "$\\frac{1}{V_1} + \\frac{1}{V_2} + \\frac{1}{V_3}$"
+    ],
+    "e": "In a series circuit, the total potential difference is the sum of the individual potential differences: $V = V_1 + V_2 + V_3$."
+  },
+  {
+    "type": "mcq",
+    "q": "The equivalent resistance $R$ of resistors connected in series is equal to the _____ of the individual resistances.",
+    "c": 2,
+    "a": [
+      "product",
+      "reciprocal sum",
+      "sum"
+    ],
+    "e": "The equivalent resistance of resistors in series is the sum of their individual resistances: $R = R_1 + R_2 + R_3$."
+  },
+  {
+    "type": "mcq",
+    "q": "Resistors are said to be connected in parallel if the _____ appears across each and every resistor.",
+    "c": 0,
+    "a": [
+      "same potential difference",
+      "same current",
+      "different potential difference"
+    ],
+    "e": "In a parallel connection, the same potential difference appears across each resistor."
+  },
+  {
+    "type": "mcq",
+    "q": "For resistors connected in parallel, the total current $I$ is equal to _____.",
+    "c": 1,
+    "a": [
+      "$I_1 \\times I_2 \\times I_3$",
+      "$I_1 + I_2 + I_3$",
+      "$\\frac{1}{I_1} + \\frac{1}{I_2} + \\frac{1}{I_3}$"
+    ],
+    "e": "In a parallel circuit, the total current is the sum of the currents through each branch: $I = I_1 + I_2 + I_3$."
+  },
+  {
+    "type": "mcq",
+    "q": "The reciprocal of the equivalent resistance of resistors connected in parallel is equal to the _____ of the reciprocal of the individual resistances.",
+    "c": 2,
+    "a": [
+      "product",
+      "difference",
+      "sum"
+    ],
+    "e": "For parallel resistors, $\\frac{1}{R} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3}$."
+  },
+  {
+    "type": "mcq",
+    "q": "When a parallel combination of two resistors having different resistances is connected to a battery, the resistor with _____ resistance will draw a greater current.",
+    "c": 0,
+    "a": [
+      "smaller",
+      "larger",
+      "equal"
+    ],
+    "e": "Since $I = \\frac{V}{R}$ and $V$ is the same for parallel resistors, a smaller resistance results in a greater current."
+  },
+  {
+    "type": "mcq",
+    "q": "The equivalent resistance of three $6 \\Omega$ resistors connected in series is _____.",
+    "c": 1,
+    "a": [
+      "$2 \\Omega$",
+      "$18 \\Omega$",
+      "$6 \\Omega$"
+    ],
+    "e": "In series, $R = R_1 + R_2 + R_3 = 6 + 6 + 6 = 18 \\Omega$."
+  },
+  {
+    "type": "mcq",
+    "q": "The equivalent resistance of three $6 \\Omega$ resistors connected in parallel is _____.",
+    "c": 2,
+    "a": [
+      "$18 \\Omega$",
+      "$3 \\Omega$",
+      "$2 \\Omega$"
+    ],
+    "e": "In parallel, $\\frac{1}{R} = \\frac{1}{6} + \\frac{1}{6} + \\frac{1}{6} = \\frac{3}{6} = \\frac{1}{2}$, so $R = 2 \\Omega$."
+  },
+  {
+    "type": "mcq",
+    "q": "The equivalent resistance of two $6 \\Omega$ resistors connected in parallel is _____.",
+    "c": 0,
+    "a": [
+      "$3 \\Omega$",
+      "$12 \\Omega$",
+      "$6 \\Omega$"
+    ],
+    "e": "In parallel, $\\frac{1}{R} = \\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3}$, so $R = 3 \\Omega$."
+  }
+]
