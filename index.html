@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Myanmar:wght@400;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;500;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="manifest" href="/manifest.json?v=2">
 <meta name="theme-color" content="#F0B90B">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -163,7 +163,8 @@ html {
     body { 
         background-color: var(--bg); 
         color: var(--white); 
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, 'Noto Sans Myanmar', Padauk, sans-serif;
+        font-family: Inter, 'Noto Sans Myanmar', Padauk, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.5;
         margin: 0; padding: 0; height: var(--tg-viewport-stable-height, 100vh); display: flex; flex-direction: column; overflow: hidden;
         overscroll-behavior: none;
         padding-top: var(--tg-safe-top, 0px);
@@ -194,7 +195,7 @@ html {
         box-sizing: border-box !important;
     }
     .container {
-    padding: 20px; 
+    padding: 16px 16px 104px; 
     flex: 1; 
     overflow-y: auto; 
     overscroll-behavior: none;
@@ -219,13 +220,14 @@ body.page-no-nav .container {
     
     .screen { display: none; }
     .active-screen { display: block; }
-    h2, h3, h4 { letter-spacing: 0; }
+    h2, h3, h4 { letter-spacing: 0; font-weight: 700; line-height: 1.35; }
 
     /* --- 2. Subject Cards --- */
     .subject-card { 
         background: var(--card-bg) !important; 
-        padding: 20px; border-radius: 8px; margin-bottom: 14px; 
-        font-size: 1.1rem; font-weight: 700; 
+        padding: 18px 14px; border-radius: 10px; margin-bottom: 14px; 
+        font-size: 1.02rem; font-weight: 600; line-height: 1.45;
+        min-height: 52px;
         display: flex; justify-content: space-between; align-items: center; 
         cursor: pointer; color: var(--white); transition: transform 0.1s ease; 
     }
@@ -248,8 +250,9 @@ body.page-no-nav .container {
         white-space: normal !important; word-wrap: break-word !important; overflow-wrap: break-word !important;
     }
     .btn { 
-        background: var(--bn-btn, #2B3139); color: var(--white); border: 1px solid var(--bn-line, #2B3139); padding: 15px; border-radius: 8px; 
-        font-weight: 700; margin: 8px 0; cursor: pointer; text-align: center; font-size: 1rem; 
+        background: var(--bn-btn, #2B3139); color: var(--white); border: 1px solid var(--bn-line, #2B3139); padding: 14px 16px; border-radius: 8px; 
+        font-weight: 600; margin: 8px 0; cursor: pointer; text-align: center; font-size: 1rem; 
+        line-height: 1.45;
         transition: transform 0.1s ease, background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
     }
     .btn:active { transform: scale(0.97); }
@@ -299,7 +302,7 @@ body.page-no-nav .container {
     display: inline-block !important; width: auto !important; 
     margin: 15px auto 8px auto !important;
         box-sizing: border-box !important; white-space: normal !important; text-align: center !important;
-        background: transparent; border: 1px solid #10B981; color: #10B981; text-decoration: none; padding: 12px; border-radius: 12px;
+        background: #0ECB81; border: 1px solid #0ECB81; color: #0B0E11; text-decoration: none; padding: 12px 16px; border-radius: 10px; font-weight: 600;
     }
 
     /* --- 4. Flashcard UI (Rebuilt & Perfectly Centered) --- */
@@ -400,21 +403,28 @@ body.page-no-nav .container {
     #profile-avatar-fallback.show { display: flex; }
     #profile-avatar.hide { display: none; }
     .profile-hero { position: relative; }
-    .profile-info-card, #profile-screen div[style*="background: var(--card)"], #exam-countdown, #plan-screen > div > div:first-child, #middle-screen > div > div:first-child { 
-        background: linear-gradient(145deg, #0F172A, #162235) !important; 
-        padding: 20px; border-radius: 16px; text-align: center; margin-top: 20px; 
-        border: 1px solid #F0B90B !important; box-shadow: none !important; 
+    .profile-info-card, #profile-screen div[style*="background: var(--card)"] {
+        background: #1E2329 !important;
+        padding: 16px; border-radius: 12px; text-align: center; margin-top: 14px;
+        border: 1px solid #2B3139 !important; box-shadow: none !important;
     }
-    #exam-countdown { border-color: #F0B90B !important; box-shadow: none !important; display: flex; justify-content: center; gap: 15px; padding: 12px; margin-bottom: 25px; }
+    #exam-countdown {
+        background: #1E2329 !important;
+        border: 1px solid #F0B90B !important;
+        box-shadow: none !important;
+        display: flex; justify-content: center; gap: 15px;
+        padding: 10px 12px; margin-bottom: 18px;
+        border-radius: 12px; text-align: center;
+    }
     
     .bought-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
-    .bought-badge { background: #1E293B; color: #F0B90B; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #F0B90B; font-weight: 700; }
+    .bought-badge { background: #2B3139; color: #EAECEF; padding: 6px 10px; border-radius: 8px; font-size: 0.8rem; border: 1px solid #2B3139; font-weight: 600; }
     .bought-badge.vol-badge { color: #C9B37A; border-color: #C9B37A; background: transparent; }
     
     .streak-mini-badge {
-        position: absolute; top: 5px; left: 50%; transform: translateX(-120px); 
-        background: linear-gradient(135deg, #FF7E5F, #FEB47B); color: #000; font-weight: 900; font-size: 0.8rem; 
-        padding: 4px 10px; border-radius: 12px; border: 1px solid #FFF; display: inline-flex; align-items: center; gap: 5px; z-index: 10;
+        position: absolute; top: 4px; left: 50%; transform: translateX(-108px);
+        background: #F0B90B; color: #0B0E11; font-weight: 700; font-size: 0.72rem;
+        padding: 3px 8px; border-radius: 999px; border: none; display: inline-flex; align-items: center; gap: 4px; z-index: 10;
     }
 
     /* Toggle Switch */
@@ -629,7 +639,7 @@ input:checked + .slider:before {
     left: 50%;
     transform: translateX(-50%);
     width: min(var(--app-max), calc(100% - 24px));
-    height: 70px; 
+    height: 64px; 
     background: var(--nav-bg);        /* 🆕 Variable သုံးလိုက်တယ် */
     display: flex; 
     justify-content: space-around; 
@@ -644,16 +654,17 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2px;
-    min-width: 44px;
-    font-size: 0.58rem;
-    font-weight: 700;
+    gap: 4px;
+    min-width: 48px;
+    min-height: 48px;
+    font-size: 0.6rem;
+    font-weight: 600;
     filter: none; 
-    opacity: 0.42; 
+    opacity: 0.55; 
     cursor: pointer; 
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: opacity 0.15s ease, color 0.15s ease;
     color: var(--nav-icon-inactive);
-    line-height: 1.1;
+    line-height: 1.15;
 }
 .nav-ico {
     font-size: 1.2rem;
@@ -668,7 +679,7 @@ input:checked + .slider:before {
 .nav-active { 
     filter: none !important; 
     opacity: 1 !important; 
-    transform: translateY(-4px) scale(1.06) !important;
+    transform: none !important;
     color: var(--nav-icon-active) !important;
 }
 .nav-active .nav-ico {
@@ -690,8 +701,11 @@ input:checked + .slider:before {
         /* နေရာကျဉ်းသွားသည့်အတွက် Card များကို အံဝင်ခွင်ကျဖြစ်အောင် ပြန်ချိန်ခြင်း */
         .subject-card {
             margin-bottom: 0 !important; /* Grid တွင် Gap သုံးထားသဖြင့် Margin ကို ပယ်ဖျက်မည် */
-            padding: 16px 12px !important; /* ဘေးတိုက်နေရာဆန့်အောင် Padding အနည်းငယ် လျှော့မည် */
-            font-size: 0.95rem !important; /* စာလုံးဆိုဒ်ကို အနည်းငယ် သေးပေးမည် */
+            padding: 16px 14px !important;
+            font-size: 0.95rem !important;
+            font-weight: 600 !important;
+            line-height: 1.45 !important;
+            min-height: 52px !important;
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
@@ -885,7 +899,7 @@ input:checked + .slider:before {
         
         .bought-container { gap: 5px !important; margin: 8px 0 !important; }
         .bought-badge { font-size: 0.7rem !important; padding: 3px 6px !important; }
-        .buy-btn { padding: 8px !important; font-size: 0.85rem !important; margin-top: 8px !important; margin-bottom: 0 !important; }
+        .buy-btn { padding: 11px 12px !important; font-size: 0.88rem !important; margin-top: 8px !important; margin-bottom: 0 !important; line-height: 1.45 !important; }
         
         /* ညာဘက်အပေါ်ထောင့်က ကျား/မ ရွေးချယ်သည့်ခလုတ် (အသေးစား ဒေါင်လိုက်) */
         .gender-container { 
@@ -1732,40 +1746,47 @@ html body[data-theme] .btn.btn-test {
     box-shadow: none !important;
 }
 .grade-picker {
-    margin-top: 15px;
-    padding: 16px;
-    background: var(--card-bg);
-    border: 1px solid var(--accent);
-    border-radius: 16px;
+    margin-top: 14px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
     text-align: center;
 }
 .grade-picker-label {
-    color: var(--accent);
-    font-weight: bold;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.78rem;
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 .grade-picker-row {
     display: flex;
-    gap: 8px;
+    gap: 0;
+    padding: 3px;
+    background: #181A20;
+    border: 1px solid #2B3139;
+    border-radius: 10px;
 }
 .grade-btn {
     flex: 1;
-    border: 1px solid #2B3139;
-    padding: 12px 6px;
+    border: none;
+    padding: 10px 8px;
     border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.85rem;
+    font-weight: 600;
+    font-size: 0.82rem;
     cursor: pointer;
-    background: #1E2329;
-    color: var(--white);
-    opacity: 0.85;
+    background: transparent;
+    color: #848E9C;
+    opacity: 1;
+    min-height: 40px;
+    line-height: 1.35;
 }
 .grade-btn.active {
     background: var(--accent);
-    color: #000;
+    color: #0B0E11;
     opacity: 1;
-    border: 1px solid var(--accent);
+    border: none;
 }
 
 .rank-snapshot {
@@ -2340,18 +2361,18 @@ body.showing-articles .container {
 .quiz-old-mode #quiz-progress { color: #F0B90B !important; }
 
 .plan-jump {
-    background: var(--card-bg, #162235);
-    border: 1px solid var(--accent);
-    border-radius: 16px;
+    background: var(--card-bg, #1E2329);
+    border: 1px solid #2B3139;
+    border-radius: 12px;
     padding: 14px 16px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
     cursor: pointer;
 }
-.plan-jump-title { color: var(--white); font-weight: 800; font-size: 0.95rem; }
+.plan-jump-title { color: var(--white); font-weight: 600; font-size: 0.95rem; line-height: 1.4; }
 .plan-jump-sub { color: var(--text-muted); font-size: 0.78rem; margin-top: 3px; }
 
 #daily-screen {
@@ -2700,6 +2721,7 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
     }
     .subject-card {
         padding: 18px 16px !important;
+        min-height: 56px !important;
     }
 
     #quiz-screen.active-screen {
@@ -2741,13 +2763,13 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
         flex: 1 1 auto;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
         padding: 4px 8px 8px !important;
         min-height: 0;
     }
     #motivation-box {
         margin-bottom: 12px !important;
-        padding: 18px !important;
+        padding: 14px !important;
     }
     #exam-countdown {
         margin-bottom: 12px !important;
@@ -2757,19 +2779,19 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
     }
 
     #profile-screen.active-screen > div:first-child {
-        flex: 1 1 auto;
+        flex: 0 0 auto;
         display: flex;
         flex-direction: column;
     }
     #profile-avatar, #profile-avatar-fallback {
-        width: 84px !important;
-        height: 84px !important;
+        width: 76px !important;
+        height: 76px !important;
         margin-top: 4px;
     }
     #profile-screen .profile-info-card {
-        flex: 1 1 auto;
-        margin-top: 14px !important;
-        padding: 18px !important;
+        flex: 0 0 auto;
+        margin-top: 12px !important;
+        padding: 16px !important;
     }
 
     .flash-container {
@@ -2900,6 +2922,63 @@ body.volunteer-role .vol-report-link { display: block !important; }
     box-shadow: none !important;
     filter: none !important;
 }
+
+.home-trial-wrap {
+    padding: 8px 0 0;
+    margin-top: 4px;
+}
+#home-tabs-row {
+    margin-bottom: 14px !important;
+}
+#home-tabs-row .btn {
+    min-height: 44px;
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 12px 10px !important;
+}
+#activity-content .btn, #menu-content .btn, #old-menu-content .btn {
+    padding: 13px 12px !important;
+    line-height: 1.45 !important;
+    font-weight: 600 !important;
+}
+#user-name {
+    font-weight: 700;
+    line-height: 1.3;
+}
+#bought-subjects-heading {
+    display: block;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
+    margin-bottom: 4px;
+}
+.news-outline-btn {
+    background: transparent !important;
+    border: 1px solid #2B3139 !important;
+    color: #EAECEF !important;
+    font-weight: 600 !important;
+    padding: 12px 16px !important;
+    margin-top: 8px !important;
+    border-radius: 10px !important;
+}
+#profile-buy-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 10px !important;
+}
+#stats-screen > h2 {
+    font-size: 1.15rem;
+    margin: 4px 0 10px;
+    font-weight: 700;
+}
+.rank-snapshot {
+    border: 1px solid #2B3139;
+    border-radius: 12px;
+}
+#motivation-box h4 {
+    font-weight: 600;
+    font-size: 0.92rem;
+}
 	   
 </style>
 <base target="_blank">
@@ -2942,7 +3021,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     </div>
 
     <!-- Free Trial Button (visible on both tabs now) -->
-    <div style="padding: 20px; margin-top: 10px;">
+    <div class="home-trial-wrap">
         <button id="home-trial-btn" class="btn trial-outline-btn" onclick="openTrialMenu()">
             🎁 ဘာသာရပ်များကို အစမ်းသုံးရန်
         </button>
@@ -3003,7 +3082,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <span>➔</span>
         </div>
         
-        <div id="motivation-box" style="margin-bottom: 25px; text-align: center; padding: 20px; background: rgba(56, 189, 248, 0.1); border: 1px solid var(--accent); border-radius: 20px;">
+        <div id="motivation-box" style="margin-bottom: 18px; text-align: center; padding: 16px; background: #1E2329; border: 1px solid #2B3139; border-radius: 12px;">
 		
             <span style="font-size: 1.5rem;">💡</span>
             <h4 style="color: var(--accent); margin: 10px 0 5px 0;">Daily Motivation</h4>
