@@ -30,9 +30,9 @@
         { id: 'mm', name: 'Myanmar', short: 'MM' }
     ];
     var TYPES = [
-        { id: 'MCQ', label: 'MCQ', file: 'MCQ' },
+        { id: 'True_False', label: 'T / F', file: 'True_False' },
         { id: 'Fill_Blank', label: 'Blank', file: 'Fill_Blank' },
-        { id: 'True_False', label: 'T / F', file: 'True_False' }
+        { id: 'MCQ', label: 'MCQ', file: 'MCQ' }
     ];
 
     var state = {

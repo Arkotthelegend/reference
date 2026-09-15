@@ -3460,7 +3460,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     </div>
 </div>
 
-    <script src="./grades.js?v=14"></script>
+    <script src="./grades.js?v=15"></script>
     <script src="./timetable.js?v=28"></script>
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
@@ -5896,7 +5896,9 @@ function openSubjectMenu(sub) {
             });
         });
     } else if (sub.id === 'mm') {
-        ['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး', 'ခက်ဆစ်', 'အလင်္ကာ'].forEach(m => {
+        const mmModes = ['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး', 'ခက်ဆစ်'];
+        if (getSelectedGrade() === 12) mmModes.push('အလင်္ကာ');
+        mmModes.forEach(m => {
             createBtn(m, content, () => {
                 if (['မှား/မှန်', 'ကွက်လပ်ဖြည့်', 'အမှန်ရွေး'].includes(m)) showMMQuizOptions(m);
                 else showMMFlashcardOptions(m);
@@ -6922,9 +6924,26 @@ function showChapterQuizTypes(subId, chapterName) {
     const quizTypes = (typeof gradeQuizTypes === 'function') ? gradeQuizTypes(subId, chapterName) : ['True_False', 'Fill_Blank', 'MCQ'];
     quizTypes.forEach(type => {
         createBtn(type.replace('_', ' '), content, () => {
-            showQuizSubChapters(subId, chapterName, type);
+            openChapterQuizType(subId, chapterName, type);
         });
     });
+}
+
+function chapterQuizHasOnlyWhole(subId, chapterName, quizType) {
+    const subs = (typeof gradeSubChaptersForType === 'function')
+        ? gradeSubChaptersForType(subId, chapterName, quizType)
+        : ((getGradeCfg().subChapters[subId] && getGradeCfg().subChapters[subId][chapterName]) || []);
+    const hasWhole = (typeof gradeHasWholeQuiz !== 'function') || gradeHasWholeQuiz(subId, chapterName, quizType);
+    return hasWhole && (!subs || !subs.length);
+}
+
+function openChapterQuizType(subId, chapterName, type) {
+    if (chapterQuizHasOnlyWhole(subId, chapterName, type)) {
+        const fileName = `${subId}_${chapterName}_${type}`.replace(/ /g, "_");
+        startQuizFile(fileName, () => showChapterQuizTypes(subId, chapterName));
+        return;
+    }
+    showQuizSubChapters(subId, chapterName, type);
 }
 
 		function isFormulaChapter(chapterName) {
