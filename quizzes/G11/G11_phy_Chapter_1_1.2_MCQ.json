@@ -1,0 +1,222 @@
+[
+  {
+    "type": "mcq",
+    "q": "A projectile is any object thrown into space upon which the only acting force is _____ .",
+    "c": 1,
+    "a": [
+      "air resistance",
+      "gravity",
+      "friction"
+    ],
+    "e": "By definition, a projectile experiences only gravity (when air resistance is neglected)."
+  },
+  {
+    "type": "mcq",
+    "q": "The path followed by a projectile is known as a _____ .",
+    "c": 1,
+    "a": [
+      "parabola",
+      "trajectory",
+      "orbit"
+    ],
+    "e": "The textbook defines the path as a trajectory."
+  },
+  {
+    "type": "mcq",
+    "q": "In projectile motion, the horizontal motion is considered to be _____ .",
+    "c": 1,
+    "a": [
+      "uniformly accelerated",
+      "uniform motion",
+      "free fall"
+    ],
+    "e": "Horizontal motion has constant velocity (zero acceleration), so it is uniform motion."
+  },
+  {
+    "type": "mcq",
+    "q": "In projectile motion, the vertical motion is equivalent to _____ .",
+    "c": 1,
+    "a": [
+      "uniform motion",
+      "free fall motion",
+      "circular motion"
+    ],
+    "e": "Vertical motion is under constant downward acceleration due to gravity—free fall."
+  },
+  {
+    "type": "mcq",
+    "q": "If air resistance is neglected, the horizontal component of acceleration in projectile motion is _____ .",
+    "c": 2,
+    "a": [
+      "$g$",
+      "$-g$",
+      "$0$"
+    ],
+    "e": "There is no horizontal force, so horizontal acceleration is zero."
+  },
+  {
+    "type": "mcq",
+    "q": "The vertical component of acceleration in projectile motion is _____ .",
+    "c": 2,
+    "a": [
+      "$0$",
+      "$+g$",
+      "$-g$"
+    ],
+    "e": "Acceleration is downward, so it is taken as negative: $-g$."
+  },
+  {
+    "type": "mcq",
+    "q": "The x-component of initial velocity for a projectile launched at angle $\\theta$ is _____ .",
+    "c": 1,
+    "a": [
+      "$v_0 \\sin \\theta$",
+      "$v_0 \\cos \\theta$",
+      "$v_0 \\tan \\theta$"
+    ],
+    "e": "Horizontal component is $v_0 \\cos \\theta$, as stated in the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "The y-component of initial velocity for a projectile launched at angle $\\theta$ is _____ .",
+    "c": 1,
+    "a": [
+      "$v_0 \\cos \\theta$",
+      "$v_0 \\sin \\theta$",
+      "$v_0 / \\theta$"
+    ],
+    "e": "Vertical component is $v_0 \\sin \\theta$, per the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "At the highest point of its trajectory, the vertical component of a projectile’s velocity is _____ .",
+    "c": 2,
+    "a": [
+      "maximum",
+      "equal to horizontal component",
+      "zero"
+    ],
+    "e": "At the peak, vertical velocity momentarily becomes zero before reversing direction."
+  },
+  {
+    "type": "mcq",
+    "q": "The time of flight of a projectile is _____ the time taken to reach maximum height.",
+    "c": 1,
+    "a": [
+      "equal to",
+      "twice",
+      "half of"
+    ],
+    "e": "Time up equals time down, so total flight time is twice the time to reach the top."
+  },
+  {
+    "type": "mcq",
+    "q": "The formula for the time of flight $T$ of a projectile is _____ .",
+    "c": 1,
+    "a": [
+      "$\\frac{v_0 \\sin \\theta}{g}$",
+      "$\\frac{2 v_0 \\sin \\theta}{g}$",
+      "$\\frac{v_0 \\cos \\theta}{g}$"
+    ],
+    "e": "This matches Equation (1.8) in the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "The maximum height $H$ of a projectile is given by _____ .",
+    "c": 0,
+    "a": [
+      "$\\frac{(v_0 \\sin \\theta)^2}{2g}$",
+      "$\\frac{v_0^2 \\sin 2\\theta}{g}$",
+      "$\\frac{v_0 \\cos \\theta}{2g}$"
+    ],
+    "e": "This is Equation (1.9) from the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "The horizontal range $R$ of a projectile is given by _____ .",
+    "c": 0,
+    "a": [
+      "$\\frac{v_0^2 \\sin 2\\theta}{g}$",
+      "$\\frac{(v_0 \\sin \\theta)^2}{2g}$",
+      "$v_0 \\cos \\theta \\cdot t$"
+    ],
+    "e": "This is Equation (1.10), derived using $2 \\sin \\theta \\cos \\theta = \\sin 2\\theta$."
+  },
+  {
+    "type": "mcq",
+    "q": "For a projectile thrown horizontally, the initial vertical velocity is _____ .",
+    "c": 1,
+    "a": [
+      "$v_0$",
+      "$0$",
+      "$-gt$"
+    ],
+    "e": "When thrown horizontally, there is no initial vertical component: $v_{oy} = 0$."
+  },
+  {
+    "type": "mcq",
+    "q": "In horizontal projection, the vertical displacement after time $t$ is _____ .",
+    "c": 0,
+    "a": [
+      "$y = -\\frac{1}{2} g t^2$",
+      "$y = v_0 t$",
+      "$y = \\frac{1}{2} g t^2$"
+    ],
+    "e": "This matches the equation given for vertical displacement in Figure 1.5 and Example 1.4."
+  },
+  {
+    "type": "mcq",
+    "q": "Why is the horizontal motion of a projectile taken as uniform motion?",
+    "c": 1,
+    "a": [
+      "Because acceleration due to gravity acts horizontally",
+      "Because there is no horizontal acceleration",
+      "Because air resistance increases horizontal speed"
+    ],
+    "e": "With no horizontal force (neglecting air resistance), horizontal acceleration is zero."
+  },
+  {
+    "type": "mcq",
+    "q": "Two-dimensional motion with one-dimensional acceleration occurs in _____ .",
+    "c": 1,
+    "a": [
+      "uniform circular motion",
+      "projectile motion",
+      "linear motion"
+    ],
+    "e": "In projectile motion, acceleration is only vertical (one-dimensional), while motion is in two dimensions."
+  },
+  {
+    "type": "mcq",
+    "q": "The magnitude of the velocity of a projectile at any instant is given by _____ .",
+    "c": 1,
+    "a": [
+      "$v = v_x + v_y$",
+      "$v = \\sqrt{v_x^2 + v_y^2}$",
+      "$v = v_x v_y$"
+    ],
+    "e": "Velocity magnitude combines perpendicular components via Pythagoras."
+  },
+  {
+    "type": "mcq",
+    "q": "The direction of the velocity vector of a projectile is given by _____ .",
+    "c": 0,
+    "a": [
+      "$\\tan \\theta = \\frac{v_y}{v_x}$",
+      "$\\tan \\theta = \\frac{v_x}{v_y}$",
+      "$\\sin \\theta = \\frac{v_y}{v_x}$"
+    ],
+    "e": "The tangent of the direction angle is the ratio of vertical to horizontal velocity components."
+  },
+  {
+    "type": "mcq",
+    "q": "Examples of projectile motion include all of the following EXCEPT _____ .",
+    "c": 2,
+    "a": [
+      "motion of a cannon ball",
+      "water fountain",
+      "satellite orbiting Earth"
+    ],
+    "e": "Satellites are in circular motion governed by centripetal force, not simple projectile motion."
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "type": "tf",
+    "q": "A projectile is any object thrown into space upon which the only acting force is the gravity.",
+    "c": "true",
+    "e": "By definition, a projectile is an object acted upon solely by gravity after being thrown into space."
+  },
+  {
+    "type": "tf",
+    "q": "The path followed by a projectile is known as a displacement.",
+    "c": "false",
+    "e": "The path followed by a projectile is known as a trajectory."
+  },
+  {
+    "type": "tf",
+    "q": "The motion of an object moving in both horizontal x direction and vertical y direction simultaneously is called the projectile motion.",
+    "c": "true",
+    "e": "Projectile motion is characterized by simultaneous motion in both horizontal and vertical directions."
+  },
+  {
+    "type": "tf",
+    "q": "If air resistance is neglected, an object moves along the horizontal x direction with a constant acceleration.",
+    "c": "false",
+    "e": "If air resistance is neglected, an object moves along the horizontal x direction with a constant velocity, not acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "If air resistance is neglected, an object moves in the vertical y direction with constant downward acceleration.",
+    "c": "true",
+    "e": "In the vertical direction, the object experiences a constant downward acceleration due to gravity."
+  },
+  {
+    "type": "tf",
+    "q": "In projectile motion with neglected air resistance, only gravitational force is acting on the object.",
+    "c": "true",
+    "e": "Gravity is the sole force acting on a projectile when air resistance is ignored."
+  },
+  {
+    "type": "tf",
+    "q": "The downward acceleration is the acceleration due to gravity $g$ which is a constant over the range of motion.",
+    "c": "true",
+    "e": "The acceleration due to gravity $g$ is treated as a constant throughout the projectile's range."
+  },
+  {
+    "type": "tf",
+    "q": "The vertical motion of a projectile is a uniform motion.",
+    "c": "false",
+    "e": "The vertical motion of a projectile is a free fall motion, not a uniform motion."
+  },
+  {
+    "type": "tf",
+    "q": "In the x direction of projectile motion, $a_x = 0$ and $v_x = v_0 \\cos \\theta = \\text{constant}$.",
+    "c": "true",
+    "e": "There is no horizontal acceleration, so the horizontal velocity component remains constant."
+  },
+  {
+    "type": "tf",
+    "q": "The horizontal displacement of a projectile can be written as a function of time as $x = (v_0 \\cos \\theta) t$.",
+    "c": "true",
+    "e": "Since horizontal velocity is constant, horizontal displacement is simply velocity multiplied by time."
+  },
+  {
+    "type": "tf",
+    "q": "In the y direction of projectile motion, $v_{oy}$ is the initial velocity and $a_y$ is $-g$.",
+    "c": "true",
+    "e": "The initial vertical velocity is $v_{oy}$ and the acceleration is downward, hence $-g$."
+  },
+  {
+    "type": "tf",
+    "q": "The velocity of a projectile in the y direction in time $t$ is given by $v_y = v_{oy} + gt$.",
+    "c": "false",
+    "e": "The correct equation is $v_y = v_{oy} - gt$ because the acceleration due to gravity acts downward."
+  },
+  {
+    "type": "tf",
+    "q": "The displacement of a projectile in the y direction in time $t$ is given by $y = v_{oy} t - \\frac{1}{2}gt^2$.",
+    "c": "true",
+    "e": "This is the standard kinematic equation for vertical displacement under constant downward acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "The magnitude of the velocity of the projectile at any instant of time is $v = \\sqrt{v_x^2 + v_y^2}$.",
+    "c": "true",
+    "e": "The total velocity magnitude is found using the Pythagorean theorem on its perpendicular components."
+  },
+  {
+    "type": "tf",
+    "q": "The direction of the velocity of the projectile is given by $\\tan \\theta = \\frac{v_x}{v_y}$.",
+    "c": "false",
+    "e": "The direction is given by $\\tan \\theta = \\frac{v_y}{v_x}$, the ratio of the vertical component to the horizontal component."
+  },
+  {
+    "type": "tf",
+    "q": "The projectile reaches the highest point when its horizontal component of velocity $v_x$ is zero.",
+    "c": "false",
+    "e": "The projectile reaches the highest point when its vertical component of velocity $v_y$ is zero."
+  },
+  {
+    "type": "tf",
+    "q": "The time taken to reach the highest point is $t_1 = \\frac{v_0 \\sin \\theta}{g}$.",
+    "c": "true",
+    "e": "This is derived by setting the final vertical velocity $v_y$ to zero in the velocity-time equation."
+  },
+  {
+    "type": "tf",
+    "q": "The time of flight is equal to the time to reach the maximum height.",
+    "c": "false",
+    "e": "The time of flight is twice the time to reach the maximum height."
+  },
+  {
+    "type": "tf",
+    "q": "The time of flight of a projectile is $T = \\frac{2 v_0 \\sin \\theta}{g}$.",
+    "c": "true",
+    "e": "The total time of flight is double the time taken to reach the peak of the trajectory."
+  },
+  {
+    "type": "tf",
+    "q": "The maximum height of the projectile is $H = \\frac{(v_0 \\cos \\theta)^2}{2g}$.",
+    "c": "false",
+    "e": "The maximum height depends on the vertical component of velocity: $H = \\frac{(v_0 \\sin \\theta)^2}{2g}$."
+  },
+  {
+    "type": "tf",
+    "q": "The horizontal range $R$ is the horizontal distance from the starting point to the point where the projectile returns to the same height.",
+    "c": "true",
+    "e": "This is the exact definition of horizontal range in projectile motion."
+  },
+  {
+    "type": "tf",
+    "q": "The horizontal range is obtained as $R = \\frac{v_0^2 \\sin 2\\theta}{g}$.",
+    "c": "true",
+    "e": "This formula is derived by substituting the time of flight into the horizontal displacement equation."
+  },
+  {
+    "type": "tf",
+    "q": "For an object thrown horizontally, there is a vertical component to its initial velocity.",
+    "c": "false",
+    "e": "For an object thrown horizontally, there is no vertical component to its initial velocity ($v_{oy} = 0$)."
+  },
+  {
+    "type": "tf",
+    "q": "For an object thrown horizontally, the vertical velocity of the object in time $t$ is $v_y = -gt$.",
+    "c": "true",
+    "e": "Since initial vertical velocity is zero, the vertical velocity at time $t$ is solely due to gravitational acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "For an object thrown horizontally, the vertical displacement in time $t$ is $y = -\\frac{1}{2}gt^2$.",
+    "c": "true",
+    "e": "With zero initial vertical velocity, the vertical displacement follows the free fall equation."
+  }
+]

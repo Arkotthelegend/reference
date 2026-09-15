@@ -1,0 +1,112 @@
+[
+  {
+    "type": "mcq",
+    "q": "Angular momentum $L$ is defined as the product of moment of inertia $I$ and _____",
+    "c": 1,
+    "a": [
+      "angular acceleration",
+      "angular velocity",
+      "torque"
+    ],
+    "e": "Eq.(2.9) defines $L = I \\omega$, where $\\omega$ is angular velocity."
+  },
+  {
+    "type": "mcq",
+    "q": "The SI unit of angular momentum is _____",
+    "c": 0,
+    "a": [
+      "kg m² s⁻¹",
+      "N m",
+      "kg m s⁻¹"
+    ],
+    "e": "Since $I$ is in kg m² and $\\omega$ in rad s⁻¹, $L$ has units kg m² s⁻¹."
+  },
+  {
+    "type": "mcq",
+    "q": "Angular momentum is a _____ quantity.",
+    "c": 1,
+    "a": [
+      "scalar",
+      "vector",
+      "dimensionless"
+    ],
+    "e": "The textbook states angular momentum is a vector quantity."
+  },
+  {
+    "type": "mcq",
+    "q": "The law of conservation of angular momentum states that if there is no net external torque, the total angular momentum of the system is _____",
+    "c": 2,
+    "a": [
+      "zero",
+      "increasing",
+      "constant"
+    ],
+    "e": "The law explicitly says angular momentum remains constant when net external torque is zero."
+  },
+  {
+    "type": "mcq",
+    "q": "An ice skater spinning with arms extended pulls her arms inward. Her moment of inertia decreases, so her angular speed _____",
+    "c": 2,
+    "a": [
+      "decreases",
+      "remains the same",
+      "increases"
+    ],
+    "e": "Conservation of angular momentum ($L = I\\omega =$ constant) implies $\\omega$ increases as $I$ decreases."
+  },
+  {
+    "type": "mcq",
+    "q": "When a springboard diver rotates after jumping off the board, continued rotation occurs because _____",
+    "c": 1,
+    "a": [
+      "gravity provides torque",
+      "angular momentum is conserved",
+      "muscles keep working"
+    ],
+    "e": "With negligible external torque, angular momentum is conserved, so rotation continues."
+  },
+  {
+    "type": "mcq",
+    "q": "If the moment of inertia of a rotating object increases by a factor of 2 with no external torque, its angular speed becomes _____",
+    "c": 1,
+    "a": [
+      "twice",
+      "half",
+      "unchanged"
+    ],
+    "e": "Since $L = I\\omega$ is constant, doubling $I$ halves $\\omega$."
+  },
+  {
+    "type": "mcq",
+    "q": "The direction of angular momentum is the same as the direction of _____",
+    "c": 1,
+    "a": [
+      "linear velocity",
+      "angular velocity",
+      "centripetal force"
+    ],
+    "e": "Figure 2.12 shows angular momentum $\\mathbf{L}$ and angular velocity $\\boldsymbol{\\omega}$ in the same direction."
+  },
+  {
+    "type": "mcq",
+    "q": "In symbols, the condition for conservation of angular momentum is _____",
+    "c": 0,
+    "a": [
+      "$\\sum \\tau = 0 \\Rightarrow L = \\text{constant}$",
+      "$\\sum F = 0 \\Rightarrow L = \\text{constant}$",
+      "$\\sum \\tau \\neq 0 \\Rightarrow L = \\text{constant}$"
+    ],
+    "e": "The textbook states: if $\\sum \\tau = 0$, then $L =$ constant."
+  },
+  {
+    "type": "mcq",
+    "q": "To slow down her rotation, an ice skater should _____",
+    "c": 1,
+    "a": [
+      "pull arms inward",
+      "stretch arms outward",
+      "bend forward"
+    ],
+    "e": "Stretching arms outward increases moment of inertia, decreasing angular speed to conserve $L$."
+  }
+]

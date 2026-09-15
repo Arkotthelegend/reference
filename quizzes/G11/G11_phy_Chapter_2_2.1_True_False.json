@@ -1,0 +1,140 @@
+[
+  {
+    "type": "tf",
+    "q": "Vectors can be multiplied in two different ways: the scalar product and the vector product.",
+    "c": "true",
+    "e": "This is the exact definition provided in the textbook for vector multiplication."
+  },
+  {
+    "type": "tf",
+    "q": "Vectors can be multiplied in three different ways: the scalar product, the vector product, and the tensor product.",
+    "c": "false",
+    "e": "The textbook states vectors can be multiplied in two different ways: the scalar product and the vector product."
+  },
+  {
+    "type": "tf",
+    "q": "In the scalar product, a scalar can be formed by multiplying two vectors.",
+    "c": "true",
+    "e": "The scalar product results in a scalar quantity from two vectors."
+  },
+  {
+    "type": "tf",
+    "q": "In the scalar product, a vector can be formed by multiplying two vectors.",
+    "c": "false",
+    "e": "The scalar product forms a scalar, not a vector, when multiplying two vectors."
+  },
+  {
+    "type": "tf",
+    "q": "The scalar product of vectors $\\vec{A}$ and $\\vec{B}$ is defined as $\\vec{A} \\cdot \\vec{B} = AB \\cos \\theta$.",
+    "c": "true",
+    "e": "This is the standard mathematical definition of the scalar (dot) product."
+  },
+  {
+    "type": "tf",
+    "q": "The scalar product of vectors $\\vec{A}$ and $\\vec{B}$ is defined as $\\vec{A} \\cdot \\vec{B} = AB \\sin \\theta$.",
+    "c": "false",
+    "e": "The scalar product uses $\\cos \\theta$, while the vector product uses $\\sin \\theta$."
+  },
+  {
+    "type": "tf",
+    "q": "In the equation $\\vec{A} \\cdot \\vec{B} = AB \\cos \\theta$, $\\theta$ is the angle between $\\vec{A}$ and $\\vec{B}$.",
+    "c": "true",
+    "e": "$\\theta$ represents the angle between the two vectors being multiplied."
+  },
+  {
+    "type": "tf",
+    "q": "The scalar product is also called the dot product.",
+    "c": "true",
+    "e": "Scalar product and dot product are interchangeable terms in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "The scalar product is also called the cross product.",
+    "c": "false",
+    "e": "The scalar product is called the dot product; the vector product is called the cross product."
+  },
+  {
+    "type": "tf",
+    "q": "Work is the scalar product of force and displacement.",
+    "c": "true",
+    "e": "Although force and displacement are vectors, their scalar product (work) is a scalar."
+  },
+  {
+    "type": "tf",
+    "q": "Work is the vector product of force and displacement.",
+    "c": "false",
+    "e": "Work is the scalar product of force and displacement, not the vector product."
+  },
+  {
+    "type": "tf",
+    "q": "The scalar product has the commutative property as described by $\\vec{A} \\cdot \\vec{B} = \\vec{B} \\cdot \\vec{A}$.",
+    "c": "true",
+    "e": "The order of vectors in a scalar product does not change the result."
+  },
+  {
+    "type": "tf",
+    "q": "The vector product of vectors $\\vec{A}$ and $\\vec{B}$ is defined as $\\vec{A} \\times \\vec{B} = \\vec{C}$.",
+    "c": "true",
+    "e": "This is the standard definition of the vector (cross) product."
+  },
+  {
+    "type": "tf",
+    "q": "The magnitude of $\\vec{C}$ in the vector product $\\vec{A} \\times \\vec{B} = \\vec{C}$ is $C = AB \\cos \\theta$.",
+    "c": "false",
+    "e": "The magnitude of the vector product is $C = AB \\sin \\theta$."
+  },
+  {
+    "type": "tf",
+    "q": "The direction of $\\vec{C}$ in a vector product is determined by using the right-hand rule.",
+    "c": "true",
+    "e": "The right-hand rule is explicitly used to find the direction of the cross product."
+  },
+  {
+    "type": "tf",
+    "q": "The direction of $\\vec{C}$ is parallel to the plane that contains $\\vec{A}$ and $\\vec{B}$.",
+    "c": "false",
+    "e": "The direction of $\\vec{C}$ is perpendicular to the plane that contains $\\vec{A}$ and $\\vec{B}$."
+  },
+  {
+    "type": "tf",
+    "q": "The result of the vector product is a vector quantity.",
+    "c": "true",
+    "e": "Unlike the scalar product, the vector product yields a vector."
+  },
+  {
+    "type": "tf",
+    "q": "The vector product between two vectors is denoted by a cross ($\\times$), hence this product is called the cross product.",
+    "c": "true",
+    "e": "The cross symbol denotes the vector product."
+  },
+  {
+    "type": "tf",
+    "q": "The vector product obeys the commutative property as $\\vec{A} \\times \\vec{B} = \\vec{B} \\times \\vec{A}$.",
+    "c": "false",
+    "e": "The vector product does not obey the commutative property; $\\vec{A} \\times \\vec{B} = -(\\vec{B} \\times \\vec{A})$."
+  },
+  {
+    "type": "tf",
+    "q": "The formulae for the torque and the angular velocity are determined by using the vector product.",
+    "c": "true",
+    "e": "Torque and angular velocity relationships rely on the vector (cross) product."
+  },
+  {
+    "type": "tf",
+    "q": "To use the right-hand rule, first you have to hold up your right hand so that index finger and middle finger are perpendicular to thumb.",
+    "c": "true",
+    "e": "This is the exact physical description of setting up the right-hand rule."
+  },
+  {
+    "type": "tf",
+    "q": "In the right-hand rule, your index finger points in the direction of $\\vec{B}$ and your middle finger points in the direction of $\\vec{A}$.",
+    "c": "false",
+    "e": "The index finger points in the direction of $\\vec{A}$ and the middle finger points in the direction of $\\vec{B}$."
+  },
+  {
+    "type": "tf",
+    "q": "In the right-hand rule, your thumb will point in the direction of the cross product $\\vec{A} \\times \\vec{B}$.",
+    "c": "true",
+    "e": "The thumb indicates the resulting direction of the vector product."
+  }
+]

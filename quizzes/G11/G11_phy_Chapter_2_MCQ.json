@@ -1,0 +1,552 @@
+[
+  {
+    "type": "mcq",
+    "q": "The scalar product of vectors $\\mathbf{A}$ and $\\mathbf{B}$ is defined as $\\mathbf{A} \\cdot \\mathbf{B} = AB \\cos \\theta$, where $\\theta$ is the angle between $\\mathbf{A}$ and $\\mathbf{B}$. This product is also called the _____",
+    "c": 1,
+    "a": [
+      "cross product",
+      "dot product",
+      "vector product"
+    ],
+    "e": "The scalar product is also called the dot product, as stated in the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "The vector product of vectors $\\mathbf{A}$ and $\\mathbf{B}$ is denoted by $\\mathbf{A} \\times \\mathbf{B}$. This product is also called the _____",
+    "c": 2,
+    "a": [
+      "scalar product",
+      "dot product",
+      "cross product"
+    ],
+    "e": "The vector product is also called the cross product, as per the textbook definition."
+  },
+  {
+    "type": "mcq",
+    "q": "The scalar product has the commutative property described by the equation _____",
+    "c": 0,
+    "a": [
+      "$\\mathbf{A} \\cdot \\mathbf{B} = \\mathbf{B} \\cdot \\mathbf{A}$",
+      "$\\mathbf{A} \\times \\mathbf{B} = \\mathbf{B} \\times \\mathbf{A}$",
+      "$\\mathbf{A} \\cdot \\mathbf{B} = -\\mathbf{B} \\cdot \\mathbf{A}$"
+    ],
+    "e": "The textbook states that the scalar product obeys the commutative property: $\\mathbf{A} \\cdot \\mathbf{B} = \\mathbf{B} \\cdot \\mathbf{A}$."
+  },
+  {
+    "type": "mcq",
+    "q": "The vector product does not obey the commutative property, and instead follows the relation _____",
+    "c": 1,
+    "a": [
+      "$\\mathbf{A} \\times \\mathbf{B} = \\mathbf{B} \\times \\mathbf{A}$",
+      "$\\mathbf{A} \\times \\mathbf{B} = - (\\mathbf{B} \\times \\mathbf{A})$",
+      "$\\mathbf{A} \\cdot \\mathbf{B} = - (\\mathbf{B} \\cdot \\mathbf{A})$"
+    ],
+    "e": "As given in Eq.(2.4), $\\mathbf{A} \\times \\mathbf{B} = - (\\mathbf{B} \\times \\mathbf{A})$."
+  },
+  {
+    "type": "mcq",
+    "q": "Work is a scalar quantity because it is the _____ of force and displacement.",
+    "c": 2,
+    "a": [
+      "vector product",
+      "cross product",
+      "scalar product"
+    ],
+    "e": "Work is defined as the scalar (dot) product of force and displacement vectors."
+  },
+  {
+    "type": "mcq",
+    "q": "The direction of the vector product $\\mathbf{A} \\times \\mathbf{B}$ is determined by using the _____",
+    "c": 1,
+    "a": [
+      "left-hand rule",
+      "right-hand rule",
+      "Fleming’s rule"
+    ],
+    "e": "The textbook specifies that the right-hand rule determines the direction of the cross product."
+  },
+  {
+    "type": "mcq",
+    "q": "The result of the scalar product of two vectors is a _____",
+    "c": 2,
+    "a": [
+      "vector",
+      "tensor",
+      "scalar"
+    ],
+    "e": "The scalar product yields a scalar quantity, as the name implies."
+  },
+  {
+    "type": "mcq",
+    "q": "The result of the vector product of two vectors is a _____",
+    "c": 1,
+    "a": [
+      "scalar",
+      "vector",
+      "unitless number"
+    ],
+    "e": "The vector (cross) product results in another vector, perpendicular to the original two."
+  },
+  {
+    "type": "mcq",
+    "q": "In circular motion, tangential velocity is expressed in terms of radius $\\mathbf{r}$ and angular velocity $\\boldsymbol{\\omega}$ as _____",
+    "c": 1,
+    "a": [
+      "$\\mathbf{v} = \\boldsymbol{\\omega} \\cdot \\mathbf{r}$",
+      "$\\mathbf{v} = \\boldsymbol{\\omega} \\times \\mathbf{r}$",
+      "$\\mathbf{v} = \\mathbf{r} \\cdot \\boldsymbol{\\omega}$"
+    ],
+    "e": "The textbook states tangential velocity is given by the vector product $\\mathbf{v} = \\boldsymbol{\\omega} \\times \\mathbf{r}$."
+  },
+  {
+    "type": "mcq",
+    "q": "The magnitude of the vector product $\\mathbf{A} \\times \\mathbf{B}$ is given by _____",
+    "c": 2,
+    "a": [
+      "$AB \\cos \\theta$",
+      "$AB \\tan \\theta$",
+      "$AB \\sin \\theta$"
+    ],
+    "e": "The magnitude is $AB \\sin \\theta$, as defined in the section on vector product."
+  },
+  {
+    "type": "mcq",
+    "q": "The turning effect of a force about a particular fulcrum is measured by the _____",
+    "c": 1,
+    "a": [
+      "moment of inertia",
+      "torque",
+      "angular momentum"
+    ],
+    "e": "Torque is defined as the measure of the turning effect of a force about a fulcrum."
+  },
+  {
+    "type": "mcq",
+    "q": "Torque is a _____ quantity.",
+    "c": 2,
+    "a": [
+      "scalar",
+      "dimensionless",
+      "vector"
+    ],
+    "e": "The textbook explicitly states that torque is a vector quantity."
+  },
+  {
+    "type": "mcq",
+    "q": "The vector form of torque is expressed as _____",
+    "c": 1,
+    "a": [
+      "$\\boldsymbol{\\tau} = \\mathbf{F} \\cdot \\mathbf{r}$",
+      "$\\boldsymbol{\\tau} = \\mathbf{F} \\times \\mathbf{r}$",
+      "$\\boldsymbol{\\tau} = \\mathbf{r} \\cdot \\mathbf{F}$"
+    ],
+    "e": "Eq.(2.5) gives torque as $\\boldsymbol{\\tau} = \\mathbf{F} \\times \\mathbf{r}$."
+  },
+  {
+    "type": "mcq",
+    "q": "The magnitude of torque is defined as the product of the force and the _____ from the line of action of the force to the fulcrum.",
+    "c": 0,
+    "a": [
+      "perpendicular distance",
+      "horizontal distance",
+      "angular distance"
+    ],
+    "e": "Torque magnitude is $\\tau = Fd$, where $d$ is the perpendicular distance (moment arm)."
+  },
+  {
+    "type": "mcq",
+    "q": "The perpendicular distance from the line of action of the force to the fulcrum is also called the _____",
+    "c": 1,
+    "a": [
+      "lever arm",
+      "moment arm",
+      "force arm"
+    ],
+    "e": "The textbook defines this distance as the 'moment arm' of a force."
+  },
+  {
+    "type": "mcq",
+    "q": "In SI units, torque is measured in _____",
+    "c": 1,
+    "a": [
+      "joule",
+      "newton metre (N m)",
+      "kg m² s⁻²"
+    ],
+    "e": "Torque is measured in newton metre (N m), and the textbook notes it is never written as joule."
+  },
+  {
+    "type": "mcq",
+    "q": "If a force acts at an angle of $90^{\\circ}$ to the lever arm, then the moment arm $d$ is equal to _____",
+    "c": 2,
+    "a": [
+      "zero",
+      "$r \\sin \\theta$",
+      "$r$"
+    ],
+    "e": "When $\\theta = 90^{\\circ}$, $d = r \\sin 90^{\\circ} = r$, as shown in Figure 2.5(b)."
+  },
+  {
+    "type": "mcq",
+    "q": "The line along which a force is considered to act is called the _____",
+    "c": 1,
+    "a": [
+      "axis of rotation",
+      "line of action of the force",
+      "pivot line"
+    ],
+    "e": "The textbook defines this as the 'line of action of the force'."
+  },
+  {
+    "type": "mcq",
+    "q": "Examples of the turning effect of force include all of the following EXCEPT _____",
+    "c": 2,
+    "a": [
+      "opening a door",
+      "tightening a nut with a spanner",
+      "dropping a ball vertically"
+    ],
+    "e": "Dropping a ball involves no pivot or rotational turning effect, unlike the other options."
+  },
+  {
+    "type": "mcq",
+    "q": "The point about which an object turns when a force is applied is known as the _____",
+    "c": 0,
+    "a": [
+      "fulcrum or pivot",
+      "center of mass",
+      "axis of symmetry"
+    ],
+    "e": "The textbook uses both 'pivot' and 'fulcrum' interchangeably for this point."
+  },
+  {
+    "type": "mcq",
+    "q": "The moment of inertia of a particle of mass $m$ at distance $r$ from the axis of rotation is _____",
+    "c": 1,
+    "a": [
+      "$mr$",
+      "$mr^2$",
+      "$m/r^2$"
+    ],
+    "e": "Moment of inertia for a particle is defined as $I = mr^2$."
+  },
+  {
+    "type": "mcq",
+    "q": "The moment of inertia of an object is defined as the sum of the products obtained by multiplying the mass of each particle and the _____ of its distance from the axis.",
+    "c": 0,
+    "a": [
+      "square",
+      "cube",
+      "first power"
+    ],
+    "e": "The textbook defines moment of inertia as involving the square of the distance."
+  },
+  {
+    "type": "mcq",
+    "q": "The SI unit of moment of inertia is _____",
+    "c": 1,
+    "a": [
+      "kg m",
+      "kg m²",
+      "N m"
+    ],
+    "e": "Moment of inertia has units of kg m², as stated in the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "Moment of inertia must be specified with respect to a chosen _____",
+    "c": 1,
+    "a": [
+      "center of mass",
+      "axis of rotation",
+      "pivot point"
+    ],
+    "e": "The textbook emphasizes that moment of inertia depends on the axis of rotation."
+  },
+  {
+    "type": "mcq",
+    "q": "For a solid sphere rotating about its axis, the moment of inertia is _____",
+    "c": 2,
+    "a": [
+      "$\\frac{1}{2} MR^2$",
+      "$MR^2$",
+      "$\\frac{2}{5} MR^2$"
+    ],
+    "e": "Figure 2.8 lists $I = \\frac{2}{5} MR^2$ for a solid sphere."
+  },
+  {
+    "type": "mcq",
+    "q": "For a hoop or cylindrical shell rotating about its central axis, the moment of inertia is _____",
+    "c": 1,
+    "a": [
+      "$\\frac{1}{2} MR^2$",
+      "$MR^2$",
+      "$\\frac{1}{12} ML^2$"
+    ],
+    "e": "Figure 2.8 shows $I = MR^2$ for a hoop or cylindrical shell."
+  },
+  {
+    "type": "mcq",
+    "q": "For a long thin rod rotating about an axis through its center and perpendicular to its length, the moment of inertia is _____",
+    "c": 1,
+    "a": [
+      "$\\frac{1}{3} ML^2$",
+      "$\\frac{1}{12} ML^2$",
+      "$ML^2$"
+    ],
+    "e": "Figure 2.8 gives $I = \\frac{1}{12} ML^2$ for this configuration."
+  },
+  {
+    "type": "mcq",
+    "q": "For a long thin rod rotating about an axis through one end and perpendicular to its length, the moment of inertia is _____",
+    "c": 0,
+    "a": [
+      "$\\frac{1}{3} ML^2$",
+      "$\\frac{1}{12} ML^2$",
+      "$\\frac{1}{2} ML^2$"
+    ],
+    "e": "Figure 2.8 lists $I = \\frac{1}{3} ML^2$ for rotation about an end."
+  },
+  {
+    "type": "mcq",
+    "q": "The relationship between torque $\\tau$, moment of inertia $I$, and angular acceleration $\\alpha$ is _____",
+    "c": 0,
+    "a": [
+      "$\\tau = I \\alpha$",
+      "$\\tau = I / \\alpha$",
+      "$\\tau = \\alpha / I$"
+    ],
+    "e": "From Eq.(2.7), $\\tau = I \\alpha$, analogous to $F = ma$."
+  },
+  {
+    "type": "mcq",
+    "q": "The center of gravity of an object of regular shape and uniform density is located at its _____",
+    "c": 1,
+    "a": [
+      "bottom edge",
+      "geometrical center",
+      "top surface"
+    ],
+    "e": "The textbook states the center of gravity coincides with the geometrical center for such objects."
+  },
+  {
+    "type": "mcq",
+    "q": "When a system is in static equilibrium, the resultant force on the system is _____",
+    "c": 1,
+    "a": [
+      "maximum",
+      "zero",
+      "equal to weight"
+    ],
+    "e": "One condition of static equilibrium is that the resultant force is zero ($\\sum F = 0$)."
+  },
+  {
+    "type": "mcq",
+    "q": "When a system is in static equilibrium, the resultant torque on the system is _____",
+    "c": 0,
+    "a": [
+      "zero",
+      "maximum",
+      "equal to angular momentum"
+    ],
+    "e": "The second condition of static equilibrium is $\\sum \\tau = 0$."
+  },
+  {
+    "type": "mcq",
+    "q": "The principle of moments states that for a pivoted object to be in balance, the total clockwise moment must equal the total _____ moment.",
+    "c": 1,
+    "a": [
+      "downward",
+      "anticlockwise",
+      "horizontal"
+    ],
+    "e": "The textbook defines the principle of moments using clockwise and anticlockwise balance."
+  },
+  {
+    "type": "mcq",
+    "q": "Applications of the principle of moments include all of the following EXCEPT _____",
+    "c": 2,
+    "a": [
+      "beam balance",
+      "building site crane",
+      "free-falling object"
+    ],
+    "e": "A free-falling object is not pivoted and does not involve moments about a fulcrum."
+  },
+  {
+    "type": "mcq",
+    "q": "In static equilibrium under parallel forces, the sum of upward forces equals the sum of _____ forces.",
+    "c": 1,
+    "a": [
+      "sideways",
+      "downward",
+      "torque"
+    ],
+    "e": "Example 2.7 uses this condition: total upward force = total downward force."
+  },
+  {
+    "type": "mcq",
+    "q": "For a uniform metre rule balanced horizontally, its weight is considered to act at the _____ mark.",
+    "c": 1,
+    "a": [
+      "0 cm",
+      "50 cm",
+      "100 cm"
+    ],
+    "e": "Figure 2.10 shows the weight acting at the 50 cm mark (mid-point)."
+  },
+  {
+    "type": "mcq",
+    "q": "The conditions of static equilibrium require both force balance and _____ balance.",
+    "c": 1,
+    "a": [
+      "energy",
+      "torque",
+      "velocity"
+    ],
+    "e": "Both $\\sum F = 0$ and $\\sum \\tau = 0$ are required for static equilibrium."
+  },
+  {
+    "type": "mcq",
+    "q": "If an object is uniform and symmetric, its center of gravity lies at its _____",
+    "c": 2,
+    "a": [
+      "edge",
+      "fulcrum",
+      "geometrical center"
+    ],
+    "e": "This is directly stated in the section on center of gravity."
+  },
+  {
+    "type": "mcq",
+    "q": "In analyzing equilibrium of extended bodies, we often take moments about the _____ to simplify calculations.",
+    "c": 1,
+    "a": [
+      "center of mass",
+      "pivot",
+      "top end"
+    ],
+    "e": "Examples 2.6 and 2.7 take moments about the pivot to eliminate unknown reaction forces."
+  },
+  {
+    "type": "mcq",
+    "q": "The reaction force at a support in equilibrium problems is typically _____",
+    "c": 2,
+    "a": [
+      "ignored",
+      "equal to applied torque",
+      "part of force balance"
+    ],
+    "e": "Reaction forces are included in the total upward/downward force balance (Example 2.7)."
+  },
+  {
+    "type": "mcq",
+    "q": "Angular momentum $L$ is defined as the product of moment of inertia $I$ and _____",
+    "c": 1,
+    "a": [
+      "angular acceleration",
+      "angular velocity",
+      "torque"
+    ],
+    "e": "Eq.(2.9) defines $L = I \\omega$, where $\\omega$ is angular velocity."
+  },
+  {
+    "type": "mcq",
+    "q": "The SI unit of angular momentum is _____",
+    "c": 0,
+    "a": [
+      "kg m² s⁻¹",
+      "N m",
+      "kg m s⁻¹"
+    ],
+    "e": "Since $I$ is in kg m² and $\\omega$ in rad s⁻¹, $L$ has units kg m² s⁻¹."
+  },
+  {
+    "type": "mcq",
+    "q": "Angular momentum is a _____ quantity.",
+    "c": 1,
+    "a": [
+      "scalar",
+      "vector",
+      "dimensionless"
+    ],
+    "e": "The textbook states angular momentum is a vector quantity."
+  },
+  {
+    "type": "mcq",
+    "q": "The law of conservation of angular momentum states that if there is no net external torque, the total angular momentum of the system is _____",
+    "c": 2,
+    "a": [
+      "zero",
+      "increasing",
+      "constant"
+    ],
+    "e": "The law explicitly says angular momentum remains constant when net external torque is zero."
+  },
+  {
+    "type": "mcq",
+    "q": "An ice skater spinning with arms extended pulls her arms inward. Her moment of inertia decreases, so her angular speed _____",
+    "c": 2,
+    "a": [
+      "decreases",
+      "remains the same",
+      "increases"
+    ],
+    "e": "Conservation of angular momentum ($L = I\\omega =$ constant) implies $\\omega$ increases as $I$ decreases."
+  },
+  {
+    "type": "mcq",
+    "q": "When a springboard diver rotates after jumping off the board, continued rotation occurs because _____",
+    "c": 1,
+    "a": [
+      "gravity provides torque",
+      "angular momentum is conserved",
+      "muscles keep working"
+    ],
+    "e": "With negligible external torque, angular momentum is conserved, so rotation continues."
+  },
+  {
+    "type": "mcq",
+    "q": "If the moment of inertia of a rotating object increases by a factor of 2 with no external torque, its angular speed becomes _____",
+    "c": 1,
+    "a": [
+      "twice",
+      "half",
+      "unchanged"
+    ],
+    "e": "Since $L = I\\omega$ is constant, doubling $I$ halves $\\omega$."
+  },
+  {
+    "type": "mcq",
+    "q": "The direction of angular momentum is the same as the direction of _____",
+    "c": 1,
+    "a": [
+      "linear velocity",
+      "angular velocity",
+      "centripetal force"
+    ],
+    "e": "Figure 2.12 shows angular momentum $\\mathbf{L}$ and angular velocity $\\boldsymbol{\\omega}$ in the same direction."
+  },
+  {
+    "type": "mcq",
+    "q": "In symbols, the condition for conservation of angular momentum is _____",
+    "c": 0,
+    "a": [
+      "$\\sum \\tau = 0 \\Rightarrow L = \\text{constant}$",
+      "$\\sum F = 0 \\Rightarrow L = \\text{constant}$",
+      "$\\sum \\tau \\neq 0 \\Rightarrow L = \\text{constant}$"
+    ],
+    "e": "The textbook states: if $\\sum \\tau = 0$, then $L =$ constant."
+  },
+  {
+    "type": "mcq",
+    "q": "To slow down her rotation, an ice skater should _____",
+    "c": 1,
+    "a": [
+      "pull arms inward",
+      "stretch arms outward",
+      "bend forward"
+    ],
+    "e": "Stretching arms outward increases moment of inertia, decreasing angular speed to conserve $L$."
+  }
+]

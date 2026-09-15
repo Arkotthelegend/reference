@@ -1,0 +1,392 @@
+[
+  {
+    "type": "tf",
+    "q": "In Grade 10, one dimensional motion such as linear motion and free fall motion was studied.",
+    "c": "true",
+    "e": "This is a direct statement from the textbook introducing the progression from one-dimensional to two-dimensional motion."
+  },
+  {
+    "type": "tf",
+    "q": "Two-dimensional motion is the simplest type of motion which can be encountered in many cases.",
+    "c": "false",
+    "e": "One dimensional motion, not two-dimensional motion, is the simplest type of motion."
+  },
+  {
+    "type": "tf",
+    "q": "In two-dimensional motion, the object may move in both the x and y direction simultaneously.",
+    "c": "true",
+    "e": "Two-dimensional motion involves simultaneous movement in both the x and y directions."
+  },
+  {
+    "type": "tf",
+    "q": "In order to describe the motion of an object in two dimensions, scalar concept must be used.",
+    "c": "false",
+    "e": "Vector concept, not scalar concept, must be used to describe two-dimensional motion."
+  },
+  {
+    "type": "tf",
+    "q": "The displacement vector of the object from P to Q is $\\Delta \\vec{r}$.",
+    "c": "true",
+    "e": "The displacement vector representing the change in position from point P to Q is denoted as $\\Delta \\vec{r}$."
+  },
+  {
+    "type": "tf",
+    "q": "The perpendicular components of $\\Delta \\vec{r}$ are $\\Delta x$ and $\\Delta y$.",
+    "c": "true",
+    "e": "The displacement vector $\\Delta \\vec{r}$ can be resolved into perpendicular x and y components, $\\Delta x$ and $\\Delta y$."
+  },
+  {
+    "type": "tf",
+    "q": "The magnitude of $\\Delta \\vec{r}$ is given by $\\Delta r = \\sqrt{(\\Delta x)^2 - (\\Delta y)^2}$.",
+    "c": "false",
+    "e": "The magnitude is given by the Pythagorean theorem: $\\Delta r = \\sqrt{(\\Delta x)^2 + (\\Delta y)^2}$."
+  },
+  {
+    "type": "tf",
+    "q": "To find the direction of $\\Delta \\vec{r}$, the formula $\\tan \\theta = \\frac{\\Delta y}{\\Delta x}$ is used.",
+    "c": "true",
+    "e": "The angle $\\theta$ of the displacement vector is determined using the ratio of its y-component to its x-component."
+  },
+  {
+    "type": "tf",
+    "q": "Instantaneous velocity is given by $\\vec{v} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t}$.",
+    "c": "true",
+    "e": "Instantaneous velocity is the limit of the average velocity as the time interval approaches zero."
+  },
+  {
+    "type": "tf",
+    "q": "Average acceleration is given by $\\vec{a}_{avg} = \\frac{\\Delta \\vec{v}}{\\Delta t}$.",
+    "c": "true",
+    "e": "Average acceleration is defined as the change in velocity divided by the time taken."
+  },
+  {
+    "type": "tf",
+    "q": "Instantaneous acceleration is given by $\\vec{a} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{v}}{\\Delta t}$.",
+    "c": "true",
+    "e": "Instantaneous acceleration is the limit of average acceleration as the time interval approaches zero."
+  },
+  {
+    "type": "tf",
+    "q": "An object moving with constant speed along a curved path is not accelerating.",
+    "c": "false",
+    "e": "An object moving with constant speed along a curved path is accelerating because the direction of its velocity is changing."
+  },
+  {
+    "type": "tf",
+    "q": "The direction of the velocity of an object moving along a curved path is tangential to its path.",
+    "c": "true",
+    "e": "At any point on a curved path, the velocity vector is directed tangentially to the path."
+  },
+  {
+    "type": "tf",
+    "q": "An object is accelerated whenever the velocity changes in magnitude, direction, or both.",
+    "c": "true",
+    "e": "Acceleration occurs with any change in the velocity vector, whether in magnitude, direction, or both."
+  },
+  {
+    "type": "tf",
+    "q": "A projectile is any object thrown into space upon which the only acting force is the gravity.",
+    "c": "true",
+    "e": "By definition, a projectile is an object acted upon solely by gravity after being thrown into space."
+  },
+  {
+    "type": "tf",
+    "q": "The path followed by a projectile is known as a displacement.",
+    "c": "false",
+    "e": "The path followed by a projectile is known as a trajectory."
+  },
+  {
+    "type": "tf",
+    "q": "The motion of an object moving in both horizontal x direction and vertical y direction simultaneously is called the projectile motion.",
+    "c": "true",
+    "e": "Projectile motion is characterized by simultaneous motion in both horizontal and vertical directions."
+  },
+  {
+    "type": "tf",
+    "q": "If air resistance is neglected, an object moves along the horizontal x direction with a constant acceleration.",
+    "c": "false",
+    "e": "If air resistance is neglected, an object moves along the horizontal x direction with a constant velocity, not acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "If air resistance is neglected, an object moves in the vertical y direction with constant downward acceleration.",
+    "c": "true",
+    "e": "In the vertical direction, the object experiences a constant downward acceleration due to gravity."
+  },
+  {
+    "type": "tf",
+    "q": "In projectile motion with neglected air resistance, only gravitational force is acting on the object.",
+    "c": "true",
+    "e": "Gravity is the sole force acting on a projectile when air resistance is ignored."
+  },
+  {
+    "type": "tf",
+    "q": "The downward acceleration is the acceleration due to gravity $g$ which is a constant over the range of motion.",
+    "c": "true",
+    "e": "The acceleration due to gravity $g$ is treated as a constant throughout the projectile's range."
+  },
+  {
+    "type": "tf",
+    "q": "The vertical motion of a projectile is a uniform motion.",
+    "c": "false",
+    "e": "The vertical motion of a projectile is a free fall motion, not a uniform motion."
+  },
+  {
+    "type": "tf",
+    "q": "In the x direction of projectile motion, $a_x = 0$ and $v_x = v_0 \\cos \\theta = \\text{constant}$.",
+    "c": "true",
+    "e": "There is no horizontal acceleration, so the horizontal velocity component remains constant."
+  },
+  {
+    "type": "tf",
+    "q": "The horizontal displacement of a projectile can be written as a function of time as $x = (v_0 \\cos \\theta) t$.",
+    "c": "true",
+    "e": "Since horizontal velocity is constant, horizontal displacement is simply velocity multiplied by time."
+  },
+  {
+    "type": "tf",
+    "q": "In the y direction of projectile motion, $v_{oy}$ is the initial velocity and $a_y$ is $-g$.",
+    "c": "true",
+    "e": "The initial vertical velocity is $v_{oy}$ and the acceleration is downward, hence $-g$."
+  },
+  {
+    "type": "tf",
+    "q": "The velocity of a projectile in the y direction in time $t$ is given by $v_y = v_{oy} + gt$.",
+    "c": "false",
+    "e": "The correct equation is $v_y = v_{oy} - gt$ because the acceleration due to gravity acts downward."
+  },
+  {
+    "type": "tf",
+    "q": "The displacement of a projectile in the y direction in time $t$ is given by $y = v_{oy} t - \\frac{1}{2}gt^2$.",
+    "c": "true",
+    "e": "This is the standard kinematic equation for vertical displacement under constant downward acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "The magnitude of the velocity of the projectile at any instant of time is $v = \\sqrt{v_x^2 + v_y^2}$.",
+    "c": "true",
+    "e": "The total velocity magnitude is found using the Pythagorean theorem on its perpendicular components."
+  },
+  {
+    "type": "tf",
+    "q": "The direction of the velocity of the projectile is given by $\\tan \\theta = \\frac{v_x}{v_y}$.",
+    "c": "false",
+    "e": "The direction is given by $\\tan \\theta = \\frac{v_y}{v_x}$, the ratio of the vertical component to the horizontal component."
+  },
+  {
+    "type": "tf",
+    "q": "The projectile reaches the highest point when its horizontal component of velocity $v_x$ is zero.",
+    "c": "false",
+    "e": "The projectile reaches the highest point when its vertical component of velocity $v_y$ is zero."
+  },
+  {
+    "type": "tf",
+    "q": "The time taken to reach the highest point is $t_1 = \\frac{v_0 \\sin \\theta}{g}$.",
+    "c": "true",
+    "e": "This is derived by setting the final vertical velocity $v_y$ to zero in the velocity-time equation."
+  },
+  {
+    "type": "tf",
+    "q": "The time of flight is equal to the time to reach the maximum height.",
+    "c": "false",
+    "e": "The time of flight is twice the time to reach the maximum height."
+  },
+  {
+    "type": "tf",
+    "q": "The time of flight of a projectile is $T = \\frac{2 v_0 \\sin \\theta}{g}$.",
+    "c": "true",
+    "e": "The total time of flight is double the time taken to reach the peak of the trajectory."
+  },
+  {
+    "type": "tf",
+    "q": "The maximum height of the projectile is $H = \\frac{(v_0 \\cos \\theta)^2}{2g}$.",
+    "c": "false",
+    "e": "The maximum height depends on the vertical component of velocity: $H = \\frac{(v_0 \\sin \\theta)^2}{2g}$."
+  },
+  {
+    "type": "tf",
+    "q": "The horizontal range $R$ is the horizontal distance from the starting point to the point where the projectile returns to the same height.",
+    "c": "true",
+    "e": "This is the exact definition of horizontal range in projectile motion."
+  },
+  {
+    "type": "tf",
+    "q": "The horizontal range is obtained as $R = \\frac{v_0^2 \\sin 2\\theta}{g}$.",
+    "c": "true",
+    "e": "This formula is derived by substituting the time of flight into the horizontal displacement equation."
+  },
+  {
+    "type": "tf",
+    "q": "For an object thrown horizontally, there is a vertical component to its initial velocity.",
+    "c": "false",
+    "e": "For an object thrown horizontally, there is no vertical component to its initial velocity ($v_{oy} = 0$)."
+  },
+  {
+    "type": "tf",
+    "q": "For an object thrown horizontally, the vertical velocity of the object in time $t$ is $v_y = -gt$.",
+    "c": "true",
+    "e": "Since initial vertical velocity is zero, the vertical velocity at time $t$ is solely due to gravitational acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "For an object thrown horizontally, the vertical displacement in time $t$ is $y = -\\frac{1}{2}gt^2$.",
+    "c": "true",
+    "e": "With zero initial vertical velocity, the vertical displacement follows the free fall equation."
+  },
+  {
+    "type": "tf",
+    "q": "Circular motion is a specific type of a two-dimensional motion.",
+    "c": "true",
+    "e": "Circular motion occurs in a plane, making it a specific type of two-dimensional motion."
+  },
+  {
+    "type": "tf",
+    "q": "Circular motion is a movement of an object along the circumference of a circle or rotation along a circular path.",
+    "c": "true",
+    "e": "This is the textbook definition of circular motion."
+  },
+  {
+    "type": "tf",
+    "q": "Although an object moves in a circle at a constant speed, its velocity is constant.",
+    "c": "false",
+    "e": "Although the speed is constant, the velocity is not constant because its direction is continuously changing."
+  },
+  {
+    "type": "tf",
+    "q": "In circular motion, the direction of the velocity is tangential to the path.",
+    "c": "true",
+    "e": "The velocity vector at any point in circular motion is directed along the tangent to the circle at that point."
+  },
+  {
+    "type": "tf",
+    "q": "Velocity is constantly changing in circular motion because the direction of the velocity is changing continuously.",
+    "c": "true",
+    "e": "A change in direction constitutes a change in velocity, even if the speed remains constant."
+  },
+  {
+    "type": "tf",
+    "q": "The velocity in circular motion is also called the tangential velocity.",
+    "c": "true",
+    "e": "Because the velocity vector is always tangent to the circular path, it is referred to as tangential velocity."
+  },
+  {
+    "type": "tf",
+    "q": "Change of the angular position is called the angular displacement $\\theta$.",
+    "c": "true",
+    "e": "Angular displacement represents the change in the angular position of an object."
+  },
+  {
+    "type": "tf",
+    "q": "The angular displacement is the ratio of the radius to the arc length.",
+    "c": "false",
+    "e": "The angular displacement is the ratio of the arc length to the radius ($\\theta = \\frac{s}{r}$)."
+  },
+  {
+    "type": "tf",
+    "q": "The magnitude of angular displacement $\\theta$, measured in radian (rad), is given by $\\theta = \\frac{s}{r}$.",
+    "c": "true",
+    "e": "This is the fundamental definition of angular displacement in radians."
+  },
+  {
+    "type": "tf",
+    "q": "One radian is defined as the angle subtended at the centre of a circle by an arc whose length is equal to the radius of the circle.",
+    "c": "true",
+    "e": "This is the exact geometric definition of one radian."
+  },
+  {
+    "type": "tf",
+    "q": "One revolution is equal to $360^{\\circ}$ or $\\pi \\text{ rad}$.",
+    "c": "false",
+    "e": "One revolution is equal to $360^{\\circ}$ or $2\\pi \\text{ rad}$."
+  },
+  {
+    "type": "tf",
+    "q": "Average angular velocity is the ratio of the change in angular displacement to time taken.",
+    "c": "true",
+    "e": "Average angular velocity measures how much angular displacement occurs per unit of time."
+  },
+  {
+    "type": "tf",
+    "q": "Average angular velocity is given by $\\omega_{avg} = \\frac{\\Delta \\theta}{\\Delta t}$.",
+    "c": "true",
+    "e": "This is the mathematical representation of the definition of average angular velocity."
+  },
+  {
+    "type": "tf",
+    "q": "Instantaneous angular velocity is defined as the time rate of change of angular displacement.",
+    "c": "true",
+    "e": "Instantaneous angular velocity is the derivative of angular displacement with respect to time."
+  },
+  {
+    "type": "tf",
+    "q": "Instantaneous angular velocity can be written as $\\omega = \\frac{d\\theta}{dt}$.",
+    "c": "true",
+    "e": "This is the calculus definition of instantaneous angular velocity."
+  },
+  {
+    "type": "tf",
+    "q": "Angular velocity is measured in radian per second ($\\text{rad s}^{-1}$), revolution per second (rps), and revolution per minute (rpm).",
+    "c": "true",
+    "e": "These are the standard units for measuring angular velocity as stated in the text."
+  },
+  {
+    "type": "tf",
+    "q": "The average angular acceleration is the ratio of change of angular velocity to time taken.",
+    "c": "true",
+    "e": "Average angular acceleration measures the rate of change of angular velocity over a time interval."
+  },
+  {
+    "type": "tf",
+    "q": "Average angular acceleration is given by $\\alpha_{avg} = \\frac{\\Delta \\omega}{\\Delta t}$.",
+    "c": "true",
+    "e": "This is the mathematical formula for average angular acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "Instantaneous angular acceleration is the time rate of change of angular velocity.",
+    "c": "true",
+    "e": "Instantaneous angular acceleration is the derivative of angular velocity with respect to time."
+  },
+  {
+    "type": "tf",
+    "q": "Instantaneous angular acceleration can be defined as $\\alpha = \\frac{d\\omega}{dt}$.",
+    "c": "true",
+    "e": "This is the calculus definition of instantaneous angular acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "When a body is moving with a constant angular acceleration $\\alpha$, it is given by $\\alpha = \\frac{\\omega - \\omega_0}{t}$.",
+    "c": "true",
+    "e": "This is the rearranged kinematic equation for constant angular acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "Angular acceleration is measured in radian per second ($\\text{rad s}^{-1}$).",
+    "c": "false",
+    "e": "Angular acceleration is measured in radian per second squared ($\\text{rad s}^{-2}$)."
+  },
+  {
+    "type": "tf",
+    "q": "The magnitude of the angular velocity is related to that of the tangential velocity as $v = \\frac{\\omega}{r}$.",
+    "c": "false",
+    "e": "The correct relationship is $v = r\\omega$, where tangential velocity equals radius times angular velocity."
+  },
+  {
+    "type": "tf",
+    "q": "The relation between the angular acceleration $\\alpha$ and the tangential acceleration $a$ is $a = r\\alpha$.",
+    "c": "true",
+    "e": "Tangential acceleration is the product of the radius and the angular acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "Angular velocity $\\omega$ and angular acceleration $\\alpha$ are scalar quantities.",
+    "c": "false",
+    "e": "Angular velocity $\\omega$ and angular acceleration $\\alpha$ are vector quantities."
+  },
+  {
+    "type": "tf",
+    "q": "The direction of linear acceleration $a$ is tangential to the path, and it is called the tangential acceleration.",
+    "c": "true",
+    "e": "The component of linear acceleration that is tangent to the circular path is specifically called tangential acceleration."
+  }
+]

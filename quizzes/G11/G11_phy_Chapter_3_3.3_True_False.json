@@ -1,0 +1,98 @@
+[
+  {
+    "type": "tf",
+    "q": "A liquid exerts pressure because of its weight.",
+    "c": "true",
+    "e": "Liquid pressure is fundamentally caused by the weight of the liquid column above a point."
+  },
+  {
+    "type": "tf",
+    "q": "A liquid exerts pressure because of its volume.",
+    "c": "false",
+    "e": "A liquid exerts pressure because of its weight, not merely its volume."
+  },
+  {
+    "type": "tf",
+    "q": "The pressure in a liquid depends on the depth.",
+    "c": "true",
+    "e": "Liquid pressure is directly dependent on the depth of the liquid."
+  },
+  {
+    "type": "tf",
+    "q": "The pressure exerted by the liquid at the bottom surface is $p = \\rho g h$.",
+    "c": "true",
+    "e": "This is the standard formula for liquid pressure at a given depth $h$."
+  },
+  {
+    "type": "tf",
+    "q": "The pressure exerted by the liquid is directly proportional to the height (or) depth of the liquid $h$ and the density $\\rho$.",
+    "c": "true",
+    "e": "Pressure increases linearly with both depth and liquid density."
+  },
+  {
+    "type": "tf",
+    "q": "The pressure exerted by the liquid is inversely proportional to the density $\\rho$.",
+    "c": "false",
+    "e": "The pressure exerted by the liquid is directly proportional to the density $\\rho$."
+  },
+  {
+    "type": "tf",
+    "q": "The pressure exerted by the liquid is independent of the base area (cross-sectional area).",
+    "c": "true",
+    "e": "Although weight depends on base area, the pressure $p = \\rho g h$ is independent of it."
+  },
+  {
+    "type": "tf",
+    "q": "The pressure exerted by the liquid depends heavily on the base area of the container.",
+    "c": "false",
+    "e": "The pressure exerted by the liquid is independent of the base area."
+  },
+  {
+    "type": "tf",
+    "q": "The true pressure at the depth $h$ in the liquid is $p = p_{\\text{atm}} + \\rho g h$.",
+    "c": "true",
+    "e": "True pressure includes both the atmospheric pressure at the surface and the liquid pressure."
+  },
+  {
+    "type": "tf",
+    "q": "The true pressure at the depth $h$ in the liquid is $p = p_{\\text{atm}} - \\rho g h$.",
+    "c": "false",
+    "e": "The true pressure is $p = p_{\\text{atm}} + \\rho g h$, as atmospheric pressure and liquid pressure add together."
+  },
+  {
+    "type": "tf",
+    "q": "The deeper the point inside the liquid, the greater is the pressure at that point.",
+    "c": "true",
+    "e": "Pressure increases with depth because the weight of the liquid above increases."
+  },
+  {
+    "type": "tf",
+    "q": "The deeper the point inside the liquid, the lesser is the pressure at that point.",
+    "c": "false",
+    "e": "The deeper the point inside the liquid, the greater is the pressure at that point."
+  },
+  {
+    "type": "tf",
+    "q": "The pressure in a liquid at a particular point acts equally in all directions.",
+    "c": "true",
+    "e": "Liquid pressure at any specific point is isotropic, acting equally in all directions."
+  },
+  {
+    "type": "tf",
+    "q": "The pressure in a liquid at a particular point acts only downwards.",
+    "c": "false",
+    "e": "The pressure in a liquid at a particular point acts equally in all directions, not just downwards."
+  },
+  {
+    "type": "tf",
+    "q": "Pressure at any point inside a liquid is the same in all directions.",
+    "c": "true",
+    "e": "This is a fundamental property of fluids at rest."
+  },
+  {
+    "type": "tf",
+    "q": "If liquids of the same density are in containers all having the same height, the pressure exerted on their bases would be the same even though their weights and shapes are different.",
+    "c": "true",
+    "e": "Pressure depends only on density and height, not on the total weight or shape of the container."
+  }
+]

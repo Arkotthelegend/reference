@@ -1,0 +1,552 @@
+[
+  {
+    "type": "mcq",
+    "q": "The motion of an object in both the x and y directions simultaneously is called _____ motion.",
+    "c": 2,
+    "a": [
+      "one-dimensional",
+      "three-dimensional",
+      "two-dimensional"
+    ],
+    "e": "Two-dimensional motion occurs when an object moves in a plane, involving both x and y directions."
+  },
+  {
+    "type": "mcq",
+    "q": "In two-dimensional motion, the displacement vector from point P to Q is denoted as _____ .",
+    "c": 1,
+    "a": [
+      "$\\vec{A}_r$",
+      "$\\Delta \\vec{r}$",
+      "$\\vec{r}$"
+    ],
+    "e": "The textbook uses $\\Delta \\vec{r}$ to represent the displacement vector between two points in a plane."
+  },
+  {
+    "type": "mcq",
+    "q": "The magnitude of the displacement vector $\\Delta \\vec{r}$ is given by _____ .",
+    "c": 0,
+    "a": [
+      "$\\sqrt{(\\Delta x)^2 + (\\Delta y)^2}$",
+      "$\\Delta x + \\Delta y$",
+      "$\\frac{\\Delta x}{\\Delta y}$"
+    ],
+    "e": "The magnitude is calculated using the Pythagorean theorem on the perpendicular components."
+  },
+  {
+    "type": "mcq",
+    "q": "The direction of the displacement vector $\\Delta \\vec{r}$ is found using _____ .",
+    "c": 1,
+    "a": [
+      "$\\tan \\theta = \\frac{\\Delta x}{\\Delta y}$",
+      "$\\tan \\theta = \\frac{\\Delta y}{\\Delta x}$",
+      "$\\sin \\theta = \\frac{\\Delta y}{\\Delta x}$"
+    ],
+    "e": "The tangent of the angle is the ratio of vertical to horizontal displacement components."
+  },
+  {
+    "type": "mcq",
+    "q": "An object moving with constant speed along a curved path is accelerating because _____ .",
+    "c": 1,
+    "a": [
+      "the magnitude of velocity changes",
+      "the direction of velocity changes",
+      "both magnitude and direction change"
+    ],
+    "e": "Even with constant speed, changing direction means velocity (a vector) changes, so acceleration occurs."
+  },
+  {
+    "type": "mcq",
+    "q": "The direction of the velocity of an object moving along a curved path is always _____ to its path.",
+    "c": 2,
+    "a": [
+      "perpendicular",
+      "radial",
+      "tangential"
+    ],
+    "e": "Velocity is tangential to the path at every point in curved motion."
+  },
+  {
+    "type": "mcq",
+    "q": "Instantaneous velocity is defined as _____ .",
+    "c": 0,
+    "a": [
+      "$\\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t}$",
+      "$\\frac{\\Delta \\vec{r}}{\\Delta t}$",
+      "$\\frac{d\\vec{r}}{dt^2}$"
+    ],
+    "e": "This is the textbook's definition of instantaneous velocity as the limit of average velocity."
+  },
+  {
+    "type": "mcq",
+    "q": "Average acceleration is given by _____ .",
+    "c": 0,
+    "a": [
+      "$\\frac{\\Delta \\vec{v}}{\\Delta t}$",
+      "$\\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{v}}{\\Delta t}$",
+      "$\\vec{v} \\cdot t$"
+    ],
+    "e": "Average acceleration is the change in velocity divided by the time interval."
+  },
+  {
+    "type": "mcq",
+    "q": "Instantaneous acceleration is defined as _____ .",
+    "c": 1,
+    "a": [
+      "$\\frac{\\Delta \\vec{v}}{\\Delta t}$",
+      "$\\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{v}}{\\Delta t}$",
+      "$\\vec{v} + \\vec{a}t$"
+    ],
+    "e": "It is the limit of average acceleration as the time interval approaches zero."
+  },
+  {
+    "type": "mcq",
+    "q": "An object is accelerated whenever the velocity changes in _____ .",
+    "c": 2,
+    "a": [
+      "magnitude only",
+      "direction only",
+      "magnitude, direction, or both"
+    ],
+    "e": "Acceleration occurs if either or both the magnitude and direction of velocity change."
+  },
+  {
+    "type": "mcq",
+    "q": "A projectile is any object thrown into space upon which the only acting force is _____ .",
+    "c": 1,
+    "a": [
+      "air resistance",
+      "gravity",
+      "friction"
+    ],
+    "e": "By definition, a projectile experiences only gravity (when air resistance is neglected)."
+  },
+  {
+    "type": "mcq",
+    "q": "The path followed by a projectile is known as a _____ .",
+    "c": 1,
+    "a": [
+      "parabola",
+      "trajectory",
+      "orbit"
+    ],
+    "e": "The textbook defines the path as a trajectory."
+  },
+  {
+    "type": "mcq",
+    "q": "In projectile motion, the horizontal motion is considered to be _____ .",
+    "c": 1,
+    "a": [
+      "uniformly accelerated",
+      "uniform motion",
+      "free fall"
+    ],
+    "e": "Horizontal motion has constant velocity (zero acceleration), so it is uniform motion."
+  },
+  {
+    "type": "mcq",
+    "q": "In projectile motion, the vertical motion is equivalent to _____ .",
+    "c": 1,
+    "a": [
+      "uniform motion",
+      "free fall motion",
+      "circular motion"
+    ],
+    "e": "Vertical motion is under constant downward acceleration due to gravity—free fall."
+  },
+  {
+    "type": "mcq",
+    "q": "If air resistance is neglected, the horizontal component of acceleration in projectile motion is _____ .",
+    "c": 2,
+    "a": [
+      "$g$",
+      "$-g$",
+      "$0$"
+    ],
+    "e": "There is no horizontal force, so horizontal acceleration is zero."
+  },
+  {
+    "type": "mcq",
+    "q": "The vertical component of acceleration in projectile motion is _____ .",
+    "c": 2,
+    "a": [
+      "$0$",
+      "$+g$",
+      "$-g$"
+    ],
+    "e": "Acceleration is downward, so it is taken as negative: $-g$."
+  },
+  {
+    "type": "mcq",
+    "q": "The x-component of initial velocity for a projectile launched at angle $\\theta$ is _____ .",
+    "c": 1,
+    "a": [
+      "$v_0 \\sin \\theta$",
+      "$v_0 \\cos \\theta$",
+      "$v_0 \\tan \\theta$"
+    ],
+    "e": "Horizontal component is $v_0 \\cos \\theta$, as stated in the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "The y-component of initial velocity for a projectile launched at angle $\\theta$ is _____ .",
+    "c": 1,
+    "a": [
+      "$v_0 \\cos \\theta$",
+      "$v_0 \\sin \\theta$",
+      "$v_0 / \\theta$"
+    ],
+    "e": "Vertical component is $v_0 \\sin \\theta$, per the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "At the highest point of its trajectory, the vertical component of a projectile’s velocity is _____ .",
+    "c": 2,
+    "a": [
+      "maximum",
+      "equal to horizontal component",
+      "zero"
+    ],
+    "e": "At the peak, vertical velocity momentarily becomes zero before reversing direction."
+  },
+  {
+    "type": "mcq",
+    "q": "The time of flight of a projectile is _____ the time taken to reach maximum height.",
+    "c": 1,
+    "a": [
+      "equal to",
+      "twice",
+      "half of"
+    ],
+    "e": "Time up equals time down, so total flight time is twice the time to reach the top."
+  },
+  {
+    "type": "mcq",
+    "q": "The formula for the time of flight $T$ of a projectile is _____ .",
+    "c": 1,
+    "a": [
+      "$\\frac{v_0 \\sin \\theta}{g}$",
+      "$\\frac{2 v_0 \\sin \\theta}{g}$",
+      "$\\frac{v_0 \\cos \\theta}{g}$"
+    ],
+    "e": "This matches Equation (1.8) in the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "The maximum height $H$ of a projectile is given by _____ .",
+    "c": 0,
+    "a": [
+      "$\\frac{(v_0 \\sin \\theta)^2}{2g}$",
+      "$\\frac{v_0^2 \\sin 2\\theta}{g}$",
+      "$\\frac{v_0 \\cos \\theta}{2g}$"
+    ],
+    "e": "This is Equation (1.9) from the textbook."
+  },
+  {
+    "type": "mcq",
+    "q": "The horizontal range $R$ of a projectile is given by _____ .",
+    "c": 0,
+    "a": [
+      "$\\frac{v_0^2 \\sin 2\\theta}{g}$",
+      "$\\frac{(v_0 \\sin \\theta)^2}{2g}$",
+      "$v_0 \\cos \\theta \\cdot t$"
+    ],
+    "e": "This is Equation (1.10), derived using $2 \\sin \\theta \\cos \\theta = \\sin 2\\theta$."
+  },
+  {
+    "type": "mcq",
+    "q": "For a projectile thrown horizontally, the initial vertical velocity is _____ .",
+    "c": 1,
+    "a": [
+      "$v_0$",
+      "$0$",
+      "$-gt$"
+    ],
+    "e": "When thrown horizontally, there is no initial vertical component: $v_{oy} = 0$."
+  },
+  {
+    "type": "mcq",
+    "q": "In horizontal projection, the vertical displacement after time $t$ is _____ .",
+    "c": 0,
+    "a": [
+      "$y = -\\frac{1}{2} g t^2$",
+      "$y = v_0 t$",
+      "$y = \\frac{1}{2} g t^2$"
+    ],
+    "e": "This matches the equation given for vertical displacement in Figure 1.5 and Example 1.4."
+  },
+  {
+    "type": "mcq",
+    "q": "Why is the horizontal motion of a projectile taken as uniform motion?",
+    "c": 1,
+    "a": [
+      "Because acceleration due to gravity acts horizontally",
+      "Because there is no horizontal acceleration",
+      "Because air resistance increases horizontal speed"
+    ],
+    "e": "With no horizontal force (neglecting air resistance), horizontal acceleration is zero."
+  },
+  {
+    "type": "mcq",
+    "q": "Two-dimensional motion with one-dimensional acceleration occurs in _____ .",
+    "c": 1,
+    "a": [
+      "uniform circular motion",
+      "projectile motion",
+      "linear motion"
+    ],
+    "e": "In projectile motion, acceleration is only vertical (one-dimensional), while motion is in two dimensions."
+  },
+  {
+    "type": "mcq",
+    "q": "The magnitude of the velocity of a projectile at any instant is given by _____ .",
+    "c": 1,
+    "a": [
+      "$v = v_x + v_y$",
+      "$v = \\sqrt{v_x^2 + v_y^2}$",
+      "$v = v_x v_y$"
+    ],
+    "e": "Velocity magnitude combines perpendicular components via Pythagoras."
+  },
+  {
+    "type": "mcq",
+    "q": "The direction of the velocity vector of a projectile is given by _____ .",
+    "c": 0,
+    "a": [
+      "$\\tan \\theta = \\frac{v_y}{v_x}$",
+      "$\\tan \\theta = \\frac{v_x}{v_y}$",
+      "$\\sin \\theta = \\frac{v_y}{v_x}$"
+    ],
+    "e": "The tangent of the direction angle is the ratio of vertical to horizontal velocity components."
+  },
+  {
+    "type": "mcq",
+    "q": "Examples of projectile motion include all of the following EXCEPT _____ .",
+    "c": 2,
+    "a": [
+      "motion of a cannon ball",
+      "water fountain",
+      "satellite orbiting Earth"
+    ],
+    "e": "Satellites are in circular motion governed by centripetal force, not simple projectile motion."
+  },
+  {
+    "type": "mcq",
+    "q": "Circular motion is a movement of an object along the circumference of a circle or rotation along a _____ .",
+    "c": 1,
+    "a": [
+      "straight line",
+      "circular path",
+      "parabolic path"
+    ],
+    "e": "This is the textbook's exact definition of circular motion."
+  },
+  {
+    "type": "mcq",
+    "q": "In circular motion, even if speed is constant, velocity is not constant because _____ .",
+    "c": 1,
+    "a": [
+      "speed changes",
+      "direction changes continuously",
+      "mass changes"
+    ],
+    "e": "Velocity is a vector; changing direction means velocity changes even if speed is constant."
+  },
+  {
+    "type": "mcq",
+    "q": "The velocity in circular motion is also called _____ .",
+    "c": 2,
+    "a": [
+      "radial velocity",
+      "angular velocity",
+      "tangential velocity"
+    ],
+    "e": "The textbook states that velocity in circular motion is tangential to the path."
+  },
+  {
+    "type": "mcq",
+    "q": "Angular displacement $\\theta$ is defined as the ratio of _____ to radius.",
+    "c": 1,
+    "a": [
+      "chord length",
+      "arc length",
+      "diameter"
+    ],
+    "e": "Equation (1.11): $\\theta = \\frac{s}{r}$, where $s$ is arc length."
+  },
+  {
+    "type": "mcq",
+    "q": "The SI unit of angular displacement is the _____ .",
+    "c": 2,
+    "a": [
+      "degree",
+      "revolution",
+      "radian"
+    ],
+    "e": "The textbook specifies that angular displacement is measured in radians (rad)."
+  },
+  {
+    "type": "mcq",
+    "q": "One radian is defined as the angle subtended at the centre of a circle by an arc whose length is equal to the _____ .",
+    "c": 2,
+    "a": [
+      "diameter",
+      "circumference",
+      "radius"
+    ],
+    "e": "This is the textbook's definition of one radian."
+  },
+  {
+    "type": "mcq",
+    "q": "The relation $1 \\text{ rev} = 2\\pi \\text{ rad}$ implies that $360^{\\circ}$ equals _____ .",
+    "c": 1,
+    "a": [
+      "$\\pi$ rad",
+      "$2\\pi$ rad",
+      "$\\frac{\\pi}{2}$ rad"
+    ],
+    "e": "Full circle is 360°, which equals $2\\pi$ radians."
+  },
+  {
+    "type": "mcq",
+    "q": "Average angular velocity is the ratio of the change in angular displacement to _____ .",
+    "c": 1,
+    "a": [
+      "distance traveled",
+      "time taken",
+      "radius"
+    ],
+    "e": "Per Equation (1.12), average angular velocity = $\\frac{\\Delta \\theta}{\\Delta t}$."
+  },
+  {
+    "type": "mcq",
+    "q": "Instantaneous angular velocity is defined as the _____ of angular displacement.",
+    "c": 0,
+    "a": [
+      "first derivative with respect to time",
+      "second derivative with respect to time",
+      "integral over time"
+    ],
+    "e": "Equation (1.13): $\\omega = \\frac{d\\theta}{dt}$."
+  },
+  {
+    "type": "mcq",
+    "q": "The unit of angular velocity is NOT _____ .",
+    "c": 2,
+    "a": [
+      "rad s$^{-1}$",
+      "rpm",
+      "m s$^{-1}$"
+    ],
+    "e": "m s$^{-1}$ is linear speed; angular velocity uses rad/s, rps, or rpm."
+  },
+  {
+    "type": "mcq",
+    "q": "Average angular acceleration is the ratio of the change in angular velocity to _____ .",
+    "c": 1,
+    "a": [
+      "angular displacement",
+      "time taken",
+      "radius"
+    ],
+    "e": "Equation (1.14): $\\alpha = \\frac{\\Delta \\omega}{\\Delta t}$."
+  },
+  {
+    "type": "mcq",
+    "q": "Instantaneous angular acceleration is the time rate of change of _____ .",
+    "c": 2,
+    "a": [
+      "angular displacement",
+      "linear velocity",
+      "angular velocity"
+    ],
+    "e": "Per Equation (1.15), $\\alpha = \\frac{d\\omega}{dt}$."
+  },
+  {
+    "type": "mcq",
+    "q": "The relation between tangential speed $v$ and angular speed $\\omega$ is _____ .",
+    "c": 1,
+    "a": [
+      "$v = \\omega / r$",
+      "$v = \\omega r$",
+      "$v = \\omega^2 r$"
+    ],
+    "e": "Equation (1.16): $v = r \\omega$."
+  },
+  {
+    "type": "mcq",
+    "q": "The relation between tangential acceleration $a_t$ and angular acceleration $\\alpha$ is _____ .",
+    "c": 0,
+    "a": [
+      "$a_t = \\alpha r$",
+      "$a_t = \\alpha / r$",
+      "$a_t = \\alpha^2 r$"
+    ],
+    "e": "Equation (1.17): $a_t = r \\alpha$."
+  },
+  {
+    "type": "mcq",
+    "q": "In uniform circular motion, the angular acceleration is _____ .",
+    "c": 1,
+    "a": [
+      "constant and non-zero",
+      "zero",
+      "increasing"
+    ],
+    "e": "Uniform circular motion means constant angular speed, so angular acceleration is zero."
+  },
+  {
+    "type": "mcq",
+    "q": "Angular velocity and angular acceleration are _____ quantities.",
+    "c": 1,
+    "a": [
+      "scalar",
+      "vector",
+      "dimensionless"
+    ],
+    "e": "The textbook states they are vector quantities."
+  },
+  {
+    "type": "mcq",
+    "q": "The direction of linear (tangential) acceleration in circular motion is _____ to the path.",
+    "c": 2,
+    "a": [
+      "radial",
+      "perpendicular",
+      "tangential"
+    ],
+    "e": "Tangential acceleration acts along the tangent to the circular path."
+  },
+  {
+    "type": "mcq",
+    "q": "If a disc rotates at 45 rpm, its angular speed in rad s$^{-1}$ is _____ .",
+    "c": 0,
+    "a": [
+      "$1.5\\pi$",
+      "$\\frac{\\pi}{2}$",
+      "$3\\pi$"
+    ],
+    "e": "Example 1.6: $45 \\text{ rev/min} = 45 \\times \\frac{2\\pi}{60} = 1.5\\pi \\text{ rad/s}$."
+  },
+  {
+    "type": "mcq",
+    "q": "A particle rotating with uniform angular speed undergoes _____ .",
+    "c": 0,
+    "a": [
+      "uniform circular motion",
+      "non-uniform circular motion",
+      "linear motion"
+    ],
+    "e": "Constant angular speed implies uniform circular motion."
+  },
+  {
+    "type": "mcq",
+    "q": "Which of the following is NOT a unit of angular acceleration?",
+    "c": 2,
+    "a": [
+      "rad s$^{-2}$",
+      "rev s$^{-2}$",
+      "m s$^{-2}$"
+    ],
+    "e": "m s$^{-2}$ is linear acceleration; angular acceleration uses rad/s² or rev/s²."
+  }
+]

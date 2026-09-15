@@ -1,0 +1,662 @@
+[
+  {
+    "type": "tf",
+    "q": "In physics, work is done only when an object moves under the influence of a force.",
+    "c": "true",
+    "e": "This is the exact definition of work provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Work may be defined as the scalar product of the force applied and the displacement.",
+    "c": "true",
+    "e": "The textbook explicitly defines work as the scalar product of force and displacement."
+  },
+  {
+    "type": "tf",
+    "q": "The work by a force is given by the equation $W = Fs \\cos \\theta$.",
+    "c": "true",
+    "e": "This is the correct mathematical representation of work done by a force at an angle."
+  },
+  {
+    "type": "tf",
+    "q": "The change in potential energy is equal to the work done on the object.",
+    "c": "true",
+    "e": "The textbook states that work is equal to the change in energy, specifically potential energy in this context."
+  },
+  {
+    "type": "tf",
+    "q": "The rate of doing work is defined as power.",
+    "c": "true",
+    "e": "This is the fundamental definition of power in physics."
+  },
+  {
+    "type": "tf",
+    "q": "The unit for power in SI units is the watt (W).",
+    "c": "true",
+    "e": "The watt is the standard SI unit for measuring power."
+  },
+  {
+    "type": "tf",
+    "q": "If the work done is 1 joule in 1 second, the power is 1 watt.",
+    "c": "true",
+    "e": "This is the exact definition of 1 watt as stated in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "The units of power which are larger than watt are kilowatt (kW) and megawatt (MW).",
+    "c": "true",
+    "e": "Kilowatt and megawatt are explicitly listed as larger units of power."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ kW} = 1000 \\text{ W} = 10^3 \\text{ W}$.",
+    "c": "true",
+    "e": "This is the correct conversion for kilowatts to watts as provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ MW} = 1000000 \\text{ W} = 10^6 \\text{ W}$.",
+    "c": "true",
+    "e": "This is the correct conversion for megawatts to watts as provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "In the CGS system, the unit of power is erg s$^{-1}$.",
+    "c": "true",
+    "e": "The textbook specifies erg s$^{-1}$ as the CGS unit for power."
+  },
+  {
+    "type": "tf",
+    "q": "In the British system, the unit of power is foot-pound per second (ft-lb s$^{-1}$).",
+    "c": "true",
+    "e": "Foot-pound per second is correctly identified as the British system unit for power."
+  },
+  {
+    "type": "tf",
+    "q": "In the British engineering system, the unit of power is horse power (hp).",
+    "c": "true",
+    "e": "Horse power is the specified unit for power in the British engineering system."
+  },
+  {
+    "type": "tf",
+    "q": "If the work done in 1 second is 550 ft-lb, the power is 1 horse power.",
+    "c": "true",
+    "e": "This is the exact definition of 1 horse power provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ W} = 1 \\text{ J s}^{-1} = 10^7 \\text{ erg s}^{-1}$.",
+    "c": "true",
+    "e": "This is the correct relationship between watts, joules per second, and ergs per second."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ hp} = 550 \\text{ ft-lb s}^{-1} = 746 \\text{ W}$.",
+    "c": "true",
+    "e": "This is the correct conversion for horse power to watts and ft-lb s$^{-1}$."
+  },
+  {
+    "type": "tf",
+    "q": "Power is equal to the product of force and velocity ($P = Fv$).",
+    "c": "true",
+    "e": "The textbook derives and states that power is the product of force and average velocity."
+  },
+  {
+    "type": "tf",
+    "q": "Power is a fundamental concept of physics.",
+    "c": "false",
+    "e": "Power is not a fundamental concept of physics, although it is a very important concept for engineering works."
+  },
+  {
+    "type": "tf",
+    "q": "Car engines, water pumps, refrigerators, air conditioners and electric bulbs are specified according to their power consumption.",
+    "c": "true",
+    "e": "The textbook lists these specific devices as examples of things specified by power consumption."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ kW} = 10^6 \\text{ W}$.",
+    "c": "false",
+    "e": "1 kW is equal to $10^3$ W, not $10^6$ W (which is 1 MW)."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ hp} = 750 \\text{ W}$.",
+    "c": "false",
+    "e": "1 hp is exactly equal to 746 W, not 750 W."
+  },
+  {
+    "type": "tf",
+    "q": "In the British system, the unit of power is the joule per second.",
+    "c": "false",
+    "e": "In the British system, the unit of power is foot-pound per second (ft-lb s$^{-1}$)."
+  },
+  {
+    "type": "tf",
+    "q": "Power is equal to the product of mass and velocity.",
+    "c": "false",
+    "e": "Power is equal to the product of force and velocity ($P = Fv$), not mass and velocity."
+  },
+  {
+    "type": "tf",
+    "q": "The rate of energy change is also important in practice.",
+    "c": "true",
+    "e": "The textbook explicitly states that the rate of energy change is important in practice."
+  },
+  {
+    "type": "tf",
+    "q": "If $s$ is the displacement produced by a constant force $F$ acting for the time $t$, the work done is $Fs$.",
+    "c": "true",
+    "e": "This is the correct formula for work done by a constant force in the direction of displacement."
+  },
+  {
+    "type": "tf",
+    "q": "For uniform motion, velocity $v$ is constant, so $P = Fv$.",
+    "c": "true",
+    "e": "The textbook confirms that for uniform motion, the power equation simplifies to $P = Fv$."
+  },
+  {
+    "type": "tf",
+    "q": "In the CGS system, if the work done is 1 erg in 1 second, the power is 1 erg s$^{-1}$.",
+    "c": "true",
+    "e": "This is the exact definition of the CGS unit of power as stated in the text."
+  },
+  {
+    "type": "tf",
+    "q": "$1 \\text{ hp} = 746 \\times 10^7 \\text{ erg s}^{-1}$.",
+    "c": "true",
+    "e": "This is the correct conversion of horse power to ergs per second as provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Efficiency is a technical term that is derived from everyday usage.",
+    "c": "true",
+    "e": "The textbook explicitly states that efficiency is derived from everyday usage."
+  },
+  {
+    "type": "tf",
+    "q": "In physics and engineering, efficiency has a precise meaning.",
+    "c": "true",
+    "e": "Unlike everyday usage, efficiency has a precise, technical meaning in physics and engineering."
+  },
+  {
+    "type": "tf",
+    "q": "The term efficiency is used in association with machines and devices.",
+    "c": "true",
+    "e": "The textbook specifies that efficiency is associated with machines and devices."
+  },
+  {
+    "type": "tf",
+    "q": "A simple machine is a mechanical device that amplifies the magnitude of a force and changes its position.",
+    "c": "true",
+    "e": "This is the exact definition of a simple machine provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Simple machines are used to make work easier.",
+    "c": "true",
+    "e": "The textbook states that the purpose of simple machines is to make work easier."
+  },
+  {
+    "type": "tf",
+    "q": "Nowadays, machines are just combinations or more complicated forms of the six simple machines.",
+    "c": "true",
+    "e": "Modern machines are described as combinations or complex forms of the six simple machines."
+  },
+  {
+    "type": "tf",
+    "q": "The six simple machines are lever, wheel and axle, pulley, inclined plane, screw and wedge.",
+    "c": "true",
+    "e": "These are the exact six simple machines listed in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Mechanical advantage is the ratio of effort to load.",
+    "c": "false",
+    "e": "Mechanical advantage is the ratio of load to effort ($MA = L / E$), not effort to load."
+  },
+  {
+    "type": "tf",
+    "q": "Mechanical advantage is defined as $MA = L / E$.",
+    "c": "true",
+    "e": "This is the correct formula for mechanical advantage as stated in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "In practice, friction is always present in a machine.",
+    "c": "true",
+    "e": "The textbook notes that friction is always present, meaning some effort is spent overcoming it."
+  },
+  {
+    "type": "tf",
+    "q": "Because of friction, the small effort applied will have to move through a big distance to lift a large load.",
+    "c": "true",
+    "e": "This is a direct consequence of friction and the conservation of energy in machines."
+  },
+  {
+    "type": "tf",
+    "q": "The ratio of the distance moved by the effort to that of the load in the same time is called the velocity ratio of the machine.",
+    "c": "true",
+    "e": "This is the exact definition of velocity ratio provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Velocity ratio is defined as $VR = s_{\\text{load}} / s_{\\text{effort}}$.",
+    "c": "false",
+    "e": "Velocity ratio is defined as $VR = s_{\\text{effort}} / s_{\\text{load}}$, not the inverse."
+  },
+  {
+    "type": "tf",
+    "q": "The velocity ratio of a machine is usually much greater than 1.",
+    "c": "true",
+    "e": "The textbook explicitly states that the velocity ratio of a machine is usually much greater than 1."
+  },
+  {
+    "type": "tf",
+    "q": "In lifting a load with a machine, work done on the load is called the output work.",
+    "c": "true",
+    "e": "The work obtained by lifting the load is correctly defined as output work."
+  },
+  {
+    "type": "tf",
+    "q": "Work done by the effort during the same time interval is called the input work.",
+    "c": "true",
+    "e": "The work supplied by the effort is correctly defined as input work."
+  },
+  {
+    "type": "tf",
+    "q": "The ratio of output work to input work is defined as the efficiency of the machine.",
+    "c": "true",
+    "e": "This is the precise definition of efficiency for a machine."
+  },
+  {
+    "type": "tf",
+    "q": "Efficiency is generally expressed in the percentage form.",
+    "c": "true",
+    "e": "The textbook states that efficiency is generally expressed as a percentage."
+  },
+  {
+    "type": "tf",
+    "q": "Efficiency is related to MA and VR as $\\text{efficiency} = (MA / VR) \\times 100\\%$.",
+    "c": "true",
+    "e": "This is the correct mathematical relationship between efficiency, mechanical advantage, and velocity ratio."
+  },
+  {
+    "type": "tf",
+    "q": "It is possible, in practice, to build a perfect machine for which output work is equal to input work.",
+    "c": "false",
+    "e": "It is impossible in practice to build a perfect machine; input work always exceeds output work due to friction."
+  },
+  {
+    "type": "tf",
+    "q": "Input work always exceeds output work.",
+    "c": "true",
+    "e": "Because some work is always lost to friction, input work must be greater than output work."
+  },
+  {
+    "type": "tf",
+    "q": "The efficiency of a machine must always be less than 100%.",
+    "c": "true",
+    "e": "Since input work always exceeds output work, efficiency can never reach 100%."
+  },
+  {
+    "type": "tf",
+    "q": "Mechanical advantage is the ratio of the distance moved by the load to the distance moved by the effort.",
+    "c": "false",
+    "e": "Mechanical advantage is the ratio of load to effort ($L/E$). The ratio of distances relates to velocity ratio."
+  },
+  {
+    "type": "tf",
+    "q": "If a small load is attached to the free end of a suspended spring, the spring will be stretched or elongated.",
+    "c": "true",
+    "e": "This describes the basic elastic behavior of a spring under a load."
+  },
+  {
+    "type": "tf",
+    "q": "When the load is taken off, the spring will return to its original length and form.",
+    "c": "true",
+    "e": "This is the defining characteristic of elastic behavior within the elastic limit."
+  },
+  {
+    "type": "tf",
+    "q": "Ability to retain the original form when the applied force is removed is called elasticity.",
+    "c": "true",
+    "e": "This is the exact definition of elasticity provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Not only springs but also other objects such as threads and rubber bands have elastic property.",
+    "c": "true",
+    "e": "The textbook explicitly lists threads and rubber bands as other objects with elastic properties."
+  },
+  {
+    "type": "tf",
+    "q": "Elastic limit is a limit, beyond which if an elastic object is stretched, it will return to its original form.",
+    "c": "false",
+    "e": "Beyond the elastic limit, the object will NOT return to its original form."
+  },
+  {
+    "type": "tf",
+    "q": "The elastic limit is different for different elastic bodies.",
+    "c": "true",
+    "e": "The textbook states that the elastic limit varies depending on the elastic body."
+  },
+  {
+    "type": "tf",
+    "q": "Robert Hooke noted that the amount of elongation of the spring is proportional to the applied force that produces it so long as the elastic limit is not exceeded.",
+    "c": "true",
+    "e": "This is the foundational observation of Hooke's Law as described in the text."
+  },
+  {
+    "type": "tf",
+    "q": "The amount of elongation is also called extension.",
+    "c": "true",
+    "e": "The textbook explicitly states that elongation is also referred to as extension."
+  },
+  {
+    "type": "tf",
+    "q": "Hooke's law is formally stated as: As long as the elastic limit of a body is not exceeded, the strain produced is proportional to stress causing it.",
+    "c": "true",
+    "e": "This is the exact formal statement of Hooke's Law provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "In symbols, Hooke's law is $F \\propto x$ or $F = kx$.",
+    "c": "true",
+    "e": "This is the correct mathematical representation of Hooke's Law."
+  },
+  {
+    "type": "tf",
+    "q": "In Hooke's law, $F$ is the applied force or stress.",
+    "c": "true",
+    "e": "The textbook defines $F$ as the applied force, which corresponds to stress in this context."
+  },
+  {
+    "type": "tf",
+    "q": "In Hooke's law, $x$ is the elongation or strain.",
+    "c": "true",
+    "e": "The textbook defines $x$ as the elongation, which corresponds to strain in this context."
+  },
+  {
+    "type": "tf",
+    "q": "In Hooke's law, $k$ is a constant called the spring constant.",
+    "c": "true",
+    "e": "The constant of proportionality $k$ is specifically named the spring constant for a spring."
+  },
+  {
+    "type": "tf",
+    "q": "The unit of the spring constant $k$ is N m$^{-1}$.",
+    "c": "true",
+    "e": "The textbook explicitly states that the unit of $k$ is N m$^{-1}$."
+  },
+  {
+    "type": "tf",
+    "q": "Hooke's law expresses the elastic behavior of materials.",
+    "c": "true",
+    "e": "The textbook states that Hooke's law expresses the elastic behavior of materials."
+  },
+  {
+    "type": "tf",
+    "q": "The directly proportional relationship between applied force and elongation is expressed graphically by a straight line.",
+    "c": "true",
+    "e": "A directly proportional relationship always graphs as a straight line through the origin."
+  },
+  {
+    "type": "tf",
+    "q": "If a spring is compressed or stretched to an extension $x$, work is done by the applied force.",
+    "c": "true",
+    "e": "Work is done by the applied force to compress or stretch the spring."
+  },
+  {
+    "type": "tf",
+    "q": "This work done is stored as the potential energy of the spring.",
+    "c": "true",
+    "e": "The textbook states that the work done is stored as the elastic potential energy of the spring."
+  },
+  {
+    "type": "tf",
+    "q": "The work done is given by the area under the curve of the force-extension graph.",
+    "c": "true",
+    "e": "The textbook explains that the work done is represented by the area under the force-extension graph."
+  },
+  {
+    "type": "tf",
+    "q": "The elastic potential energy stored by the stretched spring is $PE = \\frac{1}{2} kx^2$.",
+    "c": "true",
+    "e": "This is the correct formula for the elastic potential energy of a spring."
+  },
+  {
+    "type": "tf",
+    "q": "The unit of the spring constant $k$ is N m.",
+    "c": "false",
+    "e": "The unit of the spring constant $k$ is N m$^{-1}$, not N m."
+  },
+  {
+    "type": "tf",
+    "q": "The relationship between applied force and elongation is expressed graphically by a curved line.",
+    "c": "false",
+    "e": "The directly proportional relationship is expressed graphically by a straight line, not a curved line."
+  },
+  {
+    "type": "tf",
+    "q": "The elastic limit is the same for all elastic bodies.",
+    "c": "false",
+    "e": "The textbook explicitly states that the elastic limit is different for different elastic bodies."
+  },
+  {
+    "type": "tf",
+    "q": "Energy is the ability to do work or the total power derived from the natural resources we use.",
+    "c": "true",
+    "e": "This is the exact definition of energy provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Energy exists in many forms and can be converted from one form to another.",
+    "c": "true",
+    "e": "The textbook states that energy exists in many forms and is convertible."
+  },
+  {
+    "type": "tf",
+    "q": "Energy sources can be classified as two major sources: conventional sources and non-conventional sources.",
+    "c": "true",
+    "e": "This is the primary classification of energy sources given in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Coal, petroleum, electricity, fire wood, straw, and dried dung are conventional sources.",
+    "c": "true",
+    "e": "These are explicitly listed as conventional energy sources in Figure 4.7."
+  },
+  {
+    "type": "tf",
+    "q": "Solar energy, wind energy, tidal energy, biomass energy, and energy from urban waste are non-conventional sources.",
+    "c": "true",
+    "e": "These are explicitly listed as non-conventional energy sources in Figure 4.7."
+  },
+  {
+    "type": "tf",
+    "q": "Conventional energy sources are renewable energy sources.",
+    "c": "false",
+    "e": "Conventional energy sources are non-renewable, while non-conventional sources are renewable."
+  },
+  {
+    "type": "tf",
+    "q": "Non-conventional energy sources are renewable energy sources.",
+    "c": "true",
+    "e": "The textbook states that non-conventional energy sources are renewable."
+  },
+  {
+    "type": "tf",
+    "q": "Renewable energy sources are sustainable energy sources.",
+    "c": "true",
+    "e": "The textbook explicitly equates renewable energy sources with sustainable energy sources."
+  },
+  {
+    "type": "tf",
+    "q": "A renewable energy source is generated from unlimited natural sources and is always replenished.",
+    "c": "true",
+    "e": "This is the exact definition of a renewable energy source provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Renewable energy sources are safe to the environment.",
+    "c": "true",
+    "e": "The textbook states that renewable energy sources are safe to the environment."
+  },
+  {
+    "type": "tf",
+    "q": "The most popular renewable energy sources currently are solar energy, wind energy, hydro energy, tidal energy, geothermal energy and biomass energy.",
+    "c": "true",
+    "e": "This is the exact list of popular renewable energy sources provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Sun is the primary source of energy.",
+    "c": "true",
+    "e": "The textbook explicitly identifies the Sun as the primary source of energy."
+  },
+  {
+    "type": "tf",
+    "q": "Sunlight is a clean, renewable source of energy.",
+    "c": "true",
+    "e": "The textbook describes sunlight as a clean and renewable source of energy."
+  },
+  {
+    "type": "tf",
+    "q": "Solar energy can be used to generate electricity with the help of photovoltaic technology.",
+    "c": "true",
+    "e": "The textbook states that photovoltaic technology is used to generate electricity from solar energy."
+  },
+  {
+    "type": "tf",
+    "q": "Wind is the natural movement of air across the land or sea.",
+    "c": "true",
+    "e": "This is the exact definition of wind provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "The tides in the sea, the flowing water in rivers or from the dams are sources of hydro energy.",
+    "c": "true",
+    "e": "These are explicitly listed as sources of hydro energy in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Hydro energy uses flowing water to power machinery and generate electricity.",
+    "c": "true",
+    "e": "This is the stated function of hydro energy in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Tidal energy is another form of hydro energy that uses tidal currents twice-daily to drive turbine generator.",
+    "c": "true",
+    "e": "This is the exact description of tidal energy provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Tidal flow is highly unpredictable.",
+    "c": "false",
+    "e": "The textbook states that tidal flow is highly predictable, unlike some other hydro energy sources."
+  },
+  {
+    "type": "tf",
+    "q": "Geothermal energy is more readily available in areas affected by volcanism.",
+    "c": "true",
+    "e": "The textbook explicitly links the availability of geothermal energy to areas affected by volcanism."
+  },
+  {
+    "type": "tf",
+    "q": "Biomass is plant or animal material used as fuel to produce electricity or heat.",
+    "c": "true",
+    "e": "This is the exact definition of biomass provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Agricultural waste, wood, charcoal or dried dung are used as biomass.",
+    "c": "true",
+    "e": "These are explicitly listed as examples of biomass in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Biomass can be converted into other forms of energy such as methane gas, ethanol and biodiesel.",
+    "c": "true",
+    "e": "The textbook states that biomass can be converted into these specific forms of energy."
+  },
+  {
+    "type": "tf",
+    "q": "Non-renewable energy comes from sources that will run out or will not be replenished for thousands or even millions of years.",
+    "c": "true",
+    "e": "This is the exact definition of non-renewable energy provided in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Non-renewable energy sources are finite in amount in existence.",
+    "c": "true",
+    "e": "The textbook states that non-renewable energy sources exist in finite amounts."
+  },
+  {
+    "type": "tf",
+    "q": "Four main types of non-renewable energy sources are oil, natural gas, coal and nuclear energy.",
+    "c": "true",
+    "e": "These are the exact four main types of non-renewable energy sources listed in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Oil, natural gas and coal are collectively called fossil fuels.",
+    "c": "true",
+    "e": "The textbook explicitly groups these three sources under the term fossil fuels."
+  },
+  {
+    "type": "tf",
+    "q": "Fossil fuels were formed within the earth from dead plants and animals over thousands of years.",
+    "c": "false",
+    "e": "Fossil fuels were formed over millions of years, not thousands of years."
+  },
+  {
+    "type": "tf",
+    "q": "Non-renewable energy can be used for electricity, heating, manufacturing and transportation.",
+    "c": "true",
+    "e": "These are the exact applications of non-renewable energy listed in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Nuclear energy is produced by using elements like uranium and thorium, which cannot be replenished.",
+    "c": "true",
+    "e": "The textbook explicitly states that uranium and thorium cannot be replenished."
+  },
+  {
+    "type": "tf",
+    "q": "Nuclear energy can be used to generate electricity by means of nuclear fission.",
+    "c": "true",
+    "e": "The textbook states that nuclear fission is the method used to generate electricity from nuclear energy."
+  },
+  {
+    "type": "tf",
+    "q": "In a nuclear reactor, the nuclear fuel is used to carry out sustained fission chain reaction to produce electricity at a controlled rate.",
+    "c": "true",
+    "e": "This is the exact description of how a nuclear reactor functions as provided in the text."
+  },
+  {
+    "type": "tf",
+    "q": "Coal is a non-conventional energy source.",
+    "c": "false",
+    "e": "Coal is classified as a conventional energy source in the textbook."
+  },
+  {
+    "type": "tf",
+    "q": "Solar energy is a non-renewable energy source.",
+    "c": "false",
+    "e": "Solar energy is classified as a renewable (non-conventional) energy source."
+  },
+  {
+    "type": "tf",
+    "q": "Geothermal energy is more readily available in areas affected by earthquakes.",
+    "c": "false",
+    "e": "Geothermal energy is more readily available in areas affected by volcanism, not specifically earthquakes."
+  },
+  {
+    "type": "tf",
+    "q": "Nuclear energy can be replenished easily.",
+    "c": "false",
+    "e": "The textbook states that elements like uranium and thorium used for nuclear energy cannot be replenished."
+  }
+]

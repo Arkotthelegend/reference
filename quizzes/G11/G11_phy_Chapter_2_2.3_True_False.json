@@ -1,0 +1,104 @@
+[
+  {
+    "type": "tf",
+    "q": "The tangential acceleration of a particle rotating about an axis is $a = r\\alpha$.",
+    "c": "true",
+    "e": "Tangential acceleration is the product of radius and angular acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "According to Newton's second law, the force on a rotating particle is $F = ma = mr\\omega$.",
+    "c": "false",
+    "e": "According to Newton's second law for rotation, $F = ma = mr\\alpha$."
+  },
+  {
+    "type": "tf",
+    "q": "The torque due to tangential force is $\\tau = Fr = (mr\\alpha)r = mr^2\\alpha$.",
+    "c": "true",
+    "e": "This derivation shows the relationship between torque, mass, radius, and angular acceleration."
+  },
+  {
+    "type": "tf",
+    "q": "In the equation $\\tau = I\\alpha$, the term $I = mr$ is the moment of inertia of that particle about the axis.",
+    "c": "false",
+    "e": "The moment of inertia of a particle is $I = mr^2$, not $mr$."
+  },
+  {
+    "type": "tf",
+    "q": "The moment of inertia of an object composed of particles is $I = m_1r_1^2 + m_2r_2^2 + \\dots + m_nr_n^2 = \\sum mr^2$.",
+    "c": "true",
+    "e": "This is the summation formula for the moment of inertia of a system of particles."
+  },
+  {
+    "type": "tf",
+    "q": "The moment of inertia of an object is defined as the sum of the products obtained by multiplying the mass of each particle in a given object and its distance from the axis.",
+    "c": "false",
+    "e": "It is the product of the mass and the square of its distance from the axis, not just the distance."
+  },
+  {
+    "type": "tf",
+    "q": "The moment of inertia is a scalar quantity.",
+    "c": "true",
+    "e": "Unlike torque or angular momentum, moment of inertia has no direction."
+  },
+  {
+    "type": "tf",
+    "q": "The SI unit of moment of inertia is kg m.",
+    "c": "false",
+    "e": "The SI unit of moment of inertia is kg m$^2$."
+  },
+  {
+    "type": "tf",
+    "q": "The moment of inertia must be specified with respect to a chosen axis of rotation.",
+    "c": "true",
+    "e": "Moment of inertia changes depending on the axis of rotation."
+  },
+  {
+    "type": "tf",
+    "q": "The moment of inertia for a hoop or cylindrical shell is $I = MR^2$.",
+    "c": "true",
+    "e": "This is the standard formula for a hoop or cylindrical shell."
+  },
+  {
+    "type": "tf",
+    "q": "The moment of inertia for a long thin rod with rotation axis through end is $I = \\frac{1}{12}ML^2$.",
+    "c": "false",
+    "e": "For a rod rotating about its end, the moment of inertia is $I = \\frac{1}{3}ML^2$."
+  },
+  {
+    "type": "tf",
+    "q": "The moment of inertia for a solid cylinder or disk is $I = \\frac{1}{2}MR^2$.",
+    "c": "true",
+    "e": "This is the correct formula for a solid cylinder or disk."
+  },
+  {
+    "type": "tf",
+    "q": "The moment of inertia for a long thin rod with rotation axis through center is $I = \\frac{1}{3}ML^2$.",
+    "c": "false",
+    "e": "For a rod rotating about its center, the moment of inertia is $I = \\frac{1}{12}ML^2$."
+  },
+  {
+    "type": "tf",
+    "q": "The moment of inertia for a solid sphere is $I = \\frac{2}{5}MR^2$.",
+    "c": "true",
+    "e": "This is the standard formula for a solid sphere."
+  },
+  {
+    "type": "tf",
+    "q": "The centre of gravity of a particular object is a point at which all its weight may be considered to act.",
+    "c": "true",
+    "e": "This is the exact definition of the centre of gravity."
+  },
+  {
+    "type": "tf",
+    "q": "For an object of regular shape and uniform density, the centre of gravity is at its geometrical center.",
+    "c": "true",
+    "e": "Uniform density and regular shape ensure the centre of gravity aligns with the geometrical center."
+  },
+  {
+    "type": "tf",
+    "q": "The weight of a metre stick of uniform density is considered to be acting at the 0 cm mark.",
+    "c": "false",
+    "e": "The weight of a uniform metre stick is considered to be acting at the 50 cm mark (its mid-point)."
+  }
+]
