@@ -3,102 +3,102 @@
     "type": "tf",
     "q": "The tangential acceleration of a particle rotating about an axis is $a = r\\alpha$.",
     "c": "true",
-    "e": "Tangential acceleration is the product of radius and angular acceleration."
+    "e": "Tangential acceleration သည် radius နှင့် angular acceleration မြှောက်ခြင်းဖြစ်သည်။"
   },
   {
     "type": "tf",
     "q": "According to Newton's second law, the force on a rotating particle is $F = ma = mr\\omega$.",
     "c": "false",
-    "e": "According to Newton's second law for rotation, $F = ma = mr\\alpha$."
+    "e": "Rotation အတွက် Newton's second law အရ $F = ma = mr\\alpha$။"
   },
   {
     "type": "tf",
     "q": "The torque due to tangential force is $\\tau = Fr = (mr\\alpha)r = mr^2\\alpha$.",
     "c": "true",
-    "e": "This derivation shows the relationship between torque, mass, radius, and angular acceleration."
+    "e": "ဤ derivation က torque၊ mass၊ radius နှင့် angular acceleration ဆက်သွယ်မှုကို ပြသည်။"
   },
   {
     "type": "tf",
     "q": "In the equation $\\tau = I\\alpha$, the term $I = mr$ is the moment of inertia of that particle about the axis.",
     "c": "false",
-    "e": "The moment of inertia of a particle is $I = mr^2$, not $mr$."
+    "e": "Particle ၏ moment of inertia သည် $I = mr^2$ ဖြစ်ပြီး $mr$ မဟုတ်ပါ။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia of an object composed of particles is $I = m_1r_1^2 + m_2r_2^2 + \\dots + m_nr_n^2 = \\sum mr^2$.",
     "c": "true",
-    "e": "This is the summation formula for the moment of inertia of a system of particles."
+    "e": "ဤသည် particles စနစ်၏ moment of inertia အတွက် summation formula ဖြစ်သည်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia of an object is defined as the sum of the products obtained by multiplying the mass of each particle in a given object and its distance from the axis.",
     "c": "false",
-    "e": "It is the product of the mass and the square of its distance from the axis, not just the distance."
+    "e": "၎င်းသည် mass နှင့် axis မှ distance ၏ square မြှောက်ခြင်းဖြစ်ပြီး distance သက်သက် မဟုတ်ပါ။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia is a scalar quantity.",
     "c": "true",
-    "e": "Unlike torque or angular momentum, moment of inertia has no direction."
+    "e": "Torque သို့မဟုတ် angular momentum နှင့် မတူဘဲ moment of inertia တွင် direction မရှိပါ။"
   },
   {
     "type": "tf",
     "q": "The SI unit of moment of inertia is kg m.",
     "c": "false",
-    "e": "The SI unit of moment of inertia is kg m$^2$."
+    "e": "Moment of inertia ၏ SI unit မှာ kg m$^2$ ဖြစ်သည်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia must be specified with respect to a chosen axis of rotation.",
     "c": "true",
-    "e": "Moment of inertia changes depending on the axis of rotation."
+    "e": "Moment of inertia သည် axis of rotation ပေါ် မူတည်၍ ပြောင်းသည်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a hoop or cylindrical shell is $I = MR^2$.",
     "c": "true",
-    "e": "This is the standard formula for a hoop or cylindrical shell."
+    "e": "ဤသည် hoop သို့မဟုတ် cylindrical shell အတွက် standard formula ဖြစ်သည်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a long thin rod with rotation axis through end is $I = \\frac{1}{12}ML^2$.",
     "c": "false",
-    "e": "For a rod rotating about its end, the moment of inertia is $I = \\frac{1}{3}ML^2$."
+    "e": "Rod ကို end ပတ်လည် လည်သောအခါ moment of inertia သည် $I = \\frac{1}{3}ML^2$ ဖြစ်သည်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a solid cylinder or disk is $I = \\frac{1}{2}MR^2$.",
     "c": "true",
-    "e": "This is the correct formula for a solid cylinder or disk."
+    "e": "ဤသည် solid cylinder သို့မဟုတ် disk အတွက် မှန်ကန်သော formula ဖြစ်သည်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a long thin rod with rotation axis through center is $I = \\frac{1}{3}ML^2$.",
     "c": "false",
-    "e": "For a rod rotating about its center, the moment of inertia is $I = \\frac{1}{12}ML^2$."
+    "e": "Rod ကို center ပတ်လည် လည်သောအခါ moment of inertia သည် $I = \\frac{1}{12}ML^2$ ဖြစ်သည်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a solid sphere is $I = \\frac{2}{5}MR^2$.",
     "c": "true",
-    "e": "This is the standard formula for a solid sphere."
+    "e": "ဤသည် solid sphere အတွက် standard formula ဖြစ်သည်။"
   },
   {
     "type": "tf",
     "q": "The centre of gravity of a particular object is a point at which all its weight may be considered to act.",
     "c": "true",
-    "e": "This is the exact definition of the centre of gravity."
+    "e": "ဤသည် centre of gravity ၏ အတိအကျ definition ဖြစ်သည်။"
   },
   {
     "type": "tf",
     "q": "For an object of regular shape and uniform density, the centre of gravity is at its geometrical center.",
     "c": "true",
-    "e": "Uniform density and regular shape ensure the centre of gravity aligns with the geometrical center."
+    "e": "Uniform density နှင့် regular shape က centre of gravity ကို geometrical center နှင့် တည့်စေသည်။"
   },
   {
     "type": "tf",
     "q": "The weight of a metre stick of uniform density is considered to be acting at the 0 cm mark.",
     "c": "false",
-    "e": "The weight of a uniform metre stick is considered to be acting at the 50 cm mark (its mid-point)."
+    "e": "Uniform metre stick ၏ weight သည် 50 cm mark (mid-point) တွင် သက်ရောက်သည်ဟု သဘောထားသည်။"
   }
 ]
