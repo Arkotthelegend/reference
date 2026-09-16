@@ -3,90 +3,90 @@
     "q": "When two or more electromotive sources (batteries) are connected in series, the resultant emf is the algebraic sum of the individual emfs.",
     "type": "tf",
     "c": "true",
-    "e": "Series connections combine the voltages algebraically depending on their polarities."
+    "e": "Series connections သည် polarity ပေါ်မူတည်၍ voltage များကို algebraically ပေါင်းသည်။"
   },
   {
     "q": "In series aiding arrangement, the currents leaving the batteries are in opposite directions.",
     "type": "tf",
     "c": "false",
-    "e": "In series aiding arrangement, the currents leaving the batteries are in the same direction."
+    "e": "Series aiding arrangement တွင် battery များမှ ထွက်သော currents သည် တူညီသော ဦးတည်ချက်ရှိသည်။"
   },
   {
     "q": "In series aiding, the resultant emf is $E_1 + E_2$.",
     "type": "tf",
     "c": "true",
-    "e": "The emfs add together because the batteries are connected with matching polarities in sequence."
+    "e": "Polarity ကိုက်အောင် အစဉ်လိုက် ချိတ်သောကြောင့် emf များ ပေါင်းသည်။"
   },
   {
     "q": "The total internal resistance of two batteries in series aiding is $r_1 - r_2$.",
     "type": "tf",
     "c": "false",
-    "e": "The total internal resistance of two batteries in series is $r_1 + r_2$."
+    "e": "Series ရှိ battery နှစ်လုံး၏ total internal resistance သည် $r_1 + r_2$ ဖြစ်သည်။"
   },
   {
     "q": "Two batteries in series aiding can be regarded as a single battery having an emf $(E_1 + E_2)$ and internal resistance $(r_1 + r_2)$.",
     "type": "tf",
     "c": "true",
-    "e": "This equivalent circuit simplifies the analysis of series-aiding battery combinations."
+    "e": "ဤ equivalent circuit က series-aiding battery ပေါင်းစပ်မှုများကို ခွဲခြမ်းရန် ရိုးရှင်းစေသည်။"
   },
   {
     "q": "In series opposing arrangement, the emfs of the batteries are in the same direction.",
     "type": "tf",
     "c": "false",
-    "e": "In series opposing arrangement, the emfs of the batteries are in opposition."
+    "e": "Series opposing arrangement တွင် battery များ၏ emf များ ဆန့်ကျင်သည်။"
   },
   {
     "q": "The resultant emf in series opposing is the sum of the individual emfs.",
     "type": "tf",
     "c": "false",
-    "e": "The resultant emf in series opposing is the difference between the individual emfs."
+    "e": "Series opposing တွင် resultant emf သည် individual emf များ၏ ခြားနားချက်ဖြစ်သည်။"
   },
   {
     "q": "If $E_1$ is greater than $E_2$, the resultant emf of those two batteries in series opposing is $(E_1 - E_2)$.",
     "type": "tf",
     "c": "true",
-    "e": "The larger emf dominates, and the net emf is the difference between the two."
+    "e": "ပိုကြီးသော emf က လွှမ်းမိုးပြီး net emf သည် နှစ်ခု၏ ခြားနားချက်ဖြစ်သည်။"
   },
   {
     "q": "The total internal resistance of two batteries in series opposing is $r_1 - r_2$.",
     "type": "tf",
     "c": "false",
-    "e": "The total internal resistance is still the sum, $r_1 + r_2$, regardless of the emf orientation."
+    "e": "Emf ဦးတည်ချက် မည်သို့ပင်ဖြစ်စေ total internal resistance သည် ပေါင်းခြင်း $r_1 + r_2$ ဖြစ်သည်။"
   },
   {
     "q": "In parallel connection of two identical batteries, the opposite polarity terminals of the batteries are connected together.",
     "type": "tf",
     "c": "false",
-    "e": "In parallel connection, the same polarity terminals of the batteries must be connected together."
+    "e": "Parallel connection တွင် battery များ၏ polarity တူသော terminals ကို အတူချိတ်ရမည်။"
   },
   {
     "q": "The resultant emf of the parallel-combination of two identical batteries is just the emf $E$ of a single battery.",
     "type": "tf",
     "c": "true",
-    "e": "Connecting identical batteries in parallel does not increase the total voltage."
+    "e": "တူညီသော battery များကို parallel ချိတ်ခြင်းက total voltage မတိုးပါ။"
   },
   {
     "q": "Since the internal resistances of two identical batteries are in parallel, the resultant internal resistance is $2r$.",
     "type": "tf",
     "c": "false",
-    "e": "The resultant internal resistance of two identical resistors in parallel is $r/2$."
+    "e": "Parallel ရှိ တူညီသော resistor နှစ်ခု၏ resultant internal resistance သည် $r/2$ ဖြစ်သည်။"
   },
   {
     "q": "A parallel combination of two identical batteries can be regarded as a single battery having an emf $E$ and an internal resistance $r/2$.",
     "type": "tf",
     "c": "true",
-    "e": "This equivalent circuit provides the same voltage but with a lower internal resistance."
+    "e": "ဤ equivalent circuit က voltage တူသော်လည်း internal resistance ပိုနည်းစေသည်။"
   },
   {
     "q": "In parallel connection of batteries, care must be taken that the terminal of the same polarity should be connected together.",
     "type": "tf",
     "c": "true",
-    "e": "Connecting same polarities ensures the batteries work together rather than against each other."
+    "e": "Polarity တူအောင် ချိတ်ခြင်းက battery များ အချင်းချင်း ဆန့်ကျင်မည့်အစား အတူလုပ်စေသည်။"
   },
   {
     "q": "If terminals of opposite polarity are connected together in parallel, batteries may be damaged.",
     "type": "tf",
     "c": "true",
-    "e": "Connecting opposite polarities in parallel creates a short circuit between the batteries, causing damage."
+    "e": "Parallel တွင် polarity ဆန့်ကျင်ချိတ်ပါက battery များကြား short circuit ဖြစ်ပြီး ပျက်စီးစေသည်။"
   }
 ]
