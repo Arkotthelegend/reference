@@ -3540,7 +3540,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 
     <script src="./grades.js?v=17"></script>
-    <script src="./timetable.js?v=28"></script>
+    <script src="./timetable.js?v=29"></script>
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
@@ -8062,6 +8062,7 @@ function timetableApi() {
         getGrade: getSelectedGrade,
         getSubjects: function () { return subjects; },
         isPaid: isPaidUnlock,
+        isAdmin: isAppAdmin,
         monday: currentWeekMonday,
         planningMonday: planningMonday,
         defaultName: function () {

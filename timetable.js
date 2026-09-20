@@ -302,7 +302,7 @@
         });
     }
 
-    function buildDay(answers, dayIndex, cycle, seed) {
+    function buildDay(answers, dayIndex, seed, daySubs) {
         var dayStart = answers.dayStart;
         var dayEnd = answers.dayEnd <= answers.dayStart ? 1440 : answers.dayEnd;
         var blocks = [];
@@ -376,23 +376,18 @@
         }
 
         var free = gaps(dayStart, dayEnd, blocks);
-        var daySubs = subjectsForDay(answers, cycle, dayIndex);
-        var lightSubs = lightSubjectIds(answers);
+        daySubs = (daySubs && daySubs.length) ? daySubs : subjectsForDay(answers, dayIndex, seed);
+        var usedMins = {};
+        var lastId = '';
         var studySlot = 0;
-        var lightSlot = dayIndex;
         function pushStudy(a, b) {
             if (b - a < 15) return;
-            var id = daySubs[studySlot % daySubs.length];
+            var id = pickStudyId(answers, daySubs, usedMins, lastId, studySlot, (seed || 1) + dayIndex * 100);
             studySlot++;
+            usedMins[id] = (usedMins[id] || 0) + (b - a);
+            lastId = id;
             var metaC = subjectMeta(id);
             blocks.push({ start: a, end: b, type: 'study', label: metaC.label, sub: metaC.sub, color: COLORS.study });
-        }
-        function pushLight(a, b) {
-            if (b - a < 15) return;
-            var id = lightSubs[lightSlot % lightSubs.length];
-            lightSlot++;
-            var metaL = subjectMeta(id);
-            blocks.push({ start: a, end: b, type: 'study', label: metaL.label, sub: metaL.sub, color: COLORS.study });
         }
         function studyChunkMins() {
             var n = parseInt(answers.studyMins, 10);
@@ -405,7 +400,7 @@
                 return;
             }
             if (len <= 40) {
-                pushLight(a, b);
+                pushStudy(a, b);
                 return;
             }
             var studyChunk = studyChunkMins();
@@ -414,7 +409,7 @@
             while (b - t >= 20) {
                 var left = b - t;
                 if (left <= 40) {
-                    pushLight(t, b);
+                    pushStudy(t, b);
                     return;
                 }
                 if (left <= studyChunk) {
@@ -434,7 +429,7 @@
                     return;
                 }
                 if (left <= 40) {
-                    pushLight(t, b);
+                    pushStudy(t, b);
                     return;
                 }
                 if (restLen && left >= restLen + 20) {
@@ -562,50 +557,72 @@
         return ids;
     }
 
-    function subjectsForDay(answers, cycle, dayIndex) {
+    function subjectWeight(answers, id) {
+        if (!inSteam(answers, id)) return 0;
+        if ((answers.weakSubjects || []).indexOf(id) !== -1) return 4;
+        if ((answers.strongSubjects || []).indexOf(id) !== -1) return 1;
+        return 2;
+    }
+
+    function subjectsForDay(answers, dayIndex, seed, appear) {
         var n = parseInt(answers && answers.subjectsPerDay, 10);
         if (!(n >= 2 && n <= 6)) n = 3;
-        var bag = (cycle && cycle.length) ? cycle : ['en'];
-        n = Math.min(n, bag.length);
+        var ids = steamIds(answers);
+        if (!ids.length) return ['en'];
+        n = Math.min(n, ids.length);
+        appear = appear || {};
+        var weak = ids.filter(function (id) { return subjectWeight(answers, id) >= 4; });
         var out = [];
-        var start = (dayIndex || 0) * Math.max(1, n - 1);
-        var g = 0;
-        while (out.length < n && g < bag.length * 5) {
-            var id = bag[(start + g) % bag.length];
+        seededShuffle(weak, (seed || 1) + (dayIndex || 0) * 31).forEach(function (id) {
+            if (out.length >= n) return;
             if (out.indexOf(id) === -1) out.push(id);
-            g++;
-        }
-        return out.length ? out : ['en'];
+        });
+        var rest = ids.filter(function (id) { return out.indexOf(id) === -1; });
+        rest.sort(function (a, b) {
+            var da = (appear[a] || 0) - (appear[b] || 0);
+            if (da) return da;
+            var dw = subjectWeight(answers, b) - subjectWeight(answers, a);
+            if (dw) return dw;
+            return hashStr(String(a) + ':' + dayIndex) - hashStr(String(b) + ':' + dayIndex);
+        });
+        rest.forEach(function (id) {
+            if (out.length >= n) return;
+            out.push(id);
+        });
+        return out.length ? out : ids.slice(0, n);
     }
 
-    function lightSubjectIds(answers) {
-        var ids = [];
-        (answers && answers.strongSubjects || []).forEach(function (id) {
-            if (inSteam(answers, id) && ids.indexOf(id) === -1) ids.push(id);
+    function pickStudyId(answers, daySubs, usedMins, lastId, slot, seed) {
+        var bag = (daySubs && daySubs.length) ? daySubs : steamIds(answers);
+        if (!bag.length) return 'en';
+        var best = bag[0];
+        var bestScore = -1e9;
+        var rng = mulberry32((seed || 1) + slot * 9973);
+        bag.forEach(function (id) {
+            var w = Math.max(1, subjectWeight(answers, id));
+            var used = usedMins[id] || 0;
+            var score = (-used / w) * 100 + w * 4 + rng();
+            if (id === lastId && bag.length > 1) score -= 12;
+            if (score > bestScore) {
+                bestScore = score;
+                best = id;
+            }
         });
-        if (!ids.length) {
-            steamIds(answers).forEach(function (id) {
-                if ((answers.weakSubjects || []).indexOf(id) === -1) ids.push(id);
-            });
-        }
-        if (!ids.length) ids = steamIds(answers).slice();
-        return ids.length ? ids : ['en'];
-    }
-
-    function makeCycle(answers, seed) {
-        var bag = steamIds(answers);
-        (answers.weakSubjects || []).forEach(function (id) {
-            if (inSteam(answers, id)) bag.push(id, id);
-        });
-        if (!bag.length) bag = ['en'];
-        return seededShuffle(bag, seed || 1);
+        return best;
     }
 
     function buildWeek(answers, seed) {
-        var cycle = makeCycle(answers, seed);
+        seed = seed || 1;
+        var appear = {};
+        steamIds(answers).forEach(function (id) { appear[id] = 0; });
         var days = [];
-        for (var d = 0; d < 7; d++) days.push(buildDay(answers, d, cycle, d >= 5 ? seed + 17 : seed));
-        return { days: days, cycle: cycle };
+        for (var d = 0; d < 7; d++) {
+            var daySeed = d >= 5 ? seed + 17 : seed;
+            var daySubs = subjectsForDay(answers, d, daySeed, appear);
+            daySubs.forEach(function (id) { appear[id] = (appear[id] || 0) + 1; });
+            days.push(buildDay(answers, d, daySeed, daySubs));
+        }
+        return { days: days };
     }
 
     function uniqueBounds(days, dayIdxs) {
@@ -1070,7 +1087,17 @@
         return (answers && answers.week) || targetMonday(api);
     }
 
+    function isAdminApi(api) {
+        if (!api) return false;
+        if (api.isAdmin === true) return true;
+        try {
+            if (typeof api.isAdmin === 'function') return !!api.isAdmin();
+        } catch (e) {}
+        return false;
+    }
+
     function canChangePlan(saved, api) {
+        if (isAdminApi(api)) return true;
         return !hasWeekPlan(saved, targetMonday(api), api);
     }
 
@@ -1208,10 +1235,14 @@
             var weekEl = document.getElementById('tt-week-note');
             var monday = weekFor(answers, api);
             if (weekEl) {
-                weekEl.textContent = weekLabel(monday) + ' · ပြန်ဆွဲချင်ရင် Reset နှိပ်ပါ';
+                if (isAdminApi(api)) {
+                    weekEl.textContent = weekLabel(monday) + ' · Admin ပြန်ဆွဲနိုင်ပါတယ်';
+                } else {
+                    weekEl.textContent = weekLabel(monday) + ' · ဒီအပတ် lock ဖြစ်ပါတယ်။ နောက်အပတ်မှ အသစ်ဆွဲနိုင်ပါတယ်။';
+                }
             }
             var retakeBtn = document.getElementById('tt-retake');
-            if (retakeBtn) retakeBtn.hidden = false;
+            if (retakeBtn) retakeBtn.hidden = !isAdminApi(api);
             var left = pages.length;
             pages.forEach(function (canvas, i) {
                 var img = document.getElementById('tt-preview-' + i);
@@ -1445,13 +1476,13 @@
                     '<div class="tt-yesno"><button type="button" class="tt-chip' + (answers.shortRest ? ' on' : '') + '" data-v="1">ထည့်မယ်</button>' +
                     '<button type="button" class="tt-chip' + (!answers.shortRest ? ' on' : '') + '" data-v="0">မထည့်ဘူး</button></div>';
             } else if (cur.id === 'weak') {
-                html = '<p class="tt-help">ဒီအပတ် အချိန်ပိုပေးမယ့် ဘာသာရပ်များ။ STEAM ' + steamId(answers) + ' ထဲက ရွေးပါ။</p><div class="tt-subs" id="tt-weak">' +
+                html = '<p class="tt-help">ဒီအပတ် အချိန်ပိုပေးမယ့် ဘာသာရပ်များ။ STEAM ' + steamId(answers) + ' ထဲက ရွေးပါ။ အားနည်းတဲ့ဘာသာကို block ပိုထည့်မယ်။</p><div class="tt-subs" id="tt-weak">' +
                     steamSubjectList(api, answers).map(function (s) {
                         var on = answers.weakSubjects.indexOf(s.id) !== -1;
                         return '<button type="button" class="tt-chip' + (on ? ' on' : '') + '" data-sub="' + s.id + '">' + s.name + '</button>';
                     }).join('') + '</div>';
             } else if (cur.id === 'strong') {
-                html = '<p class="tt-help">အားနည်းတဲ့ထဲ ရွေးပြီးသား မပါပါ။ မရွေးလည်း ရပါတယ်။</p><div class="tt-subs" id="tt-strong">' +
+                html = '<p class="tt-help">အားနည်းတဲ့ထဲ ရွေးပြီးသား မပါပါ။ မရွေးလည်း ရပါတယ်။ အားကောင်းတဲ့ဘာသာကို block အနည်းဆုံးပဲ ထည့်မယ်။</p><div class="tt-subs" id="tt-strong">' +
                     steamSubjectList(api, answers).filter(function (s) {
                         return answers.weakSubjects.indexOf(s.id) === -1;
                     }).map(function (s) {
@@ -1981,9 +2012,8 @@
             showPanel('tt-lock');
             return;
         }
-        var monday = api.monday();
         var saved = loadAnswers(grade, api);
-        if (hasWeekPlan(saved, monday, api) || hasWeekPlan(saved, targetMonday(api), api)) {
+        if (hasWeekPlan(saved, targetMonday(api), api)) {
             showResult(api, saved, false);
             return;
         }
@@ -2004,8 +2034,13 @@
         openTab: openTab,
         openAsk: openAsk,
         retake: function (api) {
+            var saved = loadAnswers(api.getGrade(), api);
+            if (!canChangePlan(saved, api)) {
+                if (api && api.alert) api.alert('ဒီအပတ် Timetable lock ဖြစ်ပါတယ်။ နောက်အပတ်မှ ပြန်ဆွဲနိုင်ပါတယ်။');
+                return;
+            }
             var go = function () {
-                var saved = loadAnswers(api.getGrade(), api);
+                saved = loadAnswers(api.getGrade(), api);
                 if (saved) {
                     saved.week = '';
                     saveAnswers(api.getGrade(), saved, api);
