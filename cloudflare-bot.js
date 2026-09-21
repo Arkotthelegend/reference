@@ -201,7 +201,7 @@ async function getAIReply(question, apiKey) {
     'APP TABS:',
     '• Study — subject quizzes, flashcards, English grammar (shared across grades), poems, dialogues, Grade 12 Q and A',
     '• Plan — Daily Quiz (3 free questions per subject per day), exam countdown (around 9 March 2027), daily study checklist',
-    '• Time — weekly timetable. Unlock after 4 paid subjects. Asks STEAM 1 or 2, school days, tuition, rest. Makes Mon–Fri and Sat–Sun A4 pages you can download. Lunch + Rest and Rest stay labeled. The planner is rule-based on the phone, not ChatGPT.',
+    '• Time — weekly timetable. Unlock after buying subjects. Asks STEAM 1 or 2, school days, tuition, rest. Makes Mon–Fri and Sat–Sun A4 pages you can download. Lunch + Rest and Rest stay labeled. The planner is rule-based on the phone, not ChatGPT.',
     '• Rank — all-time leaderboard, Summary radar (questions, correct, time), Best scores, Old scores (Grade 12). STEAM 1 shows Biology. STEAM 2 shows Economics, not Biology.',
     '• Me — name, Telegram ID, bought subjects, contact to buy. Each chapter has Practice (book order, no timer, no score) and Test (shuffled, timer on, scored). Only Test counts for rank. News. Volunteers get grade-locked unlocks and can report a mistake.',
     '',
