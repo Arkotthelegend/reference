@@ -955,14 +955,26 @@ input:checked + .slider:before {
 
 .mjx-container {
     max-width: 100% !important;
+    line-height: normal !important;
+    font-size: 0.95rem !important;
+}
+mjx-container[display="true"],
+.mjx-container[display="true"] {
+    display: block !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
-    display: block !important;
     margin-top: 10px !important;
     margin-bottom: 10px !important;
     padding: 5px 0 !important;
-    line-height: normal !important;
-    font-size: 0.95rem !important;
+}
+mjx-container:not([display="true"]),
+.mjx-container:not([display="true"]) {
+    display: inline !important;
+    overflow: visible !important;
+    margin: 0 0.12em !important;
+    padding: 0 !important;
+    vertical-align: middle;
+    max-width: none !important;
 }
 
 /* Math 2/3-mark answers: one page scroll, not per-formula strips */
@@ -4296,6 +4308,7 @@ function unwrapMathSolutionScroll(root) {
             parent.classList.add('math-hscroll');
             return;
         }
+        if (el.getAttribute('display') !== 'true') return;
         var wrap = document.createElement('div');
         wrap.className = 'math-hscroll';
         el.parentNode.insertBefore(wrap, el);
@@ -4309,7 +4322,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=117'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=118'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
