@@ -6,7 +6,6 @@
         mm: 'Myan', en: 'English', math: 'Maths', phy: 'Physics',
         chem: 'Chemistry', bio: 'Biology',         eco: 'Eco'
     };
-    var MIN_SUBJECTS = 4;
     var STEAM = {
         1: ['mm', 'en', 'math', 'phy', 'chem', 'bio'],
         2: ['mm', 'en', 'math', 'phy', 'chem', 'eco']
@@ -2006,9 +2005,8 @@
         wipeLegacyTimetables();
         var grade = api.getGrade();
         var paid = paidSubjects(api);
-        if (paid.length < MIN_SUBJECTS && !api.isPaid('all')) {
+        if (!paid.length && !api.isPaid('all')) {
             clearPreview();
-            document.getElementById('tt-lock-count').textContent = String(paid.length);
             showPanel('tt-lock');
             return;
         }
