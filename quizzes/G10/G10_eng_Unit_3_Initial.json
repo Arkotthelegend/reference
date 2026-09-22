@@ -1,63 +1,362 @@
-
 [
-  {"type": "blank", "q": "The English a_____ consists of 26 letters from A to Z.", "a": "alphabet"},
-  {"type": "blank", "q": "You must bring all the r_____ documents to the interview.", "a": "required"},
-  {"type": "blank", "q": "The numerals we use today, like 1, 2, and 3, are known as A_____ numerals.", "a": "Arabic"},
-  {"type": "blank", "q": "In mathematics, we use different types of n_____ to represent numbers.", "a": "numerals"},
-  {"type": "blank", "q": "Water is e_____ for the survival of all living organisms.", "a": "essential"},
-  {"type": "blank", "q": "The child is learning c_____ by using their fingers.", "a": "counting"},
-  {"type": "blank", "q": "The complex c_____ took the scientist several hours to complete.", "a": "calculation"},
-  {"type": "blank", "q": "She baked a s_____ cake for her friend's birthday.", "a": "special"},
-  {"type": "blank", "q": "There are one h_____ cents in a single dollar.", "a": "hundred"},
-  {"type": "blank", "q": "The stadium can hold up to fifty t_____ spectators.", "a": "thousand"},
-  {"type": "blank", "q": "The Colosseum is a famous ancient R_____ structure.", "a": "Roman"},
-  {"type": "blank", "q": "The instructions for assembling the furniture were very s_____.", "a": "straightforward"},
-  {"type": "blank", "q": "Alice and Bob were awarded first and second place, r_____.", "a": "respectively"},
-  {"type": "blank", "q": "Solving the mathematical e_____ required a deep understanding of algebra.", "a": "equation"},
-  {"type": "blank", "q": "The textbook included a colorful i_____ to help explain the concept.", "a": "illustration"},
-  {"type": "blank", "q": "He made it p_____ clear that he would not accept the offer.", "a": "plain"},
-  {"type": "blank", "q": "Regular exercise is an i_____ part of a healthy lifestyle.", "a": "important"},
-  {"type": "blank", "q": "The solar s_____ consists of the sun and all the planets orbiting it.", "a": "system"},
-  {"type": "blank", "q": "Dragons are i_____ creatures that only exist in stories.", "a": "imaginary"},
-  {"type": "blank", "q": "She always tries to maintain a p_____ attitude, even in difficult situations.", "a": "positive"},
-  {"type": "blank", "q": "The test results came back n_____, indicating no infection.", "a": "negative"},
-  {"type": "blank", "q": "The river serves as a natural b_____ between the two countries.", "a": "boundary"},
-  {"type": "blank", "q": "You need to plot the points on the c_____ plane to graph the function.", "a": "coordinate"},
-  {"type": "blank", "q": "The graph has two a_____, one horizontal and one vertical.", "a": "axes"},
-  {"type": "blank", "q": "She excels in m_____ and plans to study engineering.", "a": "mathematics"},
-  {"type": "blank", "q": "The weighing s_____ in the kitchen is broken.", "a": "scales"},
-  {"type": "blank", "q": "The nurse used a t_____ to check the patient's fever.", "a": "thermometer"},
-  {"type": "blank", "q": "We need a ruler to m_____ the length of the table.", "a": "measure"},
-  {"type": "blank", "q": "The t_____ dropped significantly after the sun went down.", "a": "temperature"},
-  {"type": "blank", "q": "The water in the lake turned to ice because of the f_____ weather.", "a": "freezing"},
-  {"type": "blank", "q": "Subtracting ten from five gives a m_____ five.", "a": "minus"},
-  {"type": "blank", "q": "The judge was responsible for d_____ the winner of the competition.", "a": "declaring"},
-  {"type": "blank", "q": "The final s_____ of the basketball game was 102 to 98.", "a": "scores"},
-  {"type": "blank", "q": "They play b_____ in the park every Saturday morning.", "a": "badminton"},
-  {"type": "blank", "q": "The tennis u_____ made a controversial call during the match.", "a": "umpire"},
-  {"type": "blank", "q": "As the game p_____, the players became more tired.", "a": "proceeds"},
-  {"type": "blank", "q": "Wimbledon is one of the most prestigious t_____ tournaments in the world.", "a": "tennis"},
-  {"type": "blank", "q": "I am not entirely c_____ about the time of the meeting.", "a": "certain"},
-  {"type": "blank", "q": "Christopher Columbus d_____ the Americas in 1492.", "a": "discovered"},
-  {"type": "blank", "q": "The g_____ consensus among the experts is that climate change is real.", "a": "general"},
-  {"type": "blank", "q": "It is a common b_____ that eating carrots improves your night vision.", "a": "belief"},
-  {"type": "blank", "q": "The ancient H_____ texts contain a wealth of philosophical knowledge.", "a": "Hindu"},
-  {"type": "blank", "q": "Famous m_____ like Isaac Newton and Albert Einstein changed our understanding of the universe.", "a": "mathematicians"},
-  {"type": "blank", "q": "We are currently living in the twenty-first c_____.", "a": "century"},
-  {"type": "blank", "q": "The box was completely e_____ after they removed all the toys.", "a": "empty"},
-  {"type": "blank", "q": "The contract was declared null and v_____ by the judge.", "a": "void"},
-  {"type": "blank", "q": "She b_____ a fascinating novel from the local library.", "a": "borrowed"},
-  {"type": "blank", "q": "The secret message was written in a complex c_____ that took days to decode.", "a": "cipher"},
-  {"type": "blank", "q": "The word 'sifr' is the r_____ of the English word 'zero'.", "a": "root"},
-  {"type": "blank", "q": "All the p_____ shook hands before the start of the match.", "a": "players"},
-  {"type": "blank", "q": "The striker s_____ the winning goal in the final minute.", "a": "scored"},
-  {"type": "blank", "q": "I have two cars, but n_____ of them is working right now.", "a": "neither"},
-  {"type": "blank", "q": "The story is based on r_____ events that happened in the 19th century.", "a": "real"},
-  {"type": "blank", "q": "The elephant is much l_____ than the rhinoceros.", "a": "larger"},
-  {"type": "blank", "q": "He got into t_____ for forgetting to do his homework.", "a": "trouble"},
-  {"type": "blank", "q": "The teacher made a very valid p_____ during the lecture.", "a": "point"},
-  {"type": "blank", "q": "The plane flew high a_____ the clouds.", "a": "above"},
-  {"type": "blank", "q": "The submarine traveled deep b_____ the surface of the ocean.", "a": "below"},
-  {"type": "blank", "q": "A red octagonal s_____ tells drivers to stop.", "a": "sign"},
-  {"type": "blank", "q": "The Eiffel Tower is a famous landmark in F_____ culture.", "a": "French"}
+  {
+    "type": "blank",
+    "q": "The English a_____ consists of 26 letters from A to Z.",
+    "a": "alphabet",
+    "e": "alphabet ဆိုသည်မှာ အက္ခရာစဉ် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် alphabet ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "You must bring all the r_____ documents to the interview.",
+    "a": "required",
+    "e": "required ဆိုသည်မှာ လိုအပ်သော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် required ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The numerals we use today, like 1, 2, and 3, are known as A_____ numerals.",
+    "a": "Arabic",
+    "e": "Arabic ဆိုသည်မှာ အာရေဗျ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် Arabic ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "In mathematics, we use different types of n_____ to represent numbers.",
+    "a": "numerals",
+    "e": "numerals ဆိုသည်မှာ ဂဏန်းသင်္ကေတများ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် numerals ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Water is e_____ for the survival of all living organisms.",
+    "a": "essential",
+    "e": "essential ဆိုသည်မှာ မရှိမဖြစ်လိုအပ်သော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် essential ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The child is learning c_____ by using their fingers.",
+    "a": "counting",
+    "e": "counting ဆိုသည်မှာ ရေတွက်ခြင်း ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် counting ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The complex c_____ took the scientist several hours to complete.",
+    "a": "calculation",
+    "e": "calculation ဆိုသည်မှာ တွက်ချက်ခြင်း ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် calculation ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "She baked a s_____ cake for her friend's birthday.",
+    "a": "special",
+    "e": "special ဆိုသည်မှာ ထူးခြားသော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် special ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "There are one h_____ cents in a single dollar.",
+    "a": "hundred",
+    "e": "hundred ဆိုသည်မှာ တစ်ရာ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် hundred ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The stadium can hold up to fifty t_____ spectators.",
+    "a": "thousand",
+    "e": "thousand ဆိုသည်မှာ တစ်ထောင် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် thousand ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The Colosseum is a famous ancient R_____ structure.",
+    "a": "Roman",
+    "e": "Roman ဆိုသည်မှာ ရောမ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် Roman ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The instructions for assembling the furniture were very s_____.",
+    "a": "straightforward",
+    "e": "straightforward ဆိုသည်မှာ ရိုးရှင်းတည့်မတ်သော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် straightforward ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Alice and Bob were awarded first and second place, r_____.",
+    "a": "respectively",
+    "e": "respectively ဆိုသည်မှာ အသီးသီး ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် respectively ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Solving the mathematical e_____ required a deep understanding of algebra.",
+    "a": "equation",
+    "e": "equation ဆိုသည်မှာ ညီမျှခြင်း ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် equation ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The textbook included a colorful i_____ to help explain the concept.",
+    "a": "illustration",
+    "e": "illustration ဆိုသည်မှာ ပုံဖော်ရှင်းလင်းချက် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် illustration ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He made it p_____ clear that he would not accept the offer.",
+    "a": "plain",
+    "e": "plain ဆိုသည်မှာ ရိုးရှင်းသော၊ လွင်ပြင် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် plain ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Regular exercise is an i_____ part of a healthy lifestyle.",
+    "a": "important",
+    "e": "important ဆိုသည်မှာ အရေးကြီးသော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် important ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The solar s_____ consists of the sun and all the planets orbiting it.",
+    "a": "system",
+    "e": "system ဆိုသည်မှာ စနစ် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် system ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Dragons are i_____ creatures that only exist in stories.",
+    "a": "imaginary",
+    "e": "imaginary ဆိုသည်မှာ စိတ်ကူးယဉ် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် imaginary ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "She always tries to maintain a p_____ attitude, even in difficult situations.",
+    "a": "positive",
+    "e": "positive ဆိုသည်မှာ အပေါင်း၊ အကောင်းမြင် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် positive ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The test results came back n_____, indicating no infection.",
+    "a": "negative",
+    "e": "negative ဆိုသည်မှာ အနှုတ်၊ ဆိုးသော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် negative ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The river serves as a natural b_____ between the two countries.",
+    "a": "boundary",
+    "e": "boundary ဆိုသည်မှာ နယ်နိမိတ် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် boundary ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "You need to plot the points on the c_____ plane to graph the function.",
+    "a": "coordinate",
+    "e": "coordinate ဆိုသည်မှာ ညှိနှိုင်းသည် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် coordinate ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The graph has two a_____, one horizontal and one vertical.",
+    "a": "axes",
+    "e": "axes ဆိုသည်မှာ ဝင်ရိုးများ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် axes ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "She excels in m_____ and plans to study engineering.",
+    "a": "mathematics",
+    "e": "mathematics ဆိုသည်မှာ သင်္ချာ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် mathematics ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The weighing s_____ in the kitchen is broken.",
+    "a": "scales",
+    "e": "scales ဆိုသည်မှာ စကေးများ၊ အကြေးခွံများ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် scales ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The nurse used a t_____ to check the patient's fever.",
+    "a": "thermometer",
+    "e": "thermometer ဆိုသည်မှာ သာမိုမီတာ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် thermometer ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "We need a ruler to m_____ the length of the table.",
+    "a": "measure",
+    "e": "measure ဆိုသည်မှာ တိုင်းတာသည်၊ အစီအမံ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် measure ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The t_____ dropped significantly after the sun went down.",
+    "a": "temperature",
+    "e": "temperature ဆိုသည်မှာ အပူချိန် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် temperature ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The water in the lake turned to ice because of the f_____ weather.",
+    "a": "freezing",
+    "e": "freezing ဆိုသည်မှာ အေးခဲသော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် freezing ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Subtracting ten from five gives a m_____ five.",
+    "a": "minus",
+    "e": "minus ဆိုသည်မှာ နုတ်၊ အနုတ် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် minus ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The judge was responsible for d_____ the winner of the competition.",
+    "a": "declaring",
+    "e": "declaring ဆိုသည်မှာ ကြေညာခြင်း ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် declaring ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The final s_____ of the basketball game was 102 to 98.",
+    "a": "scores",
+    "e": "scores ဆိုသည်မှာ မှတ်များ၊ ရမှတ်များ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် scores ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "They play b_____ in the park every Saturday morning.",
+    "a": "badminton",
+    "e": "badminton ဆိုသည်မှာ ကြက်တောင်ရိုက် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် badminton ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The tennis u_____ made a controversial call during the match.",
+    "a": "umpire",
+    "e": "umpire ဆိုသည်မှာ ဒိုင်လူကြီး ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် umpire ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "As the game p_____, the players became more tired.",
+    "a": "proceeds",
+    "e": "proceeds ဆိုသည်မှာ ရှေ့ဆက်သည်၊ ရငွေ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် proceeds ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Wimbledon is one of the most prestigious t_____ tournaments in the world.",
+    "a": "tennis",
+    "e": "tennis ဆိုသည်မှာ တင်းနစ် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် tennis ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "I am not entirely c_____ about the time of the meeting.",
+    "a": "certain",
+    "e": "certain ဆိုသည်မှာ သေချာသော၊ အချို့ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် certain ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Christopher Columbus d_____ the Americas in 1492.",
+    "a": "discovered",
+    "e": "discovered ဆိုသည်မှာ တွေ့ရှိခဲ့သော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် discovered ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The g_____ consensus among the experts is that climate change is real.",
+    "a": "general",
+    "e": "general ဆိုသည်မှာ ယေဘုယျ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် general ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "It is a common b_____ that eating carrots improves your night vision.",
+    "a": "belief",
+    "e": "belief ဆိုသည်မှာ ယုံကြည်ချက် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် belief ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The ancient H_____ texts contain a wealth of philosophical knowledge.",
+    "a": "Hindu",
+    "e": "Hindu ဆိုသည်မှာ ဟိန္ဒူ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် Hindu ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Famous m_____ like Isaac Newton and Albert Einstein changed our understanding of the universe.",
+    "a": "mathematicians",
+    "e": "mathematicians ဆိုသည်မှာ သင်္ချာပညာရှင်များ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် mathematicians ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "We are currently living in the twenty-first c_____.",
+    "a": "century",
+    "e": "century ဆိုသည်မှာ ရာစုနှစ် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် century ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The box was completely e_____ after they removed all the toys.",
+    "a": "empty",
+    "e": "empty ဆိုသည်မှာ ဗလာသော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် empty ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The contract was declared null and v_____ by the judge.",
+    "a": "void",
+    "e": "void ဆိုသည်မှာ ဗလာ၊ အချည်းနှီး ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် void ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "She b_____ a fascinating novel from the local library.",
+    "a": "borrowed",
+    "e": "borrowed ဆိုသည်မှာ ငှားယူထားသော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် borrowed ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The secret message was written in a complex c_____ that took days to decode.",
+    "a": "cipher",
+    "e": "cipher ဆိုသည်မှာ လျှို့ဝှက်ကုဒ်၊ သုည ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် cipher ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The word 'sifr' is the r_____ of the English word 'zero'.",
+    "a": "root",
+    "e": "root ဆိုသည်မှာ အမြစ် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် root ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "All the p_____ shook hands before the start of the match.",
+    "a": "players",
+    "e": "players ဆိုသည်မှာ ကစားသမားများ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် players ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The striker s_____ the winning goal in the final minute.",
+    "a": "scored",
+    "e": "scored ဆိုသည်မှာ မှတ်ယူခဲ့သော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် scored ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "I have two cars, but n_____ of them is working right now.",
+    "a": "neither",
+    "e": "neither ဆိုသည်မှာ နှစ်ခုလုံးမဟုတ် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် neither ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The story is based on r_____ events that happened in the 19th century.",
+    "a": "real",
+    "e": "real ဆိုသည်မှာ စစ်မှန်သော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် real ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The elephant is much l_____ than the rhinoceros.",
+    "a": "larger",
+    "e": "larger ဆိုသည်မှာ ပိုကြီးသော ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် larger ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He got into t_____ for forgetting to do his homework.",
+    "a": "trouble",
+    "e": "trouble ဆိုသည်မှာ အခက်အခဲ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် trouble ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The teacher made a very valid p_____ during the lecture.",
+    "a": "point",
+    "e": "point ဆိုသည်မှာ အမှတ်၊ အချက် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် point ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The plane flew high a_____ the clouds.",
+    "a": "above",
+    "e": "above ဆိုသည်မှာ အပေါ်၊ ထက်တွင် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် above ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The submarine traveled deep b_____ the surface of the ocean.",
+    "a": "below",
+    "e": "below ဆိုသည်မှာ အောက်တွင် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် below ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "A red octagonal s_____ tells drivers to stop.",
+    "a": "sign",
+    "e": "sign ဆိုသည်မှာ သင်္ကေတ ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် sign ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The Eiffel Tower is a famous landmark in F_____ culture.",
+    "a": "French",
+    "e": "French ဆိုသည်မှာ ပြင်သစ် ဖြစ်သည်။ ဤယူနစ် (alphabet၊ ဂဏန်းနှင့် zero) စာပိုဒ်/ဝေါဟာရတွင် French ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  }
 ]
