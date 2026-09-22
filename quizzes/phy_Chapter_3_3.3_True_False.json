@@ -3,78 +3,78 @@
     "q": "Bernoulli's equation relates the pressure, flow speed, and height for the steady (laminar) flow of an ideal incompressible fluid.",
     "type": "tf",
     "c": "true",
-    "e": "၎င်းတို့သည် Bernoulli's equation နှင့် ဆက်စပ်သော ကိန်းရှင်များနှင့် အခြေအနေများဖြစ်သည်။"
+    "e": "Incompressible ဆိုတာ volume မပွ၊ မကျုံ့ဘူးလို့ ယူဆတာ။ ရေကို ဒီလို မော်ဒယ်လုပ်လေ့ရှိတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "The internal friction of the fluid flow is very high in Bernoulli's equation.",
     "type": "tf",
     "c": "false",
-    "e": "Bernoulli's equation တွင် fluid flow ၏ internal friction ကို လျစ်လျူရှုနိုင်သည် (ဆိုလိုသည်မှာ viscosity မရှိ)။"
+    "e": "ဒီအချက်က မှားတယ်။ Bernoulli က စီးနေတဲ့ အရည်မှာ speed များတဲ့နေရာ pressure နည်းတယ်။ ရေပိုက်ကျဉ်းရင် မြန်ပြီး ဖိအားလျော့သလို။"
   },
   {
     "q": "Bernoulli's equation can be derived using the work-energy principle to a fluid flowing in a tube.",
     "type": "tf",
     "c": "true",
-    "e": "Work-energy principle သည် Bernoulli's equation ဆင်းသက်ရန် အခြေခံဖြစ်သည်။"
+    "e": "Bernoulli က စီးနေတဲ့ အရည်မှာ speed များတဲ့နေရာ pressure နည်းတယ်။ ရေပိုက်ကျဉ်းရင် မြန်ပြီး ဖိအားလျော့သလို။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "According to work-energy principle, the work done on this section of fluid must equal the change in total mechanical energy.",
     "type": "tf",
     "c": "true",
-    "e": "Work done သည် kinetic နှင့် potential energy ပြောင်းလဲမှု ပေါင်းလဒ်နှင့် ညီသည်။"
+    "e": "Mechanical energy က KE + PE။ စက်ဘီးနင်းပြီး ကုန်းဆင်းပြေးတာ အဲဒီနှစ်ခု လဲနေတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Total mechanical energy is the sum of kinetic energy and thermal energy.",
     "type": "tf",
     "c": "false",
-    "e": "စုစုပေါင်း mechanical energy သည် kinetic energy နှင့် potential energy ပေါင်းလဒ်ဖြစ်သည်။"
+    "e": "ဒီအချက်က မှားတယ်။ Mechanical energy က KE + PE။ စက်ဘီးနင်းပြီး ကုန်းဆင်းပြေးတာ အဲဒီနှစ်ခု လဲနေတယ်။"
   },
   {
     "q": "Since the fluid is incompressible, $A_1 \\Delta x_1 = A_2 \\Delta x_2 = \\Delta V$.",
     "type": "tf",
     "c": "true",
-    "e": "ဤညီမျှခြင်းသည် မတူသော cross-sections များမှတဆင့် ရွေ့သော incompressible fluid ၏ တည်ငြိမ် volume ကို ကိုယ်စားပြုသည်။"
+    "e": "Incompressible ဆိုတာ volume မပွ၊ မကျုံ့ဘူးလို့ ယူဆတာ။ ရေကို ဒီလို မော်ဒယ်လုပ်လေ့ရှိတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "The work done on the fluid in this case is due to the viscosity of the fluid.",
     "type": "tf",
     "c": "false",
-    "e": "ဤအခြေအနေတွင် fluid အပေါ် work done သည် fluid ၏ pressure ကြောင့်ဖြစ်သည်။"
+    "e": "ဒီအချက်က မှားတယ်။ Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။"
   },
   {
     "q": "The mass of the fluid between a and b is $\\rho \\Delta V$.",
     "type": "tf",
     "c": "true",
-    "e": "Mass သည် density နှင့် volume ၏ ထုတ်လဒ်ဖြစ်သည်။"
+    "e": "ဒီစကား မှန်တယ်။ Fluid က အရည်/ဓာတ်ငွေ့၊ ပုံစီးတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "The change in kinetic energy is $\\frac{1}{2} \\rho \\Delta V (v_2^2 - v_1^2)$.",
     "type": "tf",
     "c": "true",
-    "e": "၎င်းသည် fluid အပိုင်း၏ kinetic energy ပြောင်းလဲမှုအတွက် မှန်ကန်သော formula ဖြစ်သည်။"
+    "e": "Kinetic energy က ရွေ့နေလို့ ရတဲ့ စွမ်းအင်။ စက်ဘီးမြန်လေ KE များလေ။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "The change in potential energy is $\\rho \\Delta V g (h_2 - h_1)$.",
     "type": "tf",
     "c": "true",
-    "e": "၎င်းသည် fluid mass အတွက် gravitational potential energy ပြောင်းလဲမှုကို မှန်ကန်စွာ ကိုယ်စားပြုသည်။"
+    "e": "Potential energy က နေရာ/အနေအထားကြောင့် သိမ်းထားတဲ့ စွမ်းအင်။ စက်ဘီးကုန်းပေါ်ရင် PE များတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Bernoulli's theorem states that the sum of pressure energy, kinetic energy and potential energy per unit volume of an incompressible, non-viscous fluid in a streamlined laminar flow remains constant.",
     "type": "tf",
     "c": "true",
-    "e": "၎င်းသည် Bernoulli's theorem ၏ တရားဝင် ဖော်ပြချက်ဖြစ်သည်။"
+    "e": "Potential energy က နေရာ/အနေအထားကြောင့် သိမ်းထားတဲ့ စွမ်းအင်။ စက်ဘီးကုန်းပေါ်ရင် PE များတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Bernoulli's theorem states that the sum of pressure energy, kinetic energy and potential energy per unit mass remains constant.",
     "type": "tf",
     "c": "false",
-    "e": "Bernoulli's theorem အရ ဤ energies များကို unit volume တစ်ခုလျှင် ပေါင်းလဒ်သည် တည်ငြိမ်သည်။"
+    "e": "ဒီအချက်က မှားတယ်။ Potential energy က နေရာ/အနေအထားကြောင့် သိမ်းထားတဲ့ စွမ်းအင်။ စက်ဘီးကုန်းပေါ်ရင် PE များတယ်။"
   },
   {
     "q": "The equation is $p + \\frac{1}{2} \\rho v^2 + \\rho g h = \\text{constant}$.",
     "type": "tf",
     "c": "true",
-    "e": "၎င်းသည် Bernoulli's equation ၏ စံသင်္ချာကိုယ်စားပြုမှုဖြစ်သည်။"
+    "e": "ဒီစကား မှန်တယ်။ equation, frac, text, constant ကို ဘောလုံး၊ စက်ဘီးလို လက်တွေ့နဲ့ တွေးကြည့်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   }
 ]
