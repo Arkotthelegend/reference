@@ -1,24 +1,134 @@
 [
-  {"type": "blank", "q": "The teacher explained that late submissions would only be a_____ if there was a documented medical emergency.", "a": "acceptable"},
-  {"type": "blank", "q": "She has a_____ a deep understanding of French literature through years of dedicated study.", "a": "acquired"},
-  {"type": "blank", "q": "Students must dress a_____ for the formal graduation ceremony, avoiding casual wear like jeans.", "a": "appropriately"},
-  {"type": "blank", "q": "The cozy library had a quiet and studious a_____ that helped students focus on their exams.", "a": "atmosphere"},
-  {"type": "blank", "q": "The old truck was criticized for b_____ thick, black smoke into the clear morning sky.", "a": "belching"},
-  {"type": "blank", "q": "Many young people look up to c_____ who use their platforms to advocate for environmental conservation.", "a": "celebrities"},
-  {"type": "blank", "q": "The organization is known for its c_____ contributions to local food banks and homeless shelters.", "a": "charitable"},
-  {"type": "blank", "q": "He c_____ reviewed his essay multiple times to ensure there were no grammatical errors.", "a": "conscientiously"},
-  {"type": "blank", "q": "The artist's early sketches were quite c_____, lacking the refined detail seen in his later masterpieces.", "a": "crude"},
-  {"type": "blank", "q": "A highly d_____ athlete wakes up at dawn every day to train, regardless of the weather.", "a": "disciplined"},
-  {"type": "blank", "q": "Quantum physics was once considered the exclusive d_____ of theoretical scientists.", "a": "domain"},
-  {"type": "blank", "q": "Young children often try to i_____ the behavior of their older siblings or favorite cartoon characters.", "a": "imitate"},
-  {"type": "blank", "q": "The veteran teacher hoped to i_____ her passion for history to her new students.", "a": "impart"},
-  {"type": "blank", "q": "The university is a prestigious educational i_____ that has produced numerous Nobel laureates.", "a": "institution"},
-  {"type": "blank", "q": "The judge was surprisingly m_____, reducing the sentence after hearing about the defendant's difficult circumstances.", "a": "merciful"},
-  {"type": "blank", "q": "The false advertisement m_____ consumers into believing the product could cure all diseases.", "a": "misled"},
-  {"type": "blank", "q": "The two companies formed a m_____ beneficial partnership that increased profits for both sides.", "a": "mutually"},
-  {"type": "blank", "q": "Being p_____ is essential in the workplace, as arriving late to meetings shows a lack of respect.", "a": "punctual"},
-  {"type": "blank", "q": "Disruptive behavior will not be t_____ in the classroom, and repeated offenses will result in detention.", "a": "tolerated"},
-  {"type": "blank", "q": "The desire for happiness is a u_____ human emotion that transcends cultural and geographical boundaries.", "a": "universal"},
-  {"type": "blank", "q": "He was known as an u_____ citizen who always followed the law and helped his neighbors in need.", "a": "upright"},
-  {"type": "blank", "q": "Regular exercise and a balanced diet are v_____ components of maintaining good physical health.", "a": "vital"}
+  {
+    "type": "blank",
+    "q": "The teacher explained that late submissions would only be a_____ if there was a documented medical emergency.",
+    "a": "acceptable",
+    "e": "acceptable = လက်ခံနိုင်သော၊ သင့်တော်သော။"
+  },
+  {
+    "type": "blank",
+    "q": "She has a_____ a deep understanding of French literature through years of dedicated study.",
+    "a": "acquired",
+    "e": "acquired = ရရှိထားသော / ရအောင်ယူထားသော (knowledge, skill, habit)။ this unit မှာ acquire = အသိပညာ/အကျင့် ရရှိသည် — ကုမ္ပဏီဝယ်ယူခြင်း နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "Students must dress a_____ for the formal graduation ceremony, avoiding casual wear like jeans.",
+    "a": "appropriately",
+    "e": "appropriately = သင့်တော်အောင်၊ အခြေအနေနဲ့ကိုက်အောင်။"
+  },
+  {
+    "type": "blank",
+    "q": "The cozy library had a quiet and studious a_____ that helped students focus on their exams.",
+    "a": "atmosphere",
+    "e": "atmosphere = လေထု (သို့) ပတ်ဝန်းကျင်စိတ်နေစိတ်ထား။ this unit မှာ atmosphere = စိတ်နေပတ်ဝန်းကျင်/mood — ကောင်းကင်လေထု နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "The old truck was criticized for b_____ thick, black smoke into the clear morning sky.",
+    "a": "belching",
+    "e": "belching = လေလည်ခြင်း။ this unit မှာ belching = လေလည်ခြင်းကို ယဉ်ကျေးမှုနဲ့ ချိတ်ထားတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Many young people look up to c_____ who use their platforms to advocate for environmental conservation.",
+    "a": "celebrities",
+    "e": "celebrities = နာမည်ကြီးသူများ။"
+  },
+  {
+    "type": "blank",
+    "q": "The organization is known for its c_____ contributions to local food banks and homeless shelters.",
+    "a": "charitable",
+    "e": "charitable = ကုသိုလ်ရေး၊ ပေးကမ်းကူညီတတ်သော။"
+  },
+  {
+    "type": "blank",
+    "q": "He c_____ reviewed his essay multiple times to ensure there were no grammatical errors.",
+    "a": "conscientiously",
+    "e": "conscientiously = သတိရှိရှိ၊ တာဝန်သိသိ ဂရုတစိုက်။"
+  },
+  {
+    "type": "blank",
+    "q": "The artist's early sketches were quite c_____, lacking the refined detail seen in his later masterpieces.",
+    "a": "crude",
+    "e": "crude = ကြမ်းတမ်းသော၊ မယဉ်ကျေးသော / မသန့်စင်သေးသော။ this unit မှာ crude = ကြမ်းတမ်း/မယဉ်ကျေး — crude oil (ရေနံစိမ်း) နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "A highly d_____ athlete wakes up at dawn every day to train, regardless of the weather.",
+    "a": "disciplined",
+    "e": "disciplined = စည်းကမ်းရှိသော။"
+  },
+  {
+    "type": "blank",
+    "q": "Quantum physics was once considered the exclusive d_____ of theoretical scientists.",
+    "a": "domain",
+    "e": "domain = နယ်ပယ်၊ ပိုင်နက်။ this unit မှာ domain = manners သင်ယူရာ နယ်ပယ် (အိမ်၊ ကျောင်း၊ အလုပ်) — website domain နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "Young children often try to i_____ the behavior of their older siblings or favorite cartoon characters.",
+    "a": "imitate",
+    "e": "imitate = တုပသည်၊ အတုခိုးသည်။ ကလေးတွေက စံနမူနာကို တုပတာကို imitate လို့ ခေါ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The veteran teacher hoped to i_____ her passion for history to her new students.",
+    "a": "impart",
+    "e": "impart = ပေးကမ်းသင်းကြားသည် (knowledge, passion, manners)။ this unit မှာ impart = knowledge/passion ပေးကမ်းသင်းကြားသည် — import (ကုန်သွင်း) နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "The university is a prestigious educational i_____ that has produced numerous Nobel laureates.",
+    "a": "institution",
+    "e": "institution = အဖွဲ့အစည်း၊ လူမှုအင်စတီကျူးရှင်း။ this unit မှာ institution = မိသားစု/ကျောင်းလို လူမှုအဖွဲ့ — institute (သင်တန်းကျောင်း) နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "The judge was surprisingly m_____, reducing the sentence after hearing about the defendant's difficult circumstances.",
+    "a": "merciful",
+    "e": "merciful = သနားတတ်သော၊ ကြင်နာသော။"
+  },
+  {
+    "type": "blank",
+    "q": "The false advertisement m_____ consumers into believing the product could cure all diseases.",
+    "a": "misled",
+    "e": "misled = လမ်းမှားအောင် လှည့်စားခံရသော။"
+  },
+  {
+    "type": "blank",
+    "q": "The two companies formed a m_____ beneficial partnership that increased profits for both sides.",
+    "a": "mutually",
+    "e": "mutually = အပြန်အလှန်။"
+  },
+  {
+    "type": "blank",
+    "q": "Being p_____ is essential in the workplace, as arriving late to meetings shows a lack of respect.",
+    "a": "punctual",
+    "e": "punctual = အချိန်မှန်သော။"
+  },
+  {
+    "type": "blank",
+    "q": "Disruptive behavior will not be t_____ in the classroom, and repeated offenses will result in detention.",
+    "a": "tolerated",
+    "e": "tolerated = သည်းခံခွင့်ပြုခံရသော။"
+  },
+  {
+    "type": "blank",
+    "q": "The desire for happiness is a u_____ human emotion that transcends cultural and geographical boundaries.",
+    "a": "universal",
+    "e": "universal = ကမ္ဘာအနှံ့ / လူတိုင်းဆိုင်သော။ this unit မှာ universal manners = ယဉ်ကျေးမှုတိုင်းမှာ ရှိတဲ့ အမူအကျင့်။"
+  },
+  {
+    "type": "blank",
+    "q": "He was known as an u_____ citizen who always followed the law and helped his neighbors in need.",
+    "a": "upright",
+    "e": "upright = ဖြောင့်မတ်ရိုးသားသော။ this unit မှာ upright = ဖြောင့်မတ်ရိုးသားသူ — မတ်တတ်ရပ် နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "Regular exercise and a balanced diet are v_____ components of maintaining good physical health.",
+    "a": "vital",
+    "e": "vital = အသက်သွေးကြောကျသော၊ မရှိမဖြစ်အရေးကြီးသော။"
+  }
 ]

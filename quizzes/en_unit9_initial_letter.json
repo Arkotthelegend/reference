@@ -1,52 +1,302 @@
 [
-  {"type": "blank", "q": "The school built a new ramp to ensure that the building was fully accessible to d_____ students.", "a": "disabled"},
-  {"type": "blank", "q": "It can be difficult to c_____ a formal email when you are feeling highly emotional.", "a": "compose"},
-  {"type": "blank", "q": "After months of hard work, the team finally launched a highly s_____ product.", "a": "successful"},
-  {"type": "blank", "q": "The i_____ student quickly grasped the complex mathematical concepts taught in class.", "a": "intelligent"},
-  {"type": "blank", "q": "The old mansion at the end of the street had a m_____ aura that fascinated the local teenagers.", "a": "mysterious"},
-  {"type": "blank", "q": "Prolonged exposure to the harsh chemicals eventually led to a severe respiratory i_____.", "a": "illness"},
-  {"type": "blank", "q": "She felt immensely r_____ when she found her lost passport just before the flight.", "a": "relieved"},
-  {"type": "blank", "q": "The frightened child s_____ for help when he realized he was lost in the crowded mall.", "a": "screamed"},
-  {"type": "blank", "q": "The movie was criticized for its unnecessarily v_____ scenes and inappropriate language.", "a": "violent"},
-  {"type": "blank", "q": "The hospital immediately c_____ the patient's emergency contact after the accident.", "a": "contacted"},
-  {"type": "blank", "q": "The research i_____ published a groundbreaking study on renewable energy sources.", "a": "institute"},
-  {"type": "blank", "q": "The film d_____ won several awards for her innovative storytelling and visual style.", "a": "director"},
-  {"type": "blank", "q": "The pirates buried their stolen t_____ on a remote, uncharted island.", "a": "treasure"},
-  {"type": "blank", "q": "The students were extremely e_____ about the upcoming field trip to the science museum.", "a": "excited"},
-  {"type": "blank", "q": "His bedroom was so m_____ that he could barely find his homework under the pile of clothes.", "a": "messy"},
-  {"type": "blank", "q": "The constant rain completely s_____ our plans for a weekend picnic in the park.", "a": "spoilt"},
-  {"type": "blank", "q": "Please turn off the lights i_____ when you leave the classroom to save energy.", "a": "immediately"},
-  {"type": "blank", "q": "Young children often learn the a_____ by singing a catchy and memorable song.", "a": "alphabet"},
-  {"type": "blank", "q": "He quickly g_____ his umbrella before rushing out into the heavy downpour.", "a": "grabbed"},
-  {"type": "blank", "q": "Someone k_____ on the door just as we were sitting down to eat dinner.", "a": "knocked"},
-  {"type": "blank", "q": "Students are not a_____ to use their mobile phones during the final examination.", "a": "allowed"},
-  {"type": "blank", "q": "The instructions must be followed e_____ to ensure the experiment yields accurate results.", "a": "exactly"},
-  {"type": "blank", "q": "It is important to teach children good m_____, such as saying please and thank you.", "a": "manners"},
-  {"type": "blank", "q": "The severe weather conditions f_____ the airline to cancel all outgoing flights.", "a": "forced"},
-  {"type": "blank", "q": "The teacher introduced a new m_____ for solving quadratic equations that was much easier to understand.", "a": "method"},
-  {"type": "blank", "q": "Our decision to go hiking will d_____ entirely on the weather forecast for this weekend.", "a": "depend"},
-  {"type": "blank", "q": "The musicians will p_____ a classical symphony at the city concert hall tonight.", "a": "perform"},
-  {"type": "blank", "q": "The survival of the hikers after being lost in the mountains for a week was nothing short of a m_____.", "a": "miracle"},
-  {"type": "blank", "q": "The renovation of the historic library is now c_____, and it will reopen to the public tomorrow.", "a": "complete"},
-  {"type": "blank", "q": "The pilot struggled to maintain c_____ of the aircraft during the severe thunderstorm.", "a": "control"},
-  {"type": "blank", "q": "The g_____ water from the broken pipe flooded the basement within minutes.", "a": "gushing"},
-  {"type": "blank", "q": "She g_____ from university with honors after four years of dedicated study.", "a": "graduated"},
-  {"type": "blank", "q": "The band t_____ extensively across Europe to promote their latest album.", "a": "toured"},
-  {"type": "blank", "q": "Learning a f_____ language can significantly enhance your cognitive abilities and career prospects.", "a": "foreign"},
-  {"type": "blank", "q": "The ancient manuscript s_____ the fire and is now preserved in a climate-controlled vault.", "a": "survived"},
-  {"type": "blank", "q": "All p_____ must fasten their seatbelts before the aircraft takes off.", "a": "passengers"},
-  {"type": "blank", "q": "The collector paid a fortune for an a_____ vase dating back to the Ming dynasty.", "a": "antique"},
-  {"type": "blank", "q": "The art d_____ authenticated the painting before putting it up for auction.", "a": "dealer"},
-  {"type": "blank", "q": "The global p_____ caused widespread disruptions to education and international travel.", "a": "pandemic"},
-  {"type": "blank", "q": "The new treatment aims to cure the rare genetic d_____.", "a": "disease"},
-  {"type": "blank", "q": "After finishing his final exams, he felt completely r_____ and ready for the summer break.", "a": "relaxed"},
-  {"type": "blank", "q": "The school has b_____ the use of plastic straws to promote environmental sustainability.", "a": "banned"},
-  {"type": "blank", "q": "The a_____ marketing campaign significantly boosted the company's sales in the first quarter.", "a": "aggressive"},
-  {"type": "blank", "q": "Prolonged exposure to ultraviolet radiation can be highly h_____ to human skin.", "a": "harmful"},
-  {"type": "blank", "q": "The victim described the m_____ to the police, leading to a swift arrest.", "a": "mugger"},
-  {"type": "blank", "q": "The security guard caught the thief r_____ as he was attempting to steal the electronics.", "a": "red-handed"},
-  {"type": "blank", "q": "The e_____ volunteers worked tirelessly to clean up the local beach after the storm.", "a": "enthusiastic"},
-  {"type": "blank", "q": "Military training requires a high level of d_____ and adherence to strict rules.", "a": "discipline"},
-  {"type": "blank", "q": "The children b_____ exceptionally well during the long and boring museum tour.", "a": "behaved"},
-  {"type": "blank", "q": "The researcher o_____ special permission to access the confidential historical archives.", "a": "obtained"}
+  {
+    "type": "blank",
+    "q": "The school built a new ramp to ensure that the building was fully accessible to d_____ students.",
+    "a": "disabled",
+    "e": "disabled = မသန်စွမ်းသော။ မသန်စွမ်း — unable နဲ့ နီးပေမယ့် လူ့အခွင့်အရေးအသုံး။"
+  },
+  {
+    "type": "blank",
+    "q": "It can be difficult to c_____ a formal email when you are feeling highly emotional.",
+    "a": "compose",
+    "e": "compose = ရေးသားဖွဲ့ဆိုသည်။ this unit မှာ compose = စာ/ဂီတ ဖွဲ့ဆိုသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "After months of hard work, the team finally launched a highly s_____ product.",
+    "a": "successful",
+    "e": "successful = အောင်မြင်သော။"
+  },
+  {
+    "type": "blank",
+    "q": "The i_____ student quickly grasped the complex mathematical concepts taught in class.",
+    "a": "intelligent",
+    "e": "intelligent = ဉာဏ်ရည်မြင့်သော။"
+  },
+  {
+    "type": "blank",
+    "q": "The old mansion at the end of the street had a m_____ aura that fascinated the local teenagers.",
+    "a": "mysterious",
+    "e": "mysterious = လျှို့ဝှက်ဆန်းကြယ်သော။"
+  },
+  {
+    "type": "blank",
+    "q": "Prolonged exposure to the harsh chemicals eventually led to a severe respiratory i_____.",
+    "a": "illness",
+    "e": "illness = ဖျားနာခြင်း။"
+  },
+  {
+    "type": "blank",
+    "q": "She felt immensely r_____ when she found her lost passport just before the flight.",
+    "a": "relieved",
+    "e": "relieved = စိတ်သက်သာသော။"
+  },
+  {
+    "type": "blank",
+    "q": "The frightened child s_____ for help when he realized he was lost in the crowded mall.",
+    "a": "screamed",
+    "e": "screamed = အော်ဟစ်ခဲ့သော။"
+  },
+  {
+    "type": "blank",
+    "q": "The movie was criticized for its unnecessarily v_____ scenes and inappropriate language.",
+    "a": "violent",
+    "e": "violent = ကြမ်းတမ်းရက်စက်သော။"
+  },
+  {
+    "type": "blank",
+    "q": "The hospital immediately c_____ the patient's emergency contact after the accident.",
+    "a": "contacted",
+    "e": "contacted = ဆက်သွယ်ခဲ့သော။"
+  },
+  {
+    "type": "blank",
+    "q": "The research i_____ published a groundbreaking study on renewable energy sources.",
+    "a": "institute",
+    "e": "institute = အင်စတီကျု၊ အဖွဲ့အစည်း။ institute = အဖွဲ့/ကျောင်း — institution နဲ့ နီးပေမယ့် ဒီမှာ အဖွဲ့အမည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The film d_____ won several awards for her innovative storytelling and visual style.",
+    "a": "director",
+    "e": "director = ညွှန်ကြားရေးမှူး။"
+  },
+  {
+    "type": "blank",
+    "q": "The pirates buried their stolen t_____ on a remote, uncharted island.",
+    "a": "treasure",
+    "e": "treasure = ရတနာ။"
+  },
+  {
+    "type": "blank",
+    "q": "The students were extremely e_____ about the upcoming field trip to the science museum.",
+    "a": "excited",
+    "e": "excited = စိတ်လှုပ်ရှားသော။"
+  },
+  {
+    "type": "blank",
+    "q": "His bedroom was so m_____ that he could barely find his homework under the pile of clothes.",
+    "a": "messy",
+    "e": "messy = ရှုပ်ပွသော။"
+  },
+  {
+    "type": "blank",
+    "q": "The constant rain completely s_____ our plans for a weekend picnic in the park.",
+    "a": "spoilt",
+    "e": "spoilt = မိုက်မဲပျက်စီးအောင် မွေးထားသော / ပျက်စီးသော။ this unit မှာ spoilt child = ချော့မွေးလို့ ခက်သော ကလေး — အစားပျက် နဲ့ပဲ မတွေးနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "Please turn off the lights i_____ when you leave the classroom to save energy.",
+    "a": "immediately",
+    "e": "immediately = ချက်ချင်း။"
+  },
+  {
+    "type": "blank",
+    "q": "Young children often learn the a_____ by singing a catchy and memorable song.",
+    "a": "alphabet",
+    "e": "alphabet = အက္ခရာစဉ်။"
+  },
+  {
+    "type": "blank",
+    "q": "He quickly g_____ his umbrella before rushing out into the heavy downpour.",
+    "a": "grabbed",
+    "e": "grabbed = လျင်မြန်စွာ ဆုပ်ကိုင်ခဲ့သော။"
+  },
+  {
+    "type": "blank",
+    "q": "Someone k_____ on the door just as we were sitting down to eat dinner.",
+    "a": "knocked",
+    "e": "knocked = ခေါက်ခဲ့သော။ တံခါးခေါက် / knocked out (မေ့သွား) ဆိုရင် နောက်က စကားလုံးကြည့်။"
+  },
+  {
+    "type": "blank",
+    "q": "Students are not a_____ to use their mobile phones during the final examination.",
+    "a": "allowed",
+    "e": "allowed = ခွင့်ပြုခံရသော။"
+  },
+  {
+    "type": "blank",
+    "q": "The instructions must be followed e_____ to ensure the experiment yields accurate results.",
+    "a": "exactly",
+    "e": "exactly = တိတိကျကျ။"
+  },
+  {
+    "type": "blank",
+    "q": "It is important to teach children good m_____, such as saying please and thank you.",
+    "a": "manners",
+    "e": "manners = ယဉ်ကျေးမှုအမူအကျင့်။"
+  },
+  {
+    "type": "blank",
+    "q": "The severe weather conditions f_____ the airline to cancel all outgoing flights.",
+    "a": "forced",
+    "e": "forced = အတင်းအကျပ်လုပ်စေသော။"
+  },
+  {
+    "type": "blank",
+    "q": "The teacher introduced a new m_____ for solving quadratic equations that was much easier to understand.",
+    "a": "method",
+    "e": "method = နည်းလမ်း။"
+  },
+  {
+    "type": "blank",
+    "q": "Our decision to go hiking will d_____ entirely on the weather forecast for this weekend.",
+    "a": "depend",
+    "e": "depend = မှီခိုသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The musicians will p_____ a classical symphony at the city concert hall tonight.",
+    "a": "perform",
+    "e": "perform = လုပ်ဆောင်သည် / ဖျော်ဖြေသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The survival of the hikers after being lost in the mountains for a week was nothing short of a m_____.",
+    "a": "miracle",
+    "e": "miracle = အံ့ဖွယ်အမှု။"
+  },
+  {
+    "type": "blank",
+    "q": "The renovation of the historic library is now c_____, and it will reopen to the public tomorrow.",
+    "a": "complete",
+    "e": "complete = ပြည့်စုံသော / ပြီးဆုံးစေသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The pilot struggled to maintain c_____ of the aircraft during the severe thunderstorm.",
+    "a": "control",
+    "e": "control = ထိန်းချုပ်မှု။"
+  },
+  {
+    "type": "blank",
+    "q": "The g_____ water from the broken pipe flooded the basement within minutes.",
+    "a": "gushing",
+    "e": "gushing = ပန်းထွက်နေသော။ ရေ/ခံစားချက် ပန်းထွက် — gossip နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "She g_____ from university with honors after four years of dedicated study.",
+    "a": "graduated",
+    "e": "graduated = ဘွဲ့ရခဲ့သော။"
+  },
+  {
+    "type": "blank",
+    "q": "The band t_____ extensively across Europe to promote their latest album.",
+    "a": "toured",
+    "e": "toured = ခရီးလှည့်လည်ခဲ့သော။"
+  },
+  {
+    "type": "blank",
+    "q": "Learning a f_____ language can significantly enhance your cognitive abilities and career prospects.",
+    "a": "foreign",
+    "e": "foreign = နိုင်ငံခြား။"
+  },
+  {
+    "type": "blank",
+    "q": "The ancient manuscript s_____ the fire and is now preserved in a climate-controlled vault.",
+    "a": "survived",
+    "e": "survived = အသက်ရှင်ကျန်ရစ်သော။"
+  },
+  {
+    "type": "blank",
+    "q": "All p_____ must fasten their seatbelts before the aircraft takes off.",
+    "a": "passengers",
+    "e": "passengers = ခရီးသည်များ။"
+  },
+  {
+    "type": "blank",
+    "q": "The collector paid a fortune for an a_____ vase dating back to the Ming dynasty.",
+    "a": "antique",
+    "e": "antique = ရှေးဟောင်းပစ္စည်း။"
+  },
+  {
+    "type": "blank",
+    "q": "The art d_____ authenticated the painting before putting it up for auction.",
+    "a": "dealer",
+    "e": "dealer = ကုန်သည်၊ အရောင်းသမား။"
+  },
+  {
+    "type": "blank",
+    "q": "The global p_____ caused widespread disruptions to education and international travel.",
+    "a": "pandemic",
+    "e": "pandemic = ကမ္ဘာ့ကပ်ရောဂါ။"
+  },
+  {
+    "type": "blank",
+    "q": "The new treatment aims to cure the rare genetic d_____.",
+    "a": "disease",
+    "e": "disease = ရောဂါ။"
+  },
+  {
+    "type": "blank",
+    "q": "After finishing his final exams, he felt completely r_____ and ready for the summer break.",
+    "a": "relaxed",
+    "e": "relaxed = စိတ်လျော့သော။"
+  },
+  {
+    "type": "blank",
+    "q": "The school has b_____ the use of plastic straws to promote environmental sustainability.",
+    "a": "banned",
+    "e": "banned = တားမြစ်ခံရသော။"
+  },
+  {
+    "type": "blank",
+    "q": "The a_____ marketing campaign significantly boosted the company's sales in the first quarter.",
+    "a": "aggressive",
+    "e": "aggressive = ရန်လိုသော၊ ရန်လိုစွာ တိုက်ခိုက်တတ်သော။"
+  },
+  {
+    "type": "blank",
+    "q": "Prolonged exposure to ultraviolet radiation can be highly h_____ to human skin.",
+    "a": "harmful",
+    "e": "harmful = အန္တရာယ်ဖြစ်စေသော။"
+  },
+  {
+    "type": "blank",
+    "q": "The victim described the m_____ to the police, leading to a swift arrest.",
+    "a": "mugger",
+    "e": "mugger = လမ်းမှာ လုယက်သူ။ လမ်းလုယက်သူ — mug (ခွက်) နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "The security guard caught the thief r_____ as he was attempting to steal the electronics.",
+    "a": "red-handed",
+    "e": "red-handed = ပြစ်မှုခင်းဖြစ်နေခိုက် ဖမ်းမိသော။ ပြစ်မှုလုပ်နေခိုက် ဖမ်းမိ — လက်နီရောင် နဲ့ တိုက်ရိုက်မဆိုင်။"
+  },
+  {
+    "type": "blank",
+    "q": "The e_____ volunteers worked tirelessly to clean up the local beach after the storm.",
+    "a": "enthusiastic",
+    "e": "enthusiastic = စိတ်အားထက်သန်သော။"
+  },
+  {
+    "type": "blank",
+    "q": "Military training requires a high level of d_____ and adherence to strict rules.",
+    "a": "discipline",
+    "e": "discipline = စည်းကမ်း။"
+  },
+  {
+    "type": "blank",
+    "q": "The children b_____ exceptionally well during the long and boring museum tour.",
+    "a": "behaved",
+    "e": "behaved = အမူအကျင့်ပြခဲ့သော။"
+  },
+  {
+    "type": "blank",
+    "q": "The researcher o_____ special permission to access the confidential historical archives.",
+    "a": "obtained",
+    "e": "obtained = ရရှိခဲ့သော။"
+  }
 ]

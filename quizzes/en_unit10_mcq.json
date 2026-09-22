@@ -1,148 +1,1597 @@
-
 [
-    {"type": "mcq", "q": "The rapid advancement of technology has _____ many aspects of our lives.", "a": ["impacted", "influenced", "altered"], "c": 2},
-    {"type": "mcq", "q": "She is _____ committed to her academic goals and works hard daily.", "a": ["deeply", "highly", "fully"], "c": 2},
-    {"type": "mcq", "q": "The collected data was _____ with the hypothesis formed earlier.", "a": ["consistent", "compatible", "aligned"], "c": 0},
-    {"type": "mcq", "q": "The organization needs to _____ new strategies to remain competitive.", "a": ["adopt", "implement", "embrace"], "c": 0},
-    {"type": "mcq", "q": "It is necessary to _____ the risks associated with this project.", "a": ["evaluate", "assess", "examine"], "c": 1},
-    {"type": "mcq", "q": "The report provides a _____ overview of the project's progress.", "a": ["thorough", "comprehensive", "detailed"], "c": 1},
-    {"type": "mcq", "q": "The team was _____ by the support from the community.", "a": ["encouraged", "motivated", "inspired"], "c": 2},
-    {"type": "mcq", "q": "Researchers _____ the samples in a controlled environment.", "a": ["examined", "investigated", "analyzed"], "c": 2},
-    {"type": "mcq", "q": "She is known for her _____ contributions to environmental science.", "a": ["significant", "valuable", "important"], "c": 0},
-    {"type": "mcq", "q": "The new policy was a _____ success, increasing productivity.", "a": ["resounding", "great", "huge"], "c": 0},
-    {"type": "mcq", "q": "We must _____ the importance of teamwork in our objectives.", "a": ["highlight", "emphasize", "stress"], "c": 1},
-    {"type": "mcq", "q": "The software is _____ designed to be user-friendly.", "a": ["specifically", "intentionally", "purposefully"], "c": 0},
-    {"type": "mcq", "q": "There is a _____ correlation between exercise and mental health.", "a": ["strong", "direct", "clear"], "c": 0},
-    {"type": "mcq", "q": "They were _____ that they had been selected for the conference.", "a": ["thrilled", "excited", "honored"], "c": 2},
-    {"type": "mcq", "q": "The plan was _____ by management after much discussion.", "a": ["approved", "accepted", "endorsed"], "c": 0},
-    {"type": "mcq", "q": "He is actively _____ a master's degree in business.", "a": ["pursuing", "seeking", "following"], "c": 0},
-    {"type": "mcq", "q": "The region faces _____ challenges due to climate change.", "a": ["numerous", "many", "significant"], "c": 0},
-    {"type": "mcq", "q": "Our goal is to foster a _____ and inclusive workplace.", "a": ["stable", "balanced", "equitable"], "c": 2},
-    {"type": "mcq", "q": "She is firmly _____ to achieving excellence.", "a": ["dedicated", "committed", "devoted"], "c": 1},
-    {"type": "mcq", "q": "Their results have been _____ over the past several quarters.", "a": ["consistent", "steady", "reliable"], "c": 0},
-    {"type": "mcq", "q": "The design was _____ by several industry experts.", "a": ["backed", "supported", "endorsed"], "c": 2},
-    {"type": "mcq", "q": "She is _____ recognized as an authority on linguistics.", "a": ["widely", "generally", "commonly"], "c": 0},
-    {"type": "mcq", "q": "This building serves as a _____ to the city's history.", "a": ["testament", "tribute", "proof"], "c": 0},
-    {"type": "mcq", "q": "The exhibition is _____ open, free of charge.", "a": ["currently", "presently", "now"], "c": 0},
-    {"type": "mcq", "q": "The committee _____ the proposal unanimously.", "a": ["adopted", "accepted", "approved"], "c": 2},
-    {"type": "mcq", "q": "The request was _____ after a careful review.", "a": ["rejected", "declined", "refused"], "c": 0},
-    {"type": "mcq", "q": "This technical process is highly _____.", "a": ["intricate", "complicated", "complex"], "c": 0},
-    {"type": "mcq", "q": "We must _____ the overall impact of new regulations.", "a": ["evaluate", "assess", "examine"], "c": 1},
-    {"type": "mcq", "q": "The change is _____ to our long-term goals.", "a": ["critical", "essential", "vital"], "c": 1},
-    {"type": "mcq", "q": "He is highly _____ to finishing the project by Friday.", "a": ["determined", "resolved", "set"], "c": 0},
-    {"type": "mcq", "q": "The objective is _____ for our department.", "a": ["feasible", "attainable", "achievable"], "c": 0},
-    {"type": "mcq", "q": "The final outcomes were truly _____.", "a": ["remarkable", "impressive", "outstanding"], "c": 1},
-    {"type": "mcq", "q": "The strategy proved highly _____.", "a": ["effective", "successful", "efficient"], "c": 0},
-    {"type": "mcq", "q": "It is essential that we _____ resources correctly.", "a": ["allocate", "distribute", "assign"], "c": 0},
-    {"type": "mcq", "q": "She demonstrated great _____ during the crisis.", "a": ["resilience", "tenacity", "strength"], "c": 0},
-    {"type": "mcq", "q": "The firm prioritizes both _____ and integrity.", "a": ["honesty", "transparency", "openness"], "c": 1},
-    {"type": "mcq", "q": "They reached a _____ milestone in their research.", "a": ["significant", "major", "important"], "c": 0},
-    {"type": "mcq", "q": "This event had a _____ effect on the local economy.", "a": ["profound", "lasting", "deep"], "c": 0},
-    {"type": "mcq", "q": "He is well _____ for his groundbreaking research.", "a": ["renowned", "famous", "noted"], "c": 0},
-    {"type": "mcq", "q": "The project mandates _____ collaboration.", "a": ["close", "intensive", "thorough"], "c": 0},
-    {"type": "mcq", "q": "They are _____ to maximizing efficiency.", "a": ["committed", "dedicated", "devoted"], "c": 0},
-    {"type": "mcq", "q": "The software is fully _____ with existing networks.", "a": ["compatible", "consistent", "aligned"], "c": 0},
-    {"type": "mcq", "q": "The announcement was _____ received by staff.", "a": ["favorably", "positively", "warmly"], "c": 1},
-    {"type": "mcq", "q": "Effective communication is _____ in any workplace.", "a": ["essential", "vital", "key"], "c": 0},
-    {"type": "mcq", "q": "The results were verified by an _____ review board.", "a": ["independent", "external", "objective"], "c": 0},
-  {"type": "mcq", "q": "She used hand gestures to _____ her feelings.", "a": ["convey", "retain", "suppress"], "c": 0},
-  {"type": "mcq", "q": "People have different _____ towards remote working.", "a": ["heights", "attitudes", "volumes"], "c": 1},
-  {"type": "mcq", "q": "Our _____ of the world are shaped by our experiences.", "a": ["deceptions", "inceptions", "perceptions"], "c": 2},
-  {"type": "mcq", "q": "The scientist needed a _____ measurement for the experiment.", "a": ["precise", "vague", "broad"], "c": 0},
-  {"type": "mcq", "q": "The speaker gave a very _____ explanation of the complex topic.", "a": ["cloudy", "lucid", "muddled"], "c": 1},
-  {"type": "mcq", "q": "He spoke with the _____ of helping the students understand.", "a": ["accident", "prevention", "intention"], "c": 2},
-  {"type": "mcq", "q": "Online games allow for global _____ between players.", "a": ["interaction", "isolation", "division"], "c": 0},
-  {"type": "mcq", "q": "He is not _____ a singer; he is also a talented songwriter.", "a": ["highly", "merely", "fully"], "c": 1},
-  {"type": "mcq", "q": "A good translator must understand the subtle _____ of both languages.", "a": ["basics", "loudness", "nuances"], "c": 2},
-  {"type": "mcq", "q": "Sitting with good _____ can prevent back pain.", "a": ["posture", "clothing", "gesture"], "c": 0},
-  {"type": "mcq", "q": "Waving and pointing are common hand _____.", "a": ["postures", "gestures", "vocals"], "c": 1},
-  {"type": "mcq", "q": "The hotel's _____ to the beach makes it very popular.", "a": ["distance", "absence", "proximity"], "c": 2},
-  {"type": "mcq", "q": "A good writer _____ different sentence structures for effect.", "a": ["exploits", "ignores", "forgets"], "c": 0},
-  {"type": "mcq", "q": "It is difficult to _____ the meaning of this ancient painting.", "a": ["confuse", "interpret", "destroy"], "c": 1},
-  {"type": "mcq", "q": "She was so shocked that she couldn't make a single _____.", "a": ["movement", "appearance", "utterance"], "c": 2},
-  {"type": "mcq", "q": "Water is a _____ resource for all living things.", "a": ["vital", "trivial", "optional"], "c": 0},
-  {"type": "mcq", "q": "Many witnesses can _____ to his hard work.", "a": ["deny", "attest", "reject"], "c": 1},
-  {"type": "mcq", "q": "You only get one chance to make a good first _____.", "a": ["depression", "suppression", "impression"], "c": 2},
-  {"type": "mcq", "q": "I have many _____, but only a few close friends.", "a": ["acquaintances", "strangers", "enemies"], "c": 0},
-  {"type": "mcq", "q": "The survey covers a wide _____ of public opinion.", "a": ["line", "spectrum", "point"], "c": 1},
-  {"type": "mcq", "q": "The _____ of the internet changed how we communicate.", "a": ["departure", "ending", "advent"], "c": 2},
-  {"type": "mcq", "q": "The company's _____ into foreign markets was successful.", "a": ["expansion", "reduction", "decline"], "c": 0},
-  {"type": "mcq", "q": "The government is supporting small and medium _____.", "a": ["hobbies", "enterprises", "leisures"], "c": 1},
-  {"type": "mcq", "q": "She is at the _____ of medical research.", "a": ["background", "shadow", "forefront"], "c": 2},
-  {"type": "mcq", "q": "They sat in the cafe to _____ about their future plans.", "a": ["converse", "argue", "fight"], "c": 0},
-  {"type": "mcq", "q": "The problem was _____ by the heavy rain.", "a": ["solved", "compounded", "eased"], "c": 1},
-  {"type": "mcq", "q": "His _____ to speak in public made the presentation difficult.", "a": ["eagerness", "willingness", "reticence"], "c": 2},
-  {"type": "mcq", "q": "Daily _____ with customers require good communication skills.", "a": ["interactions", "isolations", "separations"], "c": 0},
-  {"type": "mcq", "q": "Many _____ visit the ancient pagodas every year.", "a": ["locals", "foreigners", "citizens"], "c": 1},
-  {"type": "mcq", "q": "Studying abroad provides a great _____ to learn new cultures.", "a": ["disadvantage", "threat", "opportunity"], "c": 2},
-  {"type": "mcq", "q": "To be a leader, you must be an _____ communicator.", "a": ["effective", "useless", "inactive"], "c": 0},
-  {"type": "mcq", "q": "Reading books can greatly _____ your vocabulary.", "a": ["empty", "enrich", "reduce"], "c": 1},
-  {"type": "mcq", "q": "Animals are naturally curious about their _____.", "a": ["internals", "insides", "surroundings"], "c": 2},
-  {"type": "mcq", "q": "Technology should be _____ into everyday teaching.", "a": ["integrated", "separated", "removed"], "c": 0},
-  {"type": "mcq", "q": "Math and science are core subjects in the school _____.", "a": ["schedule", "curriculum", "hobby"], "c": 1},
-  {"type": "mcq", "q": "Understanding cultural _____ helps avoid misunderstandings abroad.", "a": ["crimes", "mistakes", "norms"], "c": 2},
-  {"type": "mcq", "q": "Passing the basic course is one of the _____ for the advanced class.", "a": ["prerequisites", "afterthoughts", "options"], "c": 0},
-  {"type": "mcq", "q": "He had to overcome his _____ before giving the speech.", "a": ["confidence", "shyness", "pride"], "c": 1},
-  {"type": "mcq", "q": "Due to time constraints, _____ is required in your presentation.", "a": ["length", "wordiness", "brevity"], "c": 2},
-  {"type": "mcq", "q": "Her _____ to join the team was obvious.", "a": ["reluctance", "enthusiasm", "eagerness"], "c": 0},
-  {"type": "mcq", "q": "Please wear _____ clothing for the formal dinner.", "a": ["casual", "appropriate", "messy"], "c": 1},
-  {"type": "mcq", "q": "The documentary about space exploration was very _____.", "a": ["boring", "useless", "informative"], "c": 2},
-  {"type": "mcq", "q": "Keep your comments _____ to the topic being discussed.", "a": ["relevant", "unrelated", "distant"], "c": 0},
-  {"type": "mcq", "q": "The instructions must be _____ to all users.", "a": ["confusing", "comprehensible", "hidden"], "c": 1},
-  {"type": "mcq", "q": "A good conversation involves sharing time, not _____ the talk.", "a": ["ignoring", "avoiding", "dominating"], "c": 2},
-  {"type": "mcq", "q": "He made the lecture fun by _____ a bit of humour into it.", "a": ["injecting", "removing", "deleting"], "c": 0},
-  {"type": "mcq", "q": "Teachers try to create a good _____ with their students.", "a": ["conflict", "rapport", "tension"], "c": 1},
-  {"type": "mcq", "q": "Learning a new language requires _____ attention over time.", "a": ["brief", "broken", "sustained"], "c": 2},
-  {"type": "mcq", "q": "The young boy's _____ to learn was praised by his teacher.", "a": ["eagerness", "laziness", "reluctance"], "c": 0},
-  {"type": "mcq", "q": "Parents often tell children not to talk to _____.", "a": ["relatives", "strangers", "friends"], "c": 1},
-  {"type": "mcq", "q": "I went to the library _____ borrow some books.", "a": ["so that", "in order that", "to"], "c": 2},
-  {"type": "mcq", "q": "She left early _____ she could catch the first bus.", "a": ["so that", "in order to", "so as to"], "c": 0},
-  {"type": "mcq", "q": "He studies hard _____ pass the entrance exam.", "a": ["in order that", "in order to", "so that"], "c": 1},
-  {"type": "mcq", "q": "They spoke quietly _____ not wake the baby.", "a": ["so that", "in order that", "so as to"], "c": 2},
-  {"type": "mcq", "q": "We sent the package by airmail _____ it would arrive faster.", "a": ["in order that", "in order to", "so as to"], "c": 0},
-  {"type": "mcq", "q": "She opened the window _____ let some fresh air in.", "a": ["so that", "to", "in order that"], "c": 1},
-  {"type": "mcq", "q": "You should write it down _____ you won't forget it.", "a": ["to", "in order to", "so that"], "c": 2},
-  {"type": "mcq", "q": "Firemen use large hoses _____ put out fires.", "a": ["in order to", "so that", "in order that"], "c": 0},
-  {"type": "mcq", "q": "I set my alarm for 5 AM _____ get up early tomorrow.", "a": ["so that", "so as to", "in order that"], "c": 1},
-  {"type": "mcq", "q": "He is learning English _____ he can study abroad.", "a": ["to", "in order to", "so that"], "c": 2},
-  {"type": "mcq", "q": "We went to the canteen _____ have a drink.", "a": ["to", "so that", "in order that"], "c": 0},
-  {"type": "mcq", "q": "You must be over 18 _____ you can get a driving license.", "a": ["in order to", "so that", "to"], "c": 1},
-  {"type": "mcq", "q": "She left early this morning _____ avoid the rush hour.", "a": ["so that", "in order that", "to"], "c": 2},
-  {"type": "mcq", "q": "I decided to go abroad _____ continue my studies.", "a": ["in order to", "so that", "in order that"], "c": 0},
-  {"type": "mcq", "q": "I want to arrive at the office 20 minutes earlier _____ I can have time for coffee.", "a": ["to", "so that", "so as to"], "c": 1},
-  {"type": "mcq", "q": "Soe Thu is using the map _____ find the way to his destination.", "a": ["so that", "in order that", "to"], "c": 2},
-  {"type": "mcq", "q": "I will go to bed early tonight _____ I can get up early tomorrow.", "a": ["so that", "in order to", "so as to"], "c": 0},
-  {"type": "mcq", "q": "Thin Thin is learning Chinese _____ get promoted in the company.", "a": ["so that", "to", "in order that"], "c": 1},
-  {"type": "mcq", "q": "I will send him an email _____ he can get the message at once.", "a": ["to", "so as to", "so that"], "c": 2},
-  {"type": "mcq", "q": "I told him where I live _____ he would know how to get to my house.", "a": ["in order that", "in order to", "so as to"], "c": 0},
-  {"type": "mcq", "q": "He answered the question _____, leaving us confused.", "a": ["indirectness", "indirectly", "indirect"], "c": 1},
-  {"type": "mcq", "q": "She _____ hinted that she was unhappy with the decision.", "a": ["subtle", "subtleness", "subtly"], "c": 2},
-  {"type": "mcq", "q": "His _____ of the poem was very unique and creative.", "a": ["interpretation", "interpret", "interpreting"], "c": 0},
-  {"type": "mcq", "q": "Games are a fun way to practice your _____ skills.", "a": ["communicate", "communicative", "communication"], "c": 1},
-  {"type": "mcq", "q": "The meeting will start _____ at 9:00 AM.", "a": ["precise", "precision", "precisely"], "c": 2},
-  {"type": "mcq", "q": "The _____ of his explanation helped everyone understand the math problem.", "a": ["lucidity", "lucid", "lucidly"], "c": 0},
-  {"type": "mcq", "q": "Teachers encourage students to _____ with each other during group work.", "a": ["interaction", "interact", "interactive"], "c": 1},
-  {"type": "mcq", "q": "She is very _____ and notices when her friends are sad.", "a": ["perceive", "perception", "perceptive"], "c": 2},
-  {"type": "mcq", "q": "The foul in the football match was completely _____.", "a": ["intentional", "intention", "intentionally"], "c": 0},
-  {"type": "mcq", "q": "Companies should not _____ natural resources without a plan to restore them.", "a": ["exploits", "exploit", "exploitation"], "c": 1},
-  {"type": "mcq", "q": "Regular exercise helps maintain youth and _____.", "a": ["vital", "vitally", "vitality"], "c": 2},
-  {"type": "mcq", "q": "It is polite to _____ quietly in a library.", "a": ["converse", "conversation", "conversational"], "c": 0},
-  {"type": "mcq", "q": "He was initially _____ to share his personal story.", "a": ["reticence", "reticent", "reticently"], "c": 1},
-  {"type": "mcq", "q": "The school offers art and music for students' cultural _____.", "a": ["enrich", "enriching", "enrichment"], "c": 2},
-  {"type": "mcq", "q": "The _____ of the message made it clear and easy to read.", "a": ["brevity", "brief", "briefly"], "c": 0},
-  {"type": "mcq", "q": "I understand your _____ to travel alone at night.", "a": ["reluctant", "reluctance", "reluctantly"], "c": 1},
-  {"type": "mcq", "q": "Is this dress _____ for a job interview?", "a": ["appropriately", "appropriateness", "appropriate"], "c": 2},
-  {"type": "mcq", "q": "The brochure was highly _____ and provided all the details we needed.", "a": ["informative", "inform", "information"], "c": 0},
-  {"type": "mcq", "q": "The speaker failed to explain the _____ of his story to the main topic.", "a": ["relevant", "relevance", "relevantly"], "c": 1},
-  {"type": "mcq", "q": "Reading _____ tests how well you understand the text.", "a": ["comprehend", "comprehensible", "comprehension"], "c": 2},
-  {"type": "mcq", "q": "The team's _____ of the tournament was absolute.", "a": ["domination", "dominate", "dominating"], "c": 0},
-  {"type": "mcq", "q": "It's important for children to _____ with kids their own age.", "a": ["interaction", "interact", "interactive"], "c": 1},
-  {"type": "mcq", "q": "The language class focuses on improving _____ skills.", "a": ["converse", "conversation", "conversational"], "c": 2},
-  {"type": "mcq", "q": "The new manager tried to _____ the two departments smoothly.", "a": ["integrate", "integrated", "integration"], "c": 0},
-  {"type": "mcq", "q": "Her _____ to help out made her a favorite among the staff.", "a": ["eager", "eagerness", "eagerly"], "c": 1},
-  {"type": "mcq", "q": "The runner maintained a _____ pace throughout the marathon.", "a": ["sustain", "sustaining", "sustained"], "c": 2},
-  {"type": "mcq", "q": "Actors must practice to master the _____ of facial expressions.", "a": ["nuances", "basics", "foundations"], "c": 0},
-  {"type": "mcq", "q": "When you _____ with foreigners, you learn a lot about their culture.", "a": ["interaction", "interact", "interactive"], "c": 1},
-  {"type": "mcq", "q": "Sometimes, _____ in speech is used to be polite and avoid offending someone.", "a": ["indirect", "indirectly", "indirectness"], "c": 2},
-  {"type": "mcq", "q": "The movie's soundtrack _____ influences the mood of the audience.", "a": ["subtly", "subtle", "subtleness"], "c": 0}
+  {
+    "type": "mcq",
+    "q": "The rapid advancement of technology has _____ many aspects of our lives.",
+    "a": [
+      "impacted",
+      "influenced",
+      "altered"
+    ],
+    "c": 2,
+    "e": "altered က ဒီဝါကျနဲ့ ကိုက်တယ် — ပြောင်းလဲခဲ့။ impacted က သက်ရောက်ခဲ့ ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "She is _____ committed to her academic goals and works hard daily.",
+    "a": [
+      "deeply",
+      "highly",
+      "fully"
+    ],
+    "c": 2,
+    "e": "fully က ဒီဝါကျနဲ့ ကိုက်တယ် — အပြည့်အဝ။ deeply က နက်နက်ရှိုင်းရှိုင်း ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The collected data was _____ with the hypothesis formed earlier.",
+    "a": [
+      "consistent",
+      "compatible",
+      "aligned"
+    ],
+    "c": 0,
+    "e": "consistent က ဒီဝါကျနဲ့ ကိုက်တယ် — ကိုက်ညီမြဲသော။ compatible က လိုက်ဖက်သော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The organization needs to _____ new strategies to remain competitive.",
+    "a": [
+      "adopt",
+      "implement",
+      "embrace"
+    ],
+    "c": 0,
+    "e": "adopt က ဒီဝါကျနဲ့ ကိုက်တယ် — လက်ခံကျင့်သုံးသည် / မွေးစားသည်။ implement က အကောင်အထည်ဖော်သည် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "It is necessary to _____ the risks associated with this project.",
+    "a": [
+      "evaluate",
+      "assess",
+      "examine"
+    ],
+    "c": 1,
+    "e": "assess က ဒီဝါကျနဲ့ ကိုက်တယ် — တိုင်းတာအကဲဖြတ်။ evaluate က အကဲဖြတ် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The report provides a _____ overview of the project's progress.",
+    "a": [
+      "thorough",
+      "comprehensive",
+      "detailed"
+    ],
+    "c": 1,
+    "e": "comprehensive က ဒီဝါကျနဲ့ ကိုက်တယ် — ပြည့်စုံသော။ thorough က သေချာစေ့စပ်သော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The team was _____ by the support from the community.",
+    "a": [
+      "encouraged",
+      "motivated",
+      "inspired"
+    ],
+    "c": 2,
+    "e": "inspired က ဒီဝါကျနဲ့ ကိုက်တယ် — လှုံ့ဆော်ခံရ။ encouraged က အားပေးခံရသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Researchers _____ the samples in a controlled environment.",
+    "a": [
+      "examined",
+      "investigated",
+      "analyzed"
+    ],
+    "c": 2,
+    "e": "analyzed က ဒီဝါကျနဲ့ ကိုက်တယ် — ဆန်းစစ်ခဲ့။ examined က စစ်ဆေး ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "She is known for her _____ contributions to environmental science.",
+    "a": [
+      "significant",
+      "valuable",
+      "important"
+    ],
+    "c": 0,
+    "e": "significant က ဒီဝါကျနဲ့ ကိုက်တယ် — သိသာထင်ရှားသော။ important က အရေးကြီးသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The new policy was a _____ success, increasing productivity.",
+    "a": [
+      "resounding",
+      "great",
+      "huge"
+    ],
+    "c": 0,
+    "e": "resounding က ဒီဝါကျနဲ့ ကိုက်တယ် — ထင်ရှားကျယ်လောင်သော (အောင်ပွဲ)။ great က ကြီးမားသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "We must _____ the importance of teamwork in our objectives.",
+    "a": [
+      "highlight",
+      "emphasize",
+      "stress"
+    ],
+    "c": 1,
+    "e": "emphasize က ဒီဝါကျနဲ့ ကိုက်တယ် — အလေးပေး။ highlight က မီးမောင်းထိုးပြသည် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The software is _____ designed to be user-friendly.",
+    "a": [
+      "specifically",
+      "intentionally",
+      "purposefully"
+    ],
+    "c": 0,
+    "e": "specifically က ဒီဝါကျနဲ့ ကိုက်တယ် — အထူးသဖြင့်။ purposefully က ရည်ရွယ်ချက်ရှိရှိ ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "There is a _____ correlation between exercise and mental health.",
+    "a": [
+      "strong",
+      "direct",
+      "clear"
+    ],
+    "c": 0,
+    "e": "strong က ဒီဝါကျနဲ့ ကိုက်တယ်။ direct က တိုက်ရိုက် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "They were _____ that they had been selected for the conference.",
+    "a": [
+      "thrilled",
+      "excited",
+      "honored"
+    ],
+    "c": 2,
+    "e": "honored က ဒီဝါကျနဲ့ ကိုက်တယ် — ဂုဏ်ပြုခံရ။ thrilled က ဝမ်းသာလှုပ်ရှား ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The plan was _____ by management after much discussion.",
+    "a": [
+      "approved",
+      "accepted",
+      "endorsed"
+    ],
+    "c": 0,
+    "e": "approved က ဒီဝါကျနဲ့ ကိုက်တယ် — ခွင့်ပြုခံရ။ accepted က လက်ခံခံရသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "He is actively _____ a master's degree in business.",
+    "a": [
+      "pursuing",
+      "seeking",
+      "following"
+    ],
+    "c": 0,
+    "e": "pursuing က ဒီဝါကျနဲ့ ကိုက်တယ် — လိုက်စားနေခြင်း။ seeking က ရှာဖွေနေသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The region faces _____ challenges due to climate change.",
+    "a": [
+      "numerous",
+      "many",
+      "significant"
+    ],
+    "c": 0,
+    "e": "numerous က ဒီဝါကျနဲ့ ကိုက်တယ်။ many က များစွာသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Our goal is to foster a _____ and inclusive workplace.",
+    "a": [
+      "stable",
+      "balanced",
+      "equitable"
+    ],
+    "c": 2,
+    "e": "equitable က ဒီဝါကျနဲ့ ကိုက်တယ် — မျှတသော။ stable က တည်ငြိမ်သော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "She is firmly _____ to achieving excellence.",
+    "a": [
+      "dedicated",
+      "committed",
+      "devoted"
+    ],
+    "c": 1,
+    "e": "committed က ဒီဝါကျနဲ့ ကိုက်တယ် — ကတိပြုထားသော။ dedicated က အနစ်နာခံအပ်နှံသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Their results have been _____ over the past several quarters.",
+    "a": [
+      "consistent",
+      "steady",
+      "reliable"
+    ],
+    "c": 0,
+    "e": "consistent က ဒီဝါကျနဲ့ ကိုက်တယ် — ကိုက်ညီမြဲသော။ steady က တည်ငြိမ်မြဲသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The design was _____ by several industry experts.",
+    "a": [
+      "backed",
+      "supported",
+      "endorsed"
+    ],
+    "c": 2,
+    "e": "endorsed က ဒီဝါကျနဲ့ ကိုက်တယ် — ထောက်ခံအတည်ပြု။ supported က ထောက်ပံ့ခံရသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "She is _____ recognized as an authority on linguistics.",
+    "a": [
+      "widely",
+      "generally",
+      "commonly"
+    ],
+    "c": 0,
+    "e": "widely က ဒီဝါကျနဲ့ ကိုက်တယ် — ကျယ်ကျယ်ပြန့်ပြန့်။ generally က ယေဘုယျအားဖြင့် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "This building serves as a _____ to the city's history.",
+    "a": [
+      "testament",
+      "tribute",
+      "proof"
+    ],
+    "c": 0,
+    "e": "testament က ဒီဝါကျနဲ့ ကိုက်တယ် — သက်သေခံချက်။ tribute က ဂုဏ်ပြုချီးမြှောက်ခြင်း ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The exhibition is _____ open, free of charge.",
+    "a": [
+      "currently",
+      "presently",
+      "now"
+    ],
+    "c": 0,
+    "e": "currently က ဒီဝါကျနဲ့ ကိုက်တယ် — လက်ရှိတွင်။ presently က ယခုလောလောဆယ် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The committee _____ the proposal unanimously.",
+    "a": [
+      "adopted",
+      "accepted",
+      "approved"
+    ],
+    "c": 2,
+    "e": "approved က ဒီဝါကျနဲ့ ကိုက်တယ် — ခွင့်ပြုခံရ။ adopted က လက်ခံကျင့်သုံးသည် / မွေးစားသည် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The request was _____ after a careful review.",
+    "a": [
+      "rejected",
+      "declined",
+      "refused"
+    ],
+    "c": 0,
+    "e": "rejected က ဒီဝါကျနဲ့ ကိုက်တယ် — ပယ်ချခံရ။ declined က ငြင်းဆို/ကျဆင်းသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "This technical process is highly _____.",
+    "a": [
+      "intricate",
+      "complicated",
+      "complex"
+    ],
+    "c": 0,
+    "e": "intricate က ဒီဝါကျနဲ့ ကိုက်တယ် — ရှုပ်ထွေးသိမ်မွေ့။ complicated က ရှုပ်ထွေးစေ ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "We must _____ the overall impact of new regulations.",
+    "a": [
+      "evaluate",
+      "assess",
+      "examine"
+    ],
+    "c": 1,
+    "e": "assess က ဒီဝါကျနဲ့ ကိုက်တယ် — တိုင်းတာအကဲဖြတ်။ evaluate က အကဲဖြတ် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The change is _____ to our long-term goals.",
+    "a": [
+      "critical",
+      "essential",
+      "vital"
+    ],
+    "c": 1,
+    "e": "essential က ဒီဝါကျနဲ့ ကိုက်တယ် — မရှိမဖြစ်လိုအပ်သော။ critical က အရေးကြီးသော / ဝေဖန်သော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "He is highly _____ to finishing the project by Friday.",
+    "a": [
+      "determined",
+      "resolved",
+      "set"
+    ],
+    "c": 0,
+    "e": "determined က ဒီဝါကျနဲ့ ကိုက်တယ် — ဆုံးဖြတ်ချက်ခိုင်။ resolved က ဖြေရှင်းပြီးသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The objective is _____ for our department.",
+    "a": [
+      "feasible",
+      "attainable",
+      "achievable"
+    ],
+    "c": 0,
+    "e": "feasible က ဒီဝါကျနဲ့ ကိုက်တယ် — လုပ်နိုင်ခြေရှိ။ attainable က ရနိုင်သော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The final outcomes were truly _____.",
+    "a": [
+      "remarkable",
+      "impressive",
+      "outstanding"
+    ],
+    "c": 1,
+    "e": "impressive က ဒီဝါကျနဲ့ ကိုက်တယ် — အထင်ကြီးစရာ။ remarkable က ထူးခြားမှတ်သားဖွယ် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The strategy proved highly _____.",
+    "a": [
+      "effective",
+      "successful",
+      "efficient"
+    ],
+    "c": 0,
+    "e": "effective က ဒီဝါကျနဲ့ ကိုက်တယ် — ထိရောက်သော။ efficient က စွမ်းဆောင်ရည်ကောင်းသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "It is essential that we _____ resources correctly.",
+    "a": [
+      "allocate",
+      "distribute",
+      "assign"
+    ],
+    "c": 0,
+    "e": "allocate က ဒီဝါကျနဲ့ ကိုက်တယ်။ distribute က ဖြန့်ဝေသည် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "She demonstrated great _____ during the crisis.",
+    "a": [
+      "resilience",
+      "tenacity",
+      "strength"
+    ],
+    "c": 0,
+    "e": "resilience က ဒီဝါကျနဲ့ ကိုက်တယ်။ tenacity က ဇွဲ ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The firm prioritizes both _____ and integrity.",
+    "a": [
+      "honesty",
+      "transparency",
+      "openness"
+    ],
+    "c": 1,
+    "e": "transparency က ဒီဝါကျနဲ့ ကိုက်တယ်။ honesty က ရိုးသားမှု ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "They reached a _____ milestone in their research.",
+    "a": [
+      "significant",
+      "major",
+      "important"
+    ],
+    "c": 0,
+    "e": "significant က ဒီဝါကျနဲ့ ကိုက်တယ် — သိသာထင်ရှားသော။ important က အရေးကြီးသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "This event had a _____ effect on the local economy.",
+    "a": [
+      "profound",
+      "lasting",
+      "deep"
+    ],
+    "c": 0,
+    "e": "profound က ဒီဝါကျနဲ့ ကိုက်တယ်။ deep က နက်သော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "He is well _____ for his groundbreaking research.",
+    "a": [
+      "renowned",
+      "famous",
+      "noted"
+    ],
+    "c": 0,
+    "e": "renowned က ဒီဝါကျနဲ့ ကိုက်တယ်။ noted က မှတ်သားသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The project mandates _____ collaboration.",
+    "a": [
+      "close",
+      "intensive",
+      "thorough"
+    ],
+    "c": 0,
+    "e": "close က ဒီဝါကျနဲ့ ကိုက်တယ်။ intensive က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "They are _____ to maximizing efficiency.",
+    "a": [
+      "committed",
+      "dedicated",
+      "devoted"
+    ],
+    "c": 0,
+    "e": "committed က ဒီဝါကျနဲ့ ကိုက်တယ် — ကတိပြုထားသော။ dedicated က အနစ်နာခံအပ်နှံသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The software is fully _____ with existing networks.",
+    "a": [
+      "compatible",
+      "consistent",
+      "aligned"
+    ],
+    "c": 0,
+    "e": "compatible က ဒီဝါကျနဲ့ ကိုက်တယ် — လိုက်ဖက်သော။ consistent က ကိုက်ညီမြဲသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The announcement was _____ received by staff.",
+    "a": [
+      "favorably",
+      "positively",
+      "warmly"
+    ],
+    "c": 1,
+    "e": "positively က ဒီဝါကျနဲ့ ကိုက်တယ် — အကောင်းမြင်သော။ favorably က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Effective communication is _____ in any workplace.",
+    "a": [
+      "essential",
+      "vital",
+      "key"
+    ],
+    "c": 0,
+    "e": "essential က ဒီဝါကျနဲ့ ကိုက်တယ် — မရှိမဖြစ်လိုအပ်သော။ vital က အသက်သွေးကြောကျသော၊ မရှိမဖြစ်အရေးကြီးသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The results were verified by an _____ review board.",
+    "a": [
+      "independent",
+      "external",
+      "objective"
+    ],
+    "c": 0,
+    "e": "independent က ဒီဝါကျနဲ့ ကိုက်တယ်။ external က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "She used hand gestures to _____ her feelings.",
+    "a": [
+      "convey",
+      "retain",
+      "suppress"
+    ],
+    "c": 0,
+    "e": "convey က ဒီဝါကျနဲ့ ကိုက်တယ် — ပို့ဆောင်သည် / ဆိုလိုချက် ပေးပို့သည်။ retain က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "People have different _____ towards remote working.",
+    "a": [
+      "heights",
+      "attitudes",
+      "volumes"
+    ],
+    "c": 1,
+    "e": "attitudes က ဒီဝါကျနဲ့ ကိုက်တယ် — သဘောထား။ volumes က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Our _____ of the world are shaped by our experiences.",
+    "a": [
+      "deceptions",
+      "inceptions",
+      "perceptions"
+    ],
+    "c": 2,
+    "e": "perceptions က ဒီဝါကျနဲ့ ကိုက်တယ် — သိမြင်ခံစားပုံများ။ deceptions က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The scientist needed a _____ measurement for the experiment.",
+    "a": [
+      "precise",
+      "vague",
+      "broad"
+    ],
+    "c": 0,
+    "e": "precise က ဒီဝါကျနဲ့ ကိုက်တယ် — တိကျသော။ vague က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The speaker gave a very _____ explanation of the complex topic.",
+    "a": [
+      "cloudy",
+      "lucid",
+      "muddled"
+    ],
+    "c": 1,
+    "e": "lucid က ဒီဝါကျနဲ့ ကိုက်တယ် — ကြည်လင်ရှင်းလင်းသော။ cloudy က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "He spoke with the _____ of helping the students understand.",
+    "a": [
+      "accident",
+      "prevention",
+      "intention"
+    ],
+    "c": 2,
+    "e": "intention က ဒီဝါကျနဲ့ ကိုက်တယ် — ရည်ရွယ်ချက်။ prevention က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Online games allow for global _____ between players.",
+    "a": [
+      "interaction",
+      "isolation",
+      "division"
+    ],
+    "c": 0,
+    "e": "interaction က ဒီဝါကျနဲ့ ကိုက်တယ် — အပြန်အလှန်ဆက်ဆံမှု။ isolation က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "He is not _____ a singer; he is also a talented songwriter.",
+    "a": [
+      "highly",
+      "merely",
+      "fully"
+    ],
+    "c": 1,
+    "e": "merely က ဒီဝါကျနဲ့ ကိုက်တယ်။ highly က အလွန် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "A good translator must understand the subtle _____ of both languages.",
+    "a": [
+      "basics",
+      "loudness",
+      "nuances"
+    ],
+    "c": 2,
+    "e": "nuances က ဒီဝါကျနဲ့ ကိုက်တယ် — သိမ်မွေ့သော ကွာခြားချက်များ။ loudness က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Sitting with good _____ can prevent back pain.",
+    "a": [
+      "posture",
+      "clothing",
+      "gesture"
+    ],
+    "c": 0,
+    "e": "posture က ဒီဝါကျနဲ့ ကိုက်တယ် — ကိုယ်နေဟန်ထား။ gesture က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Waving and pointing are common hand _____.",
+    "a": [
+      "postures",
+      "gestures",
+      "vocals"
+    ],
+    "c": 1,
+    "e": "gestures က ဒီဝါကျနဲ့ ကိုက်တယ် — လက်ဟန်ခြေဟန်များ။ postures က ကိုယ်နေဟန်ထား ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The hotel's _____ to the beach makes it very popular.",
+    "a": [
+      "distance",
+      "absence",
+      "proximity"
+    ],
+    "c": 2,
+    "e": "proximity က ဒီဝါကျနဲ့ ကိုက်တယ် — နီးကပ်မှု။ distance က အကွာအဝေး ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "A good writer _____ different sentence structures for effect.",
+    "a": [
+      "exploits",
+      "ignores",
+      "forgets"
+    ],
+    "c": 0,
+    "e": "exploits က ဒီဝါကျနဲ့ ကိုက်တယ် — စွန့်စားအောင်မြင်မှုများ။ forgets က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "It is difficult to _____ the meaning of this ancient painting.",
+    "a": [
+      "confuse",
+      "interpret",
+      "destroy"
+    ],
+    "c": 1,
+    "e": "interpret က ဒီဝါကျနဲ့ ကိုက်တယ် — အဓိပ္ပာယ်ဖွင့်သည်။ destroy က ဖျက်ဆီး ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "She was so shocked that she couldn't make a single _____.",
+    "a": [
+      "movement",
+      "appearance",
+      "utterance"
+    ],
+    "c": 2,
+    "e": "utterance က ဒီဝါကျနဲ့ ကိုက်တယ် — ပြောဆိုချက်၊ နှုတ်ထွက်စကား။ appearance က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Water is a _____ resource for all living things.",
+    "a": [
+      "vital",
+      "trivial",
+      "optional"
+    ],
+    "c": 0,
+    "e": "vital က ဒီဝါကျနဲ့ ကိုက်တယ် — အသက်သွေးကြောကျသော၊ မရှိမဖြစ်အရေးကြီးသော။ trivial က အရေးမကြီးသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Many witnesses can _____ to his hard work.",
+    "a": [
+      "deny",
+      "attest",
+      "reject"
+    ],
+    "c": 1,
+    "e": "attest က ဒီဝါကျနဲ့ ကိုက်တယ် — သက်သေခံသည်။ reject က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "You only get one chance to make a good first _____.",
+    "a": [
+      "depression",
+      "suppression",
+      "impression"
+    ],
+    "c": 2,
+    "e": "impression က ဒီဝါကျနဲ့ ကိုက်တယ်။ depression က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "I have many _____, but only a few close friends.",
+    "a": [
+      "acquaintances",
+      "strangers",
+      "enemies"
+    ],
+    "c": 0,
+    "e": "acquaintances က ဒီဝါကျနဲ့ ကိုက်တယ် — ရင်းနှီးသူမဟုတ်သေးသော ခင်မင်သူများ။ enemies က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The survey covers a wide _____ of public opinion.",
+    "a": [
+      "line",
+      "spectrum",
+      "point"
+    ],
+    "c": 1,
+    "e": "spectrum က ဒီဝါကျနဲ့ ကိုက်တယ် — အကျယ်အဝန်း၊ ရောင်စဉ်။ point က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The _____ of the internet changed how we communicate.",
+    "a": [
+      "departure",
+      "ending",
+      "advent"
+    ],
+    "c": 2,
+    "e": "advent က ဒီဝါကျနဲ့ ကိုက်တယ် — စတင်ပေါ်ပေါက်လာခြင်း။ departure က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The company's _____ into foreign markets was successful.",
+    "a": [
+      "expansion",
+      "reduction",
+      "decline"
+    ],
+    "c": 0,
+    "e": "expansion က ဒီဝါကျနဲ့ ကိုက်တယ်။ reduction က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The government is supporting small and medium _____.",
+    "a": [
+      "hobbies",
+      "enterprises",
+      "leisures"
+    ],
+    "c": 1,
+    "e": "enterprises က ဒီဝါကျနဲ့ ကိုက်တယ် — စီးပွားရေးလုပ်ငန်းများ။ leisures က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "She is at the _____ of medical research.",
+    "a": [
+      "background",
+      "shadow",
+      "forefront"
+    ],
+    "c": 2,
+    "e": "forefront က ဒီဝါကျနဲ့ ကိုက်တယ် — ရှေ့ဆုံးတန်း။ background က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "They sat in the cafe to _____ about their future plans.",
+    "a": [
+      "converse",
+      "argue",
+      "fight"
+    ],
+    "c": 0,
+    "e": "converse က ဒီဝါကျနဲ့ ကိုက်တယ် — စကားပြော။ argue က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The problem was _____ by the heavy rain.",
+    "a": [
+      "solved",
+      "compounded",
+      "eased"
+    ],
+    "c": 1,
+    "e": "compounded က ဒီဝါကျနဲ့ ကိုက်တယ် — ပိုဆိုး/ပိုများအောင် ပေါင်းထည့်ခံရသော။ solved က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "His _____ to speak in public made the presentation difficult.",
+    "a": [
+      "eagerness",
+      "willingness",
+      "reticence"
+    ],
+    "c": 2,
+    "e": "reticence က ဒီဝါကျနဲ့ ကိုက်တယ် — စကားနည်းခြင်း၊ ထိန်ချန်ခြင်း။ eagerness က စိတ်အားထက်သန်စွာ လိုချင်မှု ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Daily _____ with customers require good communication skills.",
+    "a": [
+      "interactions",
+      "isolations",
+      "separations"
+    ],
+    "c": 0,
+    "e": "interactions က ဒီဝါကျနဲ့ ကိုက်တယ် — အပြန်အလှန်ဆက်ဆံမှု။ separations က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Many _____ visit the ancient pagodas every year.",
+    "a": [
+      "locals",
+      "foreigners",
+      "citizens"
+    ],
+    "c": 1,
+    "e": "foreigners က ဒီဝါကျနဲ့ ကိုက်တယ်။ citizens က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Studying abroad provides a great _____ to learn new cultures.",
+    "a": [
+      "disadvantage",
+      "threat",
+      "opportunity"
+    ],
+    "c": 2,
+    "e": "opportunity က ဒီဝါကျနဲ့ ကိုက်တယ်။ disadvantage က အားနည်းချက် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "To be a leader, you must be an _____ communicator.",
+    "a": [
+      "effective",
+      "useless",
+      "inactive"
+    ],
+    "c": 0,
+    "e": "effective က ဒီဝါကျနဲ့ ကိုက်တယ် — ထိရောက်သော။ inactive က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Reading books can greatly _____ your vocabulary.",
+    "a": [
+      "empty",
+      "enrich",
+      "reduce"
+    ],
+    "c": 1,
+    "e": "enrich က ဒီဝါကျနဲ့ ကိုက်တယ် — ကြွယ်ဝစေသည်။ reduce က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Animals are naturally curious about their _____.",
+    "a": [
+      "internals",
+      "insides",
+      "surroundings"
+    ],
+    "c": 2,
+    "e": "surroundings က ဒီဝါကျနဲ့ ကိုက်တယ်။ internals က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Technology should be _____ into everyday teaching.",
+    "a": [
+      "integrated",
+      "separated",
+      "removed"
+    ],
+    "c": 0,
+    "e": "integrated က ဒီဝါကျနဲ့ ကိုက်တယ် — ပေါင်းစည်းထားသော။ separated က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Math and science are core subjects in the school _____.",
+    "a": [
+      "schedule",
+      "curriculum",
+      "hobby"
+    ],
+    "c": 1,
+    "e": "curriculum က ဒီဝါကျနဲ့ ကိုက်တယ် — သင်ရိုးညွှန်းတမ်း။ schedule က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Understanding cultural _____ helps avoid misunderstandings abroad.",
+    "a": [
+      "crimes",
+      "mistakes",
+      "norms"
+    ],
+    "c": 2,
+    "e": "norms က ဒီဝါကျနဲ့ ကိုက်တယ် — လူမှုစံနှုန်းများ။ crimes က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Passing the basic course is one of the _____ for the advanced class.",
+    "a": [
+      "prerequisites",
+      "afterthoughts",
+      "options"
+    ],
+    "c": 0,
+    "e": "prerequisites က ဒီဝါကျနဲ့ ကိုက်တယ် — ကြိုတင်လိုအပ်ချက်များ။ afterthoughts က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "He had to overcome his _____ before giving the speech.",
+    "a": [
+      "confidence",
+      "shyness",
+      "pride"
+    ],
+    "c": 1,
+    "e": "shyness က ဒီဝါကျနဲ့ ကိုက်တယ်။ confidence က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Due to time constraints, _____ is required in your presentation.",
+    "a": [
+      "length",
+      "wordiness",
+      "brevity"
+    ],
+    "c": 2,
+    "e": "brevity က ဒီဝါကျနဲ့ ကိုက်တယ် — တိုတောင်းမှု။ wordiness က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Her _____ to join the team was obvious.",
+    "a": [
+      "reluctance",
+      "enthusiasm",
+      "eagerness"
+    ],
+    "c": 0,
+    "e": "reluctance က ဒီဝါကျနဲ့ ကိုက်တယ် — မလိုလားမှု။ enthusiasm က အားပါးတရ စိတ်အားထက်သန်မှု ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Please wear _____ clothing for the formal dinner.",
+    "a": [
+      "casual",
+      "appropriate",
+      "messy"
+    ],
+    "c": 1,
+    "e": "appropriate က ဒီဝါကျနဲ့ ကိုက်တယ် — သင့်တော်သော။ casual က ပေါ့ပေါ့ပါးပါး ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The documentary about space exploration was very _____.",
+    "a": [
+      "boring",
+      "useless",
+      "informative"
+    ],
+    "c": 2,
+    "e": "informative က ဒီဝါကျနဲ့ ကိုက်တယ် — အချက်အလက်ပေးသော။ boring က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Keep your comments _____ to the topic being discussed.",
+    "a": [
+      "relevant",
+      "unrelated",
+      "distant"
+    ],
+    "c": 0,
+    "e": "relevant က ဒီဝါကျနဲ့ ကိုက်တယ် — ဆီလျော်သော။ distant က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The instructions must be _____ to all users.",
+    "a": [
+      "confusing",
+      "comprehensible",
+      "hidden"
+    ],
+    "c": 1,
+    "e": "comprehensible က ဒီဝါကျနဲ့ ကိုက်တယ် — နားလည်ရလွယ်သော။ confusing က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "A good conversation involves sharing time, not _____ the talk.",
+    "a": [
+      "ignoring",
+      "avoiding",
+      "dominating"
+    ],
+    "c": 2,
+    "e": "dominating က ဒီဝါကျနဲ့ ကိုက်တယ် — လွှမ်းမိုးနေသော။ avoiding က ရှောင်သည် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "He made the lecture fun by _____ a bit of humour into it.",
+    "a": [
+      "injecting",
+      "removing",
+      "deleting"
+    ],
+    "c": 0,
+    "e": "injecting က ဒီဝါကျနဲ့ ကိုက်တယ် — ထိုးသွင်းနေခြင်း။ deleting က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Teachers try to create a good _____ with their students.",
+    "a": [
+      "conflict",
+      "rapport",
+      "tension"
+    ],
+    "c": 1,
+    "e": "rapport က ဒီဝါကျနဲ့ ကိုက်တယ် — ရင်းနှီးနွေးထွေးသော ဆက်ဆံရေး။ conflict က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Learning a new language requires _____ attention over time.",
+    "a": [
+      "brief",
+      "broken",
+      "sustained"
+    ],
+    "c": 2,
+    "e": "sustained က ဒီဝါကျနဲ့ ကိုက်တယ် — ကြာရှည်ထိန်းထားသော။ brief က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The young boy's _____ to learn was praised by his teacher.",
+    "a": [
+      "eagerness",
+      "laziness",
+      "reluctance"
+    ],
+    "c": 0,
+    "e": "eagerness က ဒီဝါကျနဲ့ ကိုက်တယ် — စိတ်အားထက်သန်စွာ လိုချင်မှု။ laziness က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Parents often tell children not to talk to _____.",
+    "a": [
+      "relatives",
+      "strangers",
+      "friends"
+    ],
+    "c": 1,
+    "e": "strangers က ဒီဝါကျနဲ့ ကိုက်တယ်။ relatives က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "I went to the library _____ borrow some books.",
+    "a": [
+      "so that",
+      "in order that",
+      "to"
+    ],
+    "c": 2,
+    "e": "to + ကြိယာ = ရည်ရွယ်ချက်။ နောက်မှာ clause (he can…) မလိုဘူး။ နောက်က borrow က ကြိယာပုံမို့ to-infinitive ချိတ်ကိုက်တယ်။"
+  },
+  {
+    "type": "mcq",
+    "q": "She left early _____ she could catch the first bus.",
+    "a": [
+      "so that",
+      "in order to",
+      "so as to"
+    ],
+    "c": 0,
+    "e": "so that + clause (so that he can…) — ကြိယာချည်း မလိုက်ဘူး။ နောက်မှာ subject + verb (clause) လိုက်လို့ so that / in order that ကိုက်တယ်။ so as to + ကြိယာ = ရည်ရွယ်ချက်။"
+  },
+  {
+    "type": "mcq",
+    "q": "He studies hard _____ pass the entrance exam.",
+    "a": [
+      "in order that",
+      "in order to",
+      "so that"
+    ],
+    "c": 1,
+    "e": "in order to + ကြိယာ = ရည်ရွယ်ချက် ပိုတရားဝင်။ နောက်က pass က ကြိယာပုံမို့ to-infinitive ချိတ်ကိုက်တယ်။ in order that + clause။"
+  },
+  {
+    "type": "mcq",
+    "q": "They spoke quietly _____ not wake the baby.",
+    "a": [
+      "so that",
+      "in order that",
+      "so as to"
+    ],
+    "c": 2,
+    "e": "so as to + ကြိယာ = ရည်ရွယ်ချက်။ နောက်က not က ကြိယာပုံမို့ to-infinitive ချိတ်ကိုက်တယ်။ so that + clause (so that he can…) — ကြိယာချည်း မလိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "We sent the package by airmail _____ it would arrive faster.",
+    "a": [
+      "in order that",
+      "in order to",
+      "so as to"
+    ],
+    "c": 0,
+    "e": "in order that + clause။ နောက်မှာ subject + verb (clause) လိုက်လို့ so that / in order that ကိုက်တယ်။ in order to + ကြိယာ = ရည်ရွယ်ချက် ပိုတရားဝင်။"
+  },
+  {
+    "type": "mcq",
+    "q": "She opened the window _____ let some fresh air in.",
+    "a": [
+      "so that",
+      "to",
+      "in order that"
+    ],
+    "c": 1,
+    "e": "to + ကြိယာ = ရည်ရွယ်ချက်။ နောက်မှာ clause (he can…) မလိုဘူး။ နောက်က let က ကြိယာပုံမို့ to-infinitive ချိတ်ကိုက်တယ်။"
+  },
+  {
+    "type": "mcq",
+    "q": "You should write it down _____ you won't forget it.",
+    "a": [
+      "to",
+      "in order to",
+      "so that"
+    ],
+    "c": 2,
+    "e": "so that + clause (so that he can…) — ကြိယာချည်း မလိုက်ဘူး။ နောက်မှာ subject + verb (clause) လိုက်လို့ so that / in order that ကိုက်တယ်။ in order to + ကြိယာ = ရည်ရွယ်ချက် ပိုတရားဝင်။"
+  },
+  {
+    "type": "mcq",
+    "q": "Firemen use large hoses _____ put out fires.",
+    "a": [
+      "in order to",
+      "so that",
+      "in order that"
+    ],
+    "c": 0,
+    "e": "in order to + ကြိယာ = ရည်ရွယ်ချက် ပိုတရားဝင်။ နောက်က put က ကြိယာပုံမို့ to-infinitive ချိတ်ကိုက်တယ်။ in order that + clause။"
+  },
+  {
+    "type": "mcq",
+    "q": "I set my alarm for 5 AM _____ get up early tomorrow.",
+    "a": [
+      "so that",
+      "so as to",
+      "in order that"
+    ],
+    "c": 1,
+    "e": "so as to + ကြိယာ = ရည်ရွယ်ချက်။ နောက်က get က ကြိယာပုံမို့ to-infinitive ချိတ်ကိုက်တယ်။ so that + clause (so that he can…) — ကြိယာချည်း မလိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "He is learning English _____ he can study abroad.",
+    "a": [
+      "to",
+      "in order to",
+      "so that"
+    ],
+    "c": 2,
+    "e": "so that + clause (so that he can…) — ကြိယာချည်း မလိုက်ဘူး။ နောက်မှာ subject + verb (clause) လိုက်လို့ so that / in order that ကိုက်တယ်။ in order to + ကြိယာ = ရည်ရွယ်ချက် ပိုတရားဝင်။"
+  },
+  {
+    "type": "mcq",
+    "q": "We went to the canteen _____ have a drink.",
+    "a": [
+      "to",
+      "so that",
+      "in order that"
+    ],
+    "c": 0,
+    "e": "to + ကြိယာ = ရည်ရွယ်ချက်။ နောက်မှာ clause (he can…) မလိုဘူး။ နောက်က have က ကြိယာပုံမို့ to-infinitive ချိတ်ကိုက်တယ်။"
+  },
+  {
+    "type": "mcq",
+    "q": "You must be over 18 _____ you can get a driving license.",
+    "a": [
+      "in order to",
+      "so that",
+      "to"
+    ],
+    "c": 1,
+    "e": "so that + clause (so that he can…) — ကြိယာချည်း မလိုက်ဘူး။ နောက်မှာ subject + verb (clause) လိုက်လို့ so that / in order that ကိုက်တယ်။ in order to + ကြိယာ = ရည်ရွယ်ချက် ပိုတရားဝင်။"
+  },
+  {
+    "type": "mcq",
+    "q": "She left early this morning _____ avoid the rush hour.",
+    "a": [
+      "so that",
+      "in order that",
+      "to"
+    ],
+    "c": 2,
+    "e": "to + ကြိယာ = ရည်ရွယ်ချက်။ နောက်မှာ clause (he can…) မလိုဘူး။ နောက်က avoid က ကြိယာပုံမို့ to-infinitive ချိတ်ကိုက်တယ်။"
+  },
+  {
+    "type": "mcq",
+    "q": "I decided to go abroad _____ continue my studies.",
+    "a": [
+      "in order to",
+      "so that",
+      "in order that"
+    ],
+    "c": 0,
+    "e": "in order to + ကြိယာ = ရည်ရွယ်ချက် ပိုတရားဝင်။ နောက်က continue က ကြိယာပုံမို့ to-infinitive ချိတ်ကိုက်တယ်။ in order that + clause။"
+  },
+  {
+    "type": "mcq",
+    "q": "I want to arrive at the office 20 minutes earlier _____ I can have time for coffee.",
+    "a": [
+      "to",
+      "so that",
+      "so as to"
+    ],
+    "c": 1,
+    "e": "so that + clause (so that he can…) — ကြိယာချည်း မလိုက်ဘူး။ နောက်မှာ subject + verb (clause) လိုက်လို့ so that / in order that ကိုက်တယ်။ so as to + ကြိယာ = ရည်ရွယ်ချက်။"
+  },
+  {
+    "type": "mcq",
+    "q": "Soe Thu is using the map _____ find the way to his destination.",
+    "a": [
+      "so that",
+      "in order that",
+      "to"
+    ],
+    "c": 2,
+    "e": "to + ကြိယာ = ရည်ရွယ်ချက်။ နောက်မှာ clause (he can…) မလိုဘူး။ နောက်က find က ကြိယာပုံမို့ to-infinitive ချိတ်ကိုက်တယ်။"
+  },
+  {
+    "type": "mcq",
+    "q": "I will go to bed early tonight _____ I can get up early tomorrow.",
+    "a": [
+      "so that",
+      "in order to",
+      "so as to"
+    ],
+    "c": 0,
+    "e": "so that + clause (so that he can…) — ကြိယာချည်း မလိုက်ဘူး။ နောက်မှာ subject + verb (clause) လိုက်လို့ so that / in order that ကိုက်တယ်။ so as to + ကြိယာ = ရည်ရွယ်ချက်။"
+  },
+  {
+    "type": "mcq",
+    "q": "Thin Thin is learning Chinese _____ get promoted in the company.",
+    "a": [
+      "so that",
+      "to",
+      "in order that"
+    ],
+    "c": 1,
+    "e": "to + ကြိယာ = ရည်ရွယ်ချက်။ နောက်မှာ clause (he can…) မလိုဘူး။ နောက်က get က ကြိယာပုံမို့ to-infinitive ချိတ်ကိုက်တယ်။"
+  },
+  {
+    "type": "mcq",
+    "q": "I will send him an email _____ he can get the message at once.",
+    "a": [
+      "to",
+      "so as to",
+      "so that"
+    ],
+    "c": 2,
+    "e": "so that + clause (so that he can…) — ကြိယာချည်း မလိုက်ဘူး။ နောက်မှာ subject + verb (clause) လိုက်လို့ so that / in order that ကိုက်တယ်။ so as to + ကြိယာ = ရည်ရွယ်ချက်။"
+  },
+  {
+    "type": "mcq",
+    "q": "I told him where I live _____ he would know how to get to my house.",
+    "a": [
+      "in order that",
+      "in order to",
+      "so as to"
+    ],
+    "c": 0,
+    "e": "in order that + clause။ နောက်မှာ subject + verb (clause) လိုက်လို့ so that / in order that ကိုက်တယ်။ in order to + ကြိယာ = ရည်ရွယ်ချက် ပိုတရားဝင်။"
+  },
+  {
+    "type": "mcq",
+    "q": "He answered the question _____, leaving us confused.",
+    "a": [
+      "indirectness",
+      "indirectly",
+      "indirect"
+    ],
+    "c": 1,
+    "e": "indirectly က ဒီဝါကျနဲ့ ကိုက်တယ်။ indirectness က adverb မဟုတ်လို့ ကြိယာကို ဖော်ပြမပေးနိုင်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "She _____ hinted that she was unhappy with the decision.",
+    "a": [
+      "subtle",
+      "subtleness",
+      "subtly"
+    ],
+    "c": 2,
+    "e": "subtly က ဒီဝါကျနဲ့ ကိုက်တယ် — သိမ်မွေ့စွာ။ subtle က adverb မဟုတ်လို့ ကြိယာကို ဖော်ပြမပေးနိုင်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "His _____ of the poem was very unique and creative.",
+    "a": [
+      "interpretation",
+      "interpret",
+      "interpreting"
+    ],
+    "c": 0,
+    "e": "interpretation က ဒီဝါကျနဲ့ ကိုက်တယ် — အဓိပ္ပာယ်ဖွင့်ဆိုမှု။ interpret က အဓိပ္ပာယ်ဖွင့်သည် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Games are a fun way to practice your _____ skills.",
+    "a": [
+      "communicate",
+      "communicative",
+      "communication"
+    ],
+    "c": 1,
+    "e": "communicative က ဒီဝါကျနဲ့ ကိုက်တယ်။ communicate က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The meeting will start _____ at 9:00 AM.",
+    "a": [
+      "precise",
+      "precision",
+      "precisely"
+    ],
+    "c": 2,
+    "e": "precisely က ဒီဝါကျနဲ့ ကိုက်တယ် — တိကျသော။ precise က adverb/adjective ပုံစံ မကိုက်လို့ ဒီကွက်လပ်မှာ မမှန်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The _____ of his explanation helped everyone understand the math problem.",
+    "a": [
+      "lucidity",
+      "lucid",
+      "lucidly"
+    ],
+    "c": 0,
+    "e": "lucidity က ဒီဝါကျနဲ့ ကိုက်တယ် — ကြည်လင်ရှင်းလင်းသော။ lucidly က ကြည်လင်ရှင်းလင်းသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Teachers encourage students to _____ with each other during group work.",
+    "a": [
+      "interaction",
+      "interact",
+      "interactive"
+    ],
+    "c": 1,
+    "e": "interact က ဒီဝါကျနဲ့ ကိုက်တယ် — အပြန်အလှန်ဆက်ဆံ။ interaction က အပြန်အလှန်ဆက်ဆံမှု ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "She is very _____ and notices when her friends are sad.",
+    "a": [
+      "perceive",
+      "perception",
+      "perceptive"
+    ],
+    "c": 2,
+    "e": "perceptive က ဒီဝါကျနဲ့ ကိုက်တယ်။ perceive က သိမြင်သည် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The foul in the football match was completely _____.",
+    "a": [
+      "intentional",
+      "intention",
+      "intentionally"
+    ],
+    "c": 0,
+    "e": "intentional က ဒီဝါကျနဲ့ ကိုက်တယ် — ရည်ရွယ်ချက်။ intentionally က adverb/adjective ပုံစံ မကိုက်လို့ ဒီကွက်လပ်မှာ မမှန်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Companies should not _____ natural resources without a plan to restore them.",
+    "a": [
+      "exploits",
+      "exploit",
+      "exploitation"
+    ],
+    "c": 1,
+    "e": "exploit က ဒီဝါကျနဲ့ ကိုက်တယ်။ exploits က စွန့်စားအောင်မြင်မှုများ ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Regular exercise helps maintain youth and _____.",
+    "a": [
+      "vital",
+      "vitally",
+      "vitality"
+    ],
+    "c": 2,
+    "e": "vitality က ဒီဝါကျနဲ့ ကိုက်တယ် — အသက်စွမ်းအင်၊ ကြံ့ခိုင်လန်းဆန်းမှု။ vitally က အသက်သွေးကြောကျသော၊ မရှိမဖြစ်အရေးကြီးသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "It is polite to _____ quietly in a library.",
+    "a": [
+      "converse",
+      "conversation",
+      "conversational"
+    ],
+    "c": 0,
+    "e": "converse က ဒီဝါကျနဲ့ ကိုက်တယ် — စကားပြော။ conversation က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "He was initially _____ to share his personal story.",
+    "a": [
+      "reticence",
+      "reticent",
+      "reticently"
+    ],
+    "c": 1,
+    "e": "reticent က ဒီဝါကျနဲ့ ကိုက်တယ်။ reticence က စကားနည်းခြင်း၊ ထိန်ချန်ခြင်း ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The school offers art and music for students' cultural _____.",
+    "a": [
+      "enrich",
+      "enriching",
+      "enrichment"
+    ],
+    "c": 2,
+    "e": "enrichment က ဒီဝါကျနဲ့ ကိုက်တယ် — ကြွယ်ဝစေသည်။ enrich က ကြွယ်ဝစေသည် ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The _____ of the message made it clear and easy to read.",
+    "a": [
+      "brevity",
+      "brief",
+      "briefly"
+    ],
+    "c": 0,
+    "e": "brevity က ဒီဝါကျနဲ့ ကိုက်တယ် — တိုတောင်းမှု။ briefly က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "I understand your _____ to travel alone at night.",
+    "a": [
+      "reluctant",
+      "reluctance",
+      "reluctantly"
+    ],
+    "c": 1,
+    "e": "reluctance က ဒီဝါကျနဲ့ ကိုက်တယ် — မလိုလားမှု။ reluctant က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Is this dress _____ for a job interview?",
+    "a": [
+      "appropriately",
+      "appropriateness",
+      "appropriate"
+    ],
+    "c": 2,
+    "e": "appropriate က ဒီဝါကျနဲ့ ကိုက်တယ် — သင့်တော်သော။ appropriately က adverb/adjective ပုံစံ မကိုက်လို့ ဒီကွက်လပ်မှာ မမှန်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The brochure was highly _____ and provided all the details we needed.",
+    "a": [
+      "informative",
+      "inform",
+      "information"
+    ],
+    "c": 0,
+    "e": "informative က ဒီဝါကျနဲ့ ကိုက်တယ် — အချက်အလက်ပေးသော။ information က noun ဖြစ်လို့ ဒီ adjective/verb နေရာမှာ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The speaker failed to explain the _____ of his story to the main topic.",
+    "a": [
+      "relevant",
+      "relevance",
+      "relevantly"
+    ],
+    "c": 1,
+    "e": "relevance က ဒီဝါကျနဲ့ ကိုက်တယ်။ relevant က ဆီလျော်သော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Reading _____ tests how well you understand the text.",
+    "a": [
+      "comprehend",
+      "comprehensible",
+      "comprehension"
+    ],
+    "c": 2,
+    "e": "comprehension က ဒီဝါကျနဲ့ ကိုက်တယ် — နားလည်သဘောပေါက်မှု။ comprehensible က နားလည်ရလွယ်သော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The team's _____ of the tournament was absolute.",
+    "a": [
+      "domination",
+      "dominate",
+      "dominating"
+    ],
+    "c": 0,
+    "e": "domination က ဒီဝါကျနဲ့ ကိုက်တယ်။ dominate က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "It's important for children to _____ with kids their own age.",
+    "a": [
+      "interaction",
+      "interact",
+      "interactive"
+    ],
+    "c": 1,
+    "e": "interact က ဒီဝါကျနဲ့ ကိုက်တယ် — အပြန်အလှန်ဆက်ဆံ။ interaction က အပြန်အလှန်ဆက်ဆံမှု ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The language class focuses on improving _____ skills.",
+    "a": [
+      "converse",
+      "conversation",
+      "conversational"
+    ],
+    "c": 2,
+    "e": "conversational က ဒီဝါကျနဲ့ ကိုက်တယ်။ conversation က noun ဖြစ်လို့ ဒီ adjective/verb နေရာမှာ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The new manager tried to _____ the two departments smoothly.",
+    "a": [
+      "integrate",
+      "integrated",
+      "integration"
+    ],
+    "c": 0,
+    "e": "integrate က ဒီဝါကျနဲ့ ကိုက်တယ်။ integrated က ပေါင်းစည်းထားသော ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Her _____ to help out made her a favorite among the staff.",
+    "a": [
+      "eager",
+      "eagerness",
+      "eagerly"
+    ],
+    "c": 1,
+    "e": "eagerness က ဒီဝါကျနဲ့ ကိုက်တယ် — စိတ်အားထက်သန်စွာ လိုချင်မှု။ eager က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The runner maintained a _____ pace throughout the marathon.",
+    "a": [
+      "sustain",
+      "sustaining",
+      "sustained"
+    ],
+    "c": 2,
+    "e": "sustained က ဒီဝါကျနဲ့ ကိုက်တယ် — ကြာရှည်ထိန်းထားသော။ sustain က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Actors must practice to master the _____ of facial expressions.",
+    "a": [
+      "nuances",
+      "basics",
+      "foundations"
+    ],
+    "c": 0,
+    "e": "nuances က ဒီဝါကျနဲ့ ကိုက်တယ် — သိမ်မွေ့သော ကွာခြားချက်များ။ foundations က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "When you _____ with foreigners, you learn a lot about their culture.",
+    "a": [
+      "interaction",
+      "interact",
+      "interactive"
+    ],
+    "c": 1,
+    "e": "interact က ဒီဝါကျနဲ့ ကိုက်တယ် — အပြန်အလှန်ဆက်ဆံ။ interaction က အပြန်အလှန်ဆက်ဆံမှု ဘက်သွားလို့ ဒီဝါကျနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "Sometimes, _____ in speech is used to be polite and avoid offending someone.",
+    "a": [
+      "indirect",
+      "indirectly",
+      "indirectness"
+    ],
+    "c": 2,
+    "e": "indirectness က ဒီဝါကျနဲ့ ကိုက်တယ် — တိုက်ရိုက်မဟုတ်ဘဲ ပြောခြင်း။ indirect က ဆွဲဆောင်မှုရှိပေမယ့် ဒီဝါကျရဲ့ တွဲသုံးပုံနဲ့ မကိုက်ဘူး။"
+  },
+  {
+    "type": "mcq",
+    "q": "The movie's soundtrack _____ influences the mood of the audience.",
+    "a": [
+      "subtly",
+      "subtle",
+      "subtleness"
+    ],
+    "c": 0,
+    "e": "subtly က ဒီဝါကျနဲ့ ကိုက်တယ် — သိမ်မွေ့စွာ။ subtle က adverb မဟုတ်လို့ ကြိယာကို ဖော်ပြမပေးနိုင်ဘူး။"
+  }
 ]
