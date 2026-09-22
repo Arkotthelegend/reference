@@ -3,150 +3,150 @@
     "type": "tf",
     "q": "A logic gate is an electronic device which takes an information from the environment, makes a decision based on that information and then gives out the result.",
     "c": "true",
-    "e": "ဤသည် logic gate ၏ exact textbook definition ဖြစ်သည်။"
+    "e": "မှန်တယ်။ ဒါက logic gate ရဲ့ exact definition ဖြစ်တယ်။"
   },
   {
     "type": "tf",
     "q": "Logic gates can only be built up using small integrated circuits (ICs), not discrete components.",
     "c": "false",
-    "e": "Logic gates ကို resistors, diodes နှင့် transistors ၏ discrete components ဖြင့် တည်ဆောက်နိုင်သော်လည်း ICs ပို အဆင်ပြေသည်။"
+    "e": "မှားတယ်။ Logic gates ကို resistors, diodes နဲ့ transistors ရဲ့ discrete components နဲ့ တည်ဆောက်နိုင်သော်လည်း ICs ပို အဆင်ပြေတယ်။"
   },
   {
     "type": "tf",
     "q": "Different types of logic gates can be built from different arrangements of electronic components.",
     "c": "true",
-    "e": "စာသားက components ၏ မတူသော arrangements သည် logic gates အမျိုးအစားများကို ဖန်တီးကြောင်း အတည်ပြုသည်။"
+    "e": "မှန်တယ်။ components ရဲ့ မတူသော arrangements က logic gates အမျိုးအစားများကို ဖန်တီးကြောင်း အတည်ပြုတယ်။"
   },
   {
     "type": "tf",
     "q": "The five common logic gates are AND, OR, NAND, NOR and NOT (inverter) gates.",
     "c": "true",
-    "e": "Textbook က ဤ gates ငါးခုကို common types အဖြစ် စာရင်းပြုသည်။"
+    "e": "မှန်တယ်။ ဒီ gates ငါးခုကို common types အဖြစ် စာရင်းထဲပါတယ်။"
   },
   {
     "type": "tf",
     "q": "A logic gate can have two or more inputs but only one output, except the NOT gate which has only one input.",
     "c": "true",
-    "e": "စာသားက standard gates ၏ input/output rules နှင့် NOT gate ၏ single-input exception ကို သတ်မှတ်သည်။"
+    "e": "မှန်တယ်။ standard gates ရဲ့ input/output rules နဲ့ NOT gate ရဲ့ single-input exception ကို သတ်မှတ်တယ်။"
   },
   {
     "type": "tf",
     "q": "For a 2-input AND gate, output X is HIGH only when inputs A and B are HIGH.",
     "c": "true",
-    "e": "ဤသည် AND gate HIGH output ထုတ်ရန် အခြေခံ logical condition ဖြစ်သည်။"
+    "e": "မှန်တယ်။ ဒါက AND gate HIGH output ထုတ်ရန် အခြေခံ logical condition ဖြစ်တယ်။"
   },
   {
     "type": "tf",
     "q": "For a 2-input AND gate, X is LOW when either A or B is LOW, or both A and B are LOW.",
     "c": "true",
-    "e": "AND gate သို့ input မည်သည့်တစ်ခုမဆို LOW ဖြစ်လျှင် output X သည် LOW ဖြစ်မည်။"
+    "e": "မှန်တယ်။ AND gate သို့ input မည်သည့်တစ်ခုမဆို LOW ဖြစ်လျှင် output X က LOW ဖြစ်မည်။"
   },
   {
     "type": "tf",
     "q": "For a 2-input OR gate, output X is LOW when either input A or input B is HIGH.",
     "c": "false",
-    "e": "OR gate အတွက် input A သို့မဟုတ် input B HIGH ဖြစ်လျှင် output X သည် HIGH ဖြစ်သည်။"
+    "e": "မှားတယ်။ OR gate အတွက် input A သို့မဟုတ် input B HIGH ဖြစ်လျှင် output X က HIGH ဖြစ်တယ်။"
   },
   {
     "type": "tf",
     "q": "For a 2-input OR gate, X is LOW only when both A and B are LOW.",
     "c": "true",
-    "e": "OR gate သည် inputs နှစ်ခုလုံး LOW ဖြစ်မှသာ LOW output ထုတ်သည်။"
+    "e": "မှန်တယ်။ OR gate က inputs နှစ်ခုလုံး LOW ဖြစ်မှသာ LOW output ထုတ်တယ်။"
   },
   {
     "type": "tf",
     "q": "The Boolean expression for an OR gate is $X = AB$.",
     "c": "false",
-    "e": "OR gate ၏ Boolean expression သည် $X = A + B$ ဖြစ်ပြီး $X = AB$ သည် AND gate အတွက်ဖြစ်သည်။"
+    "e": "မှားတယ်။ OR gate ရဲ့ Boolean expression က $X = A + B$ ဖြစ်ပြီး $X = AB$ က AND gate အတွက်ဖြစ်တယ်။"
   },
   {
     "type": "tf",
     "q": "For a 2-input NAND gate, output X is LOW only when inputs A and B are HIGH.",
     "c": "true",
-    "e": "NAND gate သည် AND gate ၏ inverse ဖြစ်သောကြောင့် inputs နှစ်ခုလုံး HIGH ဖြစ်မှသာ LOW output ထုတ်သည်။"
+    "e": "မှန်တယ်။ NAND gate က AND gate ရဲ့ inverse ဖြစ်သောကြောင့် inputs နှစ်ခုလုံး HIGH ဖြစ်မှသာ LOW output ထုတ်တယ်။"
   },
   {
     "type": "tf",
     "q": "For a 2-input NAND gate, X is HIGH when either A or B is LOW, or both A and B are LOW.",
     "c": "true",
-    "e": "NAND gate သို့ LOW input မည်သည့်တစ်ခုမဆို output X ကို HIGH ဖြစ်စေသည်။"
+    "e": "မှန်တယ်။ NAND gate သို့ LOW input မည်သည့်တစ်ခုမဆို output X ကို HIGH ဖြစ်စေတယ်။"
   },
   {
     "type": "tf",
     "q": "For a 2-input NOR gate, output X is HIGH only when both A and B are LOW.",
     "c": "true",
-    "e": "NOR gate သည် inputs နှစ်ခုလုံး LOW ဖြစ်မှသာ HIGH output ထုတ်သည်။"
+    "e": "မှန်တယ်။ NOR gate က inputs နှစ်ခုလုံး LOW ဖြစ်မှသာ HIGH output ထုတ်တယ်။"
   },
   {
     "type": "tf",
     "q": "For a 2-input NOR gate, X is LOW when either input A or input B is HIGH, or both A and B are HIGH.",
     "c": "true",
-    "e": "NOR gate သို့ input မည်သည့်တစ်ခုမဆို HIGH ဖြစ်လျှင် output X သည် LOW ဖြစ်လာသည်။"
+    "e": "မှန်တယ်။ NOR gate သို့ input မည်သည့်တစ်ခုမဆို HIGH ဖြစ်လျှင် output X က LOW ဖြစ်လာတယ်။"
   },
   {
     "type": "tf",
     "q": "The NAND gate and NOR gate are popular logic gates because they can be used as universal gates.",
     "c": "true",
-    "e": "Textbook က NAND နှင့် NOR ကို universal gates ဖြစ်သောကြောင့် လူကြိုက်များသည်ဟု ဖော်ထုတ်သည်။"
+    "e": "မှန်တယ်။ NAND နဲ့ NOR ကို universal gates ဖြစ်သောကြောင့် လူကြိုက်တွေကဟု ဖော်ထုတ်တယ်။"
   },
   {
     "type": "tf",
     "q": "Universal gates cannot be used in combination to perform the functions of any other types of gates.",
     "c": "false",
-    "e": "Universal gates တစ်ခုတည်းကို ပေါင်းစပ်၍ အခြား gate အမျိုးအစားများ၏ functions ဆောင်ရွက်နိုင်သည်။"
+    "e": "မှားတယ်။ Universal gates တစ်ခုတည်းကို ပေါင်းစပ်၍ အခြား gate အမျိုးအစားများရဲ့ functions ဆောင်ရွက်နိုင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The inverter (NOT gate) performs the operation called inversion or complementation.",
     "c": "true",
-    "e": "စာသားက NOT gate ၏ function ကို inversion သို့မဟုတ် complementation အဖြစ် သတ်မှတ်သည်။"
+    "e": "မှန်တယ်။ NOT gate ရဲ့ function ကို inversion သို့မဟုတ် complementation အဖြစ် သတ်မှတ်တယ်။"
   },
   {
     "type": "tf",
     "q": "The inverter changes one logic level to the opposite logic level.",
     "c": "true",
-    "e": "NOT gate သည် ၎င်း၏ input သို့ သက်ရောက်သော logic level ၏ ဆန့်ကျင်ဘက် အတိအကျ ထုတ်သည်။"
+    "e": "မှန်တယ်။ NOT gate က ၎င်းရဲ့ input သို့ သက်ရောက်သော logic level ရဲ့ ဆန့်ကျင်ဘက် ထုတ်တယ်။"
   },
   {
     "type": "tf",
     "q": "When a LOW level is applied to the input of a NOT gate, a LOW level will appear on its output.",
     "c": "false",
-    "e": "NOT gate ၏ input သို့ LOW level သက်ရောက်လျှင် output တွင် HIGH level ပေါ်မည်။"
+    "e": "မှားတယ်။ NOT gate ရဲ့ input သို့ LOW level သက်ရောက်လျှင် output မှာ HIGH level ပေါ်မည်။"
   },
   {
     "type": "tf",
     "q": "When a HIGH level is applied to the input of a NOT gate, a LOW level will appear on its output.",
     "c": "true",
-    "e": "NOT gate သည် HIGH input ကို LOW output အဖြစ် invert လုပ်သည်။"
+    "e": "မှန်တယ်။ NOT gate က HIGH input ကို LOW output အဖြစ် invert လုပ်တယ်။"
   },
   {
     "type": "tf",
     "q": "One NAND gate can be used to form a NOT gate.",
     "c": "true",
-    "e": "Textbook က NAND gate တစ်လုံးကို NOT gate အဖြစ် configure လုပ်နိုင်ကြောင်း ပြသည်။"
+    "e": "မှန်တယ်။ NAND gate တစ်လုံးကို NOT gate အဖြစ် configure လုပ်နိုင်ကြောင်း ပြတယ်။"
   },
   {
     "type": "tf",
     "q": "Two NAND gates can be combined to form an AND gate.",
     "c": "true",
-    "e": "စာသားက NAND gates နှစ်လုံး ပေါင်းစပ်ခြင်းသည် AND gate ၏ function ဖန်တီးကြောင်း ပြသည်။"
+    "e": "မှန်တယ်။ NAND gates နှစ်လုံး ပေါင်းစပ်ခြင်းက AND gate ရဲ့ function ဖန်တီးကြောင်း ပြတယ်။"
   },
   {
     "type": "tf",
     "q": "Three NAND gates can be combined to form a NOR gate.",
     "c": "false",
-    "e": "NAND gates သုံးလုံးသည် OR gate ဖြစ်စေပြီး NOR gate ဖြစ်ရန် NAND gates လေးလုံး လိုသည်။"
+    "e": "မှားတယ်။ NAND gates သုံးလုံးက OR gate ဖြစ်စေပြီး NOR gate ဖြစ်ရန် NAND gates လေးလုံး လိုတယ်။"
   },
   {
     "type": "tf",
     "q": "Four NAND gates can be combined to form a NOR gate.",
     "c": "true",
-    "e": "Textbook က NOR gate တည်ဆောက်ရန် NAND gates လေးလုံး လိုကြောင်း ပြသည်။"
+    "e": "မှန်တယ်။ NOR gate တည်ဆောက်ရန် NAND gates လေးလုံး လိုကြောင်း ပြတယ်။"
   },
   {
     "type": "tf",
     "q": "The Boolean expression for an AND gate is $X = AB$.",
     "c": "true",
-    "e": "Boolean expressions ဇယားတွင် AND gate အတွက် $X = AB$ ကို စာရင်းပြုသည်။"
+    "e": "မှန်တယ်။ Boolean expressions ဇယားမှာ AND gate အတွက် $X = AB$ ကို စာရင်းထဲပါတယ်။"
   }
 ]

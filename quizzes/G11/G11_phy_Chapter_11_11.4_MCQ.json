@@ -8,7 +8,7 @@
       "result",
       "voltage"
     ],
-    "e": "Textbook က ၎င်းကို decision ၏ result ကို output ထုတ်ခြင်းအဖြစ် သတ်မှတ်သည်။"
+    "e": "၎င်းကို decision ရဲ့ result ကို output ထုတ်ခြင်းအဖြစ် သတ်မှတ်တယ်။"
   },
   {
     "type": "mcq",
@@ -19,7 +19,7 @@
       "small integrated circuits (ICs)",
       "mechanical relays"
     ],
-    "e": "ICs သည် discrete components ထက် ပို အဆင်ပြေသည်။"
+    "e": "ICs က discrete components ထက် ပို အဆင်ပြေတယ်။"
   },
   {
     "type": "mcq",
@@ -30,7 +30,7 @@
       "AND, OR, NAND, NOR, NOT",
       "ADD, SUB, MUL, DIV, MOD"
     ],
-    "e": "ဤတို့သည် textbook တွင် ဖော်ပြသော ငါးခုဖြစ်သည်။"
+    "e": "အဖြေက AND, OR, NAND, NOR, NOT ပါ။ မေးခွန်းထဲက အဓိက စကားလုံးကို ဒီလိုပဲ မှတ်ထားပါ။"
   },
   {
     "type": "mcq",
@@ -41,7 +41,7 @@
       "two",
       "three"
     ],
-    "e": "Inverter (NOT gate) သည် input တစ်ခုတည်းပေါ် လည်ပတ်သည်။"
+    "e": "Inverter (NOT gate) က input တစ်ခုတည်းပေါ် လည်ပတ်တယ်။ ဒါကြောင့် one လို့ မှတ်ပါ။"
   },
   {
     "type": "mcq",
@@ -52,7 +52,7 @@
       "either input is HIGH",
       "both inputs are HIGH"
     ],
-    "e": "AND သည် HIGH output အတွက် inputs အားလုံး HIGH လိုအပ်သည်။"
+    "e": "AND က HIGH output အတွက် inputs အားလုံး HIGH လိုအပ်တယ်။ ဒါကြောင့် both inputs are HIGH လို့ မှတ်ပါ။"
   },
   {
     "type": "mcq",
@@ -63,7 +63,7 @@
       "either input is HIGH",
       "both inputs are LOW"
     ],
-    "e": "OR သည် inputs အားလုံး LOW ဖြစ်မှသာ LOW output ထုတ်သည်။"
+    "e": "OR က inputs အားလုံး LOW ဖြစ်မှသာ LOW output ထုတ်တယ်။ ဒါကြောင့် both inputs are LOW လို့ မှတ်ပါ။"
   },
   {
     "type": "mcq",
@@ -74,7 +74,7 @@
       "either input is LOW",
       "both inputs are HIGH"
     ],
-    "e": "NAND သည် AND ၏ inverse ဖြစ်ပြီး inputs နှစ်ခုလုံး HIGH ဖြစ်မှသာ LOW ဖြစ်သည်။"
+    "e": "NAND က AND ရဲ့ inverse ဖြစ်ပြီး inputs နှစ်ခုလုံး HIGH ဖြစ်မှသာ LOW ဖြစ်တယ်။ ဒါကြောင့် both inputs are HIGH လို့ မှတ်ပါ။"
   },
   {
     "type": "mcq",
@@ -85,7 +85,7 @@
       "either input is HIGH",
       "both inputs are LOW"
     ],
-    "e": "NOR သည် OR ၏ inverse ဖြစ်ပြီး inputs အားလုံး LOW ဖြစ်မှသာ HIGH ဖြစ်သည်။"
+    "e": "NOR က OR ရဲ့ inverse ဖြစ်ပြီး inputs အားလုံး LOW ဖြစ်မှသာ HIGH ဖြစ်တယ်။ ဒါကြောင့် both inputs are LOW လို့ မှတ်ပါ။"
   },
   {
     "type": "mcq",
@@ -96,7 +96,7 @@
       "$X = AB$",
       "$X = \\overline{AB}$"
     ],
-    "e": "AND ကို multiplication ဖြင့် ကိုယ်စားပြုသည်—$X = AB$။"
+    "e": "AND ကို multiplication နဲ့ ကိုယ်စားပြုသည်—$X = AB$။"
   },
   {
     "type": "mcq",
@@ -107,7 +107,7 @@
       "$X = A + B$",
       "$X = \\overline{A + B}$"
     ],
-    "e": "OR ကို addition ဖြင့် ကိုယ်စားပြုသည်—$X = A + B$။"
+    "e": "OR ကို addition နဲ့ ကိုယ်စားပြုသည်—$X = A + B$။"
   },
   {
     "type": "mcq",
@@ -118,7 +118,7 @@
       "$X = \\overline{AB}$",
       "$X = \\overline{A + B}$"
     ],
-    "e": "NAND သည် AND ၏ complement ဖြစ်သည်—$X = \\overline{AB}$။"
+    "e": "NAND က AND ရဲ့ complement ဖြစ်သည်—$X = \\overline{AB}$။"
   },
   {
     "type": "mcq",
@@ -129,7 +129,7 @@
       "$X = A + B$",
       "$X = \\overline{A + B}$"
     ],
-    "e": "NOR သည် OR ၏ complement ဖြစ်သည်—$X = \\overline{A + B}$။"
+    "e": "NOR က OR ရဲ့ complement ဖြစ်သည်—$X = \\overline{A + B}$။"
   },
   {
     "type": "mcq",
@@ -140,7 +140,7 @@
       "$X = \\overline{A}$",
       "$X = A + 1$"
     ],
-    "e": "NOT သည် input ကို invert လုပ်သည်—$X = \\overline{A}$။"
+    "e": "NOT က input ကို invert လုပ်သည်—$X = \\overline{A}$။"
   },
   {
     "type": "mcq",
@@ -151,7 +151,7 @@
       "can replace any other gate type when combined",
       "are faster than others"
     ],
-    "e": "ပေါင်းစပ်ခြင်းဖြင့် မည်သည့် logic function မဆို တည်ဆောက်နိုင်သည်။"
+    "e": "ပေါင်းစပ်ခြင်းနဲ့ မည်သည့် logic function မဆို တည်ဆောက်နိုင်တယ်။"
   },
   {
     "type": "mcq",
@@ -162,7 +162,7 @@
       "ZERO",
       "HIGH"
     ],
-    "e": "Inversion ဆိုသည်မှာ LOW → HIGH နှင့် HIGH → LOW ဖြစ်သည်။"
+    "e": "Inversion ဆိုတာ LOW → HIGH နဲ့ HIGH → LOW ဖြစ်တယ်။"
   },
   {
     "type": "mcq",
@@ -173,7 +173,7 @@
       "OR gate",
       "NAND gate"
     ],
-    "e": "OR သည် input အနည်းဆုံး တစ်ခု HIGH ဖြစ်လျှင် HIGH ပေးသည်။"
+    "e": "OR က input အနည်းဆုံး တစ်ခု HIGH ဖြစ်လျှင် HIGH ပေးတယ်။ ဒါကြောင့် OR gate လို့ မှတ်ပါ။"
   },
   {
     "type": "mcq",
@@ -184,7 +184,7 @@
       "AND gate",
       "NOR gate"
     ],
-    "e": "AND သည် HIGH output အတွက် inputs အားလုံး HIGH လိုအပ်သည်။"
+    "e": "AND က HIGH output အတွက် inputs အားလုံး HIGH လိုအပ်တယ်။ ဒါကြောင့် AND gate လို့ မှတ်ပါ။"
   },
   {
     "type": "mcq",
@@ -195,7 +195,7 @@
       "three",
       "four"
     ],
-    "e": "Textbook သည် NAND gates သုံးလုံးဖြင့် တည်ဆောက်သော OR ကို ပြသည်။"
+    "e": "NAND gates သုံးလုံးနဲ့ တည်ဆောက်သော OR ကို ပြတယ်။ ဒါကြောင့် three လို့ မှတ်ပါ။"
   },
   {
     "type": "mcq",
@@ -206,7 +206,7 @@
       "two",
       "three"
     ],
-    "e": "NAND gate ၏ inputs နှစ်ခုလုံး ချိတ်ခြင်းသည် NOT gate ဖြစ်စေသည်။"
+    "e": "NAND gate ရဲ့ inputs နှစ်ခုလုံး ချိတ်ခြင်းက NOT gate ဖြစ်စေတယ်။ ဒါကြောင့် one လို့ မှတ်ပါ။"
   },
   {
     "type": "mcq",
@@ -217,7 +217,7 @@
       "two",
       "three"
     ],
-    "e": "NAND gates နှစ်လုံး—ပထမသည် NAND, ဒုတိယသည် inverter။"
+    "e": "NAND gates နှစ်လုံး—ပထမက NAND, ဒုတိယက inverter။ ဒါကြောင့် two လို့ မှတ်ပါ။"
   },
   {
     "type": "mcq",
@@ -228,6 +228,6 @@
       "four",
       "five"
     ],
-    "e": "Textbook diagram သည် NOR အတွက် NAND gates လေးလုံး သုံးသည်။"
+    "e": "NOR အတွက် NAND gates လေးလုံး သုံးတယ်။ ဒါကြောင့် four လို့ မှတ်ပါ။"
   }
 ]
