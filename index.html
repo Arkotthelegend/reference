@@ -3813,7 +3813,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-plan-try .ld-plan-cta { background: #FBBF24; color: #0B0F19; }
         .ld-plan-sec { font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #64748B; margin: 0 0 4px; }
         .ld-plan-feat { list-style: none; padding: 0; margin: 0 0 16px; }
-        .ld-plan-feat li { color: #fff; font-size: 0.86rem; line-height: 1.45; padding: 10px 0; border-top: 1px solid #1E293B; }
+        .ld-plan-feat li { color: #fff; font-size: 0.84rem; line-height: 1.4; padding: 7px 0; border-top: 1px solid #1E293B; }
         .ld-plan-feat li:first-child { border-top: 0; padding-top: 0; }
         .ld-plan-ai { color: #F0B90B !important; font-weight: 800; }
         .ld-plan-try .ld-plan-ai { color: #FBBF24 !important; }
@@ -3945,8 +3945,8 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
             <div id="ld-panel-price" class="ld-panel">
             <h2 style="color:#F0B90B;font-size:1.2rem;margin:0 0 8px;text-align:center;">Price</h2>
-            <p class="ld-note">All subjects only — not sold one by one. Pick your grade, then pick 1 month, 3 months, 6 months, or 13 months.</p>
-            <p class="ld-note" style="color:#F0B90B;font-weight:700;">Weekly timetable made by AI is included with every plan.</p>
+            <p class="ld-note">All subjects, one pack. Pick a grade and a plan.</p>
+            <p class="ld-note" style="color:#F0B90B;font-weight:700;">Weekly timetable made by AI is included.</p>
             <div class="ld-grade-pick">
                 <button type="button" class="ld-grade-btn ld-grade-on" data-grade="10">Grade 10</button>
                 <button type="button" class="ld-grade-btn" data-grade="11">Grade 11</button>
@@ -3967,7 +3967,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     <p class="ld-plan-hook" id="ld-pack-hook">Grade 10 · full pack</p>
                     <div class="ld-plan-price"><span id="ld-pack-amt">9,500</span> <small>Ks</small></div>
                     <div class="ld-plan-bill" id="ld-pack-bill">1 month · billed once</div>
-                    <p class="ld-plan-desc" id="ld-pack-desc">Unlock every subject on Grade 10. Biology or Economics is the sixth.</p>
+                    <p class="ld-plan-desc" id="ld-pack-desc">Grade 10 · Bio or Eco as the sixth.</p>
                     <ul class="ld-plan-feat" id="ld-pack-feat"></ul>
                     <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Unlock all subjects</a>
                 </article>
@@ -4034,28 +4034,29 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 '13': '13 months · billed once'
             };
             var g12 = ldGrade === '12';
-            var oldQ = g12 ? ' Includes old questions.' : '';
             amt.textContent = prices[ldTerm] || prices['1'];
             if (bill) bill.textContent = bills[ldTerm] || bills['1'];
             if (hook) hook.textContent = 'Grade ' + ldGrade + ' · full pack';
             if (desc) {
                 desc.textContent = g12
-                    ? 'Unlock every subject on Grade 12, including old questions. Biology or Economics is the sixth.'
-                    : 'Unlock every subject on Grade ' + ldGrade + '. Biology or Economics is the sixth.';
+                    ? 'Grade 12 · Bio or Eco as the sixth · old questions'
+                    : 'Grade ' + ldGrade + ' · Bio or Eco as the sixth';
             }
             if (feat) {
-                feat.innerHTML = [
-                    ldFeatLine('Myanmar', 'Chapter quizzes on speaking, prose, poems, Yethi, and writing. MCQ, true/false, and fill-blank.' + oldQ),
+                var lines = [
+                    ldFeatLine('Myanmar', 'MCQ, true/false, fill-blank'),
                     ldFeatLine('English', g12
-                        ? 'Unit quizzes, grammar notes, poems with paraphrase, dialogues, and Q and A. Includes old questions.'
-                        : 'Unit quizzes, grammar notes, poems, and dialogues.'),
-                    ldFeatLine('Maths', 'Chapter quizzes for 1-mark, 2-mark, and 3-mark, with step-by-step solutions.' + oldQ),
-                    ldFeatLine('Physics', 'Chapters and sub-chapters with definitions, formulas, and key terms. MCQ, true/false, fill-blank, and 1-mark.' + oldQ),
-                    ldFeatLine('Chemistry', 'Chapters and sub-chapters with definitions, formulas, and key terms. MCQ, true/false, fill-blank, and 1-mark.' + oldQ),
-                    ldFeatLine('Biology', 'Chapters and sub-chapters with definitions and key terms. STEAM 1 sixth subject.' + oldQ),
-                    ldFeatLine('Economics', 'Chapters and sub-chapters with definitions and key terms. STEAM 2 sixth subject.' + oldQ),
-                    '<li class="ld-plan-ai">Weekly timetable made by AI</li>'
-                ].join('');
+                        ? 'Initial letter, MCQ, grammar, poems, Q and A'
+                        : 'Initial letter, MCQ, grammar, poems, dialogues'),
+                    ldFeatLine('Maths', '1, 2, 3-mark quizzes with solutions'),
+                    ldFeatLine('Physics', 'Definitions, formulas, MCQ, true/false, fill-blank'),
+                    ldFeatLine('Chemistry', 'Definitions, formulas, MCQ, true/false, fill-blank'),
+                    ldFeatLine('Biology', 'Key terms · STEAM 1'),
+                    ldFeatLine('Economics', 'Definitions, key terms · STEAM 2')
+                ];
+                if (g12) lines.push('<li>Old questions on every subject</li>');
+                lines.push('<li class="ld-plan-ai">Weekly timetable made by AI</li>');
+                feat.innerHTML = lines.join('');
             }
             document.querySelectorAll('.ld-term-btn').forEach(function(b) {
                 b.classList.toggle('ld-term-on', b.getAttribute('data-term') === ldTerm);
