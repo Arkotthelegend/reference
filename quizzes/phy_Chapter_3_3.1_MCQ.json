@@ -8,7 +8,7 @@
       "shearing forces"
     ],
     "c": 0,
-    "e": "သင်ခန်းစာအရ fluid သည် deforming forces ကို အမြဲတမ်း ခုခံမှု မပေးသဖြင့် solids နှင့် ကွဲပြားသည်။"
+    "e": "Fluid (အရည်/ဓာတ်ငွေ့) က shear ကို အမြဲခံမနေဘူး၊ ပုံစီးပြီး စီးသွားတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "The study of fluids has two parts, statics and _____.",
@@ -19,7 +19,7 @@
       "mechanics"
     ],
     "c": 1,
-    "e": "Fluid mechanics ကို fluid statics (ငြိမ်နေသော fluids) နှင့် fluid dynamics (ရွေ့နေသော fluids) ဟူ၍ ခွဲသည်။"
+    "e": "dynamics က ဒီနေရာမှာ ကိုက်တယ်။ Fluid က အရည်/ဓာတ်ငွေ့၊ ပုံစီးတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Fluid statics concentrates on fluids at _____.",
@@ -30,7 +30,7 @@
       "rest"
     ],
     "c": 2,
-    "e": "Fluid statics သည် မရွေ့ဘဲ ငြိမ်နေသော fluids ကို အထူးလေ့လာသည်။"
+    "e": "Fluid statics က အရည်ငြိမ်၊ dynamics က စီးနေတဲ့အခါ။ ရေပိုက် vs ရေကန်ပဲ။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Fluid dynamics concerns with the fluid in _____.",
@@ -41,7 +41,7 @@
       "vacuum"
     ],
     "c": 1,
-    "e": "Fluid dynamics သည် ရွေ့လျားနေသော fluids ကို လေ့လာသော fluid mechanics ဌာနခွဲဖြစ်သည်။"
+    "e": "Motion/dynamics က စီးနေတဲ့ အရည်။ ရေပိုက်ထဲ ရေပဲ။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "The study of the flow of liquid is called _____.",
@@ -52,7 +52,7 @@
       "aerodynamics"
     ],
     "c": 0,
-    "e": "သင်ခန်းစာတွင် hydrodynamics ကို liquid ၏ flow ကို လေ့လာခြင်းဟု သတ်မှတ်သည်။"
+    "e": "Hydrodynamics က အရည်စီးမှု၊ hydrostatics က ငြိမ်နေတဲ့ အရည်ဖိအား။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Hydrostatics is the study of liquid at _____.",
@@ -63,7 +63,7 @@
       "rest"
     ],
     "c": 2,
-    "e": "Hydrostatics သည် ငြိမ်နေသော liquids ကို အာရုံစိုက်သည်။"
+    "e": "At rest က မစီးသေး၊ hydrostatics ဘက်ပဲ။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "The volume of a liquid does not depend on pressure if the temperature is constant, hence the liquid is _____.",
@@ -74,7 +74,7 @@
       "incompressible"
     ],
     "c": 2,
-    "e": "အကြောင်းမှာ constant temperature တွင် မည်သည့် pressure ဖြစ်စေ liquid ၏ density တည်ငြိမ်သောကြောင့် incompressible ဟု သတ်မှတ်သည်။"
+    "e": "Incompressible ဆိုတာ volume မပွ၊ မကျုံ့ဘူးလို့ ယူဆတာ။ ရေကို ဒီလို မော်ဒယ်လုပ်လေ့ရှိတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "In the flow of fluids, the path or flow of the fluid particles is called _____.",
@@ -85,7 +85,7 @@
       "vector line"
     ],
     "c": 0,
-    "e": "ရွေ့နေသော fluid particles လိုက်သော သီးခြား လမ်းကြောင်းကို streamline ဟု ခေါ်သည်။"
+    "e": "Streamline က အမှုန်လမ်းကြောင်းကို မျဉ်းဆွဲပြတာ။ Laminar မှာ streamline တွေ မရောဘူး။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "If fluid particles are moving steady in smooth paths in layers with no mixing, such a flow is called _____ flow.",
@@ -96,7 +96,7 @@
       "viscous"
     ],
     "c": 1,
-    "e": "Laminar flow တွင် fluid particles များ ချောမွေ့သော parallel အလွှာများအတိုင်း တည်ငြိမ်စီးပြီး ရောနှောမှု မရှိပါ။"
+    "e": "Laminar flow က အလွှာလိုက် ငြိမ်ငြိမ်စီးတာ၊ ရေပိုက်နှေးနှေးဖွင့်သလို။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "In steady laminar flow, streamlines _____ each other.",
@@ -107,7 +107,7 @@
       "merge into"
     ],
     "c": 0,
-    "e": "စစ်မှန်သော laminar flow တွင် streamlines များ parallel ရှိပြီး တစ်ခုနှင့်တစ်ခု မဖြတ်ကြပါ။"
+    "e": "Laminar flow က အလွှာလိုက် ငြိမ်ငြိမ်စီးတာ၊ ရေပိုက်နှေးနှေးဖွင့်သလို။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "In turbulent flow, the speed of the fluid at a point is continuously undergoing changes in both _____.",
@@ -118,7 +118,7 @@
       "magnitude and direction"
     ],
     "c": 2,
-    "e": "Turbulent flow သည် မမှန်ကန်၊ လည်ဝဲနေသဖြင့် velocity vector ၏ magnitude နှင့် ဦးတည်ချက် အမြဲပြောင်းသည်။"
+    "e": "Turbulent flow က ဝရုန်းဝရှင်း၊ ခတ်မြည်မြည်စီးတာ။ ပိုက်ကို အပြင်းဖွင့်ရင် ဖြစ်တယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Ideal laminar fluid flow considers the fluid to be _____.",
@@ -129,7 +129,7 @@
       "compressible"
     ],
     "c": 1,
-    "e": "Ideal fluid model သည် fluid ကို လုံးဝ incompressible ဟု ယူဆပြီး density မပြောင်းဟု ဆိုလိုသည်။"
+    "e": "Incompressible ဆိုတာ volume မပွ၊ မကျုံ့ဘူးလို့ ယူဆတာ။ ရေကို ဒီလို မော်ဒယ်လုပ်လေ့ရှိတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Internal friction in fluids is called _____.",
@@ -140,7 +140,7 @@
       "viscosity"
     ],
     "c": 2,
-    "e": "Viscosity သည် fluid ၏ internal friction သို့မဟုတ် flow ကို ခုခံမှုကို ဖော်ပြသော ဂုဏ်သတ္တိဖြစ်သည်။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Ideal laminar fluid flow assumes the flow has no friction, meaning _____ viscosity.",
@@ -151,7 +151,7 @@
       "constant"
     ],
     "c": 1,
-    "e": "Ideal fluid model သည် internal friction ကို လုံးဝ ချန်လှပ်ပြီး viscosity သုညဟု ယူဆသည်။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "An example of laminar flow is _____.",
@@ -162,7 +162,7 @@
       "whirling water"
     ],
     "c": 0,
-    "e": "သင်ခန်းစာတွင် နူးညံ့တည်ငြိမ်သော ပင်လယ်လေကို laminar flow ၏ လက်တွေ့ဥပမာအဖြစ် ပေးထားသည်။"
+    "e": "Laminar flow က အလွှာလိုက် ငြိမ်ငြိမ်စီးတာ၊ ရေပိုက်နှေးနှေးဖွင့်သလို။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "An example of turbulent flow is _____.",
@@ -173,7 +173,7 @@
       "sea breeze"
     ],
     "c": 1,
-    "e": "မုန်တိုင်းတွင် ရှုပ်ထွေး၊ မမှန်ကန်၊ အမြန်ပြောင်းသော လေစီးကြောင်းများရှိသဖြင့် turbulent flow ၏ ဂန္ထဝင်ဥပမာဖြစ်သည်။"
+    "e": "Turbulent flow က ဝရုန်းဝရှင်း၊ ခတ်မြည်မြည်စီးတာ။ ပိုက်ကို အပြင်းဖွင့်ရင် ဖြစ်တယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Motor car brake oil is _____.",
@@ -184,7 +184,7 @@
       "non-compressible"
     ],
     "c": 2,
-    "e": "Liquids အများစုကဲ့သို့ ကား brake oil ကို hydraulic system တွင် force ထိရောက်စွာ ပို့ရန် non-compressible အဖြစ် သတ်မှတ်သည်။"
+    "e": "Electric motor က current ရှိတဲ့ ကွိုင်ကို သံလိုက်က လည်အောင်လုပ်တယ်။ ဖုန်း vibrator၊ ပန်ကာပဲ။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Gases are _____.",
@@ -195,6 +195,6 @@
       "non-viscous"
     ],
     "c": 0,
-    "e": "Liquids နှင့် မတူဘဲ gas ၏ volume သည် pressure နှင့် temperature အပေါ် အများအပြား မူတည်သဖြင့် gases များ highly compressible ဖြစ်သည်။"
+    "e": "Gas က compress လုပ်လို့ရတဲ့ fluid ပဲ။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   }
 ]
