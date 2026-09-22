@@ -4,152 +4,211 @@
   <meta charset="utf-8">
   <title>REED price poster</title>
   <style>
-    html, body { margin: 0; background: #070b14; }
+    html, body { margin: 0; background: #0B0F19; }
     .art {
       width: 1080px;
       height: 1080px;
       position: relative;
       overflow: hidden;
-      background: #070b14 url("./reed-ad-character-bg.png") left center / cover no-repeat;
+      background: #0B0F19 url("./reed-ad-character-bg.png") left 42% / cover no-repeat;
       font-family: Inter, "Noto Sans", Arial, sans-serif;
+      color: #fff;
     }
     .scrim {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(7,11,20,0) 38%, rgba(7,11,20,0.35) 52%, rgba(7,11,20,0.82) 68%, rgba(7,11,20,0.92) 100%);
-    }
-    .copy {
-      position: absolute;
-      top: 56px;
-      right: 48px;
-      width: 500px;
-      z-index: 2;
-      text-align: right;
+      background:
+        linear-gradient(90deg, rgba(11,15,25,0.08) 0%, rgba(11,15,25,0.12) 40%, rgba(11,15,25,0.72) 58%, rgba(11,15,25,0.94) 72%);
     }
     .brand {
-      display: inline-flex;
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      z-index: 3;
+      display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 18px;
     }
     .mark {
-      width: 48px; height: 48px; border-radius: 12px;
+      width: 44px; height: 44px; border-radius: 11px;
       background: #F0B90B; color: #0B0F19;
-      font-weight: 800; font-size: 24px;
+      font-weight: 800; font-size: 22px;
       display: flex; align-items: center; justify-content: center;
     }
     .brand b {
-      color: #fff;
-      font-size: 28px;
+      font-size: 22px;
       letter-spacing: 0.18em;
-      text-shadow: 0 3px 0 #000, 0 8px 18px rgba(0,0,0,.55);
+      font-weight: 800;
+    }
+    .copy {
+      position: absolute;
+      top: 36px;
+      right: 48px;
+      width: 470px;
+      z-index: 2;
     }
     .kicker {
+      margin: 0 0 10px;
       color: #F0B90B;
+      font-size: 15px;
       font-weight: 800;
-      letter-spacing: 0.14em;
-      font-size: 20px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      text-shadow: 0 2px 0 #000;
-      margin-bottom: 8px;
     }
-    .title {
-      margin: 0 0 6px;
-      font-size: 54px;
-      line-height: 0.9;
+    .all {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: #E2E8F0;
+      text-transform: uppercase;
+    }
+    .hook {
+      margin: 2px 0 10px;
+      font-size: 78px;
+      line-height: 0.88;
       font-weight: 900;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: -0.03em;
-      text-shadow:
-        0 3px 0 #0B0F19,
-        0 8px 0 #7a5a00,
-        0 16px 28px rgba(0,0,0,.55);
-    }
-    .title em {
-      display: block;
-      font-style: normal;
-      font-size: 86px;
+      letter-spacing: -0.045em;
       color: #F0B90B;
-      -webkit-text-stroke: 6px #0B0F19;
-      paint-order: stroke fill;
-      text-shadow: 0 10px 0 #8a6400, 0 18px 30px rgba(0,0,0,.5);
+      text-transform: uppercase;
     }
-    .stack { margin-top: 22px; display: flex; flex-direction: column; gap: 12px; align-items: stretch; }
+    .value {
+      margin: 0 0 16px;
+      color: #94A3B8;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .stack { display: flex; flex-direction: column; gap: 8px; }
     .row {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      background: linear-gradient(90deg, #162235, #0B0F19);
-      border: 3px solid #F0B90B;
+      background: #162235;
+      border: 1px solid #334155;
       border-radius: 14px;
-      padding: 12px 18px 12px 20px;
-      box-shadow: 0 8px 0 #6b5200, 0 16px 24px rgba(0,0,0,.4);
-      clip-path: polygon(18px 0, 100% 0, calc(100% - 18px) 100%, 0 100%);
+      padding: 11px 16px;
     }
     .row .term {
-      color: #fff;
-      font-weight: 800;
-      font-size: 26px;
-      text-shadow: 0 2px 0 #000;
+      color: #94A3B8;
+      font-weight: 700;
+      font-size: 18px;
     }
     .row .amt {
-      color: #F0B90B;
-      font-weight: 900;
-      font-size: 34px;
-      letter-spacing: -0.02em;
-      text-shadow: 0 3px 0 #000;
-    }
-    .row.best {
-      background: linear-gradient(90deg, #F0B90B, #FCD535);
-      border-color: #fff;
-      box-shadow: 0 8px 0 #8a6400, 0 16px 24px rgba(0,0,0,.45);
-    }
-    .row.best .term, .row.best .amt { color: #0B0F19; text-shadow: none; }
-    .row.best .amt { font-size: 38px; }
-    .ai {
-      margin-top: 16px;
-      color: #FCD535;
+      color: #E2E8F0;
       font-weight: 800;
       font-size: 22px;
-      text-shadow: 0 3px 0 #000;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+    .best {
+      position: relative;
+      margin-bottom: 4px;
+      padding: 18px 18px 16px;
+      border: 1.5px solid #F0B90B;
+      background: linear-gradient(180deg, rgba(240,185,11,0.16) 0%, #162235 70%);
+      border-radius: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: #F0B90B;
+      color: #0B0F19;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 4px 10px;
+      margin-bottom: 8px;
+    }
+    .best-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .best .term {
+      color: #FCD535;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .best .amt {
+      color: #F0B90B;
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    .per {
+      margin: 4px 0 0;
+      color: #94A3B8;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: right;
+    }
+    .cta {
+      margin-top: 20px;
+      background: #F0B90B;
+      color: #0B0F19;
+      border-radius: 16px;
+      padding: 16px 18px 15px;
+      text-align: center;
+    }
+    .cta .ask {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 4px;
+    }
+    .cta .buy {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
     }
     .foot {
       position: absolute;
-      left: 36px; right: 36px; bottom: 28px;
-      z-index: 2;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      color: #fff;
-      font-weight: 800;
-      font-size: 18px;
-      text-shadow: 0 3px 8px #000;
+      left: 40px;
+      bottom: 28px;
+      z-index: 3;
+      color: #64748B;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.55;
+      text-shadow: 0 2px 10px #0B0F19;
     }
-    .foot span { text-align: center; flex: 1; }
-    .foot small { display: block; color: #F0B90B; font-size: 16px; margin-top: 4px; }
+    .foot b { color: #94A3B8; font-weight: 700; }
   </style>
 </head>
 <body>
   <div class="art">
     <div class="scrim"></div>
+    <div class="brand"><div class="mark">R</div><b>REED</b></div>
     <div class="copy">
-      <div class="brand"><div class="mark">R</div><b>REED</b></div>
-      <div class="kicker">Grade 10 · 11 · 12</div>
-      <h1 class="title">All subjects<br><em>ONE PACK</em></h1>
+      <p class="kicker">Grade 10 · 11 · 12</p>
+      <p class="all">All subjects</p>
+      <h1 class="hook">One pack</h1>
+      <p class="value">Weekly timetable made by AI included</p>
       <div class="stack">
+        <div class="best">
+          <span class="badge">Best value</span>
+          <div class="best-top">
+            <span class="term">13 months</span>
+            <span class="amt">34,500 Ks</span>
+          </div>
+          <div class="per">≈ 2,654 Ks / month</div>
+        </div>
         <div class="row"><span class="term">1 month</span><span class="amt">9,500 Ks</span></div>
         <div class="row"><span class="term">3 months</span><span class="amt">19,500 Ks</span></div>
         <div class="row"><span class="term">6 months</span><span class="amt">29,500 Ks</span></div>
-        <div class="row best"><span class="term">13 months</span><span class="amt">34,500 Ks</span></div>
       </div>
-      <div class="ai">Weekly timetable made by AI</div>
+      <div class="cta">
+        <div class="ask">Ready to start?</div>
+        <div class="buy">Buy: @minaphayarkot</div>
+      </div>
     </div>
     <div class="foot">
-      <span>Bot<small>@reededucation_bot</small></span>
-      <span>Buy<small>@minaphayarkot</small></span>
-      <span>Channel<small>@REED_education</small></span>
+      Bot <b>@reededucation_bot</b><br>
+      Channel <b>@REED_education</b>
     </div>
   </div>
 </body>
