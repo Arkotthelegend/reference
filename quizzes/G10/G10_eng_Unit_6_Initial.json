@@ -1,63 +1,362 @@
-
 [
-  {"type": "blank", "q": "The w_____ man owned flocks of sheep, herds of cattle, and wheat farms.", "a": "wealthy"},
-  {"type": "blank", "q": "He owned f_____ of sheep and herds of cattle on his land.", "a": "flocks"},
-  {"type": "blank", "q": "The farmer managed large h_____ of cattle grazing in the pastures.", "a": "herds"},
-  {"type": "blank", "q": "Dan, the elder son, worked hard in the o_____ picking fruits.", "a": "orchards"},
-  {"type": "blank", "q": "The family estate included beautiful v_____ where grapes were grown.", "a": "vineyards"},
-  {"type": "blank", "q": "Ben asked his father for his share of the i_____ to live independently.", "a": "inheritance"},
-  {"type": "blank", "q": "The young man traveled to a d_____ land to lead a free life.", "a": "distant"},
-  {"type": "blank", "q": "Ben wished to go to a distant land and lead an i_____ life.", "a": "independent"},
-  {"type": "blank", "q": "Ben led a free life, just s_____ the money his father gave him.", "a": "squandering"},
-  {"type": "blank", "q": "When his money ran out, he sold pieces of precious j_____ he had received.", "a": "jewellery"},
-  {"type": "blank", "q": "After losing all his money, he became a p_____ with nowhere to stay.", "a": "pauper"},
-  {"type": "blank", "q": "To keep body and soul together, he worked as a s_____ for a wealthy man.", "a": "swineherd"},
-  {"type": "blank", "q": "The father said his son was naughty but he has r_____ of his folly.", "a": "repented"},
-  {"type": "blank", "q": "The young man regretted his f_____ and decided to return home.", "a": "folly"},
-  {"type": "blank", "q": "The father said they should r_____ and celebrate because his son was found.", "a": "rejoice"},
-  {"type": "blank", "q": "The father ordered a grand meal to c_____ his younger son's return.", "a": "celebrate"},
-  {"type": "blank", "q": "Dan complained about his father doing all this for the naughty p_____ son.", "a": "prodigal"},
-  {"type": "blank", "q": "The father gave Ben whatever the son was e_____ to receive.", "a": "entitled"},
-  {"type": "blank", "q": "Father and son hugged and kissed each other as was the c_____.", "a": "custom"},
-  {"type": "blank", "q": "He sold one piece of p_____ jewellery after another to survive.", "a": "precious"},
-  {"type": "blank", "q": "Ben realized he was not even half as rich as his father's w_____.", "a": "workmen"},
-  {"type": "blank", "q": "The father called his s_____ to wash and dress his returning son.", "a": "servants"},
-  {"type": "blank", "q": "The servants were told to dress the son up in the best of c_____.", "a": "clothing"},
-  {"type": "blank", "q": "The father ordered his servants to go kill the f_____ calf for the meal.", "a": "fatted"},
-  {"type": "blank", "q": "A grand meal was prepared after they killed the fatted c_____.", "a": "calf"},
-  {"type": "blank", "q": "The father told his servants to prepare a g_____ meal for the celebration.", "a": "grand"},
-  {"type": "blank", "q": "The family gathered to enjoy a grand m_____ to welcome the son back.", "a": "meal"},
-  {"type": "blank", "q": "Dan referred to his younger brother as a n_____ prodigal son.", "a": "naughty"},
-  {"type": "blank", "q": "Dan argued that his brother d_____ to be driven out of the house.", "a": "deserves"},
-  {"type": "blank", "q": "The elder son believed the naughty brother should be d_____ out.", "a": "driven"},
-  {"type": "blank", "q": "Dan, the elder son, was s_____ and a great help to his father.", "a": "serious"},
-  {"type": "blank", "q": "The older brother was h_____ and always assisted his father on the farm.", "a": "hardworking"},
-  {"type": "blank", "q": "Ben never b_____ to help his father and only thought of having a good time.", "a": "bothered"},
-  {"type": "blank", "q": "Ben confidently told his father, 'I'm sure I'll s_____.'", "a": "succeed"},
-  {"type": "blank", "q": "The father saw him from a distance and came r_____ towards him.", "a": "rushing"},
-  {"type": "blank", "q": "The father hugged, kissed, and w_____ his son back home warmly.", "a": "welcomed"},
-  {"type": "blank", "q": "When Ben fell ill, he had nothing to eat and was in r_____.", "a": "rags"},
-  {"type": "blank", "q": "After falling ill and having nothing to eat, he d_____ to go back.", "a": "decided"},
-  {"type": "blank", "q": "He was still at a d_____ from his father's house when he was seen.", "a": "distance"},
-  {"type": "blank", "q": "The father told some servants to go kill the calf and p_____ a grand meal.", "a": "prepare"},
-  {"type": "blank", "q": "Ben thought, 'I should go back to my father, but I'm a_____.'", "a": "afraid"},
-  {"type": "blank", "q": "Ben feared his father would c_____ drive him away if he returned.", "a": "certainly"},
-  {"type": "blank", "q": "The father was overjoyed because his lost son had finally been f_____.", "a": "found"},
-  {"type": "blank", "q": "In a distant land, Ben led a very f_____ and easy life.", "a": "free"},
-  {"type": "blank", "q": "Ben enjoyed a free and e_____ life until his money ran out.", "a": "easy"},
-  {"type": "blank", "q": "When his money ran out, he s_____ his precious jewellery.", "a": "sold"},
-  {"type": "blank", "q": "He sold the jewellery he had r_____ from his father.", "a": "received"},
-  {"type": "blank", "q": "He became a pauper with n_____ to stay and nothing to eat.", "a": "nowhere"},
-  {"type": "blank", "q": "The pauper had nowhere to stay and n_____ to eat.", "a": "nothing"},
-  {"type": "blank", "q": "He had only the clothes he was w_____ when he became a pauper.", "a": "wearing"},
-  {"type": "blank", "q": "He worked as a swineherd just to keep his body and s_____ together.", "a": "soul"},
-  {"type": "blank", "q": "He worked hard to keep his body and soul t_____.", "a": "together"},
-  {"type": "blank", "q": "He became so p_____ that he had to eat what the swine were fed with.", "a": "poor"},
-  {"type": "blank", "q": "He was so poor he had to eat what the swine were f_____ with.", "a": "fed"},
-  {"type": "blank", "q": "One day he fell i_____ and had nothing to eat.", "a": "ill"},
-  {"type": "blank", "q": "'I'm not even half as rich as my father's workmen,' he often thought s_____.", "a": "sadly"},
-  {"type": "blank", "q": "Dan was upset because his younger b_____ was being celebrated.", "a": "brother"},
-  {"type": "blank", "q": "Ben decided to go back to his f_____ and ask for forgiveness.", "a": "father"},
-  {"type": "blank", "q": "Ben led a free life, just squandering the m_____ his father gave him.", "a": "money"},
-  {"type": "blank", "q": "He worked as a swineherd to keep his b_____ and soul together.", "a": "body"}
+  {
+    "type": "blank",
+    "q": "The w_____ man owned flocks of sheep, herds of cattle, and wheat farms.",
+    "a": "wealthy",
+    "e": "wealthy ဆိုသည်မှာ ချမ်းသာသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် wealthy ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He owned f_____ of sheep and herds of cattle on his land.",
+    "a": "flocks",
+    "e": "flocks ဆိုသည်မှာ သိုးအုပ်များ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် flocks ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The farmer managed large h_____ of cattle grazing in the pastures.",
+    "a": "herds",
+    "e": "herds ဆိုသည်မှာ တိရစ္ဆာန်အုပ်များ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် herds ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Dan, the elder son, worked hard in the o_____ picking fruits.",
+    "a": "orchards",
+    "e": "orchards ဆိုသည်မှာ သစ်သီးခြံများ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် orchards ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The family estate included beautiful v_____ where grapes were grown.",
+    "a": "vineyards",
+    "e": "vineyards ဆိုသည်မှာ စပျစ်ခြံများ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် vineyards ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ben asked his father for his share of the i_____ to live independently.",
+    "a": "inheritance",
+    "e": "inheritance ဆိုသည်မှာ အမွေ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် inheritance ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The young man traveled to a d_____ land to lead a free life.",
+    "a": "distant",
+    "e": "distant ဆိုသည်မှာ ဝေးကွာသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် distant ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ben wished to go to a distant land and lead an i_____ life.",
+    "a": "independent",
+    "e": "independent ဆိုသည်မှာ လွတ်လပ်သော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် independent ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ben led a free life, just s_____ the money his father gave him.",
+    "a": "squandering",
+    "e": "squandering ဆိုသည်မှာ ဖြုန်းတီးခြင်း ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် squandering ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "When his money ran out, he sold pieces of precious j_____ he had received.",
+    "a": "jewellery",
+    "e": "jewellery ဆိုသည်မှာ လက်ဝတ်ရတနာ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် jewellery ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "After losing all his money, he became a p_____ with nowhere to stay.",
+    "a": "pauper",
+    "e": "pauper ဆိုသည်မှာ ဆင်းရဲသား ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် pauper ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "To keep body and soul together, he worked as a s_____ for a wealthy man.",
+    "a": "swineherd",
+    "e": "swineherd ဆိုသည်မှာ ဝက်ကျောင်းသား ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် swineherd ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The father said his son was naughty but he has r_____ of his folly.",
+    "a": "repented",
+    "e": "repented ဆိုသည်မှာ နောင်တရခဲ့သော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် repented ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The young man regretted his f_____ and decided to return home.",
+    "a": "folly",
+    "e": "folly ဆိုသည်မှာ မိုက်မဲမှု ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် folly ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The father said they should r_____ and celebrate because his son was found.",
+    "a": "rejoice",
+    "e": "rejoice ဆိုသည်မှာ ဝမ်းမြောက်သည် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် rejoice ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The father ordered a grand meal to c_____ his younger son's return.",
+    "a": "celebrate",
+    "e": "celebrate ဆိုသည်မှာ ကျင်းပသည် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် celebrate ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Dan complained about his father doing all this for the naughty p_____ son.",
+    "a": "prodigal",
+    "e": "prodigal ဆိုသည်မှာ အလွန်အကျွံသုံးသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် prodigal ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The father gave Ben whatever the son was e_____ to receive.",
+    "a": "entitled",
+    "e": "entitled ဆိုသည်မှာ ခေါင်းစဉ်တပ်ထားသော၊ အခွင့်ရှိသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် entitled ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Father and son hugged and kissed each other as was the c_____.",
+    "a": "custom",
+    "e": "custom ဆိုသည်မှာ ဓလေ့ထုံးစံ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် custom ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He sold one piece of p_____ jewellery after another to survive.",
+    "a": "precious",
+    "e": "precious ဆိုသည်မှာ အဖိုးတန်သော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် precious ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ben realized he was not even half as rich as his father's w_____.",
+    "a": "workmen",
+    "e": "workmen ဆိုသည်မှာ အလုပ်သမားများ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် workmen ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The father called his s_____ to wash and dress his returning son.",
+    "a": "servants",
+    "e": "servants ဆိုသည်မှာ အစေခံများ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် servants ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The servants were told to dress the son up in the best of c_____.",
+    "a": "clothing",
+    "e": "clothing ဆိုသည်မှာ အဝတ်အထည် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် clothing ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The father ordered his servants to go kill the f_____ calf for the meal.",
+    "a": "fatted",
+    "e": "fatted ဆိုသည်မှာ ဆူဖြိုးအောင်မွေးထားသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် fatted ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "A grand meal was prepared after they killed the fatted c_____.",
+    "a": "calf",
+    "e": "calf ဆိုသည်မှာ နွားကလေး၊ ခြေသလုံး ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် calf ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The father told his servants to prepare a g_____ meal for the celebration.",
+    "a": "grand",
+    "e": "grand ဆိုသည်မှာ ကြီးကျယ်သော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် grand ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The family gathered to enjoy a grand m_____ to welcome the son back.",
+    "a": "meal",
+    "e": "meal ဆိုသည်မှာ ထမင်းတစ်နပ် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် meal ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Dan referred to his younger brother as a n_____ prodigal son.",
+    "a": "naughty",
+    "e": "naughty ဆိုသည်မှာ မိုက်မဲနောက်ခြင်း ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် naughty ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Dan argued that his brother d_____ to be driven out of the house.",
+    "a": "deserves",
+    "e": "deserves ဆိုသည်မှာ ထိုက်တန်သည် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် deserves ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The elder son believed the naughty brother should be d_____ out.",
+    "a": "driven",
+    "e": "driven ဆိုသည်မှာ မောင်းနှင်သော၊ လှုံ့ဆော်သော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် driven ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Dan, the elder son, was s_____ and a great help to his father.",
+    "a": "serious",
+    "e": "serious ဆိုသည်မှာ ပြင်းထန်သော၊ တည်ကြည်သော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် serious ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The older brother was h_____ and always assisted his father on the farm.",
+    "a": "hardworking",
+    "e": "hardworking ဆိုသည်မှာ ကြိုးစားသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် hardworking ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ben never b_____ to help his father and only thought of having a good time.",
+    "a": "bothered",
+    "e": "bothered ဆိုသည်မှာ စိတ်အနှောင့်အယှက်ဖြစ်သော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် bothered ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ben confidently told his father, 'I'm sure I'll s_____.'",
+    "a": "succeed",
+    "e": "succeed ဆိုသည်မှာ အောင်မြင်သည် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် succeed ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The father saw him from a distance and came r_____ towards him.",
+    "a": "rushing",
+    "e": "rushing ဆိုသည်မှာ အလျင်အမြန်လုပ်နေသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် rushing ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The father hugged, kissed, and w_____ his son back home warmly.",
+    "a": "welcomed",
+    "e": "welcomed ဆိုသည်မှာ ကြိုဆိုခံရသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် welcomed ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "When Ben fell ill, he had nothing to eat and was in r_____.",
+    "a": "rags",
+    "e": "rags ဆိုသည်မှာ အဝတ်စုတ်များ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် rags ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "After falling ill and having nothing to eat, he d_____ to go back.",
+    "a": "decided",
+    "e": "decided ဆိုသည်မှာ ဆုံးဖြတ်ခဲ့သော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် decided ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He was still at a d_____ from his father's house when he was seen.",
+    "a": "distance",
+    "e": "distance ဆိုသည်မှာ အကွာအဝေး ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် distance ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The father told some servants to go kill the calf and p_____ a grand meal.",
+    "a": "prepare",
+    "e": "prepare ဆိုသည်မှာ ပြင်ဆင်သည် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် prepare ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ben thought, 'I should go back to my father, but I'm a_____.'",
+    "a": "afraid",
+    "e": "afraid ဆိုသည်မှာ ကြောက်သော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် afraid ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ben feared his father would c_____ drive him away if he returned.",
+    "a": "certainly",
+    "e": "certainly ဆိုသည်မှာ သေချာပေါက် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် certainly ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The father was overjoyed because his lost son had finally been f_____.",
+    "a": "found",
+    "e": "found ဆိုသည်မှာ တွေ့ရှိသည်၊ တည်ထောင်သည် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် found ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "In a distant land, Ben led a very f_____ and easy life.",
+    "a": "free",
+    "e": "free ဆိုသည်မှာ လွတ်လပ်သော၊ အခမဲ့ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် free ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ben enjoyed a free and e_____ life until his money ran out.",
+    "a": "easy",
+    "e": "easy ဆိုသည်မှာ လွယ်ကူသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် easy ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "When his money ran out, he s_____ his precious jewellery.",
+    "a": "sold",
+    "e": "sold ဆိုသည်မှာ ရောင်းပြီးသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် sold ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He sold the jewellery he had r_____ from his father.",
+    "a": "received",
+    "e": "received ဆိုသည်မှာ လက်ခံရရှိသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် received ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He became a pauper with n_____ to stay and nothing to eat.",
+    "a": "nowhere",
+    "e": "nowhere ဆိုသည်မှာ ဘယ်နေရာမှ မဟုတ် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် nowhere ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "The pauper had nowhere to stay and n_____ to eat.",
+    "a": "nothing",
+    "e": "nothing ဆိုသည်မှာ ဘာမှမရှိ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် nothing ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He had only the clothes he was w_____ when he became a pauper.",
+    "a": "wearing",
+    "e": "wearing ဆိုသည်မှာ ဝတ်ဆင်ခြင်း ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် wearing ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He worked as a swineherd just to keep his body and s_____ together.",
+    "a": "soul",
+    "e": "soul ဆိုသည်မှာ ဝိညာဉ် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် soul ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He worked hard to keep his body and soul t_____.",
+    "a": "together",
+    "e": "together ဆိုသည်မှာ အတူတကွ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် together ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He became so p_____ that he had to eat what the swine were fed with.",
+    "a": "poor",
+    "e": "poor ဆိုသည်မှာ ဆင်းရဲသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် poor ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He was so poor he had to eat what the swine were f_____ with.",
+    "a": "fed",
+    "e": "fed ဆိုသည်မှာ ကျွေးမွေးထားသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် fed ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "One day he fell i_____ and had nothing to eat.",
+    "a": "ill",
+    "e": "ill ဆိုသည်မှာ ဖျားနာသော ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် ill ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "'I'm not even half as rich as my father's workmen,' he often thought s_____.",
+    "a": "sadly",
+    "e": "sadly ဆိုသည်မှာ ဝမ်းနည်းစွာ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် sadly ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Dan was upset because his younger b_____ was being celebrated.",
+    "a": "brother",
+    "e": "brother ဆိုသည်မှာ အစ်ကို/ညီ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် brother ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ben decided to go back to his f_____ and ask for forgiveness.",
+    "a": "father",
+    "e": "father ဆိုသည်မှာ ဖခင် ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် father ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ben led a free life, just squandering the m_____ his father gave him.",
+    "a": "money",
+    "e": "money ဆိုသည်မှာ ငွေ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် money ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  },
+  {
+    "type": "blank",
+    "q": "He worked as a swineherd to keep his b_____ and soul together.",
+    "a": "body",
+    "e": "body ဆိုသည်မှာ ကိုယ်ခန္ဓာ ဖြစ်သည်။ ဤယူနစ် (ချမ်းသာမှုနှင့် ဘဝနေထိုင်ပုံ) စာပိုဒ်/ဝေါဟာရတွင် body ကို ဤအဓိပ္ပာယ်ဖြင့် သုံးထားသည်။"
+  }
 ]

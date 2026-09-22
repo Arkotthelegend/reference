@@ -1,62 +1,662 @@
 [
-   {"type": "mcq", "q": "The scientist conducted a thorough ____ of the chemical compounds to understand their structure.", "a": ["analysis", "catalyst", "hypothesis"], "c": 1},
-   {"type": "mcq", "q": "She made a conscious ____ to improve her daily habits and focus on her health.", "a": ["decision", "hesitation", "confusion"], "c": 0},
-   {"type": "mcq", "q": "An efficient public transport ____ can significantly reduce traffic congestion in the city.", "a": ["network", "puzzle", "barrier"], "c": 2},
-   {"type": "mcq", "q": "Regular physical ____ is essential for maintaining cardiovascular health and overall well-being.", "a": ["activity", "inactivity", "fatigue"], "c": 0},
-   {"type": "mcq", "q": "The historical museum contains a rare ____ of ancient artifacts from the Bronze Age.", "a": ["collection", "dispersal", "vacuum"], "c": 2},
-   {"type": "mcq", "q": "Effective communication requires both clear expression and active ____ of the other person.", "a": ["interruption", "listening", "ignoring"], "c": 1},
-   {"type": "mcq", "q": "Economic ____ depends heavily on technological innovation and stable market conditions.", "a": ["stagnation", "growth", "decline"], "c": 1},
-   {"type": "mcq", "q": "The weather forecast predicted a sudden ____ in temperature by tomorrow afternoon.", "a": ["plateau", "drop", "constant"], "c": 1},
-   {"type": "mcq", "q": "Finding a permanent solution to global warming demands international ____ and shared policies.", "a": ["conflict", "cooperation", "isolation"], "c": 1},
-   {"type": "mcq", "q": "The architectural design of the building blends modern aesthetics with traditional ____.", "a": ["craftsmanship", "neglect", "destruction"], "c": 0},
-   {"type": "mcq", "q": "A strong leader must be able to ____ complex challenges with calm and strategic thinking.", "a": ["navigate", "worsen", "avoid"], "c": 0},
-   {"type": "mcq", "q": "Continuous learning and adaptability are crucial traits in a rapidly changing modern ____.", "a": ["workplace", "vacuum", "stagnation"], "c": 0},
-   {"type": "mcq", "q": "The documentary provided a detailed ____ into the mysterious deep-sea ecosystems.", "a": ["glance", "insight", "surface"], "c": 1},
-   {"type": "mcq", "q": "Good nutrition plays a vital ____ in supporting cognitive development during childhood.", "a": ["role", "hindrance", "distraction"], "c": 0},
-   {"type": "mcq", "q": "The university library offers a quiet ____ for students seeking deep focus and study.", "a": ["environment", "chaos", "disturbance"], "c": 0},
-   {"type": "mcq", "q": "Creative writers often draw inspiration from everyday human ____ and emotional struggles.", "a": ["experiences", "equations", "formulas"], "c": 0},
-   {"type": "mcq", "q": "The government launched a national ____ to raise awareness about renewable energy.", "a": ["campaign", "retreat", "surrender"], "c": 0},
-   {"type": "mcq", "q": "Active participation in local community events fosters a strong sense of belonging and ____.", "a": ["isolation", "unity", "division"], "c": 1},
-   {"type": "mcq", "q": "Advanced technology has transformed the way businesses manage customer ____ and data.", "a": ["relations", "barriers", "obstacles"], "c": 0},
-   {"type": "mcq", "q": "The ambitious project required months of careful planning and financial ____.", "a": ["investment", "waste", "neglect"], "c": 0},
-   {"type": "mcq", "q": "Clear instructions help minimize potential confusion during the examination ____ process.", "a": ["evaluation", "creation", "omission"], "c": 0},
-   {"type": "mcq", "q": "Protecting endangered wildlife habitats requires strict enforcement of global ____ laws.", "a": ["conservation", "destruction", "exploitation"], "c": 0},
-   {"type": "mcq", "q": "The medical team worked tirelessly to discover a cure for the rare ____.", "a": ["disease", "remedy", "wellness"], "c": 0},
-   {"type": "mcq", "q": "Public speaking can be intimidating, but preparation helps build essential ____.", "a": ["confidence", "anxiety", "doubt"], "c": 0},
-   {"type": "mcq", "q": "The company decided to ____ its operations into international markets next year.", "a": ["expand", "shrink", "terminate"], "c": 0},
-   {"type": "mcq", "q": "Quality education empowers individuals to overcome poverty and achieve financial ____.", "a": ["independence", "dependence", "struggle"], "c": 0},
-   {"type": "mcq", "q": "A balanced diet provides all the necessary nutrients required for daily metabolic ____.", "a": ["functions", "failures", "stagnations"], "c": 0},
-   {"type": "mcq", "q": "Innovative software solutions can significantly improve office productivity and time ____.", "a": ["management", "wasting", "loss"], "c": 0},
-   {"type": "mcq", "q": "The artist used vibrant colors to evoke a deep sense of joy and ____.", "a": ["vitality", "melancholy", "boredom"], "c": 0},
-   {"type": "mcq", "q": "Effective time ____ allows professionals to complete multiple tasks without feeling overwhelmed.", "a": ["allocation", "destruction", "neglect"], "c": 0},
-   {"type": "mcq", "q": "Scientific research relies heavily on verifiable data and empirical ____.", "a": ["evidence", "assumption", "guesswork"], "c": 0},
-   {"type": "mcq", "q": "Cultural heritage sites represent the shared history and identity of a ____.", "a": ["nation", "individual", "stranger"], "c": 0},
-   {"type": "mcq", "q": "Regular maintenance of machinery prevents unexpected breakdowns and costly ____.", "a": ["repairs", "upgrades", "purchases"], "c": 0},
-   {"type": "mcq", "q": "The successful entrepreneur credited her mentors for guiding her early business ____.", "a": ["venture", "failure", "stagnation"], "c": 0},
-   {"type": "mcq", "q": "Protecting personal data online requires strong passwords and digital ____.", "a": ["security", "exposure", "vulnerability"], "c": 0},
-   {"type": "mcq", "q": "The chef combined various local spices to create a unique and flavorful ____.", "a": ["recipe", "poison", "mixture"], "c": 0},
-   {"type": "mcq", "q": "Global cooperation is vital to combat climate change and environmental ____.", "a": ["degradation", "improvement", "enrichment"], "c": 0},
-   {"type": "mcq", "q": "Successful project management involves setting clear goals and tracking daily ____.", "a": ["progress", "delays", "setbacks"], "c": 0},
-   {"type": "mcq", "q": "The university offers a wide range of academic programs to suit diverse career ____.", "a": ["aspirations", "hobbies", "distractions"], "c": 0},
-   {"type": "mcq", "q": "Mindfulness practices can help individuals reduce stress and improve mental ____.", "a": ["clarity", "confusion", "fatigue"], "c": 0},
-   {"type": "mcq", "q": "The architect presented a creative blueprint for the new sustainable urban ____.", "a": ["development", "demolition", "abandonment"], "c": 0},
-   {"type": "mcq", "q": "Reliable public infrastructure is essential for smooth daily commerce and ____.", "a": ["transportation", "isolation", "stagnation"], "c": 0},
-   {"type": "mcq", "q": "The museum guide gave an informative tour explaining the historical ____ of each artifact.", "a": ["significance", "irrelevance", "triviality"], "c": 0},
-   {"type": "mcq", "q": "Maintaining a positive mindset during difficult times fosters resilience and inner ____.", "a": ["strength", "weakness", "fragility"], "c": 0},
-   {"type": "mcq", "q": "The board of directors reviewed the quarterly financial report to assess business ____.", "a": ["performance", "failure", "collapse"], "c": 0},
-   {"type": "mcq", "q": "Collaborative teamwork often produces far more creative solutions than working in ____.", "a": ["isolation", "harmony", "partnership"], "c": 0},
-   {"type": "mcq", "q": "The new safety regulations aim to protect workers from occupational hazards and ____.", "a": ["injuries", "benefits", "rewards"], "c": 0},
-   {"type": "mcq", "q": "Modern digital tools have revolutionized how teachers deliver engaging classroom ____.", "a": ["instructions", "obstacles", "confusions"], "c": 0},
-   {"type": "mcq", "q": "The detective examined the crime scene carefully to find any overlooked ____.", "a": ["clues", "distractions", "solutions"], "c": 0},
-   {"type": "mcq", "q": "Investing in green energy technologies helps reduce our reliance on fossil ____.", "a": ["fuels", "waters", "minerals"], "c": 0},
-   {"type": "mcq", "q": "The enthusiastic crowd cheered loudly as the musicians took to the ____.", "a": ["stage", "backstage", "audience"], "c": 0},
-   {"type": "mcq", "q": "Clear corporate governance ensures transparency and ethical business ____.", "a": ["practices", "violations", "crimes"], "c": 0},
-   {"type": "mcq", "q": "The novel captivated readers with its intricate plot and well-developed ____.", "a": ["characters", "chapters", "sentences"], "c": 0},
-   {"type": "mcq", "q": "Proper sanitation and clean drinking water are fundamental human ____.", "a": ["rights", "privileges", "luxuries"], "c": 0},
-   {"type": "mcq", "q": "The tropical rainforest supports an incredible variety of plant and animal ____.", "a": ["species", "objects", "buildings"], "c": 0},
-   {"type": "mcq", "q": "Effective leadership requires empathy, integrity, and visionary ____.", "a": ["perspective", "blindness", "ignorance"], "c": 0},
-   {"type": "mcq", "q": "The annual festival celebrates local traditions through music, dance, and traditional ____.", "a": ["costumes", "machinery", "computers"], "c": 0},
-   {"type": "mcq", "q": "Strategic financial planning helps families secure a stable and comfortable ____.", "a": ["future", "past", "history"], "c": 0},
-   {"type": "mcq", "q": "The researcher published a groundbreaking paper on artificial intelligence and machine ____.", "a": ["learning", "sleeping", "forgetting"], "c": 0},
-   {"type": "mcq", "q": "Volunteering your time for social causes can bring profound personal fulfillment and ____.", "a": ["satisfaction", "frustration", "boredom"], "c": 0}
+  {
+    "type": "mcq",
+    "q": "The scientist conducted a thorough ____ of the chemical compounds to understand their structure.",
+    "a": [
+      "analysis",
+      "catalyst",
+      "hypothesis"
+    ],
+    "c": 1,
+    "e": "catalyst ဆိုသည်မှာ ဓာတ်ကူပစ္စည်း၊ အရှိန်မြှင့်အရာ ဖြစ်သည်။ စာကြောင်းအရ catalyst ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ analysis သို့မဟုတ် hypothesis နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "She made a conscious ____ to improve her daily habits and focus on her health.",
+    "a": [
+      "decision",
+      "hesitation",
+      "confusion"
+    ],
+    "c": 0,
+    "e": "decision ဆိုသည်မှာ ဆုံးဖြတ်ချက် ဖြစ်သည်။ စာကြောင်းအရ decision ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ hesitation သို့မဟုတ် confusion နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "An efficient public transport ____ can significantly reduce traffic congestion in the city.",
+    "a": [
+      "network",
+      "puzzle",
+      "barrier"
+    ],
+    "c": 2,
+    "e": "barrier ဆိုသည်မှာ အတားအဆီး ဖြစ်သည်။ စာကြောင်းအရ barrier ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ network သို့မဟုတ် puzzle နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Regular physical ____ is essential for maintaining cardiovascular health and overall well-being.",
+    "a": [
+      "activity",
+      "inactivity",
+      "fatigue"
+    ],
+    "c": 0,
+    "e": "activity ဆိုသည်မှာ လှုပ်ရှားမှု ဖြစ်သည်။ စာကြောင်းအရ activity ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ inactivity သို့မဟုတ် fatigue နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The historical museum contains a rare ____ of ancient artifacts from the Bronze Age.",
+    "a": [
+      "collection",
+      "dispersal",
+      "vacuum"
+    ],
+    "c": 2,
+    "e": "vacuum ဆိုသည်မှာ လေဟာနယ် ဖြစ်သည်။ စာကြောင်းအရ vacuum ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ collection သို့မဟုတ် dispersal နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Effective communication requires both clear expression and active ____ of the other person.",
+    "a": [
+      "interruption",
+      "listening",
+      "ignoring"
+    ],
+    "c": 1,
+    "e": "listening ဆိုသည်မှာ နားထောင်ခြင်း ဖြစ်သည်။ စာကြောင်းအရ listening ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ interruption သို့မဟုတ် ignoring နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Economic ____ depends heavily on technological innovation and stable market conditions.",
+    "a": [
+      "stagnation",
+      "growth",
+      "decline"
+    ],
+    "c": 1,
+    "e": "growth ဆိုသည်မှာ ကြီးထွားမှု၊ တိုးတက်မှု ဖြစ်သည်။ စာကြောင်းအရ growth ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ stagnation သို့မဟုတ် decline နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The weather forecast predicted a sudden ____ in temperature by tomorrow afternoon.",
+    "a": [
+      "plateau",
+      "drop",
+      "constant"
+    ],
+    "c": 1,
+    "e": "drop ဆိုသည်မှာ ကျဆင်းခြင်း၊ ကျသည် ဖြစ်သည်။ စာကြောင်းအရ drop ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ plateau သို့မဟုတ် constant နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Finding a permanent solution to global warming demands international ____ and shared policies.",
+    "a": [
+      "conflict",
+      "cooperation",
+      "isolation"
+    ],
+    "c": 1,
+    "e": "cooperation ဆိုသည်မှာ ပူးပေါင်းဆောင်ရွက်မှု ဖြစ်သည်။ စာကြောင်းအရ cooperation ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ conflict သို့မဟုတ် isolation နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The architectural design of the building blends modern aesthetics with traditional ____.",
+    "a": [
+      "craftsmanship",
+      "neglect",
+      "destruction"
+    ],
+    "c": 0,
+    "e": "craftsmanship ဆိုသည်မှာ လက်မှုကျွမ်းကျင်မှု ဖြစ်သည်။ စာကြောင်းအရ craftsmanship ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ neglect သို့မဟုတ် destruction နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "A strong leader must be able to ____ complex challenges with calm and strategic thinking.",
+    "a": [
+      "navigate",
+      "worsen",
+      "avoid"
+    ],
+    "c": 0,
+    "e": "navigate ဆိုသည်မှာ လမ်းညွှန်သွားလာသည် ဖြစ်သည်။ စာကြောင်းအရ navigate ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ worsen သို့မဟုတ် avoid နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Continuous learning and adaptability are crucial traits in a rapidly changing modern ____.",
+    "a": [
+      "workplace",
+      "vacuum",
+      "stagnation"
+    ],
+    "c": 0,
+    "e": "workplace ဆိုသည်မှာ အလုပ်ခွင် ဖြစ်သည်။ စာကြောင်းအရ workplace ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ vacuum သို့မဟုတ် stagnation နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The documentary provided a detailed ____ into the mysterious deep-sea ecosystems.",
+    "a": [
+      "glance",
+      "insight",
+      "surface"
+    ],
+    "c": 1,
+    "e": "insight ဆိုသည်မှာ ထိုးထွင်းသိမြင်မှု ဖြစ်သည်။ စာကြောင်းအရ insight ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ glance သို့မဟုတ် surface နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Good nutrition plays a vital ____ in supporting cognitive development during childhood.",
+    "a": [
+      "role",
+      "hindrance",
+      "distraction"
+    ],
+    "c": 0,
+    "e": "role ဆိုသည်မှာ အခန်းကဏ္ဍ ဖြစ်သည်။ စာကြောင်းအရ role ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ hindrance သို့မဟုတ် distraction နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The university library offers a quiet ____ for students seeking deep focus and study.",
+    "a": [
+      "environment",
+      "chaos",
+      "disturbance"
+    ],
+    "c": 0,
+    "e": "environment ဆိုသည်မှာ ပတ်ဝန်းကျင် ဖြစ်သည်။ စာကြောင်းအရ environment ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ chaos သို့မဟုတ် disturbance နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Creative writers often draw inspiration from everyday human ____ and emotional struggles.",
+    "a": [
+      "experiences",
+      "equations",
+      "formulas"
+    ],
+    "c": 0,
+    "e": "experiences ဆိုသည်မှာ အတွေ့အကြုံများ ဖြစ်သည်။ စာကြောင်းအရ experiences ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ equations သို့မဟုတ် formulas နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The government launched a national ____ to raise awareness about renewable energy.",
+    "a": [
+      "campaign",
+      "retreat",
+      "surrender"
+    ],
+    "c": 0,
+    "e": "campaign ဆိုသည်မှာ လှုပ်ရှားမှု၊ ကြော်ငြာလှိုင်း ဖြစ်သည်။ စာကြောင်းအရ campaign ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ retreat သို့မဟုတ် surrender နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Active participation in local community events fosters a strong sense of belonging and ____.",
+    "a": [
+      "isolation",
+      "unity",
+      "division"
+    ],
+    "c": 1,
+    "e": "unity ဆိုသည်မှာ စည်းလုံးမှု ဖြစ်သည်။ စာကြောင်းအရ unity ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ isolation သို့မဟုတ် division နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Advanced technology has transformed the way businesses manage customer ____ and data.",
+    "a": [
+      "relations",
+      "barriers",
+      "obstacles"
+    ],
+    "c": 0,
+    "e": "relations ဆိုသည်မှာ ဆက်ဆံရေး ဖြစ်သည်။ စာကြောင်းအရ relations ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ barriers သို့မဟုတ် obstacles နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The ambitious project required months of careful planning and financial ____.",
+    "a": [
+      "investment",
+      "waste",
+      "neglect"
+    ],
+    "c": 0,
+    "e": "investment ဆိုသည်မှာ ရင်းနှီးမြှုပ်နှံမှု ဖြစ်သည်။ စာကြောင်းအရ investment ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ waste သို့မဟုတ် neglect နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Clear instructions help minimize potential confusion during the examination ____ process.",
+    "a": [
+      "evaluation",
+      "creation",
+      "omission"
+    ],
+    "c": 0,
+    "e": "evaluation ဆိုသည်မှာ အကဲဖြတ်ခြင်း ဖြစ်သည်။ စာကြောင်းအရ evaluation ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ creation သို့မဟုတ် omission နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Protecting endangered wildlife habitats requires strict enforcement of global ____ laws.",
+    "a": [
+      "conservation",
+      "destruction",
+      "exploitation"
+    ],
+    "c": 0,
+    "e": "conservation ဆိုသည်မှာ ထိန်းသိမ်းရေး ဖြစ်သည်။ စာကြောင်းအရ conservation ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ destruction သို့မဟုတ် exploitation နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The medical team worked tirelessly to discover a cure for the rare ____.",
+    "a": [
+      "disease",
+      "remedy",
+      "wellness"
+    ],
+    "c": 0,
+    "e": "disease ဆိုသည်မှာ ရောဂါ ဖြစ်သည်။ စာကြောင်းအရ disease ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ remedy သို့မဟုတ် wellness နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Public speaking can be intimidating, but preparation helps build essential ____.",
+    "a": [
+      "confidence",
+      "anxiety",
+      "doubt"
+    ],
+    "c": 0,
+    "e": "confidence ဆိုသည်မှာ ယုံကြည်မှု ဖြစ်သည်။ စာကြောင်းအရ confidence ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ anxiety သို့မဟုတ် doubt နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The company decided to ____ its operations into international markets next year.",
+    "a": [
+      "expand",
+      "shrink",
+      "terminate"
+    ],
+    "c": 0,
+    "e": "expand ဆိုသည်မှာ ချဲ့ထွင်သည် ဖြစ်သည်။ စာကြောင်းအရ expand ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ shrink သို့မဟုတ် terminate နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Quality education empowers individuals to overcome poverty and achieve financial ____.",
+    "a": [
+      "independence",
+      "dependence",
+      "struggle"
+    ],
+    "c": 0,
+    "e": "independence ဆိုသည်မှာ လွတ်လပ်မှု ဖြစ်သည်။ စာကြောင်းအရ independence ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ dependence သို့မဟုတ် struggle နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "A balanced diet provides all the necessary nutrients required for daily metabolic ____.",
+    "a": [
+      "functions",
+      "failures",
+      "stagnations"
+    ],
+    "c": 0,
+    "e": "functions ဆိုသည်မှာ လုပ်ငန်းဆောင်တာများ ဖြစ်သည်။ စာကြောင်းအရ functions ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ failures သို့မဟုတ် stagnations နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Innovative software solutions can significantly improve office productivity and time ____.",
+    "a": [
+      "management",
+      "wasting",
+      "loss"
+    ],
+    "c": 0,
+    "e": "management ဆိုသည်မှာ စီမံခန့်ခွဲမှု ဖြစ်သည်။ စာကြောင်းအရ management ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ wasting သို့မဟုတ် loss နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The artist used vibrant colors to evoke a deep sense of joy and ____.",
+    "a": [
+      "vitality",
+      "melancholy",
+      "boredom"
+    ],
+    "c": 0,
+    "e": "vitality ဆိုသည်မှာ ရှင်သန်အားအင် ဖြစ်သည်။ စာကြောင်းအရ vitality ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ melancholy သို့မဟုတ် boredom နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Effective time ____ allows professionals to complete multiple tasks without feeling overwhelmed.",
+    "a": [
+      "allocation",
+      "destruction",
+      "neglect"
+    ],
+    "c": 0,
+    "e": "allocation ဆိုသည်မှာ ခွဲဝေသတ်မှတ်ခြင်း ဖြစ်သည်။ စာကြောင်းအရ allocation ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ destruction သို့မဟုတ် neglect နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Scientific research relies heavily on verifiable data and empirical ____.",
+    "a": [
+      "evidence",
+      "assumption",
+      "guesswork"
+    ],
+    "c": 0,
+    "e": "evidence ဆိုသည်မှာ သက်သေအထောက်အထား ဖြစ်သည်။ စာကြောင်းအရ evidence ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ assumption သို့မဟုတ် guesswork နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Cultural heritage sites represent the shared history and identity of a ____.",
+    "a": [
+      "nation",
+      "individual",
+      "stranger"
+    ],
+    "c": 0,
+    "e": "nation ဆိုသည်မှာ နိုင်ငံ၊ လူမျိုး ဖြစ်သည်။ စာကြောင်းအရ nation ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ individual သို့မဟုတ် stranger နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Regular maintenance of machinery prevents unexpected breakdowns and costly ____.",
+    "a": [
+      "repairs",
+      "upgrades",
+      "purchases"
+    ],
+    "c": 0,
+    "e": "repairs ဆိုသည်မှာ ပြင်ဆင်မှုများ ဖြစ်သည်။ စာကြောင်းအရ repairs ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ upgrades သို့မဟုတ် purchases နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The successful entrepreneur credited her mentors for guiding her early business ____.",
+    "a": [
+      "venture",
+      "failure",
+      "stagnation"
+    ],
+    "c": 0,
+    "e": "venture ဆိုသည်မှာ စွန့်စားလုပ်ငန်း ဖြစ်သည်။ စာကြောင်းအရ venture ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ failure သို့မဟုတ် stagnation နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Protecting personal data online requires strong passwords and digital ____.",
+    "a": [
+      "security",
+      "exposure",
+      "vulnerability"
+    ],
+    "c": 0,
+    "e": "security ဆိုသည်မှာ လုံခြုံရေး ဖြစ်သည်။ စာကြောင်းအရ security ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ exposure သို့မဟုတ် vulnerability နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The chef combined various local spices to create a unique and flavorful ____.",
+    "a": [
+      "recipe",
+      "poison",
+      "mixture"
+    ],
+    "c": 0,
+    "e": "recipe ဆိုသည်မှာ ဟင်းချက်နည်း ဖြစ်သည်။ စာကြောင်းအရ recipe ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ poison သို့မဟုတ် mixture နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Global cooperation is vital to combat climate change and environmental ____.",
+    "a": [
+      "degradation",
+      "improvement",
+      "enrichment"
+    ],
+    "c": 0,
+    "e": "degradation ဆိုသည်မှာ ယိုယွင်းပျက်စီးခြင်း ဖြစ်သည်။ စာကြောင်းအရ degradation ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ improvement သို့မဟုတ် enrichment နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Successful project management involves setting clear goals and tracking daily ____.",
+    "a": [
+      "progress",
+      "delays",
+      "setbacks"
+    ],
+    "c": 0,
+    "e": "progress ဆိုသည်မှာ တိုးတက်မှု ဖြစ်သည်။ စာကြောင်းအရ progress ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ delays သို့မဟုတ် setbacks နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The university offers a wide range of academic programs to suit diverse career ____.",
+    "a": [
+      "aspirations",
+      "hobbies",
+      "distractions"
+    ],
+    "c": 0,
+    "e": "aspirations ဆိုသည်မှာ ရည်မှန်းချက်များ ဖြစ်သည်။ စာကြောင်းအရ aspirations ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ hobbies သို့မဟုတ် distractions နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Mindfulness practices can help individuals reduce stress and improve mental ____.",
+    "a": [
+      "clarity",
+      "confusion",
+      "fatigue"
+    ],
+    "c": 0,
+    "e": "clarity ဆိုသည်မှာ ရှင်းလင်းမှု ဖြစ်သည်။ စာကြောင်းအရ clarity ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ confusion သို့မဟုတ် fatigue နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The architect presented a creative blueprint for the new sustainable urban ____.",
+    "a": [
+      "development",
+      "demolition",
+      "abandonment"
+    ],
+    "c": 0,
+    "e": "development ဆိုသည်မှာ ဖွံ့ဖြိုးတိုးတက်မှု ဖြစ်သည်။ စာကြောင်းအရ development ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ demolition သို့မဟုတ် abandonment နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Reliable public infrastructure is essential for smooth daily commerce and ____.",
+    "a": [
+      "transportation",
+      "isolation",
+      "stagnation"
+    ],
+    "c": 0,
+    "e": "transportation ဆိုသည်မှာ သယ်ယူပို့ဆောင်ရေး ဖြစ်သည်။ စာကြောင်းအရ transportation ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ isolation သို့မဟုတ် stagnation နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The museum guide gave an informative tour explaining the historical ____ of each artifact.",
+    "a": [
+      "significance",
+      "irrelevance",
+      "triviality"
+    ],
+    "c": 0,
+    "e": "significance ဆိုသည်မှာ အရေးပါမှု ဖြစ်သည်။ စာကြောင်းအရ significance ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ irrelevance သို့မဟုတ် triviality နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Maintaining a positive mindset during difficult times fosters resilience and inner ____.",
+    "a": [
+      "strength",
+      "weakness",
+      "fragility"
+    ],
+    "c": 0,
+    "e": "strength ဆိုသည်မှာ အားအင် ဖြစ်သည်။ စာကြောင်းအရ strength ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ weakness သို့မဟုတ် fragility နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The board of directors reviewed the quarterly financial report to assess business ____.",
+    "a": [
+      "performance",
+      "failure",
+      "collapse"
+    ],
+    "c": 0,
+    "e": "performance ဆိုသည်မှာ စွမ်းဆောင်ရည်၊ ဖျော်ဖြေမှု ဖြစ်သည်။ စာကြောင်းအရ performance ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ failure သို့မဟုတ် collapse နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Collaborative teamwork often produces far more creative solutions than working in ____.",
+    "a": [
+      "isolation",
+      "harmony",
+      "partnership"
+    ],
+    "c": 0,
+    "e": "isolation ဆိုသည်မှာ ခွဲခြားထားခြင်း ဖြစ်သည်။ စာကြောင်းအရ isolation ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ harmony သို့မဟုတ် partnership နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The new safety regulations aim to protect workers from occupational hazards and ____.",
+    "a": [
+      "injuries",
+      "benefits",
+      "rewards"
+    ],
+    "c": 0,
+    "e": "injuries ဆိုသည်မှာ ဒဏ်ရာများ ဖြစ်သည်။ စာကြောင်းအရ injuries ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ benefits သို့မဟုတ် rewards နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Modern digital tools have revolutionized how teachers deliver engaging classroom ____.",
+    "a": [
+      "instructions",
+      "obstacles",
+      "confusions"
+    ],
+    "c": 0,
+    "e": "instructions ဆိုသည်မှာ ညွှန်ကြားချက်များ ဖြစ်သည်။ စာကြောင်းအရ instructions ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ obstacles သို့မဟုတ် confusions နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The detective examined the crime scene carefully to find any overlooked ____.",
+    "a": [
+      "clues",
+      "distractions",
+      "solutions"
+    ],
+    "c": 0,
+    "e": "clues ဆိုသည်မှာ သဲလွန်စများ ဖြစ်သည်။ စာကြောင်းအရ clues ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ distractions သို့မဟုတ် solutions နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Investing in green energy technologies helps reduce our reliance on fossil ____.",
+    "a": [
+      "fuels",
+      "waters",
+      "minerals"
+    ],
+    "c": 0,
+    "e": "fuels ဆိုသည်မှာ လောင်စာများ ဖြစ်သည်။ စာကြောင်းအရ fuels ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ waters သို့မဟုတ် minerals နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The enthusiastic crowd cheered loudly as the musicians took to the ____.",
+    "a": [
+      "stage",
+      "backstage",
+      "audience"
+    ],
+    "c": 0,
+    "e": "stage ဆိုသည်မှာ စင်မြင့်၊ အဆင့် ဖြစ်သည်။ စာကြောင်းအရ stage ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ backstage သို့မဟုတ် audience နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Clear corporate governance ensures transparency and ethical business ____.",
+    "a": [
+      "practices",
+      "violations",
+      "crimes"
+    ],
+    "c": 0,
+    "e": "practices ဆိုသည်မှာ အလေ့အကျင့်များ ဖြစ်သည်။ စာကြောင်းအရ practices ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ violations သို့မဟုတ် crimes နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The novel captivated readers with its intricate plot and well-developed ____.",
+    "a": [
+      "characters",
+      "chapters",
+      "sentences"
+    ],
+    "c": 0,
+    "e": "characters ဆိုသည်မှာ ဇာတ်ကောင်များ ဖြစ်သည်။ စာကြောင်းအရ characters ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ chapters သို့မဟုတ် sentences နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Proper sanitation and clean drinking water are fundamental human ____.",
+    "a": [
+      "rights",
+      "privileges",
+      "luxuries"
+    ],
+    "c": 0,
+    "e": "rights ဆိုသည်မှာ အခွင့်အရေးများ ဖြစ်သည်။ စာကြောင်းအရ rights ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ privileges သို့မဟုတ် luxuries နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The tropical rainforest supports an incredible variety of plant and animal ____.",
+    "a": [
+      "species",
+      "objects",
+      "buildings"
+    ],
+    "c": 0,
+    "e": "species ဆိုသည်မှာ မျိုးစိတ် ဖြစ်သည်။ စာကြောင်းအရ species ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ objects သို့မဟုတ် buildings နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Effective leadership requires empathy, integrity, and visionary ____.",
+    "a": [
+      "perspective",
+      "blindness",
+      "ignorance"
+    ],
+    "c": 0,
+    "e": "perspective ဆိုသည်မှာ ရှုထောင့် ဖြစ်သည်။ စာကြောင်းအရ perspective ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ blindness သို့မဟုတ် ignorance နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The annual festival celebrates local traditions through music, dance, and traditional ____.",
+    "a": [
+      "costumes",
+      "machinery",
+      "computers"
+    ],
+    "c": 0,
+    "e": "costumes ဆိုသည်မှာ ဝတ်စုံများ ဖြစ်သည်။ စာကြောင်းအရ costumes ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ machinery သို့မဟုတ် computers နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Strategic financial planning helps families secure a stable and comfortable ____.",
+    "a": [
+      "future",
+      "past",
+      "history"
+    ],
+    "c": 0,
+    "e": "future ဆိုသည်မှာ အနာဂတ် ဖြစ်သည်။ စာကြောင်းအရ future ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ past သို့မဟုတ် history နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "The researcher published a groundbreaking paper on artificial intelligence and machine ____.",
+    "a": [
+      "learning",
+      "sleeping",
+      "forgetting"
+    ],
+    "c": 0,
+    "e": "learning ဆိုသည်မှာ သင်ယူခြင်း ဖြစ်သည်။ စာကြောင်းအရ learning ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ sleeping သို့မဟုတ် forgetting နှင့် မလဲလှယ်သင့်ပါ။"
+  },
+  {
+    "type": "mcq",
+    "q": "Volunteering your time for social causes can bring profound personal fulfillment and ____.",
+    "a": [
+      "satisfaction",
+      "frustration",
+      "boredom"
+    ],
+    "c": 0,
+    "e": "satisfaction ဆိုသည်မှာ ကျေနပ်မှု ဖြစ်သည်။ စာကြောင်းအရ satisfaction ဟု ဖြည့်မှ အဓိပ္ပာယ် ပြည့်စုံသည်။ frustration သို့မဟုတ် boredom နှင့် မလဲလှယ်သင့်ပါ။"
+  }
 ]
