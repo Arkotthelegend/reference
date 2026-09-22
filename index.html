@@ -3790,7 +3790,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         @media (max-width: 700px) {
             .ld-term { grid-template-columns: 1fr 1fr; }
         }
-        .ld-plans { display: flex; flex-direction: column; gap: 14px; }
+        .ld-plans { display: flex; flex-direction: column; gap: 14px; max-width: 560px; margin: 0 auto; }
         .ld-plan { background: #162235; border: 1px solid #334155; border-radius: 22px; padding: 26px 22px 20px; text-align: left; }
         .ld-plan-try { border-color: #FBBF24; background: linear-gradient(180deg, rgba(251,191,36,0.16) 0%, #162235 44%); }
         .ld-plan-popular { border-color: #F0B90B; background: linear-gradient(180deg, rgba(240,185,11,0.16) 0%, #162235 40%); }
@@ -3821,7 +3821,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         .ld-subjects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .ld-sub { background: linear-gradient(90deg, #162235, #0F172A); border-left: 3px solid #F0B90B; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; transition: all 0.2s ease; border: 1px solid rgba(30,41,59,0.6); border-left-width: 3px; }
         .ld-sub:hover { transform: translateX(4px); border-color: rgba(240,185,11,0.4); background: linear-gradient(90deg, #162235, #1E293B); }
-        .ld-sub-ico { font-size: 1.3rem; }
+        .ld-sub-ico { width: 28px; height: 28px; }
         
         .ld-steps { background: linear-gradient(145deg, #0F172A, #162235); border-radius: 16px; padding: 20px; border: 1px solid #334155; }
         .ld-step { display: flex; align-items: center; gap: 15px; margin-bottom: 16px; }
@@ -3835,10 +3835,20 @@ body.volunteer-role .vol-report-link { display: block !important; }
 .ld-cd-val { font-size: 1.2rem; font-weight: 800; color: #F0B90B; font-family: monospace; }
 .ld-cd-lbl { font-size: 0.65rem; color: #94A3B8; text-transform: uppercase; margin-top: 4px; letter-spacing: 1px; }
         .ld-countdown-label { color: #94A3B8; font-size: 0.78rem; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+        .ld-grade-pick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; max-width: 480px; margin: 0 auto 14px; }
+        .ld-grade-btn { width: 100%; background: #162235; border: 1px solid #334155; color: #94A3B8; border-radius: 999px; padding: 8px 10px; font-weight: 700; font-size: 0.78rem; cursor: pointer; }
+        .ld-grade-btn.ld-grade-on { background: #F0B90B; color: #0B0F19; border-color: #F0B90B; }
+        .ld-grade-btn:hover:not(.ld-grade-on) { color: #fff; border-color: #F0B90B; }
+        .ld-book {
+            width: 26px; height: 26px; flex-shrink: 0; display: inline-block;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23F0B90B' d='M3.2 5.1C3.2 3.9 4.3 3 5.6 3H12v15.2H6.4c-1.8 0-3.2.7-3.2 1.9V5.1z'/%3E%3Cpath fill='%23FCD535' d='M20.8 5.1C20.8 3.9 19.7 3 18.4 3H12v15.2h5.6c1.8 0 3.2.7 3.2 1.9V5.1z'/%3E%3Cpath fill='%23B45309' d='M11.15 3h1.7v16.2h-1.7z'/%3E%3Cpath fill='%230B0F19' opacity='.22' d='M5.4 6.4h5.2v1.1H5.4zm0 2.4h5.2v1.1H5.4zm8 0h5.2v1.1H13.4zm0-2.4h5.2v1.1H13.4z'/%3E%3C/svg%3E") center / contain no-repeat;
+        }
+        .ld-plan-feat li { display: flex; align-items: flex-start; gap: 10px; }
+        .ld-plan-feat .ld-book { margin-top: 1px; }
+        .ld-plan-feat b { color: #FCD535; font-weight: 800; }
         @media (min-width: 840px) {
             .ld-cta { display: none !important; }
             .ld-nav-cta { display: inline-flex !important; min-width: 160px; padding: 12px 32px; }
-            .ld-plans { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
         }
     </style>
     <div class="ld-page">
@@ -3920,58 +3930,46 @@ body.volunteer-role .vol-report-link { display: block !important; }
             </div>
             <div class="ld-section">
                 <h2>Subjects</h2>
-                <p class="ld-note">Practice any of these. Six-subject pack uses Bio or Eco as the sixth.</p>
+                <p class="ld-note">All subjects in one pack. Biology or Economics is the sixth.</p>
                 <div class="ld-subjects">
-                    <div class="ld-sub"><span class="ld-sub-ico">🇲🇲</span> မြန်မာစာ</div>
-                    <div class="ld-sub"><span class="ld-sub-ico">🇬🇧</span> အင်္ဂလိပ်စာ</div>
-                    <div class="ld-sub"><span class="ld-sub-ico">🔢</span> သင်္ချာ</div>
-                    <div class="ld-sub"><span class="ld-sub-ico">⚛️</span> ရူပဗေဒ</div>
-                    <div class="ld-sub"><span class="ld-sub-ico">🧪</span> ဓာတုဗေဒ</div>
-                    <div class="ld-sub"><span class="ld-sub-ico">🧬</span> ဇီဝဗေဒ</div>
-                    <div class="ld-sub"><span class="ld-sub-ico">📊</span> ဘောဂဗေဒ</div>
+                    <div class="ld-sub"><span class="ld-book ld-sub-ico" aria-hidden="true"></span> Myanmar</div>
+                    <div class="ld-sub"><span class="ld-book ld-sub-ico" aria-hidden="true"></span> English</div>
+                    <div class="ld-sub"><span class="ld-book ld-sub-ico" aria-hidden="true"></span> Maths</div>
+                    <div class="ld-sub"><span class="ld-book ld-sub-ico" aria-hidden="true"></span> Physics</div>
+                    <div class="ld-sub"><span class="ld-book ld-sub-ico" aria-hidden="true"></span> Chemistry</div>
+                    <div class="ld-sub"><span class="ld-book ld-sub-ico" aria-hidden="true"></span> Biology</div>
+                    <div class="ld-sub"><span class="ld-book ld-sub-ico" aria-hidden="true"></span> Economics</div>
                 </div>
             </div>
             </div>
 
             <div id="ld-panel-price" class="ld-panel">
             <h2 style="color:#F0B90B;font-size:1.2rem;margin:0 0 8px;text-align:center;">Price</h2>
-            <p class="ld-note">Same prices for Grade 10, 11, and 12. 1 month, 3 months, 6 months, or till the exam.</p>
-            <p class="ld-note" style="color:#F0B90B;font-weight:700;">Weekly timetable made by AI — included with the 6-subject pack.</p>
+            <p class="ld-note">All subjects only — not sold one by one. Pick your grade, then pick 1 month, 3 months, 6 months, or 13 months.</p>
+            <p class="ld-note" style="color:#F0B90B;font-weight:700;">Weekly timetable made by AI is included with every plan.</p>
+            <div class="ld-grade-pick">
+                <button type="button" class="ld-grade-btn ld-grade-on" data-grade="10">Grade 10</button>
+                <button type="button" class="ld-grade-btn" data-grade="11">Grade 11</button>
+                <button type="button" class="ld-grade-btn" data-grade="12">Grade 12</button>
+            </div>
             <div class="ld-term">
                 <button type="button" class="ld-term-btn ld-term-on" data-term="1">1 month</button>
                 <button type="button" class="ld-term-btn" data-term="3">3 months</button>
                 <button type="button" class="ld-term-btn" data-term="6">6 months</button>
-                <button type="button" class="ld-term-btn ld-term-exam" data-term="exam">Till the exam</button>
+                <button type="button" class="ld-term-btn ld-term-exam" data-term="13">13 months</button>
             </div>
             <div class="ld-plans">
                 <article class="ld-plan ld-plan-popular">
                     <div class="ld-plan-head">
-                        <span class="ld-plan-badge">1 subject</span>
+                        <span class="ld-plan-badge">All subjects</span>
+                        <span class="ld-plan-popular-tag">One pack</span>
                     </div>
-                    <p class="ld-plan-hook">၁ ဘာသာချင်းစီ</p>
-                    <div class="ld-plan-price"><span id="ld-one-amt">2,000</span> <small>Ks</small></div>
-                    <div class="ld-plan-bill" id="ld-one-bill">1 month · billed once</div>
-                    <p class="ld-plan-desc">Unlock chapter practice for one subject on your grade.</p>
-                    <ul class="ld-plan-feat">
-                        <li>Chapter quizzes for that subject</li>
-                        <li>MCQ, true/false, fill-blank, and 1-mark</li>
-                    </ul>
-                    <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Message to buy</a>
-                </article>
-                <article class="ld-plan ld-plan-popular">
-                    <div class="ld-plan-head">
-                        <span class="ld-plan-badge">6 subjects</span>
-                        <span class="ld-plan-popular-tag">Most pick this</span>
-                    </div>
-                    <p class="ld-plan-hook">ဘာသာစုံတွဲ</p>
-                    <div class="ld-plan-price"><span id="ld-six-amt">10,000</span> <small>Ks</small></div>
-                    <div class="ld-plan-bill" id="ld-six-bill">1 month · billed once</div>
-                    <p class="ld-plan-desc" id="ld-six-desc">Stop buying subject by subject. Six singles would be 12,000 Ks — this pack is 10,000.</p>
-                    <ul class="ld-plan-feat">
-                        <li>မြန်မာ · English · Math · Physics · Chem · Bio or Eco</li>
-                        <li class="ld-plan-ai">Weekly timetable made by AI</li>
-                    </ul>
-                    <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Unlock all six</a>
+                    <p class="ld-plan-hook" id="ld-pack-hook">Grade 10 · full pack</p>
+                    <div class="ld-plan-price"><span id="ld-pack-amt">9,500</span> <small>Ks</small></div>
+                    <div class="ld-plan-bill" id="ld-pack-bill">1 month · billed once</div>
+                    <p class="ld-plan-desc" id="ld-pack-desc">Unlock every subject on Grade 10. Biology or Economics is the sixth.</p>
+                    <ul class="ld-plan-feat" id="ld-pack-feat"></ul>
+                    <a class="ld-plan-cta" href="https://t.me/minaphayarkot" target="_blank" rel="noopener">Unlock all subjects</a>
                 </article>
             </div>
             <p class="ld-note" style="margin-top:16px;margin-bottom:0;">Message <a href="https://t.me/minaphayarkot" target="_blank" rel="noopener" style="color:#F0B90B;text-decoration:none;">@minaphayarkot</a> with your Telegram ID, grade, and plan.</p>
@@ -3983,7 +3981,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <div class="ld-steps">
                     <div class="ld-step"><div class="ld-step-num">1</div><div class="ld-step-text"><b>Open in Telegram</b>This site is a preview. Practice runs inside @reededucation_bot</div></div>
                     <div class="ld-step"><div class="ld-step-num">2</div><div class="ld-step-text"><b>Pick Grade 10, 11, or 12</b>Then open a chapter and answer</div></div>
-                    <div class="ld-step"><div class="ld-step-num">3</div><div class="ld-step-text"><b>Buy if you want full quizzes</b>1 subject or 6 subjects — @minaphayarkot</div></div>
+                    <div class="ld-step"><div class="ld-step-num">3</div><div class="ld-step-text"><b>Buy if you want full quizzes</b>All-subjects pack — @minaphayarkot</div></div>
                 </div>
             </div>
             </div>
@@ -4016,76 +4014,91 @@ body.volunteer-role .vol-report-link { display: block !important; }
         });
         var jump = document.getElementById('ld-jump-price');
         if (jump) jump.addEventListener('click', function(e) { e.preventDefault(); showPanel('price'); });
-        function applyTerm(term) {
-            var oneAmt = document.getElementById('ld-one-amt');
-            var sixAmt = document.getElementById('ld-six-amt');
-            var oneBill = document.getElementById('ld-one-bill');
-            var sixBill = document.getElementById('ld-six-bill');
-            var sixDesc = document.getElementById('ld-six-desc');
-            if (!oneAmt || !sixAmt) return;
-            var table = {
-                '1': {
-                    one: '2,000', six: '10,000',
-                    bill: '1 month · billed once',
-                    desc: 'Stop buying subject by subject. Six singles would be 12,000 Ks — this pack is 10,000.'
-                },
-                '3': {
-                    one: '5,500', six: '27,000',
-                    bill: '3 months · billed once',
-                    desc: 'Stop buying subject by subject. Six singles would be 33,000 Ks — this pack is 27,000.'
-                },
-                '6': {
-                    one: '10,000', six: '53,000',
-                    bill: '6 months · billed once',
-                    desc: 'Stop buying subject by subject. Six singles would be 60,000 Ks — this pack is 53,000.'
-                },
-                exam: {
-                    one: '11,000', six: '55,000',
-                    bill: 'Till the exam · billed once',
-                    desc: 'Stop buying subject by subject. Six singles would be 66,000 Ks — this pack is 55,000.'
-                }
+        var ldGrade = '10';
+        var ldTerm = '1';
+        function ldFeatLine(name, text) {
+            return '<li><span class="ld-book" aria-hidden="true"></span><span><b>' + name + '</b> — ' + text + '</span></li>';
+        }
+        function applyPrice() {
+            var amt = document.getElementById('ld-pack-amt');
+            var bill = document.getElementById('ld-pack-bill');
+            var hook = document.getElementById('ld-pack-hook');
+            var desc = document.getElementById('ld-pack-desc');
+            var feat = document.getElementById('ld-pack-feat');
+            if (!amt) return;
+            var prices = { '1': '9,500', '3': '19,500', '6': '29,500', '13': '34,500' };
+            var bills = {
+                '1': '1 month · billed once',
+                '3': '3 months · billed once',
+                '6': '6 months · billed once',
+                '13': '13 months · billed once'
             };
-            var row = table[term] || table['1'];
-            oneAmt.textContent = row.one;
-            sixAmt.textContent = row.six;
-            if (oneBill) oneBill.textContent = row.bill;
-            if (sixBill) sixBill.textContent = row.bill;
-            if (sixDesc) sixDesc.textContent = row.desc;
+            var g12 = ldGrade === '12';
+            var oldQ = g12 ? ' Includes old questions.' : '';
+            amt.textContent = prices[ldTerm] || prices['1'];
+            if (bill) bill.textContent = bills[ldTerm] || bills['1'];
+            if (hook) hook.textContent = 'Grade ' + ldGrade + ' · full pack';
+            if (desc) {
+                desc.textContent = g12
+                    ? 'Unlock every subject on Grade 12, including old questions. Biology or Economics is the sixth.'
+                    : 'Unlock every subject on Grade ' + ldGrade + '. Biology or Economics is the sixth.';
+            }
+            if (feat) {
+                feat.innerHTML = [
+                    ldFeatLine('Myanmar', 'Chapter quizzes on speaking, prose, poems, Yethi, and writing. MCQ, true/false, and fill-blank.' + oldQ),
+                    ldFeatLine('English', g12
+                        ? 'Unit quizzes, grammar notes, poems with paraphrase, dialogues, and Q and A. Includes old questions.'
+                        : 'Unit quizzes, grammar notes, poems, and dialogues.'),
+                    ldFeatLine('Maths', 'Chapter quizzes for 1-mark, 2-mark, and 3-mark, with step-by-step solutions.' + oldQ),
+                    ldFeatLine('Physics', 'Chapters and sub-chapters with definitions, formulas, and key terms. MCQ, true/false, fill-blank, and 1-mark.' + oldQ),
+                    ldFeatLine('Chemistry', 'Chapters and sub-chapters with definitions, formulas, and key terms. MCQ, true/false, fill-blank, and 1-mark.' + oldQ),
+                    ldFeatLine('Biology', 'Chapters and sub-chapters with definitions and key terms. STEAM 1 sixth subject.' + oldQ),
+                    ldFeatLine('Economics', 'Chapters and sub-chapters with definitions and key terms. STEAM 2 sixth subject.' + oldQ),
+                    '<li class="ld-plan-ai">Weekly timetable made by AI</li>'
+                ].join('');
+            }
             document.querySelectorAll('.ld-term-btn').forEach(function(b) {
-                b.classList.toggle('ld-term-on', b.getAttribute('data-term') === term);
+                b.classList.toggle('ld-term-on', b.getAttribute('data-term') === ldTerm);
+            });
+            document.querySelectorAll('.ld-grade-btn').forEach(function(b) {
+                b.classList.toggle('ld-grade-on', b.getAttribute('data-grade') === ldGrade);
             });
         }
         document.querySelectorAll('.ld-term-btn').forEach(function(b) {
-            b.addEventListener('click', function() { applyTerm(b.getAttribute('data-term')); });
+            b.addEventListener('click', function() { ldTerm = b.getAttribute('data-term'); applyPrice(); });
         });
+        document.querySelectorAll('.ld-grade-btn').forEach(function(b) {
+            b.addEventListener('click', function() { ldGrade = b.getAttribute('data-grade'); applyPrice(); });
+        });
+        applyPrice();
     })();
 
     (function(){
         var letters = 'ABCD';
         var packs = {
             mcq: [
-                { t: 'မြန်မာစာ', q: 'ရေသည်ပြဇာတ်ကို _____ ရေးသားခဲ့သည်။', a: ['ဦးပုည', 'ဦးပုညဏ်', 'ဦးပုညဏ'], c: 0 },
-                { t: 'အင်္ဂလိပ်စာ', q: '_____ I take your umbrella?', a: ['Should', 'Can', 'Must'], c: 1 },
-                { t: 'သင်္ချာ', q: 'What is the value of i^15?', a: ['1', '-1', 'i', '-i'], c: 3 },
-                { t: 'ရူပဗေဒ', q: 'In a circular motion, the object just moves in a _____.', a: ['circle', 'straight line', 'parabola'], c: 0 },
-                { t: 'ဓာတုဗေဒ', q: 'Iron, cobalt, and nickel are _____ substances.', a: ['ferromagnetic', 'diamagnetic', 'paramagnetic'], c: 0 },
-                { t: 'ဘောဂဗေဒ', q: 'ဇိမ်ခံကုန်စည်အတွက်ဝယ်လိုအားအလျော့အတင်းမှာ _____ ဖြစ်သည်။', a: ['များ', 'နည်း', 'ယူနစ်'], c: 1 }
+                { t: 'Myanmar', q: 'ရေသည်ပြဇာတ်ကို _____ ရေးသားခဲ့သည်။', a: ['ဦးပုည', 'ဦးပုညဏ်', 'ဦးပုညဏ'], c: 0 },
+                { t: 'English', q: '_____ I take your umbrella?', a: ['Should', 'Can', 'Must'], c: 1 },
+                { t: 'Maths', q: 'What is the value of i^15?', a: ['1', '-1', 'i', '-i'], c: 3 },
+                { t: 'Physics', q: 'In a circular motion, the object just moves in a _____.', a: ['circle', 'straight line', 'parabola'], c: 0 },
+                { t: 'Chemistry', q: 'Iron, cobalt, and nickel are _____ substances.', a: ['ferromagnetic', 'diamagnetic', 'paramagnetic'], c: 0 },
+                { t: 'Economics', q: 'ဇိမ်ခံကုန်စည်အတွက်ဝယ်လိုအားအလျော့အတင်းမှာ _____ ဖြစ်သည်။', a: ['များ', 'နည်း', 'ယူနစ်'], c: 1 }
             ],
             tf: [
-                { t: 'မြန်မာစာ', q: 'ရေသည်ပြဇာတ်ကို ဦးပုည ရေးသားခဲ့သည်။', c: true },
-                { t: 'အင်္ဂလိပ်စာ', q: "Children's manners originate at home.", c: true },
-                { t: 'သင်္ချာ', q: 'The value of i^15 is -i.', c: true },
-                { t: 'ရူပဗေဒ', q: 'In a circular motion, the object rotates about an axis.', c: false },
-                { t: 'ဓာတုဗေဒ', q: 'Iron is used to treat and prevent anemia.', c: true },
-                { t: 'ဘောဂဗေဒ', q: 'ရောင်းလိုအား၏ဈေးနှုန်းအလျော့အတင်းတန်ဖိုးသည် အပေါင်းလက္ခဏဆောင်သည်။', c: true }
+                { t: 'Myanmar', q: 'ရေသည်ပြဇာတ်ကို ဦးပုည ရေးသားခဲ့သည်။', c: true },
+                { t: 'English', q: "Children's manners originate at home.", c: true },
+                { t: 'Maths', q: 'The value of i^15 is -i.', c: true },
+                { t: 'Physics', q: 'In a circular motion, the object rotates about an axis.', c: false },
+                { t: 'Chemistry', q: 'Iron is used to treat and prevent anemia.', c: true },
+                { t: 'Economics', q: 'ရောင်းလိုအား၏ဈေးနှုန်းအလျော့အတင်းတန်ဖိုးသည် အပေါင်းလက္ခဏဆောင်သည်။', c: true }
             ],
             blank: [
-                { t: 'မြန်မာစာ', q: 'ရေသည်ပြဇာတ်ကို _____ ရေးသားခဲ့သည်။', a: 'ဦးပုည' },
-                { t: 'အင်္ဂလိပ်စာ', q: 'The veteran teacher hoped to i_____ her passion for history to her students.', a: 'impart' },
-                { t: 'သင်္ချာ', q: 'The value of i^15 is _____.', a: '-i' },
-                { t: 'ရူပဗေဒ', q: 'In a circular motion, the object just moves in a ____.', a: 'circle' },
-                { t: 'ဓာတုဗေဒ', q: 'Iron is used to treat and prevent ____.', a: 'anemia' },
-                { t: 'ဘောဂဗေဒ', q: 'ဝယ်လိုအားအလျော့အတင်းကို ___ ခွဲခြားဖော်ပြလေ့ရှိသည်။', a: '၅မျိုး' }
+                { t: 'Myanmar', q: 'ရေသည်ပြဇာတ်ကို _____ ရေးသားခဲ့သည်။', a: 'ဦးပုည' },
+                { t: 'English', q: 'The veteran teacher hoped to i_____ her passion for history to her students.', a: 'impart' },
+                { t: 'Maths', q: 'The value of i^15 is _____.', a: '-i' },
+                { t: 'Physics', q: 'In a circular motion, the object just moves in a ____.', a: 'circle' },
+                { t: 'Chemistry', q: 'Iron is used to treat and prevent ____.', a: 'anemia' },
+                { t: 'Economics', q: 'ဝယ်လိုအားအလျော့အတင်းကို ___ ခွဲခြားဖော်ပြလေ့ရှိသည်။', a: '၅မျိုး' }
             ]
         };
         function tfIdx(item) {
