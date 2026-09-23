@@ -60,6 +60,7 @@ function doPost(e) {
     var p = parsePost_(e);
     var action = String(p.action || '');
     if (action === 'uploadTimetable') return json_(uploadTimetable_(p));
+    if (action === 'saveScore') return json_(saveScore_(p));
     if (action === 'saveSale') return json_(saveSale_(p.sale || p));
     if (action === 'deleteSale') return json_(deleteSale_(p.id || p.saleId));
     if (action === 'saveBizNotes') return json_(saveBizNotes_(p.notes || p));
@@ -87,6 +88,7 @@ function saveScore_(p) {
   var newTotal = num_(p.total);
   var now = new Date();
   var grade = String(p.grade || inferGrade_(quizFile));
+  var social = quizFile.indexOf('__soc_') === 0;
 
   var last = sheet.getLastRow();
   var foundRow = 0;
@@ -105,7 +107,7 @@ function saveScore_(p) {
   }
 
   if (foundRow) {
-    if (newScore <= oldScore) {
+    if (!social && newScore <= oldScore) {
       return { status: 'ok', action: 'skipped', bestScore: oldScore };
     }
     setCell_(sheet, foundRow, idx.userName, p.userName || '');
@@ -151,6 +153,7 @@ function getStats_(p) {
   var correct = 0;
   var bySubject = {};
   rows.forEach(function (r) {
+    if (String(r.quizFile || '').indexOf('__soc_') === 0) return;
     answered += r.total;
     correct += r.score;
     if (!bySubject[r.subject]) bySubject[r.subject] = { score: 0, total: 0 };
@@ -170,7 +173,9 @@ function getStats_(p) {
       correct: correct
     },
     bySubject: subOut,
-    bestScores: rows.map(function (r) {
+    bestScores: rows.filter(function (r) {
+      return String(r.quizFile || '').indexOf('__soc_') !== 0;
+    }).map(function (r) {
       return {
         quizFile: r.quizFile,
         subject: r.subject,
@@ -207,7 +212,9 @@ function getLeaderboard_(p) {
         timeTaken: r.timeTaken,
         date: r.date,
         grade: r.grade,
-        isOld: r.isOld
+        isOld: r.isOld,
+        chapter: r.chapter,
+        type: r.type
       };
     })
   };
