@@ -30,8 +30,8 @@
  * Friends uses Friends. Profiles uses Profiles.
  * Do NOT write friend rows onto score tabs.
  * getPhotos uses Script Property BOT_TOKEN (same as timetable send).
- * Redeploy → New version after pasting this file. This version also
- * deletes leftover __soc_* rows that were mistakenly saved as scores.
+ * Redeploy → Manage deployments → existing Web App → New version.
+ * Saving this file is NOT enough. The Mini App uses the last deployed version.
  *
  *   Hosts a PNG and returns { status:'ok', url }. Optional Script Property
  *   BOT_TOKEN also sends the file to that Telegram user as a document.
@@ -92,15 +92,26 @@ function saveScore_(p) {
   if (!userId || !quizFile) {
     return { status: 'error', message: 'userId and quizFile required' };
   }
-  if (isSocialScoreRow_(quizFile, p.subject)) {
-    var cleaned = purgeSocialScoreRows_();
-    return { status: 'ok', action: 'ignored', message: 'social is not a quiz score', removed: cleaned.removed };
+  if (isSocialScoreRow_(quizFile, p.subject) || isSocialScorePayload_(p)) {
+    try { purgeSocialScoreRows_(); } catch (e1) {}
+    if (isProfilePublish_(quizFile)) {
+      var card = unpackPackedName_(p.userName);
+      saveProfile_({
+        userId: userId,
+        name: card.n || card.name || '',
+        photo: '',
+        bio: card.b || card.bio || p.bio || ''
+      });
+    }
+    return { status: 'ok', action: 'ignored', message: 'social is not a quiz score' };
   }
 
   var newScore = num_(p.score);
   var newTotal = num_(p.total);
   var now = new Date();
-  var grade = String(p.grade || inferGrade_(quizFile));
+  var fromFile = inferGrade_(quizFile);
+  var grade = fromFile !== '12' ? fromFile : String(p.grade || '12');
+  if (grade !== '10' && grade !== '11' && grade !== '12') grade = fromFile;
   var isOld = String(p.isOld || 'false') === 'true';
   if (grade === '10' || grade === '11') isOld = false;
   var sheet = scoresSheetFor_(grade, isOld);
@@ -436,10 +447,35 @@ function resetSocialScoreJunk() {
 
 function isSocialScoreRow_(quizFile, subject) {
   var qf = String(quizFile || '');
-  var sub = String(subject || '').toLowerCase();
-  if (qf.indexOf('__soc_') !== -1) return true;
+  var sub = String(subject || '').toLowerCase().trim();
+  if (qf.indexOf('__soc_') !== -1 || qf.indexOf('_soc_') !== -1) return true;
   if (sub === 'social') return true;
   return false;
+}
+
+function isSocialScorePayload_(p) {
+  var name = String((p && p.userName) || '');
+  var chapter = String((p && p.chapter) || '').toLowerCase();
+  var type = String((p && p.type) || '').toLowerCase();
+  var score = num_(p && p.score);
+  var total = num_(p && p.total);
+  if (name.charAt(0) === '{' && name.indexOf('"n"') !== -1) return true;
+  if (chapter === 'social' || type === 'social') return true;
+  if (total > 0 && total <= 1 && score > 100000) return true;
+  return false;
+}
+
+function isProfilePublish_(quizFile) {
+  var qf = String(quizFile || '');
+  return qf.indexOf('soc_p') !== -1 && qf.indexOf('soc_fr') === -1 && qf.indexOf('soc_ok') === -1;
+}
+
+function unpackPackedName_(raw) {
+  var s = String(raw || '').trim();
+  if (s.charAt(0) === '{') {
+    try { return JSON.parse(s) || {}; } catch (e) {}
+  }
+  return { n: s };
 }
 
 function rowIsSocialJunk_(row) {
