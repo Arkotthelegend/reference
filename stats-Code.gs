@@ -21,10 +21,14 @@
  *
  * Customer analysis (doPost saveSale / deleteSale / saveBizNotes,
  * doGet getSales / getBizNotes) uses extra sheets named Sales and BizNotes
- * in the SAME spreadsheet. Friends uses a sheet named Friends
- * Friends / photos: getPhotos uses Script Property BOT_TOKEN
- * (same as timetable Telegram send) to fetch profile photos.
- * Redeploy → New version after pasting this file.
+ * in the SAME spreadsheet.
+ *
+ * Quiz best scores stay on the Normal / first scores tab only.
+ * Do NOT write friend rows there. Friends uses a sheet named Friends.
+ * Profiles (name / bio) uses a sheet named Profiles.
+ * getPhotos uses Script Property BOT_TOKEN (same as timetable send).
+ * Redeploy → New version after pasting this file. This version also
+ * deletes leftover __soc_* rows that were mistakenly saved as scores.
  *
  *   Hosts a PNG and returns { status:'ok', url }. Optional Script Property
  *   BOT_TOKEN also sends the file to that Telegram user as a document.
@@ -50,7 +54,9 @@ function doGet(e) {
     if (action === 'getBizNotes') return json_(getBizNotes_());
     if (action === 'friendState') return json_(friendState_(p));
     if (action === 'friendOp') return json_(friendOp_(p));
+    if (action === 'saveProfile') return json_(saveProfile_(p));
     if (action === 'getPhotos') return json_(getPhotos_(p));
+    if (action === 'purgeSocialScores') return json_(purgeSocialScoreRows_());
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -68,7 +74,9 @@ function doPost(e) {
     if (action === 'saveBizNotes') return json_(saveBizNotes_(p.notes || p));
     if (action === 'friendOp') return json_(friendOp_(p));
     if (action === 'friendState') return json_(friendState_(p));
+    if (action === 'saveProfile') return json_(saveProfile_(p));
     if (action === 'getPhotos') return json_(getPhotos_(p));
+    if (action === 'purgeSocialScores') return json_(purgeSocialScoreRows_());
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -86,12 +94,15 @@ function saveScore_(p) {
   if (!userId || !quizFile) {
     return { status: 'error', message: 'userId and quizFile required' };
   }
+  if (isSocialScoreRow_(quizFile, p.subject)) {
+    var cleaned = purgeSocialScoreRows_();
+    return { status: 'ok', action: 'ignored', message: 'social is not a quiz score', removed: cleaned.removed };
+  }
 
   var newScore = num_(p.score);
   var newTotal = num_(p.total);
   var now = new Date();
   var grade = String(p.grade || inferGrade_(quizFile));
-  var social = quizFile.indexOf('__soc_') === 0;
 
   var last = sheet.getLastRow();
   var foundRow = 0;
@@ -110,7 +121,7 @@ function saveScore_(p) {
   }
 
   if (foundRow) {
-    if (!social && newScore <= oldScore) {
+    if (newScore <= oldScore) {
       return { status: 'ok', action: 'skipped', bestScore: oldScore };
     }
     setCell_(sheet, foundRow, idx.userName, p.userName || '');
@@ -196,6 +207,7 @@ function getStats_(p) {
 }
 
 function getLeaderboard_(p) {
+  try { purgeSocialScoreRowsOnce_(); } catch (err) {}
   var subject = String(p.subject || 'all');
   var rows = readScoreRows_();
   if (subject && subject !== 'all') {
@@ -233,12 +245,14 @@ function readScoreRows_() {
   for (var i = 0; i < values.length; i++) {
     var quizFile = String(values[i][idx.quizFile] || '');
     if (!quizFile) continue;
+    var subject = String(values[i][idx.subject] || '');
+    if (isSocialScoreRow_(quizFile, subject)) continue;
     var rawDate = idx.date !== undefined ? values[i][idx.date] : '';
     out.push({
       userId: String(values[i][idx.userId] || ''),
       userName: String(values[i][idx.userName] || ''),
       quizFile: quizFile,
-      subject: String(values[i][idx.subject] || ''),
+      subject: subject,
       chapter: idx.chapter !== undefined ? String(values[i][idx.chapter] || '') : '',
       type: idx.type !== undefined ? String(values[i][idx.type] || '') : '',
       score: num_(values[i][idx.score]),
@@ -262,6 +276,62 @@ function scoresSheet_() {
     if (named) return named;
   }
   return ss.getSheets()[0];
+}
+
+function isSocialScoreRow_(quizFile, subject) {
+  var qf = String(quizFile || '');
+  var sub = String(subject || '').toLowerCase();
+  if (qf.indexOf('__soc_') === 0) return true;
+  if (sub === 'social') return true;
+  return false;
+}
+
+function scoreWorkbook_() {
+  return SPREADSHEET_ID
+    ? SpreadsheetApp.openById(SPREADSHEET_ID)
+    : SpreadsheetApp.getActiveSpreadsheet();
+}
+
+function purgeSocialScoreRows_() {
+  var ss = scoreWorkbook_();
+  if (!ss) return { status: 'ok', removed: 0 };
+  var skip = { Friends: 1, Profiles: 1, Sales: 1, BizNotes: 1 };
+  var sheets = ss.getSheets();
+  var removed = 0;
+  var s;
+  for (s = 0; s < sheets.length; s++) {
+    var sheet = sheets[s];
+    if (skip[sheet.getName()]) continue;
+    var idx = headerIndex_(sheet);
+    if (idx.quizFile === undefined && idx.score === undefined) continue;
+    var last = sheet.getLastRow();
+    if (last < 2) continue;
+    var values = sheet.getRange(2, 1, last - 1, sheet.getLastColumn()).getValues();
+    var toDelete = [];
+    var i;
+    for (i = 0; i < values.length; i++) {
+      var qf = idx.quizFile !== undefined ? String(values[i][idx.quizFile] || '') : '';
+      var sub = idx.subject !== undefined ? String(values[i][idx.subject] || '') : '';
+      var score = idx.score !== undefined ? num_(values[i][idx.score]) : 0;
+      var total = idx.total !== undefined ? num_(values[i][idx.total]) : 0;
+      if (isSocialScoreRow_(qf, sub) || (total > 0 && score > total * 5 && score > 100000)) {
+        toDelete.push(i + 2);
+      }
+    }
+    for (i = toDelete.length - 1; i >= 0; i--) {
+      sheet.deleteRow(toDelete[i]);
+      removed++;
+    }
+  }
+  return { status: 'ok', removed: removed };
+}
+
+function purgeSocialScoreRowsOnce_() {
+  var props = PropertiesService.getScriptProperties();
+  if (props.getProperty('purgedSocRows') === '1') return { status: 'ok', removed: 0, skipped: true };
+  var res = purgeSocialScoreRows_();
+  try { props.setProperty('purgedSocRows', '1'); } catch (err) {}
+  return res;
 }
 
 function headerIndex_(sheet) {
@@ -585,6 +655,63 @@ function json_(obj) {
 }
 
 var FRIEND_HEADERS = ['fromId', 'toId', 'status', 'fromName', 'toName', 'fromPhoto', 'toPhoto', 'updated'];
+var PROFILE_HEADERS = ['userId', 'name', 'photo', 'bio', 'updated'];
+
+function profilesSheet_() {
+  var ss = scoreWorkbook_();
+  if (!ss) throw new Error('Spreadsheet not found. Set SPREADSHEET_ID.');
+  var sh = ss.getSheetByName('Profiles');
+  if (!sh) {
+    sh = ss.insertSheet('Profiles');
+    sh.appendRow(PROFILE_HEADERS);
+  }
+  if (sh.getLastRow() < 1) sh.appendRow(PROFILE_HEADERS);
+  return sh;
+}
+
+function saveProfile_(p) {
+  var userId = String(p.userId || p.fromId || '').replace(/[^0-9]/g, '');
+  if (!userId) return { status: 'error', message: 'userId required' };
+  var name = String(p.name || p.userName || '').slice(0, 40);
+  var photo = String(p.photo || p.photo_url || '').slice(0, 500);
+  var bio = String(p.bio || '').slice(0, 80);
+  var sheet = profilesSheet_();
+  var last = sheet.getLastRow();
+  var found = 0;
+  if (last >= 2) {
+    var ids = sheet.getRange(2, 1, last - 1, 1).getValues();
+    var i;
+    for (i = 0; i < ids.length; i++) {
+      if (String(ids[i][0] || '') === userId) {
+        found = i + 2;
+        break;
+      }
+    }
+  }
+  var line = [userId, name, photo, bio, new Date()];
+  if (found) sheet.getRange(found, 1, 1, PROFILE_HEADERS.length).setValues([line]);
+  else sheet.appendRow(line);
+  return { status: 'ok', userId: userId };
+}
+
+function readProfiles_() {
+  var sheet = profilesSheet_();
+  var last = sheet.getLastRow();
+  var out = {};
+  if (last < 2) return out;
+  var values = sheet.getRange(2, 1, last - 1, PROFILE_HEADERS.length).getValues();
+  var i;
+  for (i = 0; i < values.length; i++) {
+    var id = String(values[i][0] || '');
+    if (!id) continue;
+    out[id] = {
+      name: String(values[i][1] || 'Student'),
+      photo: String(values[i][2] || ''),
+      bio: String(values[i][3] || '')
+    };
+  }
+  return out;
+}
 
 function friendsSheet_() {
   var ss = SPREADSHEET_ID
@@ -630,20 +757,21 @@ function friendState_(p) {
   var userId = String(p.userId || p.fromId || '').replace(/[^0-9]/g, '');
   if (!userId) return { status: 'error', message: 'userId required' };
   var pack = friendRows_();
+  var stored = readProfiles_();
   var friends = [];
   var incoming = [];
   var outgoing = [];
-  var profiles = {};
+  var profiles = stored;
   pack.rows.forEach(function (r) {
     if (!r.fromId || !r.toId) return;
-    profiles[r.fromId] = { name: r.fromName || 'Student', photo: r.fromPhoto || '' };
-    profiles[r.toId] = { name: r.toName || 'Student', photo: r.toPhoto || '' };
+    if (!profiles[r.fromId]) profiles[r.fromId] = { name: r.fromName || 'Student', photo: r.fromPhoto || '', bio: '' };
+    if (!profiles[r.toId]) profiles[r.toId] = { name: r.toName || 'Student', photo: r.toPhoto || '', bio: '' };
     if (r.status === 'accepted') {
-      if (r.fromId === userId) friends.push(friendCard_(r.toId, r.toName, r.toPhoto));
-      else if (r.toId === userId) friends.push(friendCard_(r.fromId, r.fromName, r.fromPhoto));
+      if (r.fromId === userId) friends.push(friendCard_(r.toId, (profiles[r.toId] && profiles[r.toId].name) || r.toName, (profiles[r.toId] && profiles[r.toId].photo) || r.toPhoto));
+      else if (r.toId === userId) friends.push(friendCard_(r.fromId, (profiles[r.fromId] && profiles[r.fromId].name) || r.fromName, (profiles[r.fromId] && profiles[r.fromId].photo) || r.fromPhoto));
     } else if (r.status === 'pending') {
-      if (r.toId === userId) incoming.push(friendCard_(r.fromId, r.fromName, r.fromPhoto));
-      else if (r.fromId === userId) outgoing.push(friendCard_(r.toId, r.toName, r.toPhoto));
+      if (r.toId === userId) incoming.push(friendCard_(r.fromId, (profiles[r.fromId] && profiles[r.fromId].name) || r.fromName, (profiles[r.fromId] && profiles[r.fromId].photo) || r.fromPhoto));
+      else if (r.fromId === userId) outgoing.push(friendCard_(r.toId, (profiles[r.toId] && profiles[r.toId].name) || r.toName, (profiles[r.toId] && profiles[r.toId].photo) || r.toPhoto));
     }
   });
   return { status: 'ok', friends: friends, incoming: incoming, outgoing: outgoing, profiles: profiles };
