@@ -34,6 +34,10 @@
     }
 
     function meId() {
+        try {
+            var live = root.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user;
+            if (live && live.id) return String(live.id);
+        } catch (e0) {}
         if (typeof root.telegramUserId === 'function') {
             var liveId = root.telegramUserId();
             if (liveId) return String(liveId);
@@ -126,6 +130,40 @@
         return root.STATS_GAS_URL || '';
     }
 
+    function botWorker() {
+        return String(root.REED_BOT_WORKER || '').replace(/\/$/, '');
+    }
+
+    function photoUrlFor(id) {
+        var worker = botWorker();
+        id = String(id || '').replace(/[^0-9]/g, '');
+        if (!worker || !id) return '';
+        return worker + '/photo?id=' + encodeURIComponent(id);
+    }
+
+    function socialGet(action, extra) {
+        extra = extra || {};
+        extra.action = action;
+        var worker = botWorker();
+        if (!worker) return Promise.resolve(null);
+        var params = new URLSearchParams();
+        Object.keys(extra).forEach(function (k) {
+            if (k === 'photo' || k === 'photo_url' || k === 'fromPhoto') return;
+            if (extra[k] == null) return;
+            params.set(k, String(extra[k]));
+        });
+        var qs = params.toString();
+        var urls = [worker + '/social?' + qs, worker + '?' + qs];
+        function next(i) {
+            if (i >= urls.length) return Promise.resolve(null);
+            return fetchJson(urls[i]).then(function (data) {
+                if (data && data.status === 'ok') return data;
+                return next(i + 1);
+            }).catch(function () { return next(i + 1); });
+        }
+        return next(0);
+    }
+
     function packCard(name, photo, bio) {
         return JSON.stringify({
             n: String(name || '').slice(0, 40),
@@ -161,10 +199,10 @@
         }
         var p = (friendCache.profiles && friendCache.profiles[String(id)]) || {};
         var name = p.name || fallback.name || fallback.userName || 'Student';
-        var photo = p.photo || fallback.photo || '';
+        var photo = p.photo || fallback.photo || photoUrlFor(id);
         if (name === meName()) name = fallback.name || fallback.userName || 'Student';
         if (name === meName()) name = 'Student';
-        if (photo && photo === mePhoto()) photo = '';
+        if (photo && photo === mePhoto()) photo = photoUrlFor(id);
         return {
             userId: String(id),
             name: name,
@@ -230,8 +268,9 @@
         var uid = meId();
         if (!uid) return Promise.resolve();
         rememberProfile(uid, meName(), mePhoto(), readMyBio());
-        return gasGet('saveProfile', {
+        return socialGet('saveProfile', {
             userId: uid,
+            fromId: uid,
             name: meName(),
             userName: meName(),
             bio: readMyBio()
@@ -369,16 +408,9 @@
     function loadFriendState() {
         var uid = meId();
         if (!uid) return Promise.resolve(friendCache);
-        return gasGet('friendState', { userId: uid, fromId: uid }).then(function (data) {
+        return socialGet('friendState', { userId: uid, fromId: uid }).then(function (data) {
             var remote = applyRemoteState(data);
-            if (remote) return remote;
-            if (typeof root.fetchAllLeaderboardRows !== 'function') return friendCache;
-            return root.fetchAllLeaderboardRows().then(function (rows) {
-                ingestRows(rows);
-                var next = stateFromRows(rows, uid);
-                writeLocal(next);
-                return next;
-            });
+            return remote || friendCache;
         }).catch(function () {
             return friendCache;
         });
@@ -388,13 +420,12 @@
         var uid = meId();
         var id = String(otherId || '').replace(/[^0-9]/g, '');
         if (!uid || !id || id === uid) return Promise.resolve(friendCache);
-        return gasGet('friendOp', {
+        return socialGet('friendOp', {
             op: op,
             friendOp: op,
             fromId: uid,
             toId: id,
-            fromName: meName(),
-            fromPhoto: mePhoto()
+            fromName: meName()
         }).then(function (data) {
             var remote = applyRemoteState(data);
             if (remote) return remote;
@@ -614,8 +645,12 @@
         document.getElementById('peer-preview-rank').textContent = rk;
         var btn = document.getElementById('peer-preview-action');
         var rel = relationTo(id);
+        var viewingSelf = String(id) === meId();
         btn.style.display = '';
-        if (rel === 'self') {
+        btn.disabled = false;
+        btn.removeAttribute('disabled');
+        btn.setAttribute('data-peer', String(id));
+        if (viewingSelf) {
             btn.style.display = 'none';
         } else if (rel === 'friends') {
             btn.textContent = 'Friends';
@@ -633,7 +668,7 @@
             btn.setAttribute('data-fop', 'request');
         }
         overlay.hidden = false;
-        if (typeof fillPhotos === 'function') fillPhotos([id]);
+        fillPhotos([id]);
     }
 
     function openPeerPreview(id, extras) {
@@ -727,6 +762,13 @@
             renderLists();
             if (previewTarget === String(id)) openPeerPreview(id, { force: true });
             if (typeof root.loadLeaderboard === 'function') root.loadLeaderboard();
+        }).catch(function () {}).then(function () {
+            if (!btn) return;
+            var rel = relationTo(id);
+            if (rel === 'none' || rel === 'incoming') {
+                btn.disabled = false;
+                btn.removeAttribute('disabled');
+            }
         });
     }
 
@@ -850,13 +892,11 @@
             seen[id] = true;
             want.push(id);
         });
-        if (!want.length || !gasUrl()) return Promise.resolve();
-        return fetchJson(gasUrl() + '?action=getPhotos&ids=' + encodeURIComponent(want.join(',')) + '&cb=' + Date.now()).then(function (data) {
-            if (!data || data.status !== 'ok' || !data.photos) return;
-            Object.keys(data.photos).forEach(function (id) {
-                applyAvatar(id, data.photos[id]);
-            });
-        }).catch(function () {});
+        if (!want.length || !botWorker()) return Promise.resolve();
+        want.forEach(function (id) {
+            applyAvatar(id, photoUrlFor(id));
+        });
+        return Promise.resolve();
     }
 
     function openSocial() {
@@ -894,8 +934,9 @@
         },
         photoFor: function (id) {
             var p = profileOf(id);
-            return p.photo || '';
+            return p.photo || photoUrlFor(id);
         },
+        photoUrlFor: photoUrlFor,
         profileFor: profileOf
     };
 })(window);
