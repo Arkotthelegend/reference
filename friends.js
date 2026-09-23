@@ -1,7 +1,12 @@
 (function (root) {
     var UNKNOWN_ID_MSG = 'No user with this id';
+    var BIO_MAX = 80;
+    var ST_OFF = 0;
+    var ST_PENDING = 1;
+    var ST_FRIEND = 2;
     var friendCache = { friends: [], incoming: [], outgoing: [], profiles: {} };
     var previewTarget = null;
+    var socialTimer = 0;
 
     function esc(s) {
         return String(s == null ? '' : s)
@@ -38,24 +43,20 @@
         return (meUser().photo_url) || '';
     }
 
-    function storeKey() {
-        return 'reed_friends_' + (meId() || 'guest');
+    function bioKey() {
+        return 'reed_bio_' + (meId() || 'guest');
     }
 
-    function readLocal() {
-        try {
-            var raw = localStorage.getItem(storeKey());
-            if (!raw) return { friends: [], incoming: [], outgoing: [], profiles: {} };
-            var data = JSON.parse(raw);
-            return {
-                friends: data.friends || [],
-                incoming: data.incoming || [],
-                outgoing: data.outgoing || [],
-                profiles: data.profiles || {}
-            };
-        } catch (e) {
-            return { friends: [], incoming: [], outgoing: [], profiles: {} };
-        }
+    function readMyBio() {
+        try { return String(localStorage.getItem(bioKey()) || ''); } catch (e) { return ''; }
+    }
+
+    function writeMyBio(text) {
+        try { localStorage.setItem(bioKey(), String(text || '').slice(0, BIO_MAX)); } catch (e) {}
+    }
+
+    function storeKey() {
+        return 'reed_friends_' + (meId() || 'guest');
     }
 
     function writeLocal(state) {
@@ -68,7 +69,7 @@
         var k;
         for (k in rec) {
             if (!Object.prototype.hasOwnProperty.call(rec, k)) continue;
-            if (k === 'vol' || k === 'isVolunteer' || k === 'name' || k === 'photo' || k === 'photo_url') continue;
+            if (k === 'vol' || k === 'isVolunteer' || k === 'name' || k === 'photo' || k === 'photo_url' || k === 'bio') continue;
             var val = rec[k];
             if (val && typeof val === 'object' && !Array.isArray(val)) continue;
             if (typeof root.isExpiryValid === 'function' && root.isExpiryValid(val)) return true;
@@ -88,41 +89,50 @@
         return root.STATS_GAS_URL || '';
     }
 
+    function packCard(name, photo, bio) {
+        return JSON.stringify({
+            n: String(name || '').slice(0, 40),
+            p: String(photo || '').slice(0, 500),
+            b: String(bio || '').slice(0, BIO_MAX)
+        });
+    }
+
+    function unpackCard(raw, fallbackName) {
+        var s = String(raw || '').trim();
+        if (s.charAt(0) === '{') {
+            try {
+                var o = JSON.parse(s);
+                return {
+                    name: o.n || fallbackName || 'Student',
+                    photo: o.p || '',
+                    bio: o.b || ''
+                };
+            } catch (e) {}
+        }
+        return { name: s || fallbackName || 'Student', photo: '', bio: '' };
+    }
+
     function profileOf(id, fallback) {
         var p = (friendCache.profiles && friendCache.profiles[String(id)]) || {};
         fallback = fallback || {};
         return {
             userId: String(id),
             name: p.name || fallback.name || fallback.userName || 'Student',
-            photo: p.photo || fallback.photo || ''
+            photo: p.photo || fallback.photo || '',
+            bio: p.bio || fallback.bio || ''
         };
     }
 
-    function rememberProfile(id, name, photo) {
+    function rememberProfile(id, name, photo, bio) {
         if (!id) return;
         friendCache.profiles = friendCache.profiles || {};
         var prev = friendCache.profiles[String(id)] || {};
         friendCache.profiles[String(id)] = {
             name: name || prev.name || 'Student',
-            photo: photo || prev.photo || ''
+            photo: photo || prev.photo || '',
+            bio: bio != null && bio !== '' ? bio : (prev.bio || '')
         };
         writeLocal(friendCache);
-    }
-
-    function mergeState(server) {
-        var local = readLocal();
-        if (!server || (server.status && server.status !== 'ok')) {
-            friendCache = local;
-            return local;
-        }
-        var merged = {
-            friends: server.friends || local.friends || [],
-            incoming: server.incoming || local.incoming || [],
-            outgoing: server.outgoing || local.outgoing || [],
-            profiles: Object.assign({}, local.profiles || {}, server.profiles || {})
-        };
-        writeLocal(merged);
-        return merged;
     }
 
     function fetchJson(url, opts) {
@@ -131,82 +141,150 @@
         });
     }
 
+    function tickScore() {
+        return String(Math.floor(Date.now() / 1000));
+    }
+
+    function saveSocialRow(quizFile, packedName, status) {
+        var uid = meId();
+        if (!uid || !gasUrl()) return Promise.resolve(null);
+        var params = new URLSearchParams({
+            action: 'saveScore',
+            userId: uid,
+            userName: packedName,
+            quizFile: quizFile,
+            subject: 'social',
+            chapter: 'social',
+            type: 'social',
+            score: tickScore(),
+            total: '1',
+            isOld: 'false',
+            timeTaken: String(status == null ? 0 : status),
+            grade: '12'
+        });
+        return fetchJson(gasUrl() + '?' + params.toString()).then(function (data) {
+            if (typeof root.invalidateLeaderboardCache === 'function') root.invalidateLeaderboardCache();
+            return data;
+        }).catch(function () { return null; });
+    }
+
+    function myPacked() {
+        return packCard(meName(), mePhoto(), readMyBio());
+    }
+
+    function publishMe() {
+        var uid = meId();
+        if (!uid) return Promise.resolve();
+        rememberProfile(uid, meName(), mePhoto(), readMyBio());
+        return saveSocialRow('__soc_p', myPacked(), 0);
+    }
+
+    function numStat(v) {
+        var n = parseInt(v, 10);
+        return isNaN(n) ? 0 : n;
+    }
+
+    function stateFromRows(rows, uid) {
+        var profiles = {};
+        var myFr = {};
+        var theirFr = {};
+        var myOk = {};
+        var theirOk = {};
+        (rows || []).forEach(function (row) {
+            var qf = String(row.quizFile || '');
+            if (qf.indexOf('__soc_') !== 0) return;
+            var packed = unpackCard(row.userName, row.userName);
+            var oid = String(row.userId || '');
+            if (!oid) return;
+            if (qf === '__soc_p') {
+                profiles[oid] = packed;
+                return;
+            }
+            var fr = /^__soc_fr_(\d+)$/.exec(qf);
+            if (fr) {
+                var to = fr[1];
+                var st = numStat(row.timeTaken);
+                if (oid === uid) myFr[to] = { st: st, p: packed };
+                if (to === uid) theirFr[oid] = { st: st, p: packed };
+                return;
+            }
+            var ok = /^__soc_ok_(\d+)$/.exec(qf);
+            if (ok) {
+                var other = ok[1];
+                var ost = numStat(row.timeTaken);
+                if (oid === uid) myOk[other] = ost;
+                if (other === uid) theirOk[oid] = ost;
+            }
+        });
+        function card(id, packed) {
+            var p = packed || profiles[id] || {};
+            if (p.name || p.photo || p.bio) profiles[id] = {
+                name: p.name || (profiles[id] && profiles[id].name) || 'Student',
+                photo: p.photo || (profiles[id] && profiles[id].photo) || '',
+                bio: p.bio || (profiles[id] && profiles[id].bio) || ''
+            };
+            var use = profiles[id] || p;
+            return { userId: String(id), name: use.name || 'Student', photo: use.photo || '', bio: use.bio || '' };
+        }
+        var friends = [];
+        var incoming = [];
+        var outgoing = [];
+        var seen = {};
+        function isFriend(id) {
+            return (theirFr[id] && theirFr[id].st === ST_PENDING && myOk[id] === ST_FRIEND)
+                || (myFr[id] && myFr[id].st === ST_PENDING && theirOk[id] === ST_FRIEND)
+                || (myOk[id] === ST_FRIEND && theirOk[id] === ST_FRIEND);
+        }
+        Object.keys(theirFr).concat(Object.keys(myFr), Object.keys(myOk), Object.keys(theirOk)).forEach(function (id) {
+            if (seen[id] || id === uid) return;
+            seen[id] = true;
+            if (isFriend(id)) {
+                friends.push(card(id, (theirFr[id] && theirFr[id].p) || (myFr[id] && myFr[id].p)));
+                return;
+            }
+            if (theirFr[id] && theirFr[id].st === ST_PENDING && myOk[id] !== ST_FRIEND && myOk[id] !== ST_OFF) {
+                incoming.push(card(id, theirFr[id].p));
+                return;
+            }
+            if (myFr[id] && myFr[id].st === ST_PENDING && theirOk[id] !== ST_FRIEND) {
+                outgoing.push(card(id, profiles[id]));
+            }
+        });
+        return { friends: friends, incoming: incoming, outgoing: outgoing, profiles: profiles };
+    }
+
     function loadFriendState() {
         var uid = meId();
-        if (!uid) {
-            friendCache = readLocal();
-            return Promise.resolve(friendCache);
-        }
-        var url = gasUrl() + '?action=friendState&userId=' + encodeURIComponent(uid) + '&cb=' + Date.now();
-        return fetchJson(url).then(function (data) {
-            return mergeState(data);
+        if (!uid) return Promise.resolve(friendCache);
+        if (typeof root.invalidateLeaderboardCache === 'function') root.invalidateLeaderboardCache();
+        if (typeof root.fetchAllLeaderboardRows !== 'function') return Promise.resolve(friendCache);
+        return root.fetchAllLeaderboardRows().then(function (rows) {
+            var next = stateFromRows(rows, uid);
+            writeLocal(next);
+            return next;
         }).catch(function () {
-            friendCache = readLocal();
             return friendCache;
         });
     }
 
     function postFriendOp(op, otherId) {
         var uid = meId();
-        if (!uid) return Promise.resolve({ status: 'error', message: 'Sign in with Telegram' });
-        var body = {
-            action: 'friendOp',
-            op: op,
-            fromId: uid,
-            toId: String(otherId || ''),
-            fromName: meName(),
-            fromPhoto: mePhoto()
-        };
-        var qs = gasUrl() + '?action=friendOp'
-            + '&op=' + encodeURIComponent(op)
-            + '&fromId=' + encodeURIComponent(uid)
-            + '&toId=' + encodeURIComponent(String(otherId || ''))
-            + '&fromName=' + encodeURIComponent(meName())
-            + '&fromPhoto=' + encodeURIComponent(mePhoto());
-        return fetchJson(gasUrl(), {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify(body)
-        }).then(function (data) {
-            if (data && data.status === 'ok') return mergeState(data);
-            return fetchJson(qs).then(function (g) {
-                if (g && g.status === 'ok') return mergeState(g);
-                applyLocalOp(op, otherId);
-                return friendCache;
-            });
-        }).catch(function () {
-            return fetchJson(qs).then(function (g) {
-                if (g && g.status === 'ok') return mergeState(g);
-                applyLocalOp(op, otherId);
-                return friendCache;
-            }).catch(function () {
-                applyLocalOp(op, otherId);
-                return friendCache;
-            });
-        });
+        var id = String(otherId || '').replace(/[^0-9]/g, '');
+        if (!uid) return Promise.resolve(friendCache);
+        var packed = myPacked();
+        var jobs = [];
+        if (op === 'request') jobs.push(saveSocialRow('__soc_fr_' + id, packed, ST_PENDING));
+        else if (op === 'cancel') jobs.push(saveSocialRow('__soc_fr_' + id, packed, ST_OFF));
+        else if (op === 'accept') jobs.push(saveSocialRow('__soc_ok_' + id, packed, ST_FRIEND));
+        else if (op === 'reject' || op === 'unfriend') {
+            jobs.push(saveSocialRow('__soc_ok_' + id, packed, ST_OFF));
+            if (op === 'unfriend') jobs.push(saveSocialRow('__soc_fr_' + id, packed, ST_OFF));
+        }
+        return Promise.all(jobs).then(function () { return loadFriendState(); });
     }
 
     function listHas(list, id) {
         return (list || []).some(function (row) { return String(row.userId) === String(id); });
-    }
-
-    function applyLocalOp(op, otherId) {
-        var state = readLocal();
-        var id = String(otherId);
-        var card = { userId: id, name: profileOf(id).name, photo: profileOf(id).photo };
-        function drop(list) { return (list || []).filter(function (r) { return String(r.userId) !== id; }); }
-        if (op === 'request') {
-            if (!listHas(state.outgoing, id) && !listHas(state.friends, id)) state.outgoing = (state.outgoing || []).concat([card]);
-        } else if (op === 'accept') {
-            state.incoming = drop(state.incoming);
-            if (!listHas(state.friends, id)) state.friends = (state.friends || []).concat([card]);
-        } else if (op === 'reject' || op === 'cancel') {
-            state.incoming = drop(state.incoming);
-            state.outgoing = drop(state.outgoing);
-        } else if (op === 'unfriend') {
-            state.friends = drop(state.friends);
-        }
-        writeLocal(state);
     }
 
     function relationTo(id) {
@@ -220,10 +298,12 @@
 
     function avatarHtml(name, photo, cls) {
         var initial = String(name || 'S').charAt(0).toUpperCase();
+        var klass = cls || 'social-avatar';
         if (photo) {
-            return '<img class="' + (cls || 'social-avatar') + '" src="' + esc(photo) + '" alt="">';
+            return '<img class="' + klass + '" src="' + esc(photo) + '" alt="" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'">'
+                + '<div class="' + klass + ' social-avatar-fallback" style="display:none">' + esc(initial) + '</div>';
         }
-        return '<div class="' + (cls || 'social-avatar') + ' social-avatar-fallback">' + esc(initial) + '</div>';
+        return '<div class="' + klass + ' social-avatar-fallback">' + esc(initial) + '</div>';
     }
 
     function personRow(row, actionsHtml) {
@@ -233,6 +313,7 @@
         return '<button type="button" class="friend-row" data-peer="' + esc(id) + '">'
             + avatarHtml(name, photo)
             + '<div class="friend-row-info"><div class="friend-row-name">' + esc(name) + '</div>'
+            + (row.bio ? '<div class="friend-row-bio">' + esc(row.bio) + '</div>' : '')
             + '<div class="friend-row-meta">ID ' + esc(id) + '</div></div></button>'
             + (actionsHtml || '');
     }
@@ -324,7 +405,8 @@
                     var all = {};
                     (rows || []).forEach(function (row) {
                         var uid = String(row.userId || '');
-                        if (!uid) return;
+                        var qf = String(row.quizFile || '');
+                        if (!uid || qf.indexOf('__soc_') === 0) return;
                         if (!all[uid]) all[uid] = { userId: uid, userName: row.userName || 'Student', totalScore: 0, totalPossible: 0, totalTime: 0, quizCount: 0 };
                         all[uid].totalScore += parseInt(row.score || 0, 10);
                         all[uid].totalPossible += parseInt(row.total || 0, 10);
@@ -351,7 +433,10 @@
             if (!data || data.status !== 'ok') return null;
             var overall = data.overall || {};
             var time = 0;
-            (data.bestScores || []).forEach(function (b) { time += parseInt(b.timeTaken || 0, 10); });
+            (data.bestScores || []).forEach(function (b) {
+                if (String(b.quizFile || '').indexOf('__soc_') === 0) return;
+                time += parseInt(b.timeTaken || 0, 10);
+            });
             return {
                 acc: overall.accuracy || 0,
                 questions: overall.answered || 0,
@@ -367,7 +452,13 @@
         previewTarget = String(id);
         var name = (meta && meta.name) || 'Student';
         var photo = (meta && meta.photo) || '';
+        var bio = (meta && meta.bio) || '';
         document.getElementById('peer-preview-name').textContent = name;
+        var bioEl = document.getElementById('peer-preview-bio');
+        if (bioEl) {
+            bioEl.textContent = bio;
+            bioEl.hidden = !bio;
+        }
         document.getElementById('peer-preview-id').textContent = 'ID ' + id;
         var av = document.getElementById('peer-preview-avatar');
         av.innerHTML = avatarHtml(name, photo, 'peer-avatar');
@@ -406,12 +497,16 @@
         extras = extras || {};
         id = String(id || '').replace(/[^0-9]/g, '');
         if (!id) return;
-        rememberProfile(id, extras.name || extras.userName, extras.photo);
+        rememberProfile(id, extras.name || extras.userName, extras.photo, extras.bio);
         var meta = profileOf(id, extras);
         fillPreview(id, meta, extras.stats || statsFromEntry(extras));
-        findInLeaderboard(id).then(function (entry) {
+        loadFriendState().then(function () {
+            meta = profileOf(id, extras);
+            fillPreview(id, meta, extras.stats || statsFromEntry(extras));
+            return findInLeaderboard(id);
+        }).then(function (entry) {
             if (entry) {
-                rememberProfile(id, entry.userName);
+                rememberProfile(id, unpackCard(entry.userName, entry.userName).name === entry.userName ? entry.userName : unpackCard(entry.userName).name);
                 meta = profileOf(id, { name: entry.userName });
                 fillPreview(id, meta, statsFromEntry(entry));
             }
@@ -437,7 +532,7 @@
             return;
         }
         if (id === meId()) {
-            openPeerPreview(id, { name: meName(), photo: mePhoto() });
+            openPeerPreview(id, { name: meName(), photo: mePhoto(), bio: readMyBio() });
             return;
         }
         if (!targetBoughtSubjects(id)) {
@@ -445,20 +540,27 @@
             return;
         }
         setFindMsg('Found');
-        findInLeaderboard(id).then(function (entry) {
-            openPeerPreview(id, {
-                name: (entry && entry.userName) || 'Student',
-                stats: statsFromEntry(entry || {})
+        loadFriendState().then(function () {
+            var meta = profileOf(id, { name: 'Student' });
+            findInLeaderboard(id).then(function (entry) {
+                openPeerPreview(id, {
+                    name: meta.name || (entry && entry.userName) || 'Student',
+                    photo: meta.photo,
+                    bio: meta.bio,
+                    stats: statsFromEntry(entry || {})
+                });
             });
         });
     }
 
     function runOp(op, id) {
         if (!op || !id) return;
-        if (op === 'request') rememberProfile(id, profileOf(id).name, profileOf(id).photo);
-        postFriendOp(op, id).then(function () {
+        var btn = document.getElementById('peer-preview-action');
+        if (btn) btn.disabled = true;
+        publishMe().then(function () { return postFriendOp(op, id); }).then(function () {
             renderLists();
             if (previewTarget === String(id)) openPeerPreview(id);
+            if (typeof root.loadLeaderboard === 'function') root.loadLeaderboard();
         });
     }
 
@@ -506,11 +608,52 @@
                 runOp(act.getAttribute('data-fop') || 'request', previewTarget);
             };
         }
+        bindBioEditor();
+    }
+
+    function paintMyBio() {
+        var el = document.getElementById('user-bio');
+        if (!el) return;
+        var bio = readMyBio();
+        el.textContent = bio || 'Add a short bio';
+        el.classList.toggle('is-empty', !bio);
+    }
+
+    function bindBioEditor() {
+        var edit = document.getElementById('profile-bio-edit');
+        var box = document.getElementById('profile-bio-editor');
+        var input = document.getElementById('profile-bio-input');
+        var save = document.getElementById('profile-bio-save');
+        if (!edit || edit._reedBound) return;
+        edit._reedBound = true;
+        edit.onclick = function () {
+            if (!box || !input) return;
+            box.hidden = false;
+            input.value = readMyBio();
+            input.focus();
+        };
+        if (save) {
+            save.onclick = function () {
+                var text = String(input.value || '').replace(/\s+/g, ' ').trim().slice(0, BIO_MAX);
+                writeMyBio(text);
+                paintMyBio();
+                if (box) box.hidden = true;
+                publishMe();
+            };
+        }
     }
 
     function openSocial() {
         bindUi();
-        loadFriendState().then(renderLists);
+        return publishMe().then(loadFriendState).then(function () {
+            renderLists();
+            if (socialTimer) clearInterval(socialTimer);
+            socialTimer = setInterval(function () {
+                var screen = document.getElementById('social-screen');
+                if (!screen || !screen.classList.contains('active-screen')) return;
+                loadFriendState().then(renderLists);
+            }, 8000);
+        });
     }
 
     root.findReedUser = findReedUser;
@@ -519,6 +662,13 @@
     root.REEDSocial = {
         open: openSocial,
         render: renderLists,
-        relationTo: relationTo
+        relationTo: relationTo,
+        publishMe: publishMe,
+        paintMyBio: paintMyBio,
+        photoFor: function (id) {
+            var p = profileOf(id);
+            return p.photo || '';
+        },
+        profileFor: profileOf
     };
 })(window);
