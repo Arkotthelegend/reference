@@ -1,53 +1,302 @@
-
 [
-  {"type": "blank", "q": "The government plans to a_____ the transition to renewable energy sources to combat climate change.", "a": "accelerate"},
-  {"type": "blank", "q": "The sudden display of a_____ by the normally calm dog prompted the owner to seek a behavioral trainer.", "a": "aggression"},
-  {"type": "blank", "q": "She felt a growing sense of a_____ before her final exams, worrying excessively about her performance.", "a": "anxiety"},
-  {"type": "blank", "q": "The aquarium specializes in preserving rare a_____ species from the Amazon River basin.", "a": "aquatic"},
-  {"type": "blank", "q": "The food industry often uses a_____ flavors to enhance the taste of processed snacks.", "a": "artificial"},
-  {"type": "blank", "q": "The thick, smoggy a_____ of the industrial city made it difficult to see the surrounding mountains.", "a": "atmosphere"},
-  {"type": "blank", "q": "Poor sanitation and contaminated drinking water can lead to outbreaks of deadly diseases like c_____.", "a": "cholera"},
-  {"type": "blank", "q": "The top-secret document was strictly c_____ and could only be viewed by authorized personnel.", "a": "classified"},
-  {"type": "blank", "q": "Chemists often study how different chemical c_____ react when exposed to extreme heat.", "a": "compounds"},
-  {"type": "blank", "q": "Failing to consider the environmental c_____ of the new factory led to severe ecological damage.", "a": "consequences"},
-  {"type": "blank", "q": "The snake will c_____ its prey, squeezing tightly to restrict breathing before swallowing it.", "a": "constrict"},
-  {"type": "blank", "q": "The wildfire was rapidly c_____ the dry forest, threatening nearby homes.", "a": "consuming"},
-  {"type": "blank", "q": "The local well was closed after the water supply was found to be c_____ with harmful bacteria.", "a": "contaminated"},
-  {"type": "blank", "q": "Deer are often described as c_____ animals because they are most active during the twilight hours of dawn and dusk.", "a": "crepuscular"},
-  {"type": "blank", "q": "The rapid d_____ of the Amazon rainforest threatens the habitats of countless indigenous species.", "a": "deforestation"},
-  {"type": "blank", "q": "Soil d_____ is a major agricultural concern, as it reduces the land's ability to support crop growth.", "a": "degradation"},
-  {"type": "blank", "q": "The overfishing of the ocean has led to the severe d_____ of many popular fish species.", "a": "depletion"},
-  {"type": "blank", "q": "Prolonged sleep d_____ can lead to significant cognitive impairments and health issues.", "a": "deprivation"},
-  {"type": "blank", "q": "The powerful hurricane threatened to d_____ the coastal communities, leaving thousands homeless.", "a": "devastate"},
-  {"type": "blank", "q": "Workers are responsible for safely d_____ of chemical waste after each experiment.", "a": "disposing"},
-  {"type": "blank", "q": "Unlike owls, most songbirds are d_____, meaning they are active during the day and sleep at night.", "a": "diurnal"},
-  {"type": "blank", "q": "In regions with poor sanitation, travelers are often warned about the risk of contracting d_____ from unsafe food or water.", "a": "dysentery"},
-  {"type": "blank", "q": "Protecting fragile marine e_____ is crucial for maintaining the balance of ocean life.", "a": "ecosystems"},
-  {"type": "blank", "q": "Planting trees along the riverbank is an effective method to prevent soil e_____ during heavy rains.", "a": "erosion"},
-  {"type": "blank", "q": "The volcano has a history of violent e_____ that have historically reshaped the surrounding landscape.", "a": "eruptions"},
-  {"type": "blank", "q": "The athlete was disqualified for using an e_____ amount of force during the match.", "a": "excessive"},
-  {"type": "blank", "q": "Without proper shelter, the campers were dangerously e_____ to the freezing mountain winds.", "a": "exposed"},
-  {"type": "blank", "q": "The addition of organic compost can significantly improve the f_____ of the garden soil.", "a": "fertility"},
-  {"type": "blank", "q": "He expressed his deep f_____ when his computer crashed right before he could save his final project.", "a": "frustration"},
-  {"type": "blank", "q": "Workers must wear protective gear when handling h_____ chemicals in the laboratory.", "a": "hazardous"},
-  {"type": "blank", "q": "A diet high in sodium can contribute to the development of h_____, commonly known as high blood pressure.", "a": "hypertension"},
-  {"type": "blank", "q": "The scientist noted that the sample was i_____ and needed to be filtered before further analysis.", "a": "impure"},
-  {"type": "blank", "q": "The rapid i_____ of the region brought economic growth but also significant environmental challenges.", "a": "industrialisation"},
-  {"type": "blank", "q": "The safety manual strictly warns against i_____ the toxic fumes released by the chemicals.", "a": "inhaling"},
-  {"type": "blank", "q": "The constant threat of layoffs created a deep sense of job i_____ among the factory workers.", "a": "insecurity"},
-  {"type": "blank", "q": "The storm is expected to i_____ as it moves over the warm ocean waters.", "a": "intensify"},
-  {"type": "blank", "q": "She felt a slight skin i_____ after applying the new lotion, which contained a mild allergen.", "a": "irritation"},
-  {"type": "blank", "q": "A wise investor makes j_____ decisions, carefully weighing the risks and rewards of each opportunity.", "a": "judicious"},
-  {"type": "blank", "q": "Bats are primarily n_____ creatures, hunting for insects under the cover of darkness.", "a": "nocturnal"},
-  {"type": "blank", "q": "Ticks and fleas are common external p_____ that feed on the blood of their animal hosts.", "a": "parasites"},
-  {"type": "blank", "q": "Organic farmers avoid using synthetic p_____, opting instead for natural methods to control crop-destroying insects.", "a": "pesticides"},
-  {"type": "blank", "q": "Factories are required to install filters to reduce the number of airborne p_____ they release into the atmosphere.", "a": "pollutants"},
-  {"type": "blank", "q": "The survivors of the accident required extensive p_____ support to cope with their trauma.", "a": "psychological"},
-  {"type": "blank", "q": "Agricultural fertilizers can be carried into nearby rivers by rainwater r_____, causing harmful algal blooms.", "a": "runoff"},
-  {"type": "blank", "q": "The patient experienced a s_____ allergic reaction that required immediate medical attention.", "a": "severe"},
-  {"type": "blank", "q": "The laboratory technician was trained to handle various chemical s_____ safely.", "a": "substances"},
-  {"type": "blank", "q": "The spill released t_____ waste into the river, killing fish and other aquatic life.", "a": "toxic"},
-  {"type": "blank", "q": "Dermatologists recommend wearing sunscreen to protect the skin from harmful u_____ radiation from the sun.", "a": "ultraviolet"},
-  {"type": "blank", "q": "The side effects of the medication were considered u_____, leading the doctor to prescribe an alternative treatment.", "a": "undesirable"},
-  {"type": "blank", "q": "The rapid u_____ of the countryside has led to the expansion of cities and the loss of natural habitats.", "a": "urbanisation"}
+  {
+    "type": "blank",
+    "q": "The government plans to a_____ the transition to renewable energy sources to combat climate change.",
+    "a": "accelerate",
+    "e": "accelerate = အရှိန်မြှင့်သည်။ climate change တိုက်ဖို့ renewable energy ကို accelerate လုပ်မယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The sudden display of a_____ by the normally calm dog prompted the owner to seek a behavioral trainer.",
+    "a": "aggression",
+    "e": "aggression = ရန်လိုမှု။ ပုံမှန် ငြိမ်တဲ့ ခွေးရုတ်တရက် aggression ပြလို့ trainer ရှာတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "She felt a growing sense of a_____ before her final exams, worrying excessively about her performance.",
+    "a": "anxiety",
+    "e": "anxiety = စိုးရိမ်သောက။ final exams မတိုင်ခင် anxiety တက်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The aquarium specializes in preserving rare a_____ species from the Amazon River basin.",
+    "a": "aquatic",
+    "e": "aquatic = ရေနေဆိုင်ရာ။ aquarium က Amazon aquatic species ကို ထိန်းတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The food industry often uses a_____ flavors to enhance the taste of processed snacks.",
+    "a": "artificial",
+    "e": "artificial = အတု၊ လူလုပ်။ processed snacks အရသာပိုအောင် artificial flavors ထည့်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The thick, smoggy a_____ of the industrial city made it difficult to see the surrounding mountains.",
+    "a": "atmosphere",
+    "e": "atmosphere = လေထု (သို့) ပတ်ဝန်းကျင်စိတ်နေစိတ်ထား။ စက်မှုမြို့ရဲ့ smoggy atmosphere ကြောင့် တောင်မမြင်ရဘူး — mood နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "Poor sanitation and contaminated drinking water can lead to outbreaks of deadly diseases like c_____.",
+    "a": "cholera",
+    "e": "cholera = ဝမ်းပျက်ဝမ်းလျှောကာလဝမ်းရောဂါ။ ရေမသန့်ရင် cholera လို ရောဂါပေါက်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The top-secret document was strictly c_____ and could only be viewed by authorized personnel.",
+    "a": "classified",
+    "e": "classified = အမျိုးအစားခွဲထားသော။ top-secret document က classified — ညစ်ညမ်းအမျိုးအစားခွဲ နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "Chemists often study how different chemical c_____ react when exposed to extreme heat.",
+    "a": "compounds",
+    "e": "compounds = ဒြပ်ပေါင်းများ။ အပူထဲ ဓာတု compounds ဘယ်လို react သလဲ လေ့လာတယ် — အဆောက်အအုံဝန်း နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "Failing to consider the environmental c_____ of the new factory led to severe ecological damage.",
+    "a": "consequences",
+    "e": "consequences = အကျိုးဆက်များ။ စက်ရုံရဲ့ environmental consequences မစဉ်းစားလို့ ဂေဟစနစ်ပျက်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The snake will c_____ its prey, squeezing tightly to restrict breathing before swallowing it.",
+    "a": "constrict",
+    "e": "constrict = ကျဉ်းစေသည်၊ ညှစ်သည်။ မြွေက အသက်ရှူမရအောင် prey ကို constrict လုပ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The wildfire was rapidly c_____ the dry forest, threatening nearby homes.",
+    "a": "consuming",
+    "e": "consuming = စားသုံး/သုံးစွဲနေခြင်း။ wildfire က dry forest ကို consuming လုပ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The local well was closed after the water supply was found to be c_____ with harmful bacteria.",
+    "a": "contaminated",
+    "e": "contaminated = ညစ်ညမ်းနေသော။ ရေတွင်းက bacteria နဲ့ contaminated ဖြစ်လို့ ပိတ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Deer are often described as c_____ animals because they are most active during the twilight hours of dawn and dusk.",
+    "a": "crepuscular",
+    "e": "crepuscular = မိုးချုပ်/မိုးသောက်လှုပ်ရှားသော။ deer က dawn/dusk မှာ လှုပ်ရှားလို့ crepuscular — nocturnal/diurnal နဲ့ ယှဉ်မှတ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The rapid d_____ of the Amazon rainforest threatens the habitats of countless indigenous species.",
+    "a": "deforestation",
+    "e": "deforestation = သစ်တောပြုန်းတီးမှု။ Amazon deforestation က indigenous species ကို ခြိမ်းခြောက်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Soil d_____ is a major agricultural concern, as it reduces the land's ability to support crop growth.",
+    "a": "degradation",
+    "e": "degradation = ယိုယွင်းပျက်စီးမှု။ soil degradation က သီးနှံမကောင်းအောင် လုပ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The overfishing of the ocean has led to the severe d_____ of many popular fish species.",
+    "a": "depletion",
+    "e": "depletion = ကုန်ခမ်းမှု။ overfishing ကြောင့် ငါး depletion ဖြစ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Prolonged sleep d_____ can lead to significant cognitive impairments and health issues.",
+    "a": "deprivation",
+    "e": "deprivation = ဆုံးရှုံးချို့တဲ့မှု။ sleep deprivation ကြာရင် ဉာဏ်ပိုင်း ထိတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The powerful hurricane threatened to d_____ the coastal communities, leaving thousands homeless.",
+    "a": "devastate",
+    "e": "devastate = ပျက်စီးလှုပ်ခါစေသည်။ hurricane က ကမ်းရိုးတမ်းကို devastate လုပ်နိုင်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Workers are responsible for safely d_____ of chemical waste after each experiment.",
+    "a": "disposing",
+    "e": "disposing = စွန့်ပစ်နေခြင်း။ စမ်းသပ်ပြီး chemical waste ကို safely disposing လုပ်ရတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Unlike owls, most songbirds are d_____, meaning they are active during the day and sleep at night.",
+    "a": "diurnal",
+    "e": "diurnal = နေ့ဘက်လှုပ်ရှားသော။ songbirds က နေ့လှုပ်ရှားလို့ diurnal — diary နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "In regions with poor sanitation, travelers are often warned about the risk of contracting d_____ from unsafe food or water.",
+    "a": "dysentery",
+    "e": "dysentery = သွေးဝမ်းရောဂါ။ sanitation ညံ့ရင် dysentery ကူးနိုင်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Protecting fragile marine e_____ is crucial for maintaining the balance of ocean life.",
+    "a": "ecosystems",
+    "e": "ecosystems = ဂေဟစနစ်များ။ marine ecosystems ကာကွယ်မှ သမုဒ္ဒရာ မျှတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Planting trees along the riverbank is an effective method to prevent soil e_____ during heavy rains.",
+    "a": "erosion",
+    "e": "erosion = တိုက်စားမှု။ မြစ်ကမ်း သစ်ပင်စိုက်ရင် soil erosion တားနိုင်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The volcano has a history of violent e_____ that have historically reshaped the surrounding landscape.",
+    "a": "eruptions",
+    "e": "eruptions = ပေါက်ကွဲထွက်မှုများ (မီးတောင်)။ မီးတောင် eruptions က ရှုခင်းကို ပြောင်းခဲ့တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The athlete was disqualified for using an e_____ amount of force during the match.",
+    "a": "excessive",
+    "e": "excessive = အလွန်အကျွံသော။ အားကစားသမားက excessive force သုံးလို့ အပြင်ထုတ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Without proper shelter, the campers were dangerously e_____ to the freezing mountain winds.",
+    "a": "exposed",
+    "e": "exposed = ထိတွေ့ခံရသော၊ ပွင့်နေသော။ အမိုးမရှိလို့ campers တွေ freezing winds ကို exposed ဖြစ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The addition of organic compost can significantly improve the f_____ of the garden soil.",
+    "a": "fertility",
+    "e": "fertility = မျိုးပွားနိုင်မှု / မြေဩဇာ။ compost က garden soil fertility တိုးတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "He expressed his deep f_____ when his computer crashed right before he could save his final project.",
+    "a": "frustration",
+    "e": "frustration = စိတ်ပျက်အားငယ်မှု။ ပရောဂျက်မသိမ်းခင် ကွန်ပျူတာပျက်လို့ frustration ပြတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Workers must wear protective gear when handling h_____ chemicals in the laboratory.",
+    "a": "hazardous",
+    "e": "hazardous = အန္တရာယ်ရှိသော။ hazardous chemicals ကိုင်ရင် protective gear ဝတ်။"
+  },
+  {
+    "type": "blank",
+    "q": "A diet high in sodium can contribute to the development of h_____, commonly known as high blood pressure.",
+    "a": "hypertension",
+    "e": "hypertension = သွေးတိုးရောဂါ။ ဆားများရင် hypertension (သွေးတိုး) ဖြစ်နိုင်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The scientist noted that the sample was i_____ and needed to be filtered before further analysis.",
+    "a": "impure",
+    "e": "impure = မသန့်ရှင်းသော။ sample က impure ဖြစ်လို့ စစ်ထုတ်ပြီးမှ ဆက်စမ်းရတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The rapid i_____ of the region brought economic growth but also significant environmental challenges.",
+    "a": "industrialisation",
+    "e": "industrialisation = စက်မှုထွန်းကားလာခြင်း။ industrialisation က စီးပွားတိုးပေမယ့် ပတ်ဝန်းကျင် ထိတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The safety manual strictly warns against i_____ the toxic fumes released by the chemicals.",
+    "a": "inhaling",
+    "e": "inhaling = ရှူသွင်းနေခြင်း။ toxic fumes ကို inhaling မလုပ်ရ။"
+  },
+  {
+    "type": "blank",
+    "q": "The constant threat of layoffs created a deep sense of job i_____ among the factory workers.",
+    "a": "insecurity",
+    "e": "insecurity = မလုံခြုံမှု၊ မစိုးရိမ်ရမှုမရှိခြင်း။ layoff ခြိမ်းခြောက်မှုက job insecurity ပေးတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The storm is expected to i_____ as it moves over the warm ocean waters.",
+    "a": "intensify",
+    "e": "intensify = ပြင်းထန်လာစေသည်။ ပင်လယ်နွေးပေါ် ရောက်ရင် storm intensify ဖြစ်မယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "She felt a slight skin i_____ after applying the new lotion, which contained a mild allergen.",
+    "a": "irritation",
+    "e": "irritation = ယားယံနာကျင်မှု / စိတ်အောင့်မှု။ lotion ကြောင့် skin irritation ဖြစ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "A wise investor makes j_____ decisions, carefully weighing the risks and rewards of each opportunity.",
+    "a": "judicious",
+    "e": "judicious = ဆင်ခြင်တုံတရားရှိသော။ အန္တရာယ်/အမြတ် ချိန်ပြီး judicious decisions လုပ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Bats are primarily n_____ creatures, hunting for insects under the cover of darkness.",
+    "a": "nocturnal",
+    "e": "nocturnal = ညဘက်လှုပ်ရှားသော။ လင်းနို့က ညမှာ အမဲလိုက်လို့ nocturnal ဖြစ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Ticks and fleas are common external p_____ that feed on the blood of their animal hosts.",
+    "a": "parasites",
+    "e": "parasites = ကပ်ပါးကောင်များ။ ticks/fleas က သွေးစုပ် parasites။"
+  },
+  {
+    "type": "blank",
+    "q": "Organic farmers avoid using synthetic p_____, opting instead for natural methods to control crop-destroying insects.",
+    "a": "pesticides",
+    "e": "pesticides = ပိုးသတ်ဆေးများ။ organic farmers က synthetic pesticides မသုံးဘူး။"
+  },
+  {
+    "type": "blank",
+    "q": "Factories are required to install filters to reduce the number of airborne p_____ they release into the atmosphere.",
+    "a": "pollutants",
+    "e": "pollutants = ညစ်ညမ်းစေသော အရာများ။ လေထုထဲ airborne pollutants နည်းအောင် filter တပ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The survivors of the accident required extensive p_____ support to cope with their trauma.",
+    "a": "psychological",
+    "e": "psychological = စိတ်ပိုင်းဆိုင်ရာ။ မတော်တဆမှု survivors ကို psychological support ပေးရတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Agricultural fertilizers can be carried into nearby rivers by rainwater r_____, causing harmful algal blooms.",
+    "a": "runoff",
+    "e": "runoff = မြေပေါ်စီးဆင်းရေ။ မြေသြဇာကို rainwater runoff က မြစ်ထဲခေါ်သွားတယ် — အိမ်ကနေပြေး နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "The patient experienced a s_____ allergic reaction that required immediate medical attention.",
+    "a": "severe",
+    "e": "severe = ပြင်းထန်သော။ severe allergic reaction ကို အမြန်ကုရတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The laboratory technician was trained to handle various chemical s_____ safely.",
+    "a": "substances",
+    "e": "substances = ဒြပ်ပစ္စည်းများ။ ဓာတု substances ကို ဘေးကင်းစွာ ကိုင်ရတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The spill released t_____ waste into the river, killing fish and other aquatic life.",
+    "a": "toxic",
+    "e": "toxic = အဆိပ်ရှိသော။ မြစ်ထဲ toxic waste ယိုလို့ ငါးသေတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Dermatologists recommend wearing sunscreen to protect the skin from harmful u_____ radiation from the sun.",
+    "a": "ultraviolet",
+    "e": "ultraviolet = ခရမ်းလွန်ရောင်ခြည်။ နေရောင် ultraviolet ကို sunscreen နဲ့ ကာတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The side effects of the medication were considered u_____, leading the doctor to prescribe an alternative treatment.",
+    "a": "undesirable",
+    "e": "undesirable = မလိုလားအပ်သော။ ဆေးရဲ့ undesirable side effects ကြောင့် တခြားဆေး ညွှန်းတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The rapid u_____ of the countryside has led to the expansion of cities and the loss of natural habitats.",
+    "a": "urbanisation",
+    "e": "urbanisation = မြို့ပြဖြစ်ထွန်းလာခြင်း။ ကျေးလက် urbanisation က မြို့ကျယ်ပြီး သဘာဝပျောက်တယ်။"
+  }
 ]

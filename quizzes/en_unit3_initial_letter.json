@@ -1,37 +1,212 @@
 [
-{"type": "blank", "q": "The hikers had to turn back due to a_____ weather conditions that made the trail too dangerous.", "a": "adverse"},
-{"type": "blank", "q": "It is highly a_____ to back up your computer files regularly to prevent data loss.", "a": "advisable"},
-{"type": "blank", "q": "The flowers looked so real that it was hard to believe they were a_____.", "a": "artificial"},
-{"type": "blank", "q": "The symptoms of the disease are closely a_____ with prolonged exposure to toxic chemicals.", "a": "associated"},
-{"type": "blank", "q": "We cannot simply a_____ that the project will be completed on time without verifying the progress.", "a": "assume"},
-{"type": "blank", "q": "The rainforest is known for its rich b_____, hosting thousands of unique plant and animal species.", "a": "biodiversity"},
-{"type": "blank", "q": "The government documents were marked as c_____ information, accessible only to authorized personnel.", "a": "classified"},
-{"type": "blank", "q": "The city launched a new initiative to c_____ rising crime rates in the downtown area.", "a": "combat"},
-{"type": "blank", "q": "It is important to c_____ plenty of water during intense physical activity to stay hydrated.", "a": "consume"},
-{"type": "blank", "q": "The global c_____ of fossil fuels continues to rise, contributing to climate change.", "a": "consumption"},
-{"type": "blank", "q": "To fully understand the author's message, you must read the quote in its proper c_____.", "a": "context"},
-{"type": "blank", "q": "The rapid d_____ of the Amazon rainforest threatens the habitats of countless indigenous species.", "a": "deforestation"},
-{"type": "blank", "q": "The old bridge was closed to traffic due to the severe d_____ of its structural integrity.", "a": "deterioration"},
-{"type": "blank", "q": "The company was fined for violating e_____ regulations by dumping waste into the river.", "a": "environmental"},
-{"type": "blank", "q": "Water is an e_____ component for all known forms of life to survive.", "a": "essential"},
-{"type": "blank", "q": "Freedom of speech is a f_____ right guaranteed by the constitution.", "a": "fundamental"},
-{"type": "blank", "q": "Peer pressure can have a significant i_____ on a teenager's decision-making process.", "a": "influence"},
-{"type": "blank", "q": "The patient was isolated to prevent the spread of the highly i_____ disease.", "a": "infectious"},
-{"type": "blank", "q": "Financial i_____ can lead to significant stress and anxiety for families living paycheck to paycheck.", "a": "insecurity"},
-{"type": "blank", "q": "Universities and research i_____ play a crucial role in advancing scientific knowledge.", "a": "institutions"},
-{"type": "blank", "q": "The wolf is considered a k_____ species in the Yellowstone ecosystem, as its presence regulates the entire food web.", "a": "keystone"},
-{"type": "blank", "q": "M_____ a healthy work-life balance is crucial for long-term career satisfaction.", "a": "maintaining"},
-{"type": "blank", "q": "The charity focuses on providing food aid to regions suffering from severe m_____.", "a": "malnutrition"},
-{"type": "blank", "q": "A balanced diet should include plenty of fresh vegetables and other n_____ foods.", "a": "nutritious"},
-{"type": "blank", "q": "Students must o_____ permission from their parents before going on the field trip.", "a": "obtain"},
-{"type": "blank", "q": "Licensed p_____ are required to complete years of rigorous medical training and residency.", "a": "physicians"},
-{"type": "blank", "q": "Factories must install filters to reduce the amount of harmful p_____ released into the atmosphere.", "a": "pollutants"},
-{"type": "blank", "q": "Regular exercise and a healthy diet are key p_____ measures against heart disease.", "a": "preventive"},
-{"type": "blank", "q": "Nutritionists often advise limiting the intake of highly p_____ foods due to their high sodium and sugar content.", "a": "processed"},
-{"type": "blank", "q": "I highly r_____ that you read the instructions carefully before assembling the furniture.", "a": "recommend"},
-{"type": "blank", "q": "The company specializes in producing r_____ sugar from raw sugarcane.", "a": "refined"},
-{"type": "blank", "q": "The market for smartphones is highly s_____, making it difficult for new brands to gain a foothold.", "a": "saturated"},
-{"type": "blank", "q": "Regular weightlifting can help s_____ your muscles and improve overall bone density.", "a": "strengthen"},
-{"type": "blank", "q": "Many athletes take dietary s_____ to ensure they are getting enough protein and vitamins.", "a": "supplements"},
-{"type": "blank", "q": "The small coastal town has a t_____ tourism industry, attracting visitors from all over the world.", "a": "thriving"}
+  {
+    "type": "blank",
+    "q": "The hikers had to turn back due to a_____ weather conditions that made the trail too dangerous.",
+    "a": "adverse",
+    "e": "adverse = ဆိုးရွားသော၊ ဆန့်ကျင်သော။ trail အန္တရာယ်များလို့ hikers တွေ adverse weather ကြောင့် ပြန်လှည့်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "It is highly a_____ to back up your computer files regularly to prevent data loss.",
+    "a": "advisable",
+    "e": "advisable = အကြံပြုထိုက်သော။ data loss မဖြစ်အောင် files backup လုပ်တာ advisable ဖြစ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The flowers looked so real that it was hard to believe they were a_____.",
+    "a": "artificial",
+    "e": "artificial = အတု၊ လူလုပ်။ ပန်းတွေ အရမ်းတူလို့ artificial မှန်း မထင်လိုက်ဘူး — ဒီဝါကျမှာ အစားအသောက်အတု မဟုတ်၊ ပန်းအတု။"
+  },
+  {
+    "type": "blank",
+    "q": "The symptoms of the disease are closely a_____ with prolonged exposure to toxic chemicals.",
+    "a": "associated",
+    "e": "associated = ဆက်စပ်သော။ toxic chemicals ကြာကြာထိလို့ symptoms associated ဖြစ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "We cannot simply a_____ that the project will be completed on time without verifying the progress.",
+    "a": "assume",
+    "e": "assume = ယူဆသည် / တာဝန်ယူသည်။ progress မစစ်ဘဲ on time ပြီးမယ်လို့ assume မလုပ်နဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "The rainforest is known for its rich b_____, hosting thousands of unique plant and animal species.",
+    "a": "biodiversity",
+    "e": "biodiversity = ဇီဝမျိုးကွဲစုံလင်မှု။ rainforest ရဲ့ biodiversity က အပင်တိရစ္ဆာန် ထောင်ချီရှိတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The government documents were marked as c_____ information, accessible only to authorized personnel.",
+    "a": "classified",
+    "e": "classified = အမျိုးအစားခွဲထားသော။ authorized personnel ပဲ ကြည့်ခွင့်ရှိတဲ့ classified documents — အုပ်စုခွဲ classified နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "The city launched a new initiative to c_____ rising crime rates in the downtown area.",
+    "a": "combat",
+    "e": "combat = တိုက်ဖျက်သည်။ downtown crime ကို combat လုပ်ဖို့ မြို့က initiative လုပ်တယ် — စစ်ပွဲ နဲ့ပဲ မတွေးနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "It is important to c_____ plenty of water during intense physical activity to stay hydrated.",
+    "a": "consume",
+    "e": "consume = စားသုံးသည်၊ သုံးစွဲသည်။ intense activity မှာ ရေများများ consume လုပ် — ဓာတ်ဆီသုံး နဲ့ပဲ မတွေးနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "The global c_____ of fossil fuels continues to rise, contributing to climate change.",
+    "a": "consumption",
+    "e": "consumption = စားသုံးမှု၊ သုံးစွဲမှု။ fossil fuels consumption တက်လို့ climate change ပိုဆိုးတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "To fully understand the author's message, you must read the quote in its proper c_____.",
+    "a": "context",
+    "e": "context = အကြောင်းအရာပတ်ဝန်းကျင်။ quote ကို proper context ထဲမှာ ဖတ်မှ author's message နားလည်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The rapid d_____ of the Amazon rainforest threatens the habitats of countless indigenous species.",
+    "a": "deforestation",
+    "e": "deforestation = သစ်တောပြုန်းတီးမှု။ Amazon deforestation က indigenous species ရဲ့ habitat ကို ခြိမ်းခြောက်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The old bridge was closed to traffic due to the severe d_____ of its structural integrity.",
+    "a": "deterioration",
+    "e": "deterioration = ယိုယွင်းပျက်စီးလာခြင်း။ တံတားပျက်နေလို့ structural deterioration ကြောင့် ပိတ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The company was fined for violating e_____ regulations by dumping waste into the river.",
+    "a": "environmental",
+    "e": "environmental = ပတ်ဝန်းကျင်ဆိုင်ရာ။ မြစ်ထဲ အမှိုက်ပစ်လို့ environmental regulations ချိုးတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Water is an e_____ component for all known forms of life to survive.",
+    "a": "essential",
+    "e": "essential = မရှိမဖြစ်လိုအပ်သော။ သက်ရှိအားလုံးအတွက် water က essential ဖြစ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Freedom of speech is a f_____ right guaranteed by the constitution.",
+    "a": "fundamental",
+    "e": "fundamental = အခြေခံကျသော။ freedom of speech က constitution က အာမခံတဲ့ fundamental right။"
+  },
+  {
+    "type": "blank",
+    "q": "Peer pressure can have a significant i_____ on a teenager's decision-making process.",
+    "a": "influence",
+    "e": "influence = လွှမ်းမိုးမှု။ peer pressure က teenager decision ကို influence လုပ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The patient was isolated to prevent the spread of the highly i_____ disease.",
+    "a": "infectious",
+    "e": "infectious = ကူးစက်တတ်သော။ ကူးစက်မယ့် infectious disease ကြောင့် patient ကို ခွဲထားတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Financial i_____ can lead to significant stress and anxiety for families living paycheck to paycheck.",
+    "a": "insecurity",
+    "e": "insecurity = မလုံခြုံမှု၊ မစိုးရိမ်ရမှုမရှိခြင်း။ paycheck to paycheck နေရင် financial insecurity က stress ပေးတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Universities and research i_____ play a crucial role in advancing scientific knowledge.",
+    "a": "institutions",
+    "e": "institutions = အဖွဲ့အစည်းများ။ universities နဲ့ research institutions က သိပ္ပံတိုးတက်မှုမှာ အရေးကြီးတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The wolf is considered a k_____ species in the Yellowstone ecosystem, as its presence regulates the entire food web.",
+    "a": "keystone",
+    "e": "keystone = အဓိကထောက်တိုင် / ခုံးလယ်ကျောက်။ Yellowstone မှာ wolf က keystone species — ခုံးလယ်ကျောက် နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "M_____ a healthy work-life balance is crucial for long-term career satisfaction.",
+    "a": "maintaining",
+    "e": "maintaining = ထိန်းသိမ်းနေခြင်း။ career ကြာကြာကောင်းဖို့ work-life balance maintaining လုပ်ရတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The charity focuses on providing food aid to regions suffering from severe m_____.",
+    "a": "malnutrition",
+    "e": "malnutrition = အာဟာရချို့တဲ့မှု။ malnutrition ဒေသတွေကို food aid ပို့တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "A balanced diet should include plenty of fresh vegetables and other n_____ foods.",
+    "a": "nutritious",
+    "e": "nutritious = အာဟာရပြည့်ဝသော။ vegetables လို nutritious foods ကို balanced diet ထဲ ထည့်ရတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Students must o_____ permission from their parents before going on the field trip.",
+    "a": "obtain",
+    "e": "obtain = ရရှိသည်။ field trip မသွားခင် parents ဆီ permission obtain လုပ်ရတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Licensed p_____ are required to complete years of rigorous medical training and residency.",
+    "a": "physicians",
+    "e": "physicians = ဆရာဝန်များ။ licensed physicians က နှစ်တွေကြာ medical training ခံရတယ် — physicists နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "Factories must install filters to reduce the amount of harmful p_____ released into the atmosphere.",
+    "a": "pollutants",
+    "e": "pollutants = ညစ်ညမ်းစေသော အရာများ။ atmosphere ထဲ harmful pollutants နည်းအောင် factories က filter တပ်ရတယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Regular exercise and a healthy diet are key p_____ measures against heart disease.",
+    "a": "preventive",
+    "e": "preventive = ကာကွယ်ရေးဆိုင်ရာ။ exercise နဲ့ healthy diet က heart disease ရဲ့ preventive measures။"
+  },
+  {
+    "type": "blank",
+    "q": "Nutritionists often advise limiting the intake of highly p_____ foods due to their high sodium and sugar content.",
+    "a": "processed",
+    "e": "processed = စက်ရုံပြုပြင်ထားသော။ sodium/sugar များတဲ့ processed foods ကို လျှော့စား — စက်ရုံပြုပြင်အစားအစာ။"
+  },
+  {
+    "type": "blank",
+    "q": "I highly r_____ that you read the instructions carefully before assembling the furniture.",
+    "a": "recommend",
+    "e": "recommend = အကြံပြုသည်။ furniture မတပ်ခင် instructions ဖတ်ဖို့ recommend တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The company specializes in producing r_____ sugar from raw sugarcane.",
+    "a": "refined",
+    "e": "refined = သန့်စင်ထားသော / ယဉ်ကျေးသော။ sugarcane ကနေ refined sugar ထုတ်တယ် — ယဉ်ကျေးသူ refined person နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "The market for smartphones is highly s_____, making it difficult for new brands to gain a foothold.",
+    "a": "saturated",
+    "e": "saturated = ပြည့်ဝသော (အဆီ)။ smartphone market က saturated ဖြစ်လို့ brand အသစ် ဝင်ရခက်တယ် — saturated fat နဲ့ မရောနဲ့။"
+  },
+  {
+    "type": "blank",
+    "q": "Regular weightlifting can help s_____ your muscles and improve overall bone density.",
+    "a": "strengthen",
+    "e": "strengthen = ခိုင်မာအားကောင်းစေသည်။ weightlifting က muscles နဲ့ bones ကို strengthen လုပ်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "Many athletes take dietary s_____ to ensure they are getting enough protein and vitamins.",
+    "a": "supplements",
+    "e": "supplements = ဖြည့်စွက်စာများ။ athletes က protein/vitamins အတွက် dietary supplements သောက်တယ်။"
+  },
+  {
+    "type": "blank",
+    "q": "The small coastal town has a t_____ tourism industry, attracting visitors from all over the world.",
+    "a": "thriving",
+    "e": "thriving = ရှင်သန်တိုးတက်နေသော။ ကမ်းရိုးတမ်းမြို့က tourism industry thriving နေတယ်။"
+  }
 ]

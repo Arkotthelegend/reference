@@ -3,120 +3,120 @@
     "q": "Electricity supplied to the house is a single-phase form of alternating current (AC).",
     "type": "tf",
     "c": "true",
-    "e": "နေအိမ်ကြိုးသွယ်ခြင်းသည် ပုံမှန်အားဖြင့် single-phase AC power သုံးသည်။"
+    "e": "Alternating current (AC) က ဦးတည်ချက် အချိန်နဲ့အမျှ ပြောင်းတယ်။ အိမ်မီး 230/240 V ပဲ။ ဥပမာ — စက်ဘီး dynamo မီးလင်းတာ။"
   },
   {
     "q": "One of the wires entering a house is the live wire (L) and the other is the neutral wire (N).",
     "type": "tf",
     "c": "true",
-    "e": "စံ single-phase ထောက်ပံ့မှုသည် live နှင့် neutral ကြိုး သုံးသည်။"
+    "e": "Live က ဗို့အားရှိ၊ neutral က ပြန်လမ်း။ အိမ်ဝါယာကြိုးမှာ ခွဲထားတယ်။ ဥပမာ — ဖုန်း charger adapter။"
   },
   {
     "q": "The live wire (L) is usually at zero volt while the neutral wire (N) carries a high voltage.",
     "type": "tf",
     "c": "false",
-    "e": "Live ကြိုးက high voltage သယ်ဆောင်ပြီး neutral ကြိုးသည် ပုံမှန်အားဖြင့် သုညဗို့တွင် ရှိသည်။"
+    "e": "ဒီအချက်က မှားတယ်။ Live က ဗို့အားရှိ၊ neutral က ပြန်လမ်း။ အိမ်ဝါယာကြိုးမှာ ခွဲထားတယ်။"
   },
   {
     "q": "The electricity is fed into the house through the main fuse, meter, main switch and then to the distribution box.",
     "type": "tf",
     "c": "true",
-    "e": "ဤသည်မှာ အိမ်သို့ ဝင်သော အဓိက လျှပ်စစ်ထောက်ပံ့မှု၏ မှန်ကန်သော အစဉ်လမ်းကြောင်းဖြစ်သည်။"
+    "e": "Fuse က အရည်ပျော်လွယ်တဲ့ ဝါယာသေး။ Current များလွန်းရင် ပြတ်ပြီး ပစ္စည်းကာကွယ်တယ်။ ဥပမာ — စက်ဘီး dynamo မီးလင်းတာ။"
   },
   {
     "q": "From the distribution box there are normally three circuits: the lighting circuit, the power circuit (ring main circuit) and heating circuit.",
     "type": "tf",
     "c": "true",
-    "e": "ဤ circuit သုံးခုက load များကို ၎င်းတို့၏ power လိုအပ်ချက်အရ ခွဲသည်။"
+    "e": "Power က တစ်စက္ကန့်မှာ ဘယ်လောက် energy သုံး/ထုတ်လဲ။ ဥပမာ — ဖုန်း charger adapter။"
   },
   {
     "q": "Three cables are colour coded with blue for live (L), brown for neutral (N), and striped green-yellow for earth (E).",
     "type": "tf",
     "c": "false",
-    "e": "အသစ်သော အရောင်ကုဒ်တွင် live အတွက် အညို၊ neutral အတွက် အပြာ၊ earth အတွက် အစိမ်း-အဝါ မျဉ်းစင်း သုံးသည်။"
+    "e": "ဒီအချက်က မှားတယ်။ Earth wire က ယိုစီးတဲ့ current ကို မြေထဲလွှဲတယ်။ ဥပမာ — ဖုန်း charger adapter။"
   },
   {
     "q": "The old colour code for wiring is red for live, black for neutral and green for earth.",
     "type": "tf",
     "c": "true",
-    "e": "ဤသည်မှာ အသစ်သော ညှိနှိုင်းအရောင်များ မကျင့်သုံးမီ စံအရောင်ကုဒ်ဖြစ်သည်။"
+    "e": "Earth wire က ယိုစီးတဲ့ current ကို မြေထဲလွှဲတယ်။ ဥပမာ — ဖုန်း charger adapter။"
   },
   {
     "q": "In the lighting circuit, the light bulbs are arranged in parallel across the mains line.",
     "type": "tf",
     "c": "true",
-    "e": "Parallel စီစဉ်မှုက မီးလုံးတစ်လုံးချင်းစီက mains voltage အပြည့်ရပြီး သီးခြားလည်ပတ်စေသည်။"
+    "e": "ဒီစကား မှန်တယ်။ အလင်းက EM wave၊ မှန်ဘီလူးနဲ့ ကွေးနိုင်တယ်။ ဥပမာ — ထရန်စဖော်မာနဲ့ ဗို့အားပြောင်းတာ။"
   },
   {
     "q": "The lighting circuit differs from the other two in that there are three wires: live, neutral, and earth.",
     "type": "tf",
     "c": "false",
-    "e": "Lighting circuit ကွာခြားချက်မှာ live နှင့် neutral ကြိုး နှစ်ကြိုးသာ ရှိခြင်းဖြစ်သည်။"
+    "e": "ဒီအချက်က မှားတယ်။ Earth wire က ယိုစီးတဲ့ current ကို မြေထဲလွှဲတယ်။ ဥပမာ — ထရန်စဖော်မာနဲ့ ဗို့အားပြောင်းတာ။"
   },
   {
     "q": "A lighting circuit must be connected sequentially as live wire, fuse, switch, load and then to neutral wire.",
     "type": "tf",
     "c": "true",
-    "e": "ဘေးကင်းရေးအတွက် fuse နှင့် switch သည် load မတိုင်မီ live ကြိုးဘက်တွင် ရှိရမည်။"
+    "e": "Live က ဗို့အားရှိ၊ neutral က ပြန်လမ်း။ အိမ်ဝါယာကြိုးမှာ ခွဲထားတယ်။ ဥပမာ — စက်ဘီး dynamo မီးလင်းတာ။"
   },
   {
     "q": "A power circuit is an electrical system in which distribution points are connected to the main supply in a continuous closed circuit.",
     "type": "tf",
     "c": "true",
-    "e": "ဤသည်မှာ အိမ်သုံး power socket များအတွက် သုံးသော ring main circuit ကို သတ်မှတ်သည်။"
+    "e": "Closed circuit က လမ်းပတ်နေလို့ current စီးတယ်။ ဥပမာ — ဖုန်း charger adapter။"
   },
   {
     "q": "In a ring main circuit the live, neutral and earth wires form a loop of cable going from the consumer unit to all of the sockets in turn and then back to the consumer unit.",
     "type": "tf",
     "c": "true",
-    "e": "Ring topology က current ကို socket များသို့ ဦးတည်ချက်နှစ်ခုမှ ရောက်စေသည်။"
+    "e": "Earth wire က ယိုစီးတဲ့ current ကို မြေထဲလွှဲတယ်။ ဥပမာ — စက်ဘီး dynamo မီးလင်းတာ။"
   },
   {
     "q": "Power circuit is for the use of electric cookers, ovens, and washing machines.",
     "type": "tf",
     "c": "false",
-    "e": "Power circuit များသည် power နည်းသော ပစ္စည်းများအတွက်ဖြစ်ပြီး high-power ပစ္စည်းများက heating circuit သုံးသည်။"
+    "e": "ဒီအချက်က မှားတယ်။ အဝတ်လျှော်စက် spin မှာ ရေက အပြင်ထွက်၊ အဝတ်ကျန်တယ်။ Wash cycle က အတွင်းသို့ ဆွဲပြီး မွှေတာပဲ။"
   },
   {
     "q": "Since the current can flow to any particular socket by two ways in a ring main circuit, thinner wires can be used in the whole ring.",
     "type": "tf",
     "c": "true",
-    "e": "Current သည် ring ၏ လမ်းကြောင်းနှစ်ခုတစ်လျှောက် ခွဲသောကြောင့် ကြိုးအပိုင်းတစ်ခုချင်းစီပေါ်ရှိ current load လျော့သည်။"
+    "e": "Ring main မှာ three-pin socket သုံးတယ်။ live, neutral, earth ခွဲထားတယ်။ ဥပမာ — ထရန်စဖော်မာနဲ့ ဗို့အားပြောင်းတာ။"
   },
   {
     "q": "Each main ring circuit uses a 30 A fuse.",
     "type": "tf",
     "c": "true",
-    "e": "Ring main circuit အတွက် 30 A fuse သည် စံကာကွယ်မှုဖြစ်သည်။"
+    "e": "Fuse က အရည်ပျော်လွယ်တဲ့ ဝါယာသေး။ Current များလွန်းရင် ပြတ်ပြီး ပစ္စည်းကာကွယ်တယ်။ ဥပမာ — ထရန်စဖော်မာနဲ့ ဗို့အားပြောင်းတာ။"
   },
   {
     "q": "Heating circuit is for the utilization of appliances such as electric cookers, ovens, hot plates, washing machines and dryers.",
     "type": "tf",
     "c": "true",
-    "e": "ဤ high-power ပစ္စည်းများသည် ၎င်းတို့ကိုယ်ပိုင် dedicated heating circuit များ လိုအပ်သည်။"
+    "e": "အဝတ်လျှော်စက် spin မှာ ရေက အပြင်ထွက်၊ အဝတ်ကျန်တယ်။ Wash cycle က အတွင်းသို့ ဆွဲပြီး မွှေတာပဲ။ ဥပမာ — ထရန်စဖော်မာနဲ့ ဗို့အားပြောင်းတာ။"
   },
   {
     "q": "The fuse of each circuit must be connected in the neutral (N) lead to protect the appliances.",
     "type": "tf",
     "c": "false",
-    "e": "Fuse ကို live (L) lead တွင် ချိတ်ဆက်ရမည်။ Neutral lead တွင် fuse သည် အကျိုးမရှိဘဲ မဘေးကင်းပါ။"
+    "e": "ဒီအချက်က မှားတယ်။ Neutral wire က ပြန်လမ်း၊ ပုံမှန်အားဖြင့် ဗို့အားနီးပါး 0။ ဥပမာ — ထရန်စဖော်မာနဲ့ ဗို့အားပြောင်းတာ။"
   },
   {
     "q": "A circuit breaker is an automatic switch which trips when the current rises above the specified value.",
     "type": "tf",
     "c": "true",
-    "e": "Circuit breaker များက reset လုပ်နိုင်သော overcurrent ကာကွယ်မှု ပေးသည်။"
+    "e": "Circuit breaker က current များရင် ခလုတ်ဖြတ်တယ်၊ fuse လို ပြန်တပ်လို့ရတယ်။ ဥပမာ — ထရန်စဖော်မာနဲ့ ဗို့အားပြောင်းတာ။"
   },
   {
     "q": "Earthing of an electrical appliance is the most important safety precaution.",
     "type": "tf",
     "c": "true",
-    "e": "Earthing က ပစ္စည်းများ၏ သတ္တုအကာ live ဖြစ်ပြီး သုံးစွဲသူကို shock မဖြစ်အောင် တားသည်။"
+    "e": "Radiation safety က အချိန်လျှော့၊ အကွာထား၊ ကာထား (time, distance, shielding)။ ဥပမာ — ထရန်စဖော်မာနဲ့ ဗို့အားပြောင်းတာ။"
   },
   {
     "q": "In any electrical appliance the earth wire is always connected to the metal case.",
     "type": "tf",
     "c": "true",
-    "e": "Earth ကြိုးကို သတ္တုအကာနှင့် ချိတ်ဆက်ခြင်းက fault current များအတွက် ဘေးကင်းသော လမ်းကြောင်း ပေးသည်။"
+    "e": "Earth wire က ယိုစီးတဲ့ current ကို မြေထဲလွှဲတယ်။ ဥပမာ — ဖုန်း charger adapter။"
   }
 ]

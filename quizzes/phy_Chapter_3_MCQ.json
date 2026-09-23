@@ -8,7 +8,7 @@
       "shearing forces"
     ],
     "c": 0,
-    "e": "သင်ခန်းစာအရ fluid သည် deforming forces ကို အမြဲတမ်း ခုခံမှု မပေးသဖြင့် solids နှင့် ကွဲပြားသည်။"
+    "e": "Fluid (အရည်/ဓာတ်ငွေ့) က shear ကို အမြဲခံမနေဘူး၊ ပုံစီးပြီး စီးသွားတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "The study of fluids has two parts, statics and _____.",
@@ -19,7 +19,7 @@
       "mechanics"
     ],
     "c": 1,
-    "e": "Fluid mechanics ကို fluid statics (ငြိမ်နေသော fluids) နှင့် fluid dynamics (ရွေ့နေသော fluids) ဟူ၍ ခွဲသည်။"
+    "e": "dynamics က ဒီနေရာမှာ ကိုက်တယ်။ Fluid က အရည်/ဓာတ်ငွေ့၊ ပုံစီးတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Fluid statics concentrates on fluids at _____.",
@@ -30,7 +30,7 @@
       "rest"
     ],
     "c": 2,
-    "e": "Fluid statics သည် မရွေ့ဘဲ ငြိမ်နေသော fluids ကို အထူးလေ့လာသည်။"
+    "e": "Fluid statics က အရည်ငြိမ်၊ dynamics က စီးနေတဲ့အခါ။ ရေပိုက် vs ရေကန်ပဲ။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Fluid dynamics concerns with the fluid in _____.",
@@ -41,7 +41,7 @@
       "vacuum"
     ],
     "c": 1,
-    "e": "Fluid dynamics သည် ရွေ့လျားနေသော fluids ကို လေ့လာသော fluid mechanics ဌာနခွဲဖြစ်သည်။"
+    "e": "Motion/dynamics က စီးနေတဲ့ အရည်။ ရေပိုက်ထဲ ရေပဲ။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "The study of the flow of liquid is called _____.",
@@ -52,7 +52,7 @@
       "aerodynamics"
     ],
     "c": 0,
-    "e": "သင်ခန်းစာတွင် hydrodynamics ကို liquid ၏ flow ကို လေ့လာခြင်းဟု သတ်မှတ်သည်။"
+    "e": "Hydrodynamics က အရည်စီးမှု၊ hydrostatics က ငြိမ်နေတဲ့ အရည်ဖိအား။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Hydrostatics is the study of liquid at _____.",
@@ -63,7 +63,7 @@
       "rest"
     ],
     "c": 2,
-    "e": "Hydrostatics သည် ငြိမ်နေသော liquids ကို အာရုံစိုက်သည်။"
+    "e": "At rest က မစီးသေး၊ hydrostatics ဘက်ပဲ။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "The volume of a liquid does not depend on pressure if the temperature is constant, hence the liquid is _____.",
@@ -74,7 +74,7 @@
       "incompressible"
     ],
     "c": 2,
-    "e": "အကြောင်းမှာ constant temperature တွင် မည်သည့် pressure ဖြစ်စေ liquid ၏ density တည်ငြိမ်သောကြောင့် incompressible ဟု သတ်မှတ်သည်။"
+    "e": "Incompressible ဆိုတာ volume မပွ၊ မကျုံ့ဘူးလို့ ယူဆတာ။ ရေကို ဒီလို မော်ဒယ်လုပ်လေ့ရှိတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "In the flow of fluids, the path or flow of the fluid particles is called _____.",
@@ -85,7 +85,7 @@
       "vector line"
     ],
     "c": 0,
-    "e": "ရွေ့နေသော fluid particles လိုက်သော သီးခြား လမ်းကြောင်းကို streamline ဟု ခေါ်သည်။"
+    "e": "Streamline က အမှုန်လမ်းကြောင်းကို မျဉ်းဆွဲပြတာ။ Laminar မှာ streamline တွေ မရောဘူး။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "If fluid particles are moving steady in smooth paths in layers with no mixing, such a flow is called _____ flow.",
@@ -96,7 +96,7 @@
       "viscous"
     ],
     "c": 1,
-    "e": "Laminar flow တွင် fluid particles များ ချောမွေ့သော parallel အလွှာများအတိုင်း တည်ငြိမ်စီးပြီး ရောနှောမှု မရှိပါ။"
+    "e": "Laminar flow က အလွှာလိုက် ငြိမ်ငြိမ်စီးတာ၊ ရေပိုက်နှေးနှေးဖွင့်သလို။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "In steady laminar flow, streamlines _____ each other.",
@@ -107,7 +107,7 @@
       "merge into"
     ],
     "c": 0,
-    "e": "စစ်မှန်သော laminar flow တွင် streamlines များ parallel ရှိပြီး တစ်ခုနှင့်တစ်ခု မဖြတ်ကြပါ။"
+    "e": "Laminar flow က အလွှာလိုက် ငြိမ်ငြိမ်စီးတာ၊ ရေပိုက်နှေးနှေးဖွင့်သလို။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "In turbulent flow, the speed of the fluid at a point is continuously undergoing changes in both _____.",
@@ -118,7 +118,7 @@
       "magnitude and direction"
     ],
     "c": 2,
-    "e": "Turbulent flow သည် မမှန်ကန်၊ လည်ဝဲနေသဖြင့် velocity vector ၏ magnitude နှင့် ဦးတည်ချက် အမြဲပြောင်းသည်။"
+    "e": "Turbulent flow က ဝရုန်းဝရှင်း၊ ခတ်မြည်မြည်စီးတာ။ ပိုက်ကို အပြင်းဖွင့်ရင် ဖြစ်တယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Ideal laminar fluid flow considers the fluid to be _____.",
@@ -129,7 +129,7 @@
       "compressible"
     ],
     "c": 1,
-    "e": "Ideal fluid model သည် fluid ကို လုံးဝ incompressible ဟု ယူဆပြီး density မပြောင်းဟု ဆိုလိုသည်။"
+    "e": "Incompressible ဆိုတာ volume မပွ၊ မကျုံ့ဘူးလို့ ယူဆတာ။ ရေကို ဒီလို မော်ဒယ်လုပ်လေ့ရှိတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Internal friction in fluids is called _____.",
@@ -140,7 +140,7 @@
       "viscosity"
     ],
     "c": 2,
-    "e": "Viscosity သည် fluid ၏ internal friction သို့မဟုတ် flow ကို ခုခံမှုကို ဖော်ပြသော ဂုဏ်သတ္တိဖြစ်သည်။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Ideal laminar fluid flow assumes the flow has no friction, meaning _____ viscosity.",
@@ -151,7 +151,7 @@
       "constant"
     ],
     "c": 1,
-    "e": "Ideal fluid model သည် internal friction ကို လုံးဝ ချန်လှပ်ပြီး viscosity သုညဟု ယူဆသည်။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "An example of laminar flow is _____.",
@@ -162,7 +162,7 @@
       "whirling water"
     ],
     "c": 0,
-    "e": "သင်ခန်းစာတွင် နူးညံ့တည်ငြိမ်သော ပင်လယ်လေကို laminar flow ၏ လက်တွေ့ဥပမာအဖြစ် ပေးထားသည်။"
+    "e": "Laminar flow က အလွှာလိုက် ငြိမ်ငြိမ်စီးတာ၊ ရေပိုက်နှေးနှေးဖွင့်သလို။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "An example of turbulent flow is _____.",
@@ -173,7 +173,7 @@
       "sea breeze"
     ],
     "c": 1,
-    "e": "မုန်တိုင်းတွင် ရှုပ်ထွေး၊ မမှန်ကန်၊ အမြန်ပြောင်းသော လေစီးကြောင်းများရှိသဖြင့် turbulent flow ၏ ဂန္ထဝင်ဥပမာဖြစ်သည်။"
+    "e": "Turbulent flow က ဝရုန်းဝရှင်း၊ ခတ်မြည်မြည်စီးတာ။ ပိုက်ကို အပြင်းဖွင့်ရင် ဖြစ်တယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Motor car brake oil is _____.",
@@ -184,7 +184,7 @@
       "non-compressible"
     ],
     "c": 2,
-    "e": "Liquids အများစုကဲ့သို့ ကား brake oil ကို hydraulic system တွင် force ထိရောက်စွာ ပို့ရန် non-compressible အဖြစ် သတ်မှတ်သည်။"
+    "e": "Electric motor က current ရှိတဲ့ ကွိုင်ကို သံလိုက်က လည်အောင်လုပ်တယ်။ ဖုန်း vibrator၊ ပန်ကာပဲ။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Gases are _____.",
@@ -195,7 +195,7 @@
       "non-viscous"
     ],
     "c": 0,
-    "e": "Liquids နှင့် မတူဘဲ gas ၏ volume သည် pressure နှင့် temperature အပေါ် အများအပြား မူတည်သဖြင့် gases များ highly compressible ဖြစ်သည်။"
+    "e": "Gas က compress လုပ်လို့ရတဲ့ fluid ပဲ။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "In an ideal fluid, the mass flowing in section 1 must _____ the mass flowing in section 2.",
@@ -206,7 +206,7 @@
       "be less than"
     ],
     "c": 1,
-    "e": "Conservation of mass နိယာမအရ စဉ်ဆက်မပြတ် flow တွင် တစ်နေရာဝင်သော mass သည် အခြားနေရာမှ ထွက်သော mass နှင့် ညီရမည်။"
+    "e": "ပိုက်ထဲ mass မပျောက်ဘူး၊ ဝင်သလောက် ထွက်တယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "The volume flow rate is _____ throughout the pipe.",
@@ -217,7 +217,7 @@
       "the same"
     ],
     "c": 2,
-    "e": "Incompressible ideal fluid အတွက် pipe ၏ cross-section တိုင်းတွင် volume flow rate တည်ငြိမ်သည်။"
+    "e": "the same က ဒီနေရာမှာ ကိုက်တယ်။ the same က ဖြေချက်ပဲ။ volume, flow, rate, throughout, pipe နဲ့ ဆိုင်တယ်။"
   },
   {
     "q": "The equation $A_1 v_1 = A_2 v_2$ is known as the equation of _____ for fluid flow.",
@@ -228,7 +228,7 @@
       "continuity"
     ],
     "c": 2,
-    "e": "ဤသင်္ချာဖော်ပြချက်သည် fluid dynamics အတွက် equation of continuity ကို ကိုယ်စားပြုသည်။"
+    "e": "Continuity equation က A v = constant (incompressible)။ ကျဉ်းရင် မြန်တယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "According to the equation of continuity, the larger the area of the pipe, the _____ is the speed.",
@@ -239,7 +239,7 @@
       "constant"
     ],
     "c": 0,
-    "e": "အကြောင်းမှာ area နှင့် velocity ၏ ထုတ်လဒ် တည်ငြိမ်သောကြောင့် cross-sectional area တိုးပါက flow အရှိန် နှေးသည်။"
+    "e": "Equation of continuity က mass မပျောက်ဘူး။ ကျဉ်းတဲ့နေရာက မြန်မြန်စီးရတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "According to the equation of continuity, the smaller the area of the pipe, the _____ is the speed.",
@@ -250,7 +250,7 @@
       "faster"
     ],
     "c": 2,
-    "e": "Pipe ၏ cross-sectional area လျော့ပါက တူညီသော volume flow rate ထိန်းရန် fluid ပိုမြန်စွာ ရွေ့ရသည်။"
+    "e": "Equation of continuity က mass မပျောက်ဘူး။ ကျဉ်းတဲ့နေရာက မြန်မြန်စီးရတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "The equation of continuity states that the liquid entering one end of the pipe leaves from the other end with a constant _____ flow rate.",
@@ -261,7 +261,7 @@
       "density"
     ],
     "c": 1,
-    "e": "ဤညီမျှခြင်းသည် incompressible liquids အတွက် volume flow rate ၏ conservation ကို အတိအကျ သတ်မှတ်သည်။"
+    "e": "Equation of continuity က mass မပျောက်ဘူး။ ကျဉ်းတဲ့နေရာက မြန်မြန်စီးရတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "In the equation of continuity, $V/t$ represents the _____ flow rate.",
@@ -272,7 +272,7 @@
       "weight"
     ],
     "c": 0,
-    "e": "Volume ကို time ဖြင့် စားပါက volume flow rate ရပြီး စနစ်တစ်ခုလုံးတွင် တည်ငြိမ်သည်။"
+    "e": "Equation of continuity က mass မပျောက်ဘူး။ ကျဉ်းတဲ့နေရာက မြန်မြန်စီးရတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "If the cross-sectional area of a pipe decreases, the speed of the liquid _____.",
@@ -283,7 +283,7 @@
       "increases"
     ],
     "c": 2,
-    "e": "Continuity equation တွင် area နှင့် အရှိန် inversely proportional ဖြစ်သဖြင့် area ငယ်ပါက အရှိန် တိုးသည်။"
+    "e": "increases က ဒီနေရာမှာ ကိုက်တယ်။ increases က ဖြေချက်ပဲ။ cross, sectional, area, pipe, decreases နဲ့ ဆိုင်တယ်။"
   },
   {
     "q": "The equation $A_1 v_1 = A_2 v_2$ applies to an ideal fluid which must have laminar flow and no _____.",
@@ -294,7 +294,7 @@
       "density"
     ],
     "c": 1,
-    "e": "ဤရိုးရှင်းသော continuity equation အတွက် လိုအပ်သော ideal fluid model သည် steady laminar flow နှင့် viscosity သုညကို ယူဆသည်။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "The density of an ideal fluid in the equation of continuity is _____.",
@@ -305,7 +305,7 @@
       "zero"
     ],
     "c": 0,
-    "e": "Fluid သည် incompressible ဖြစ်ရမည်၊ ဆိုလိုသည်မှာ pipe ထဲ ရွေ့စဉ် density မပြောင်းပါ။"
+    "e": "Equation of continuity က mass မပျောက်ဘူး။ ကျဉ်းတဲ့နေရာက မြန်မြန်စီးရတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "The speed of water spraying from a hose increases by making the hose area _____.",
@@ -316,7 +316,7 @@
       "longer"
     ],
     "c": 1,
-    "e": "Hose ကို တစ်စိတ်တစ်ပိုင်း ပိတ်ပါက ထွက်ပေါက် area လျော့ပြီး ရေထွက်အရှိန် တိုးသည်။"
+    "e": "ရေပိုက်နော်ဇယ်ကျဉ်းရင် speed တက်တယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "In the equation $A_1 v_1 = A_2 v_2$, the terms $v_1$ and $v_2$ represent the _____ of the liquid.",
@@ -327,7 +327,7 @@
       "speed"
     ],
     "c": 2,
-    "e": "ကိန်းရှင်များ $v_1$ နှင့် $v_2$ သည် cross-sections 1 နှင့် 2 ရှိ flow အရှိန်များကို အသီးသီး ကိုယ်စားပြုသည်။"
+    "e": "Continuity: A v = constant။ ပြွန်ကျဉ်းရင် ရေမြန်တယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "The equation of continuity is a manifestation of the conservation of _____.",
@@ -338,7 +338,7 @@
       "momentum"
     ],
     "c": 1,
-    "e": "Continuity equation သည် စနစ်သို့ ဝင်သော mass နှင့် ထွက်သော mass ညီကြောင်း အာမခံပြီး conservation of mass ကို ထင်ဟပ်သည်။"
+    "e": "Equation of continuity က mass မပျောက်ဘူး။ ကျဉ်းတဲ့နေရာက မြန်မြန်စီးရတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Bernoulli's equation relates pressure, flow speed, and _____ for the steady flow of an ideal incompressible fluid.",
@@ -349,7 +349,7 @@
       "height"
     ],
     "c": 2,
-    "e": "Bernoulli's equation သည် စီးနေသော fluid တွင် pressure, fluid velocity (flow အရှိန်) နှင့် elevation (အမြင့်) ကို ဆက်စပ်သည်။"
+    "e": "Incompressible ဆိုတာ volume မပွ၊ မကျုံ့ဘူးလို့ ယူဆတာ။ ရေကို ဒီလို မော်ဒယ်လုပ်လေ့ရှိတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Bernoulli's equation was first derived in 1738 by the Swiss mathematician _____.",
@@ -360,7 +360,7 @@
       "George Stokes"
     ],
     "c": 0,
-    "e": "ဤညီမျှခြင်းကို ၁၇၃၈ တွင် ထုတ်ဝေသော Swiss သင်္ချာပညာရှင် Daniel Bernoulli ၏ အမည်ဖြင့် ခေါ်သည်။"
+    "e": "Bernoulli က စီးနေတဲ့ အရည်မှာ speed များတဲ့နေရာ pressure နည်းတယ်။ ရေပိုက်ကျဉ်းရင် မြန်ပြီး ဖိအားလျော့သလို။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Bernoulli's equation can be derived using the _____ principle to a fluid flowing in a tube.",
@@ -371,7 +371,7 @@
       "work-energy"
     ],
     "c": 2,
-    "e": "ဤဆင်းသက်မှုသည် work-energy principle အပေါ် မူတည်ပြီး pressure က လုပ်သော work ကို mechanical energy ပြောင်းလဲမှုနှင့် ညီစေသည်။"
+    "e": "Bernoulli က စီးနေတဲ့ အရည်မှာ speed များတဲ့နေရာ pressure နည်းတယ်။ ရေပိုက်ကျဉ်းရင် မြန်ပြီး ဖိအားလျော့သလို။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "According to the work-energy principle, the work done on a section of fluid must equal the change in total _____ energy.",
@@ -382,7 +382,7 @@
       "chemical"
     ],
     "c": 1,
-    "e": "Fluid pressure က လုပ်သော work သည် fluid ၏ စုစုပေါင်း mechanical energy (kinetic နှင့် potential) ပြောင်းလဲမှုနှင့် ညီသည်။"
+    "e": "Work က force က ရွေ့အောင်လုပ်တဲ့ စွမ်းအင်ကူးပြောင်း။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "In Bernoulli's equation, the term $\rho gh$ represents the _____ energy per unit volume.",
@@ -393,7 +393,7 @@
       "internal"
     ],
     "c": 1,
-    "e": "Term $\\rho gh$ သည် unit volume တစ်ခုလျှင် fluid ၏ gravitational potential energy နှင့် ကိုက်ညီသည်။"
+    "e": "Bernoulli က စီးနေတဲ့ အရည်မှာ speed များတဲ့နေရာ pressure နည်းတယ်။ ရေပိုက်ကျဉ်းရင် မြန်ပြီး ဖိအားလျော့သလို။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "In Bernoulli's equation, the term $p$ represents the _____ energy per unit volume.",
@@ -404,7 +404,7 @@
       "pressure"
     ],
     "c": 2,
-    "e": "Pressure $p$ သည် potential energy density ပုံစံတစ်ခုအဖြစ် လုပ်ဆောင်ပြီး unit volume တစ်ခုလျှင် pressure energy ဟု မကြာခဏ ခေါ်သည်။"
+    "e": "Bernoulli က စီးနေတဲ့ အရည်မှာ speed များတဲ့နေရာ pressure နည်းတယ်။ ရေပိုက်ကျဉ်းရင် မြန်ပြီး ဖိအားလျော့သလို။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Bernoulli's theorem states that the sum of pressure energy, kinetic energy and potential energy per unit volume of an incompressible, non-viscous fluid in a streamlined laminar flow remains _____.",
@@ -415,7 +415,7 @@
       "variable"
     ],
     "c": 0,
-    "e": "Bernoulli's theorem ၏ အဓိက ဖော်ပြချက်မှာ ဤ energy densities ပေါင်းလဒ်သည် streamline တစ်လျှောက် တည်ငြိမ်ခြင်းဖြစ်သည်။"
+    "e": "Potential energy က နေရာ/အနေအထားကြောင့် သိမ်းထားတဲ့ စွမ်းအင်။ စက်ဘီးကုန်းပေါ်ရင် PE များတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Bernoulli's equation applies to the steady (laminar) flow of an ideal _____ fluid.",
@@ -426,7 +426,7 @@
       "incompressible"
     ],
     "c": 2,
-    "e": "Theorem က fluid ကို ideal ဖြစ်ရန် တင်းကျပ်စွာ တောင်းဆိုပြီး incompressible နှင့် non-viscous ဖြစ်ရမည်။"
+    "e": "Incompressible ဆိုတာ volume မပွ၊ မကျုံ့ဘူးလို့ ယူဆတာ။ ရေကို ဒီလို မော်ဒယ်လုပ်လေ့ရှိတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "In Bernoulli's derivation, the internal friction of the fluid flow is considered to be _____.",
@@ -437,7 +437,7 @@
       "constant"
     ],
     "c": 1,
-    "e": "Heat ဆုံးရှုံးမှုမရှိဘဲ conservation of mechanical energy သုံးရန် internal friction (viscosity) ကို လျစ်လျူရှုနိုင်ရမည်။"
+    "e": "Bernoulli က စီးနေတဲ့ အရည်မှာ speed များတဲ့နေရာ pressure နည်းတယ်။ ရေပိုက်ကျဉ်းရင် မြန်ပြီး ဖိအားလျော့သလို။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "The work done on the fluid in Bernoulli's derivation is due to the _____ of the fluid.",
@@ -448,7 +448,7 @@
       "viscosity"
     ],
     "c": 0,
-    "e": "Fluid element အပေါ် net work done ကို ၎င်း၏ စွန်းများရှိ pressure ကွာခြားမှုမှ တွက်သည်။"
+    "e": "Bernoulli က စီးနေတဲ့ အရည်မှာ speed များတဲ့နေရာ pressure နည်းတယ်။ ရေပိုက်ကျဉ်းရင် မြန်ပြီး ဖိအားလျော့သလို။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "For a horizontal pipe where height is constant, Bernoulli's equation simplifies to a relationship between pressure and _____.",
@@ -459,7 +459,7 @@
       "flow speed"
     ],
     "c": 2,
-    "e": "အမြင့် $h$ တည်ငြိမ်ပါက potential energy terms များ ပယ်ပြီး pressure နှင့် flow အရှိန်သာ ကျန်သည်။"
+    "e": "Bernoulli က စီးနေတဲ့ အရည်မှာ speed များတဲ့နေရာ pressure နည်းတယ်။ ရေပိုက်ကျဉ်းရင် မြန်ပြီး ဖိအားလျော့သလို။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "In a horizontal pipe, if the velocity of the fluid increases, the pressure of the fluid _____.",
@@ -470,7 +470,7 @@
       "remains constant"
     ],
     "c": 0,
-    "e": "Bernoulli's principle အရ fluid အရှိန် တိုးပါက ၎င်း၏ pressure တစ်ပြိုင်နက် လျော့သည်။"
+    "e": "Pressure က တစ်ယူနစ် ဧရိယာပေါ်က force။ ဖုန်းကို ဒေါက်ဆောက်ရင် ဧရိယာသေးလို့ ဖိအားပိုကြီးတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Bernoulli's equation is a relationship between pressure energy, kinetic energy and potential energy of a fluid in _____ flow.",
@@ -481,7 +481,7 @@
       "streamline"
     ],
     "c": 2,
-    "e": "ဤညီမျှခြင်းသည် steady, streamline (laminar) flow အတွက်သာ မှန်ကန်ပြီး turbulent flow အတွက် မဟုတ်ပါ။"
+    "e": "Potential energy က နေရာ/အနေအထားကြောင့် သိမ်းထားတဲ့ စွမ်းအင်။ စက်ဘီးကုန်းပေါ်ရင် PE များတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Bernoulli's equation requires the fluid to be non-_____.",
@@ -492,7 +492,7 @@
       "dense"
     ],
     "c": 1,
-    "e": "Ideal fluid ယူဆချက်အရ fluid သည် non-viscous ဖြစ်ရမည်၊ ထို့ကြောင့် mechanical energy ကို internal friction သို့ မဆုံးရှုံးပါ။"
+    "e": "Bernoulli က စီးနေတဲ့ အရည်မှာ speed များတဲ့နေရာ pressure နည်းတယ်။ ရေပိုက်ကျဉ်းရင် မြန်ပြီး ဖိအားလျော့သလို။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Bernoulli's equation applies to a _____ flow.",
@@ -503,7 +503,7 @@
       "rotational"
     ],
     "c": 0,
-    "e": "Fluid အလွှာများ ရှုပ်ထွေးစွာ မရောသော streamlined, laminar flow အတွက် ဤ theorem မှန်ကန်သည်။"
+    "e": "Bernoulli က စီးနေတဲ့ အရည်မှာ speed များတဲ့နေရာ pressure နည်းတယ်။ ရေပိုက်ကျဉ်းရင် မြန်ပြီး ဖိအားလျော့သလို။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "The air flow moving above the top curved surface of an aeroplane wing has a _____ distance to travel.",
@@ -514,7 +514,7 @@
       "longer"
     ],
     "c": 2,
-    "e": "တောင်ပံ၏ ကွေးသော အပေါ်မျက်နှာပြင်က ပြားသော အောက်မျက်နှာပြင်ထက် လေကို ပိုရှည်သော အကွာအဝေး သွားစေသည်။"
+    "e": "လေယာဉ်စောင်းရင် lift ရဲ့ ဘေးတိုက်အစိတ်အပိုင်းက ကွေ့ခိုင်းတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "The velocity of air flow is _____ along the top surface of an aeroplane wing.",
@@ -525,7 +525,7 @@
       "zero"
     ],
     "c": 1,
-    "e": "တူညီသော အချိန်အတွင်း ပိုရှည်သော အကွာအဝေး သွားရန် လေသည် အပေါ်တွင် ပိုမြင့်သော velocity ဖြင့် ရွေ့ရမည်။"
+    "e": "လေယာဉ်စောင်းရင် lift ရဲ့ ဘေးတိုက်အစိတ်အပိုင်းက ကွေ့ခိုင်းတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "The high velocity of air flow along the top surface of a wing causes a _____ pressure above the wing.",
@@ -536,7 +536,7 @@
       "constant"
     ],
     "c": 0,
-    "e": "Bernoulli's principle အရ လေအရှိန် တိုးပါက တောင်ပံအပေါ်တွင် low pressure ဒေသ ဖြစ်ပေါ်သည်။"
+    "e": "Pressure က တစ်ယူနစ် ဧရိယာပေါ်က force။ ဖုန်းကို ဒေါက်ဆောက်ရင် ဧရိယာသေးလို့ ဖိအားပိုကြီးတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "The lift on the wings of an aeroplane is provided by a pressure difference where pressure is high _____ the wing.",
@@ -547,7 +547,7 @@
       "below"
     ],
     "c": 2,
-    "e": "တောင်ပံအောက်ရှိ ပိုနှေးသော လေက ပိုမြင့်သော pressure ဇုန် ဖြစ်စေပြီး တောင်ပံကို အပေါ်သို့ တွန်းကာ lift ဖြစ်စေသည်။"
+    "e": "ဆန့်ကျင်ချိတ်ရင် ရလဒ် emf က ခြားနားချက်ပဲ။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "In an insect sprayer, the fast moving air causes a _____ pressure at the tip of the nozzle.",
@@ -558,7 +558,7 @@
       "atmospheric"
     ],
     "c": 1,
-    "e": "အရှိန်မြင့် လေမှုတ်က nozzle ထိပ်တွင် low-pressure ဇုန် ဖြစ်စေပြီး liquid ကို အပေါ်သို့ ဆွဲသည်။"
+    "e": "Pressure က တစ်ယူနစ် ဧရိယာပေါ်က force။ ဖုန်းကို ဒေါက်ဆောက်ရင် ဧရိယာသေးလို့ ဖိအားပိုကြီးတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "In an insect sprayer, the liquid rushes up through the stem because the liquid inside the container is at a _____ pressure.",
@@ -569,7 +569,7 @@
       "zero"
     ],
     "c": 0,
-    "e": "ကွန်တိန်နာအတွင်း atmospheric pressure သည် nozzle ရှိ low pressure ထက် မြင့်သဖြင့် liquid ကို အပေါ်သို့ တွန်းသည်။"
+    "e": "Pressure က တစ်ယူနစ် ဧရိယာပေါ်က force။ ဖုန်းကို ဒေါက်ဆောက်ရင် ဧရိယာသေးလို့ ဖိအားပိုကြီးတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "The Magnus effect is commonly associated with a _____ object moving through a fluid.",
@@ -580,7 +580,7 @@
       "spinning"
     ],
     "c": 2,
-    "e": "Magnus effect သည် ဘောလုံးကဲ့သို့ လည်နေသော အရာဝတ္ထု လေကဲ့သို့ fluid ထဲ ရွေ့စဉ် အပြုအမူကို အထူးဖော်ပြသည်။"
+    "e": "spinning က ဒီနေရာမှာ ကိုက်တယ်။ Fluid က အရည်/ဓာတ်ငွေ့၊ ပုံစီးတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "The Magnus effect produces the _____ of a spinning ball.",
@@ -591,7 +591,7 @@
       "compression"
     ],
     "c": 1,
-    "e": "လည်ခြင်းကြောင့် ဖြစ်သော pressure ကွာခြားမှုက ဘောလုံး၏ လမ်းကြောင်းကို ပုံမှန် trajectory မှ ကွေးစေ သို့မဟုတ် လွှဲစေသည်။"
+    "e": "deflection က ဒီနေရာမှာ ကိုက်တယ်။ deflection က ဖြေချက်ပဲ။ magnus, effect, produces, spinning, ball နဲ့ ဆိုင်တယ်။"
   },
   {
     "q": "The Magnus effect was described in 1852 by the German physicist _____.",
@@ -602,7 +602,7 @@
       "George Stokes"
     ],
     "c": 0,
-    "e": "ဤ effect ကို ၁၈၅၂ တွင် ပထမဆုံး ဖော်ပြသော ရူပဗေဒပညာရှင် Heinrich Gustav Magnus ၏ အမည်ဖြင့် ခေါ်သည်။"
+    "e": "Heinrich Gustav Magnus က ဒီနေရာမှာ ကိုက်တယ်။ Heinrich Gustav Magnus က ဖြေချက်ပဲ။ magnus, effect, described, german, physicist နဲ့ ဆိုင်တယ်။"
   },
   {
     "q": "During cyclones, moving air gains speed above the roof of a house causing _____ pressure on the roof.",
@@ -613,7 +613,7 @@
       "reduced"
     ],
     "c": 2,
-    "e": "Bernoulli's theorem အရ cyclone ၏ အရှိန်မြင့်လေများ အမိုးပေါ် တိုက်ပါက pressure လျော့သော ဇုန် ဖြစ်ပေါ်သည်။"
+    "e": "Pressure က တစ်ယူနစ် ဧရိယာပေါ်က force။ ဖုန်းကို ဒေါက်ဆောက်ရင် ဧရိယာသေးလို့ ဖိအားပိုကြီးတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "During cyclones, the roof of a house can fly away because the pressure inside the house is _____ than the pressure on the roof.",
@@ -624,7 +624,7 @@
       "equal"
     ],
     "c": 1,
-    "e": "အိမ်အတွင်း ပုံမှန် atmospheric pressure သည် အပြင်ရှိ လျော့သော pressure ထက် ကြီးသဖြင့် အပေါ်သို့ lifting force ဖြစ်ပေါ်သည်။"
+    "e": "Pressure က တစ်ယူနစ် ဧရိယာပေါ်က force။ ဖုန်းကို ဒေါက်ဆောက်ရင် ဧရိယာသေးလို့ ဖိအားပိုကြီးတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "In the Magnus effect, where the velocity of air and velocity of the ball are in opposite directions, it _____ the velocity of air flow.",
@@ -635,7 +635,7 @@
       "doubles"
     ],
     "c": 0,
-    "e": "လည်ခြင်းက လာနေသော လေစီးကြောင်းနှင့် ဆန့်ကျင်၍ လေကို ဖမ်းဆွဲပါက air flow ၏ relative velocity လျော့သည်။"
+    "e": "Velocity က မြန်နှုန်း + ဦးတည်ချက်။ ပြန်လှည့်ရင် velocity ပြောင်းတယ်။ ဥပမာ — ဘောလုံးပစ်တာ။"
   },
   {
     "q": "In the Magnus effect, a reduction in the velocity of air flow results in _____ pressure.",
@@ -646,7 +646,7 @@
       "high"
     ],
     "c": 2,
-    "e": "Bernoulli's principle အရ လေ၏ velocity လျော့ပါက ဘောလုံး၏ ထိုဘက်တွင် pressure တိုးသည်။"
+    "e": "Pressure က တစ်ယူနစ် ဧရိယာပေါ်က force။ ဖုန်းကို ဒေါက်ဆောက်ရင် ဧရိယာသေးလို့ ဖိအားပိုကြီးတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "In the Magnus effect, where the velocity of air and velocity of the ball are in the same direction, it increases the velocity of air flow which leads to _____ pressure.",
@@ -657,7 +657,7 @@
       "atmospheric"
     ],
     "c": 1,
-    "e": "လည်ခြင်းက လေစီးကြောင်း၏ velocity ကို ပေါင်းထည့်ပါက ပိုမြန်သော လေက low pressure ဒေသ ဖြစ်စေသည်။"
+    "e": "Pressure က တစ်ယူနစ် ဧရိယာပေါ်က force။ ဖုန်းကို ဒေါက်ဆောက်ရင် ဧရိယာသေးလို့ ဖိအားပိုကြီးတယ်။ ဥပမာ — ဘောလုံးပစ်တာ။"
   },
   {
     "q": "The net vertical force that the air exerts on an airplane wing is calculated using the pressure difference multiplied by the wing _____.",
@@ -668,7 +668,7 @@
       "thickness"
     ],
     "c": 0,
-    "e": "Force သည် pressure နှင့် pressure သက်ရောက်သော မျက်နှာပြင် area ၏ ထုတ်လဒ်နှင့် ညီသည်။"
+    "e": "ဆန့်ကျင်ချိတ်ရင် ရလဒ် emf က ခြားနားချက်ပဲ။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "The resistance to fluid motion or internal resistance of fluid is called _____.",
@@ -679,7 +679,7 @@
       "surface tension"
     ],
     "c": 1,
-    "e": "Viscosity ကို fluid အတွင်း internal friction သို့မဟုတ် flow ကို ခုခံမှုဟု သတ်မှတ်သည်။"
+    "e": "Internal resistance r က ဘက်ထရီကိုယ်ထည်ထဲ ခုခံမှု။ Current စီးရင် Ir ကျသွားလို့ terminal voltage လျော့တယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Viscosity arises when there is _____ motion between layers of the fluid.",
@@ -690,7 +690,7 @@
       "relative"
     ],
     "c": 2,
-    "e": "ကပ်လျက် fluid အလွှာများ တစ်ခုနှင့်တစ်ခု လျှောမှသာ viscous forces ပေါ်ထွက်ပြီး relative motion ရှိသည်ဟု ဆိုလိုသည်။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Viscosity can be thought of as a measure of a fluid's thickness or its _____ to objects passing through it.",
@@ -701,7 +701,7 @@
       "cohesion"
     ],
     "c": 0,
-    "e": "Viscosity မြင့်သော fluid သည် 'ထူ' သည်ဟု ခံစားရပြီး ထဲမှ ရွေ့ရန် ကြိုးစားသော အရာဝတ္ထုများကို သိသာစွာ ခုခံသည်။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "A fluid with large viscosity resists motion because its strong _____ forces give it a lot of internal friction.",
@@ -712,7 +712,7 @@
       "nuclear"
     ],
     "c": 1,
-    "e": "Viscosity မြင့်ခြင်းမှာ fluid molecules ကို စုထားပြီး လျှောခြင်းကို ခုခံသော intermolecular forces ပြင်းထန်မှုကြောင့်ဖြစ်သည်။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "A fluid with low viscosity flows easily because its molecular make up results in very little _____ when it is in motion.",
@@ -723,7 +723,7 @@
       "friction"
     ],
     "c": 2,
-    "e": "Viscosity နိမ့်ခြင်းမှာ intermolecular forces အားနည်းပြီး flow အတွင်း internal friction အလွန်နည်းသည်ဟု ဆိုလိုသည်။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "The viscosity of liquids _____ rapidly with an increase in temperature.",
@@ -734,7 +734,7 @@
       "remains constant"
     ],
     "c": 0,
-    "e": "Liquid ကို အပူပေးပါက molecules တွင် intermolecular bonds ကျော်ရန် kinetic energy ပိုရသဖြင့် viscosity လျော့သည်။"
+    "e": "Temperature က ပူအေးကို ဂဏန်းနဲ့ ပြတာ၊ မော်လီကျူးတွေ ဘယ်လောက် လှုပ်သလဲ။ Heat က စီးတဲ့ energy။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "The viscosity of gases _____ with an increase in temperature.",
@@ -745,7 +745,7 @@
       "vanishes"
     ],
     "c": 1,
-    "e": "Gases တွင် temperature မြင့်ပါက molecular collisions တိုးပြီး internal friction နှင့် viscosity အမှန်တကယ် တိုးသည်။"
+    "e": "Temperature က ပူအေးကို ဂဏန်းနဲ့ ပြတာ၊ မော်လီကျူးတွေ ဘယ်လောက် လှုပ်သလဲ။ Heat က စီးတဲ့ energy။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Upon heating, liquids flow more easily, whereas gases flow more _____.",
@@ -756,7 +756,7 @@
       "slowly"
     ],
     "c": 2,
-    "e": "အကြောင်းမှာ gas viscosity သည် temperature နှင့်အတူ တိုးသောကြောင့် အပူပေးသော gases တွင် internal ခုခံမှု ပိုများပြီး ပိုနှေးစွာ စီးသည်။"
+    "e": "slowly က ဒီနေရာမှာ ကိုက်တယ်။ Heat က ပူရာက အေးရာစီးတဲ့ energy။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Viscosity does not change as the amount of matter changes, therefore it is an _____ property.",
@@ -767,7 +767,7 @@
       "additive"
     ],
     "c": 0,
-    "e": "Viscosity သည် intensive property ဖြစ်သည်၊ အကြောင်းမှာ fluid အမျိုးအစားအပေါ် မူတည်ပြီး စုစုပေါင်း ပမာဏ သို့မဟုတ် volume အပေါ် မမူတည်ပါ။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Dynamic viscosity is measured by a fluid's resistance to flow when an _____ force is applied.",
@@ -778,7 +778,7 @@
       "external"
     ],
     "c": 2,
-    "e": "Dynamic (သို့မဟုတ် absolute) viscosity သည် ပြင်ပမှ သက်ရောက်သော shearing force ကို fluid ၏ ခုခံမှုကို တိုင်းတာသည်။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Kinematic viscosity is measured by the resistive flow of a fluid under the weight of _____.",
@@ -789,7 +789,7 @@
       "friction"
     ],
     "c": 0,
-    "e": "Kinematic viscosity သည် gravity သက်ရောက်မှုသာဖြင့် fluid မည်သို့ စီးသည်ကို ဖော်ပြသည်။"
+    "e": "Viscosity က စီးရင် ပွတ်ခုခံတဲ့ ‘အပျစ်’။ ပျားရည်က ရေထက် viscosity များလို့ နှေးနှေးစီးတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Newton's law of viscosity states that the shear stress between two adjacent layers of fluid is directly proportional to the negative value of the _____ gradient.",
@@ -800,7 +800,7 @@
       "temperature"
     ],
     "c": 1,
-    "e": "Newton's law သည် shear stress ကို fluid အလွှာများကြား velocity gradient ($dv/dy$) နှင့် တိုက်ရိုက် ဆက်စပ်သည်။"
+    "e": "Directly proportional ဆိုတာ တစ်ခုကြီးရင် နောက်တစ်ခုလည်း ကြီးတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Shear stress is defined as the shearing force per unit _____.",
@@ -811,7 +811,7 @@
       "area"
     ],
     "c": 2,
-    "e": "Shear stress ($\\tau$) ကို tangential shearing force ကို ထိတွေ့ area ($F/A$) ဖြင့် စား၍ တွက်သည်။"
+    "e": "area က ဒီနေရာမှာ ကိုက်တယ်။ Force က တွန်း/ဆွဲပြီး motion ပြောင်းခိုင်းတယ်။ ယူနစ်က area ပဲ။"
   },
   {
     "q": "Stokes' law expresses the _____ force resisting the fall of small spherical objects through a fluid medium.",
@@ -822,7 +822,7 @@
       "thrust"
     ],
     "c": 1,
-    "e": "Stokes' law သည် ကျနေသော စက်လုံးအပေါ် viscous fluid က သက်ရောက်သော အပေါ်သို့ drag force ကို အထူးတွက်သည်။"
+    "e": "Stokes' law က ဘောလုံးသေး အရည်ထဲ နှေးနှေးကျတဲ့ viscous drag ကို ပြောတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Stokes' law was derived by the British scientist Sir George G. Stokes in _____.",
@@ -833,7 +833,7 @@
       "1851"
     ],
     "c": 2,
-    "e": "Sir George G. Stokes သည် fluid drag ဆိုင်ရာ ကျော်ကြားသော law ကို ၁၈၅၁ တွင် ဆင်းသက်ခဲ့သည်။"
+    "e": "Stokes' law က ဘောလုံးသေး အရည်ထဲ နှေးနှေးကျတဲ့ viscous drag ကို ပြောတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "In Stokes' law, the constant velocity of fall is called the _____ velocity.",
@@ -844,7 +844,7 @@
       "average"
     ],
     "c": 0,
-    "e": "Drag force နှင့် buoyant force က weight နှင့် လုံးဝ ညီမျှသောအခါ စက်လုံးသည် တည်ငြိမ်သော terminal velocity ဖြင့် ကျသည်။"
+    "e": "Velocity က မြန်နှုန်း + ဦးတည်ချက်။ ပြန်လှည့်ရင် velocity ပြောင်းတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "At a constant velocity of fall (terminal velocity), the upward and downward forces are in _____.",
@@ -855,7 +855,7 @@
       "balance"
     ],
     "c": 2,
-    "e": "Net force သုညဖြစ်သောအခါ terminal velocity ရရှိပြီး အပေါ်နှင့် အောက် forces အားလုံး လုံးဝ ညီမျှသည်ဟု ဆိုလိုသည်။"
+    "e": "Velocity က မြန်နှုန်း + ဦးတည်ချက်။ ပြန်လှည့်ရင် velocity ပြောင်းတယ်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "In Newton's law of viscosity, the proportionality constant is the coefficient of _____.",
@@ -866,7 +866,7 @@
       "capillarity"
     ],
     "c": 0,
-    "e": "Shear stress ကို velocity gradient နှင့် ဆက်သော ကိန်းသေသည် fluid ၏ coefficient of viscosity ဖြစ်သည်။"
+    "e": "Coefficient ဆိုတာ အချိုးဂဏန်း။ μ လိုဟာက မျက်နှာပြင် ကြမ်း/ချော ကို ပြတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Surface tension is the tendency of the surface of a liquid to behave like a stretched elastic _____.",
@@ -877,7 +877,7 @@
       "gas"
     ],
     "c": 1,
-    "e": "Surface tension ကြောင့် liquid မျက်နှာပြင် ကျုံ့ပြီး ဆွဲဆန့်ထားသော elastic အရေပြား သို့မဟုတ် အမြှေးပါး ဖုံးထားသကဲ့သို့ ဖြစ်သည်။"
+    "e": "Surface tension က ရေမျက်နှာပြင်က ဆွဲထားသလို တင်းတာ။ အပ်ချောင်းရေပေါ်တင်နိုင်တာ အဲဒါပဲ။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Surface tension is due to the attractive forces between liquid molecules called _____.",
@@ -888,7 +888,7 @@
       "cohesion"
     ],
     "c": 2,
-    "e": "Cohesive forces သည် surface tension ဖြစ်စေသော တူညီသော liquid molecules ကြား intermolecular ဆွဲအားများဖြစ်သည်။"
+    "e": "Surface tension က ရေမျက်နှာပြင်က ဆွဲထားသလို တင်းတာ။ အပ်ချောင်းရေပေါ်တင်နိုင်တာ အဲဒါပဲ။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Cohesion refers to forces between molecules of the _____ substance.",
@@ -899,7 +899,7 @@
       "opposite"
     ],
     "c": 0,
-    "e": "Cohesion သည် ရေနှင့် ရေကဲ့သို့ တူညီသော ပစ္စည်း၏ molecules ကြား ဆွဲအားသာဖြစ်သည်။"
+    "e": "same က ဒီနေရာမှာ ကိုက်တယ်။ Force က တွန်း/ဆွဲပြီး motion ပြောင်းခိုင်းတယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Adhesion refers to forces between molecules of _____ substances.",
@@ -910,7 +910,7 @@
       "similar"
     ],
     "c": 1,
-    "e": "Adhesion သည် ရေနှင့် ဖန်ကဲ့သို့ မတူသော ပစ္စည်းများ၏ molecules ကြား ဆွဲအားများကို ဖော်ပြသည်။"
+    "e": "different က ဒီနေရာမှာ ကိုက်တယ်။ Force က တွန်း/ဆွဲပြီး motion ပြောင်းခိုင်းတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Surface tension is the reason a _____ is able to stride along the water surface without sinking.",
@@ -921,7 +921,7 @@
       "coin"
     ],
     "c": 0,
-    "e": "ရေပေါ်လျှောက်သော အင်းဆက်သည် ၎င်း၏ weight ကို ထောက်ပြီး မျက်နှာပြင်ပေါ် လမ်းလျှောက်ရန် ရေ၏ surface tension အပေါ် လုံးဝ မှီခိုသည်။"
+    "e": "Surface tension က ရေမျက်နှာပြင်က ဆွဲထားသလို တင်းတာ။ အပ်ချောင်းရေပေါ်တင်နိုင်တာ အဲဒါပဲ။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Paperclips, razor blades and light coins are able to rest on water without sinking although their _____ is higher than that of water.",
@@ -932,7 +932,7 @@
       "volume"
     ],
     "c": 1,
-    "e": "ဤအရာဝတ္ထုများသည် ရေထက် density မြင့်ပြီး ပုံမှန်အားဖြင့် နစ်မည်ဖြစ်သော်လည်း surface tension က ထောက်ရန် လုံလောက်သော အပေါ်သို့ force ပေးသည်။"
+    "e": "Density = mass/volume။ တူတဲ့ထုထည်မှာ လေးရင် သိပ်သည်းတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Capillary action is defined as the spontaneous flow of a liquid into a narrow tube or _____ material.",
@@ -943,7 +943,7 @@
       "metallic"
     ],
     "c": 0,
-    "e": "Capillarity သည် ကျဉ်းသော tubes သို့မဟုတ် နေရာငယ်များက capillary tubes ငယ်ကဲ့သို့ လုပ်သော porous ပစ္စည်းများတွင် ဖြစ်ပေါ်သည်။"
+    "e": "Capillary action က ပြွန်သေးထဲ အရည်တက်/ကျတာ၊ adhesive နဲ့ surface tension ကြောင့်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "Capillary action is caused by the combination of cohesive forces of the liquid and the _____ forces between the liquid and tube material.",
@@ -954,7 +954,7 @@
       "adhesive"
     ],
     "c": 2,
-    "e": "Capillarity အတွက် liquid အတွင်း cohesion နှင့် liquid နှင့် tube နံရံများကြား adhesion နှစ်ခုလုံး လိုအပ်သည်။"
+    "e": "Capillary action က ပြွန်သေးထဲ အရည်တက်/ကျတာ၊ adhesive နဲ့ surface tension ကြောင့်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "In order for wicking to occur, a tube needs to be sufficiently _____ in diameter.",
@@ -965,7 +965,7 @@
       "small"
     ],
     "c": 2,
-    "e": "Tube ၏ diameter အလွန်ငယ်မှသာ capillary action သိသာပြီး မြင်နိုင်သည်။"
+    "e": "small က ဒီနေရာမှာ ကိုက်တယ်။ small က ဖြေချက်ပဲ။ order, wicking, occur, tube, needs နဲ့ ဆိုင်တယ်။"
   },
   {
     "q": "The rise of water underneath the ground is an example of _____ action.",
@@ -976,7 +976,7 @@
       "turbulent"
     ],
     "c": 0,
-    "e": "ရေသည် capillary action မှတဆင့် မြေဆီလွှာရှိ နေရာငယ်များမှ အပေါ်သို့ ရွေ့သည်။"
+    "e": "Capillary action က ပြွန်သေးထဲ အရည်တက်/ကျတာ၊ adhesive နဲ့ surface tension ကြောင့်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Water is a liquid that _____ glass capillary tubes.",
@@ -987,7 +987,7 @@
       "ignores"
     ],
     "c": 1,
-    "e": "အကြောင်းမှာ ရေ၏ ဖန်သို့ adhesion သည် ၎င်း၏ cohesion ထက် ပြင်းသောကြောင့် ပျံ့နှံ့ပြီး ဖန်မျက်နှာပြင်ကို 'wet' စေသည်။"
+    "e": "Capillary action က ပြွန်သေးထဲ အရည်တက်/ကျတာ၊ adhesive နဲ့ surface tension ကြောင့်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   },
   {
     "q": "Mercury is a liquid that does not wet glass capillary tubes, so capillarity does not occur for _____ liquids.",
@@ -998,7 +998,7 @@
       "ideal"
     ],
     "c": 0,
-    "e": "Mercury တွင် ဖန်နှင့် adhesive forces ထက် cohesive forces ပိုပြင်းသဖြင့် capillary tube တွင် နိမ့်ကျသော non-wetting liquid ဖြစ်သည်။"
+    "e": "Capillary action က ပြွန်သေးထဲ အရည်တက်/ကျတာ၊ adhesive နဲ့ surface tension ကြောင့်။ ဥပမာ — ရေပိုက်ဖွင့်တာ။"
   },
   {
     "q": "When a glass tube is dipped into water, the _____ force between glass and water is greater than the cohesive force.",
@@ -1009,7 +1009,7 @@
       "inertial"
     ],
     "c": 1,
-    "e": "ရေ molecules နှင့် ဖန်ကြား ပြင်းထန်သော adhesive ဆွဲအားက ရေကို tube နံရံများအတိုင်း အပေါ်သို့ ဆွဲသည်။"
+    "e": "Adhesive force က မတူတဲ့ မော်လီကျူးချင်း ဆွဲတာ။ ရေက ဖန်နံရံကို ကပ်တယ်။ ဥပမာ — စက်ဘီးပန့်နဲ့ လေသွင်းတာ။"
   },
   {
     "q": "Water level rises in a capillary tube until there is a sufficient mass of liquid for _____ forces to overcome the intermolecular forces.",
@@ -1020,6 +1020,6 @@
       "nuclear"
     ],
     "c": 1,
-    "e": "မြှင့်ထားသော ရေကော်လံအပေါ် gravity ၏ အောက်သို့ ဆွဲအားသည် capillarity ၏ အပေါ်သို့ ဆွဲအားနှင့် ညီသောအခါ ရေ တက်ခြင်း ရပ်သည်။"
+    "e": "Gravity က mass ရှိရင် ဆွဲတယ်။ နေက ကမ္ဘာကို ဆွဲလို့ ပတ်လမ်းတင်နေတယ်။ ဥပမာ — ရေဘူးကို ညှစ်ကြည့်တာ။"
   }
 ]
