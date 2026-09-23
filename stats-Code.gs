@@ -56,7 +56,7 @@ function doGet(e) {
     if (action === 'friendOp') return json_(friendOp_(p));
     if (action === 'saveProfile') return json_(saveProfile_(p));
     if (action === 'getPhotos') return json_(getPhotos_(p));
-    if (action === 'purgeSocialScores') return json_(purgeSocialScoreRows_());
+    if (action === 'purgeSocialScores') return json_(resetSocialScoreJunk());
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -76,7 +76,7 @@ function doPost(e) {
     if (action === 'friendState') return json_(friendState_(p));
     if (action === 'saveProfile') return json_(saveProfile_(p));
     if (action === 'getPhotos') return json_(getPhotos_(p));
-    if (action === 'purgeSocialScores') return json_(purgeSocialScoreRows_());
+    if (action === 'purgeSocialScores') return json_(resetSocialScoreJunk());
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -278,11 +278,42 @@ function scoresSheet_() {
   return ss.getSheets()[0];
 }
 
+function onOpen() {
+  SpreadsheetApp.getUi()
+    .createMenu('REED')
+    .addItem('Clear social junk from scores', 'resetSocialScoreJunk')
+    .addToUi();
+}
+
+function resetSocialScoreJunk() {
+  try { PropertiesService.getScriptProperties().deleteProperty('purgedSocRows'); } catch (e1) {}
+  var res = purgeSocialScoreRows_();
+  try { friendsSheet_(); } catch (e2) {}
+  try { profilesSheet_(); } catch (e3) {}
+  var n = res && res.removed ? res.removed : 0;
+  var msg = n
+    ? ('Removed ' + n + ' social rows from the score tabs. Quiz marks were kept. Friends/Profiles tabs are ready.')
+    : 'No social rows left on the score tabs. Quiz marks were not changed.';
+  try { SpreadsheetApp.getUi().alert(msg); } catch (e4) {}
+  return { status: 'ok', removed: n, message: msg };
+}
+
 function isSocialScoreRow_(quizFile, subject) {
   var qf = String(quizFile || '');
   var sub = String(subject || '').toLowerCase();
-  if (qf.indexOf('__soc_') === 0) return true;
+  if (qf.indexOf('__soc_') !== -1) return true;
   if (sub === 'social') return true;
+  return false;
+}
+
+function rowIsSocialJunk_(row) {
+  var i;
+  for (i = 0; i < row.length; i++) {
+    var s = String(row[i] == null ? '' : row[i]);
+    if (s.indexOf('__soc_') !== -1) return true;
+    if (s.toLowerCase() === 'social') return true;
+    if (s.charAt(0) === '{' && s.indexOf('"n":') !== -1) return true;
+  }
   return false;
 }
 
@@ -303,7 +334,6 @@ function purgeSocialScoreRows_() {
     var sheet = sheets[s];
     if (skip[sheet.getName()]) continue;
     var idx = headerIndex_(sheet);
-    if (idx.quizFile === undefined && idx.score === undefined) continue;
     var last = sheet.getLastRow();
     if (last < 2) continue;
     var values = sheet.getRange(2, 1, last - 1, sheet.getLastColumn()).getValues();
@@ -314,7 +344,7 @@ function purgeSocialScoreRows_() {
       var sub = idx.subject !== undefined ? String(values[i][idx.subject] || '') : '';
       var score = idx.score !== undefined ? num_(values[i][idx.score]) : 0;
       var total = idx.total !== undefined ? num_(values[i][idx.total]) : 0;
-      if (isSocialScoreRow_(qf, sub) || (total > 0 && score > total * 5 && score > 100000)) {
+      if (rowIsSocialJunk_(values[i]) || isSocialScoreRow_(qf, sub) || (total > 0 && score > total * 5 && score > 100000)) {
         toDelete.push(i + 2);
       }
     }
