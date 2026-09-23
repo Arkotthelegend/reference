@@ -27,11 +27,10 @@
  *   Normal  = Grade 12 current quizzes
  *   Old     = Grade 12 old questions only
  *   Grade 10 / Grade 11 = those grades (no old-question tab)
- * Friends uses Friends. Profiles uses Profiles.
- * Do NOT write friend rows onto score tabs.
- * getPhotos uses Script Property BOT_TOKEN (same as timetable send).
- * Redeploy → Manage deployments → existing Web App → New version.
- * Saving this file is NOT enough. The Mini App uses the last deployed version.
+ * Friends / photos use this same Web App (Friends + Profiles sheets).
+ * Photos need Script Property BOT_TOKEN if timetable send already has it.
+ * After paste: Deploy → Manage deployments → pencil → New version.
+ * Do not use Cloudflare for Social.
  *
  *   Hosts a PNG and returns { status:'ok', url }. Optional Script Property
  *   BOT_TOKEN also sends the file to that Telegram user as a document.
