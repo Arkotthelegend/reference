@@ -21,7 +21,9 @@
  *
  * Customer analysis (doPost saveSale / deleteSale / saveBizNotes,
  * doGet getSales / getBizNotes) uses extra sheets named Sales and BizNotes
- * in the SAME spreadsheet. Redeploy → New version after pasting this file.
+ * in the SAME spreadsheet. Friends uses a sheet named Friends
+ * (fromId, toId, status, fromName, toName, fromPhoto, toPhoto, updated).
+ * Redeploy → New version after pasting this file.
  *
  *   Hosts a PNG and returns { status:'ok', url }. Optional Script Property
  *   BOT_TOKEN also sends the file to that Telegram user as a document.
@@ -45,6 +47,8 @@ function doGet(e) {
     if (action === 'getLeaderboard') return json_(getLeaderboard_(p));
     if (action === 'getSales') return json_(getSales_());
     if (action === 'getBizNotes') return json_(getBizNotes_());
+    if (action === 'friendState') return json_(friendState_(p));
+    if (action === 'friendOp') return json_(friendOp_(p));
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -59,6 +63,8 @@ function doPost(e) {
     if (action === 'saveSale') return json_(saveSale_(p.sale || p));
     if (action === 'deleteSale') return json_(deleteSale_(p.id || p.saleId));
     if (action === 'saveBizNotes') return json_(saveBizNotes_(p.notes || p));
+    if (action === 'friendOp') return json_(friendOp_(p));
+    if (action === 'friendState') return json_(friendState_(p));
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -566,4 +572,128 @@ function json_(obj) {
   return ContentService
     .createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+var FRIEND_HEADERS = ['fromId', 'toId', 'status', 'fromName', 'toName', 'fromPhoto', 'toPhoto', 'updated'];
+
+function friendsSheet_() {
+  var ss = SPREADSHEET_ID
+    ? SpreadsheetApp.openById(SPREADSHEET_ID)
+    : SpreadsheetApp.getActiveSpreadsheet();
+  if (!ss) throw new Error('Spreadsheet not found. Set SPREADSHEET_ID.');
+  var sh = ss.getSheetByName('Friends');
+  if (!sh) {
+    sh = ss.insertSheet('Friends');
+    sh.appendRow(FRIEND_HEADERS);
+  }
+  if (sh.getLastRow() < 1) sh.appendRow(FRIEND_HEADERS);
+  return sh;
+}
+
+function friendRows_() {
+  var sheet = friendsSheet_();
+  var last = sheet.getLastRow();
+  if (last < 2) return { sheet: sheet, rows: [] };
+  var values = sheet.getRange(2, 1, last - 1, FRIEND_HEADERS.length).getValues();
+  var rows = [];
+  for (var i = 0; i < values.length; i++) {
+    rows.push({
+      row: i + 2,
+      fromId: String(values[i][0] || ''),
+      toId: String(values[i][1] || ''),
+      status: String(values[i][2] || ''),
+      fromName: String(values[i][3] || ''),
+      toName: String(values[i][4] || ''),
+      fromPhoto: String(values[i][5] || ''),
+      toPhoto: String(values[i][6] || ''),
+      updated: values[i][7]
+    });
+  }
+  return { sheet: sheet, rows: rows };
+}
+
+function friendCard_(id, name, photo) {
+  return { userId: String(id), name: name || 'Student', photo: photo || '' };
+}
+
+function friendState_(p) {
+  var userId = String(p.userId || p.fromId || '').replace(/[^0-9]/g, '');
+  if (!userId) return { status: 'error', message: 'userId required' };
+  var pack = friendRows_();
+  var friends = [];
+  var incoming = [];
+  var outgoing = [];
+  var profiles = {};
+  pack.rows.forEach(function (r) {
+    if (!r.fromId || !r.toId) return;
+    profiles[r.fromId] = { name: r.fromName || 'Student', photo: r.fromPhoto || '' };
+    profiles[r.toId] = { name: r.toName || 'Student', photo: r.toPhoto || '' };
+    if (r.status === 'accepted') {
+      if (r.fromId === userId) friends.push(friendCard_(r.toId, r.toName, r.toPhoto));
+      else if (r.toId === userId) friends.push(friendCard_(r.fromId, r.fromName, r.fromPhoto));
+    } else if (r.status === 'pending') {
+      if (r.toId === userId) incoming.push(friendCard_(r.fromId, r.fromName, r.fromPhoto));
+      else if (r.fromId === userId) outgoing.push(friendCard_(r.toId, r.toName, r.toPhoto));
+    }
+  });
+  return { status: 'ok', friends: friends, incoming: incoming, outgoing: outgoing, profiles: profiles };
+}
+
+function findPair_(rows, a, b) {
+  for (var i = 0; i < rows.length; i++) {
+    var r = rows[i];
+    if ((r.fromId === a && r.toId === b) || (r.fromId === b && r.toId === a)) return r;
+  }
+  return null;
+}
+
+function writeFriendRow_(sheet, rowNum, r) {
+  sheet.getRange(rowNum, 1, 1, FRIEND_HEADERS.length).setValues([[
+    r.fromId, r.toId, r.status, r.fromName || '', r.toName || '', r.fromPhoto || '', r.toPhoto || '', new Date()
+  ]]);
+}
+
+function friendOp_(p) {
+  var op = String(p.op || p.friendOp || '').toLowerCase();
+  var fromId = String(p.fromId || '').replace(/[^0-9]/g, '');
+  var toId = String(p.toId || '').replace(/[^0-9]/g, '');
+  var fromName = String(p.fromName || '');
+  var fromPhoto = String(p.fromPhoto || '');
+  if (!fromId || !toId) return { status: 'error', message: 'fromId and toId required' };
+  if (fromId === toId) return { status: 'error', message: 'same user' };
+  var pack = friendRows_();
+  var hit = findPair_(pack.rows, fromId, toId);
+  if (op === 'request') {
+    if (hit && hit.status === 'accepted') return friendState_({ userId: fromId });
+    if (hit && hit.status === 'pending' && hit.toId === fromId) {
+      hit.status = 'accepted';
+      hit.toName = fromName;
+      hit.toPhoto = fromPhoto;
+      writeFriendRow_(pack.sheet, hit.row, hit);
+      return friendState_({ userId: fromId });
+    }
+    if (hit && hit.status === 'pending') {
+      hit.fromName = fromName || hit.fromName;
+      hit.fromPhoto = fromPhoto || hit.fromPhoto;
+      writeFriendRow_(pack.sheet, hit.row, hit);
+      return friendState_({ userId: fromId });
+    }
+    pack.sheet.appendRow([fromId, toId, 'pending', fromName, '', fromPhoto, '', new Date()]);
+    return friendState_({ userId: fromId });
+  }
+  if (op === 'accept') {
+    if (!hit || hit.status !== 'pending' || hit.toId !== fromId) {
+      return { status: 'error', message: 'no request' };
+    }
+    hit.status = 'accepted';
+    hit.toName = fromName;
+    hit.toPhoto = fromPhoto;
+    writeFriendRow_(pack.sheet, hit.row, hit);
+    return friendState_({ userId: fromId });
+  }
+  if (op === 'reject' || op === 'cancel' || op === 'unfriend') {
+    if (hit) pack.sheet.deleteRow(hit.row);
+    return friendState_({ userId: fromId });
+  }
+  return { status: 'error', message: 'Unknown friend op' };
 }

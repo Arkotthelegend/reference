@@ -857,14 +857,14 @@ input:checked + .slider:before {
         }
 
         /* ၃။ Daily Motivation Box ကို သေးငယ်စေခြင်း */
-        #plan-screen > div > div:first-child,
+        #stats-screen #motivation-box,
         #middle-screen > div > div:first-child {
             padding: 12px 15px !important;
             margin-bottom: 15px !important;
         }
-        #plan-screen > div > div:first-child span,
+        #stats-screen #motivation-box span,
         #middle-screen > div > div:first-child span { font-size: 1.2rem !important; }
-        #plan-screen > div > div:first-child h4,
+        #stats-screen #motivation-box h4,
         #middle-screen > div > div:first-child h4 { font-size: 0.95rem !important; margin: 5px 0 !important; }
         #daily-quote { font-size: 0.85rem !important; line-height: 1.4 !important; }
 
@@ -2691,7 +2691,7 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
     }
 
     #home-screen.active-screen,
-    #plan-screen.active-screen,
+    #social-screen.active-screen,
     #profile-screen.active-screen,
     #stats-screen.active-screen,
     #time-screen.active-screen,
@@ -2771,13 +2771,16 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
         margin-top: 12px;
     }
 
-    #plan-screen.active-screen > div {
+    #social-screen.active-screen .social-inner {
         flex: 1 1 auto;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         padding: 4px 8px 8px !important;
         min-height: 0;
+    }
+    #profile-countdown-wrap {
+        margin-top: auto;
     }
     #motivation-box {
         margin-bottom: 12px !important;
@@ -2991,6 +2994,155 @@ body.volunteer-role .vol-report-link { display: block !important; }
     font-weight: 600;
     font-size: 0.92rem;
 }
+#social-screen > h2,
+#stats-screen > h2 {
+    font-size: 1.15rem;
+    margin: 4px 0 10px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--accent);
+}
+.social-inner { padding: 0 12px 18px; }
+.social-block {
+    background: #1E2329;
+    border: 1px solid #2B3139;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+.social-block h3 {
+    color: var(--accent);
+    font-size: 0.78rem;
+    margin: 0 0 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.social-find-row { display: flex; gap: 8px; align-items: center; }
+.social-find-row input {
+    flex: 1;
+    min-width: 0;
+    background: #0B0E11;
+    border: 1px solid #2B3139;
+    color: #EAECEF;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.92rem;
+}
+.social-find-msg { margin: 8px 0 0; font-size: 0.82rem; color: #94A3B8; }
+.social-find-msg.is-error { color: #F6465D; }
+.social-empty { color: #64748B; font-size: 0.85rem; margin: 4px 0 0; text-align: center; }
+.social-kicker { color: #848E9C; font-size: 0.75rem; margin: 8px 0 6px; }
+.friend-row-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #2B3139;
+    padding: 8px 0;
+}
+.friend-row-wrap:last-child { border-bottom: none; }
+.friend-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+    background: none;
+    border: none;
+    color: inherit;
+    text-align: left;
+    padding: 0;
+    cursor: pointer;
+}
+.friend-row-info { min-width: 0; flex: 1; }
+.friend-row-name { font-weight: 700; color: #EAECEF; font-size: 0.92rem; }
+.friend-row-meta { color: #848E9C; font-size: 0.75rem; margin-top: 2px; }
+.friend-row-actions { display: flex; gap: 6px; }
+.social-mini-btn {
+    padding: 6px 10px !important;
+    font-size: 0.75rem !important;
+    min-height: 0 !important;
+    width: auto !important;
+}
+.social-mini-ghost {
+    background: transparent !important;
+    color: #94A3B8 !important;
+    border: 1px solid #2B3139 !important;
+}
+.social-avatar, .peer-avatar, .social-avatar-fallback {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--accent), #3B82F6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: #000;
+}
+.leaderboard-item { cursor: pointer; }
+#profile-countdown-wrap {
+    margin-top: 28px;
+    padding: 4px 8px 8px;
+}
+#peer-preview {
+    position: fixed;
+    inset: 0;
+    z-index: 240;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 16px;
+}
+#peer-preview[hidden] { display: none !important; }
+.peer-preview-card {
+    width: min(420px, 100%);
+    background: #1E2329;
+    border: 1px solid #2B3139;
+    border-radius: 16px;
+    padding: 18px 16px 16px;
+    position: relative;
+}
+#peer-preview-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #94A3B8;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.peer-preview-hero { text-align: center; }
+.peer-preview-hero .peer-avatar,
+.peer-preview-hero .social-avatar-fallback {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 8px;
+    font-size: 1.3rem;
+}
+#peer-preview-name { margin: 0; color: #EAECEF; font-size: 1.05rem; }
+#peer-preview-id { color: #848E9C; font-size: 0.82rem; margin: 4px 0 12px; }
+.peer-preview-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.peer-stat {
+    background: #0B0E11;
+    border: 1px solid #2B3139;
+    border-radius: 10px;
+    padding: 10px 6px;
+    text-align: center;
+}
+.peer-stat b { display: block; color: var(--accent); font-size: 1rem; }
+.peer-stat span { color: #848E9C; font-size: 0.7rem; }
+#peer-preview-rank { text-align: center; color: #94A3B8; font-size: 0.8rem; min-height: 1.1em; margin-bottom: 10px; }
 	   
 </style>
 <base target="_blank">
@@ -3048,111 +3200,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <button class="btn back-btn" id="old-menu-back-btn" style="margin-top: 20px;">နောက်သို့</button>
         </div>
 		
-		<div id="daily-screen" class="screen">
-    <div class="mini-head">
-        <button type="button" class="mini-back" onclick="goTab('plan')" aria-label="Back">←</button>
-        <div class="daily-head-text">
-            <h2 id="daily-quiz-title">Daily Quiz (Free)</h2>
-            <p class="daily-sub">နေ့စဉ် မေးခွန်းသစ် ၃ ခု</p>
-        </div>
-    </div>
-    <div class="daily-grid">
-        <div class="subject-card" onclick="startDailyQuiz('mm')">
-            <span>မြန်မာစာ</span> <span>➔</span>
-        </div>
-        <div class="subject-card" onclick="startDailyQuiz('en')">
-            <span>အင်္ဂလိပ်စာ</span> <span>➔</span>
-        </div>
-		<div class="subject-card" onclick="startDailyQuiz('math')">
-            <span>သင်္ချာ</span> <span>➔</span>
-        </div>
-        <div class="subject-card" onclick="startDailyQuiz('phy')">
-            <span>ရူပဗေဒ</span> <span>➔</span>
-        </div>
-        <div class="subject-card" onclick="startDailyQuiz('chem')">
-            <span>ဓာတုဗေဒ</span> <span>➔</span>
-        </div>
-        <div class="subject-card" onclick="startDailyQuiz('bio')">
-            <span>ဇီဝဗေဒ</span> <span>➔</span>
-        </div>
-		<div class="subject-card" onclick="startDailyQuiz('eco')">
-            <span>ဘောဂဗေဒ</span> <span>➔</span>
-        </div>
-    </div>
-</div>
-
-		
-		
-    <div id="plan-screen" class="screen">
-    <div style="padding: 20px;">
-
-        <div class="plan-jump" onclick="showScreen('daily')">
-            <div>
-                <div class="plan-jump-title">📝 Daily Quiz (Free)</div>
-                <div class="plan-jump-sub">3 new questions every day</div>
-            </div>
-            <span>➔</span>
-        </div>
-        
-        <div id="motivation-box" style="margin-bottom: 18px; text-align: center; padding: 16px; background: #1E2329; border: 1px solid #2B3139; border-radius: 12px;">
-		
-            <span style="font-size: 1.5rem;">💡</span>
-            <h4 style="color: var(--accent); margin: 10px 0 5px 0;">Daily Motivation</h4>
-            <p id="daily-quote" style="font-style: italic; font-size: 0.95rem; color: #CBD5E1; line-height: 1.5;">
-                "ရင်းနှီးမြုပ်နှံမှုတွေထဲမှာအကောင်းဆုံးက ပညာရေးမှာရင်းနှီးမြုပ်နှံခြင်းပါပဲ""
-            </p>
-        </div>
-		
-		<div id="countdown-label" style="text-align: center; color: var(--accent); font-size: 0.9rem; margin-bottom: 8px; font-weight: bold; letter-spacing: 0.5px;">
-    ⏳ ခန့်မှန်းခြေ စာမေးပွဲဖြေဆိုရန် ကျန်ရှိချိန်
-</div>
-<div id="exam-countdown"></div>
-
-
-        <h3 style="color: var(--accent); text-align: center; margin-bottom: 15px;">Daily Study Tracker</h3>
-        <div class="profile-info-card" style="text-align: left; padding: 15px; margin-bottom: 25px;">
-            <div id="checklist-container">
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal1" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal1">မြန်မာစာ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal2" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal2">အင်္ဂလိပ်စာ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal3" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal3">သင်္ချာ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal4" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal4">ရူပဗေဒ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal5" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal5">ဓာတုဗေဒ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal6" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal6">ဘောဂဗေဒ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal7" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal7">ဇီဝဗေဒ</label>
-                </div>
-				<div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal8" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal6">ပထဝီ</label>
-                </div>
-                <div style="display: flex; align-items: center; margin-bottom: 15px; gap: 10px;">
-                    <input type="checkbox" id="goal9" style="width: 20px; height: 20px;" onchange="saveGoals()"> 
-                    <label for="goal7">သမိုင်း</label>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
         <div id="profile-screen" class="screen">
             <div style="text-align: center;">
                 <div class="profile-hero">
@@ -3172,12 +3219,78 @@ body.volunteer-role .vol-report-link { display: block !important; }
 					 
             </div> 
 			<div id="dynamic-content-area"></div>
+            <div id="profile-countdown-wrap">
+                <div id="countdown-label" style="text-align: center; color: var(--accent); font-size: 0.9rem; margin-bottom: 8px; font-weight: bold; letter-spacing: 0.5px;">
+                    ⏳ ခန့်မှန်းခြေ စာမေးပွဲဖြေဆိုရန် ကျန်ရှိချိန်
+                </div>
+                <div id="exam-countdown"></div>
+            </div>
         </div>
+
+<div id="social-screen" class="screen">
+    <h2>Social</h2>
+    <div class="social-inner">
+        <div class="social-block">
+            <h3>Find</h3>
+            <div class="social-find-row">
+                <input id="social-find-id" type="text" inputmode="numeric" placeholder="Telegram ID" autocomplete="off">
+                <button type="button" class="btn social-mini-btn" id="social-find-btn">Find</button>
+            </div>
+            <p id="social-find-msg" class="social-find-msg"></p>
+        </div>
+        <div class="social-block">
+            <h3>Requests</h3>
+            <div id="social-requests"></div>
+            <div id="social-outgoing"></div>
+        </div>
+        <div class="social-block">
+            <h3>Friends</h3>
+            <div id="social-friends"></div>
+        </div>
+        <div class="social-block">
+            <h3>Rank</h3>
+            <div class="grade-picker" style="margin: 0 0 12px;">
+                <div class="grade-picker-row" id="social-grade-row">
+                    <button type="button" class="grade-btn" data-grade="12" onclick="onStatsGradeClick(12)">12</button>
+                    <button type="button" class="grade-btn" data-grade="11" onclick="onStatsGradeClick(11)">11</button>
+                    <button type="button" class="grade-btn" data-grade="10" onclick="onStatsGradeClick(10)">10</button>
+                </div>
+            </div>
+            <div id="stats-tab-leaderboard">
+                <div class="rank-filters">
+                    <div class="rank-period-toggle">
+                        <button type="button" class="rank-period-btn active" id="rank-period-week" onclick="setRankPeriod('week')">Week</button>
+                        <button type="button" class="rank-period-btn" id="rank-period-all" onclick="setRankPeriod('all')">All</button>
+                    </div>
+                    <select id="leaderboard-subject" class="rank-select" onchange="loadLeaderboard()">
+                        <option value="all">All</option>
+                        <option value="mm">Myanmar</option>
+                        <option value="en">English</option>
+                        <option value="math">Math</option>
+                        <option value="phy">Physics</option>
+                        <option value="chem">Chemistry</option>
+                        <option value="bio">Biology</option>
+                        <option value="eco">Economics</option>
+                    </select>
+                </div>
+                <div id="leaderboard-loading" style="text-align: center; color: #94A3B8; padding: 30px; display: none;">Loading...</div>
+                <div id="leaderboard-empty" style="text-align: center; color: #64748B; padding: 30px; display: none;">No scores yet</div>
+                <div id="leaderboard-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
 		
 		<!-- Statistics Screen -->
-<!-- Statistics Screen -->
 <div id="stats-screen" class="screen">
-    <h2 style="text-align: center; color: var(--accent);">Rank</h2>
+    <h2>Analysis</h2>
+        <div id="motivation-box" style="margin: 0 10px 14px; text-align: center; padding: 16px; background: #1E2329; border: 1px solid #2B3139; border-radius: 12px;">
+            <span style="font-size: 1.5rem;">💡</span>
+            <h4 style="color: var(--accent); margin: 10px 0 5px 0;">Daily Motivation</h4>
+            <p id="daily-quote" style="font-style: italic; font-size: 0.95rem; color: #CBD5E1; line-height: 1.5;">
+                "ရင်းနှီးမြုပ်နှံမှုတွေထဲမှာအကောင်းဆုံးက ပညာရေးမှာရင်းနှီးမြုပ်နှံခြင်းပါပဲ"
+            </p>
+        </div>
     <div class="grade-picker" style="margin: 0 10px 12px;">
         <div class="grade-picker-row" id="stats-grade-row">
             <button type="button" class="grade-btn" data-grade="12" onclick="onStatsGradeClick(12)">12</button>
@@ -3186,10 +3299,8 @@ body.volunteer-role .vol-report-link { display: block !important; }
         </div>
     </div>
     
-    <!-- Tab Buttons -->
                          <div style="display: flex; gap: 6px; padding: 0 10px; margin-bottom: 15px;">
-        <button class="btn stats-tab-btn stats-tab-active" id="tab-leaderboard" onclick="switchStatsTab('leaderboard')"><span class="stats-tab-lbl">Rank</span></button>
-        <button class="btn stats-tab-btn stats-tab-inactive" id="tab-summary" onclick="switchStatsTab('summary')"><span class="stats-tab-ico">📈</span><span class="stats-tab-lbl">Summary</span></button>
+        <button class="btn stats-tab-btn stats-tab-active" id="tab-summary" onclick="switchStatsTab('summary')"><span class="stats-tab-ico">📈</span><span class="stats-tab-lbl">Summary</span></button>
         <button class="btn stats-tab-btn stats-tab-inactive" id="tab-best" onclick="switchStatsTab('best')"><span class="stats-tab-lbl">Best</span></button>
         <button class="btn stats-tab-btn stats-tab-inactive" id="tab-old" onclick="switchStatsTab('old')"><span class="stats-tab-ico">📜</span><span class="stats-tab-lbl">Old</span></button>
     </div>
@@ -3243,29 +3354,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
         <div id="stats-tab-old" style="display: none;">
             <div id="stat-old-scores"></div>
         </div>
-		<!-- Leaderboard Tab -->
-<div id="stats-tab-leaderboard" style="display: none;">
-    <div class="rank-filters">
-        <div class="rank-period-toggle">
-            <button type="button" class="rank-period-btn active" id="rank-period-week" onclick="setRankPeriod('week')">Week</button>
-            <button type="button" class="rank-period-btn" id="rank-period-all" onclick="setRankPeriod('all')">All</button>
-        </div>
-        <select id="leaderboard-subject" class="rank-select" onchange="loadLeaderboard()">
-            <option value="all">All</option>
-            <option value="mm">Myanmar</option>
-            <option value="en">English</option>
-            <option value="math">Math</option>
-            <option value="phy">Physics</option>
-            <option value="chem">Chemistry</option>
-            <option value="bio">Biology</option>
-            <option value="eco">Economics</option>
-        </select>
-    </div>
-    
-    <div id="leaderboard-loading" style="text-align: center; color: #94A3B8; padding: 30px; display: none;">Loading...</div>
-    <div id="leaderboard-empty" style="text-align: center; color: #64748B; padding: 30px; display: none;">No scores yet</div>
-    <div id="leaderboard-list"></div>
-</div>
         
         </div>
 </div>
@@ -3529,12 +3617,30 @@ body.volunteer-role .vol-report-link { display: block !important; }
 		
    <div class="nav">
     <div class="nav-item nav-active" data-tab="home" onclick="changeTab('home', this)"><span class="nav-ico">🏠</span><span class="nav-lbl">Study</span></div>
-    <div class="nav-item" data-tab="plan" onclick="changeTab('plan', this)"><span class="nav-ico">📅</span><span class="nav-lbl">Plan</span></div>
     <div class="nav-item" data-tab="time" onclick="changeTab('time', this)"><span class="nav-ico">🕒</span><span class="nav-lbl">Time</span></div>
-    <div class="nav-item" data-tab="stats" onclick="changeTab('stats', this)"><span class="nav-ico"></span><span class="nav-lbl">Rank</span></div>
+    <div class="nav-item" data-tab="social" onclick="changeTab('social', this)"><span class="nav-ico">👥</span><span class="nav-lbl">Social</span></div>
+    <div class="nav-item" data-tab="stats" onclick="changeTab('stats', this)"><span class="nav-ico">📈</span><span class="nav-lbl">Analysis</span></div>
     <div class="nav-item" data-tab="profile" onclick="changeTab('profile', this)"><span class="nav-ico">👤</span><span class="nav-lbl">Me</span></div>
     <div class="nav-item" id="nav-post" data-tab="post" hidden onclick="changeTab('post', this)"><span class="nav-ico">📸</span><span class="nav-lbl">Post</span></div>
     <div class="nav-item" id="nav-cust" data-tab="cust" hidden onclick="changeTab('cust', this)"><span class="nav-ico">📊</span><span class="nav-lbl">Cust</span></div>
+</div>
+
+<div id="peer-preview" hidden>
+    <div class="peer-preview-card">
+        <button type="button" id="peer-preview-close" aria-label="Close">✕</button>
+        <div class="peer-preview-hero">
+            <div id="peer-preview-avatar"></div>
+            <h3 id="peer-preview-name">Student</h3>
+            <p id="peer-preview-id"></p>
+        </div>
+        <div class="peer-preview-stats">
+            <div class="peer-stat"><b id="peer-preview-acc">—</b><span>Accuracy</span></div>
+            <div class="peer-stat"><b id="peer-preview-q">—</b><span>Questions</span></div>
+            <div class="peer-stat"><b id="peer-preview-time">—</b><span>Time</span></div>
+        </div>
+        <div id="peer-preview-rank"></div>
+        <button type="button" class="btn" id="peer-preview-action">Add friend</button>
+    </div>
 </div>
 
 <div id="beginner-guide" hidden>
@@ -3556,6 +3662,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
+    <script src="./friends.js?v=1"></script>
     <script>
 
 		function reedRememberTgUser(user) {
@@ -4336,7 +4443,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=118'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=119'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -4345,7 +4452,7 @@ function setQuizKeysHint(text) {
         let rankPeriod = 'all';
         let quizPlayMode = 'practice';
         function isTestPlay() { return quizPlayMode === 'test'; }
-        let pendingStatsTab = 'leaderboard';
+        let pendingStatsTab = 'summary';
         let leaderboardCache = { at: 0, rows: null };
         let lastRankSnapshot = null;
         let statsBestScores = {};
@@ -4404,14 +4511,14 @@ function scoreBelongsToGrade(item, key, grade) {
     return scoreGrade({ quizFile: (item && item.quizFile) || key, grade: item && item.grade }) === grade;
 }
 function getStatsGrade() {
-    const active = document.querySelector('#stats-grade-row .grade-btn.active');
+    const active = document.querySelector('#stats-grade-row .grade-btn.active, #social-grade-row .grade-btn.active');
     const g = parseInt(active && active.getAttribute('data-grade'), 10);
     if (g === 10 || g === 11 || g === 12) return g;
     return getSelectedGrade();
 }
 function syncStatsGradePicker(grade) {
     grade = parseInt(grade, 10) || getSelectedGrade();
-    document.querySelectorAll('#stats-grade-row .grade-btn').forEach(function (btn) {
+    document.querySelectorAll('#stats-grade-row .grade-btn, #social-grade-row .grade-btn').forEach(function (btn) {
         btn.classList.toggle('active', parseInt(btn.getAttribute('data-grade'), 10) === grade);
     });
     const oldBtn = document.getElementById('tab-old');
@@ -4421,7 +4528,7 @@ function onStatsGradeClick(grade) {
     syncStatsGradePicker(grade);
     if (grade !== 12) {
         const oldTab = document.getElementById('stats-tab-old');
-        if (oldTab && oldTab.style.display === 'block') switchStatsTab('leaderboard');
+        if (oldTab && oldTab.style.display === 'block') switchStatsTab('summary');
     }
     renderSummary(statsBestScores);
     renderBestScores(statsBestScores, 'stat-best-scores', false);
@@ -4767,8 +4874,6 @@ async function loadUserStats() {
     document.getElementById('stats-tab-summary').style.display = 'none';
     document.getElementById('stats-tab-best').style.display = 'none';
     document.getElementById('stats-tab-old').style.display = 'none';
-    const lbTab = document.getElementById('stats-tab-leaderboard');
-    if (lbTab) lbTab.style.display = 'none';
 
     let bestScoresToRender = {};
 
@@ -5362,7 +5467,18 @@ function downloadStatRadar(btn) {
 }
 
 function showStatsScreen(tabName) {
-    pendingStatsTab = (tabName === 'summary' || tabName === 'best' || tabName === 'old') ? tabName : 'leaderboard';
+    if (tabName === 'leaderboard') {
+        const socialNav = document.querySelector('.nav-item[data-tab="social"]');
+        if (socialNav) changeTab('social', socialNav);
+        else {
+            showScreen('social');
+            syncStatsGradePicker(getSelectedGrade());
+            if (window.REEDSocial) REEDSocial.open();
+            loadLeaderboard();
+        }
+        return;
+    }
+    pendingStatsTab = (tabName === 'summary' || tabName === 'best' || tabName === 'old') ? tabName : 'summary';
     const navItem = document.querySelector('.nav-item[data-tab="stats"]');
     if (navItem) changeTab('stats', navItem);
     else {
@@ -5561,7 +5677,8 @@ async function openArticleDetail(articleId) {
             } catch (e) {}
         })(tg);
 
-      let paidUsers = {}; 
+      let paidUsers = {};
+        window.paidUsers = paidUsers; 
         let userBought = {}; // const အစား let ပြောင်းပေးရမည်
 
         const userId = tg.initDataUnsafe?.user?.id?.toString() || "Guest";
@@ -5571,6 +5688,7 @@ async function openArticleDetail(articleId) {
         const cached = localStorage.getItem('cached_paid_users_v22');
         if (cached) {
             paidUsers = JSON.parse(cached);
+            window.paidUsers = paidUsers;
             userBought = paidUsers[userId] || {};
             applyVolunteerChrome();
             applyAdminChrome();
@@ -5597,6 +5715,7 @@ async function fetchPaidUsers() {
         }
         
         paidUsers = newData;
+        window.paidUsers = paidUsers;
         userBought = paidUsers[userId] || {};
         localStorage.setItem('cached_paid_users_v22', JSON.stringify(newData));
         applyVolunteerChrome();
@@ -8034,7 +8153,7 @@ function nextQuestion() {
     );
 		  
 		   const nav = document.querySelector('.nav');
-    const mainTabs = ['home', 'plan', 'time', 'stats', 'profile', 'post', 'cust'];
+    const mainTabs = ['home', 'time', 'social', 'stats', 'profile', 'post', 'cust'];
     if (mainTabs.includes(id)) {
         nav.classList.remove('nav-hidden');
         document.body.classList.remove('page-no-nav');
@@ -8062,16 +8181,21 @@ function goTab(id) {
         if (getGradeCfg().showOldQuestions) backToOldSubjects();
         switchHomeTab('current');
     }
-    if(id === 'profile') renderProfileData();
-    if(id === 'articles') loadArticlesIndex();
-    if(id === 'plan') {
-        loadGoals();
+    if(id === 'profile') {
+        renderProfileData();
         updateCountdown();
     }
+    if(id === 'articles') loadArticlesIndex();
     if(id === 'stats') {
-        pendingStatsTab = 'leaderboard';
+        pendingStatsTab = (pendingStatsTab === 'leaderboard') ? 'summary' : (pendingStatsTab || 'summary');
         syncStatsGradePicker(getSelectedGrade());
+        setDailyMotivation();
         loadUserStats();
+    }
+    if(id === 'social') {
+        syncStatsGradePicker(getSelectedGrade());
+        if (window.REEDSocial) REEDSocial.open();
+        loadLeaderboard();
     }
     if(id === 'time') openTimetableTab();
     if(id === 'post') {
@@ -8275,51 +8399,11 @@ function setSelectedGrade(grade) {
 
         // --- Init ---
         applyGradeUI();
+        setDailyMotivation();
 
-
-// ၂။ Checkbox အားလုံးကို Save လုပ်ခြင်း
-function saveGoals() {
-    if (window._savingGoals) clearTimeout(window._savingGoals);
-    window._savingGoals = setTimeout(function() {
-        const goals = {};
-        for(let i=1; i<=7; i++) {
-            goals['goal'+i] = document.getElementById('goal'+i).checked;
-        }
-        const data = {
-            date: new Date().toLocaleDateString(),
-            values: goals
-        };
-        localStorage.setItem('dailyStudyData', JSON.stringify(data));
-    }, 400);
-}
-
-function loadGoals() {
-    const today = new Date().toLocaleDateString();
-    let savedData = JSON.parse(localStorage.getItem('dailyStudyData'));
-
-    // ၁။ နေ့ရက်အသစ်ရောက်မရောက် စစ်ဆေးပြီး Reset ချခြင်း
-    if (!savedData || savedData.date !== today) {
-        // Data အသစ်တည်ဆောက်ပြီး Checkbox အားလုံးကို အလွတ် (false) ထားမည်
-        savedData = {
-            date: today,
-            values: {
-                goal1: false, goal2: false, goal3: false,
-                goal4: false, goal5: false, goal6: false, goal7: false,goal8: false,goal9: false
-            }
-        };
-        localStorage.setItem('dailyStudyData', JSON.stringify(savedData));
-    }
-
-    // ၂။ Checkbox အခြေအနေများကို UI တွင် ပြန်လည်ပြသခြင်း
-   for (let i = 1; i <= 9; i++) {
-    const checkbox = document.getElementById(`goal${i}`);
-    // values ရှိမရှိ စစ်ပြီးမှ သုံးပါ
-    if (checkbox && savedData && savedData.values) {
-        checkbox.checked = savedData.values[`goal${i}`] || false;
-    }
-}
-
-    // ၃။ Motivation Quote ပြောင်းလဲခြင်း (၁၅ ခုအနက်မှ တစ်ရက်တစ်ခု)
+function setDailyMotivation() {
+    const quoteEl = document.getElementById('daily-quote');
+    if (!quoteEl) return;
     const quotes = [
         "အောင်မြင်မှုဆီသို့ သွားရာလမ်းသည် ကြိုးစားအားထုတ်မှုဖြင့် စတင်သည်။",
         "မနက်ဖြန်အတွက် အကောင်းဆုံး ပြင်ဆင်မှုက ဒီနေ့မှာ အကောင်းဆုံး ကြိုးစားခြင်းပဲ။",
@@ -8347,13 +8431,15 @@ function loadGoals() {
         // ၁။ Exam Date သတ်မှတ်ရန် (ဥပမာ - ၂၀၂၇ မတ်လ ၁ ရက်)
 
 function updateCountdown() {
+    const box = document.getElementById('exam-countdown');
+    if (!box) return;
     const examDate = new Date("March 9, 2027 09:00:00").getTime();
  // စာမေးပွဲရက် သတ်မှတ်ချက်
     const now = new Date().getTime();
     const diff = examDate - now;
 
     if (diff <= 0) {
-        document.getElementById('exam-countdown').innerHTML = "စာမေးပွဲရက်သို့ ရောက်ရှိပါပြီ";
+        box.innerHTML = "စာမေးပွဲရက်သို့ ရောက်ရှိပါပြီ";
         return;
     }
 
@@ -8362,7 +8448,7 @@ function updateCountdown() {
     const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-    document.getElementById('exam-countdown').innerHTML = `
+    box.innerHTML = `
         <div class="countdown-unit">
             <span class="countdown-value">${d}</span>
             <span class="countdown-label">Days</span>
@@ -8386,12 +8472,7 @@ setInterval(updateCountdown, 1000);
 
 
 
-function resetGoals() {
-    for(let i=1; i<=7; i++) {
-        if(document.getElementById(`goal${i}`)) document.getElementById(`goal${i}`).checked = false;
-    }
-    saveGoals();
-}
+function resetGoals() {}
 // --- Theme CSS Loader ---
 const loadedThemeCSS = new Set(); // ဘယ် file တွေ load ပြီးလဲ သိမ်းထားမယ်
 
@@ -8587,7 +8668,7 @@ function endBeginnerGuide() {
 window.onload = () => {
     ensureNoGlowCSS();
     applyGradeUI();
-    loadGoals(); 
+    setDailyMotivation(); 
     updateCountdown(); 
     updateStreak();
     loadFromCache();    // ① Cache ရှိရင် ချက်ချင်း သော့ပွင့်ပြမယ် (စောင့်စရာမလို)
@@ -8766,7 +8847,7 @@ quizPlayMode = 'test';
         
         backBtn.innerText = "ထွက်မည်";
         backBtn.disabled = false;
-        backBtn.onclick = () => showScreen('daily');
+        backBtn.onclick = () => showScreen('home');
 
         showScreen('quiz');
         applyQuizPlayChrome();
@@ -9017,7 +9098,11 @@ function resetTimer() {
     document.getElementById('score-display').innerText = "ရမှတ်: 0";
 }
 function switchStatsTab(tabName) {
-    ['summary', 'best', 'old', 'leaderboard'].forEach(t => {
+    if (tabName === 'leaderboard') {
+        showStatsScreen('leaderboard');
+        return;
+    }
+    ['summary', 'best', 'old'].forEach(t => {
         const el = document.getElementById('stats-tab-' + t);
         if (el) el.style.display = 'none';
         const btn = document.getElementById('tab-' + t);
@@ -9033,10 +9118,6 @@ function switchStatsTab(tabName) {
     if (activeBtn) {
         activeBtn.classList.remove('stats-tab-inactive');
         activeBtn.classList.add('stats-tab-active');
-    }
-    
-    if (tabName === 'leaderboard') {
-        loadLeaderboard();
     }
 }
 
@@ -9206,7 +9287,7 @@ async function loadLeaderboard() {
     try {
         const rows = await fetchAllLeaderboardRows();
         const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
-        const built = buildRankEntries(rows, { subject: subject, grade: grade, period: 'all' });
+        const built = buildRankEntries(rows, { subject: subject, grade: grade, period: rankPeriod });
         const entries = built.entries;
 
         if (loadingDiv) loadingDiv.style.display = 'none';
@@ -9230,8 +9311,28 @@ async function loadLeaderboard() {
     }
 }
 		
+function bindPeerRow(div, entry, rank) {
+    if (!div || !entry || !entry.userId) return;
+    div.setAttribute('role', 'button');
+    div.onclick = function () {
+        if (typeof openPeerPreview === 'function') {
+            openPeerPreview(entry.userId, {
+                name: entry.userName,
+                stats: {
+                    acc: Math.round((entry.rankData && entry.rankData.acc) * 100),
+                    questions: entry.totalPossible,
+                    time: entry.totalTime,
+                    quizzes: entry.quizCount,
+                    rank: rank
+                }
+            });
+        }
+    };
+}
+
 function renderLeaderboard(entries, currentUserId, subject, grade) {
     const listDiv = document.getElementById('leaderboard-list');
+    if (!listDiv) return;
     listDiv.innerHTML = '';
     
     const TOP_N = 10;
@@ -9285,7 +9386,7 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
                 <div class="leaderboard-detail">${entry.totalPossible}</div>
             </div>
         `;
-        
+        bindPeerRow(div, entry, rank);
         listDiv.appendChild(div);
     });
     
@@ -9319,6 +9420,7 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
                 <div class="leaderboard-detail">${me.totalPossible}</div>
             </div>
         `;
+        bindPeerRow(div, me, myRank);
         listDiv.appendChild(div);
     }
     
