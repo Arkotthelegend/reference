@@ -1,24 +1,37 @@
 /* Reed Education Telegram bot — Cloudflare Worker
    Secrets: BOT_TOKEN, OPENAI_API_KEY
    Optional: START_VIDEO_FILE_ID, START_VIDEO_URL
-   Paste this file into the Worker and deploy.
+   Optional bind: SOCIAL_KV (KV namespace) for friends/bios
+   Optional custom domain: bot.reededucation.net → this worker
+     (Mini App uses that URL for photos + Add friend)
 
-   /start caption is a few short Burmese lines.
-   Video is sent if any of these work, in order:
-     1) START_VIDEO_FILE_ID (must come from THIS bot)
-     2) START_VIDEO_URL (direct https mp4 link)
-     3) https://reededucation.net/start-welcome.mp4
-   If none work, text is still sent.
+   GET  /photo?id=TELEGRAM_ID     Telegram profile JPEG
+   GET  /social?action=friendState&userId=
+   GET  /social?action=friendOp&op=request&fromId=&toId=&fromName=
+   GET  /social?action=saveProfile&userId=&name=&bio=
+   POST Telegram webhook (messages + friend Accept buttons)
 
-   Easiest: upload start-welcome.mp4 to the GitHub repo root
-   (GitHub → Add file → Upload). Pages will serve it at the URL above. */
+   Paste this file into the Worker and deploy. */
 
 var DEFAULT_START_VIDEO_URL = 'https://reededucation.net/start-welcome.mp4?v=2';
 
 export default {
   async fetch(request, env) {
+    var url = new URL(request.url);
+    if (request.method === 'OPTIONS') {
+      return corsResponse(new Response(null, { status: 204 }));
+    }
+
+    if (request.method === 'GET' || url.pathname.indexOf('/social') === 0 || url.pathname.indexOf('/photo') === 0 || url.searchParams.get('action')) {
+      try {
+        return corsResponse(await handlePublic(request, env));
+      } catch (err) {
+        return corsResponse(jsonResponse({ status: 'error', message: String(err) }, 500));
+      }
+    }
+
     if (request.method !== 'POST') {
-      return new Response('OK', { status: 200 });
+      return corsResponse(new Response('OK', { status: 200 }));
     }
 
     let update;
@@ -28,12 +41,25 @@ export default {
       return new Response('OK', { status: 200 });
     }
 
+    try {
+      if (update && update.callback_query) {
+        await handleFriendCallback(update.callback_query, env);
+        return new Response('OK', { status: 200 });
+      }
+    } catch (e0) {}
+
     const msg = update && update.message;
     const chatId = msg && msg.chat && msg.chat.id;
     if (chatId && msg) {
       try {
-        if (commandName(msg.text) === '/start') {
-          await sendStartWelcome(chatId, env);
+        var start = commandName(msg.text);
+        if (start === '/start') {
+          var payload = startPayload(msg.text);
+          if (payload.indexOf('friend_') === 0) {
+            await acceptStartFriend(chatId, payload, env);
+          } else {
+            await sendStartWelcome(chatId, env);
+          }
         } else if (videoFileIdFromMessage(msg) && isPrivateChat(msg)) {
           await sendTelegramMessage(
             chatId,
@@ -50,6 +76,54 @@ export default {
     return new Response('OK', { status: 200 });
   }
 };
+
+function corsResponse(res) {
+  var headers = new Headers(res.headers);
+  headers.set('Access-Control-Allow-Origin', '*');
+  headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  headers.set('Access-Control-Allow-Headers', 'Content-Type');
+  return new Response(res.body, { status: res.status, headers: headers });
+}
+
+function jsonResponse(obj, status) {
+  return new Response(JSON.stringify(obj), {
+    status: status || 200,
+    headers: { 'Content-Type': 'application/json' }
+  });
+}
+
+async function handlePublic(request, env) {
+  var url = new URL(request.url);
+  var action = String(url.searchParams.get('action') || '');
+  if (!action && url.pathname.indexOf('/social/') === 0) {
+    action = String(url.pathname.split('/')[2] || '');
+  }
+  if (url.pathname === '/photo' || url.pathname.indexOf('/photo/') === 0 || action === 'photo') {
+    return serveTelegramPhoto(url.searchParams.get('id') || url.searchParams.get('userId') || url.pathname.split('/')[2], env);
+  }
+  if (action === 'getPhotos') {
+    var ids = String(url.searchParams.get('ids') || '').split(',');
+    var origin = url.origin;
+    var photos = {};
+    ids.forEach(function (id) {
+      id = String(id || '').replace(/[^0-9]/g, '');
+      if (id) photos[id] = origin + '/photo?id=' + id;
+    });
+    return jsonResponse({ status: 'ok', photos: photos });
+  }
+  if (action === 'saveProfile') return jsonResponse(await saveProfile(env, url.searchParams));
+  if (action === 'friendState') return jsonResponse(await friendState(env, url.searchParams.get('userId') || url.searchParams.get('fromId')));
+  if (action === 'friendOp') return jsonResponse(await friendOp(env, url.searchParams, url.origin));
+  if (url.pathname.indexOf('/social') === 0) {
+    return jsonResponse({ status: 'error', message: 'Unknown social action' }, 400);
+  }
+  return new Response('OK', { status: 200 });
+}
+
+function startPayload(text) {
+  var t = String(text || '').trim().split(/\s+/);
+  return t.length > 1 ? t.slice(1).join(' ') : '';
+}
 
 function commandName(text) {
   var t = String(text || '').trim();
@@ -316,6 +390,224 @@ async function sendStartWelcome(chatId, env) {
     if (await sendTelegramVideo(chatId, targets[i], caption, env.BOT_TOKEN, markup)) return;
   }
   await sendTelegramMessage(chatId, caption, env.BOT_TOKEN, markup);
+}
+
+async function telegramApiJson(botToken, method, payload) {
+  var res = await fetch('https://api.telegram.org/bot' + botToken + '/' + method, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+  try {
+    return await res.json();
+  } catch (e) {
+    return null;
+  }
+}
+
+async function serveTelegramPhoto(userId, env) {
+  var id = String(userId || '').replace(/[^0-9]/g, '');
+  if (!id || !env.BOT_TOKEN) return new Response('missing', { status: 404 });
+  var list = await telegramApiJson(env.BOT_TOKEN, 'getUserProfilePhotos', { user_id: Number(id), limit: 1 });
+  var photos = list && list.ok && list.result && list.result.photos;
+  if (!photos || !photos[0] || !photos[0].length) return new Response('none', { status: 404 });
+  var sizes = photos[0];
+  var pick = sizes[0];
+  var i;
+  for (i = 0; i < sizes.length; i++) {
+    var w = sizes[i].width || 0;
+    if (w >= 80 && w <= 160) { pick = sizes[i]; break; }
+    if (w > 0 && w < (pick.width || 9999)) pick = sizes[i];
+  }
+  var file = await telegramApiJson(env.BOT_TOKEN, 'getFile', { file_id: pick.file_id });
+  var path = file && file.ok && file.result && file.result.file_path;
+  if (!path) return new Response('none', { status: 404 });
+  var bin = await fetch('https://api.telegram.org/file/bot' + env.BOT_TOKEN + '/' + path);
+  if (!bin.ok) return new Response('none', { status: 404 });
+  return new Response(bin.body, {
+    status: 200,
+    headers: {
+      'Content-Type': bin.headers.get('Content-Type') || 'image/jpeg',
+      'Cache-Control': 'public, max-age=21600'
+    }
+  });
+}
+
+function emptyUser(id) {
+  return { userId: String(id), friends: [], incoming: [], outgoing: [], name: '', bio: '', updated: Date.now() };
+}
+
+async function readUser(env, id) {
+  id = String(id || '').replace(/[^0-9]/g, '');
+  if (!id) return emptyUser('');
+  var raw = '';
+  try {
+    if (env.SOCIAL_KV) raw = (await env.SOCIAL_KV.get('u:' + id)) || '';
+  } catch (e) {}
+  if (!raw) {
+    try {
+      var hit = await caches.default.match(new Request('https://reed-social.internal/u/' + id));
+      if (hit) raw = await hit.text();
+    } catch (e2) {}
+  }
+  if (!raw) return emptyUser(id);
+  try {
+    var o = JSON.parse(raw);
+    o.userId = id;
+    o.friends = o.friends || [];
+    o.incoming = o.incoming || [];
+    o.outgoing = o.outgoing || [];
+    return o;
+  } catch (e3) {
+    return emptyUser(id);
+  }
+}
+
+async function writeUser(env, rec) {
+  if (!rec || !rec.userId) return;
+  var body = JSON.stringify(rec);
+  try {
+    if (env.SOCIAL_KV) await env.SOCIAL_KV.put('u:' + rec.userId, body);
+  } catch (e) {}
+  try {
+    await caches.default.put(
+      new Request('https://reed-social.internal/u/' + rec.userId),
+      new Response(body, { headers: { 'Cache-Control': 'max-age=31536000' } })
+    );
+  } catch (e2) {}
+}
+
+function cardFrom(rec, id) {
+  return { userId: String(id), name: (rec && rec.name) || 'Student', photo: '', bio: (rec && rec.bio) || '' };
+}
+
+async function friendState(env, userId) {
+  var me = await readUser(env, userId);
+  var profiles = {};
+  profiles[me.userId] = { name: me.name || 'Student', photo: '', bio: me.bio || '' };
+  async function loadList(ids) {
+    var out = [];
+    var i;
+    for (i = 0; i < ids.length; i++) {
+      var other = await readUser(env, ids[i]);
+      profiles[other.userId] = { name: other.name || 'Student', photo: '', bio: other.bio || '' };
+      out.push(cardFrom(other, ids[i]));
+    }
+    return out;
+  }
+  return {
+    status: 'ok',
+    friends: await loadList(me.friends),
+    incoming: await loadList(me.incoming),
+    outgoing: await loadList(me.outgoing),
+    profiles: profiles
+  };
+}
+
+async function saveProfile(env, params) {
+  var id = String(params.get('userId') || params.get('fromId') || '').replace(/[^0-9]/g, '');
+  if (!id) return { status: 'error', message: 'userId required' };
+  var rec = await readUser(env, id);
+  rec.name = String(params.get('name') || params.get('userName') || rec.name || '').slice(0, 40);
+  rec.bio = String(params.get('bio') || rec.bio || '').slice(0, 80);
+  rec.updated = Date.now();
+  await writeUser(env, rec);
+  return { status: 'ok', userId: id };
+}
+
+function uniq(list, id) {
+  id = String(id);
+  if (!id) return list;
+  if (list.indexOf(id) === -1) list.push(id);
+  return list;
+}
+
+function without(list, id) {
+  id = String(id);
+  return (list || []).filter(function (x) { return String(x) !== id; });
+}
+
+async function friendOp(env, params, origin) {
+  var op = String(params.get('op') || params.get('friendOp') || '').toLowerCase();
+  var fromId = String(params.get('fromId') || '').replace(/[^0-9]/g, '');
+  var toId = String(params.get('toId') || '').replace(/[^0-9]/g, '');
+  var fromName = String(params.get('fromName') || params.get('name') || 'Student').slice(0, 40);
+  if (!fromId || !toId || fromId === toId) return { status: 'error', message: 'fromId and toId required' };
+  var from = await readUser(env, fromId);
+  var to = await readUser(env, toId);
+  from.name = fromName || from.name;
+  if (op === 'request') {
+    if (from.friends.indexOf(toId) !== -1) return friendState(env, fromId);
+    if (to.incoming.indexOf(fromId) === -1 && to.friends.indexOf(fromId) === -1) {
+      to.incoming = uniq(to.incoming, fromId);
+      from.outgoing = uniq(from.outgoing, toId);
+      await writeUser(env, from);
+      await writeUser(env, to);
+      await notifyFriendRequest(env, fromId, toId, fromName, origin);
+    }
+    return friendState(env, fromId);
+  }
+  if (op === 'accept') {
+    if (from.incoming.indexOf(toId) === -1 && to.outgoing.indexOf(fromId) === -1) {
+      return friendState(env, fromId);
+    }
+    from.friends = uniq(without(from.friends, toId), toId);
+    to.friends = uniq(without(to.friends, fromId), fromId);
+    from.incoming = without(from.incoming, toId);
+    from.outgoing = without(from.outgoing, toId);
+    to.incoming = without(to.incoming, fromId);
+    to.outgoing = without(to.outgoing, fromId);
+    await writeUser(env, from);
+    await writeUser(env, to);
+    return friendState(env, fromId);
+  }
+  if (op === 'reject' || op === 'cancel' || op === 'unfriend') {
+    from.friends = without(from.friends, toId);
+    from.incoming = without(from.incoming, toId);
+    from.outgoing = without(from.outgoing, toId);
+    to.friends = without(to.friends, fromId);
+    to.incoming = without(to.incoming, fromId);
+    to.outgoing = without(to.outgoing, fromId);
+    await writeUser(env, from);
+    await writeUser(env, to);
+    return friendState(env, fromId);
+  }
+  return { status: 'error', message: 'Unknown friend op' };
+}
+
+async function notifyFriendRequest(env, fromId, toId, fromName, origin) {
+  if (!env.BOT_TOKEN) return;
+  var text = fromName + ' wants to be friends on Reed.\nID ' + fromId + '\nOpen Social in the Mini App to accept.';
+  await sendTelegramMessage(toId, text, env.BOT_TOKEN, {
+    inline_keyboard: [
+      [{ text: 'Accept', callback_data: 'friend_accept_' + fromId }],
+      [{ text: 'Open Social', url: 'https://t.me/reededucation_bot/app' }]
+    ]
+  });
+}
+
+async function handleFriendCallback(q, env) {
+  var data = String((q && q.data) || '');
+  var fromChat = q && q.from && q.from.id;
+  if (!fromChat || data.indexOf('friend_accept_') !== 0) return;
+  var other = data.replace('friend_accept_', '').replace(/[^0-9]/g, '');
+  var params = new URLSearchParams({ op: 'accept', fromId: String(fromChat), toId: other });
+  await friendOp(env, params, '');
+  try {
+    await telegramApiJson(env.BOT_TOKEN, 'answerCallbackQuery', { callback_query_id: q.id, text: 'You are friends now' });
+  } catch (e) {}
+}
+
+async function acceptStartFriend(chatId, payload, env) {
+  var parts = String(payload || '').split('_');
+  var fromId = parts[1] || '';
+  if (!fromId) {
+    await sendStartWelcome(chatId, env);
+    return;
+  }
+  var params = new URLSearchParams({ op: 'accept', fromId: String(chatId), toId: String(fromId).replace(/[^0-9]/g, '') });
+  await friendOp(env, params, '');
+  await sendTelegramMessage(chatId, 'Friend request accepted. Open Social in the Mini App.', env.BOT_TOKEN);
 }
 
 async function telegramApi(botToken, method, payload) {
