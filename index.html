@@ -7643,6 +7643,13 @@ function buildExplanationText(q, isCorrect, correctAnswerText) {
     return '';
 }
 
+function quizShowsExplanation() {
+    const id = currentSubject && currentSubject.id;
+    if (id === 'phy' || id === 'chem' || id === 'bio' || id === 'eco' || id === 'en') return true;
+    const f = String(currentQuizFile || '').toLowerCase();
+    return /(?:^|\/|_)(en_|eco_|phy_|chem_|bio_|eng_)/.test(f);
+}
+
 function loadQuestion() {
     isAnswered = false;
 
@@ -7701,8 +7708,8 @@ function loadQuestion() {
         footerShowBtn.onclick = null;
     }
 
-    // Only phy, chem, bio get the explanation panel
-    const isExplSubject = ['phy', 'chem', 'bio'].includes(currentSubject?.id);
+    // Phy / chem / bio / eco / English (initial letter + MCQ). Not Myanmar or Math.
+    const isExplSubject = quizShowsExplanation();
 
     if (q.type === 'math_show') {
         const showBtn = footerShowBtn || document.createElement('button');
@@ -7810,7 +7817,7 @@ function loadQuestion() {
                 }
                 options.forEach(b => b.disabled = true);
 
-                // Explanation panel ONLY for phy / chem / bio
+                // Explanation panel for phy / chem / bio / eco / English
                 if (isExplSubject) {
                     const explText = buildExplanationText(q, isCorrect, opts[correctIdx]);
                     renderExplanationPanel(explText, isCorrect, opts[correctIdx]);
@@ -7860,7 +7867,7 @@ function loadQuestion() {
                 input.style.background = 'rgba(239, 68, 68, 0.1)';
             }
 
-            if (isExplSubject || currentSubject?.id === 'en') {
+            if (isExplSubject) {
                 const explText = buildExplanationText(q, isCorrect, correct);
                 renderExplanationPanel(explText, isCorrect, correct);
             } else {
