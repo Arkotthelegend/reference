@@ -3710,7 +3710,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
-    <script src="./friends.js?v=3"></script>
+    <script src="./friends.js?v=5"></script>
     <script>
 
 		function reedRememberTgUser(user) {
@@ -4491,7 +4491,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=121'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=123'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -8263,7 +8263,9 @@ function goTab(id) {
 }
 
 function telegramUserId() {
-    var u = window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user;
+    var live = window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user;
+    if (live && live.id != null) return String(live.id);
+    var u = telegramProfileUser();
     return (u && u.id != null) ? String(u.id) : '';
 }
 function timetableApi() {
@@ -9245,7 +9247,9 @@ function buildRankEntries(rows, opts) {
         const uid = row.userId || 'unknown';
         const uname = row.userName || 'Anonymous';
         if (!userMap[uid]) {
-            userMap[uid] = { userId: uid, userName: uname, totalScore: 0, totalPossible: 0, totalTime: 0, quizCount: 0 };
+            userMap[uid] = { userId: uid, userName: rankDisplayName(uname), totalScore: 0, totalPossible: 0, totalTime: 0, quizCount: 0 };
+        } else if (uname && String(uname).charAt(0) !== '{') {
+            userMap[uid].userName = uname;
         }
         userMap[uid].totalScore += parseInt(row.score || 0, 10);
         userMap[uid].totalPossible += parseInt(row.total || 0, 10);
@@ -9370,15 +9374,25 @@ async function loadLeaderboard() {
     }
 }
 		
-function rankAvatarHtml(entry) {
-    const name = (entry && entry.userName) || 'A';
-    const initial = name.charAt(0).toUpperCase();
-    const photo = (entry && entry.photo) || (window.REEDSocial && REEDSocial.photoFor && REEDSocial.photoFor(entry.userId)) || '';
-    if (photo) {
-        const safe = String(photo).replace(/"/g, '').replace(/</g, '');
-        return '<img class="leaderboard-avatar" src="' + safe + '" alt="" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'"><div class="leaderboard-avatar" style="display:none">' + initial + '</div>';
+function rankDisplayName(raw) {
+    var s = String(raw || '');
+    if (s.charAt(0) === '{') {
+        try {
+            var o = JSON.parse(s);
+            if (o && o.n) return String(o.n);
+        } catch (e) {}
     }
-    return '<div class="leaderboard-avatar">' + initial + '</div>';
+    return s || 'Anonymous';
+}
+
+function rankAvatarHtml(entry) {
+    const name = rankDisplayName((entry && entry.userName) || 'A');
+    const initial = String(name).charAt(0).toUpperCase();
+    const id = String((entry && entry.userId) || '');
+    const stored = (window.REEDSocial && REEDSocial.photoFor && REEDSocial.photoFor(id)) || '';
+    const shown = stored ? '' : 'display:none';
+    const src = stored ? (' src="' + stored.replace(/"/g, '') + '"') : '';
+    return '<img class="leaderboard-avatar" data-avatar="' + id + '"' + src + ' alt="" referrerpolicy="no-referrer" style="' + shown + '" onerror="this.style.display=\'none\';if(this.nextSibling)this.nextSibling.style.display=\'flex\'"><div class="leaderboard-avatar"' + (stored ? ' style="display:none"' : '') + '>' + initial + '</div>';
 }
 
 function bindPeerRow(div, entry, rank) {
@@ -9393,7 +9407,7 @@ function bindPeerRow(div, entry, rank) {
         if (typeof openPeerPreview === 'function') {
             const prof = (window.REEDSocial && REEDSocial.profileFor && REEDSocial.profileFor(entry.userId)) || {};
             openPeerPreview(entry.userId, {
-                name: prof.name || entry.userName,
+                name: rankDisplayName(prof.name || entry.userName),
                 photo: prof.photo || entry.photo || '',
                 bio: prof.bio || '',
                 stats: {
@@ -9450,7 +9464,7 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
         const rankClass = rank <= 3 ? `rank-${rank}` : 'rank-other';
         const nameInitial = (entry.userName || 'A').charAt(0).toUpperCase();
         
-        let displayName = entry.userName || 'Anonymous';
+        let displayName = rankDisplayName(entry.userName);
         if (displayName.length > 15) displayName = displayName.substring(0, 14) + '…';
         
         div.innerHTML = `
@@ -9478,7 +9492,7 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
         const totalTimeStr = formatTime(me.totalTime); // ⬅️ Total time instead of avg
         const nameInitial = (me.userName || 'A').charAt(0).toUpperCase();
         
-        let displayName = me.userName || 'Anonymous';
+        let displayName = rankDisplayName(me.userName);
         if (displayName.length > 15) displayName = displayName.substring(0, 14) + '…';
         
         const div = document.createElement('div');
@@ -9530,6 +9544,11 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
         copyBtn.innerText = '📋';
         copyBtn.onclick = copyRankCard;
         listDiv.appendChild(copyBtn);
+    }
+    if (window.REEDSocial && REEDSocial.fillPhotos) {
+        const photoIds = topEntries.map(function (e) { return e.userId; });
+        if (myRank !== -1 && entries[myEntryIndex]) photoIds.push(entries[myEntryIndex].userId);
+        REEDSocial.fillPhotos(photoIds);
     }
 }
 

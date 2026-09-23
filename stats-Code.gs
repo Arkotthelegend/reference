@@ -22,7 +22,8 @@
  * Customer analysis (doPost saveSale / deleteSale / saveBizNotes,
  * doGet getSales / getBizNotes) uses extra sheets named Sales and BizNotes
  * in the SAME spreadsheet. Friends uses a sheet named Friends
- * (fromId, toId, status, fromName, toName, fromPhoto, toPhoto, updated).
+ * Friends / photos: getPhotos uses Script Property BOT_TOKEN
+ * (same as timetable Telegram send) to fetch profile photos.
  * Redeploy → New version after pasting this file.
  *
  *   Hosts a PNG and returns { status:'ok', url }. Optional Script Property
@@ -49,6 +50,7 @@ function doGet(e) {
     if (action === 'getBizNotes') return json_(getBizNotes_());
     if (action === 'friendState') return json_(friendState_(p));
     if (action === 'friendOp') return json_(friendOp_(p));
+    if (action === 'getPhotos') return json_(getPhotos_(p));
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -66,6 +68,7 @@ function doPost(e) {
     if (action === 'saveBizNotes') return json_(saveBizNotes_(p.notes || p));
     if (action === 'friendOp') return json_(friendOp_(p));
     if (action === 'friendState') return json_(friendState_(p));
+    if (action === 'getPhotos') return json_(getPhotos_(p));
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -703,4 +706,104 @@ function friendOp_(p) {
     return friendState_({ userId: fromId });
   }
   return { status: 'error', message: 'Unknown friend op' };
+}
+
+function botToken_() {
+  var props = PropertiesService.getScriptProperties();
+  return props.getProperty('BOT_TOKEN') || props.getProperty('TELEGRAM_BOT_TOKEN') || '';
+}
+
+function getPhotos_(p) {
+  var token = botToken_();
+  var raw = String(p.ids || p.userId || '').split(',');
+  var ids = [];
+  var seen = {};
+  var i;
+  for (i = 0; i < raw.length && ids.length < 12; i++) {
+    var id = String(raw[i] || '').replace(/[^0-9]/g, '');
+    if (!id || seen[id]) continue;
+    seen[id] = true;
+    ids.push(id);
+  }
+  var cache = CacheService.getScriptCache();
+  var out = {};
+  var need = [];
+  for (i = 0; i < ids.length; i++) {
+    var key = 'ph_' + ids[i];
+    var hit = '';
+    try { hit = cache.get(key) || ''; } catch (e1) { hit = ''; }
+    if (hit) out[ids[i]] = hit;
+    else need.push(ids[i]);
+  }
+  if (!token || !need.length) return { status: 'ok', photos: out };
+
+  var listReqs = [];
+  for (i = 0; i < need.length; i++) {
+    listReqs.push({
+      url: 'https://api.telegram.org/bot' + token + '/getUserProfilePhotos?user_id=' + need[i] + '&limit=1',
+      muteHttpExceptions: true
+    });
+  }
+  var lists = UrlFetchApp.fetchAll(listReqs);
+  var fileReqs = [];
+  var fileFor = [];
+  for (i = 0; i < lists.length; i++) {
+    try {
+      var data = JSON.parse(lists[i].getContentText() || '{}');
+      var photos = data && data.ok && data.result && data.result.photos;
+      if (!photos || !photos.length || !photos[0].length) continue;
+      var sizes = photos[0];
+      var pick = sizes[0];
+      var s;
+      for (s = 0; s < sizes.length; s++) {
+        var w = sizes[s].width || 0;
+        if (w >= 80 && w <= 160) { pick = sizes[s]; break; }
+        if (w > 0 && w < (pick.width || 9999)) pick = sizes[s];
+      }
+      if (!(pick && pick.file_id)) continue;
+      fileReqs.push({
+        url: 'https://api.telegram.org/bot' + token + '/getFile?file_id=' + encodeURIComponent(pick.file_id),
+        muteHttpExceptions: true
+      });
+      fileFor.push(need[i]);
+    } catch (e2) {}
+  }
+  if (!fileReqs.length) return { status: 'ok', photos: out };
+
+  var files = UrlFetchApp.fetchAll(fileReqs);
+  var binReqs = [];
+  var binFor = [];
+  for (i = 0; i < files.length; i++) {
+    try {
+      var fileData = JSON.parse(files[i].getContentText() || '{}');
+      var path = fileData && fileData.ok && fileData.result && fileData.result.file_path;
+      if (!path) continue;
+      binReqs.push({
+        url: 'https://api.telegram.org/file/bot' + token + '/' + path,
+        muteHttpExceptions: true
+      });
+      binFor.push(fileFor[i]);
+    } catch (e3) {}
+  }
+  if (!binReqs.length) return { status: 'ok', photos: out };
+
+  var bins = UrlFetchApp.fetchAll(binReqs);
+  for (i = 0; i < bins.length; i++) {
+    try {
+      if (bins[i].getResponseCode() < 200 || bins[i].getResponseCode() >= 300) continue;
+      var blob = bins[i].getBlob();
+      var mime = blob.getContentType() || 'image/jpeg';
+      if (mime.indexOf('image/') !== 0) mime = 'image/jpeg';
+      var dataUrl = 'data:' + mime + ';base64,' + Utilities.base64Encode(blob.getBytes());
+      if (dataUrl.length > 90000) continue;
+      out[binFor[i]] = dataUrl;
+      try { cache.put('ph_' + binFor[i], dataUrl, 21600); } catch (e4) {}
+    } catch (e5) {}
+  }
+  return { status: 'ok', photos: out };
+}
+
+function telegramPhotoDataUrl_(userId) {
+  var res = getPhotos_({ ids: String(userId || '') });
+  return (res && res.photos && res.photos[String(userId)]) || '';
 }
