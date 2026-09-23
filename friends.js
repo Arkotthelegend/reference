@@ -191,42 +191,50 @@
         });
     }
 
-    function tickScore() {
-        return String(Math.floor(Date.now() / 1000));
-    }
-
-    function saveSocialRow(quizFile, packedName, status) {
+    function gasGet(action, extra) {
         var uid = meId();
         if (!uid || !gasUrl()) return Promise.resolve(null);
-        var params = new URLSearchParams({
-            action: 'saveScore',
-            userId: uid,
-            userName: packedName,
-            quizFile: quizFile,
-            subject: 'social',
-            chapter: 'social',
-            type: 'social',
-            score: tickScore(),
-            total: '1',
-            isOld: 'false',
-            timeTaken: String(status == null ? 0 : status),
-            grade: '12'
+        var params = new URLSearchParams({ action: action });
+        extra = extra || {};
+        Object.keys(extra).forEach(function (k) {
+            if (extra[k] != null && extra[k] !== '') params.set(k, String(extra[k]));
         });
-        return fetchJson(gasUrl() + '?' + params.toString()).then(function (data) {
-            if (typeof root.invalidateLeaderboardCache === 'function') root.invalidateLeaderboardCache();
-            return data;
-        }).catch(function () { return null; });
+        return fetchJson(gasUrl() + '?' + params.toString()).catch(function () { return null; });
     }
 
-    function myPacked() {
-        return packCard(meName(), mePhoto(), readMyBio());
+    function applyRemoteState(data) {
+        if (!data || data.status !== 'ok') return null;
+        var profiles = data.profiles || {};
+        function withProf(row) {
+            var p = profiles[String(row.userId)] || {};
+            return {
+                userId: String(row.userId),
+                name: p.name || row.name || 'Student',
+                photo: p.photo || row.photo || '',
+                bio: p.bio || row.bio || ''
+            };
+        }
+        var next = {
+            friends: (data.friends || []).map(withProf),
+            incoming: (data.incoming || []).map(withProf),
+            outgoing: (data.outgoing || []).map(withProf),
+            profiles: profiles
+        };
+        writeLocal(next);
+        return next;
     }
 
     function publishMe() {
         var uid = meId();
         if (!uid) return Promise.resolve();
         rememberProfile(uid, meName(), mePhoto(), readMyBio());
-        return saveSocialRow('__soc_p', myPacked(), 0);
+        return gasGet('saveProfile', {
+            userId: uid,
+            name: meName(),
+            userName: meName(),
+            photo: mePhoto(),
+            bio: readMyBio()
+        });
     }
 
     function numStat(v) {
@@ -360,13 +368,16 @@
     function loadFriendState() {
         var uid = meId();
         if (!uid) return Promise.resolve(friendCache);
-        if (typeof root.invalidateLeaderboardCache === 'function') root.invalidateLeaderboardCache();
-        if (typeof root.fetchAllLeaderboardRows !== 'function') return Promise.resolve(friendCache);
-        return root.fetchAllLeaderboardRows().then(function (rows) {
-            ingestRows(rows);
-            var next = stateFromRows(rows, uid);
-            writeLocal(next);
-            return next;
+        return gasGet('friendState', { userId: uid, fromId: uid }).then(function (data) {
+            var remote = applyRemoteState(data);
+            if (remote) return remote;
+            if (typeof root.fetchAllLeaderboardRows !== 'function') return friendCache;
+            return root.fetchAllLeaderboardRows().then(function (rows) {
+                ingestRows(rows);
+                var next = stateFromRows(rows, uid);
+                writeLocal(next);
+                return next;
+            });
         }).catch(function () {
             return friendCache;
         });
@@ -376,16 +387,18 @@
         var uid = meId();
         var id = String(otherId || '').replace(/[^0-9]/g, '');
         if (!uid || !id || id === uid) return Promise.resolve(friendCache);
-        var packed = myPacked();
-        var jobs = [];
-        if (op === 'request') jobs.push(saveSocialRow('__soc_fr_' + id, packed, ST_PENDING));
-        else if (op === 'cancel') jobs.push(saveSocialRow('__soc_fr_' + id, packed, ST_OFF));
-        else if (op === 'accept') jobs.push(saveSocialRow('__soc_ok_' + id, packed, ST_FRIEND));
-        else if (op === 'reject' || op === 'unfriend') {
-            jobs.push(saveSocialRow('__soc_ok_' + id, packed, ST_OFF));
-            if (op === 'unfriend') jobs.push(saveSocialRow('__soc_fr_' + id, packed, ST_OFF));
-        }
-        return Promise.all(jobs).then(function () { return loadFriendState(); });
+        return gasGet('friendOp', {
+            op: op,
+            friendOp: op,
+            fromId: uid,
+            toId: id,
+            fromName: meName(),
+            fromPhoto: mePhoto()
+        }).then(function (data) {
+            var remote = applyRemoteState(data);
+            if (remote) return remote;
+            return loadFriendState();
+        });
     }
 
     function listHas(list, id) {
