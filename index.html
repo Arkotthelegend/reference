@@ -3105,18 +3105,18 @@ body.volunteer-role .vol-report-link { display: block !important; }
     background: #1E2329;
     border: 1px solid #2B3139;
     border-radius: 16px;
-    padding: 18px 16px 16px;
+    padding: 12px 16px 16px;
     position: relative;
 }
-#peer-preview-close {
-    position: absolute;
-    top: 8px;
-    right: 10px;
+.peer-preview-top { text-align: left; margin-bottom: 4px; }
+.peer-back {
     background: none;
     border: none;
-    color: #94A3B8;
-    font-size: 1.2rem;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.92rem;
     cursor: pointer;
+    padding: 6px 0;
 }
 .peer-preview-hero { text-align: center; }
 .peer-preview-hero .peer-avatar,
@@ -3672,7 +3672,9 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
 <div id="peer-preview" hidden>
     <div class="peer-preview-card">
-        <button type="button" id="peer-preview-close" aria-label="Close">✕</button>
+        <div class="peer-preview-top">
+            <button type="button" id="peer-preview-back" class="peer-back">← Back</button>
+        </div>
         <div class="peer-preview-hero">
             <div id="peer-preview-avatar"></div>
             <h3 id="peer-preview-name">Student</h3>
@@ -3708,7 +3710,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
-    <script src="./friends.js?v=2"></script>
+    <script src="./friends.js?v=3"></script>
     <script>
 
 		function reedRememberTgUser(user) {
@@ -4489,7 +4491,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=120'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=121'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -9371,9 +9373,10 @@ async function loadLeaderboard() {
 function rankAvatarHtml(entry) {
     const name = (entry && entry.userName) || 'A';
     const initial = name.charAt(0).toUpperCase();
-    const photo = (window.REEDSocial && REEDSocial.photoFor && REEDSocial.photoFor(entry.userId)) || '';
+    const photo = (entry && entry.photo) || (window.REEDSocial && REEDSocial.photoFor && REEDSocial.photoFor(entry.userId)) || '';
     if (photo) {
-        return '<img class="leaderboard-avatar" src="' + String(photo).replace(/"/g, '') + '" alt="" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'"><div class="leaderboard-avatar" style="display:none">' + initial + '</div>';
+        const safe = String(photo).replace(/"/g, '').replace(/</g, '');
+        return '<img class="leaderboard-avatar" src="' + safe + '" alt="" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'"><div class="leaderboard-avatar" style="display:none">' + initial + '</div>';
     }
     return '<div class="leaderboard-avatar">' + initial + '</div>';
 }
@@ -9381,10 +9384,18 @@ function rankAvatarHtml(entry) {
 function bindPeerRow(div, entry, rank) {
     if (!div || !entry || !entry.userId) return;
     div.setAttribute('role', 'button');
-    div.onclick = function () {
+    div.onclick = function (e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        if (window.REEDSocial && REEDSocial.previewBlocked && REEDSocial.previewBlocked()) return;
         if (typeof openPeerPreview === 'function') {
+            const prof = (window.REEDSocial && REEDSocial.profileFor && REEDSocial.profileFor(entry.userId)) || {};
             openPeerPreview(entry.userId, {
-                name: entry.userName,
+                name: prof.name || entry.userName,
+                photo: prof.photo || entry.photo || '',
+                bio: prof.bio || '',
                 stats: {
                     acc: Math.round((entry.rankData && entry.rankData.acc) * 100),
                     questions: entry.totalPossible,
@@ -9398,6 +9409,9 @@ function bindPeerRow(div, entry, rank) {
 }
 
 function renderLeaderboard(entries, currentUserId, subject, grade) {
+    if (window.REEDSocial && REEDSocial.ingestRows && leaderboardCache.rows) {
+        REEDSocial.ingestRows(leaderboardCache.rows);
+    }
     const listDiv = document.getElementById('leaderboard-list');
     if (!listDiv) return;
     listDiv.innerHTML = '';

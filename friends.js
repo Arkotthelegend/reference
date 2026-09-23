@@ -6,6 +6,8 @@
     var ST_FRIEND = 2;
     var friendCache = { friends: [], incoming: [], outgoing: [], profiles: {} };
     var previewTarget = null;
+    var previewSeq = 0;
+    var ignoreOpenUntil = 0;
     var socialTimer = 0;
 
     function esc(s) {
@@ -253,12 +255,35 @@
         return { friends: friends, incoming: incoming, outgoing: outgoing, profiles: profiles };
     }
 
+    function ingestRows(rows) {
+        (rows || []).forEach(function (row) {
+            var qf = String(row.quizFile || '');
+            if (qf.indexOf('__soc_') !== 0) return;
+            var packed = unpackCard(row.userName, row.userName);
+            if (packed.photo || packed.bio || packed.name) {
+                rememberProfile(row.userId, packed.name, packed.photo, packed.bio);
+            }
+        });
+    }
+
+    function isQuizStatRow(b) {
+        var qf = String((b && b.quizFile) || '');
+        if (qf.indexOf('__soc_') === 0) return false;
+        if (String((b && b.subject) || '') === 'social') return false;
+        var tot = parseInt(b && b.total, 10) || 0;
+        var sc = parseInt(b && b.score, 10) || 0;
+        if (tot <= 0) return false;
+        if (sc > tot * 5) return false;
+        return true;
+    }
+
     function loadFriendState() {
         var uid = meId();
         if (!uid) return Promise.resolve(friendCache);
         if (typeof root.invalidateLeaderboardCache === 'function') root.invalidateLeaderboardCache();
         if (typeof root.fetchAllLeaderboardRows !== 'function') return Promise.resolve(friendCache);
         return root.fetchAllLeaderboardRows().then(function (rows) {
+            ingestRows(rows);
             var next = stateFromRows(rows, uid);
             writeLocal(next);
             return next;
@@ -431,19 +456,32 @@
         var url = gasUrl() + '?action=getStats&userId=' + encodeURIComponent(id);
         return fetchJson(url).then(function (data) {
             if (!data || data.status !== 'ok') return null;
-            var overall = data.overall || {};
+            var score = 0;
+            var total = 0;
             var time = 0;
             (data.bestScores || []).forEach(function (b) {
-                if (String(b.quizFile || '').indexOf('__soc_') === 0) return;
+                if (!isQuizStatRow(b)) return;
+                score += parseInt(b.score || 0, 10);
+                total += parseInt(b.total || 0, 10);
                 time += parseInt(b.timeTaken || 0, 10);
             });
-            return {
-                acc: overall.accuracy || 0,
-                questions: overall.answered || 0,
-                correct: overall.correct || 0,
-                time: time
-            };
+            if (!total) return null;
+            var acc = Math.round((score / total) * 100);
+            if (acc < 0 || acc > 100) return null;
+            return { acc: acc, questions: total, correct: score, time: time };
         }).catch(function () { return null; });
+    }
+
+    function closePeerPreview(ev) {
+        if (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+        }
+        previewSeq += 1;
+        previewTarget = null;
+        ignoreOpenUntil = Date.now() + 500;
+        var overlay = document.getElementById('peer-preview');
+        if (overlay) overlay.hidden = true;
     }
 
     function fillPreview(id, meta, stats) {
@@ -497,24 +535,33 @@
         extras = extras || {};
         id = String(id || '').replace(/[^0-9]/g, '');
         if (!id) return;
+        if (Date.now() < ignoreOpenUntil && !(extras && extras.force)) return;
+        var overlay = document.getElementById('peer-preview');
+        if (overlay && !overlay.hidden && previewTarget === String(id) && !(extras && extras.force)) return;
+        var seq = ++previewSeq;
+        var hadRank = !!(extras.stats && extras.stats.questions);
         rememberProfile(id, extras.name || extras.userName, extras.photo, extras.bio);
         var meta = profileOf(id, extras);
         fillPreview(id, meta, extras.stats || statsFromEntry(extras));
+        if (seq !== previewSeq) return;
         loadFriendState().then(function () {
+            if (seq !== previewSeq) return;
             meta = profileOf(id, extras);
             fillPreview(id, meta, extras.stats || statsFromEntry(extras));
             return findInLeaderboard(id);
         }).then(function (entry) {
+            if (seq !== previewSeq) return;
             if (entry) {
-                rememberProfile(id, unpackCard(entry.userName, entry.userName).name === entry.userName ? entry.userName : unpackCard(entry.userName).name);
+                var unpacked = unpackCard(entry.userName, entry.userName);
+                rememberProfile(id, unpacked.name && unpacked.name.charAt(0) === '{' ? entry.userName : unpacked.name, unpacked.photo, unpacked.bio);
                 meta = profileOf(id, { name: entry.userName });
-                fillPreview(id, meta, statsFromEntry(entry));
+                fillPreview(id, meta, hadRank ? extras.stats : statsFromEntry(entry));
             }
-            return fetchPeerStats(id);
+            return hadRank ? null : fetchPeerStats(id);
         }).then(function (remote) {
-            if (!remote) return;
-            var overlay = document.getElementById('peer-preview');
-            if (overlay && !overlay.hidden && previewTarget === id) {
+            if (seq !== previewSeq || !remote) return;
+            var live = document.getElementById('peer-preview');
+            if (live && !live.hidden && previewTarget === id) {
                 document.getElementById('peer-preview-acc').textContent = remote.acc + '%';
                 document.getElementById('peer-preview-q').textContent = String(remote.questions);
                 document.getElementById('peer-preview-time').textContent = formatTime(remote.time);
@@ -559,7 +606,7 @@
         if (btn) btn.disabled = true;
         publishMe().then(function () { return postFriendOp(op, id); }).then(function () {
             renderLists();
-            if (previewTarget === String(id)) openPeerPreview(id);
+            if (previewTarget === String(id)) openPeerPreview(id, { force: true });
             if (typeof root.loadLeaderboard === 'function') root.loadLeaderboard();
         });
     }
@@ -596,10 +643,11 @@
         var overlay = document.getElementById('peer-preview');
         if (overlay && !overlay._reedBound) {
             overlay._reedBound = true;
+            overlay.addEventListener('pointerdown', function (e) { e.stopPropagation(); });
             overlay.addEventListener('click', function (e) {
-                if (e.target === overlay || e.target.id === 'peer-preview-close') {
-                    overlay.hidden = true;
-                }
+                e.stopPropagation();
+                var back = e.target.closest('#peer-preview-back, #peer-preview-close');
+                if (back) closePeerPreview(e);
             });
         }
         var act = document.getElementById('peer-preview-action');
@@ -665,6 +713,12 @@
         relationTo: relationTo,
         publishMe: publishMe,
         paintMyBio: paintMyBio,
+        ingestRows: ingestRows,
+        closePreview: closePeerPreview,
+        previewBlocked: function () {
+            var overlay = document.getElementById('peer-preview');
+            return Date.now() < ignoreOpenUntil || (overlay && !overlay.hidden);
+        },
         photoFor: function (id) {
             var p = profileOf(id);
             return p.photo || '';
