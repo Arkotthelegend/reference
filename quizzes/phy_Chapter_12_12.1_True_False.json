@@ -3,282 +3,282 @@
     "q": "Active electrical components are capable of operating without an external power source.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ Electronic device မှာ transistor လို active component တွေ ပါတယ်။ ဥပမာ — ဖုန်းက အချက်အလက်ပို့တာ။"
+    "e": "မှားတယ်။ active component (transistor/IC) က ပါဝါရင်း လိုတယ်၊ passive မဟုတ်ဘူး။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဥပမာ — ဖုန်း charger ထဲက diode က current ကို တစ်ဖက်တည်းပဲ ဖြတ်ခွင့်ပေးတယ်။"
   },
   {
     "q": "Passive electrical components are resistors, capacitors, inductors, transformers, LDR, transducer, etc.",
     "type": "tf",
     "c": "true",
-    "e": "Transducer က စွမ်းအင်ပုံစံပြောင်းတဲ့ ကိရိယာ။ Microphone / ultrasound probe ပဲ။ ဥပမာ — LED မီးလင်းတာ။"
+    "e": "မှန်တယ်။ ဖုန်းဘုတ်ပေါ်က capacitor က ဗို့အားအတက်အကျကို ခဏသိုလှောင်ပြီး ညှိပေးတယ်။ Capacitor က plate နှစ်ခုကြား electric field ထဲ electrical energy သိမ်းတယ်။ C = Q/V၊ ဗို့နည်းနည်းနဲ့ charge များရင် C ကြီးတယ်။ ဒီနေရာမှာ အဲ့အချက်တစ်ခုပဲ လိုတယ်။ (1)"
   },
   {
     "q": "A zener diode is a lightly doped semiconductor pn junction diode.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ Semiconductor laser/LED က ဖုန်း၊ ဖိုက်ဘာအလင်းဆက်သွယ်ရေးမှာ သုံးတယ်။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှားတယ်။ Zener diode က heavily doped ဖြစ်လို့ reverse breakdown ကို ထိန်းသုံးတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဥပမာ — ဖုန်း charger ထဲက diode က current ကို တစ်ဖက်တည်းပဲ ဖြတ်ခွင့်ပေးတယ်။"
   },
   {
     "q": "A zener diode makes the current flow in the backward direction when reverse biased.",
     "type": "tf",
     "c": "true",
-    "e": "Photodiode ကို reverse bias ထားမှ အလင်းစုပ် sensor လုပ်တယ်။ ဥပမာ — LED မီးလင်းတာ။"
+    "e": "မှန်တယ်။ Zener diode က ဗို့အားလွန်ရင် ဘေးရောက်လမ်းဖွင့်ပေးပြီး circuit ကို ကာကွယ်တယ်။ Zener diode က reverse breakdown ကို ထိန်းပြီး voltage regulate လုပ်တယ်။ ပုံမှန် diode လို မပျက်အောင် ဒီဇိုင်းလုပ်ထားတာပဲ။ zener က ဒီရှာဖွေမှုနဲ့ နာမည်ချိတ်တယ်။"
   },
   {
     "q": "A zener diode operates like the normal diode when in the forward-bias mode, and has a turn-on voltage of between 0.3 and 0.7 V.",
     "type": "tf",
     "c": "true",
-    "e": "Diode က current ကို တစ်ဖက်သာ စီးခွင့်ပေးတယ်။ AC ကို DC ပြောင်းတဲ့ rectifier မှာ သုံးတယ်။ ဥပမာ — LED မီးလင်းတာ။"
+    "e": "မှန်တယ်။ Zener diode က ဗို့အားလွန်ရင် ဘေးရောက်လမ်းဖွင့်ပေးပြီး circuit ကို ကာကွယ်တယ်။ Zener diode က reverse breakdown ကို ထိန်းပြီး voltage regulate လုပ်တယ်။ ပုံမှန် diode လို မပျက်အောင် ဒီဇိုင်းလုပ်ထားတာပဲ။ zener က ဒီရှာဖွေမှုနဲ့ နာမည်ချိတ်တယ်။ ဒီနေရာမှာ အဲ့အချက်တစ်ခုပဲ လိုတယ်။"
   },
   {
     "q": "When the voltage across the terminals of a zener diode is reversed and the potential reaches the zener voltage, the junction breaks down and the current flows in the forward direction.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ Diode က current ကို တစ်ဖက်သာ စီးခွင့်ပေးတယ်။ AC ကို DC ပြောင်းတဲ့ rectifier မှာ သုံးတယ်။"
+    "e": "မှားတယ်။ ပြောထားသလို `When the voltage across the terminals of a zener diode is reversed and the po…` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Zener diode က reverse breakdown ကို ထိန်းပြီး voltage regulate လုပ်တယ်။ ပုံမှန် diode လို မပျက်အောင် ဒီဇိုင်းလုပ်ထားတာပဲ။ ဥပမာ — LED မီးသီးက ရှေ့သို့ forward မှ လင်းတယ်၊ ပြန်လှည့်ထည့်ရင် မလင်းဘူး။"
   },
   {
     "q": "The zener voltage is also known as the breakdown voltage or knee voltage.",
     "type": "tf",
     "c": "true",
-    "e": "Dielectric breakdown က ဗို့အားများလို့ insulator က စီးသွားတာ။ မိုးကြိုးပဲ။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှန်တယ်။ ဖုန်း charger ထဲက diode က current ကို တစ်ဖက်တည်းပဲ ဖြတ်ခွင့်ပေးတယ်။ Zener diode က reverse breakdown ကို ထိန်းပြီး voltage regulate လုပ်တယ်။ ပုံမှန် diode လို မပျက်အောင် ဒီဇိုင်းလုပ်ထားတာပဲ။ zener က ဒီရှာဖွေမှုနဲ့ နာမည်ချိတ်တယ်။"
   },
   {
     "q": "Avalanche breakdown occurs at junctions which being heavily doped have narrow depletion layers.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ Dielectric breakdown က ဗို့အားများလို့ insulator က စီးသွားတာ။ မိုးကြိုးပဲ။"
+    "e": "မှားတယ်။ ပြောထားသလို `Avalanche breakdown occurs at junctions which being heavily doped have narrow…` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Diode က pn junction။ forward bias မှာ current ဖြတ်၊ reverse မှာ ပိတ်တယ် — တစ်ဖက်သတ်အဆို့ရှင်ပဲ။ ဥပမာ — ကွန်ပျူတာ chip ထဲ n-type/p-type ဆုံမှတ်တွေက ခလုတ်သန်းပေါင်းများစွာပဲ။"
   },
   {
     "q": "Zener breakdown occurs at junctions which being heavily doped have narrow depletion layers.",
     "type": "tf",
     "c": "true",
-    "e": "Dielectric breakdown က ဗို့အားများလို့ insulator က စီးသွားတာ။ မိုးကြိုးပဲ။ ဥပမာ — ဖုန်းက အချက်အလက်ပို့တာ။"
+    "e": "မှန်တယ်။ Zener diode က ဗို့အားလွန်ရင် ဘေးရောက်လမ်းဖွင့်ပေးပြီး circuit ကို ကာကွယ်တယ်။ Zener diode က reverse breakdown ကို ထိန်းပြီး voltage regulate လုပ်တယ်။ ပုံမှန် diode လို မပျက်အောင် ဒီဇိုင်းလုပ်ထားတာပဲ။ Zener က ဒီရှာဖွေမှုနဲ့ နာမည်ချိတ်တယ်။"
   },
   {
     "q": "The voltage drop across the zener diode always remains constant irrespective of the applied voltage.",
     "type": "tf",
     "c": "true",
-    "e": "Diode က current ကို တစ်ဖက်သာ စီးခွင့်ပေးတယ်။ AC ကို DC ပြောင်းတဲ့ rectifier မှာ သုံးတယ်။ ဥပမာ — ဖုန်းက အချက်အလက်ပို့တာ။"
+    "e": "မှန်တယ်။ LED မီးသီးက ရှေ့သို့ forward မှ လင်းတယ်၊ ပြန်လှည့်ထည့်ရင် မလင်းဘူး။ Zener diode က reverse breakdown ကို ထိန်းပြီး voltage regulate လုပ်တယ်။ ပုံမှန် diode လို မပျက်အောင် ဒီဇိုင်းလုပ်ထားတာပဲ။ zener က ဒီရှာဖွေမှုနဲ့ နာမည်ချိတ်တယ်။"
   },
   {
     "q": "The constant voltage drop feature of the zener diode makes it suitable for current regulation as reference elements and surge suppressors.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ Diode က current ကို တစ်ဖက်သာ စီးခွင့်ပေးတယ်။ AC ကို DC ပြောင်းတဲ့ rectifier မှာ သုံးတယ်။"
+    "e": "မှားတယ်။ ပြောထားသလို `The constant voltage drop feature of the zener diode makes it suitable for cu…` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Zener diode က reverse breakdown ကို ထိန်းပြီး voltage regulate လုပ်တယ်။ ပုံမှန် diode လို မပျက်အောင် ဒီဇိုင်းလုပ်ထားတာပဲ။ ဥပမာ — ရေဒီယိုထဲက transistor က သေးငယ်တဲ့ လှိုင်းကို ချဲ့ပြီး စပီကာမောင်းတယ်။"
   },
   {
     "q": "A normal diode allows current to flow only in one direction while zener diode allows current to flow in both directions.",
     "type": "tf",
     "c": "true",
-    "e": "Diode က current ကို တစ်ဖက်သာ စီးခွင့်ပေးတယ်။ AC ကို DC ပြောင်းတဲ့ rectifier မှာ သုံးတယ်။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှန်တယ်။ ရေဒီယိုထဲက transistor က သေးငယ်တဲ့ လှိုင်းကို ချဲ့ပြီး စပီကာမောင်းတယ်။ Zener diode က reverse breakdown ကို ထိန်းပြီး voltage regulate လုပ်တယ်။ ပုံမှန် diode လို မပျက်အောင် ဒီဇိုင်းလုပ်ထားတာပဲ။ zener က ဒီရှာဖွေမှုနဲ့ နာမည်ချိတ်တယ်။"
   },
   {
     "q": "A LED is a semiconductor light source that emits light when current flows through it.",
     "type": "tf",
     "c": "true",
-    "e": "Semiconductor laser/LED က ဖုန်း၊ ဖိုက်ဘာအလင်းဆက်သွယ်ရေးမှာ သုံးတယ်။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှန်တယ်။ ရေဒီယိုထဲက transistor က သေးငယ်တဲ့ လှိုင်းကို ချဲ့ပြီး စပီကာမောင်းတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။"
   },
   {
     "q": "A light emitting diode emits a fairly narrow bandwidth of visible or invisible light when its internal diode junction attains a reverse-biased current.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ Bandwidth က သုံးတဲ့ frequency အကျယ်။ များရင် ဒေတာပိုပို့နိုင်တယ်။"
+    "e": "မှားတယ်။ ပြောထားသလို `A light emitting diode emits a fairly narrow bandwidth of visible or invisibl…` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။ ဥပမာ — LED မီးသီးက ရှေ့သို့ forward မှ လင်းတယ်၊ ပြန်လှည့်ထည့်ရင် မလင်းဘူး။"
   },
   {
     "q": "The visible lights that an LED emits are usually orange, red, yellow, or green.",
     "type": "tf",
     "c": "true",
-    "e": "LED က လျှပ်စစ်စီးရင် လင်းတဲ့ diode။ ဖုန်းစခရင်နောက်ခံ၊ မီးသီး LED ပဲ။ ဥပမာ — LED မီးလင်းတာ။"
+    "e": "မှန်တယ်။ LED မီးသီးက ရှေ့သို့ forward မှ လင်းတယ်၊ ပြန်လှည့်ထည့်ရင် မလင်းဘူး။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။"
   },
   {
     "q": "The commonly used invisible light for LED is ultraviolet light.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ LED က လျှပ်စစ်စီးရင် လင်းတဲ့ diode။ ဖုန်းစခရင်နောက်ခံ၊ မီးသီး LED ပဲ။"
+    "e": "မှားတယ်။ ပြောထားသလို `The commonly used invisible light for LED is ultraviolet light.` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။ ဥပမာ — Zener diode က ဗို့အားလွန်ရင် ဘေးရောက်လမ်းဖွင့်ပေးပြီး circuit ကို ကာကွယ်တယ်။"
   },
   {
     "q": "LEDs do not directly produce white light, but use a blue LED with a phosphor coating to convert blue light to white light by a process called fluorescence.",
     "type": "tf",
     "c": "true",
-    "e": "LED က လျှပ်စစ်စီးရင် လင်းတဲ့ diode။ ဖုန်းစခရင်နောက်ခံ၊ မီးသီး LED ပဲ။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှန်တယ်။ Zener diode က ဗို့အားလွန်ရင် ဘေးရောက်လမ်းဖွင့်ပေးပြီး circuit ကို ကာကွယ်တယ်။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။"
   },
   {
     "q": "Very low voltage (1 to 2 V) and current (5 to 20 mA) are enough to drive the LED.",
     "type": "tf",
     "c": "true",
-    "e": "LED က လျှပ်စစ်စီးရင် လင်းတဲ့ diode။ ဖုန်းစခရင်နောက်ခံ၊ မီးသီး LED ပဲ။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှန်တယ်။ ဖုန်း charger ထဲက diode က current ကို တစ်ဖက်တည်းပဲ ဖြတ်ခွင့်ပေးတယ်။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။"
   },
   {
     "q": "The response time of an LED is about 10 ms.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ LED က လျှပ်စစ်စီးရင် လင်းတဲ့ diode။ ဖုန်းစခရင်နောက်ခံ၊ မီးသီး LED ပဲ။"
+    "e": "မှားတယ်။ ပြောထားသလို `The response time of an LED is about 10 ms.` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။ ဥပမာ — ကွန်ပျူတာ chip ထဲ n-type/p-type ဆုံမှတ်တွေက ခလုတ်သန်းပေါင်းများစွာပဲ။"
   },
   {
     "q": "An LED has a much narrower bandwidth (wavelength spread) compared to the laser.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ Wavelength (λ) က လှိုင်းတစ်ပတ်ရဲ့ အရှည်။ အလင်းရောင်ကွဲတာ λ မတူလို့ပဲ။"
+    "e": "မှားတယ်။ ပြောထားသလို `An LED has a much narrower bandwidth (wavelength spread) compared to the laser.` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။ ဥပမာ — ကွန်ပျူတာ chip ထဲ n-type/p-type ဆုံမှတ်တွေက ခလုတ်သန်းပေါင်းများစွာပဲ။"
   },
   {
     "q": "A photodiode is a semiconductor device that converts light into electrical current.",
     "type": "tf",
     "c": "true",
-    "e": "Semiconductor laser/LED က ဖုန်း၊ ဖိုက်ဘာအလင်းဆက်သွယ်ရေးမှာ သုံးတယ်။ ဥပမာ — ဖုန်းက အချက်အလက်ပို့တာ။"
+    "e": "မှန်တယ်။ Zener diode က ဗို့အားလွန်ရင် ဘေးရောက်လမ်းဖွင့်ပေးပြီး circuit ကို ကာကွယ်တယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။"
   },
   {
     "q": "Photodiodes work in forward biased mode.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ Forward bias က diode စီးအောင် မှန်မှန်တပ်တာ။ LED လင်းတဲ့အခါ။"
+    "e": "မှားတယ်။ ပြောထားသလို `Photodiodes work in forward biased mode.` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Diode က pn junction။ forward bias မှာ current ဖြတ်၊ reverse မှာ ပိတ်တယ် — တစ်ဖက်သတ်အဆို့ရှင်ပဲ။ ဥပမာ — ကွန်ပျူတာ chip ထဲ n-type/p-type ဆုံမှတ်တွေက ခလုတ်သန်းပေါင်းများစွာပဲ။"
   },
   {
     "q": "When the photodiode is illuminated with light of energy $hv$ greater than the energy gap $E_g$ of the semiconductor, electron-hole pairs are generated.",
     "type": "tf",
     "c": "true",
-    "e": "Semiconductor laser/LED က ဖုန်း၊ ဖိုက်ဘာအလင်းဆက်သွယ်ရေးမှာ သုံးတယ်။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှန်တယ်။ LED မီးသီးက ရှေ့သို့ forward မှ လင်းတယ်၊ ပြန်လှည့်ထည့်ရင် မလင်းဘူး။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။"
   },
   {
     "q": "The magnitude of the photocurrent depends on the frequency of incident light.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ Frequency က တစ်စက္ကန့်မှာ ဘယ်နှစ်ပတ်လည်လဲ။ f = 1/T။"
+    "e": "မှားတယ်။ ပြောထားသလို `The magnitude of the photocurrent depends on the frequency of incident light.` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဥပမာ — ဖုန်း charger ထဲက diode က current ကို တစ်ဖက်တည်းပဲ ဖြတ်ခွင့်ပေးတယ်။"
   },
   {
     "q": "A small amount of current called dark current is produced when no light is falling due to the flow of majority carriers.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ Dark current က အလင်းမရှိခင် ယိုစီးတဲ့ current၊ majority မဟုတ် minority ကြောင့် များတယ်။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှားတယ်။ ပြောထားသလို `A small amount of current called dark current is produced when no light is fa…` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဥပမာ — ရေဒီယိုထဲက transistor က သေးငယ်တဲ့ လှိုင်းကို ချဲ့ပြီး စပီကာမောင်းတယ်။"
   },
   {
     "q": "Silicon is most often used to fabricate photodiodes, though germanium and gallium arsenide can also be used.",
     "type": "tf",
     "c": "true",
-    "e": "Photodiode အများစုက silicon နဲ့လုပ်တယ်။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှန်တယ်။ LED မီးသီးက ရှေ့သို့ forward မှ လင်းတယ်၊ ပြန်လှည့်ထည့်ရင် မလင်းဘူး။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဒီနေရာမှာ အဲ့အချက်တစ်ခုပဲ လိုတယ်။"
   },
   {
     "q": "A light dependent resistor (LDR) is a temperature controlled variable resistor.",
     "type": "tf",
     "c": "false",
-    "e": "Temperature နဲ့ heat က မတူဘူး။ ဥပမာ — ဖုန်းက အချက်အလက်ပို့တာ။"
+    "e": "မှားတယ်။ ပြောထားသလို `A light dependent resistor (LDR) is a temperature controlled variable resistor.` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဥပမာ — ရေဒီယိုထဲက transistor က သေးငယ်တဲ့ လှိုင်းကို ချဲ့ပြီး စပီကာမောင်းတယ်။"
   },
   {
     "q": "Special semiconductor crystals, such as cadmium sulfide or lead sulfide, are used to make photo resistors.",
     "type": "tf",
     "c": "true",
-    "e": "Semiconductor laser/LED က ဖုန်း၊ ဖိုက်ဘာအလင်းဆက်သွယ်ရေးမှာ သုံးတယ်။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှန်တယ်။ ရေဒီယိုထဲက transistor က သေးငယ်တဲ့ လှိုင်းကို ချဲ့ပြီး စပီကာမောင်းတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဒီနေရာမှာ အဲ့အချက်တစ်ခုပဲ လိုတယ်။"
   },
   {
     "q": "When an LDR is exposed to light, it takes a few milliseconds to lower its resistance.",
     "type": "tf",
     "c": "true",
-    "e": "ဒီစကား မှန်တယ်။ အလင်းက EM wave၊ မှန်ဘီလူးနဲ့ ကွေးနိုင်တယ်။ ဥပမာ — LED မီးလင်းတာ။"
+    "e": "မှန်တယ်။ ရေဒီယိုထဲက transistor က သေးငယ်တဲ့ လှိုင်းကို ချဲ့ပြီး စပီကာမောင်းတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ တခြားအကြောင်းနဲ့ မရောပါနဲ့။"
   },
   {
     "q": "A thermistor is a light sensor that exhibits a large change in resistance proportional to a change in light intensity.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီစကား မှားတယ်။ အလင်းက EM wave၊ မှန်ဘီလူးနဲ့ ကွေးနိုင်တယ်။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှားတယ်။ ပြောထားသလို `A thermistor is a light sensor that exhibits a large change in resistance pro…` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဥပမာ — LED မီးသီးက ရှေ့သို့ forward မှ လင်းတယ်၊ ပြန်လှည့်ထည့်ရင် မလင်းဘူး။"
   },
   {
     "q": "In the Negative Temperature Coefficient (NTC) thermistor, the resistance decreases as the temperature increases.",
     "type": "tf",
     "c": "true",
-    "e": "Temperature က ပူအေးကို ဂဏန်းနဲ့ ပြတာ၊ မော်လီကျူးတွေ ဘယ်လောက် လှုပ်သလဲ။ Heat က စီးတဲ့ energy။ ဥပမာ — LED မီးလင်းတာ။"
+    "e": "မှန်တယ်။ ဖုန်း charger ထဲက diode က current ကို တစ်ဖက်တည်းပဲ ဖြတ်ခွင့်ပေးတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။"
   },
   {
     "q": "In the Positive Temperature Coefficient (PTC) thermistor, the resistance decreases as the temperature increases.",
     "type": "tf",
     "c": "false",
-    "e": "Temperature နဲ့ heat က မတူဘူး။ ဥပမာ — ဖုန်းက အချက်အလက်ပို့တာ။"
+    "e": "မှားတယ်။ ပြောထားသလို `In the Positive Temperature Coefficient (PTC) thermistor, the resistance decr…` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဥပမာ — Zener diode က ဗို့အားလွန်ရင် ဘေးရောက်လမ်းဖွင့်ပေးပြီး circuit ကို ကာကွယ်တယ်။"
   },
   {
     "q": "A liquid crystal display (LCD) is a flat-panel display that uses the light-modulating properties of liquid crystals combined with polarizers.",
     "type": "tf",
     "c": "true",
-    "e": "LCD က liquid crystal နဲ့ အလင်းပိတ်/လွှတ်တယ်၊ CRT ပြွန်ထက် ပိန်တယ်။ ဥပမာ — ဖုန်းက အချက်အလက်ပို့တာ။"
+    "e": "မှန်တယ်။ ကားလေကာမှန်က ရောင်ပြန်လျှော့ဖို့ polarizing film သုံးတယ်။ Polarization က transverse wave ရဲ့ တုန်ခါမှုကို လမ်းကြောင်းတစ်ခုတည်း ကျန်အောင် စစ်ထုတ်တာ။ အလင်းလှိုင်းမို့ ဖြစ်နိုင်တယ်။"
   },
   {
     "q": "Liquid crystals emit light directly to produce images in color or monochrome.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ LCD က liquid crystal နဲ့ အလင်းပိတ်/လွှတ်တယ်၊ CRT ပြွန်ထက် ပိန်တယ်။ ဥပမာ — LED မီးလင်းတာ။"
+    "e": "မှားတယ်။ ပြောထားသလို `Liquid crystals emit light directly to produce images in color or monochrome.` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဥပမာ — ကွန်ပျူတာ chip ထဲ n-type/p-type ဆုံမှတ်တွေက ခလုတ်သန်းပေါင်းများစွာပဲ။"
   },
   {
     "q": "In an LCD, a polarizing glass filter is placed in front and behind all the pixels, with the front filter placed at 45 degrees.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီစကား မှားတယ်။ polarizing, glass, filter, placed, front ကို ဘောလုံး၊ စက်ဘီးလို လက်တွေ့နဲ့ တွေးကြည့်။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှားတယ်။ ပြောထားသလို `In an LCD, a polarizing glass filter is placed in front and behind all the pi…` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Polarization က transverse wave ရဲ့ တုန်ခါမှုကို လမ်းကြောင်းတစ်ခုတည်း ကျန်အောင် စစ်ထုတ်တာ။ အလင်းလှိုင်းမို့ ဖြစ်နိုင်တယ်။ ဥပမာ — ဖုန်းစခရင်ကို မျက်မှန်စောင်းကြည့်ရင် မှောင်သွားတာ polarization ကြောင့်ပဲ။"
   },
   {
     "q": "LCDs consume much less power than LEDs and gas-plasma displays because they work on the principle of blocking light rather than emitting it.",
     "type": "tf",
     "c": "true",
-    "e": "ဒီစကား မှန်တယ်။ အလင်းက EM wave၊ မှန်ဘီလူးနဲ့ ကွေးနိုင်တယ်။ ဥပမာ — ဖုန်းက အချက်အလက်ပို့တာ။"
+    "e": "မှန်တယ်။ ကွန်ပျူတာ chip ထဲ n-type/p-type ဆုံမှတ်တွေက ခလုတ်သန်းပေါင်းများစွာပဲ။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။"
   },
   {
     "q": "Active electrical components require a power source to operate.",
     "type": "tf",
     "c": "true",
-    "e": "Electronic device မှာ transistor လို active component တွေ ပါတယ်။ ဥပမာ — ဖုန်းက အချက်အလက်ပို့တာ။"
+    "e": "မှန်တယ်။ LED မီးသီးက ရှေ့သို့ forward မှ လင်းတယ်၊ ပြန်လှည့်ထည့်ရင် မလင်းဘူး။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ တခြားအကြောင်းနဲ့ မရောပါနဲ့။"
   },
   {
     "q": "A TRIAC is a three terminal AC switch and is considered a passive electrical component.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီစကား မှားတယ်။ ဘက်ထရီမှာ +/− terminal နှစ်ခုရှိတယ်။ ဥပမာ — ဖုန်းက အချက်အလက်ပို့တာ။"
+    "e": "မှားတယ်။ ပြောထားသလို `A TRIAC is a three terminal AC switch and is considered a passive electrical …` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဥပမာ — Zener diode က ဗို့အားလွန်ရင် ဘေးရောက်လမ်းဖွင့်ပေးပြီး circuit ကို ကာကွယ်တယ်။"
   },
   {
     "q": "Zener diodes are used as surge suppressors and in clipper circuits.",
     "type": "tf",
     "c": "true",
-    "e": "Zener diode က reverse မှာ ဗို့အားတည်အောင် ထိန်းတယ်။ ဥပမာ — ဖုန်းက အချက်အလက်ပို့တာ။"
+    "e": "မှန်တယ်။ ကွန်ပျူတာ chip ထဲ n-type/p-type ဆုံမှတ်တွေက ခလုတ်သန်းပေါင်းများစွာပဲ။ Zener diode က reverse breakdown ကို ထိန်းပြီး voltage regulate လုပ်တယ်။ ပုံမှန် diode လို မပျက်အောင် ဒီဇိုင်းလုပ်ထားတာပဲ။ Zener က ဒီရှာဖွေမှုနဲ့ နာမည်ချိတ်တယ်။"
   },
   {
     "q": "LEDs are typically used as ON/OFF indicator lights in electrical appliances such as televisions and computers.",
     "type": "tf",
     "c": "true",
-    "e": "ဒီစကား မှန်တယ်။ အလင်းက EM wave၊ မှန်ဘီလူးနဲ့ ကွေးနိုင်တယ်။ ဥပမာ — LED မီးလင်းတာ။"
+    "e": "မှန်တယ်။ ရေဒီယိုထဲက transistor က သေးငယ်တဲ့ လှိုင်းကို ချဲ့ပြီး စပီကာမောင်းတယ်။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။"
   },
   {
     "q": "The energy in an LED is radiated in the form of heat.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ LED က လျှပ်စစ်စီးရင် လင်းတဲ့ diode။ ဖုန်းစခရင်နောက်ခံ၊ မီးသီး LED ပဲ။"
+    "e": "မှားတယ်။ ပြောထားသလို `The energy in an LED is radiated in the form of heat.` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။ ဥပမာ — LED မီးသီးက ရှေ့သို့ forward မှ လင်းတယ်၊ ပြန်လှည့်ထည့်ရင် မလင်းဘူး။"
   },
   {
     "q": "A current limiting resistor should be connected in parallel with an LED in the circuit to protect it.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ LED က လျှပ်စစ်စီးရင် လင်းတဲ့ diode။ ဖုန်းစခရင်နောက်ခံ၊ မီးသီး LED ပဲ။"
+    "e": "မှားတယ်။ ပြောထားသလို `A current limiting resistor should be connected in parallel with an LED in th…` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။ ဥပမာ — Zener diode က ဗို့အားလွန်ရင် ဘေးရောက်လမ်းဖွင့်ပေးပြီး circuit ကို ကာကွယ်တယ်။"
   },
   {
     "q": "Photodiodes can be used as photosensors in compact disc (CD) players and televisions.",
     "type": "tf",
     "c": "true",
-    "e": "CD က reflection grating နီးပါး၊ transmission grating မဟုတ်။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှန်တယ်။ LED မီးသီးက ရှေ့သို့ forward မှ လင်းတယ်၊ ပြန်လှည့်ထည့်ရင် မလင်းဘူး။ Diode က pn junction။ forward bias မှာ current ဖြတ်၊ reverse မှာ ပိတ်တယ် — တစ်ဖက်သတ်အဆို့ရှင်ပဲ။"
   },
   {
     "q": "An LDR becomes a good conductor of electric current in the dark.",
     "type": "tf",
     "c": "false",
-    "e": "ဒီအချက်က မှားတယ်။ Thermal conductivity ကြီးရင် heat ကောင်းစီးတဲ့ conductor။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှားတယ်။ ပြောထားသလို `An LDR becomes a good conductor of electric current in the dark.` မဟုတ်ဘူး၊ အပေါ်က သဘောတရားနဲ့ တိုက်ကြည့်ရင် လွဲနေတယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဥပမာ — ဖုန်း charger ထဲက diode က current ကို တစ်ဖက်တည်းပဲ ဖြတ်ခွင့်ပေးတယ်။"
   },
   {
     "q": "Thermistors contain semiconducting metallic oxides whose resistance changes with temperature.",
     "type": "tf",
     "c": "true",
-    "e": "Temperature က ပူအေးကို ဂဏန်းနဲ့ ပြတာ၊ မော်လီကျူးတွေ ဘယ်လောက် လှုပ်သလဲ။ Heat က စီးတဲ့ energy။ ဥပမာ — LED မီးလင်းတာ။"
+    "e": "မှန်တယ်။ Zener diode က ဗို့အားလွန်ရင် ဘေးရောက်လမ်းဖွင့်ပေးပြီး circuit ကို ကာကွယ်တယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ ဒီနေရာမှာ အဲ့အချက်တစ်ခုပဲ လိုတယ်။"
   },
   {
     "q": "PTC thermistors are used to break the circuit at preset temperatures.",
     "type": "tf",
     "c": "true",
-    "e": "ဒီစကား မှန်တယ်။ Temperature က ပူအေးအမှတ်၊ heat နဲ့ မတူဘူး။ ဥပမာ — ရေဒီယိုလှိုင်းဖမ်းတာ။"
+    "e": "မှန်တယ်။ Zener diode က ဗို့အားလွန်ရင် ဘေးရောက်လမ်းဖွင့်ပေးပြီး circuit ကို ကာကွယ်တယ်။ Semiconductor က conductor နဲ့ insulator ကြား။ doping နဲ့ n-type/p-type လုပ်ပြီး ခလုတ်/ချဲ့စက် ဖြစ်လာတယ်။ တခြားအကြောင်းနဲ့ မရောပါနဲ့။"
   },
   {
     "q": "LCDs have begun being replaced by new display technologies such as organic light-emitting diodes (OLEDs).",
     "type": "tf",
     "c": "true",
-    "e": "ဒီစကား မှန်တယ်။ Diode က current တစ်ဖက်သာ စီးခွင့်ပေးတယ်။ အလင်းက EM wave၊ မှန်ဘီလူးနဲ့ ကွေးနိုင်တယ်။"
+    "e": "မှန်တယ်။ ရေဒီယိုထဲက transistor က သေးငယ်တဲ့ လှိုင်းကို ချဲ့ပြီး စပီကာမောင်းတယ်။ LED က forward bias ရင် အီလက်ထရွန်-အပေါက်ပေါင်းပြီး အလင်း photon ထုတ်တယ်။ ဒီနေရာမှာ အဲ့အချက်တစ်ခုပဲ လိုတယ်။"
   }
 ]
