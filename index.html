@@ -4491,7 +4491,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=124'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=125'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -4501,7 +4501,7 @@ function setQuizKeysHint(text) {
         let quizPlayMode = 'practice';
         function isTestPlay() { return quizPlayMode === 'test'; }
         let pendingStatsTab = 'summary';
-        let leaderboardCache = { at: 0, rows: null };
+        let leaderboardCache = { at: 0, rows: null, grade: 0 };
         let lastRankSnapshot = null;
         let statsBestScores = {};
         let statsRadarModels = { all: null, week: null };
@@ -4578,9 +4578,8 @@ function onStatsGradeClick(grade) {
         const oldTab = document.getElementById('stats-tab-old');
         if (oldTab && oldTab.style.display === 'block') switchStatsTab('summary');
     }
-    renderSummary(statsBestScores);
-    renderBestScores(statsBestScores, 'stat-best-scores', false);
-    renderBestScores(statsBestScores, 'stat-old-scores', true);
+    invalidateLeaderboardCache();
+    loadUserStats();
     loadLeaderboard();
 }
 function isRankableQuizFile(fileName) {
@@ -4600,7 +4599,7 @@ function setRankPeriod(period) {
     loadLeaderboard();
 }
 function invalidateLeaderboardCache() {
-    leaderboardCache = { at: 0, rows: null };
+    leaderboardCache = { at: 0, rows: null, grade: 0 };
 }
 
 		// ─── Quiz File Parser ───
@@ -4781,7 +4780,7 @@ async function submitScore(timeTaken = 0) {
         total: finalTotal,
         timeTaken: timeTaken,
         date: now,
-        isOld: meta.isOld,
+        isOld: (getSelectedGrade() === 12 && meta.isOld),
         grade: getSelectedGrade()
     });
     if (localStats.history.length > 100) localStats.history = localStats.history.slice(0, 100);
@@ -4795,7 +4794,7 @@ async function submitScore(timeTaken = 0) {
             subject: meta.subject,
             chapter: meta.chapter,
             type: meta.type,
-            isOld: meta.isOld
+            isOld: getSelectedGrade() === 12 && meta.isOld
         };
     }
     saveLocalStats(localStats);
@@ -4817,7 +4816,7 @@ async function submitScore(timeTaken = 0) {
         type: meta.type,
         score: String(finalScore),
         total: String(finalTotal),
-        isOld: meta.isOld ? 'true' : 'false',
+        isOld: (getSelectedGrade() === 12 && meta.isOld) ? 'true' : 'false',
         timeTaken: String(timeTaken),
         grade: String(getSelectedGrade()),
         savedAt: now
@@ -4928,7 +4927,7 @@ async function loadUserStats() {
 
     // 2. Try server first for the latest official data
     if (userId !== 'unknown') {
-        const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}`;
+        const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}&grade=${getStatsGrade()}`;
         try {
             const res = await fetch(url);
             const text = await res.text();
@@ -9263,13 +9262,14 @@ function buildRankEntries(rows, opts) {
 }
 
 async function fetchAllLeaderboardRows() {
-    if (leaderboardCache.rows && (Date.now() - leaderboardCache.at) < 60000) return leaderboardCache.rows;
-    const url = STATS_GAS_URL + '?action=getLeaderboard&subject=all';
+    const grade = (typeof getStatsGrade === 'function') ? getStatsGrade() : 12;
+    if (leaderboardCache.rows && leaderboardCache.grade === grade && (Date.now() - leaderboardCache.at) < 60000) return leaderboardCache.rows;
+    const url = STATS_GAS_URL + '?action=getLeaderboard&subject=all&grade=' + encodeURIComponent(grade);
     const res = await fetch(url);
     const text = await res.text();
     const data = JSON.parse(text);
     if (data.status !== 'ok') throw new Error(data.message || 'Leaderboard error');
-    leaderboardCache = { at: Date.now(), rows: data.rows || [] };
+    leaderboardCache = { at: Date.now(), rows: data.rows || [], grade: grade };
     return leaderboardCache.rows;
 }
 
