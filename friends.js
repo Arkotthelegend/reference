@@ -19,18 +19,25 @@
     }
 
     function meUser() {
+        if (typeof root.telegramProfileUser === 'function') {
+            var live = root.telegramProfileUser();
+            if (live && live.id) return live;
+        }
         var tg = root.Telegram && Telegram.WebApp;
         var u = (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) || {};
+        if (u && u.id) return u;
         try {
-            if (!u.id) {
-                var raw = sessionStorage.getItem('reed_tg_user');
-                if (raw) u = JSON.parse(raw) || {};
-            }
+            var raw = sessionStorage.getItem('reed_tg_user');
+            if (raw) u = JSON.parse(raw) || {};
         } catch (e) {}
         return u || {};
     }
 
     function meId() {
+        if (typeof root.telegramUserId === 'function') {
+            var liveId = root.telegramUserId();
+            if (liveId) return String(liveId);
+        }
         var u = meUser();
         return u.id != null ? String(u.id) : '';
     }
@@ -62,8 +69,36 @@
     }
 
     function writeLocal(state) {
+        var prev = (friendCache && friendCache.profiles) || {};
+        var nextP = (state && state.profiles) || {};
+        Object.keys(prev).forEach(function (id) {
+            var older = prev[id] || {};
+            var newer = nextP[id] || {};
+            nextP[id] = {
+                name: newer.name || older.name || 'Student',
+                photo: newer.photo || older.photo || '',
+                bio: newer.bio || older.bio || ''
+            };
+        });
+        if (state) state.profiles = nextP;
         friendCache = state;
-        try { localStorage.setItem(storeKey(), JSON.stringify(state)); } catch (e) {}
+        try {
+            var copy = {
+                friends: state.friends,
+                incoming: state.incoming,
+                outgoing: state.outgoing,
+                profiles: {}
+            };
+            Object.keys(nextP).forEach(function (id) {
+                var p = nextP[id] || {};
+                copy.profiles[id] = {
+                    name: p.name || '',
+                    photo: (p.photo && p.photo.indexOf('data:') === 0) ? '' : (p.photo || ''),
+                    bio: p.bio || ''
+                };
+            });
+            localStorage.setItem(storeKey(), JSON.stringify(copy));
+        } catch (e) {}
     }
 
     function recordHasPaidSubjects(rec) {
@@ -115,12 +150,25 @@
     }
 
     function profileOf(id, fallback) {
-        var p = (friendCache.profiles && friendCache.profiles[String(id)]) || {};
         fallback = fallback || {};
+        if (String(id) === meId()) {
+            return {
+                userId: String(id),
+                name: meName(),
+                photo: mePhoto(),
+                bio: readMyBio()
+            };
+        }
+        var p = (friendCache.profiles && friendCache.profiles[String(id)]) || {};
+        var name = p.name || fallback.name || fallback.userName || 'Student';
+        var photo = p.photo || fallback.photo || '';
+        if (name === meName()) name = fallback.name || fallback.userName || 'Student';
+        if (name === meName()) name = 'Student';
+        if (photo && photo === mePhoto()) photo = '';
         return {
             userId: String(id),
-            name: p.name || fallback.name || fallback.userName || 'Student',
-            photo: p.photo || fallback.photo || '',
+            name: name,
+            photo: photo,
             bio: p.bio || fallback.bio || ''
         };
     }
@@ -188,78 +236,110 @@
 
     function stateFromRows(rows, uid) {
         var profiles = {};
+        var quizNames = {};
         var myFr = {};
         var theirFr = {};
         var myOk = {};
         var theirOk = {};
         (rows || []).forEach(function (row) {
             var qf = String(row.quizFile || '');
-            if (qf.indexOf('__soc_') !== 0) return;
-            var packed = unpackCard(row.userName, row.userName);
             var oid = String(row.userId || '');
             if (!oid) return;
+            if (qf.indexOf('__soc_') !== 0) {
+                var rawName = String(row.userName || '');
+                if (rawName && rawName.charAt(0) !== '{') quizNames[oid] = rawName;
+                return;
+            }
+            var packed = unpackCard(row.userName, row.userName);
             if (qf === '__soc_p') {
+                if (oid !== uid && looksLikeMyCard(packed)) return;
                 profiles[oid] = packed;
                 return;
             }
             var fr = /^__soc_fr_(\d+)$/.exec(qf);
             if (fr) {
                 var to = fr[1];
+                if (to === oid) return;
                 var st = numStat(row.timeTaken);
-                if (oid === uid) myFr[to] = { st: st, p: packed };
-                if (to === uid) theirFr[oid] = { st: st, p: packed };
+                if (oid === uid) myFr[to] = st;
+                if (to === uid) theirFr[oid] = st;
                 return;
             }
             var ok = /^__soc_ok_(\d+)$/.exec(qf);
             if (ok) {
                 var other = ok[1];
+                if (other === oid) return;
                 var ost = numStat(row.timeTaken);
                 if (oid === uid) myOk[other] = ost;
                 if (other === uid) theirOk[oid] = ost;
             }
         });
-        function card(id, packed) {
-            var p = packed || profiles[id] || {};
-            if (p.name || p.photo || p.bio) profiles[id] = {
-                name: p.name || (profiles[id] && profiles[id].name) || 'Student',
-                photo: p.photo || (profiles[id] && profiles[id].photo) || '',
-                bio: p.bio || (profiles[id] && profiles[id].bio) || ''
+        function looksLikeMyCard(packed) {
+            if (!packed) return false;
+            var myN = meName();
+            var myP = mePhoto();
+            if (packed.name && myN && packed.name === myN) return true;
+            if (packed.photo && myP && packed.photo === myP) return true;
+            return false;
+        }
+
+        function card(id) {
+            if (id === uid) {
+                return {
+                    userId: String(id),
+                    name: meName(),
+                    photo: mePhoto(),
+                    bio: readMyBio()
+                };
+            }
+            var p = profiles[id] || {};
+            var name = p.name || quizNames[id] || 'Student';
+            if (looksLikeMyCard({ name: name, photo: p.photo })) {
+                name = quizNames[id] || 'Student';
+            }
+            return {
+                userId: String(id),
+                name: name,
+                photo: looksLikeMyCard(p) ? '' : (p.photo || ''),
+                bio: p.bio || ''
             };
-            var use = profiles[id] || p;
-            return { userId: String(id), name: use.name || 'Student', photo: use.photo || '', bio: use.bio || '' };
         }
         var friends = [];
         var incoming = [];
         var outgoing = [];
         var seen = {};
         function isFriend(id) {
-            return (theirFr[id] && theirFr[id].st === ST_PENDING && myOk[id] === ST_FRIEND)
-                || (myFr[id] && myFr[id].st === ST_PENDING && theirOk[id] === ST_FRIEND)
+            if (!id || id === uid) return false;
+            return (theirFr[id] === ST_PENDING && myOk[id] === ST_FRIEND)
+                || (myFr[id] === ST_PENDING && theirOk[id] === ST_FRIEND)
                 || (myOk[id] === ST_FRIEND && theirOk[id] === ST_FRIEND);
         }
         Object.keys(theirFr).concat(Object.keys(myFr), Object.keys(myOk), Object.keys(theirOk)).forEach(function (id) {
             if (seen[id] || id === uid) return;
             seen[id] = true;
             if (isFriend(id)) {
-                friends.push(card(id, (theirFr[id] && theirFr[id].p) || (myFr[id] && myFr[id].p)));
+                friends.push(card(id));
                 return;
             }
-            if (theirFr[id] && theirFr[id].st === ST_PENDING && myOk[id] !== ST_FRIEND && myOk[id] !== ST_OFF) {
-                incoming.push(card(id, theirFr[id].p));
+            if (theirFr[id] === ST_PENDING && myOk[id] !== ST_FRIEND && myOk[id] !== ST_OFF) {
+                incoming.push(card(id));
                 return;
             }
-            if (myFr[id] && myFr[id].st === ST_PENDING && theirOk[id] !== ST_FRIEND) {
-                outgoing.push(card(id, profiles[id]));
+            if (myFr[id] === ST_PENDING && theirOk[id] !== ST_FRIEND) {
+                outgoing.push(card(id));
             }
         });
         return { friends: friends, incoming: incoming, outgoing: outgoing, profiles: profiles };
     }
 
     function ingestRows(rows) {
+        var uid = meId();
         (rows || []).forEach(function (row) {
             var qf = String(row.quizFile || '');
-            if (qf.indexOf('__soc_') !== 0) return;
+            if (qf !== '__soc_p') return;
+            var oid = String(row.userId || '');
             var packed = unpackCard(row.userName, row.userName);
+            if (oid && oid !== uid && packed.name === meName()) return;
             if (packed.photo || packed.bio || packed.name) {
                 rememberProfile(row.userId, packed.name, packed.photo, packed.bio);
             }
@@ -295,7 +375,7 @@
     function postFriendOp(op, otherId) {
         var uid = meId();
         var id = String(otherId || '').replace(/[^0-9]/g, '');
-        if (!uid) return Promise.resolve(friendCache);
+        if (!uid || !id || id === uid) return Promise.resolve(friendCache);
         var packed = myPacked();
         var jobs = [];
         if (op === 'request') jobs.push(saveSocialRow('__soc_fr_' + id, packed, ST_PENDING));
@@ -321,22 +401,22 @@
         return 'none';
     }
 
-    function avatarHtml(name, photo, cls) {
+    function avatarHtml(name, photo, cls, id) {
         var initial = String(name || 'S').charAt(0).toUpperCase();
         var klass = cls || 'social-avatar';
-        if (photo) {
-            return '<img class="' + klass + '" src="' + esc(photo) + '" alt="" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'">'
-                + '<div class="' + klass + ' social-avatar-fallback" style="display:none">' + esc(initial) + '</div>';
-        }
-        return '<div class="' + klass + ' social-avatar-fallback">' + esc(initial) + '</div>';
+        var data = id ? (' data-avatar="' + esc(id) + '"') : '';
+        var safe = (photo && (photo.indexOf('data:image/') === 0 || photo.indexOf('https://') === 0)) ? photo : '';
+        var img = '<img class="' + klass + '"' + data + ' src="' + (safe ? esc(safe) : '') + '" alt="" referrerpolicy="no-referrer" style="' + (safe ? '' : 'display:none') + '" onerror="this.style.display=\'none\';if(this.nextSibling)this.nextSibling.style.display=\'flex\'">';
+        var fall = '<div class="' + klass + ' social-avatar-fallback"' + (safe ? ' style="display:none"' : '') + '>' + esc(initial) + '</div>';
+        return img + fall;
     }
 
     function personRow(row, actionsHtml) {
         var id = row.userId || row.id;
         var name = row.name || row.userName || 'Student';
         var photo = row.photo || '';
-        return '<button type="button" class="friend-row" data-peer="' + esc(id) + '">'
-            + avatarHtml(name, photo)
+        return '<button type="button" class="friend-row" data-peer="' + esc(id) + '" data-name="' + esc(name) + '">'
+            + avatarHtml(name, photo, 'social-avatar', id)
             + '<div class="friend-row-info"><div class="friend-row-name">' + esc(name) + '</div>'
             + (row.bio ? '<div class="friend-row-bio">' + esc(row.bio) + '</div>' : '')
             + '<div class="friend-row-meta">ID ' + esc(id) + '</div></div></button>'
@@ -488,9 +568,19 @@
         var overlay = document.getElementById('peer-preview');
         if (!overlay) return;
         previewTarget = String(id);
+        var mine = String(id) === meId();
         var name = (meta && meta.name) || 'Student';
         var photo = (meta && meta.photo) || '';
         var bio = (meta && meta.bio) || '';
+        if (!mine && (name === meName() || (photo && photo === mePhoto()))) {
+            name = (meta && meta.fallbackName) || 'Student';
+            photo = '';
+        }
+        if (mine) {
+            name = meName() || name;
+            photo = mePhoto() || photo;
+            bio = readMyBio() || bio;
+        }
         document.getElementById('peer-preview-name').textContent = name;
         var bioEl = document.getElementById('peer-preview-bio');
         if (bioEl) {
@@ -499,7 +589,7 @@
         }
         document.getElementById('peer-preview-id').textContent = 'ID ' + id;
         var av = document.getElementById('peer-preview-avatar');
-        av.innerHTML = avatarHtml(name, photo, 'peer-avatar');
+        av.innerHTML = avatarHtml(name, photo, 'peer-avatar', id);
         var acc = stats && stats.acc != null ? stats.acc + '%' : '—';
         var qs = stats && stats.questions != null ? String(stats.questions) : '—';
         var tm = stats && stats.time != null ? formatTime(stats.time) : '—';
@@ -529,6 +619,7 @@
             btn.setAttribute('data-fop', 'request');
         }
         overlay.hidden = false;
+        if (typeof fillPhotos === 'function') fillPhotos([id]);
     }
 
     function openPeerPreview(id, extras) {
@@ -540,21 +631,35 @@
         if (overlay && !overlay.hidden && previewTarget === String(id) && !(extras && extras.force)) return;
         var seq = ++previewSeq;
         var hadRank = !!(extras.stats && extras.stats.questions);
+        if (String(id) !== meId()) {
+            extras = Object.assign({}, extras);
+            if (extras.name === meName()) extras.name = '';
+            if (extras.photo === mePhoto()) extras.photo = '';
+            if (extras.userName === meName()) extras.userName = '';
+        }
         rememberProfile(id, extras.name || extras.userName, extras.photo, extras.bio);
         var meta = profileOf(id, extras);
+        meta.fallbackName = extras.name || extras.userName || '';
         fillPreview(id, meta, extras.stats || statsFromEntry(extras));
         if (seq !== previewSeq) return;
         loadFriendState().then(function () {
             if (seq !== previewSeq) return;
             meta = profileOf(id, extras);
+            meta.fallbackName = extras.name || extras.userName || '';
             fillPreview(id, meta, extras.stats || statsFromEntry(extras));
             return findInLeaderboard(id);
         }).then(function (entry) {
             if (seq !== previewSeq) return;
             if (entry) {
                 var unpacked = unpackCard(entry.userName, entry.userName);
-                rememberProfile(id, unpacked.name && unpacked.name.charAt(0) === '{' ? entry.userName : unpacked.name, unpacked.photo, unpacked.bio);
-                meta = profileOf(id, { name: entry.userName });
+                var entryName = unpacked.name && String(unpacked.name).charAt(0) === '{'
+                    ? String(entry.userName || '')
+                    : (unpacked.name || entry.userName || '');
+                if (String(id) === meId() || (entryName && entryName !== meName())) {
+                    rememberProfile(id, entryName, unpacked.photo, unpacked.bio);
+                }
+                meta = profileOf(id, extras);
+                meta.fallbackName = extras.name || extras.userName || entryName;
                 fillPreview(id, meta, hadRank ? extras.stats : statsFromEntry(entry));
             }
             return hadRank ? null : fetchPeerStats(id);
@@ -625,7 +730,10 @@
                 }
                 var row = e.target.closest('[data-peer]');
                 if (row && row.classList.contains('friend-row')) {
-                    openPeerPreview(row.getAttribute('data-peer'));
+                    openPeerPreview(row.getAttribute('data-peer'), {
+                        name: row.getAttribute('data-name') || '',
+                        force: true
+                    });
                 }
             });
         }
@@ -691,15 +799,65 @@
         }
     }
 
+    function applyAvatar(id, url) {
+        if (!id || !url) return;
+        if (url.indexOf('data:image/') !== 0 && url.indexOf('https://') !== 0) return;
+        rememberProfile(id, '', url, null);
+        var nodes = document.querySelectorAll('[data-avatar="' + id + '"]');
+        var i;
+        for (i = 0; i < nodes.length; i++) {
+            nodes[i].src = url;
+            nodes[i].style.display = '';
+            var next = nodes[i].nextSibling;
+            if (next && next.style) next.style.display = 'none';
+        }
+    }
+
+    function idsFromSocialLists() {
+        var out = [];
+        function add(list) {
+            (list || []).forEach(function (row) {
+                if (row && row.userId) out.push(row.userId);
+            });
+        }
+        add(friendCache.friends);
+        add(friendCache.incoming);
+        add(friendCache.outgoing);
+        if (previewTarget) out.push(previewTarget);
+        return out;
+    }
+
+    function fillPhotos(ids) {
+        var want = [];
+        var seen = {};
+        (ids || idsFromSocialLists()).forEach(function (id) {
+            id = String(id || '').replace(/[^0-9]/g, '');
+            if (!id || seen[id]) return;
+            seen[id] = true;
+            want.push(id);
+        });
+        if (!want.length || !gasUrl()) return Promise.resolve();
+        return fetchJson(gasUrl() + '?action=getPhotos&ids=' + encodeURIComponent(want.join(',')) + '&cb=' + Date.now()).then(function (data) {
+            if (!data || data.status !== 'ok' || !data.photos) return;
+            Object.keys(data.photos).forEach(function (id) {
+                applyAvatar(id, data.photos[id]);
+            });
+        }).catch(function () {});
+    }
+
     function openSocial() {
         bindUi();
         return publishMe().then(loadFriendState).then(function () {
             renderLists();
+            fillPhotos();
             if (socialTimer) clearInterval(socialTimer);
             socialTimer = setInterval(function () {
                 var screen = document.getElementById('social-screen');
                 if (!screen || !screen.classList.contains('active-screen')) return;
-                loadFriendState().then(renderLists);
+                loadFriendState().then(function () {
+                    renderLists();
+                    fillPhotos();
+                });
             }, 8000);
         });
     }
@@ -714,6 +872,7 @@
         publishMe: publishMe,
         paintMyBio: paintMyBio,
         ingestRows: ingestRows,
+        fillPhotos: fillPhotos,
         closePreview: closePeerPreview,
         previewBlocked: function () {
             var overlay = document.getElementById('peer-preview');
