@@ -197,7 +197,9 @@
         var params = new URLSearchParams({ action: action });
         extra = extra || {};
         Object.keys(extra).forEach(function (k) {
-            if (extra[k] != null && extra[k] !== '') params.set(k, String(extra[k]));
+            if (k === 'photo' || k === 'photo_url') return;
+            if (extra[k] == null) return;
+            params.set(k, String(extra[k]));
         });
         return fetchJson(gasUrl() + '?' + params.toString()).catch(function () { return null; });
     }
@@ -232,7 +234,6 @@
             userId: uid,
             name: meName(),
             userName: meName(),
-            photo: mePhoto(),
             bio: readMyBio()
         });
     }
