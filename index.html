@@ -3717,7 +3717,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
-    <script src="./friends.js?v=9"></script>
+    <script src="./friends.js?v=10"></script>
     <script>
 
 		function reedRememberTgUser(user) {
@@ -4498,13 +4498,11 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=128'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=129'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
         window.PAID_USERS_GAS_URL = PAID_USERS_GAS_URL;
-        const REED_BOT_WORKER = "https://bot.reededucation.net";
-        window.REED_BOT_WORKER = REED_BOT_WORKER;
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
         let quizPlayMode = 'practice';
@@ -9398,9 +9396,7 @@ function rankAvatarHtml(entry) {
     const name = rankDisplayName((entry && entry.userName) || 'A');
     const initial = String(name).charAt(0).toUpperCase();
     const id = String((entry && entry.userId) || '');
-    const stored = (window.REEDSocial && REEDSocial.photoFor && REEDSocial.photoFor(id))
-        || (window.REEDSocial && REEDSocial.photoUrlFor && REEDSocial.photoUrlFor(id))
-        || '';
+    const stored = (window.REEDSocial && REEDSocial.photoFor && REEDSocial.photoFor(id)) || '';
     const shown = stored ? '' : 'display:none';
     const src = stored ? (' src="' + stored.replace(/"/g, '') + '"') : '';
     return '<img class="leaderboard-avatar" data-avatar="' + id + '"' + src + ' alt="" referrerpolicy="no-referrer" style="' + shown + '" onerror="this.style.display=\'none\';if(this.nextSibling)this.nextSibling.style.display=\'flex\'"><div class="leaderboard-avatar"' + (stored ? ' style="display:none"' : '') + '>' + initial + '</div>';

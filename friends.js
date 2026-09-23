@@ -130,38 +130,20 @@
         return root.STATS_GAS_URL || '';
     }
 
-    function botWorker() {
-        return String(root.REED_BOT_WORKER || '').replace(/\/$/, '');
-    }
-
-    function photoUrlFor(id) {
-        var worker = botWorker();
-        id = String(id || '').replace(/[^0-9]/g, '');
-        if (!worker || !id) return '';
-        return worker + '/photo?id=' + encodeURIComponent(id);
-    }
-
     function socialGet(action, extra) {
         extra = extra || {};
         extra.action = action;
-        var worker = botWorker();
-        if (!worker) return Promise.resolve(null);
+        if (!gasUrl()) return Promise.resolve(null);
         var params = new URLSearchParams();
         Object.keys(extra).forEach(function (k) {
             if (k === 'photo' || k === 'photo_url' || k === 'fromPhoto') return;
             if (extra[k] == null) return;
             params.set(k, String(extra[k]));
         });
-        var qs = params.toString();
-        var urls = [worker + '/social?' + qs, worker + '?' + qs];
-        function next(i) {
-            if (i >= urls.length) return Promise.resolve(null);
-            return fetchJson(urls[i]).then(function (data) {
-                if (data && data.status === 'ok') return data;
-                return next(i + 1);
-            }).catch(function () { return next(i + 1); });
-        }
-        return next(0);
+        return fetchJson(gasUrl() + '?' + params.toString()).then(function (data) {
+            if (data && data.status === 'ok') return data;
+            return null;
+        }).catch(function () { return null; });
     }
 
     function packCard(name, photo, bio) {
@@ -199,10 +181,10 @@
         }
         var p = (friendCache.profiles && friendCache.profiles[String(id)]) || {};
         var name = p.name || fallback.name || fallback.userName || 'Student';
-        var photo = p.photo || fallback.photo || photoUrlFor(id);
+        var photo = p.photo || fallback.photo || '';
         if (name === meName()) name = fallback.name || fallback.userName || 'Student';
         if (name === meName()) name = 'Student';
-        if (photo && photo === mePhoto()) photo = photoUrlFor(id);
+        if (photo && photo === mePhoto()) photo = '';
         return {
             userId: String(id),
             name: name,
@@ -420,6 +402,11 @@
         var uid = meId();
         var id = String(otherId || '').replace(/[^0-9]/g, '');
         if (!uid || !id || id === uid) return Promise.resolve(friendCache);
+        if (op === 'request' && !listHas(friendCache.outgoing, id) && !listHas(friendCache.friends, id)) {
+            var meta = profileOf(id, { name: 'Student' });
+            friendCache.outgoing = (friendCache.outgoing || []).concat([meta]);
+            writeLocal(friendCache);
+        }
         return socialGet('friendOp', {
             op: op,
             friendOp: op,
@@ -892,11 +879,13 @@
             seen[id] = true;
             want.push(id);
         });
-        if (!want.length || !botWorker()) return Promise.resolve();
-        want.forEach(function (id) {
-            applyAvatar(id, photoUrlFor(id));
-        });
-        return Promise.resolve();
+        if (!want.length || !gasUrl()) return Promise.resolve();
+        return fetchJson(gasUrl() + '?action=getPhotos&ids=' + encodeURIComponent(want.join(',')) + '&cb=' + Date.now()).then(function (data) {
+            if (!data || data.status !== 'ok' || !data.photos) return;
+            Object.keys(data.photos).forEach(function (id) {
+                applyAvatar(id, data.photos[id]);
+            });
+        }).catch(function () {});
     }
 
     function openSocial() {
@@ -934,9 +923,8 @@
         },
         photoFor: function (id) {
             var p = profileOf(id);
-            return p.photo || photoUrlFor(id);
+            return p.photo || '';
         },
-        photoUrlFor: photoUrlFor,
         profileFor: profileOf
     };
 })(window);
