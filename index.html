@@ -1245,6 +1245,7 @@ body[data-theme] .container {
     font-size: 1rem;
     color: #000;
     flex-shrink: 0;
+    object-fit: cover;
 }
 .leaderboard-info {
     flex: 1;
@@ -3126,6 +3127,44 @@ body.volunteer-role .vol-report-link { display: block !important; }
     font-size: 1.3rem;
 }
 #peer-preview-name { margin: 0; color: #EAECEF; font-size: 1.05rem; }
+.peer-bio, .profile-bio {
+    color: #94A3B8;
+    font-size: 0.85rem;
+    margin: 4px auto 0;
+    max-width: 280px;
+    line-height: 1.35;
+}
+.profile-bio.is-empty { color: #64748B; font-style: italic; }
+.profile-bio-edit {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 0.78rem;
+    margin: 6px 0 8px;
+    cursor: pointer;
+}
+#profile-bio-editor {
+    margin: 0 auto 10px;
+    max-width: 280px;
+}
+#profile-bio-input {
+    width: 100%;
+    background: #0B0E11;
+    border: 1px solid #2B3139;
+    color: #EAECEF;
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    resize: none;
+}
+.friend-row-bio {
+    color: #94A3B8;
+    font-size: 0.75rem;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 #peer-preview-id { color: #848E9C; font-size: 0.82rem; margin: 4px 0 12px; }
 .peer-preview-stats {
     display: grid;
@@ -3206,6 +3245,12 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <img id="profile-avatar" alt="" class="hide">
                 <div id="profile-avatar-fallback" aria-hidden="true">?</div>
                 <h2 id="user-name" style="margin: 10px 0 5px;">Scholar</h2>
+                <p id="user-bio" class="profile-bio is-empty">Add a short bio</p>
+                <button type="button" class="profile-bio-edit" id="profile-bio-edit">Edit bio</button>
+                <div id="profile-bio-editor" hidden>
+                    <textarea id="profile-bio-input" maxlength="80" rows="2" placeholder="Short bio (80 letters)"></textarea>
+                    <button type="button" class="btn social-mini-btn" id="profile-bio-save">Save</button>
+                </div>
                 <p id="volunteer-chip" class="vol-chip">REED Volunteer</p>
                 <p id="user-id-text" style="color: #94A3B8; margin-bottom: 10px;"></p>
                 </div>
@@ -3631,6 +3676,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         <div class="peer-preview-hero">
             <div id="peer-preview-avatar"></div>
             <h3 id="peer-preview-name">Student</h3>
+            <p id="peer-preview-bio" class="peer-bio" hidden></p>
             <p id="peer-preview-id"></p>
         </div>
         <div class="peer-preview-stats">
@@ -3662,7 +3708,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
-    <script src="./friends.js?v=1"></script>
+    <script src="./friends.js?v=2"></script>
     <script>
 
 		function reedRememberTgUser(user) {
@@ -4443,7 +4489,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=119'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=120'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -4538,6 +4584,7 @@ function onStatsGradeClick(grade) {
 function isRankableQuizFile(fileName) {
     if (!fileName) return false;
     if (fileName.startsWith('daily_')) return false;
+    if (String(fileName).indexOf('__soc_') === 0) return false;
     if (isMyanmarIndividualQuiz(fileName)) return false;
     if (isSubChapter(fileName)) return false;
     return true;
@@ -4812,7 +4859,7 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
     keys = keys.filter(key => {
         const item = bestScoresObj[key];
         const isOld = item.isOld || key.startsWith('old_');
-        const isDaily = key.startsWith('daily_');
+        const isDaily = key.startsWith('daily_') || key.startsWith('__soc_');
         if (filterOld) return isOld;
         return !isOld && !isDaily;
     });
@@ -4926,7 +4973,7 @@ async function loadUserStats() {
            const keys = Object.keys(bestScoresObj).filter(key => {
         const item = bestScoresObj[key];
         const isOld = item.isOld || key.startsWith('old_');
-        const isDaily = key.startsWith('daily_');
+        const isDaily = key.startsWith('daily_') || key.startsWith('__soc_');
         const sub = item.subject || 'unknown';
         return !isOld && !isDaily && !isSubChapter(key) && !isMyanmarIndividualQuiz(key) && scoreBelongsToGrade(item, key, getStatsGrade()) && steamKeepsSubject(sub);
     });
@@ -8184,6 +8231,10 @@ function goTab(id) {
     if(id === 'profile') {
         renderProfileData();
         updateCountdown();
+        if (window.REEDSocial) {
+            REEDSocial.paintMyBio();
+            REEDSocial.publishMe();
+        }
     }
     if(id === 'articles') loadArticlesIndex();
     if(id === 'stats') {
@@ -8194,8 +8245,8 @@ function goTab(id) {
     }
     if(id === 'social') {
         syncStatsGradePicker(getSelectedGrade());
-        if (window.REEDSocial) REEDSocial.open();
-        loadLeaderboard();
+        var socialReady = window.REEDSocial ? REEDSocial.open() : Promise.resolve();
+        Promise.resolve(socialReady).then(function () { loadLeaderboard(); });
     }
     if(id === 'time') openTimetableTab();
     if(id === 'post') {
@@ -8290,6 +8341,7 @@ function renderProfileData() {
     // UI Elements များကို သတ်မှတ်ခြင်း
     document.getElementById('user-name').innerText = volunteer ? (userName + ' · Volunteer') : userName;
     applyProfilePhoto(user);
+    if (window.REEDSocial) REEDSocial.paintMyBio();
     
     // --- 📋 ID ကို နှိပ်လိုက်လျှင် Copy ကူးမည့် စနစ် ---
     const idTextElement = document.getElementById('user-id-text');
@@ -8685,6 +8737,10 @@ window.onload = () => {
     document.body.setAttribute('data-theme', savedTheme);
     
     maybeBeginnerGuide();
+    if (window.REEDSocial) {
+        REEDSocial.paintMyBio();
+        REEDSocial.publishMe();
+    }
 };
        
 		// နေ့စဉ် Quote ပြောင်းလဲရန် Logic
@@ -9170,6 +9226,7 @@ function buildRankEntries(rows, opts) {
     const filteredRows = (rows || []).filter(function (row) {
         const qf = row.quizFile || '';
         if (qf.startsWith('daily_')) return false;
+        if (qf.indexOf('__soc_') === 0) return false;
         if (isMyanmarIndividualQuiz(qf)) return false;
         if (isSubChapter(qf)) return false;
         if (subject !== 'all' && row.subject !== subject) return false;
@@ -9311,6 +9368,16 @@ async function loadLeaderboard() {
     }
 }
 		
+function rankAvatarHtml(entry) {
+    const name = (entry && entry.userName) || 'A';
+    const initial = name.charAt(0).toUpperCase();
+    const photo = (window.REEDSocial && REEDSocial.photoFor && REEDSocial.photoFor(entry.userId)) || '';
+    if (photo) {
+        return '<img class="leaderboard-avatar" src="' + String(photo).replace(/"/g, '') + '" alt="" referrerpolicy="no-referrer" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'"><div class="leaderboard-avatar" style="display:none">' + initial + '</div>';
+    }
+    return '<div class="leaderboard-avatar">' + initial + '</div>';
+}
+
 function bindPeerRow(div, entry, rank) {
     if (!div || !entry || !entry.userId) return;
     div.setAttribute('role', 'button');
@@ -9374,7 +9441,7 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
         
         div.innerHTML = `
             <div class="leaderboard-rank ${rankClass}">${rank}</div>
-            <div class="leaderboard-avatar">${nameInitial}</div>
+            ${rankAvatarHtml(entry)}
             <div class="leaderboard-info">
                 <div class="leaderboard-name">${displayName}</div>
                 <div class="leaderboard-meta">
@@ -9408,7 +9475,7 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
         
         div.innerHTML = `
             <div class="leaderboard-rank rank-other">${myRank}</div>
-            <div class="leaderboard-avatar">${nameInitial}</div>
+            ${rankAvatarHtml(me)}
             <div class="leaderboard-info">
                 <div class="leaderboard-name">${displayName}</div>
                 <div class="leaderboard-meta">
