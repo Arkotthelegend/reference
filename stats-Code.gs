@@ -1,6 +1,11 @@
 /**
  * Statistics / Rank Google Apps Script
  * ------------------------------------------------
+ * TO DELETE SOCIAL JUNK ROWS:
+ *   Easiest: on the spreadsheet click REED → Clear social junk from scores
+ *   Or here: function dropdown → resetSocialScoreJunk → Run
+ *   (▶ Run with doGet selected from this editor also cleans now)
+ *
  * Paste this into the EXISTING analysis/stats Apps Script
  * (the one behind STATS_GAS_URL), then Deploy → New version.
  * Keep the same Web App URL so old scores stay connected.
@@ -47,6 +52,8 @@ function doGet(e) {
   var p = (e && e.parameter) || {};
   var action = String(p.action || '');
   try {
+    // Editor ▶ Run of doGet has no event. Clean the bound spreadsheet.
+    if (!e && !action) return json_(resetSocialScoreJunk());
     if (action === 'saveScore') return json_(saveScore_(p));
     if (action === 'getStats') return json_(getStats_(p));
     if (action === 'getLeaderboard') return json_(getLeaderboard_(p));
@@ -287,21 +294,30 @@ function onOpen() {
 
 function resetSocialScoreJunk() {
   try { PropertiesService.getScriptProperties().deleteProperty('purgedSocRows'); } catch (e1) {}
+  var ss = scoreWorkbook_();
+  if (!ss) {
+    var fail = 'Open this script from the scores spreadsheet (Extensions → Apps Script), then run resetSocialScoreJunk.';
+    Logger.log(fail);
+    try { SpreadsheetApp.getUi().alert(fail); } catch (e0) {}
+    return { status: 'error', message: fail };
+  }
   var res = purgeSocialScoreRows_();
   try { friendsSheet_(); } catch (e2) {}
   try { profilesSheet_(); } catch (e3) {}
+  try { SpreadsheetApp.flush(); } catch (e5) {}
   var n = res && res.removed ? res.removed : 0;
   var msg = n
     ? ('Removed ' + n + ' social rows from the score tabs. Quiz marks were kept. Friends/Profiles tabs are ready.')
     : 'No social rows left on the score tabs. Quiz marks were not changed.';
+  Logger.log(msg);
   try { SpreadsheetApp.getUi().alert(msg); } catch (e4) {}
   return { status: 'ok', removed: n, message: msg };
 }
 
 function isSocialScoreRow_(quizFile, subject) {
   var qf = String(quizFile || '');
-  var sub = String(subject || '').toLowerCase();
-  if (qf.indexOf('__soc_') !== -1) return true;
+  var sub = String(subject || '').toLowerCase().trim();
+  if (qf.indexOf('__soc_') !== -1 || qf.indexOf('_soc_') !== -1) return true;
   if (sub === 'social') return true;
   return false;
 }
@@ -309,18 +325,20 @@ function isSocialScoreRow_(quizFile, subject) {
 function rowIsSocialJunk_(row) {
   var i;
   for (i = 0; i < row.length; i++) {
-    var s = String(row[i] == null ? '' : row[i]);
-    if (s.indexOf('__soc_') !== -1) return true;
-    if (s.toLowerCase() === 'social') return true;
-    if (s.charAt(0) === '{' && s.indexOf('"n":') !== -1) return true;
+    var s = String(row[i] == null ? '' : row[i]).trim();
+    var low = s.toLowerCase();
+    if (s.indexOf('__soc_') !== -1 || s.indexOf('_soc_') !== -1) return true;
+    if (low === 'social') return true;
+    if (s.charAt(0) === '{' && (s.indexOf('"n"') !== -1 || s.indexOf("'n'") !== -1)) return true;
   }
   return false;
 }
 
 function scoreWorkbook_() {
-  return SPREADSHEET_ID
-    ? SpreadsheetApp.openById(SPREADSHEET_ID)
-    : SpreadsheetApp.getActiveSpreadsheet();
+  var active = SpreadsheetApp.getActiveSpreadsheet();
+  if (active) return active;
+  if (SPREADSHEET_ID) return SpreadsheetApp.openById(SPREADSHEET_ID);
+  return null;
 }
 
 function purgeSocialScoreRows_() {
