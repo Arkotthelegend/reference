@@ -3,456 +3,456 @@
     "type": "tf",
     "q": "Vectors can be multiplied in two different ways: the scalar product and the vector product.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက vector multiplication အတွက် definition ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ စက်ဘီးလက်ကိုင်ကို လှည့်ရင် force နဲ့ r က လေယာဉ်နှစ်ခုပေါ်၊ ရလဒ်က ဒေါင်လိုက် vector ပဲ။ cross product က ထောင့်မှန်ဦးတည်ချက်ရှိတဲ့ vector ထုတ်ပြီး A×B = −(B×A) ဖြစ်တယ်။"
   },
   {
     "type": "tf",
     "q": "Vectors can be multiplied in three different ways: the scalar product, the vector product, and the tensor product.",
     "c": "false",
-    "e": "မှားတယ်။ vectors ကို နည်းနှစ်မျိုးနဲ့ မြှောက်နိုင်တယ်။ : scalar product နဲ့ vector product။"
+    "e": "မှားတယ်။ သံတုံးကို ဂျုံကြိတ်ရင် A×B က A,B နှစ်ခုလုံးနဲ့ ထောင့်မှန်တဲ့ ဦးတည်ချက်ထွက်တယ်။ cross product က ထောင့်မှန်ဦးတည်ချက်ရှိတဲ့ vector ထုတ်ပြီး A×B = −(B×A) ဖြစ်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "In the scalar product, a scalar can be formed by multiplying two vectors.",
     "c": "true",
-    "e": "မှန်တယ်။ Scalar product က vector နှစ်ခုမှ scalar quantity ရတယ်။"
+    "e": "မှန်တယ်။ စားပွဲကို နှစ်ယောက်ဆွဲရင် တူညီတဲ့လမ်းဆွဲမှ အလုပ်များတယ်၊ ထောင့်ကြီးရင် cosine လျော့တယ်။ dot product က ဦးတည်ချက်နှစ်ခု ဘယ်လောက်ထပ်သလဲကို ဂဏန်းတစ်လုံး (scalar) ထုတ်တယ်။"
   },
   {
     "type": "tf",
     "q": "In the scalar product, a vector can be formed by multiplying two vectors.",
     "c": "false",
-    "e": "မှားတယ်။ Vector နှစ်ခု မြှောက်သောအခါ scalar product က scalar ရပြီး vector မဟုတ်ပါဘူး။"
+    "e": "မှားတယ်။ ကျောင်းအိတ်ကို ရှေ့ဆွဲရင် force ရဲ့ displacement နဲ့ ထပ်တူအပိုင်းကသာ work ဖြစ်တယ်။ dot product က ဦးတည်ချက်နှစ်ခု ဘယ်လောက်ထပ်သလဲကို ဂဏန်းတစ်လုံး (scalar) ထုတ်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The scalar product of vectors $\\vec{A}$ and $\\vec{B}$ is defined as $\\vec{A} \\cdot \\vec{B} = AB \\cos \\theta$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက scalar (dot) product ရဲ့ standard mathematical definition ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ဖုန်းအားသွင်းကြိုးကို တည့်တည့်ဆွဲမှ ဆွဲအားရ၊ ဘေးထောင့်ဆွဲရင် အကျိုးနည်းတယ်။ dot product က ဦးတည်ချက်နှစ်ခု ဘယ်လောက်ထပ်သလဲကို ဂဏန်းတစ်လုံး (scalar) ထုတ်တယ်။"
   },
   {
     "type": "tf",
     "q": "The scalar product of vectors $\\vec{A}$ and $\\vec{B}$ is defined as $\\vec{A} \\cdot \\vec{B} = AB \\sin \\theta$.",
     "c": "false",
-    "e": "မှားတယ်။ Scalar product မှာ $\\cos \\theta$ သုံးပြီး vector product မှာ $\\sin \\theta$ သုံးတယ်။"
+    "e": "မှားတယ်။ ဘောလုံးကို ရှေ့တွန်းရင် တွန်းအားနဲ့ ရွေ့လမ်း တူမှ scalar product က ကြီးတယ်။ dot product က ဦးတည်ချက်နှစ်ခု ဘယ်လောက်ထပ်သလဲကို ဂဏန်းတစ်လုံး (scalar) ထုတ်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "In the equation $\\vec{A} \\cdot \\vec{B} = AB \\cos \\theta$, $\\theta$ is the angle between $\\vec{A}$ and $\\vec{B}$.",
     "c": "true",
-    "e": "မှန်တယ်။ $\\theta$ က မြှောက်နေသော vector နှစ်ခုကြား angle ကို ကိုယ်စားပြုတယ်။"
+    "e": "မှန်တယ်။ ရေပိုက်က ရေထွက်ရင် ရှေ့ရောက်သလို ကျဆင်းတယ်၊ မျက်နှာပြင် (plane) ပေါ်က လမ်းကြောင်းပဲ။ ရှေ့ရော အပေါ်ရော တစ်ပြိုင်နက်ရွေ့မှ two-dimensional motion လို့ခေါ်တယ်။"
   },
   {
     "type": "tf",
     "q": "The scalar product is also called the dot product.",
     "c": "true",
-    "e": "မှန်တယ်။ scalar product နဲ့ dot product က အပြန်အလှန် သုံးနိုင်သော စကားလုံးများဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ကျောင်းအိတ်ကို ရှေ့ဆွဲရင် force ရဲ့ displacement နဲ့ ထပ်တူအပိုင်းကသာ work ဖြစ်တယ်။ dot product က ဦးတည်ချက်နှစ်ခု ဘယ်လောက်ထပ်သလဲကို ဂဏန်းတစ်လုံး (scalar) ထုတ်တယ်။"
   },
   {
     "type": "tf",
     "q": "The scalar product is also called the cross product.",
     "c": "false",
-    "e": "မှားတယ်။ Scalar product ကို dot product ဟု ခေါ်ပြီး vector product ကို cross product လို့ ခေါ်တယ်။"
+    "e": "မှားတယ်။ စက်ဘီးလက်ကိုင်ကို လှည့်ရင် force နဲ့ r က လေယာဉ်နှစ်ခုပေါ်၊ ရလဒ်က ဒေါင်လိုက် vector ပဲ။ cross product က ထောင့်မှန်ဦးတည်ချက်ရှိတဲ့ vector ထုတ်ပြီး A×B = −(B×A) ဖြစ်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "Work is the scalar product of force and displacement.",
     "c": "true",
-    "e": "မှန်တယ်။ Force နဲ့ displacement က vectors ဖြစ်သော်လည်း ၎င်းတို့ရဲ့ scalar product (work) က scalar ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ဘောလုံးကန်ပြီး ရွှေ့သွားမှ force က displacement ပေါ် အလုပ်လုပ်တယ်။ အားပေးပြီး တကယ်ရွှေ့မှ work ဖြစ်တယ်၊ W = Fs cosθ ဆိုတဲ့ scalar ပဲ။"
   },
   {
     "type": "tf",
     "q": "Work is the vector product of force and displacement.",
     "c": "false",
-    "e": "မှားတယ်။ Work က force နဲ့ displacement ရဲ့ scalar product ဖြစ်ပြီး vector product မဟုတ်ပါဘူး။"
+    "e": "မှားတယ်။ ကျောင်းအိတ်ကို ကြမ်းပြင်ပေါ်ဆွဲမှ work ဖြစ်တယ်၊ မရွှေ့ဘဲ ကိုင်ထားရင် work မရှိဘူး။ အားပေးပြီး တကယ်ရွှေ့မှ work ဖြစ်တယ်၊ W = Fs cosθ ဆိုတဲ့ scalar ပဲ။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The scalar product has the commutative property as described by $\\vec{A} \\cdot \\vec{B} = \\vec{B} \\cdot \\vec{A}$.",
     "c": "true",
-    "e": "မှန်တယ်။ Scalar product မှာ vectors ရဲ့ အစဉ်က ရလဒ်ကို မပြောင်းပါ။"
+    "e": "မှန်တယ်။ ကျောင်းအိတ်ကို ရှေ့ဆွဲရင် force ရဲ့ displacement နဲ့ ထပ်တူအပိုင်းကသာ work ဖြစ်တယ်။ A·B နဲ့ B·A က တူတယ်၊ ဆွဲအားနှစ်ခုရဲ့ ထောင့်က တူတူပဲ။"
   },
   {
     "type": "tf",
     "q": "The vector product of vectors $\\vec{A}$ and $\\vec{B}$ is defined as $\\vec{A} \\times \\vec{B} = \\vec{C}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက vector (cross) product ရဲ့ standard definition ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ သံတုံးကို ဂျုံကြိတ်ရင် A×B က A,B နှစ်ခုလုံးနဲ့ ထောင့်မှန်တဲ့ ဦးတည်ချက်ထွက်တယ်။ cross product က ထောင့်မှန်ဦးတည်ချက်ရှိတဲ့ vector ထုတ်ပြီး A×B = −(B×A) ဖြစ်တယ်။"
   },
   {
     "type": "tf",
     "q": "The magnitude of $\\vec{C}$ in the vector product $\\vec{A} \\times \\vec{B} = \\vec{C}$ is $C = AB \\cos \\theta$.",
     "c": "false",
-    "e": "မှားတယ်။ Vector product ရဲ့ magnitude က $C = AB \\sin \\theta$ ဖြစ်တယ်။"
+    "e": "မှားတယ်။ သံတုံးကို ဂျုံကြိတ်ရင် A×B က A,B နှစ်ခုလုံးနဲ့ ထောင့်မှန်တဲ့ ဦးတည်ချက်ထွက်တယ်။ အရွယ်အစားက AB sinθ၊ ထောင့်မှန်ဆွဲမှ အကြီးဆုံးရတယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The direction of $\\vec{C}$ in a vector product is determined by using the right-hand rule.",
     "c": "true",
-    "e": "မှန်တယ်။ Cross product ရဲ့ direction ရှာရန် right-hand rule ကို တိုက်ရိုက် သုံးတယ်။"
+    "e": "မှန်တယ်။ တံခါးလက်ကိုက်ကို ဘေးတိုက်တွန်းမှ လှည့်တယ်၊ တည့်တည့်ဖိရင် မလှည့်ဘူး။ ညာလက် စည်းက လက်ညှိုး A၊ လက်ခလယ် B၊ လက်မက A×B ဦးတည်ချက်ပဲ။"
   },
   {
     "type": "tf",
     "q": "The direction of $\\vec{C}$ is parallel to the plane that contains $\\vec{A}$ and $\\vec{B}$.",
     "c": "false",
-    "e": "မှားတယ်။ $\\vec{C}$ ရဲ့ direction က $\\vec{A}$ နဲ့ $\\vec{B}$ ပါသော plane နဲ့ perpendicular ဖြစ်တယ်။"
+    "e": "မှားတယ်။ စက်ဘီးကွေ့ရင် ရှေ့သွားသလို ဘေးကိုလည်း ရွှေ့တယ်၊ ၂ ဦးတည်ချက် တစ်ပြိုင်နက်ပဲ။ ရှေ့ရော အပေါ်ရော တစ်ပြိုင်နက်ရွေ့မှ two-dimensional motion လို့ခေါ်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The result of the vector product is a vector quantity.",
     "c": "true",
-    "e": "မှန်တယ်။ Scalar product နဲ့ မတူဘဲ vector product က vector ရတယ်။"
+    "e": "မှန်တယ်။ တံခါးလက်ကိုက်ကို ဘေးတိုက်တွန်းမှ လှည့်တယ်၊ တည့်တည့်ဖိရင် မလှည့်ဘူး။ cross product က ထောင့်မှန်ဦးတည်ချက်ရှိတဲ့ vector ထုတ်ပြီး A×B = −(B×A) ဖြစ်တယ်။"
   },
   {
     "type": "tf",
     "q": "The vector product between two vectors is denoted by a cross ($\\times$), hence this product is called the cross product.",
     "c": "true",
-    "e": "မှန်တယ်။ Cross symbol က vector product ကို ပြောတာပါ။"
+    "e": "မှန်တယ်။ ဝက်အူလှည့်ရင် လက်ညှိုး-လက်ခလယ်-လက်မ ညာလက်စည်းက ဦးတည်ချက်ပြတယ်။ cross product က ထောင့်မှန်ဦးတည်ချက်ရှိတဲ့ vector ထုတ်ပြီး A×B = −(B×A) ဖြစ်တယ်။"
   },
   {
     "type": "tf",
     "q": "The vector product obeys the commutative property as $\\vec{A} \\times \\vec{B} = \\vec{B} \\times \\vec{A}$.",
     "c": "false",
-    "e": "မှားတယ်။ Vector product က commutative property မလိုက်နာပါ; $\\vec{A} \\times \\vec{B} = -(\\vec{B} \\times \\vec{A})$။"
+    "e": "မှားတယ်။ တံခါးလက်ကိုက်ကို ဘေးတိုက်တွန်းမှ လှည့်တယ်၊ တည့်တည့်ဖိရင် မလှည့်ဘူး။ cross product က ထောင့်မှန်ဦးတည်ချက်ရှိတဲ့ vector ထုတ်ပြီး A×B = −(B×A) ဖြစ်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The formulae for the torque and the angular velocity are determined by using the vector product.",
     "c": "true",
-    "e": "မှန်တယ်။ Torque နဲ့ angular velocity ဆက်သွယ်မှုတွေက vector (cross) product ပေါ် မူတည်တယ်။"
+    "e": "မှန်တယ်။ စားသောက်ဆိုင်က ဇွန်းနဲ့ အဖုံးဖွင့်ရင် လက်ကိုင်ရှည်မှ moment arm ကြီးပြီး လှည့်အားများတယ်။ လှည့်အား torque က force ကို ပတ္တာက ဘယ်လိုလက်မကပ်သလဲပေါ်မူတည်တယ်။"
   },
   {
     "type": "tf",
     "q": "To use the right-hand rule, first you have to hold up your right hand so that index finger and middle finger are perpendicular to thumb.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက right-hand rule တပ်ဆင်ပုံရဲ့ physical ချက်ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ စက်ဘီးလက်ကိုင်ကို လှည့်ရင် force နဲ့ r က လေယာဉ်နှစ်ခုပေါ်၊ ရလဒ်က ဒေါင်လိုက် vector ပဲ။ ညာလက် စည်းက လက်ညှိုး A၊ လက်ခလယ် B၊ လက်မက A×B ဦးတည်ချက်ပဲ။"
   },
   {
     "type": "tf",
     "q": "In the right-hand rule, your index finger points in the direction of $\\vec{B}$ and your middle finger points in the direction of $\\vec{A}$.",
     "c": "false",
-    "e": "မှားတယ်။ Index finger က $\\vec{A}$ ရဲ့ direction ကို ညွှန်ပြီး middle finger က $\\vec{B}$ ရဲ့ direction ကို ညွှန်တယ်။"
+    "e": "မှားတယ်။ သံတုံးကို ဂျုံကြိတ်ရင် A×B က A,B နှစ်ခုလုံးနဲ့ ထောင့်မှန်တဲ့ ဦးတည်ချက်ထွက်တယ်။ ညာလက် စည်းက လက်ညှိုး A၊ လက်ခလယ် B၊ လက်မက A×B ဦးတည်ချက်ပဲ။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "In the right-hand rule, your thumb will point in the direction of the cross product $\\vec{A} \\times \\vec{B}$.",
     "c": "true",
-    "e": "မှန်တယ်။ Thumb က vector product ရဲ့ ရလဒ် direction ကို ပြတယ်။"
+    "e": "မှန်တယ်။ ဝက်အူလှည့်ရင် လက်ညှိုး-လက်ခလယ်-လက်မ ညာလက်စည်းက ဦးတည်ချက်ပြတယ်။ ညာလက် စည်းက လက်ညှိုး A၊ လက်ခလယ် B၊ လက်မက A×B ဦးတည်ချက်ပဲ။"
   },
   {
     "type": "tf",
     "q": "When a force is applied to an object, it can turn the object about a certain point known as the pivot or the fulcrum.",
     "c": "true",
-    "e": "မှန်တယ်။ Pivot သို့မဟုတ် fulcrum က turning effect ဖြစ်သော point ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ မြှောက်စက်ထိုင်ခုံ နှစ်ဖက်အလေးချိန် ညီမှ ရပ်တယ်၊ clockwise နဲ့ anticlockwise moment ညီရမယ်။ မလှုပ်မလည်ချင်ရင် အားပေါင်းသုည၊ torque ပေါင်းသုည နှစ်ခုလုံးလိုတယ်။"
   },
   {
     "type": "tf",
     "q": "The turning effect of a force about a particular fulcrum is measured by the moment of that force or torque.",
     "c": "true",
-    "e": "မှန်တယ်။ Moment of force နဲ့ torque က turning effect ရဲ့ တိုင်းတာမှုများဖြစ်တယ်။"
+    "e": "မှန်တယ်။ စက်ဘီးနင်းတံကို ဒေါင်လိုက်နင်းမှ torque အများဆုံး၊ ဘေးစောင်းနင်းရင် လျော့တယ်။ လှည့်အား torque က force ကို ပတ္တာက ဘယ်လိုလက်မကပ်သလဲပေါ်မူတည်တယ်။"
   },
   {
     "type": "tf",
     "q": "Torque is a scalar quantity.",
     "c": "false",
-    "e": "မှားတယ်။ Torque မှာ magnitude နဲ့ direction နှစ်ခုလုံးရှိသောကြောင့် vector quantity ဖြစ်တယ်။"
+    "e": "မှားတယ်။ ကလေးမြှောက်စက်မှာ ထိုင်ခုံဝေးရင် ကိုယ်အလေးချိန်က လှည့်အားပိုပေးတယ်။ လှည့်အား torque က force ကို ပတ္တာက ဘယ်လိုလက်မကပ်သလဲပေါ်မူတည်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The vector form of torque can be expressed as $\\vec{\\tau} = \\vec{r} \\times \\vec{F}$.",
     "c": "true",
-    "e": "မှန်တယ်။ Torque က position vector နဲ့ force vector ရဲ့ cross product ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ တံခါးကို ကိုက်နားက တွန်းရင် လှည့်လွယ်တယ်၊ ပတ္တာနားက တွန်းရင် လေးတယ်။ ဦးတည်ချက်ပါလို့ τ = r × F ဆိုတဲ့ vector ပုံစံပဲ။"
   },
   {
     "type": "tf",
     "q": "The direction of torque is parallel to both $\\vec{r}$ and $\\vec{F}$.",
     "c": "false",
-    "e": "မှားတယ်။ Torque ရဲ့ direction က $\\vec{r}$ နဲ့ $\\vec{F}$ နှစ်ခုလုံးနဲ့ perpendicular ဖြစ်တယ်။"
+    "e": "မှားတယ်။ စားသောက်ဆိုင်က ဇွန်းနဲ့ အဖုံးဖွင့်ရင် လက်ကိုင်ရှည်မှ moment arm ကြီးပြီး လှည့်အားများတယ်။ လှည့်အား torque က force ကို ပတ္တာက ဘယ်လိုလက်မကပ်သလဲပေါ်မူတည်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The magnitude of the moment of force or torque $\\tau$ is defined as the product of the force $F$ and the perpendicular distance $d$ from the line of action of the force to the fulcrum.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက torque ရဲ့ magnitude အတွက် definition ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ကလေးမြှောက်စက်မှာ ထိုင်ခုံဝေးရင် ကိုယ်အလေးချိန်က လှည့်အားပိုပေးတယ်။ လှည့်အား torque က force ကို ပတ္တာက ဘယ်လိုလက်မကပ်သလဲပေါ်မူတည်တယ်။"
   },
   {
     "type": "tf",
     "q": "The equation for the magnitude of torque is $\\tau = Fr \\cos \\theta = Fd$.",
     "c": "false",
-    "e": "မှားတယ်။ Torque ရဲ့ magnitude အတွက် equation မှာ $\\tau = Fr \\sin \\theta = Fd$ ဖြစ်တယ်။"
+    "e": "မှားတယ်။ တံခါးကို ကိုက်နားက တွန်းရင် လှည့်လွယ်တယ်၊ ပတ္တာနားက တွန်းရင် လေးတယ်။ လှည့်အား torque က force ကို ပတ္တာက ဘယ်လိုလက်မကပ်သလဲပေါ်မူတည်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The perpendicular distance from the line of action of the force to the fulcrum ($d = r \\sin \\theta$) is also called the moment arm of a force.",
     "c": "true",
-    "e": "မှန်တယ်။ Moment arm က fulcrum သို့ perpendicular distance ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ တံခါးကို ကိုက်နားက တွန်းရင် လှည့်လွယ်တယ်၊ ပတ္တာနားက တွန်းရင် လေးတယ်။ လှည့်အား torque က force ကို ပတ္တာက ဘယ်လိုလက်မကပ်သလဲပေါ်မူတည်တယ်။"
   },
   {
     "type": "tf",
     "q": "The line of action of a force is a line along which a force is considered to act.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက force ရဲ့ line of action အတွက် ရဲ့ definition ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ကစားကွင်းထဲ ဘောလုံးကန်ရင် ရှေ့ကိုသွားသလို အပေါ်ကိုလည်း ပျံတယ်၊ x နဲ့ y နှစ်ခုပါ။ ရှေ့ရော အပေါ်ရော တစ်ပြိုင်နက်ရွေ့မှ two-dimensional motion လို့ခေါ်တယ်။"
   },
   {
     "type": "tf",
     "q": "If a force acting on the object is at an angle of $90^{\\circ}$, $r$ equals zero.",
     "c": "false",
-    "e": "မှားတယ်။ Force က $90^{\\circ}$ မှာ ရှိလျှင် $r$ က $d$ နဲ့ ညီက (moment arm က distance နဲ့ ညီသည်)။"
+    "e": "မှားတယ်။ ကစားကွင်းထဲ ဘောလုံးကန်ရင် ရှေ့ကိုသွားသလို အပေါ်ကိုလည်း ပျံတယ်၊ x နဲ့ y နှစ်ခုပါ။ ရှေ့ရော အပေါ်ရော တစ်ပြိုင်နက်ရွေ့မှ two-dimensional motion လို့ခေါ်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "In SI units, the moment of force or torque is measured in newton metre (N m).",
     "c": "true",
-    "e": "မှန်တယ်။ Newton metre က torque အတွက် SI unit ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ တံခါးကို ကိုက်နားက တွန်းရင် လှည့်လွယ်တယ်၊ ပတ္တာနားက တွန်းရင် လေးတယ်။ လှည့်အား torque က force ကို ပတ္တာက ဘယ်လိုလက်မကပ်သလဲပေါ်မူတည်တယ် ဒီမေးခွန်းရဲ့ အချက်က သီးသန့်ပုံ 33 ပဲ။"
   },
   {
     "type": "tf",
     "q": "The unit newton metre (N m) for torque can be interchangeably written as joule.",
     "c": "false",
-    "e": "မှားတယ်။ torque အတွက် newton metre ကို joule ဟု မရေးကြောင်း တိုက်ရိုက်။"
+    "e": "မှားတယ်။ စက်ဘီးနင်းတံကို ဒေါင်လိုက်နင်းမှ torque အများဆုံး၊ ဘေးစောင်းနင်းရင် လျော့တယ်။ လှည့်အား torque က force ကို ပတ္တာက ဘယ်လိုလက်မကပ်သလဲပေါ်မူတည်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The tangential acceleration of a particle rotating about an axis is $a = r\\alpha$.",
     "c": "true",
-    "e": "မှန်တယ်။ Tangential acceleration က radius နဲ့ angular acceleration မြှောက်ခြင်းဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ကြိုးစွဲဘောလုံးလည်ရင် ကြိုးက ဆွဲအား (tension) ပေးပြီး စက်ဝိုင်းလမ်းကြောင်းထိန်းတယ်။ စက်ဝိုင်းပတ်ရင် အရှိန်တူနေရင်တောင် ဦးတည်ချက်အမြဲပြောင်းလို့ velocity မတည်ငြိမ်ဘူး ဒီမေးခွန်းရဲ့ အချက်က သီးသန့်ပုံ 35 ပဲ။"
   },
   {
     "type": "tf",
     "q": "According to Newton's second law, the force on a rotating particle is $F = ma = mr\\omega$.",
     "c": "false",
-    "e": "မှားတယ်။ Rotation အတွက် Newton's second law အရ $F = ma = mr\\alpha$။"
+    "e": "မှားတယ်။ ပီဇာတစ်ချပ်လှည့်ရင် ထောင့်ပြောင်းတာကို arc အလျားကို radius နဲ့ စားမှ radian ရတယ်။ ထောင့်ပြောင်းတာကို arc/radius နဲ့ တိုင်းပြီး SI မှာ radian သုံးတယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The torque due to tangential force is $\\tau = Fr = (mr\\alpha)r = mr^2\\alpha$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီ derivation က torque၊ mass၊ radius နဲ့ angular acceleration ဆက်သွယ်မှုကို ပြတယ်။"
+    "e": "မှန်တယ်။ တုတ်ကို အလယ်က ကိုင်လှည့်ရင် အဖျားက ကိုင်လှည့်တာထက် I သေးတယ်။ ဒြပ်တွေ ဝင်ရိုးက ဝေးလေ လည်ဖို့ ခက်လေ၊ I က Σmr² ပဲ။"
   },
   {
     "type": "tf",
     "q": "In the equation $\\tau = I\\alpha$, the term $I = mr$ is the moment of inertia of that particle about the axis.",
     "c": "false",
-    "e": "မှားတယ်။ Particle ရဲ့ moment of inertia က $I = mr^2$ ဖြစ်ပြီး $mr$ မဟုတ်ပါဘူး။"
+    "e": "မှားတယ်။ ပန်ကာရွက်ပေါ် သံတုံးကပ်ရင် လည်ဖို့ ခက်တယ်၊ ဒြပ်တွေ ဝင်ရိုးက ဝေးရင် I ကြီးတယ်။ ဒြပ်တွေ ဝင်ရိုးက ဝေးလေ လည်ဖို့ ခက်လေ၊ I က Σmr² ပဲ။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia of an object composed of particles is $I = m_1r_1^2 + m_2r_2^2 + \\dots + m_nr_n^2 = \\sum mr^2$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက particles စနစ်ရဲ့ moment of inertia အတွက် summation formula ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ကျောင်းအိတ်ကို လက်မောင်းဆန့်ကိုင်ပြီး လှည့်ရင် လေးတယ်၊ ရင်ဘတ်နားဆွဲမှ လည်လွယ်တယ်။ ဒြပ်တွေ ဝင်ရိုးက ဝေးလေ လည်ဖို့ ခက်လေ၊ I က Σmr² ပဲ။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia of an object is defined as the sum of the products obtained by multiplying the mass of each particle in a given object and its distance from the axis.",
     "c": "false",
-    "e": "မှားတယ်။ ၎င်းက mass နဲ့ axis မှ distance ရဲ့ square မြှောက်ခြင်းဖြစ်ပြီး distance သက်သက် မဟုတ်ပါဘူး။"
+    "e": "မှားတယ်။ ဘောလုံးအစိုင်အခဲက အခွံဘီးထက် ဒြပ်တွေ ဗဟိုနားစုလို့ လည်ရတာ ပိုလွယ်တယ်။ ဒြပ်တွေ ဝင်ရိုးက ဝေးလေ လည်ဖို့ ခက်လေ၊ I က Σmr² ပဲ။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia is a scalar quantity.",
     "c": "true",
-    "e": "မှန်တယ်။ Torque သို့မဟုတ် angular momentum နဲ့ မတူဘဲ moment of inertia မှာ direction မရှိပါဘူး။"
+    "e": "မှန်တယ်။ ပန်ကာရွက်ပေါ် သံတုံးကပ်ရင် လည်ဖို့ ခက်တယ်၊ ဒြပ်တွေ ဝင်ရိုးက ဝေးရင် I ကြီးတယ်။ ဒြပ်တွေ ဝင်ရိုးက ဝေးလေ လည်ဖို့ ခက်လေ၊ I က Σmr² ပဲ။"
   },
   {
     "type": "tf",
     "q": "The SI unit of moment of inertia is kg m.",
     "c": "false",
-    "e": "မှားတယ်။ Moment of inertia ရဲ့ SI unit မှာ kg m$^2$ ဖြစ်တယ်။"
+    "e": "မှားတယ်။ ကျောင်းအိတ်ကို လက်မောင်းဆန့်ကိုင်ပြီး လှည့်ရင် လေးတယ်၊ ရင်ဘတ်နားဆွဲမှ လည်လွယ်တယ်။ ဒြပ်တွေ ဝင်ရိုးက ဝေးလေ လည်ဖို့ ခက်လေ၊ I က Σmr² ပဲ။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia must be specified with respect to a chosen axis of rotation.",
     "c": "true",
-    "e": "မှန်တယ်။ Moment of inertia က axis of rotation ပေါ် မူတည်၍ ပြောင်းတယ်။"
+    "e": "မှန်တယ်။ ကျောင်းအိတ်ကို လက်မောင်းဆန့်ကိုင်ပြီး လှည့်ရင် လေးတယ်၊ ရင်ဘတ်နားဆွဲမှ လည်လွယ်တယ်။ ဘယ်ဝင်ရိုးလဲ မပြောရင် I အဓိပ္ပာယ်မရှိဘူး။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a hoop or cylindrical shell is $I = MR^2$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက hoop သို့မဟုတ် cylindrical shell အတွက် standard formula ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ဘောလုံးအစိုင်အခဲက အခွံဘီးထက် ဒြပ်တွေ ဗဟိုနားစုလို့ လည်ရတာ ပိုလွယ်တယ်။ အခွံကွင်းက ဒြပ်အားလုံး အနားမှာမို့ I = MR² ပဲ။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a long thin rod with rotation axis through end is $I = \\frac{1}{12}ML^2$.",
     "c": "false",
-    "e": "မှားတယ်။ Rod ကို end ပတ်လည် လည်သောအခါ moment of inertia က $I = \\frac{1}{3}ML^2$ ဖြစ်တယ်။"
+    "e": "မှားတယ်။ တုတ်ကို အလယ်က ကိုင်လှည့်ရင် အဖျားက ကိုင်လှည့်တာထက် I သေးတယ်။ ဒြပ်တွေ ဝင်ရိုးက ဝေးလေ လည်ဖို့ ခက်လေ၊ I က Σmr² ပဲ။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a solid cylinder or disk is $I = \\frac{1}{2}MR^2$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက solid cylinder သို့မဟုတ် disk အတွက် formula ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ဘောလုံးအစိုင်အခဲက အခွံဘီးထက် ဒြပ်တွေ ဗဟိုနားစုလို့ လည်ရတာ ပိုလွယ်တယ်။ ဒြပ်တွေ ဝင်ရိုးက ဝေးလေ လည်ဖို့ ခက်လေ၊ I က Σmr² ပဲ။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a long thin rod with rotation axis through center is $I = \\frac{1}{3}ML^2$.",
     "c": "false",
-    "e": "မှားတယ်။ Rod ကို center ပတ်လည် လည်သောအခါ moment of inertia က $I = \\frac{1}{12}ML^2$ ဖြစ်တယ်။"
+    "e": "မှားတယ်။ ဘောလုံးအစိုင်အခဲက အခွံဘီးထက် ဒြပ်တွေ ဗဟိုနားစုလို့ လည်ရတာ ပိုလွယ်တယ်။ ဒြပ်တွေ ဝင်ရိုးက ဝေးလေ လည်ဖို့ ခက်လေ၊ I က Σmr² ပဲ။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ် ဒီမေးခွန်းရဲ့ အချက်က သီးသန့်ပုံ 47 ပဲ။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a solid sphere is $I = \\frac{2}{5}MR^2$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက solid sphere အတွက် standard formula ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ဘောလုံးအစိုင်အခဲက အခွံဘီးထက် ဒြပ်တွေ ဗဟိုနားစုလို့ လည်ရတာ ပိုလွယ်တယ်။ အစိုင်အခဲစက်လုံးက ဒြပ်တွေ ဗဟိုနားစုလို့ I = ⅖MR² ပဲ။"
   },
   {
     "type": "tf",
     "q": "The centre of gravity of a particular object is a point at which all its weight may be considered to act.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက centre of gravity ရဲ့ definition ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ စင်ပေါ် ရေသန့်ဘူးပုံရင် ပတ္တာနဲ့ ကြိုးအားတွေ ပေါင်းမှ တည်ငြိမ်တယ်။ မလှုပ်မလည်ချင်ရင် အားပေါင်းသုည၊ torque ပေါင်းသုည နှစ်ခုလုံးလိုတယ်။"
   },
   {
     "type": "tf",
     "q": "For an object of regular shape and uniform density, the centre of gravity is at its geometrical center.",
     "c": "true",
-    "e": "မှန်တယ်။ Uniform density နဲ့ regular shape က centre of gravity ကို geometrical center နဲ့ တည့်စေတယ်။"
+    "e": "မှန်တယ်။ စားပွဲခြေလေးချောင်းပေါ် ပန်းကန်တင်ရင် အပေါ်-အောက်အား ညီမှ မလှုပ်ဘူး။ မလှုပ်မလည်ချင်ရင် အားပေါင်းသုည၊ torque ပေါင်းသုည နှစ်ခုလုံးလိုတယ်။"
   },
   {
     "type": "tf",
     "q": "The weight of a metre stick of uniform density is considered to be acting at the 0 cm mark.",
     "c": "false",
-    "e": "မှားတယ်။ Uniform metre stick ရဲ့ weight က 50 cm mark (mid-point) မှာ သက်ရောက်သည်ဟု သဘောထားတယ်။"
+    "e": "မှားတယ်။ စားသောက်ဆိုင်က စားပွဲပေါ် ဖုန်းလွှင့်ချရင် ဘေးရော အောက်ရော ရွေ့တယ်။ ရှေ့ရော အပေါ်ရော တစ်ပြိုင်နက်ရွေ့မှ two-dimensional motion လို့ခေါ်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "When the system is in static equilibrium, there is no linear motion and no rotational motion.",
     "c": "true",
-    "e": "မှန်တယ်။ Static equilibrium က linear နဲ့ rotational motion နှစ်ခုလုံး မရှိရန် လိုအပ်တယ်။"
+    "e": "မှန်တယ်။ မီတာချောင်းအလယ် ၅၀ cm မှာ အလေးချိန်စုတယ်လို့ ယူမှ ချိန်ညှိလွယ်တယ်။ မလှုပ်မလည်ချင်ရင် အားပေါင်းသုည၊ torque ပေါင်းသုည နှစ်ခုလုံးလိုတယ်။"
   },
   {
     "type": "tf",
     "q": "The conditions of static equilibrium are that the resultant force on the system is zero ($\\sum F = 0$) and the resultant torque on the system is zero ($\\sum \\tau = 0$).",
     "c": "true",
-    "e": "မှန်တယ်။ Static equilibrium အတွက် net force နဲ့ net torque နှစ်ခုလုံး သုညဖြစ်ရမည်။"
+    "e": "မှန်တယ်။ စားပွဲခြေလေးချောင်းပေါ် ပန်းကန်တင်ရင် အပေါ်-အောက်အား ညီမှ မလှုပ်ဘူး။ မလှုပ်မလည်ချင်ရင် အားပေါင်းသုည၊ torque ပေါင်းသုည နှစ်ခုလုံးလိုတယ် ဒီမေးခွန်းရဲ့ အချက်က သီးသန့်ပုံ 53 ပဲ။"
   },
   {
     "type": "tf",
     "q": "The conditions of static equilibrium are that the resultant force on the system is zero ($\\sum F = 0$) and the resultant torque on the system is maximum.",
     "c": "false",
-    "e": "မှားတယ်။ Static equilibrium အတွက် resultant torque လည်း သုညဖြစ်ရမည်၊ maximum မဟုတ်ပါဘူး။"
+    "e": "မှားတယ်။ စားပွဲခြေလေးချောင်းပေါ် ပန်းကန်တင်ရင် အပေါ်-အောက်အား ညီမှ မလှုပ်ဘူး။ မလှုပ်မလည်ချင်ရင် အားပေါင်းသုည၊ torque ပေါင်းသုည နှစ်ခုလုံးလိုတယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The condition necessary for a pivoted object to be in balance is given by the principle of moments.",
     "c": "true",
-    "e": "မှန်တယ်။ Principle of moments က pivoted objects ရဲ့ မျှခြေကို အုပ်ချုပ်တယ်။"
+    "e": "မှန်တယ်။ မီတာချောင်းအလယ် ၅၀ cm မှာ အလေးချိန်စုတယ်လို့ ယူမှ ချိန်ညှိလွယ်တယ်။ မလှုပ်မလည်ချင်ရင် အားပေါင်းသုည၊ torque ပေါင်းသုည နှစ်ခုလုံးလိုတယ် ဒီမေးခွန်းရဲ့ အချက်က သီးသန့်ပုံ 55 ပဲ။"
   },
   {
     "type": "tf",
     "q": "The principle of moments states that if an object is to be in balance, the total clockwise moment about the fulcrum must equal the total anticlockwise moment.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက principle of moments ရဲ့ ချက်ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ မီတာချောင်းအလယ် ၅၀ cm မှာ အလေးချိန်စုတယ်လို့ ယူမှ ချိန်ညှိလွယ်တယ်။ ချိန်ညှိနေရင် နာရီလက်တံအတိုင်းနဲ့ ဆန့်ကျင် moment ညီရမယ်။"
   },
   {
     "type": "tf",
     "q": "The principle of moments states that if an object is to be in balance, the total clockwise moment about the fulcrum must be greater than the total anticlockwise moment.",
     "c": "false",
-    "e": "မှားတယ်။ Total clockwise moment က total anticlockwise moment နဲ့ ညီရမည်၊ ပိုကြီးရန် မဟုတ်ပါဘူး။"
+    "e": "မှားတယ်။ စင်ပေါ် ရေသန့်ဘူးပုံရင် ပတ္တာနဲ့ ကြိုးအားတွေ ပေါင်းမှ တည်ငြိမ်တယ်။ ချိန်ညှိနေရင် နာရီလက်တံအတိုင်းနဲ့ ဆန့်ကျင် moment ညီရမယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "Examples of the application of the principle of moments include building site crane and beam balance.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါတွေကို principle of moments ရဲ့ applications အဖြစ် တိုက်ရိုက် စာရင်းသွင်းထားတယ်။"
+    "e": "မှန်တယ်။ မြှောက်စက်ထိုင်ခုံ နှစ်ဖက်အလေးချိန် ညီမှ ရပ်တယ်၊ clockwise နဲ့ anticlockwise moment ညီရမယ်။ မလှုပ်မလည်ချင်ရင် အားပေါင်းသုည၊ torque ပေါင်းသုည နှစ်ခုလုံးလိုတယ် ဒီမေးခွန်းရဲ့ အချက်က သီးသန့်ပုံ 58 ပဲ။"
   },
   {
     "type": "tf",
     "q": "In rotational motion, the angular momentum of an object is defined as the product of its moment of inertia and the angular velocity.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက angular momentum ရဲ့ အခြေခံ definition ဖြစ်တယ်။ Angular velocity က ထောင့်ဘယ်လောက်မြန်မြန် လည်သလဲ ဆိုတာပါ။"
+    "e": "မှန်တယ်။ ကုလားထိုင်လှည့်ရင် လက်ဆန့်ရင် နှေးသွားတယ်၊ လက်ကုပ်ရင် မြန်တယ်။ ပြင်ပ torque မရှိရင် L = Iω တည်ငြိမ်တယ်၊ I သေးရင် ω တက်တယ်။"
   },
   {
     "type": "tf",
     "q": "In rotational motion, the angular momentum of an object is defined as the product of its mass and the angular velocity.",
     "c": "false",
-    "e": "မှားတယ်။ Angular momentum က moment of inertia နဲ့ angular velocity မြှောက်ခြင်းဖြစ်ပြီး mass နဲ့ angular velocity မဟုတ်ပါဘူး။"
+    "e": "မှားတယ်။ ရေငုပ်သမား ခေါင်းမွှေးရင် ပိုမြန်လည်ပြီး ခန္ဓာကိုယ်ဖြန့်ရင် နှေးတယ်။ ပြင်ပ torque မရှိရင် L = Iω တည်ငြိမ်တယ်၊ I သေးရင် ω တက်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The equation for angular momentum is $L = I\\omega$.",
     "c": "true",
-    "e": "မှန်တယ်။ $L = I\\omega$ က angular momentum အတွက် standard formula ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ပန်ကာမော်တာ ပိတ်ပြီး ကြိုးမဆွဲရင် ထောင့်အရှိန်က I နဲ့ ω မြှောက်လဒ်အတိုင်း ထိန်းထားတယ်။ ပြင်ပ torque မရှိရင် L = Iω တည်ငြိမ်တယ်၊ I သေးရင် ω တက်တယ်။"
   },
   {
     "type": "tf",
     "q": "The moment of inertia is analogous to mass in linear motion.",
     "c": "true",
-    "e": "မှန်တယ်။ Moment of inertia က rotational motion မှာ linear motion ရှိ mass နဲ့ တူသော အခန်းကဏ္ဍ ရှိတယ်။"
+    "e": "မှန်တယ်။ ကျောင်းအိတ်ကို လက်မောင်းဆန့်ကိုင်ပြီး လှည့်ရင် လေးတယ်၊ ရင်ဘတ်နားဆွဲမှ လည်လွယ်တယ်။ ဒြပ်တွေ ဝင်ရိုးက ဝေးလေ လည်ဖို့ ခက်လေ၊ I က Σmr² ပဲ ဒီမေးခွန်းရဲ့ အချက်က သီးသန့်ပုံ 62 ပဲ။"
   },
   {
     "type": "tf",
     "q": "The angular velocity is analogous to the linear acceleration in linear motion.",
     "c": "false",
-    "e": "မှားတယ်။ Angular velocity က linear velocity နဲ့ analogous ဖြစ်ပြီး linear acceleration မဟုတ်ပါဘူး။"
+    "e": "မှားတယ်။ နာရီမိနစ်တံ တစ်ပတ်လည်ရင် 360° ဆိုတာ 2π radian နဲ့ အတူတူပဲ။ ထောင့်ပြောင်းတာကို arc/radius နဲ့ တိုင်းပြီး SI မှာ radian သုံးတယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ် ဒီမေးခွန်းရဲ့ အချက်က သီးသန့်ပုံ 63 ပဲ။"
   },
   {
     "type": "tf",
     "q": "The SI unit of angular momentum is kg m$^2$ s$^{-1}$.",
     "c": "true",
-    "e": "မှန်တယ်။ kg m$^2$ (moment of inertia) နဲ့ rad s$^{-1}$ (angular velocity) မှ ရတယ်။"
+    "e": "မှန်တယ်။ ရေငုပ်သမား ခေါင်းမွှေးရင် ပိုမြန်လည်ပြီး ခန္ဓာကိုယ်ဖြန့်ရင် နှေးတယ်။ ပြင်ပ torque မရှိရင် L = Iω တည်ငြိမ်တယ်၊ I သေးရင် ω တက်တယ်။"
   },
   {
     "type": "tf",
     "q": "Angular momentum is a scalar quantity.",
     "c": "false",
-    "e": "မှားတယ်။ Angular momentum က magnitude နဲ့ direction နှစ်ခုလုံးရှိသော vector quantity ဖြစ်တယ်။"
+    "e": "မှားတယ်။ ပန်ကာမော်တာ ပိတ်ပြီး ကြိုးမဆွဲရင် ထောင့်အရှိန်က I နဲ့ ω မြှောက်လဒ်အတိုင်း ထိန်းထားတယ်။ ပြင်ပ torque မရှိရင် L = Iω တည်ငြိမ်တယ်၊ I သေးရင် ω တက်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The law of conservation of angular momentum states that if there is no net external torque acting on an isolated system, the total angular momentum of the system is constant.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက law of conservation of angular momentum ရဲ့ ချက်ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ရေခဲစကိတ်သမား လက်ဆွဲရင် I သေးသွားလို့ ပိုမြန်လည်တယ်၊ ပြင်ပ torque မရှိရင် L တည်ငြိမ်တယ်။ ပြင်ပ torque မရှိရင် L = Iω တည်ငြိမ်တယ်၊ I သေးရင် ω တက်တယ်။"
   },
   {
     "type": "tf",
     "q": "The law of conservation of angular momentum states that if there is a net external torque acting on an isolated system, the total angular momentum of the system is constant.",
     "c": "false",
-    "e": "မှားတယ်။ ဒီ law က system ပေါ် net external torque မရှိသောအခါသာ သက်ရောက်တယ်။"
+    "e": "မှားတယ်။ ကုလားထိုင်လှည့်ရင် လက်ဆန့်ရင် နှေးသွားတယ်၊ လက်ကုပ်ရင် မြန်တယ်။ ပြင်ပ torque မရှိရင် L = Iω တည်ငြိမ်တယ်၊ I သေးရင် ω တက်တယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "In symbols, if $\\sum \\tau = 0$, then $L = \\text{constant}$.",
     "c": "true",
-    "e": "မှန်တယ်။ Net torque သုညက constant angular momentum ကို ဆိုလိုတယ်။"
+    "e": "မှန်တယ်။ စားသောက်ဆိုင်က စားပွဲပေါ် ဖုန်းလွှင့်ချရင် ဘေးရော အောက်ရော ရွေ့တယ်။ ရှေ့ရော အပေါ်ရော တစ်ပြိုင်နက်ရွေ့မှ two-dimensional motion လို့ခေါ်တယ်။"
   },
   {
     "type": "tf",
     "q": "An example of conservation of angular momentum is seen in an ice skater performing a spin.",
     "c": "true",
-    "e": "မှန်တယ်။ Ice skater spin က ဒီ conservation law ရဲ့ ဂန္ထဝင် ဥပမာဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ရေနွေးအိုးဆူနေချိန် အပူချိန်ရပ်နေသလို၊ အငွေ့ဖြစ်အောင် စွမ်းအင်စုပ်တယ်။ ဓားသွားဖိအားက ရေခဲအရည်ပျော်မှတ်ကို ချပြီး ချောရေလွှာဖြစ်စေတယ်။"
   },
   {
     "type": "tf",
     "q": "An ice skater's angular momentum is conserved because the net torque on her is very large.",
     "c": "false",
-    "e": "မှားတယ်။ သူမပေါ် net torque အလွန်သေး (negligible) ဖြစ်သောကြောင့် angular momentum conserve ဖြစ်တယ်။"
+    "e": "မှားတယ်။ မှန်ပေါ် ရေခိုးကပ်တာက အငွေ့က အရည်ပြန်ဖြစ်ပြီး heat ထုတ်တယ်။ ဓားသွားဖိအားက ရေခဲအရည်ပျော်မှတ်ကို ချပြီး ချောရေလွှာဖြစ်စေတယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "An ice skater's rate of spin increases greatly as her moment of inertia decreases by pulling in her arms inwards.",
     "c": "true",
-    "e": "မှန်တယ်။ Moment of inertia လျှော့ရန် angular momentum conserve ရန် angular speed တိုးရမည်။"
+    "e": "မှန်တယ်။ ဖိအားမြင့်အိုးထဲ ထမင်းချက်ရင် ရေ ၁၀၀°C ထက်ပိုမြင့်မှ ဆူတယ်။ ဓားသွားဖိအားက ရေခဲအရည်ပျော်မှတ်ကို ချပြီး ချောရေလွှာဖြစ်စေတယ်။"
   },
   {
     "type": "tf",
     "q": "If an ice skater wants to slow down her rotation, she will pull her arms inwards.",
     "c": "false",
-    "e": "မှားတယ်။ အရှိန်လျှော့ရန် သူမက လက်များကို အပြင်သို့ ဆန့်၍ moment of inertia တိုးရမည်။"
+    "e": "မှားတယ်။ ရေခဲပြင်ပေါ် စကိတ်ဓားက ဖိအားပေးလို့ အရည်ပျော်မှတ်ကျပြီး ချောကျတယ်။ ဓားသွားဖိအားက ရေခဲအရည်ပျော်မှတ်ကို ချပြီး ချောရေလွှာဖြစ်စေတယ်။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "When her moment of inertia increases, the rotational angular speed will decrease.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက conservation of angular momentum ရဲ့ တိုက်ရိုက် အကျိုးဆက်ဖြစ်တယ်။"
+    "e": "မှန်တယ်။ ပန်ကာရွက်ပေါ် သံတုံးကပ်ရင် လည်ဖို့ ခက်တယ်၊ ဒြပ်တွေ ဝင်ရိုးက ဝေးရင် I ကြီးတယ်။ ဒြပ်တွေ ဝင်ရိုးက ဝေးလေ လည်ဖို့ ခက်လေ၊ I က Σmr² ပဲ ဒီမေးခွန်းရဲ့ အချက်က သီးသန့်ပုံ 73 ပဲ။"
   },
   {
     "type": "tf",
     "q": "A springboard diver who is rotating when jumping off the board needs to make continuous physical effort to continue rotating.",
     "c": "false",
-    "e": "မှားတယ်။ Conservation of angular momentum ကြောင့် diver က ဆက်လည်ရန် physical effort မလိုပါ။"
+    "e": "မှားတယ်။ ဖုန်းကေ့စ်ကြိုးဆွဲရင် ဆွဲအားနဲ့ ဆန့်အလျား အချိုးကျတယ်၊ ကွဲမသွားခင်အထိပဲ။ elastic limit မကျော်ခင် ဆွဲအားနဲ့ ဆန့်အလျား အချိုးကျတယ်၊ F = kx ပဲ။ ထောင်ချောက်က စကားလုံးတစ်လုံးလွှဲထားတာ၊ အပေါ်က ပုံအတိုင်း ပြန်စဉ်းစားရင် မြင်တယ်။"
   },
   {
     "type": "tf",
     "q": "The application of conservation of angular momentum can be used to determine the angular velocity of a rotating system in which the moment of inertia is changing.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက conservation law ရဲ့ အဓိက လက်တွေ့ application ဖြစ်တယ်။ Angular velocity က ထောင့်ဘယ်လောက်မြန်မြန် လည်သလဲ ဆိုတာပါ။"
+    "e": "မှန်တယ်။ ရေငုပ်သမား ခေါင်းမွှေးရင် ပိုမြန်လည်ပြီး ခန္ဓာကိုယ်ဖြန့်ရင် နှေးတယ်။ ပြင်ပ torque မရှိရင် L = Iω တည်ငြိမ်တယ်၊ I သေးရင် ω တက်တယ် ဒီမေးခွန်းရဲ့ အချက်က သီးသန့်ပုံ 75 ပဲ။"
   }
 ]
