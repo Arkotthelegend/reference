@@ -23,9 +23,12 @@
  * doGet getSales / getBizNotes) uses extra sheets named Sales and BizNotes
  * in the SAME spreadsheet.
  *
- * Quiz best scores stay on the Normal / first scores tab only.
- * Do NOT write friend rows there. Friends uses a sheet named Friends.
- * Profiles (name / bio) uses a sheet named Profiles.
+ * Quiz best scores:
+ *   Normal  = Grade 12 current quizzes
+ *   Old     = Grade 12 old questions only
+ *   Grade 10 / Grade 11 = those grades (no old-question tab)
+ * Friends uses Friends. Profiles uses Profiles.
+ * Do NOT write friend rows onto score tabs.
  * getPhotos uses Script Property BOT_TOKEN (same as timetable send).
  * Redeploy → New version after pasting this file. This version also
  * deletes leftover __soc_* rows that were mistakenly saved as scores.
@@ -84,11 +87,6 @@ function doPost(e) {
 }
 
 function saveScore_(p) {
-  var sheet = scoresSheet_();
-  var idx = headerIndex_(sheet);
-  ensureExtraColumns_(sheet, idx);
-  idx = headerIndex_(sheet);
-
   var userId = String(p.userId || '');
   var quizFile = String(p.quizFile || '');
   if (!userId || !quizFile) {
@@ -103,6 +101,12 @@ function saveScore_(p) {
   var newTotal = num_(p.total);
   var now = new Date();
   var grade = String(p.grade || inferGrade_(quizFile));
+  var isOld = String(p.isOld || 'false') === 'true';
+  if (grade === '10' || grade === '11') isOld = false;
+  var sheet = scoresSheetFor_(grade, isOld);
+  var idx = headerIndex_(sheet);
+  ensureExtraColumns_(sheet, idx);
+  idx = headerIndex_(sheet);
 
   var last = sheet.getLastRow();
   var foundRow = 0;
@@ -131,7 +135,7 @@ function saveScore_(p) {
     setCell_(sheet, foundRow, idx.chapter, p.chapter || '');
     setCell_(sheet, foundRow, idx.type, p.type || '');
     setCell_(sheet, foundRow, idx.subject, p.subject || '');
-    setCell_(sheet, foundRow, idx.isOld, String(p.isOld || 'false'));
+    setCell_(sheet, foundRow, idx.isOld, isOld ? 'true' : 'false');
     setCell_(sheet, foundRow, idx.date, now);
     setCell_(sheet, foundRow, idx.grade, grade);
     return { status: 'ok', action: 'replaced', oldScore: oldScore, newScore: newScore, row: foundRow };
@@ -152,7 +156,7 @@ function saveScore_(p) {
   put('type', p.type || '');
   put('score', newScore);
   put('total', newTotal);
-  put('isOld', String(p.isOld || 'false'));
+  put('isOld', isOld ? 'true' : 'false');
   put('timeTaken', num_(p.timeTaken));
   put('date', now);
   put('grade', grade);
@@ -162,7 +166,7 @@ function saveScore_(p) {
 
 function getStats_(p) {
   var userId = String(p.userId || '');
-  var rows = readScoreRows_().filter(function (r) { return r.userId === userId; });
+  var rows = readScoreRows_(p).filter(function (r) { return r.userId === userId; });
   var answered = 0;
   var correct = 0;
   var bySubject = {};
@@ -208,8 +212,9 @@ function getStats_(p) {
 
 function getLeaderboard_(p) {
   try { purgeSocialScoreRowsOnce_(); } catch (err) {}
+  try { ensureGradeScoreSheets_(); } catch (err2) {}
   var subject = String(p.subject || 'all');
-  var rows = readScoreRows_();
+  var rows = readScoreRows_(p);
   if (subject && subject !== 'all') {
     rows = rows.filter(function (r) { return r.subject === subject; });
   }
@@ -235,19 +240,34 @@ function getLeaderboard_(p) {
   };
 }
 
-function readScoreRows_() {
-  var sheet = scoresSheet_();
+function readScoreRows_(p) {
+  var sheets = scoreSheetsForRead_(p && p.grade);
+  var out = [];
+  var s;
+  for (s = 0; s < sheets.length; s++) {
+    out = out.concat(readScoreRowsFromSheet_(sheets[s].sheet, sheets[s].grade, sheets[s].isOld));
+  }
+  return out;
+}
+
+function readScoreRowsFromSheet_(sheet, defaultGrade, defaultOld) {
+  if (!sheet) return [];
   var idx = headerIndex_(sheet);
+  if (idx.quizFile === undefined && idx.score === undefined) return [];
   var last = sheet.getLastRow();
   if (last < 2) return [];
   var values = sheet.getRange(2, 1, last - 1, sheet.getLastColumn()).getValues();
   var out = [];
-  for (var i = 0; i < values.length; i++) {
+  var i;
+  for (i = 0; i < values.length; i++) {
     var quizFile = String(values[i][idx.quizFile] || '');
     if (!quizFile) continue;
-    var subject = String(values[i][idx.subject] || '');
+    var subject = String((idx.subject !== undefined ? values[i][idx.subject] : '') || '');
     if (isSocialScoreRow_(quizFile, subject)) continue;
     var rawDate = idx.date !== undefined ? values[i][idx.date] : '';
+    var grade = defaultGrade || String((idx.grade !== undefined && values[i][idx.grade] !== '') ? values[i][idx.grade] : inferGrade_(quizFile));
+    var isOld = defaultOld;
+    if (isOld == null) isOld = String(values[i][idx.isOld] || 'false') === 'true';
     out.push({
       userId: String(values[i][idx.userId] || ''),
       userName: String(values[i][idx.userName] || ''),
@@ -258,30 +278,146 @@ function readScoreRows_() {
       score: num_(values[i][idx.score]),
       total: num_(values[i][idx.total]),
       timeTaken: idx.timeTaken !== undefined ? num_(values[i][idx.timeTaken]) : 0,
-      isOld: String(values[i][idx.isOld] || 'false') === 'true',
+      isOld: !!isOld,
       date: toIso_(rawDate),
-      grade: String((idx.grade !== undefined && values[i][idx.grade] !== '') ? values[i][idx.grade] : inferGrade_(quizFile))
+      grade: String(grade)
     });
   }
   return out;
 }
 
+function scoreWorkbook_() {
+  var active = SpreadsheetApp.getActiveSpreadsheet();
+  if (active) return active;
+  if (SPREADSHEET_ID) return SpreadsheetApp.openById(SPREADSHEET_ID);
+  return SpreadsheetApp.getActiveSpreadsheet();
+}
+
 function scoresSheet_() {
-  var ss = SPREADSHEET_ID
-    ? SpreadsheetApp.openById(SPREADSHEET_ID)
-    : SpreadsheetApp.getActiveSpreadsheet();
-  if (!ss) throw new Error('Spreadsheet not found. Set SPREADSHEET_ID.');
-  if (SHEET_NAME) {
-    var named = ss.getSheetByName(SHEET_NAME);
-    if (named) return named;
+  return scoresSheetFor_('12', false);
+}
+
+function ensureNamedScoreSheet_(name) {
+  var ss = scoreWorkbook_();
+  if (!ss) throw new Error('Spreadsheet not found.');
+  var sh = ss.getSheetByName(name);
+  if (sh) {
+    ensureExtraColumns_(sh, headerIndex_(sh));
+    return sh;
   }
-  return ss.getSheets()[0];
+  sh = ss.insertSheet(name);
+  var src = ss.getSheetByName('Normal');
+  if (!src) {
+    var i;
+    var sheets = ss.getSheets();
+    for (i = 0; i < sheets.length; i++) {
+      var n = sheets[i].getName();
+      if (n === 'Friends' || n === 'Profiles' || n === 'Sales' || n === 'BizNotes') continue;
+      if (n === 'Grade 10' || n === 'Grade 11' || n === name) continue;
+      src = sheets[i];
+      break;
+    }
+  }
+  var headers = REQUIRED_HEADERS.slice();
+  if (src && src.getLastColumn() >= 1) {
+    var copied = src.getRange(1, 1, 1, src.getLastColumn()).getValues()[0];
+    if (copied && String(copied[0] || '').trim()) headers = copied;
+  }
+  sh.getRange(1, 1, 1, headers.length).setValues([headers]);
+  ensureExtraColumns_(sh, headerIndex_(sh));
+  return sh;
+}
+
+function ensureGradeScoreSheets_() {
+  ensureNamedScoreSheet_('Normal');
+  ensureNamedScoreSheet_('Old');
+  ensureNamedScoreSheet_('Grade 10');
+  ensureNamedScoreSheet_('Grade 11');
+  try {
+    var props = PropertiesService.getScriptProperties();
+    if (props.getProperty('gradeSheetsReady') === '1') return;
+    migrateGradeScoreRows_();
+    props.setProperty('gradeSheetsReady', '1');
+  } catch (err) {}
+}
+
+function scoresSheetFor_(grade, isOld) {
+  ensureGradeScoreSheets_();
+  var g = String(grade || '12');
+  if (g === '10') return ensureNamedScoreSheet_('Grade 10');
+  if (g === '11') return ensureNamedScoreSheet_('Grade 11');
+  if (isOld) return ensureNamedScoreSheet_('Old');
+  var named = SHEET_NAME ? scoreWorkbook_().getSheetByName(SHEET_NAME) : null;
+  return named || ensureNamedScoreSheet_('Normal');
+}
+
+function scoreSheetsForRead_(grade) {
+  ensureGradeScoreSheets_();
+  var g = String(grade || '');
+  if (g === '10') return [{ sheet: ensureNamedScoreSheet_('Grade 10'), grade: '10', isOld: false }];
+  if (g === '11') return [{ sheet: ensureNamedScoreSheet_('Grade 11'), grade: '11', isOld: false }];
+  if (g === '12') {
+    return [
+      { sheet: ensureNamedScoreSheet_('Normal'), grade: '12', isOld: false },
+      { sheet: ensureNamedScoreSheet_('Old'), grade: '12', isOld: true }
+    ];
+  }
+  return [
+    { sheet: ensureNamedScoreSheet_('Grade 10'), grade: '10', isOld: false },
+    { sheet: ensureNamedScoreSheet_('Grade 11'), grade: '11', isOld: false },
+    { sheet: ensureNamedScoreSheet_('Normal'), grade: '12', isOld: false },
+    { sheet: ensureNamedScoreSheet_('Old'), grade: '12', isOld: true }
+  ];
+}
+
+function migrateGradeScoreRows_() {
+  ensureGradeScoreSheets_();
+  var sources = [ensureNamedScoreSheet_('Normal'), ensureNamedScoreSheet_('Old')];
+  var moved = 0;
+  var s;
+  for (s = 0; s < sources.length; s++) {
+    var sheet = sources[s];
+    var idx = headerIndex_(sheet);
+    var last = sheet.getLastRow();
+    if (last < 2 || idx.quizFile === undefined) continue;
+    var values = sheet.getRange(2, 1, last - 1, sheet.getLastColumn()).getValues();
+    var toDelete = [];
+    var i;
+    for (i = 0; i < values.length; i++) {
+      var qf = String(values[i][idx.quizFile] || '');
+      var sub = String((idx.subject !== undefined ? values[i][idx.subject] : '') || '');
+      if (!qf || isSocialScoreRow_(qf, sub) || rowIsSocialJunk_(values[i])) continue;
+      var g = String((idx.grade !== undefined && values[i][idx.grade] !== '') ? values[i][idx.grade] : inferGrade_(qf));
+      if (g !== '10' && g !== '11') continue;
+      var dest = scoresSheetFor_(g, false);
+      dest.appendRow(values[i]);
+      toDelete.push(i + 2);
+      moved++;
+    }
+    for (i = toDelete.length - 1; i >= 0; i--) sheet.deleteRow(toDelete[i]);
+  }
+  return moved;
+}
+
+function setupGradeScoreSheets() {
+  try { PropertiesService.getScriptProperties().deleteProperty('gradeSheetsReady'); } catch (e0) {}
+  ensureNamedScoreSheet_('Normal');
+  ensureNamedScoreSheet_('Old');
+  ensureNamedScoreSheet_('Grade 10');
+  ensureNamedScoreSheet_('Grade 11');
+  var moved = migrateGradeScoreRows_();
+  try { PropertiesService.getScriptProperties().setProperty('gradeSheetsReady', '1'); } catch (e1) {}
+  var msg = 'Grade 10 and Grade 11 score tabs are ready. Moved ' + moved + ' existing rows off Normal/Old.';
+  Logger.log(msg);
+  try { SpreadsheetApp.getUi().alert(msg); } catch (e) {}
+  return { status: 'ok', moved: moved, message: msg };
 }
 
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('REED')
     .addItem('Clear social junk from scores', 'resetSocialScoreJunk')
+    .addItem('Create Grade 10 / 11 score sheets', 'setupGradeScoreSheets')
     .addToUi();
 }
 
@@ -315,12 +451,6 @@ function rowIsSocialJunk_(row) {
     if (s.charAt(0) === '{' && s.indexOf('"n":') !== -1) return true;
   }
   return false;
-}
-
-function scoreWorkbook_() {
-  return SPREADSHEET_ID
-    ? SpreadsheetApp.openById(SPREADSHEET_ID)
-    : SpreadsheetApp.getActiveSpreadsheet();
 }
 
 function purgeSocialScoreRows_() {
