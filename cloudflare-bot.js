@@ -1,7 +1,10 @@
 /* Reed Education Telegram bot — Cloudflare Worker
    Secrets: BOT_TOKEN, OPENAI_API_KEY
    Optional: START_VIDEO_FILE_ID, START_VIDEO_URL
-   Paste this file into the Worker and deploy.
+   Paste this file into the Worker and deploy. No KV.
+
+   GET /photo?id=TELEGRAM_ID  live Telegram profile JPEG for Social/Rank.
+   POST webhook stays the /start + chat helper.
 
    /start caption is a few short Burmese lines.
    Video is sent if any of these work, in order:
@@ -17,8 +20,19 @@ var DEFAULT_START_VIDEO_URL = 'https://reededucation.net/start-welcome.mp4?v=2';
 
 export default {
   async fetch(request, env) {
+    var url = new URL(request.url);
+    if (request.method === 'OPTIONS') {
+      return corsResponse(new Response(null, { status: 204 }));
+    }
+    if (request.method === 'GET' && isPhotoPath(url)) {
+      try {
+        return corsResponse(await serveTelegramPhoto(photoIdFromUrl(url), env));
+      } catch (e) {
+        return corsResponse(new Response('none', { status: 404 }));
+      }
+    }
     if (request.method !== 'POST') {
-      return new Response('OK', { status: 200 });
+      return corsResponse(new Response('OK', { status: 200 }));
     }
 
     let update;
@@ -50,6 +64,27 @@ export default {
     return new Response('OK', { status: 200 });
   }
 };
+
+function corsResponse(res) {
+  var headers = new Headers(res.headers);
+  headers.set('Access-Control-Allow-Origin', '*');
+  headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  headers.set('Access-Control-Allow-Headers', 'Content-Type');
+  return new Response(res.body, { status: res.status, headers: headers });
+}
+
+function isPhotoPath(url) {
+  return url.pathname === '/photo'
+    || url.pathname.indexOf('/photo/') === 0
+    || url.searchParams.get('action') === 'photo';
+}
+
+function photoIdFromUrl(url) {
+  return url.searchParams.get('id')
+    || url.searchParams.get('userId')
+    || url.pathname.split('/')[2]
+    || '';
+}
 
 function commandName(text) {
   var t = String(text || '').trim();
@@ -319,17 +354,50 @@ async function sendStartWelcome(chatId, env) {
 }
 
 async function telegramApi(botToken, method, payload) {
+  var data = await telegramApiJson(botToken, method, payload);
+  return !!(data && data.ok);
+}
+
+async function telegramApiJson(botToken, method, payload) {
   var res = await fetch('https://api.telegram.org/bot' + botToken + '/' + method, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   });
   try {
-    var data = await res.json();
-    return !!(data && data.ok);
+    return await res.json();
   } catch (e) {
-    return false;
+    return null;
   }
+}
+
+async function serveTelegramPhoto(userId, env) {
+  var id = String(userId || '').replace(/[^0-9]/g, '');
+  if (!id || !env || !env.BOT_TOKEN) return new Response('missing', { status: 404 });
+  var list = await telegramApiJson(env.BOT_TOKEN, 'getUserProfilePhotos', { user_id: Number(id), limit: 1 });
+  var photos = list && list.ok && list.result && list.result.photos;
+  if (!photos || !photos[0] || !photos[0].length) return new Response('none', { status: 404 });
+  var sizes = photos[0];
+  var pick = sizes[0];
+  var i;
+  for (i = 0; i < sizes.length; i++) {
+    var w = sizes[i].width || 0;
+    if (w >= 80 && w <= 160) { pick = sizes[i]; break; }
+    if (w > 0 && w < (pick.width || 9999)) pick = sizes[i];
+  }
+  if (!(pick && pick.file_id)) return new Response('none', { status: 404 });
+  var file = await telegramApiJson(env.BOT_TOKEN, 'getFile', { file_id: pick.file_id });
+  var path = file && file.ok && file.result && file.result.file_path;
+  if (!path) return new Response('none', { status: 404 });
+  var bin = await fetch('https://api.telegram.org/file/bot' + env.BOT_TOKEN + '/' + path);
+  if (!bin.ok) return new Response('none', { status: 404 });
+  return new Response(bin.body, {
+    status: 200,
+    headers: {
+      'Content-Type': bin.headers.get('Content-Type') || 'image/jpeg',
+      'Cache-Control': 'public, max-age=21600'
+    }
+  });
 }
 
 async function sendTelegramMessage(chatId, text, botToken, replyMarkup) {

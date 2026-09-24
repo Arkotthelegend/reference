@@ -1,17 +1,20 @@
 /**
  * Statistics / Rank Google Apps Script
- * VERSION reed-social-3 — 2026-09-24
+ * VERSION reed-social-4 — 2026-09-24
  * ------------------------------------------------
  * PASTE THIS WHOLE FILE into the SCORE spreadsheet Apps Script
  * (Untitled spreadsheet: Normal / Friends / Profiles).
  * Then: Deploy → Manage deployments → pencil → New version.
  * Keep the same Web App URL.
  *
- * This version MOVES __soc_ rows off Normal onto Friends + Profiles.
+ * Profile pictures are NOT stored here. Social avatars load live from
+ * Telegram (bot worker GET /photo?id=, or getPhotos if BOT_TOKEN is set).
+ * Optional: Project Settings → Script properties → BOT_TOKEN
+ * (same token as the Cloudflare bot worker) so getPhotos can fetch too.
  * Do not paste this into TG APP SHEET.
  */
 
-var SCRIPT_V = 'reed-social-3';
+var SCRIPT_V = 'reed-social-4';
 var SPREADSHEET_ID = '';
 var SHEET_NAME = '';
 
@@ -992,7 +995,7 @@ function saveProfile_(p) {
   }
   var prev = found ? sheet.getRange(found, 1, 1, PROFILE_HEADERS.length).getValues()[0] : ['', '', '', '', ''];
   var name = String(p.name || p.userName || prev[1] || '').slice(0, 40);
-  var photo = String(p.photo || p.photo_url || prev[2] || '').slice(0, 500);
+  var photo = '';
   var bio = (p.bio != null && p.bio !== undefined) ? String(p.bio).slice(0, 80) : String(prev[3] || '');
   var line = [userId, name, photo, bio, new Date()];
   if (found) sheet.getRange(found, 1, 1, PROFILE_HEADERS.length).setValues([line]);
@@ -1012,7 +1015,7 @@ function readProfiles_() {
     if (!id) continue;
     out[id] = {
       name: String(values[i][1] || 'Student'),
-      photo: String(values[i][2] || ''),
+      photo: '',
       bio: String(values[i][3] || '')
     };
   }
@@ -1045,8 +1048,8 @@ function friendRows_() {
       status: String(values[i][2] || ''),
       fromName: String(values[i][3] || ''),
       toName: String(values[i][4] || ''),
-      fromPhoto: String(values[i][5] || ''),
-      toPhoto: String(values[i][6] || ''),
+      fromPhoto: '',
+      toPhoto: '',
       updated: values[i][7]
     });
   }
@@ -1054,7 +1057,7 @@ function friendRows_() {
 }
 
 function friendCard_(id, name, photo) {
-  return { userId: String(id), name: name || 'Student', photo: photo || '' };
+  return { userId: String(id), name: name || 'Student', photo: '' };
 }
 
 function friendState_(p) {
@@ -1068,8 +1071,8 @@ function friendState_(p) {
   var profiles = stored;
   pack.rows.forEach(function (r) {
     if (!r.fromId || !r.toId) return;
-    if (!profiles[r.fromId]) profiles[r.fromId] = { name: r.fromName || 'Student', photo: r.fromPhoto || '', bio: '' };
-    if (!profiles[r.toId]) profiles[r.toId] = { name: r.toName || 'Student', photo: r.toPhoto || '', bio: '' };
+    if (!profiles[r.fromId]) profiles[r.fromId] = { name: r.fromName || 'Student', photo: '', bio: '' };
+    if (!profiles[r.toId]) profiles[r.toId] = { name: r.toName || 'Student', photo: '', bio: '' };
     if (r.status === 'accepted') {
       if (r.fromId === userId) friends.push(friendCard_(r.toId, (profiles[r.toId] && profiles[r.toId].name) || r.toName, (profiles[r.toId] && profiles[r.toId].photo) || r.toPhoto));
       else if (r.toId === userId) friends.push(friendCard_(r.fromId, (profiles[r.fromId] && profiles[r.fromId].name) || r.fromName, (profiles[r.fromId] && profiles[r.fromId].photo) || r.fromPhoto));
@@ -1110,7 +1113,7 @@ function friendOpUnlocked_(p) {
   var fromId = String(p.fromId || '').replace(/[^0-9]/g, '');
   var toId = String(p.toId || '').replace(/[^0-9]/g, '');
   var fromName = String(p.fromName || '');
-  var fromPhoto = String(p.fromPhoto || '');
+  var fromPhoto = '';
   if (!fromId || !toId) return { status: 'error', message: 'fromId and toId required' };
   if (fromId === toId) return { status: 'error', message: 'same user' };
   var pack = friendRows_();
@@ -1174,12 +1177,11 @@ function getPhotos_(p) {
     var key = 'ph_' + ids[i];
     var hit = '';
     try { hit = cache.get(key) || ''; } catch (e1) { hit = ''; }
-    if (hit) out[ids[i]] = hit;
+    if (hit && hit.indexOf('data:image/') === 0) out[ids[i]] = hit;
     else need.push(ids[i]);
   }
   if (!token || !need.length) {
-    fillPhotosFromProfiles_(ids, out);
-    return { status: 'ok', photos: out };
+    return { status: 'ok', photos: out, via: 'telegram' };
   }
 
   var listReqs = [];
@@ -1214,8 +1216,7 @@ function getPhotos_(p) {
     } catch (e2) {}
   }
   if (!fileReqs.length) {
-    fillPhotosFromProfiles_(ids, out);
-    return { status: 'ok', photos: out };
+    return { status: 'ok', photos: out, via: 'telegram' };
   }
 
   var files = UrlFetchApp.fetchAll(fileReqs);
@@ -1234,8 +1235,7 @@ function getPhotos_(p) {
     } catch (e3) {}
   }
   if (!binReqs.length) {
-    fillPhotosFromProfiles_(ids, out);
-    return { status: 'ok', photos: out };
+    return { status: 'ok', photos: out, via: 'telegram' };
   }
 
   var bins = UrlFetchApp.fetchAll(binReqs);
@@ -1251,19 +1251,7 @@ function getPhotos_(p) {
       try { cache.put('ph_' + binFor[i], dataUrl, 21600); } catch (e4) {}
     } catch (e5) {}
   }
-  fillPhotosFromProfiles_(ids, out);
-  return { status: 'ok', photos: out };
-}
-
-function fillPhotosFromProfiles_(ids, out) {
-  var profiles = {};
-  try { profiles = readProfiles_(); } catch (e) { return; }
-  var i;
-  for (i = 0; i < ids.length; i++) {
-    if (out[ids[i]]) continue;
-    var p = profiles[ids[i]];
-    if (p && p.photo) out[ids[i]] = p.photo;
-  }
+  return { status: 'ok', photos: out, via: 'telegram' };
 }
 
 function telegramPhotoDataUrl_(userId) {

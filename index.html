@@ -3717,7 +3717,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
-    <script src="./friends.js?v=12"></script>
+    <script src="./friends.js?v=13"></script>
     <script>
 
 		function reedRememberTgUser(user) {
@@ -4498,9 +4498,11 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=132'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=133'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyBwCjjzIJ6w33Va9g5S3JHABAjQgODgzGb-jKHUfwYr2834AoZJif9F_KcO6qedJqdPw/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
+        const REED_BOT_WORKER = "https://bot.reededucation.net";
+        window.REED_BOT_WORKER = REED_BOT_WORKER;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
         window.PAID_USERS_GAS_URL = PAID_USERS_GAS_URL;
         const RANK_TZ = 'Asia/Yangon';
@@ -8159,7 +8161,9 @@ function nextQuestion() {
             const img = document.getElementById('profile-avatar');
             const fallback = document.getElementById('profile-avatar-fallback');
             if (!img || !fallback) return;
-            const photo = (user && user.photo_url) || '';
+            const photo = (user && user.photo_url) || (window.REED_BOT_WORKER && user && user.id
+                ? (String(window.REED_BOT_WORKER).replace(/\/$/, '') + '/photo?id=' + encodeURIComponent(user.id))
+                : '');
             fallback.textContent = telegramInitials(user);
             function showFallback() {
                 img.classList.add('hide');
