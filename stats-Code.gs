@@ -1,11 +1,14 @@
 /**
  * Statistics / Rank Google Apps Script
- * VERSION reed-social-6 — 2026-09-24
+ * VERSION reed-social-7 — 2026-09-24
  * ------------------------------------------------
  * PASTE THIS WHOLE FILE into the SCORE spreadsheet Apps Script
  * (Untitled spreadsheet: Normal / Friends / Profiles).
  * Then: Deploy → Manage deployments → pencil → New version.
  * Keep the same Web App URL.
+ *
+ * Normal has score DATA in row 1 (no header). Do not treat the extra
+ * userid / userName / quizFile cells on the right as the real columns.
  *
  * Profile pictures are NOT stored here. Social avatars load live from
  * Telegram (bot worker GET /photo?id=, or getPhotos if BOT_TOKEN is set).
@@ -14,7 +17,7 @@
  * Do not paste this into TG APP SHEET.
  */
 
-var SCRIPT_V = 'reed-social-6';
+var SCRIPT_V = 'reed-social-7';
 var SPREADSHEET_ID = '';
 var SHEET_NAME = '';
 
@@ -28,7 +31,16 @@ function doGet(e) {
   var action = String(p.action || '');
   try {
     if (action === 'ping' || action === 'version' || !action) {
-      return json_({ status: 'ok', social: true, v: SCRIPT_V });
+      var info = { status: 'ok', social: true, v: SCRIPT_V };
+      try {
+        var sh = sheetByName_('Normal');
+        if (sh) {
+          var row1 = sh.getRange(1, 1, 1, Math.max(sh.getLastColumn(), 1)).getValues()[0];
+          info.normalRows = sh.getLastRow();
+          info.dataFirst = row1LooksLikeScoreData_(row1);
+        }
+      } catch (ePing) {}
+      return json_(info);
     }
     if (action === 'saveScore') return json_(saveScore_(p));
     if (action === 'getStats') return json_(getStats_(p));
@@ -228,7 +240,6 @@ function getLeaderboard_(p) {
       };
     })
   };
-  try { out.profiles = readProfiles_(); } catch (e3) { out.profiles = {}; }
   return out;
 }
 
@@ -244,38 +255,73 @@ function readScoreRows_(p) {
 
 function readScoreRowsFromSheet_(sheet, defaultGrade, defaultOld) {
   if (!sheet) return [];
-  var idx = headerIndex_(sheet);
-  if (idx.quizFile === undefined && idx.score === undefined) return [];
+  var lastCol = Math.max(sheet.getLastColumn(), 1);
+  var row1 = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+  var dataFirst = row1LooksLikeScoreData_(row1);
+  var idx = dataFirst ? positionalScoreIndex_() : headerIndex_(sheet);
+  if (idx.quizFile === undefined && idx.score === undefined && !dataFirst) return [];
   var last = sheet.getLastRow();
-  if (last < 2) return [];
-  var values = sheet.getRange(2, 1, last - 1, sheet.getLastColumn()).getValues();
+  var start = dataFirst ? 1 : 2;
+  if (last < start) return [];
+  var values = sheet.getRange(start, 1, last - start + 1, lastCol).getValues();
   var out = [];
   var i;
   for (i = 0; i < values.length; i++) {
-    var quizFile = String(values[i][idx.quizFile] || '');
-    if (!quizFile) continue;
-    var subject = String((idx.subject !== undefined ? values[i][idx.subject] : '') || '');
-    if (isSocialScoreRow_(quizFile, subject)) continue;
-    var rawDate = idx.date !== undefined ? values[i][idx.date] : '';
-    var grade = defaultGrade || String((idx.grade !== undefined && values[i][idx.grade] !== '') ? values[i][idx.grade] : inferGrade_(quizFile));
-    var isOld = defaultOld;
-    if (isOld == null) isOld = String(values[i][idx.isOld] || 'false') === 'true';
-    out.push({
-      userId: String(values[i][idx.userId] || ''),
-      userName: String(values[i][idx.userName] || ''),
-      quizFile: quizFile,
-      subject: subject,
-      chapter: idx.chapter !== undefined ? String(values[i][idx.chapter] || '') : '',
-      type: idx.type !== undefined ? String(values[i][idx.type] || '') : '',
-      score: num_(values[i][idx.score]),
-      total: num_(values[i][idx.total]),
-      timeTaken: idx.timeTaken !== undefined ? num_(values[i][idx.timeTaken]) : 0,
-      isOld: !!isOld,
-      date: toIso_(rawDate),
-      grade: String(grade)
-    });
+    var parsed = parseScoreRow_(values[i], idx, defaultGrade, defaultOld);
+    if (parsed) out.push(parsed);
   }
   return out;
+}
+
+function parseScoreRow_(row, idx, defaultGrade, defaultOld) {
+  var quizFile = pickQuizFile_(row, idx);
+  if (!quizFile) return null;
+  var subject = String((idx.subject !== undefined ? row[idx.subject] : '') || '');
+  if (!subject || looksLikeDate_(subject) || looksLikeTelegramId_(subject) || looksLikeQuizFile_(subject)) {
+    subject = inferSubject_(quizFile, subject);
+  } else {
+    subject = inferSubject_(quizFile, subject) || subject;
+  }
+  if (isSocialScoreRow_(quizFile, subject)) return null;
+  var userId = pickUserId_(row, idx);
+  var userName = idx.userName !== undefined ? String(row[idx.userName] || '') : '';
+  if (looksLikeTelegramId_(userName) || looksLikeQuizFile_(userName) || looksLikeDate_(userName)) userName = '';
+  if (!userName) {
+    var n;
+    for (n = 0; n < row.length; n++) {
+      var nameCell = String(row[n] == null ? '' : row[n]).trim();
+      if (!nameCell || looksLikeDate_(row[n]) || looksLikeTelegramId_(nameCell) || looksLikeQuizFile_(nameCell)) continue;
+      if (/^(true|false|mcq|true false|fill blank|1 mark)$/i.test(nameCell)) continue;
+      if (/^chapter\b/i.test(nameCell)) continue;
+      userName = nameCell;
+      break;
+    }
+  }
+  var st = pickScoreTotal_(row, idx);
+  var rawDate = idx.date !== undefined ? row[idx.date] : '';
+  if (!looksLikeDate_(rawDate)) {
+    var d;
+    for (d = 0; d < row.length; d++) {
+      if (looksLikeDate_(row[d])) { rawDate = row[d]; break; }
+    }
+  }
+  var grade = defaultGrade || String((idx.grade !== undefined && row[idx.grade] !== '') ? row[idx.grade] : inferGrade_(quizFile));
+  var isOld = defaultOld;
+  if (isOld == null) isOld = String((idx.isOld !== undefined ? row[idx.isOld] : '') || 'false') === 'true';
+  return {
+    userId: userId,
+    userName: userName,
+    quizFile: quizFile,
+    subject: subject,
+    chapter: idx.chapter !== undefined ? String(row[idx.chapter] || '') : '',
+    type: idx.type !== undefined ? String(row[idx.type] || '') : '',
+    score: st.score,
+    total: st.total,
+    timeTaken: idx.timeTaken !== undefined ? num_(row[idx.timeTaken]) : 0,
+    isOld: !!isOld,
+    date: toIso_(rawDate),
+    grade: String(grade)
+  };
 }
 
 function scoreWorkbook_() {
@@ -417,8 +463,18 @@ function setupGradeScoreSheets() {
 }
 
 function fixScoreHeaders() {
-  ensureGradeScoreSheets_();
-  var msg = 'Score header row is fixed. Grade 10 / 11 quiz rows are on their own tabs.';
+  var names = ['Normal', 'Old', 'Grade 10', 'Grade 11'];
+  var i;
+  for (i = 0; i < names.length; i++) {
+    try {
+      var sh = sheetByName_(names[i]);
+      if (sh) {
+        repairScoreSheetHeaders_(sh);
+        ensureExtraColumns_(sh, headerIndex_(sh));
+      }
+    } catch (e0) {}
+  }
+  var msg = 'Score header row is fixed. Rank reads quiz rows from Normal even if row 1 is data.';
   Logger.log(msg);
   try { SpreadsheetApp.getUi().alert(msg); } catch (e) {}
   return { status: 'ok', message: msg };
@@ -602,6 +658,88 @@ function looksLikeTelegramId_(v) {
   return /^\d{5,}$/.test(String(v == null ? '' : v).trim());
 }
 
+function looksLikeQuizFile_(v) {
+  var s = String(v == null ? '' : v).trim();
+  if (!s) return false;
+  return /^(old_)?(g10_|g11_)?(mm|en|math|phy|chem|bio|eco)[_-]/i.test(s);
+}
+
+function row1LooksLikeScoreData_(row1) {
+  if (!row1 || row1.length < 4) return false;
+  if (!(looksLikeDate_(row1[0]) && looksLikeTelegramId_(row1[1]))) return false;
+  if (looksLikeQuizFile_(row1[3])) return true;
+  var i;
+  for (i = 2; i < row1.length; i++) {
+    if (looksLikeQuizFile_(row1[i])) return true;
+  }
+  return false;
+}
+
+function positionalScoreIndex_() {
+  return {
+    date: 0,
+    userId: 1,
+    userName: 2,
+    quizFile: 3,
+    subject: 4,
+    chapter: 5,
+    type: 6,
+    score: 7,
+    total: 8,
+    timeTaken: 9,
+    playedOn: 10
+  };
+}
+
+function pickQuizFile_(row, idx) {
+  var qf = idx && idx.quizFile !== undefined ? String(row[idx.quizFile] || '') : '';
+  if (looksLikeQuizFile_(qf)) return qf;
+  var i;
+  for (i = 0; i < row.length; i++) {
+    if (looksLikeQuizFile_(row[i])) return String(row[i]);
+  }
+  return qf;
+}
+
+function pickUserId_(row, idx) {
+  var uid = idx && idx.userId !== undefined ? String(row[idx.userId] || '') : '';
+  if (looksLikeTelegramId_(uid)) return String(uid).replace(/[^0-9]/g, '');
+  var i;
+  for (i = 0; i < row.length; i++) {
+    if (looksLikeTelegramId_(row[i])) return String(row[i]).replace(/[^0-9]/g, '');
+  }
+  return String(uid || '').replace(/[^0-9]/g, '');
+}
+
+function pickScoreTotal_(row, idx) {
+  var score = idx && idx.score !== undefined ? num_(row[idx.score]) : 0;
+  var total = idx && idx.total !== undefined ? num_(row[idx.total]) : 0;
+  if (total > 0 && score >= 0) return { score: score, total: total };
+  if (row.length > 8) {
+    var a = num_(row[7]);
+    var b = num_(row[8]);
+    if (b > 0 && a >= 0 && a <= b * 2) return { score: a, total: b };
+  }
+  return { score: score, total: total };
+}
+
+function inferSubject_(quizFile, fallback) {
+  var s = String(quizFile || '').replace(/^old_/, '').replace(/^(g10_|g11_)/i, '').toLowerCase();
+  var keys = ['math', 'chem', 'bio', 'phy', 'eco', 'mm', 'en'];
+  var i;
+  for (i = 0; i < keys.length; i++) {
+    var k = keys[i];
+    if (s.indexOf(k + '_') === 0) return k;
+    if (s.indexOf('_' + k + '_') !== -1) return k;
+    if (s.length > k.length && s.slice(-k.length - 1) === '_' + k) return k;
+  }
+  var fb = String(fallback || '').toLowerCase().trim();
+  for (i = 0; i < keys.length; i++) {
+    if (fb === keys[i]) return keys[i];
+  }
+  return fb;
+}
+
 function aliasScoreHeaders_(idx) {
   function alias(fromList, to) {
     if (idx[to] !== undefined) return;
@@ -623,10 +761,11 @@ function aliasScoreHeaders_(idx) {
 
 function headerIndex_(sheet) {
   var headers = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1)).getValues()[0];
+  if (row1LooksLikeScoreData_(headers)) return positionalScoreIndex_();
   var idx = {};
   for (var i = 0; i < headers.length; i++) {
     var key = String(headers[i] || '').trim();
-    if (!key || looksLikeDate_(headers[i])) continue;
+    if (!key || looksLikeDate_(headers[i]) || looksLikeTelegramId_(headers[i]) || looksLikeQuizFile_(headers[i])) continue;
     idx[key] = i;
     idx[key.toLowerCase()] = i;
   }
@@ -638,9 +777,7 @@ function repairScoreSheetHeaders_(sheet) {
   if (!sheet) return;
   var lastCol = Math.max(sheet.getLastColumn(), 1);
   var row1 = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
-  var idx = headerIndex_(sheet);
-  if (idx.userId !== undefined && idx.quizFile !== undefined) return;
-  if (!(looksLikeDate_(row1[0]) && looksLikeTelegramId_(row1[1]))) return;
+  if (!row1LooksLikeScoreData_(row1)) return;
   sheet.insertRowBefore(1);
   var headers = ['date', 'userId', 'userName', 'quizFile', 'subject', 'chapter', 'type', 'score', 'total', 'timeTaken', 'playedOn'];
   var width = Math.max(lastCol, headers.length);
@@ -651,6 +788,10 @@ function repairScoreSheetHeaders_(sheet) {
 }
 
 function ensureExtraColumns_(sheet, idx) {
+  if (!sheet) return;
+  var lastCol = Math.max(sheet.getLastColumn(), 1);
+  var row1 = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+  if (row1LooksLikeScoreData_(row1)) return;
   REQUIRED_HEADERS.forEach(function (name) {
     if (idx[name] !== undefined) return;
     var col = sheet.getLastColumn() + 1;
