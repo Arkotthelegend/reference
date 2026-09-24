@@ -1,6 +1,6 @@
 /**
  * Statistics / Rank Google Apps Script
- * VERSION reed-social-5 — 2026-09-24
+ * VERSION reed-social-6 — 2026-09-24
  * ------------------------------------------------
  * PASTE THIS WHOLE FILE into the SCORE spreadsheet Apps Script
  * (Untitled spreadsheet: Normal / Friends / Profiles).
@@ -14,7 +14,7 @@
  * Do not paste this into TG APP SHEET.
  */
 
-var SCRIPT_V = 'reed-social-5';
+var SCRIPT_V = 'reed-social-6';
 var SPREADSHEET_ID = '';
 var SHEET_NAME = '';
 
@@ -229,16 +229,6 @@ function getLeaderboard_(p) {
     })
   };
   try { out.profiles = readProfiles_(); } catch (e3) { out.profiles = {}; }
-  var uid = String(p.userId || p.fromId || '').replace(/[^0-9]/g, '');
-  if (uid) {
-    try {
-      var st = friendState_({ userId: uid });
-      out.friends = st.friends || [];
-      out.incoming = st.incoming || [];
-      out.outgoing = st.outgoing || [];
-      if (st.profiles) out.profiles = st.profiles;
-    } catch (e4) {}
-  }
   return out;
 }
 

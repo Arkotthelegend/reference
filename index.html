@@ -3343,7 +3343,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     </div>
     
     <div id="stats-content" style="padding: 15px;">
-        <div id="stats-loading" style="text-align: center; color: var(--text-muted); padding: 40px;">Loading...</div>
+        <div id="stats-loading" style="text-align: center; color: var(--text-muted); padding: 40px; display: none;">Loading...</div>
         
         <!-- Summary Tab -->
         <div id="stats-tab-summary" style="display: none;">
@@ -3701,7 +3701,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
-    <script src="./friends.js?v=14"></script>
+    <script src="./friends.js?v=15"></script>
     <script>
 
 		function reedRememberTgUser(user) {
@@ -4482,9 +4482,25 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=134'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=135'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyBwCjjzIJ6w33Va9g5S3JHABAjQgODgzGb-jKHUfwYr2834AoZJif9F_KcO6qedJqdPw/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
+        const STATS_FETCH_MS = 8000;
+        function fetchStatsJson(url, timeoutMs) {
+            var ms = timeoutMs || STATS_FETCH_MS;
+            var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+            var timer = setTimeout(function () {
+                try { if (ctrl) ctrl.abort(); } catch (e0) {}
+            }, ms);
+            var opts = ctrl ? { signal: ctrl.signal } : {};
+            return fetch(url, opts).then(function (res) {
+                return res.text();
+            }).then(function (text) {
+                try { return JSON.parse(text); } catch (e1) { return null; }
+            }).catch(function () {
+                return null;
+            }).finally(function () { clearTimeout(timer); });
+        }
         const REED_BOT_WORKER = "https://bot.reededucation.net";
         window.REED_BOT_WORKER = REED_BOT_WORKER;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -4904,56 +4920,55 @@ function renderBestScores(bestScoresObj, containerId, filterOld) {
         container.appendChild(wrap);
     });
 }
+function mergeBestScores(serverMap, localBest) {
+    const out = Object.assign({}, serverMap || {});
+    Object.keys(localBest || {}).forEach(function (key) {
+        const localItem = localBest[key];
+        const serverItem = out[key];
+        if (!serverItem || (localItem.score || 0) > (serverItem.score || 0)) out[key] = localItem;
+    });
+    return out;
+}
+function paintUserStats(bestScoresToRender) {
+    statsBestScores = bestScoresToRender || {};
+    renderSummary(statsBestScores);
+    renderBestScores(statsBestScores, 'stat-best-scores', false);
+    renderBestScores(statsBestScores, 'stat-old-scores', true);
+    const loading = document.getElementById('stats-loading');
+    if (loading) loading.style.display = 'none';
+    switchStatsTab(pendingStatsTab || 'summary');
+}
 // ─── Load Statistics ───
 async function loadUserStats() {
-    const userId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
+    const userId = (typeof telegramUserId === 'function' ? telegramUserId() : '') || tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
+    const localBest = (getLocalStats().bestScores) || {};
+    let bestScoresToRender = mergeBestScores({}, localBest);
 
-    // 1. Show loading first (no stale local data shown yet)
-    document.getElementById('stats-loading').style.display = 'block';
-    document.getElementById('stats-loading').innerText = 'Loading...';
-    document.getElementById('stats-loading').style.color = 'var(--text-muted)';
-    document.getElementById('stats-tab-summary').style.display = 'none';
-    document.getElementById('stats-tab-best').style.display = 'none';
-    document.getElementById('stats-tab-old').style.display = 'none';
-
-    let bestScoresToRender = {};
-
-    // 2. Try server first for the latest official data
-    if (userId !== 'unknown') {
-        const url = `${STATS_GAS_URL}?action=getStats&userId=${userId}&grade=${getStatsGrade()}`;
-        try {
-            const res = await fetch(url);
-            const text = await res.text();
-            let data;
-            try { data = JSON.parse(text); } catch(e) { throw e; }
-
-            if (data.status === 'ok' && data.bestScores && data.bestScores.length > 0) {
-                data.bestScores.forEach(b => { bestScoresToRender[b.quizFile] = b; });
-            }
-        } catch (e) {
-            console.error("Server stats fetch failed:", e);
-        }
+    try {
+        paintUserStats(bestScoresToRender);
+    } catch (e0) {
+        console.error('Local stats render failed:', e0);
+        const loading = document.getElementById('stats-loading');
+        if (loading) loading.style.display = 'none';
+        switchStatsTab(pendingStatsTab || 'summary');
     }
 
-    // 3. Merge with local data so unsynced high scores aren't lost
-    const localStats = getLocalStats();
-    const localBest = localStats.bestScores || {};
-    Object.keys(localBest).forEach(key => {
-        const localItem = localBest[key];
-        const serverItem = bestScoresToRender[key];
-        if (!serverItem || (localItem.score || 0) > (serverItem.score || 0)) {
-            bestScoresToRender[key] = localItem;
+    if (userId === 'unknown') return;
+
+    try {
+        const url = `${STATS_GAS_URL}?action=getStats&userId=${encodeURIComponent(userId)}&grade=${getStatsGrade()}`;
+        const data = await fetchStatsJson(url, STATS_FETCH_MS);
+        if (data && data.status === 'ok' && Array.isArray(data.bestScores) && data.bestScores.length) {
+            const serverMap = {};
+            data.bestScores.forEach(function (b) {
+                if (b && b.quizFile) serverMap[b.quizFile] = b;
+            });
+            bestScoresToRender = mergeBestScores(serverMap, localBest);
+            paintUserStats(bestScoresToRender);
         }
-    });
-
-    // 4. Render final merged data
-    statsBestScores = bestScoresToRender;
-    renderSummary(bestScoresToRender);
-    renderBestScores(bestScoresToRender, 'stat-best-scores', false);
-    renderBestScores(bestScoresToRender, 'stat-old-scores', true);
-
-    document.getElementById('stats-loading').style.display = 'none';
-    switchStatsTab(pendingStatsTab || 'summary');
+    } catch (e) {
+        console.error('Server stats fetch failed:', e);
+    }
 }
 
 		function renderSummary(bestScoresObj) {
@@ -8241,8 +8256,10 @@ function goTab(id) {
     if(id === 'social') {
         updateCountdown();
         syncStatsGradePicker(getSelectedGrade());
-        var socialReady = window.REEDSocial ? REEDSocial.open() : Promise.resolve();
-        Promise.resolve(socialReady).then(function () { loadLeaderboard(); });
+        loadLeaderboard();
+        if (window.REEDSocial) {
+            try { REEDSocial.open(); } catch (eSoc) {}
+        }
     }
     if(id === 'time') openTimetableTab();
     if(id === 'post') {
@@ -9259,11 +9276,12 @@ function buildRankEntries(rows, opts) {
 async function fetchAllLeaderboardRows() {
     const grade = (typeof getStatsGrade === 'function') ? getStatsGrade() : 12;
     if (leaderboardCache.rows && leaderboardCache.grade === grade && (Date.now() - leaderboardCache.at) < 60000) return leaderboardCache.rows;
-    const url = STATS_GAS_URL + '?action=getLeaderboard&subject=all&grade=' + encodeURIComponent(grade) + '&userId=' + encodeURIComponent(telegramUserId() || '');
-    const res = await fetch(url);
-    const text = await res.text();
-    const data = JSON.parse(text);
-    if (data.status !== 'ok') throw new Error(data.message || 'Leaderboard error');
+    const url = STATS_GAS_URL + '?action=getLeaderboard&subject=all&grade=' + encodeURIComponent(grade);
+    const data = await fetchStatsJson(url, STATS_FETCH_MS);
+    if (!data || data.status !== 'ok') {
+        if (leaderboardCache.rows && leaderboardCache.grade === grade) return leaderboardCache.rows;
+        throw new Error((data && data.message) || 'Leaderboard error');
+    }
     leaderboardCache = { at: Date.now(), rows: data.rows || [], grade: grade };
     return leaderboardCache.rows;
 }
@@ -9337,18 +9355,16 @@ async function loadLeaderboard() {
     const listDiv = document.getElementById('leaderboard-list');
     const loadingDiv = document.getElementById('leaderboard-loading');
     const emptyDiv = document.getElementById('leaderboard-empty');
-    
+    const currentUserId = (typeof telegramUserId === 'function' ? telegramUserId() : '') || tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
+
     if (listDiv) listDiv.innerHTML = '';
     if (loadingDiv) loadingDiv.style.display = 'block';
     if (emptyDiv) emptyDiv.style.display = 'none';
-    
+
     try {
         const rows = await fetchAllLeaderboardRows();
-        const currentUserId = tg.initDataUnsafe?.user?.id?.toString() || 'unknown';
         const built = buildRankEntries(rows, { subject: subject, grade: grade, period: rankPeriod });
         const entries = built.entries;
-
-        if (loadingDiv) loadingDiv.style.display = 'none';
         if (entries.length === 0) {
             if (emptyDiv) {
                 emptyDiv.style.display = 'block';
@@ -9358,14 +9374,18 @@ async function loadLeaderboard() {
             renderLeaderboard([], currentUserId, subject, grade);
             return;
         }
-
         if (emptyDiv) emptyDiv.style.display = 'none';
         renderLeaderboard(entries, currentUserId, subject, grade);
-        
     } catch (e) {
-        console.error("Leaderboard error:", e);
+        console.error('Leaderboard error:', e);
+        if (emptyDiv) {
+            emptyDiv.style.display = 'block';
+            emptyDiv.innerText = 'No scores yet';
+            emptyDiv.style.color = 'var(--text-muted)';
+        }
+        try { renderLeaderboard([], currentUserId, subject, grade); } catch (e2) {}
+    } finally {
         if (loadingDiv) loadingDiv.style.display = 'none';
-        if (emptyDiv) { emptyDiv.style.display = 'block'; emptyDiv.innerText = 'Could not load'; emptyDiv.style.color = 'var(--text-muted)'; }
     }
 }
 		
