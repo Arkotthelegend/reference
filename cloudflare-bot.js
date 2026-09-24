@@ -3,7 +3,7 @@
    Optional: START_VIDEO_FILE_ID, START_VIDEO_URL
    Paste this file into the Worker and deploy. No KV.
 
-   GET /photo?id=TELEGRAM_ID  live Telegram profile JPEG for Social/Rank.
+   GET /photo?id=TELEGRAM_ID  live Telegram profile JPEG for Rank.
    POST webhook stays the /start + chat helper.
 
    /start caption is a few short Burmese lines.
@@ -105,9 +105,9 @@ function aboutReedReply() {
     'Inside the Mini App:',
     '• Study — quizzes, ခက်ဆစ် word list, English grammar, poems, dialogues, Grade 12 Q and A',
     '• Time — weekly timetable from your school, tuition, lunch, and rest. Download Mon–Fri and Sat–Sun A4 pages',
-    '• Social — find friends by Telegram ID (paid students only), friend requests, and rank',
+    '• Rank — exam countdown and the score leaderboard. Tap a rank row to preview photo, name, and stats.',
     '• Analysis — daily motivation, accuracy, questions, time, subject radar',
-    '• Me — profile, paid unlocks, exam countdown, News, volunteer',
+    '• Me — profile, bio, paid unlocks, News, volunteer',
     '',
     'Subjects: Myanmar, English, Maths, Physics, Chemistry, Biology, Economics.',
     'STEAM 1 uses Biology. STEAM 2 uses Economics.',
@@ -236,9 +236,9 @@ async function getAIReply(question, apiKey) {
     'APP TABS:',
     '• Study — subject quizzes, flashcards, English grammar (shared across grades), poems, dialogues, Grade 12 Q and A',
     '• Time — weekly timetable. Unlock after buying subjects. Asks STEAM 1 or 2, school days, tuition, rest. Makes Mon–Fri and Sat–Sun A4 pages you can download. Lunch + Rest and Rest stay labeled. The planner is rule-based on the phone, not ChatGPT.',
-    '• Social — Find by Telegram ID only if that person bought subjects, otherwise the app says no user with this id. Add / accept friends. Rank leaderboard is in this tab. Tap a rank row to preview photo, name, and stats.',
+    '• Rank — exam countdown at the top, then the score leaderboard. Tap a rank row to preview photo, name, and stats.',
     '• Analysis — Daily Motivation, Summary radar (questions, correct, time), Best scores, Old scores (Grade 12). STEAM 1 shows Biology. STEAM 2 shows Economics, not Biology.',
-    '• Me — name, Telegram ID, bought subjects, exam countdown at the bottom, contact to buy. Each chapter has Practice (book order, no timer, no score) and Test (shuffled, timer on, scored). Only Test counts for rank. News. Volunteers get grade-locked unlocks and can report a mistake.',
+    '• Me — name, Telegram ID, bio, bought subjects, contact to buy. Each chapter has Practice (book order, no timer, no score) and Test (shuffled, timer on, scored). Only Test counts for rank. News. Volunteers get grade-locked unlocks and can report a mistake.',
     '',
     'GRADES AND SUBJECTS:',
     'Grade 10, 11, and 12. Pick the grade in the app. Unlocks stay on that grade.',
