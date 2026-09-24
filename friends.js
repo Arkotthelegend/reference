@@ -56,6 +56,19 @@
         return (meUser().photo_url) || '';
     }
 
+    function botWorker() {
+        return String(root.REED_BOT_WORKER || '').replace(/\/$/, '');
+    }
+
+    function photoUrlFor(id) {
+        id = String(id || '').replace(/[^0-9]/g, '');
+        if (!id) return '';
+        if (id === meId() && mePhoto()) return mePhoto();
+        var worker = botWorker();
+        if (!worker) return '';
+        return worker + '/photo?id=' + encodeURIComponent(id);
+    }
+
     function bioKey() {
         return 'reed_bio_' + (meId() || 'guest');
     }
@@ -78,9 +91,11 @@
         Object.keys(prev).forEach(function (id) {
             var older = prev[id] || {};
             var newer = nextP[id] || {};
+            var newerPhoto = newer.photo || '';
+            var olderPhoto = older.photo || '';
             nextP[id] = {
                 name: newer.name || older.name || 'Student',
-                photo: newer.photo || older.photo || '',
+                photo: (newerPhoto.indexOf('data:image/') === 0) ? newerPhoto : ((olderPhoto.indexOf('data:image/') === 0) ? olderPhoto : ''),
                 bio: newer.bio || older.bio || ''
             };
         });
@@ -97,7 +112,7 @@
                 var p = nextP[id] || {};
                 copy.profiles[id] = {
                     name: p.name || '',
-                    photo: (p.photo && p.photo.indexOf('data:') === 0) ? '' : (p.photo || ''),
+                    photo: '',
                     bio: p.bio || ''
                 };
             });
@@ -165,7 +180,7 @@
     function packCard(name, photo, bio) {
         return JSON.stringify({
             n: String(name || '').slice(0, 40),
-            p: String(photo || '').slice(0, 500),
+            p: '',
             b: String(bio || '').slice(0, BIO_MAX)
         });
     }
@@ -191,16 +206,17 @@
             return {
                 userId: String(id),
                 name: meName(),
-                photo: mePhoto(),
+                photo: mePhoto() || photoUrlFor(id),
                 bio: readMyBio()
             };
         }
         var p = (friendCache.profiles && friendCache.profiles[String(id)]) || {};
         var name = p.name || fallback.name || fallback.userName || 'Student';
-        var photo = p.photo || fallback.photo || '';
+        var live = photoUrlFor(id);
+        var photo = live || p.photo || fallback.photo || '';
         if (name === meName()) name = fallback.name || fallback.userName || 'Student';
         if (name === meName()) name = 'Student';
-        if (photo && photo === mePhoto()) photo = '';
+        if (photo && photo === mePhoto()) photo = live || '';
         return {
             userId: String(id),
             name: name,
@@ -213,9 +229,12 @@
         if (!id) return;
         friendCache.profiles = friendCache.profiles || {};
         var prev = friendCache.profiles[String(id)] || {};
+        var keepPhoto = '';
+        if (photo && String(photo).indexOf('data:image/') === 0) keepPhoto = photo;
+        else if (prev.photo && String(prev.photo).indexOf('data:image/') === 0) keepPhoto = prev.photo;
         friendCache.profiles[String(id)] = {
             name: name || prev.name || 'Student',
-            photo: photo || prev.photo || '',
+            photo: keepPhoto,
             bio: bio != null && bio !== '' ? bio : (prev.bio || '')
         };
         writeLocal(friendCache);
@@ -243,19 +262,27 @@
     function applyRemoteState(data) {
         if (!data) return null;
         var profiles = data.profiles || {};
-        if (profiles && Object.keys(profiles).length) {
-            friendCache.profiles = Object.assign({}, friendCache.profiles || {}, profiles);
-        }
+        var merged = Object.assign({}, friendCache.profiles || {});
+        Object.keys(profiles).forEach(function (id) {
+            var prev = merged[id] || {};
+            var incoming = profiles[id] || {};
+            merged[id] = {
+                name: incoming.name || prev.name || 'Student',
+                photo: (prev.photo && String(prev.photo).indexOf('data:image/') === 0) ? prev.photo : '',
+                bio: incoming.bio || prev.bio || ''
+            };
+        });
+        friendCache.profiles = merged;
         if (!Array.isArray(data.friends) && !Array.isArray(data.incoming) && !Array.isArray(data.outgoing)) {
             if (Object.keys(profiles).length) writeLocal(friendCache);
             return data.status === 'ok' ? friendCache : null;
         }
         function withProf(row) {
-            var p = (friendCache.profiles && friendCache.profiles[String(row.userId)]) || profiles[String(row.userId)] || {};
+            var p = merged[String(row.userId)] || {};
             return {
                 userId: String(row.userId),
                 name: p.name || row.name || 'Student',
-                photo: p.photo || row.photo || '',
+                photo: photoUrlFor(row.userId) || p.photo || '',
                 bio: p.bio || row.bio || ''
             };
         }
@@ -263,7 +290,7 @@
             friends: (data.friends || []).map(withProf),
             incoming: (data.incoming || []).map(withProf),
             outgoing: (data.outgoing || []).map(withProf),
-            profiles: Object.assign({}, friendCache.profiles || {}, profiles)
+            profiles: merged
         };
         writeLocal(next);
         return next;
@@ -272,14 +299,13 @@
     function publishMe() {
         var uid = meId();
         if (!uid) return Promise.resolve();
-        rememberProfile(uid, meName(), mePhoto(), readMyBio());
+        rememberProfile(uid, meName(), '', readMyBio());
         return socialGet('saveProfile', {
             userId: uid,
             fromId: uid,
             name: meName(),
             userName: meName(),
-            bio: readMyBio(),
-            photo: mePhoto()
+            bio: readMyBio()
         });
     }
 
@@ -342,7 +368,7 @@
                 return {
                     userId: String(id),
                     name: meName(),
-                    photo: mePhoto(),
+                    photo: mePhoto() || photoUrlFor(id),
                     bio: readMyBio()
                 };
             }
@@ -354,7 +380,7 @@
             return {
                 userId: String(id),
                 name: name,
-                photo: looksLikeMyCard(p) ? '' : (p.photo || ''),
+                photo: photoUrlFor(id),
                 bio: p.bio || ''
             };
         }
@@ -394,8 +420,8 @@
             var oid = String(row.userId || '');
             var packed = unpackCard(row.userName, row.userName);
             if (oid && oid !== uid && packed.name === meName()) return;
-            if (packed.photo || packed.bio || packed.name) {
-                rememberProfile(row.userId, packed.name, packed.photo, packed.bio);
+            if (packed.bio || packed.name) {
+                rememberProfile(row.userId, packed.name, '', packed.bio);
             }
         });
     }
@@ -444,8 +470,7 @@
         return socialGet('saveProfile', {
             userId: uid,
             name: meName(),
-            bio: readMyBio(),
-            photo: mePhoto()
+            bio: readMyBio()
         }).then(function () {
             return socialGet('friendOp', {
                 op: op,
@@ -643,15 +668,15 @@
         previewTarget = String(id);
         var mine = String(id) === meId();
         var name = (meta && meta.name) || 'Student';
-        var photo = (meta && meta.photo) || '';
+        var photo = (meta && meta.photo) || photoUrlFor(id) || '';
         var bio = (meta && meta.bio) || '';
         if (!mine && (name === meName() || (photo && photo === mePhoto()))) {
             name = (meta && meta.fallbackName) || 'Student';
-            photo = '';
+            photo = photoUrlFor(id) || '';
         }
         if (mine) {
             name = meName() || name;
-            photo = mePhoto() || photo;
+            photo = mePhoto() || photoUrlFor(id) || photo;
             bio = readMyBio() || bio;
         }
         document.getElementById('peer-preview-name').textContent = name;
@@ -733,7 +758,7 @@
                     ? String(entry.userName || '')
                     : (unpacked.name || entry.userName || '');
                 if (String(id) === meId() || (entryName && entryName !== meName())) {
-                    rememberProfile(id, entryName, unpacked.photo, unpacked.bio);
+                    rememberProfile(id, entryName, '', unpacked.bio);
                 }
                 meta = profileOf(id, extras);
                 meta.fallbackName = extras.name || extras.userName || entryName;
@@ -774,7 +799,7 @@
             findInLeaderboard(id).then(function (entry) {
                 openPeerPreview(id, {
                     name: meta.name || (entry && entry.userName) || 'Student',
-                    photo: meta.photo,
+                    photo: photoUrlFor(id) || meta.photo,
                     bio: meta.bio,
                     stats: statsFromEntry(entry || {})
                 });
@@ -886,7 +911,7 @@
     function applyAvatar(id, url) {
         if (!id || !url) return;
         if (url.indexOf('data:image/') !== 0 && url.indexOf('https://') !== 0) return;
-        rememberProfile(id, '', url, null);
+        if (url.indexOf('data:image/') === 0) rememberProfile(id, '', url, null);
         var nodes = document.querySelectorAll('[data-avatar="' + id + '"]');
         var i;
         for (i = 0; i < nodes.length; i++) {
@@ -920,7 +945,12 @@
             seen[id] = true;
             want.push(id);
         });
-        if (!want.length || !gasUrl()) return Promise.resolve();
+        if (!want.length) return Promise.resolve();
+        want.forEach(function (id) {
+            var live = photoUrlFor(id);
+            if (live) applyAvatar(id, live);
+        });
+        if (!gasUrl()) return Promise.resolve();
         return fetchJson(gasUrl() + '?action=getPhotos&ids=' + encodeURIComponent(want.join(',')) + '&cb=' + Date.now()).then(function (data) {
             if (!data || data.status !== 'ok' || !data.photos) return;
             Object.keys(data.photos).forEach(function (id) {
@@ -963,8 +993,7 @@
             return Date.now() < ignoreOpenUntil || (overlay && !overlay.hidden);
         },
         photoFor: function (id) {
-            var p = profileOf(id);
-            return p.photo || '';
+            return photoUrlFor(id) || (profileOf(id).photo || '');
         },
         profileFor: profileOf
     };
