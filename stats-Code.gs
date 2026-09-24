@@ -27,6 +27,9 @@
  *   Normal  = Grade 12 current quizzes
  *   Old     = Grade 12 old questions only
  *   Grade 10 / Grade 11 = those grades (no old-question tab)
+ * THIS FILE is only for the SCORE workbook (tabs: Normal, Old, Grade 10,
+ * Grade 11, Friends, Profiles). Do not paste it into TG APP SHEET.
+ *
  * Friends / photos use this same Web App (Friends + Profiles sheets).
  * Photos need Script Property BOT_TOKEN if timetable send already has it.
  * After paste: Deploy → Manage deployments → pencil → New version.
@@ -59,6 +62,12 @@ function doGet(e) {
     if (action === 'saveProfile') return json_(saveProfile_(p));
     if (action === 'getPhotos') return json_(getPhotos_(p));
     if (action === 'purgeSocialScores') return json_(resetSocialScoreJunk());
+    if (action === 'getUsers') {
+      return json_({
+        success: false,
+        message: 'Wrong script: this is the SCORE sheet. Paste paid-users Code.gs on TG APP SHEET.'
+      });
+    }
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
     return json_({ status: 'error', message: String(err) });
@@ -312,6 +321,7 @@ function ensureNamedScoreSheet_(name) {
   if (!ss) throw new Error('Spreadsheet not found.');
   var sh = ss.getSheetByName(name);
   if (sh) {
+    repairScoreSheetHeaders_(sh);
     ensureExtraColumns_(sh, headerIndex_(sh));
     return sh;
   }
@@ -331,7 +341,7 @@ function ensureNamedScoreSheet_(name) {
   var headers = REQUIRED_HEADERS.slice();
   if (src && src.getLastColumn() >= 1) {
     var copied = src.getRange(1, 1, 1, src.getLastColumn()).getValues()[0];
-    if (copied && String(copied[0] || '').trim()) headers = copied;
+    if (copied && String(copied[0] || '').trim() && !looksLikeDate_(copied[0])) headers = copied;
   }
   sh.getRange(1, 1, 1, headers.length).setValues([headers]);
   ensureExtraColumns_(sh, headerIndex_(sh));
@@ -343,12 +353,11 @@ function ensureGradeScoreSheets_() {
   ensureNamedScoreSheet_('Old');
   ensureNamedScoreSheet_('Grade 10');
   ensureNamedScoreSheet_('Grade 11');
-  try {
-    var props = PropertiesService.getScriptProperties();
-    if (props.getProperty('gradeSheetsReady') === '1') return;
-    migrateGradeScoreRows_();
-    props.setProperty('gradeSheetsReady', '1');
-  } catch (err) {}
+  try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Normal')); } catch (e0) {}
+  try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Old')); } catch (e1) {}
+  try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Grade 10')); } catch (e2) {}
+  try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Grade 11')); } catch (e3) {}
+  try { migrateGradeScoreRows_(); } catch (err) {}
 }
 
 function scoresSheetFor_(grade, isOld) {
@@ -423,10 +432,19 @@ function setupGradeScoreSheets() {
   return { status: 'ok', moved: moved, message: msg };
 }
 
+function fixScoreHeaders() {
+  ensureGradeScoreSheets_();
+  var msg = 'Score header row is fixed. Grade 10 / 11 quiz rows are on their own tabs.';
+  Logger.log(msg);
+  try { SpreadsheetApp.getUi().alert(msg); } catch (e) {}
+  return { status: 'ok', message: msg };
+}
+
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('REED')
     .addItem('Clear social junk from scores', 'resetSocialScoreJunk')
+    .addItem('Fix header row / move G10 G11 scores', 'fixScoreHeaders')
     .addItem('Create Grade 10 / 11 score sheets', 'setupGradeScoreSheets')
     .addToUi();
 }
@@ -529,16 +547,64 @@ function purgeSocialScoreRowsOnce_() {
   return res;
 }
 
+function looksLikeDate_(v) {
+  if (Object.prototype.toString.call(v) === '[object Date]' && !isNaN(v.getTime())) return true;
+  var s = String(v == null ? '' : v).trim();
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return true;
+  if (/^\d{1,2}\/\d{1,2}\/\d{2,4}/.test(s)) return true;
+  return false;
+}
+
+function looksLikeTelegramId_(v) {
+  return /^\d{5,}$/.test(String(v == null ? '' : v).trim());
+}
+
+function aliasScoreHeaders_(idx) {
+  function alias(fromList, to) {
+    if (idx[to] !== undefined) return;
+    var i;
+    for (i = 0; i < fromList.length; i++) {
+      if (idx[fromList[i]] !== undefined) {
+        idx[to] = idx[fromList[i]];
+        return;
+      }
+    }
+  }
+  alias(['userid', 'telegram_id', 'telegramid', 'id'], 'userId');
+  alias(['username', 'name'], 'userName');
+  alias(['quizfile', 'quiz'], 'quizFile');
+  alias(['timetaken', 'time', 'duration'], 'timeTaken');
+  alias(['isold', 'old'], 'isOld');
+  alias(['timestamp', 'datetime', 'playedat', 'playedon'], 'date');
+}
+
 function headerIndex_(sheet) {
   var headers = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1)).getValues()[0];
   var idx = {};
   for (var i = 0; i < headers.length; i++) {
     var key = String(headers[i] || '').trim();
-    if (!key) continue;
+    if (!key || looksLikeDate_(headers[i])) continue;
     idx[key] = i;
     idx[key.toLowerCase()] = i;
   }
+  aliasScoreHeaders_(idx);
   return idx;
+}
+
+function repairScoreSheetHeaders_(sheet) {
+  if (!sheet) return;
+  var lastCol = Math.max(sheet.getLastColumn(), 1);
+  var row1 = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+  var idx = headerIndex_(sheet);
+  if (idx.userId !== undefined && idx.quizFile !== undefined) return;
+  if (!(looksLikeDate_(row1[0]) && looksLikeTelegramId_(row1[1]))) return;
+  sheet.insertRowBefore(1);
+  var headers = ['date', 'userId', 'userName', 'quizFile', 'subject', 'chapter', 'type', 'score', 'total', 'timeTaken', 'playedOn'];
+  var width = Math.max(lastCol, headers.length);
+  var line = [];
+  var i;
+  for (i = 0; i < width; i++) line.push(headers[i] || '');
+  sheet.getRange(1, 1, 1, width).setValues([line]);
 }
 
 function ensureExtraColumns_(sheet, idx) {
