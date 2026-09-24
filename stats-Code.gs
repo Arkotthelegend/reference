@@ -1,6 +1,6 @@
 /**
  * Statistics / Rank Google Apps Script
- * VERSION reed-social-4 — 2026-09-24
+ * VERSION reed-social-5 — 2026-09-24
  * ------------------------------------------------
  * PASTE THIS WHOLE FILE into the SCORE spreadsheet Apps Script
  * (Untitled spreadsheet: Normal / Friends / Profiles).
@@ -14,7 +14,7 @@
  * Do not paste this into TG APP SHEET.
  */
 
-var SCRIPT_V = 'reed-social-4';
+var SCRIPT_V = 'reed-social-5';
 var SPREADSHEET_ID = '';
 var SHEET_NAME = '';
 
@@ -28,7 +28,6 @@ function doGet(e) {
   var action = String(p.action || '');
   try {
     if (action === 'ping' || action === 'version' || !action) {
-      try { salvageSocialScoreRows_(); } catch (e0) {}
       return json_({ status: 'ok', social: true, v: SCRIPT_V });
     }
     if (action === 'saveScore') return json_(saveScore_(p));
@@ -204,8 +203,6 @@ function getStats_(p) {
 }
 
 function getLeaderboard_(p) {
-  try { salvageSocialScoreRows_(); } catch (err) {}
-  try { ensureGradeScoreSheets_(); } catch (err2) {}
   var subject = String(p.subject || 'all');
   var rows = readScoreRows_(p);
   if (subject && subject !== 'all') {
@@ -334,20 +331,30 @@ function ensureNamedScoreSheet_(name) {
   return sh;
 }
 
+var migratingScores_ = false;
+
 function ensureGradeScoreSheets_() {
-  ensureNamedScoreSheet_('Normal');
-  ensureNamedScoreSheet_('Old');
-  ensureNamedScoreSheet_('Grade 10');
-  ensureNamedScoreSheet_('Grade 11');
-  try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Normal')); } catch (e0) {}
-  try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Old')); } catch (e1) {}
-  try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Grade 10')); } catch (e2) {}
-  try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Grade 11')); } catch (e3) {}
-  try { migrateGradeScoreRows_(); } catch (err) {}
+  if (migratingScores_) return;
+  var props = PropertiesService.getScriptProperties();
+  if (props.getProperty('gradeSheetsReady') === '1') return;
+  migratingScores_ = true;
+  try {
+    ensureNamedScoreSheet_('Normal');
+    ensureNamedScoreSheet_('Old');
+    ensureNamedScoreSheet_('Grade 10');
+    ensureNamedScoreSheet_('Grade 11');
+    try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Normal')); } catch (e0) {}
+    try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Old')); } catch (e1) {}
+    try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Grade 10')); } catch (e2) {}
+    try { repairScoreSheetHeaders_(ensureNamedScoreSheet_('Grade 11')); } catch (e3) {}
+    migrateGradeScoreRows_();
+    props.setProperty('gradeSheetsReady', '1');
+  } finally {
+    migratingScores_ = false;
+  }
 }
 
 function scoresSheetFor_(grade, isOld) {
-  ensureGradeScoreSheets_();
   var g = String(grade || '12');
   if (g === '10') return ensureNamedScoreSheet_('Grade 10');
   if (g === '11') return ensureNamedScoreSheet_('Grade 11');
@@ -356,27 +363,28 @@ function scoresSheetFor_(grade, isOld) {
   return named || ensureNamedScoreSheet_('Normal');
 }
 
+function sheetByName_(name) {
+  var ss = scoreWorkbook_();
+  return ss ? ss.getSheetByName(name) : null;
+}
+
 function scoreSheetsForRead_(grade) {
-  ensureGradeScoreSheets_();
   var g = String(grade || '');
-  if (g === '10') return [{ sheet: ensureNamedScoreSheet_('Grade 10'), grade: '10', isOld: false }];
-  if (g === '11') return [{ sheet: ensureNamedScoreSheet_('Grade 11'), grade: '11', isOld: false }];
-  if (g === '12') {
-    return [
-      { sheet: ensureNamedScoreSheet_('Normal'), grade: '12', isOld: false },
-      { sheet: ensureNamedScoreSheet_('Old'), grade: '12', isOld: true }
-    ];
+  function one(name, gradeName, isOld) {
+    return { sheet: sheetByName_(name), grade: gradeName, isOld: isOld };
   }
+  if (g === '10') return [one('Grade 10', '10', false)];
+  if (g === '11') return [one('Grade 11', '11', false)];
+  if (g === '12') return [one('Normal', '12', false), one('Old', '12', true)];
   return [
-    { sheet: ensureNamedScoreSheet_('Grade 10'), grade: '10', isOld: false },
-    { sheet: ensureNamedScoreSheet_('Grade 11'), grade: '11', isOld: false },
-    { sheet: ensureNamedScoreSheet_('Normal'), grade: '12', isOld: false },
-    { sheet: ensureNamedScoreSheet_('Old'), grade: '12', isOld: true }
+    one('Grade 10', '10', false),
+    one('Grade 11', '11', false),
+    one('Normal', '12', false),
+    one('Old', '12', true)
   ];
 }
 
 function migrateGradeScoreRows_() {
-  ensureGradeScoreSheets_();
   var sources = [ensureNamedScoreSheet_('Normal'), ensureNamedScoreSheet_('Old')];
   var moved = 0;
   var s;
