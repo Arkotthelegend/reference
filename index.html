@@ -2781,7 +2781,9 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
         min-height: 0;
     }
     #profile-countdown-wrap {
-        margin-top: auto;
+        margin-top: 0;
+        margin-bottom: 10px;
+        flex-shrink: 0;
     }
     #motivation-box {
         margin-bottom: 12px !important;
@@ -3086,8 +3088,9 @@ body.volunteer-role .vol-report-link { display: block !important; }
 }
 .leaderboard-item { cursor: pointer; }
 #profile-countdown-wrap {
-    margin-top: 28px;
-    padding: 4px 8px 8px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding: 0 0 4px;
 }
 #peer-preview {
     position: fixed;
@@ -3271,36 +3274,18 @@ body.volunteer-role .vol-report-link { display: block !important; }
 					 
             </div> 
 			<div id="dynamic-content-area"></div>
-            <div id="profile-countdown-wrap">
-                <div id="countdown-label" style="text-align: center; color: var(--accent); font-size: 0.9rem; margin-bottom: 8px; font-weight: bold; letter-spacing: 0.5px;">
-                    ⏳ ခန့်မှန်းခြေ စာမေးပွဲဖြေဆိုရန် ကျန်ရှိချိန်
-                </div>
-                <div id="exam-countdown"></div>
-            </div>
         </div>
 
 <div id="social-screen" class="screen">
-    <h2>Social</h2>
+    <h2>Rank</h2>
     <div class="social-inner">
-        <div class="social-block">
-            <h3>Find</h3>
-            <div class="social-find-row">
-                <input id="social-find-id" type="text" inputmode="numeric" placeholder="Telegram ID" autocomplete="off">
-                <button type="button" class="btn social-mini-btn" id="social-find-btn">Find</button>
+        <div id="profile-countdown-wrap">
+            <div id="countdown-label" style="text-align: center; color: var(--accent); font-size: 0.9rem; margin-bottom: 8px; font-weight: bold; letter-spacing: 0.5px;">
+                ⏳ ခန့်မှန်းခြေ စာမေးပွဲဖြေဆိုရန် ကျန်ရှိချိန်
             </div>
-            <p id="social-find-msg" class="social-find-msg"></p>
+            <div id="exam-countdown"></div>
         </div>
         <div class="social-block">
-            <h3>Requests</h3>
-            <div id="social-requests"></div>
-            <div id="social-outgoing"></div>
-        </div>
-        <div class="social-block">
-            <h3>Friends</h3>
-            <div id="social-friends"></div>
-        </div>
-        <div class="social-block">
-            <h3>Rank</h3>
             <div class="grade-picker" style="margin: 0 0 12px;">
                 <div class="grade-picker-row" id="social-grade-row">
                     <button type="button" class="grade-btn" data-grade="12" onclick="onStatsGradeClick(12)">12</button>
@@ -3670,7 +3655,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
    <div class="nav">
     <div class="nav-item nav-active" data-tab="home" onclick="changeTab('home', this)"><span class="nav-ico">🏠</span><span class="nav-lbl">Study</span></div>
     <div class="nav-item" data-tab="time" onclick="changeTab('time', this)"><span class="nav-ico">🕒</span><span class="nav-lbl">Time</span></div>
-    <div class="nav-item" data-tab="social" onclick="changeTab('social', this)"><span class="nav-ico">👥</span><span class="nav-lbl">Social</span></div>
+    <div class="nav-item" data-tab="social" onclick="changeTab('social', this)"><span class="nav-ico">🏆</span><span class="nav-lbl">Rank</span></div>
     <div class="nav-item" data-tab="stats" onclick="changeTab('stats', this)"><span class="nav-ico">📈</span><span class="nav-lbl">Analysis</span></div>
     <div class="nav-item" data-tab="profile" onclick="changeTab('profile', this)"><span class="nav-ico">👤</span><span class="nav-lbl">Me</span></div>
     <div class="nav-item" id="nav-post" data-tab="post" hidden onclick="changeTab('post', this)"><span class="nav-ico">📸</span><span class="nav-lbl">Post</span></div>
@@ -3694,7 +3679,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
             <div class="peer-stat"><b id="peer-preview-time">—</b><span>Time</span></div>
         </div>
         <div id="peer-preview-rank"></div>
-        <button type="button" class="btn" id="peer-preview-action">Add friend</button>
     </div>
 </div>
 
@@ -3717,7 +3701,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
-    <script src="./friends.js?v=13"></script>
+    <script src="./friends.js?v=14"></script>
     <script>
 
 		function reedRememberTgUser(user) {
@@ -4498,7 +4482,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=133'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=134'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyBwCjjzIJ6w33Va9g5S3JHABAjQgODgzGb-jKHUfwYr2834AoZJif9F_KcO6qedJqdPw/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const REED_BOT_WORKER = "https://bot.reededucation.net";
@@ -8242,7 +8226,6 @@ function goTab(id) {
     }
     if(id === 'profile') {
         renderProfileData();
-        updateCountdown();
         if (window.REEDSocial) {
             REEDSocial.paintMyBio();
             REEDSocial.publishMe();
@@ -8256,6 +8239,7 @@ function goTab(id) {
         loadUserStats();
     }
     if(id === 'social') {
+        updateCountdown();
         syncStatsGradePicker(getSelectedGrade());
         var socialReady = window.REEDSocial ? REEDSocial.open() : Promise.resolve();
         Promise.resolve(socialReady).then(function () { loadLeaderboard(); });

@@ -697,29 +697,7 @@
         document.getElementById('peer-preview-time').textContent = tm;
         document.getElementById('peer-preview-rank').textContent = rk;
         var btn = document.getElementById('peer-preview-action');
-        var rel = relationTo(id);
-        var viewingSelf = String(id) === meId();
-        btn.style.display = '';
-        btn.disabled = false;
-        btn.removeAttribute('disabled');
-        btn.setAttribute('data-peer', String(id));
-        if (viewingSelf) {
-            btn.style.display = 'none';
-        } else if (rel === 'friends') {
-            btn.textContent = 'Friends';
-            btn.disabled = true;
-        } else if (rel === 'outgoing') {
-            btn.textContent = 'Requested';
-            btn.disabled = true;
-        } else if (rel === 'incoming') {
-            btn.textContent = 'Accept';
-            btn.disabled = false;
-            btn.setAttribute('data-fop', 'accept');
-        } else {
-            btn.textContent = 'Add friend';
-            btn.disabled = false;
-            btn.setAttribute('data-fop', 'request');
-        }
+        if (btn) btn.style.display = 'none';
         overlay.hidden = false;
         fillPhotos([id]);
     }
@@ -744,13 +722,7 @@
         meta.fallbackName = extras.name || extras.userName || '';
         fillPreview(id, meta, extras.stats || statsFromEntry(extras));
         if (seq !== previewSeq) return;
-        loadFriendState().then(function () {
-            if (seq !== previewSeq) return;
-            meta = profileOf(id, extras);
-            meta.fallbackName = extras.name || extras.userName || '';
-            fillPreview(id, meta, extras.stats || statsFromEntry(extras));
-            return findInLeaderboard(id);
-        }).then(function (entry) {
+        findInLeaderboard(id).then(function (entry) {
             if (seq !== previewSeq) return;
             if (entry) {
                 var unpacked = unpackCard(entry.userName, entry.userName);
@@ -826,37 +798,6 @@
     }
 
     function bindUi() {
-        var rootEl = document.getElementById('social-screen');
-        if (rootEl && !rootEl._reedBound) {
-            rootEl._reedBound = true;
-            rootEl.addEventListener('click', function (e) {
-                var opBtn = e.target.closest('[data-fop]');
-                if (opBtn) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    runOp(opBtn.getAttribute('data-fop'), opBtn.getAttribute('data-peer'));
-                    return;
-                }
-                var row = e.target.closest('[data-peer]');
-                if (row && row.classList.contains('friend-row')) {
-                    openPeerPreview(row.getAttribute('data-peer'), {
-                        name: row.getAttribute('data-name') || '',
-                        force: true
-                    });
-                }
-            });
-        }
-        var findBtn = document.getElementById('social-find-btn');
-        if (findBtn) findBtn.onclick = findReedUser;
-        var findInput = document.getElementById('social-find-id');
-        if (findInput) {
-            findInput.onkeydown = function (e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    findReedUser();
-                }
-            };
-        }
         var overlay = document.getElementById('peer-preview');
         if (overlay && !overlay._reedBound) {
             overlay._reedBound = true;
@@ -866,12 +807,6 @@
                 var back = e.target.closest('#peer-preview-back, #peer-preview-close');
                 if (back) closePeerPreview(e);
             });
-        }
-        var act = document.getElementById('peer-preview-action');
-        if (act) {
-            act.onclick = function () {
-                runOp(act.getAttribute('data-fop') || 'request', previewTarget);
-            };
         }
         bindBioEditor();
     }
@@ -961,19 +896,8 @@
 
     function openSocial() {
         bindUi();
-        return publishMe().then(loadFriendState).then(function () {
-            renderLists();
-            fillPhotos();
-            if (socialTimer) clearInterval(socialTimer);
-            socialTimer = setInterval(function () {
-                var screen = document.getElementById('social-screen');
-                if (!screen || !screen.classList.contains('active-screen')) return;
-                loadFriendState().then(function () {
-                    renderLists();
-                    fillPhotos();
-                });
-            }, 8000);
-        });
+        paintMyBio();
+        return publishMe();
     }
 
     root.findReedUser = findReedUser;
