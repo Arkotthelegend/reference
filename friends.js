@@ -241,9 +241,17 @@
     }
 
     function fetchJson(url, opts) {
-        return fetch(url, opts || {}).then(function (r) { return r.text(); }).then(function (t) {
+        opts = opts || {};
+        var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+        var timer = setTimeout(function () {
+            try { if (ctrl) ctrl.abort(); } catch (e0) {}
+        }, 8000);
+        var next = {};
+        Object.keys(opts).forEach(function (k) { next[k] = opts[k]; });
+        if (ctrl && !next.signal) next.signal = ctrl.signal;
+        return fetch(url, next).then(function (r) { return r.text(); }).then(function (t) {
             try { return JSON.parse(t); } catch (e) { return null; }
-        });
+        }).catch(function () { return null; }).finally(function () { clearTimeout(timer); });
     }
 
     function gasGet(action, extra) {
@@ -897,7 +905,8 @@
     function openSocial() {
         bindUi();
         paintMyBio();
-        return publishMe();
+        publishMe().catch(function () {});
+        return Promise.resolve();
     }
 
     root.findReedUser = findReedUser;
