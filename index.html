@@ -421,11 +421,7 @@ body.page-no-nav .container {
     .bought-badge { background: #2B3139; color: #EAECEF; padding: 6px 10px; border-radius: 8px; font-size: 0.8rem; border: 1px solid #2B3139; font-weight: 600; }
     .bought-badge.vol-badge { color: #C9B37A; border-color: #C9B37A; background: transparent; }
     
-    .streak-mini-badge {
-        position: absolute; top: 4px; left: 50%; transform: translateX(-108px);
-        background: #F0B90B; color: #0B0E11; font-weight: 700; font-size: 0.72rem;
-        padding: 3px 8px; border-radius: 999px; border: none; display: inline-flex; align-items: center; gap: 4px; z-index: 10;
-    }
+    .streak-mini-badge { display: none !important; }
 
     /* Toggle Switch */
     .gender-container { margin: 20px 0; display: flex; align-items: center; justify-content: center; gap: 15px; font-weight: bold; color: var(--text-muted); }
@@ -916,12 +912,7 @@ input:checked + .slider:before {
             display: none !important;
         }
 
-        /* Profile ပုံ ပိုသေးသွားသောကြောင့် Streak Badge (မီးတောက်) ကို နေရာပြန်ချိန်ခြင်း */
-        .streak-mini-badge {
-            font-size: 0.65rem !important;
-            padding: 2px 6px !important;
-            transform: translateX(-80px) !important; 
-        }
+        .profile-pulse-num { font-size: 1.45rem !important; }
 		
 		/* ၁။ Math Scroll Container ကို ပြင်ဆင်ခြင်း */
 .math-scroll-container {
@@ -1801,6 +1792,70 @@ html body[data-theme] .btn.btn-test {
     opacity: 1;
     border: none;
 }
+
+.profile-pulse { margin-top: 12px; }
+.profile-pulse-card {
+    background: #1E2329;
+    border: 1px solid #2B3139;
+    border-radius: 12px;
+    padding: 14px 16px;
+    text-align: center;
+}
+.profile-pulse-card.streak {
+    border-color: #F0B90B;
+}
+.profile-pulse-kicker {
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    margin-bottom: 6px;
+}
+.profile-pulse-num {
+    color: #EAECEF;
+    font-size: 1.7rem;
+    font-weight: 800;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    line-height: 1.1;
+}
+.profile-pulse-unit {
+    color: #94A3B8;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+.profile-pulse-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #2B3139;
+    color: #94A3B8;
+    font-size: 0.78rem;
+    text-align: left;
+}
+.profile-pulse-meta b { color: #EAECEF; font-weight: 700; }
+.profile-pulse-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+}
+.profile-pulse-row .profile-pulse-card {
+    cursor: pointer;
+    text-align: left;
+    margin: 0 !important;
+    width: 100%;
+    font: inherit;
+    color: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+    background: #1E2329;
+    border: 1px solid #2B3139;
+    padding: 14px 16px;
+}
+.profile-pulse-row .profile-pulse-card:active { border-color: #F0B90B; }
+.profile-pulse-row .profile-pulse-num { font-size: 1.25rem; }
 
 .rank-snapshot {
     background: var(--card-bg);
@@ -2810,6 +2865,9 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
         flex: 0 0 auto;
         margin-top: 12px !important;
         padding: 16px !important;
+    }
+    #dynamic-content-area {
+        padding: 0 4px 12px;
     }
 
     .flash-container {
@@ -4482,7 +4540,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=137'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=138'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const STATS_FETCH_MS = 25000;
@@ -4937,6 +4995,7 @@ function paintUserStats(bestScoresToRender) {
     const loading = document.getElementById('stats-loading');
     if (loading) loading.style.display = 'none';
     switchStatsTab(pendingStatsTab || 'summary');
+    fillProfilePulseStats();
 }
 // ─── Load Statistics ───
 async function loadUserStats() {
@@ -8351,7 +8410,7 @@ function renderProfileData() {
     applyAdminChrome();
     
     // Local Storage ကနေ Streak ကို ယူမယ်
-    let currentStreak = parseInt(localStorage.getItem('streak_count')) || updateStreak();
+    let currentStreak = updateStreak();
     
     // UI Elements များကို သတ်မှတ်ခြင်း
     document.getElementById('user-name').innerText = volunteer ? (userName + ' · Volunteer') : userName;
@@ -8401,18 +8460,8 @@ function renderProfileData() {
         });
     }
 
-    // Streak Mini Badge ကို Profile Avatar ဘေးတွင် ထည့်ခြင်း
-    let streakBadge = document.getElementById('streak-mini-badge');
-    if (!streakBadge) {
-        streakBadge = document.createElement('div');
-        streakBadge.id = 'streak-mini-badge';
-        streakBadge.className = 'streak-mini-badge';
-        
-        const avatar = document.getElementById('profile-avatar');
-        avatar.parentElement.style.position = 'relative';
-        avatar.parentElement.appendChild(streakBadge);
-    }
-    streakBadge.innerHTML = `🔥 ${currentStreak} Day${currentStreak > 1 ? 's' : ''}`;
+    const leftoverStreak = document.getElementById('streak-mini-badge');
+    if (leftoverStreak) leftoverStreak.remove();
 
     const dynamicArea = document.getElementById('dynamic-content-area');
     dynamicArea.innerHTML = `
@@ -8424,7 +8473,32 @@ function renderProfileData() {
             <button class="grade-btn ${selectedGrade === 10 ? 'active' : ''}" onclick="setSelectedGrade(10)">Grade 10</button>
         </div>
     </div>
+    <div class="profile-pulse">
+        <div class="profile-pulse-card streak">
+            <div class="profile-pulse-kicker">Streak</div>
+            <div class="profile-pulse-num" id="profile-streak-num">🔥 ${currentStreak}</div>
+            <div class="profile-pulse-unit" id="profile-streak-unit">${currentStreak === 1 ? 'day in a row' : 'days in a row'}</div>
+            <div class="profile-pulse-meta">
+                <span>Best <b id="profile-streak-best">${rememberBestStreak(currentStreak)}</b> days</span>
+                <span id="profile-streak-last">Active today</span>
+            </div>
+        </div>
+        <div class="profile-pulse-row">
+            <button type="button" class="profile-pulse-card" id="profile-time-card" onclick="goTab('stats')">
+                <div class="profile-pulse-kicker">Practice time</div>
+                <div class="profile-pulse-num" id="profile-time-value">00:00</div>
+                <div class="profile-pulse-unit" id="profile-time-sub">No practice yet</div>
+            </button>
+            <button type="button" class="profile-pulse-card" id="profile-rank-card" onclick="goTab('social')">
+                <div class="profile-pulse-kicker">Rank</div>
+                <div class="profile-pulse-num" id="profile-rank-value">—</div>
+                <div class="profile-pulse-unit" id="profile-rank-sub">Grade ${selectedGrade}</div>
+            </button>
+        </div>
+    </div>
 `;
+    fillProfilePulseStats();
+    refreshRankSnapshot();
     applyAdminChrome();
 }
 
@@ -8794,7 +8868,86 @@ function updateStreak() {
 
     localStorage.setItem('last_login_date', todayDate);
     localStorage.setItem('streak_count', streak.toString());
+    rememberBestStreak(streak);
     return streak;
+}
+
+function rememberBestStreak(n) {
+    var cur = parseInt(n, 10) || 0;
+    var best = parseInt(localStorage.getItem('streak_best') || '0', 10) || 0;
+    if (cur > best) {
+        best = cur;
+        localStorage.setItem('streak_best', String(best));
+    }
+    return best;
+}
+
+function formatPracticeClock(seconds) {
+    seconds = Math.max(0, parseInt(seconds, 10) || 0);
+    var h = Math.floor(seconds / 3600);
+    var m = Math.floor((seconds % 3600) / 60);
+    var s = seconds % 60;
+    if (h > 0) return h + 'h ' + String(m).padStart(2, '0') + 'm';
+    return formatTime(seconds);
+}
+
+function profilePracticeTotals() {
+    var time = 0;
+    var questions = 0;
+    var best = {};
+    var localBest = (getLocalStats().bestScores) || {};
+    Object.keys(localBest).forEach(function (k) { best[k] = localBest[k]; });
+    Object.keys(statsBestScores || {}).forEach(function (k) { best[k] = statsBestScores[k]; });
+    Object.keys(best).forEach(function (k) {
+        var b = best[k] || {};
+        time += parseInt(b.timeTaken || 0, 10) || 0;
+        questions += parseInt(b.total || 0, 10) || 0;
+    });
+    if (lastRankSnapshot) {
+        if (lastRankSnapshot.totalTime) time = Math.max(time, lastRankSnapshot.totalTime);
+        if (lastRankSnapshot.questions) questions = Math.max(questions, lastRankSnapshot.questions);
+    }
+    return { time: time, questions: questions };
+}
+
+function fillProfilePulseStats() {
+    var streakNum = document.getElementById('profile-streak-num');
+    if (!streakNum) return;
+    var streak = parseInt(localStorage.getItem('streak_count') || '0', 10) || 0;
+    var best = rememberBestStreak(streak);
+    streakNum.textContent = '🔥 ' + streak;
+    var unit = document.getElementById('profile-streak-unit');
+    if (unit) unit.textContent = streak === 1 ? 'day in a row' : 'days in a row';
+    var bestEl = document.getElementById('profile-streak-best');
+    if (bestEl) bestEl.textContent = String(best);
+    var lastEl = document.getElementById('profile-streak-last');
+    if (lastEl) lastEl.textContent = 'Active today';
+
+    var totals = profilePracticeTotals();
+    var timeVal = document.getElementById('profile-time-value');
+    var timeSub = document.getElementById('profile-time-sub');
+    if (timeVal) timeVal.textContent = formatPracticeClock(totals.time);
+    if (timeSub) {
+        timeSub.textContent = totals.questions
+            ? (totals.questions + ' question' + (totals.questions === 1 ? '' : 's'))
+            : 'No practice yet';
+    }
+
+    var rankVal = document.getElementById('profile-rank-value');
+    var rankSub = document.getElementById('profile-rank-sub');
+    var snap = lastRankSnapshot;
+    var grade = (snap && snap.grade) || getSelectedGrade();
+    if (rankVal) rankVal.textContent = (snap && snap.myRank) ? ('#' + snap.myRank) : '—';
+    if (rankSub) {
+        if (snap && snap.myRank) {
+            var bits = ['Grade ' + grade];
+            if (snap.percentile) bits.push('Top ' + snap.percentile + '%');
+            if (snap.acc != null) bits.push(snap.acc + '%');
+            rankSub.textContent = bits.join(' · ');
+        } else {
+            rankSub.textContent = 'Grade ' + grade + ' · no rank yet';
+        }
+    }
 }
       
 	  // ၁။ Daily Quiz အတွက် မေးခွန်းများ စုစည်းထားမည့် နေရာ
@@ -9323,14 +9476,16 @@ async function refreshRankSnapshot() {
             percentile: percentileForRank(myRank, built.entries.length),
             acc: me ? Math.round(me.rankData.acc * 100) : null,
             name: me ? me.userName : '',
-            quizCount: me ? me.quizCount : 0
+            quizCount: me ? me.quizCount : 0,
+            totalTime: me ? me.totalTime : 0,
+            questions: me ? me.totalPossible : 0
         };
         fillRankSnapshotCard(document.getElementById('home-rank-teaser'), lastRankSnapshot);
-        fillRankSnapshotCard(document.getElementById('profile-rank-card'), lastRankSnapshot);
+        fillProfilePulseStats();
     } catch (e) {
         console.error('Rank snapshot failed', e);
         fillRankSnapshotCard(document.getElementById('home-rank-teaser'), null);
-        fillRankSnapshotCard(document.getElementById('profile-rank-card'), null);
+        fillProfilePulseStats();
     }
 }
 
