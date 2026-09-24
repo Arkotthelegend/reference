@@ -143,7 +143,6 @@
         var getUrl = gasUrl() + '?' + params.toString();
         var body = {};
         Object.keys(extra).forEach(function (k) {
-            if (k === 'photo' || k === 'photo_url' || k === 'fromPhoto') return;
             if (extra[k] == null) return;
             body[k] = extra[k];
         });
@@ -161,31 +160,6 @@
             if (data) return data;
             return postPlain();
         }).catch(function () { return postPlain().catch(function () { return null; }); });
-    }
-
-    function socialViaSaveScore(quizFile, extra) {
-        extra = extra || {};
-        var uid = meId();
-        if (!uid || !gasUrl()) return Promise.resolve(null);
-        return socialGet('saveScore', {
-            userId: uid,
-            userName: packCard(meName(), '', extra.bio != null ? extra.bio : readMyBio()),
-            quizFile: quizFile,
-            subject: 'social',
-            chapter: 'social',
-            type: extra.op || 'social',
-            score: '0',
-            total: '0',
-            timeTaken: '1',
-            isOld: 'false',
-            grade: '12',
-            bio: extra.bio != null ? extra.bio : readMyBio(),
-            fromId: uid,
-            toId: extra.toId || '',
-            fromName: meName(),
-            op: extra.op || '',
-            friendOp: extra.op || ''
-        });
     }
 
     function packCard(name, photo, bio) {
@@ -304,10 +278,8 @@
             fromId: uid,
             name: meName(),
             userName: meName(),
-            bio: readMyBio()
-        }).then(function (data) {
-            if (data && data.status === 'ok') return data;
-            return socialViaSaveScore('__soc_p', { bio: readMyBio(), op: 'profile' });
+            bio: readMyBio(),
+            photo: mePhoto()
         });
     }
 
@@ -469,20 +441,19 @@
             friendCache.outgoing = (friendCache.outgoing || []).concat([meta]);
             writeLocal(friendCache);
         }
-        var file = '__soc_fr_' + id;
-        if (op === 'accept') file = '__soc_ok_' + id;
-        else if (op === 'reject' || op === 'cancel') file = '__soc_no_' + id;
-        else if (op === 'unfriend') file = '__soc_off_' + id;
-        return socialGet('friendOp', {
-            op: op,
-            friendOp: op,
-            fromId: uid,
-            toId: id,
-            fromName: meName()
-        }).then(function (data) {
-            var remote = applyRemoteState(data);
-            if (remote) return remote;
-            return socialViaSaveScore(file, { op: op, toId: id, bio: readMyBio() });
+        return socialGet('saveProfile', {
+            userId: uid,
+            name: meName(),
+            bio: readMyBio(),
+            photo: mePhoto()
+        }).then(function () {
+            return socialGet('friendOp', {
+                op: op,
+                friendOp: op,
+                fromId: uid,
+                toId: id,
+                fromName: meName()
+            });
         }).then(function (data) {
             var remote = applyRemoteState(data);
             if (remote) return remote;

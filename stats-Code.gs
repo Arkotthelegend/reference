@@ -1,45 +1,17 @@
 /**
  * Statistics / Rank Google Apps Script
+ * VERSION reed-social-3 — 2026-09-24
  * ------------------------------------------------
- * Paste this into the EXISTING analysis/stats Apps Script
- * (the one behind STATS_GAS_URL), then Deploy → New version.
- * Keep the same Web App URL so old scores stay connected.
+ * PASTE THIS WHOLE FILE into the SCORE spreadsheet Apps Script
+ * (Untitled spreadsheet: Normal / Friends / Profiles).
+ * Then: Deploy → Manage deployments → pencil → New version.
+ * Keep the same Web App URL.
  *
- * Execute as: Me
- * Who has access: Anyone
- *
- * This version adds `date` and `grade` to getLeaderboard rows so
- * weekly rank and Grade 10/11/12 boards work. Old columns are kept.
- *
- * Expected headers (row 1, any order). Extra columns are fine:
- *   userId, userName, quizFile, subject, chapter, type,
- *   score, total, isOld, timeTaken, date, grade
- *
- * If `date` / `grade` are missing, the script creates them.
- *
- * Project timezone: File → Project settings → Asia/Yangon
- *
- * Customer analysis (doPost saveSale / deleteSale / saveBizNotes,
- * doGet getSales / getBizNotes) uses extra sheets named Sales and BizNotes
- * in the SAME spreadsheet.
- *
- * Quiz best scores:
- *   Normal  = Grade 12 current quizzes
- *   Old     = Grade 12 old questions only
- *   Grade 10 / Grade 11 = those grades (no old-question tab)
- * THIS FILE is only for the SCORE workbook (tabs: Normal, Old, Grade 10,
- * Grade 11, Friends, Profiles). Do not paste it into TG APP SHEET.
- *
- * Friends / photos use this same Web App (Friends + Profiles sheets).
- * Photos need Script Property BOT_TOKEN if timetable send already has it.
- * After paste: Deploy → Manage deployments → pencil → New version.
- * Do not use Cloudflare for Social.
- *
- *   Hosts a PNG and returns { status:'ok', url }. Optional Script Property
- *   BOT_TOKEN also sends the file to that Telegram user as a document.
+ * This version MOVES __soc_ rows off Normal onto Friends + Profiles.
+ * Do not paste this into TG APP SHEET.
  */
 
-var TZ = 'Asia/Yangon';
+var SCRIPT_V = 'reed-social-3';
 var SPREADSHEET_ID = '';
 var SHEET_NAME = '';
 
@@ -52,6 +24,10 @@ function doGet(e) {
   var p = (e && e.parameter) || {};
   var action = String(p.action || '');
   try {
+    if (action === 'ping' || action === 'version' || !action) {
+      try { salvageSocialScoreRows_(); } catch (e0) {}
+      return json_({ status: 'ok', social: true, v: SCRIPT_V });
+    }
     if (action === 'saveScore') return json_(saveScore_(p));
     if (action === 'getStats') return json_(getStats_(p));
     if (action === 'getLeaderboard') return json_(getLeaderboard_(p));
@@ -79,6 +55,9 @@ function doPost(e) {
     var p = parsePost_(e);
     var action = String(p.action || '');
     if (action === 'uploadTimetable') return json_(uploadTimetable_(p));
+    if (action === 'ping' || action === 'version') {
+      return json_({ status: 'ok', social: true, v: SCRIPT_V });
+    }
     if (action === 'saveScore') return json_(saveScore_(p));
     if (action === 'saveSale') return json_(saveSale_(p.sale || p));
     if (action === 'deleteSale') return json_(deleteSale_(p.id || p.saleId));
@@ -101,7 +80,7 @@ function saveScore_(p) {
     return { status: 'error', message: 'userId and quizFile required' };
   }
   if (isSocialScoreRow_(quizFile, p.subject) || isSocialScorePayload_(p)) {
-    try { purgeSocialScoreRows_(); } catch (e1) {}
+  try { salvageSocialScoreRows_(); } catch (e1) {}
     var social = applySocialSave_(p);
     return social || { status: 'ok', action: 'ignored', message: 'social is not a quiz score' };
   }
@@ -222,7 +201,7 @@ function getStats_(p) {
 }
 
 function getLeaderboard_(p) {
-  try { purgeSocialScoreRowsOnce_(); } catch (err) {}
+  try { salvageSocialScoreRows_(); } catch (err) {}
   try { ensureGradeScoreSheets_(); } catch (err2) {}
   var subject = String(p.subject || 'all');
   var rows = readScoreRows_(p);
@@ -447,7 +426,7 @@ function fixScoreHeaders() {
 function onOpen() {
   SpreadsheetApp.getUi()
     .createMenu('REED')
-    .addItem('Clear social junk from scores', 'resetSocialScoreJunk')
+    .addItem('Move friends and bios off Normal', 'resetSocialScoreJunk')
     .addItem('Fix header row / move G10 G11 scores', 'fixScoreHeaders')
     .addItem('Create Grade 10 / 11 score sheets', 'setupGradeScoreSheets')
     .addToUi();
@@ -455,13 +434,13 @@ function onOpen() {
 
 function resetSocialScoreJunk() {
   try { PropertiesService.getScriptProperties().deleteProperty('purgedSocRows'); } catch (e1) {}
-  var res = purgeSocialScoreRows_();
+  var res = salvageSocialScoreRows_();
   try { friendsSheet_(); } catch (e2) {}
   try { profilesSheet_(); } catch (e3) {}
   var n = res && res.removed ? res.removed : 0;
   var msg = n
-    ? ('Removed ' + n + ' social rows from the score tabs. Quiz marks were kept. Friends/Profiles tabs are ready.')
-    : 'No social rows left on the score tabs. Quiz marks were not changed.';
+    ? ('Moved ' + n + ' friend/bio rows off the score tabs onto Friends and Profiles.')
+    : 'No leftover friend/bio rows on the score tabs.';
   try { SpreadsheetApp.getUi().alert(msg); } catch (e4) {}
   return { status: 'ok', removed: n, message: msg };
 }
@@ -502,7 +481,7 @@ function applySocialSave_(p) {
       saveProfile_({ userId: userId, name: name, photo: '', bio: bio });
     } catch (e0) {}
   }
-  var m = /^__soc_(fr|ok|no|off|un)_(\d+)$/.exec(qf);
+  var m = /soc_(fr|ok|no|off|un)_(\d+)/.exec(qf);
   if (m && userId) {
     var op = 'request';
     if (m[1] === 'ok') op = 'accept';
@@ -546,7 +525,7 @@ function rowIsSocialJunk_(row) {
   return false;
 }
 
-function purgeSocialScoreRows_() {
+function salvageSocialScoreRows_() {
   var ss = scoreWorkbook_();
   if (!ss) return { status: 'ok', removed: 0 };
   var skip = { Friends: 1, Profiles: 1, Sales: 1, BizNotes: 1 };
@@ -563,13 +542,32 @@ function purgeSocialScoreRows_() {
     var toDelete = [];
     var i;
     for (i = 0; i < values.length; i++) {
-      var qf = idx.quizFile !== undefined ? String(values[i][idx.quizFile] || '') : '';
-      var sub = idx.subject !== undefined ? String(values[i][idx.subject] || '') : '';
-      var score = idx.score !== undefined ? num_(values[i][idx.score]) : 0;
-      var total = idx.total !== undefined ? num_(values[i][idx.total]) : 0;
-      if (rowIsSocialJunk_(values[i]) || isSocialScoreRow_(qf, sub) || (total > 0 && score > total * 5 && score > 100000)) {
-        toDelete.push(i + 2);
+      var row = values[i];
+      var qf = idx.quizFile !== undefined ? String(row[idx.quizFile] || '') : '';
+      var sub = idx.subject !== undefined ? String(row[idx.subject] || '') : '';
+      var uid = idx.userId !== undefined ? String(row[idx.userId] || '') : '';
+      var name = idx.userName !== undefined ? String(row[idx.userName] || '') : '';
+      var score = idx.score !== undefined ? num_(row[idx.score]) : 0;
+      var total = idx.total !== undefined ? num_(row[idx.total]) : 0;
+      var c;
+      for (c = 0; c < row.length; c++) {
+        var cell = String(row[c] == null ? '' : row[c]);
+        if (cell.indexOf('soc_') !== -1) qf = cell;
+        if (!uid && /^\d{5,}$/.test(cell.trim())) uid = cell.trim();
+        if (cell.charAt(0) === '{') name = cell;
       }
+      var junk = rowIsSocialJunk_(row) || isSocialScoreRow_(qf, sub) || (total > 0 && score > total * 5 && score > 100000);
+      if (!junk) continue;
+      try {
+        applySocialSave_({
+          userId: uid,
+          quizFile: qf,
+          userName: name,
+          fromName: name,
+          bio: unpackPackedName_(name).b || unpackPackedName_(name).bio || ''
+        });
+      } catch (e1) {}
+      toDelete.push(i + 2);
     }
     for (i = toDelete.length - 1; i >= 0; i--) {
       sheet.deleteRow(toDelete[i]);
@@ -577,6 +575,10 @@ function purgeSocialScoreRows_() {
     }
   }
   return { status: 'ok', removed: removed };
+}
+
+function purgeSocialScoreRows_() {
+  return salvageSocialScoreRows_();
 }
 
 function purgeSocialScoreRowsOnce_() {
@@ -950,6 +952,8 @@ function getBizNotes_() {
 }
 
 function json_(obj) {
+  obj = obj || {};
+  if (!obj.v) obj.v = SCRIPT_V;
   return ContentService
     .createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
@@ -1173,7 +1177,10 @@ function getPhotos_(p) {
     if (hit) out[ids[i]] = hit;
     else need.push(ids[i]);
   }
-  if (!token || !need.length) return { status: 'ok', photos: out };
+  if (!token || !need.length) {
+    fillPhotosFromProfiles_(ids, out);
+    return { status: 'ok', photos: out };
+  }
 
   var listReqs = [];
   for (i = 0; i < need.length; i++) {
@@ -1206,7 +1213,10 @@ function getPhotos_(p) {
       fileFor.push(need[i]);
     } catch (e2) {}
   }
-  if (!fileReqs.length) return { status: 'ok', photos: out };
+  if (!fileReqs.length) {
+    fillPhotosFromProfiles_(ids, out);
+    return { status: 'ok', photos: out };
+  }
 
   var files = UrlFetchApp.fetchAll(fileReqs);
   var binReqs = [];
@@ -1223,7 +1233,10 @@ function getPhotos_(p) {
       binFor.push(fileFor[i]);
     } catch (e3) {}
   }
-  if (!binReqs.length) return { status: 'ok', photos: out };
+  if (!binReqs.length) {
+    fillPhotosFromProfiles_(ids, out);
+    return { status: 'ok', photos: out };
+  }
 
   var bins = UrlFetchApp.fetchAll(binReqs);
   for (i = 0; i < bins.length; i++) {
@@ -1238,7 +1251,19 @@ function getPhotos_(p) {
       try { cache.put('ph_' + binFor[i], dataUrl, 21600); } catch (e4) {}
     } catch (e5) {}
   }
+  fillPhotosFromProfiles_(ids, out);
   return { status: 'ok', photos: out };
+}
+
+function fillPhotosFromProfiles_(ids, out) {
+  var profiles = {};
+  try { profiles = readProfiles_(); } catch (e) { return; }
+  var i;
+  for (i = 0; i < ids.length; i++) {
+    if (out[ids[i]]) continue;
+    var p = profiles[ids[i]];
+    if (p && p.photo) out[ids[i]] = p.photo;
+  }
 }
 
 function telegramPhotoDataUrl_(userId) {
