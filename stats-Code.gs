@@ -102,16 +102,8 @@ function saveScore_(p) {
   }
   if (isSocialScoreRow_(quizFile, p.subject) || isSocialScorePayload_(p)) {
     try { purgeSocialScoreRows_(); } catch (e1) {}
-    if (isProfilePublish_(quizFile)) {
-      var card = unpackPackedName_(p.userName);
-      saveProfile_({
-        userId: userId,
-        name: card.n || card.name || '',
-        photo: '',
-        bio: card.b || card.bio || p.bio || ''
-      });
-    }
-    return { status: 'ok', action: 'ignored', message: 'social is not a quiz score' };
+    var social = applySocialSave_(p);
+    return social || { status: 'ok', action: 'ignored', message: 'social is not a quiz score' };
   }
 
   var newScore = num_(p.score);
@@ -237,7 +229,7 @@ function getLeaderboard_(p) {
   if (subject && subject !== 'all') {
     rows = rows.filter(function (r) { return r.subject === subject; });
   }
-  return {
+  var out = {
     status: 'ok',
     count: rows.length,
     rows: rows.map(function (r) {
@@ -257,6 +249,18 @@ function getLeaderboard_(p) {
       };
     })
   };
+  try { out.profiles = readProfiles_(); } catch (e3) { out.profiles = {}; }
+  var uid = String(p.userId || p.fromId || '').replace(/[^0-9]/g, '');
+  if (uid) {
+    try {
+      var st = friendState_({ userId: uid });
+      out.friends = st.friends || [];
+      out.incoming = st.incoming || [];
+      out.outgoing = st.outgoing || [];
+      if (st.profiles) out.profiles = st.profiles;
+    } catch (e4) {}
+  }
+  return out;
 }
 
 function readScoreRows_(p) {
@@ -485,6 +489,42 @@ function isSocialScorePayload_(p) {
 function isProfilePublish_(quizFile) {
   var qf = String(quizFile || '');
   return qf.indexOf('soc_p') !== -1 && qf.indexOf('soc_fr') === -1 && qf.indexOf('soc_ok') === -1;
+}
+
+function applySocialSave_(p) {
+  var userId = String((p && p.userId) || '').replace(/[^0-9]/g, '');
+  var qf = String((p && p.quizFile) || '');
+  var card = unpackPackedName_(p && p.userName);
+  var name = card.n || card.name || String((p && (p.fromName || p.userName)) || '');
+  var bio = card.b || card.bio || String((p && p.bio) || '');
+  if (userId) {
+    try {
+      saveProfile_({ userId: userId, name: name, photo: '', bio: bio });
+    } catch (e0) {}
+  }
+  var m = /^__soc_(fr|ok|no|off|un)_(\d+)$/.exec(qf);
+  if (m && userId) {
+    var op = 'request';
+    if (m[1] === 'ok') op = 'accept';
+    else if (m[1] === 'no') op = 'reject';
+    else if (m[1] === 'off' || m[1] === 'un') op = 'unfriend';
+    else if (m[1] === 'fr') op = 'request';
+    try {
+      return friendOp_({
+        op: op,
+        fromId: userId,
+        toId: m[2],
+        fromName: name
+      });
+    } catch (e1) {
+      return { status: 'error', message: String(e1) };
+    }
+  }
+  try {
+    return friendState_({ userId: userId });
+  } catch (e2) {
+    return { status: 'ok', action: 'ignored', userId: userId };
+  }
 }
 
 function unpackPackedName_(raw) {
@@ -933,9 +973,6 @@ function profilesSheet_() {
 function saveProfile_(p) {
   var userId = String(p.userId || p.fromId || '').replace(/[^0-9]/g, '');
   if (!userId) return { status: 'error', message: 'userId required' };
-  var name = String(p.name || p.userName || '').slice(0, 40);
-  var photo = String(p.photo || p.photo_url || '').slice(0, 500);
-  var bio = String(p.bio || '').slice(0, 80);
   var sheet = profilesSheet_();
   var last = sheet.getLastRow();
   var found = 0;
@@ -949,6 +986,10 @@ function saveProfile_(p) {
       }
     }
   }
+  var prev = found ? sheet.getRange(found, 1, 1, PROFILE_HEADERS.length).getValues()[0] : ['', '', '', '', ''];
+  var name = String(p.name || p.userName || prev[1] || '').slice(0, 40);
+  var photo = String(p.photo || p.photo_url || prev[2] || '').slice(0, 500);
+  var bio = (p.bio != null && p.bio !== undefined) ? String(p.bio).slice(0, 80) : String(prev[3] || '');
   var line = [userId, name, photo, bio, new Date()];
   if (found) sheet.getRange(found, 1, 1, PROFILE_HEADERS.length).setValues([line]);
   else sheet.appendRow(line);
@@ -975,9 +1016,7 @@ function readProfiles_() {
 }
 
 function friendsSheet_() {
-  var ss = SPREADSHEET_ID
-    ? SpreadsheetApp.openById(SPREADSHEET_ID)
-    : SpreadsheetApp.getActiveSpreadsheet();
+  var ss = scoreWorkbook_();
   if (!ss) throw new Error('Spreadsheet not found. Set SPREADSHEET_ID.');
   var sh = ss.getSheetByName('Friends');
   if (!sh) {
@@ -1053,6 +1092,16 @@ function writeFriendRow_(sheet, rowNum, r) {
 }
 
 function friendOp_(p) {
+  var lock = LockService.getScriptLock();
+  lock.waitLock(15000);
+  try {
+    return friendOpUnlocked_(p);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function friendOpUnlocked_(p) {
   var op = String(p.op || p.friendOp || '').toLowerCase();
   var fromId = String(p.fromId || '').replace(/[^0-9]/g, '');
   var toId = String(p.toId || '').replace(/[^0-9]/g, '');

@@ -3717,7 +3717,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
-    <script src="./friends.js?v=10"></script>
+    <script src="./friends.js?v=11"></script>
     <script>
 
 		function reedRememberTgUser(user) {
@@ -4498,7 +4498,7 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=129'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=130'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
         const PAID_USERS_GAS_URL = "https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec";
@@ -9271,7 +9271,7 @@ function buildRankEntries(rows, opts) {
 async function fetchAllLeaderboardRows() {
     const grade = (typeof getStatsGrade === 'function') ? getStatsGrade() : 12;
     if (leaderboardCache.rows && leaderboardCache.grade === grade && (Date.now() - leaderboardCache.at) < 60000) return leaderboardCache.rows;
-    const url = STATS_GAS_URL + '?action=getLeaderboard&subject=all&grade=' + encodeURIComponent(grade);
+    const url = STATS_GAS_URL + '?action=getLeaderboard&subject=all&grade=' + encodeURIComponent(grade) + '&userId=' + encodeURIComponent(telegramUserId() || '');
     const res = await fetch(url);
     const text = await res.text();
     const data = JSON.parse(text);
