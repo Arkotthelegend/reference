@@ -1255,6 +1255,15 @@ body[data-theme] .container {
     color: #94A3B8;
     margin-top: 3px;
 }
+.leaderboard-bio {
+    color: #F0B90B;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-top: 2px;
+    line-height: 1.3;
+    max-height: 2.6em;
+    overflow: hidden;
+}
 .leaderboard-score-box {
     text-align: right;
     flex-shrink: 0;
@@ -3189,11 +3198,12 @@ body.volunteer-role .vol-report-link { display: block !important; }
 }
 #peer-preview-name { margin: 0; color: #EAECEF; font-size: 1.05rem; }
 .peer-bio, .profile-bio {
-    color: #94A3B8;
-    font-size: 0.85rem;
-    margin: 4px auto 0;
+    color: #F0B90B;
+    font-size: 0.9rem;
+    margin: 6px auto 0;
     max-width: 280px;
-    line-height: 1.35;
+    line-height: 1.4;
+    font-weight: 600;
 }
 .profile-bio.is-empty { color: #64748B; font-style: italic; }
 .profile-bio-edit {
@@ -3759,7 +3769,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
-    <script src="./friends.js?v=15"></script>
+    <script src="./friends.js?v=16"></script>
     <script>
 
 		function reedRememberTgUser(user) {
@@ -4540,9 +4550,11 @@ function setQuizKeysHint(text) {
 }
 		
 		const ADMIN_IDS = ['8432363664'];
-		const CB = '?v=138'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
+		const CB = '?v=139'; // ⬅️ Increment this number (v=3, v=4...) every time you push an update
 		const STATS_GAS_URL = "https://script.google.com/macros/s/AKfycbyh46zQCfBKHgi194FYaZAhgTV0CYMqItdooK9VF6lKaSAe-cvUCAZdpZg0yknY0iV7/exec";
         window.STATS_GAS_URL = STATS_GAS_URL;
+        const SOCIAL_GAS_URL = "https://script.google.com/macros/s/AKfycbyBwCjjzIJ6w33Va9g5S3JHABAjQgODgzGb-jKHUfwYr2834AoZJif9F_KcO6qedJqdPw/exec";
+        window.SOCIAL_GAS_URL = SOCIAL_GAS_URL;
         const STATS_FETCH_MS = 25000;
         function fetchStatsJson(url, timeoutMs) {
             var ms = timeoutMs || STATS_FETCH_MS;
@@ -9555,6 +9567,29 @@ function rankDisplayName(raw) {
     return s || 'Anonymous';
 }
 
+function rankEsc(s) {
+    return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function rankRowBioHtml(userId) {
+    var p = (window.REEDSocial && REEDSocial.profileFor && REEDSocial.profileFor(userId)) || {};
+    var bio = String(p.bio || '').replace(/\s+/g, ' ').trim();
+    if (!bio) return '';
+    if (bio.length > 60) bio = bio.slice(0, 59) + '…';
+    return '<div class="leaderboard-bio">' + rankEsc(bio) + '</div>';
+}
+
+function onSocialProfiles() {
+    var screen = document.getElementById('social-screen');
+    if (!screen || !screen.classList.contains('active-screen')) return;
+    if (!leaderboardCache.rows) return;
+    loadLeaderboard();
+}
+
 function rankAvatarHtml(entry) {
     const name = rankDisplayName((entry && entry.userName) || 'A');
     const initial = String(name).charAt(0).toUpperCase();
@@ -9642,6 +9677,7 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
             ${rankAvatarHtml(entry)}
             <div class="leaderboard-info">
                 <div class="leaderboard-name">${displayName}</div>
+                ${rankRowBioHtml(entry.userId)}
                 <div class="leaderboard-meta">
                     ${acc}% · ${totalTimeStr}${isMe && myPct ? ' · ' + myPct + '%' : ''}
                 </div>
@@ -9676,6 +9712,7 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
             ${rankAvatarHtml(me)}
             <div class="leaderboard-info">
                 <div class="leaderboard-name">${displayName}</div>
+                ${rankRowBioHtml(me.userId)}
                 <div class="leaderboard-meta">
                     ${acc}% · ${totalTimeStr}${myPct ? ' · ' + myPct + '%' : ''}
                 </div>

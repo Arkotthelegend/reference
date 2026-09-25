@@ -51,6 +51,7 @@ function doGet(e) {
     if (action === 'friendOp') return json_(friendOp_(p));
     if (action === 'saveProfile') return json_(saveProfile_(p));
     if (action === 'getPhotos') return json_(getPhotos_(p));
+    if (action === 'getProfiles') return json_({ status: 'ok', profiles: readProfiles_() });
     if (action === 'purgeSocialScores') return json_(resetSocialScoreJunk());
     if (action === 'getUsers') {
       return json_({
@@ -80,6 +81,7 @@ function doPost(e) {
     if (action === 'friendState') return json_(friendState_(p));
     if (action === 'saveProfile') return json_(saveProfile_(p));
     if (action === 'getPhotos') return json_(getPhotos_(p));
+    if (action === 'getProfiles') return json_({ status: 'ok', profiles: readProfiles_() });
     if (action === 'purgeSocialScores') return json_(resetSocialScoreJunk());
     return json_({ status: 'error', message: 'Unknown action' });
   } catch (err) {
