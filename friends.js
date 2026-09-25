@@ -142,7 +142,7 @@
     }
 
     function gasUrl() {
-        return root.STATS_GAS_URL || '';
+        return root.SOCIAL_GAS_URL || root.STATS_GAS_URL || '';
     }
 
     function socialGet(action, extra) {
@@ -281,6 +281,14 @@
             };
         });
         friendCache.profiles = merged;
+        if (previewTarget) {
+            var live = profileOf(previewTarget);
+            var bioEl = document.getElementById('peer-preview-bio');
+            if (bioEl && live && live.bio) {
+                bioEl.textContent = live.bio;
+                bioEl.hidden = false;
+            }
+        }
         if (!Array.isArray(data.friends) && !Array.isArray(data.incoming) && !Array.isArray(data.outgoing)) {
             if (Object.keys(profiles).length) writeLocal(friendCache);
             return data.status === 'ok' ? friendCache : null;
@@ -447,20 +455,13 @@
 
     function loadFriendState() {
         var uid = meId();
-        if (!uid) return Promise.resolve(friendCache);
+        if (!uid || !gasUrl()) return Promise.resolve(friendCache);
         return socialGet('friendState', { userId: uid, fromId: uid }).then(function (data) {
             var remote = applyRemoteState(data);
-            if (remote) return remote;
-            var url = gasUrl() + '?action=getLeaderboard&subject=all&userId=' + encodeURIComponent(uid) + '&cb=' + Date.now();
-            return fetchJson(url).then(function (board) {
-                var fromBoard = applyRemoteState(board);
-                if (fromBoard) return fromBoard;
-                if (board && board.profiles) {
-                    friendCache.profiles = Object.assign({}, friendCache.profiles || {}, board.profiles);
-                    writeLocal(friendCache);
-                }
-                return friendCache;
-            });
+            if (remote && typeof root.onSocialProfiles === 'function') {
+                try { root.onSocialProfiles(); } catch (e0) {}
+            }
+            return remote || friendCache;
         }).catch(function () {
             return friendCache;
         });
@@ -906,6 +907,9 @@
         bindUi();
         paintMyBio();
         publishMe().catch(function () {});
+        loadFriendState().then(function () {
+            renderLists();
+        }).catch(function () {});
         return Promise.resolve();
     }
 
