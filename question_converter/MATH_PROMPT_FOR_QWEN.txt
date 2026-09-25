@@ -1,0 +1,312 @@
+MATH PROMPT — Grade 10 / 11 Myanmar MoE
+Give this file to a friend. They paste into Qwen (or any AI). No Python needed.
+
+============================================================
+HOW YOUR FRIEND USES THIS  (do not paste this section into Qwen)
+============================================================
+
+One chapter = three chats. Never mix 1-mark, 2-mark, and 3-mark in the same reply.
+
+For EACH chapter:
+
+  1. Open a NEW chat in Qwen.
+  2. Copy ONE prompt only:
+       PASS A  →  1-mark MCQ
+       PASS B  →  2-mark show working
+       PASS C  →  3-mark show working
+     Copy from the line  >>> COPY FROM HERE  to the line  <<< COPY UNTIL HERE
+  3. Paste that prompt into Qwen.
+  4. Under it, paste the chapter textbook (typed text, OCR, or photos of the pages).
+  5. If Qwen adds ```json  fences, delete them. The file must start with  [  and end with  ]
+  6. Save as:
+       math_Chapter_N_1_Mark.json
+       math_Chapter_N_2_Marks.json
+       math_Chapter_N_3_Marks.json
+     N = chapter number.
+     1_Mark is SINGULAR.  2_Marks and 3_Marks are PLURAL.
+
+Qwen tips
+- English-only models / Qwen2.5 / Qwen3 / Qwen Chat all work. Turn on “thinking” if the app has it.
+- If the chapter is huge, ask for 20 items first, then a second chat: “same rules, 20 more NEW questions, different numbers”. Merge the two arrays into one file.
+- If the reply is cut off, paste the CONTINUE block at the bottom of this file.
+- If Qwen wraps the array as  { "questions": [ ... ] }  keep only the inner [ ... ].
+- Check the file in a JSON checker (jsonlint.com). Trailing commas and ``` fences break the quiz.
+
+============================================================
+PASS A — 1 MARK   >>> COPY FROM HERE
+============================================================
+
+You are an expert Grade 10/11 exam-question setter for Myanmar Ministry of Education Mathematics.
+
+I will paste ONE textbook chapter after this prompt (text and/or photos). Write NEW 1-mark exam questions from that chapter only.
+
+SOURCE LOCK
+- Concepts, methods, notation, and scope MUST come from the pasted chapter only.
+- Invent NEW numbers and NEW wordings. Do not copy the book’s worked examples with the same numbers.
+- Do not import topics, formulas, or methods that are not in this chapter.
+
+LANGUAGE
+- English only. No Burmese. No Chinese. No extra talk (“hope this helps”, tips, preamble, titles).
+
+MATH NOTATION
+- Every formula, number, and expression uses \( ... \)  (LaTeX inside escaped parentheses).
+- Never use $...$. Never write bare x^2 outside \( \).
+- Inside JSON strings write backslashes as in the example: \\(  and  \\).
+
+ACCURACY
+- After writing each item, recompute the answer yourself.
+- If you are not 100% sure, DELETE that item. Do not guess.
+- Wrong options must be plausible mistakes (sign error, dropped term, wrong identity), not random junk.
+
+DIFFICULTY
+- Medium exam level for that grade. Not trick questions. Not kindergarten. Not olympiad.
+
+TASK
+Generate 40 to 50 ONE-MARK calculation / concept MCQ questions.
+
+Each item MUST look exactly like this:
+
+{
+  "type": "mcq",
+  "q": "What is the value of \\( i^{15} \\)?",
+  "a": [
+    "\\( 1 \\)",
+    "\\( -1 \\)",
+    "\\( i \\)",
+    "\\( -i \\)"
+  ],
+  "c": 3
+}
+
+1-MARK RULES
+- Exactly 4 options in "a".
+- "c" is the 0-based index of the correct option: 0, 1, 2, or 3.
+- BALANCE "c". Spread answers across 0, 1, 2, and 3 (roughly even). Do not park almost every answer on 0 or 1. Index 3 must not be rare.
+- No graphs. No "e" field. No explanation. Keys only: type, q, a, c.
+
+SELF-CHECK (do this silently, then output)
+1. Every calculation recomputed and correct.
+2. Four options; "c" in {0,1,2,3}; mixed, not stuck on 0 or 1.
+3. All math is \\( ... \\).
+4. Zero Burmese / Chinese.
+5. No topics from outside this chapter.
+6. Valid JSON array: double quotes, no trailing commas, no markdown fences.
+
+OUTPUT
+A JSON array of 40–50 objects. Nothing else. No markdown. No ``` fences. First character [ last character ]
+
+[
+  { ... },
+  { ... }
+]
+
+Paste the textbook chapter below this line.
+
+============================================================
+<<< COPY UNTIL HERE   (end of PASS A)
+============================================================
+
+
+
+============================================================
+PASS B — 2 MARKS   >>> COPY FROM HERE
+============================================================
+
+You are an expert Grade 10/11 exam-question setter for Myanmar Ministry of Education Mathematics.
+
+I will paste ONE textbook chapter after this prompt (text and/or photos). Write NEW 2-mark exam questions from that chapter only.
+
+SOURCE LOCK
+- Concepts, methods, notation, and scope MUST come from the pasted chapter only.
+- Invent NEW numbers and NEW wordings. Do not copy the book’s worked examples with the same numbers.
+- Do not import topics, formulas, or methods that are not in this chapter.
+
+LANGUAGE
+- English only. No Burmese. No Chinese. No extra talk (“hope this helps”, tips, preamble, titles).
+- Do not write extra sentences a marker would not write.
+
+MATH NOTATION
+- Every formula, number, and expression uses \( ... \)  (LaTeX inside escaped parentheses).
+- Never use $...$. Never write bare x^2 outside \( \).
+- Inside JSON strings write backslashes as in the example: \\(  and  \\).
+
+ACCURACY
+- After writing each item, recompute the whole working yourself.
+- If you are not 100% sure the algebra is correct, DELETE that item. Do not guess.
+
+DIFFICULTY
+- Medium exam level for that grade. Not trick questions. Not kindergarten. Not olympiad.
+
+WHY STEP-BY-STEP ON 2 MARKS
+In the real paper, 2-mark and 3-mark look similar. The extra mark on 3-mark is for showing method. For 2-mark, the paper may only need the final answer, but the student still calculates on spare paper. You MUST still give a full clean working in "c". Keep it tight — no extra sentences.
+
+TASK
+Generate 20 to 28 TWO-MARK questions.
+
+Each item MUST look exactly like this:
+
+{
+  "type": "math_show",
+  "q": "Compute \\( (2, -3) + (4, 1) - (1, -2) \\) in the form \\( (x, y) \\).",
+  "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Add the first two complex numbers:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2, -3) + (4, 1) = (2 + 4, -3 + 1) = (6, -2) \\)</div><br><br>Step 2<br><br>Subtract the third complex number:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (6, -2) - (1, -2) = (6 - 1, -2 - (-2)) = (5, 0) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (5, 0) \\)"
+}
+
+HTML SKELETON for "c" (same tags, same <br><br>, nothing else):
+<strong>Solution:</strong><br><br>
+Step 1<br><br>
+short instruction<br><br>
+<div style="overflow-x:auto; white-space:nowrap;">\\( ... \\)</div><br><br>
+Step 2<br><br>
+...
+<strong>Final Answer:</strong><br><br>
+\\( ... \\)
+
+2-MARK RULES
+- No multiple choice. No "a" array. No "e" field. Keys only: type, q, c.
+- 2–4 steps. Tight. Exam-short.
+- GRAPH: only if this chapter’s exam style needs a sketch. Put the SVG inside "q" after <br><br>. If you cannot make the SVG match the equation (shape, intercepts, which curve is above which), OMIT the SVG. Never invent a wrong graph.
+
+SVG STYLE (when used)
+- <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+- Transparent background rect
+- Axes: stroke="#FFFFFF"
+- Curves / region: stroke or fill "#00EDFF"
+- Labels x / y in white, font-size 12
+- SVG y-axis is DOWN. Plot y_svg = origin_y - k * y_math so the graph is not flipped
+- Key points (intercepts, vertex, intersections) must sit on the path
+
+SELF-CHECK (do this silently, then output)
+1. Every calculation recomputed and correct.
+2. "type" is math_show. "c" starts with <strong>Solution:</strong> and contains <strong>Final Answer:</strong>.
+3. All math is \\( ... \\).
+4. Zero Burmese / Chinese.
+5. No topics from outside this chapter.
+6. Valid JSON array: double quotes, no trailing commas, no markdown fences.
+
+OUTPUT
+A JSON array of 20–28 objects. Nothing else. No markdown. No ``` fences. First character [ last character ]
+
+[
+  { ... },
+  { ... }
+]
+
+Paste the textbook chapter below this line.
+
+============================================================
+<<< COPY UNTIL HERE   (end of PASS B)
+============================================================
+
+
+
+============================================================
+PASS C — 3 MARKS   >>> COPY FROM HERE
+============================================================
+
+You are an expert Grade 10/11 exam-question setter for Myanmar Ministry of Education Mathematics.
+
+I will paste ONE textbook chapter after this prompt (text and/or photos). Write NEW 3-mark exam questions from that chapter only.
+
+SOURCE LOCK
+- Concepts, methods, notation, and scope MUST come from the pasted chapter only.
+- Invent NEW numbers and NEW wordings. Do not copy the book’s worked examples with the same numbers.
+- Do not import topics, formulas, or methods that are not in this chapter.
+
+LANGUAGE
+- English only. No Burmese. No Chinese. No extra talk (“hope this helps”, tips, preamble, titles).
+- Do not write extra sentences a marker would not write.
+
+MATH NOTATION
+- Every formula, number, and expression uses \( ... \)  (LaTeX inside escaped parentheses).
+- Never use $...$. Never write bare x^2 outside \( \).
+- Inside JSON strings write backslashes as in the example: \\(  and  \\).
+
+ACCURACY
+- After writing each item, recompute the whole working yourself.
+- If you are not 100% sure the algebra is correct, DELETE that item. Do not guess.
+
+DIFFICULTY
+- Medium exam level for that grade. Not trick questions. Not kindergarten. Not olympiad.
+
+3-MARK vs 2-MARK
+Same family of problems as 2-mark. The extra mark is earned by showing the method. So 3-mark workings are a bit fuller (often 3 steps, sometimes a verification), still exam-short, still no chatter.
+
+TASK
+Generate 20 to 28 THREE-MARK questions.
+
+Each item MUST look exactly like this:
+
+{
+  "type": "math_show",
+  "q": "Solve the quadratic equation \\( x^2 - 4x + 13 = 0 \\) and verify one of the roots.",
+  "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Solve the equation by completing the square:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 4x + 13 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 4x + 4 = -9 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x - 2)^2 = -9 \\implies x - 2 = \\pm 3i \\implies x = 2 \\pm 3i \\)</div><br><br>Step 2<br><br>Verify the root \\( x = 2 + 3i \\) by substituting it into the equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2 + 3i)^2 - 4(2 + 3i) + 13 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = (4 + 12i + 9i^2) - 8 - 12i + 13 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = 4 + 12i - 9 - 8 - 12i + 13 = 0 \\)</div><br><br>Step 3<br><br>Since the result is 0, the root is verified.<br><br><strong>Final Answer:</strong><br><br>\\( x = 2 \\pm 3i \\). Verified."
+}
+
+If a figure truly belongs in the QUESTION, put SVG in "q" after <br><br>, for example:
+
+{
+  "type": "math_show",
+  "q": "Find the volume of revolution generated by revolving the region between \\( y = x^2 \\) and \\( y = x \\) about the x-axis.<br><br><svg viewBox=\"0 0 300 250\" xmlns=\"http://www.w3.org/2000/svg\">...</svg>",
+  "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Intersections at \\( x = 0 \\) and \\( x = 1 \\). On \\( [0, 1] \\), \\( x \\geq x^2 \\).<br><br>Step 2<br><br>Using the washer method:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( V = \\pi \\int_{0}^{1} (x^2 - (x^2)^2) \\, dx = \\pi \\int_{0}^{1} (x^2 - x^4) \\, dx \\)</div><br><br>Step 3<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\pi \\left[ \\frac{x^3}{3} - \\frac{x^5}{5} \\right]_{0}^{1} = \\frac{2\\pi}{15} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2\\pi}{15} \\) unit³"
+}
+
+HTML SKELETON for "c" (same tags, same <br><br>, nothing else):
+<strong>Solution:</strong><br><br>
+Step 1<br><br>
+short instruction<br><br>
+<div style="overflow-x:auto; white-space:nowrap;">\\( ... \\)</div><br><br>
+Step 2<br><br>
+...
+<strong>Final Answer:</strong><br><br>
+\\( ... \\)
+
+3-MARK RULES
+- Same HTML skeleton as 2-mark. Keys only: type, q, c.
+- Show the method that earns the extra mark (reason + working + final answer).
+- GRAPH: only if needed. SVG path MUST match the equation. If unsure, no SVG.
+- No Burmese. No Chinese. No multiple choice.
+
+SVG STYLE (when used)
+- <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+- Transparent background rect
+- Axes: stroke="#FFFFFF"
+- Curves / region: stroke or fill "#00EDFF"
+- Labels x / y in white, font-size 12
+- SVG y-axis is DOWN. Plot y_svg = origin_y - k * y_math so the graph is not flipped
+- Key points (intercepts, vertex, intersections) must sit on the path
+
+SELF-CHECK (do this silently, then output)
+1. Every calculation recomputed and correct.
+2. "type" is math_show. "c" starts with <strong>Solution:</strong> and contains <strong>Final Answer:</strong>.
+3. All math is \\( ... \\).
+4. Zero Burmese / Chinese.
+5. No topics from outside this chapter.
+6. Valid JSON array: double quotes, no trailing commas, no markdown fences.
+
+OUTPUT
+A JSON array of 20–28 objects. Nothing else. No markdown. No ``` fences. First character [ last character ]
+
+[
+  { ... },
+  { ... }
+]
+
+Paste the textbook chapter below this line.
+
+============================================================
+<<< COPY UNTIL HERE   (end of PASS C)
+============================================================
+
+
+
+============================================================
+CONTINUE  (only if Qwen stops mid-JSON)   >>> COPY FROM HERE
+============================================================
+
+Continue the SAME JSON array from the exact point you stopped.
+Do not restart. Do not repeat items already given.
+Do not write any commentary.
+Close the array with ]
+============================================================
+<<< COPY UNTIL HERE
+============================================================
