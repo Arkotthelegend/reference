@@ -1,142 +1,142 @@
 [
   {
     "type": "math_show",
-    "q": "Find the first three terms of the sequence whose general term is \\( u_n = 3n - 2 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( n = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_1 = 3(1) - 2 = 1 \\)</div><br><br>Step 2<br><br>Substitute \\( n = 2 \\) and \\( n = 3 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = 3(2) - 2 = 4 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = 3(3) - 2 = 7 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1, 4, 7 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 4 & -1 \\\\ 5 & 2 \\end{pmatrix} \\), find \\( A + B \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Add corresponding elements of the two matrices of the same order:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix} + \\begin{pmatrix} 4 & -1 \\\\ 5 & 2 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Simplify each entry:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 2+4 & 1+(-1) \\\\ 0+5 & 3+2 \\end{pmatrix} = \\begin{pmatrix} 6 & 0 \\\\ 5 & 5 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 6 & 0 \\\\ 5 & 5 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "A sequence is defined by \\( u_1 = 2 \\) and \\( u_n = 3u_{n-1} + 1 \\) for \\( n \\ge 2 \\). Find \\( u_3 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the second term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = 3u_1 + 1 = 3(2) + 1 = 7 \\)</div><br><br>Step 2<br><br>Calculate the third term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = 3u_2 + 1 = 3(7) + 1 = 22 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 22 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 5 & 4 \\\\ 3 & 2 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 1 & 6 \\\\ 2 & -1 \\end{pmatrix} \\), find \\( A - B \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Subtract corresponding elements:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 5 & 4 \\\\ 3 & 2 \\end{pmatrix} - \\begin{pmatrix} 1 & 6 \\\\ 2 & -1 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Simplify each entry:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 5-1 & 4-6 \\\\ 3-2 & 2-(-1) \\end{pmatrix} = \\begin{pmatrix} 4 & -2 \\\\ 1 & 3 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 4 & -2 \\\\ 1 & 3 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the 12th term of the arithmetic progression \\( 4, 9, 14, \\dots \\)",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term and common difference:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 4, d = 9 - 4 = 5 \\)</div><br><br>Step 2<br><br>Calculate the 12th term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_{12} = a + 11d = 4 + 11(5) = 59 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 59 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 3 & -2 \\\\ 1 & 4 \\end{pmatrix} \\), find \\( 2A \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply every element of \\( A \\) by the scalar 2:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2A = 2\\begin{pmatrix} 3 & -2 \\\\ 1 & 4 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 6 & -4 \\\\ 2 & 8 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 6 & -4 \\\\ 2 & 8 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "An arithmetic progression has first term \\( 3 \\), common difference \\( 5 \\), and last term \\( 78 \\). Find the number of terms.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the nth term formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_n = a + (n - 1)d \\)</div><br><br>Step 2<br><br>Substitute the known values and solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 78 = 3 + (n - 1)5 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 75 = 5(n - 1) \\implies n - 1 = 15 \\implies n = 16 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 16 \\)"
+    "q": "Find the transpose of \\( A = \\begin{pmatrix} 1 & 0 & 4 \\\\ 2 & -3 & 5 \\end{pmatrix} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The transpose is obtained by writing rows as columns. \\( A \\) is of order \\( 2 \\times 3 \\), so \\( A^T \\) is of order \\( 3 \\times 2 \\).<br><br>Step 2<br><br>Therefore<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A^T = \\begin{pmatrix} 1 & 2 \\\\ 0 & -3 \\\\ 4 & 5 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( A^T = \\begin{pmatrix} 1 & 2 \\\\ 0 & -3 \\\\ 4 & 5 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "In an arithmetic progression, the 4th term is \\( 14 \\) and the 7th term is \\( 26 \\). Find the common difference.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up the equations for the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_7 - u_4 = (a + 6d) - (a + 3d) = 3d \\)</div><br><br>Step 2<br><br>Substitute the values and solve for \\( d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 26 - 14 = 3d \\implies 12 = 3d \\implies d = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+    "q": "Find the values of \\( x \\) and \\( y \\) if \\( \\begin{pmatrix} x & 3 \\\\ 2 & y \\end{pmatrix} = \\begin{pmatrix} 5 & 3 \\\\ 2 & -1 \\end{pmatrix} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Equal matrices of the same order have equal corresponding elements.<br><br>Step 2<br><br>Comparing entries:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 5, \\quad y = -1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 5, \\quad y = -1 \\)"
   },
   {
     "type": "math_show",
-    "q": "Insert one arithmetic mean between \\( 10 \\) and \\( 30 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the arithmetic mean formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{A.M.} = \\frac{x + y}{2} \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{A.M.} = \\frac{10 + 30}{2} = \\frac{40}{2} = 20 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 20 \\)"
+    "q": "If \\( A \\) is of order \\( 2 \\times 3 \\) and \\( B \\) is of order \\( 3 \\times 4 \\), find the order of \\( AB \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The product \\( AB \\) is defined because the number of columns of \\( A \\) equals the number of rows of \\( B \\) (both 3).<br><br>Step 2<br><br>The order of \\( AB \\) is (rows of \\( A \\)) \\( \\times \\) (columns of \\( B \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2 \\times 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\times 4 \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the sum of the first 15 terms of the arithmetic progression \\( 2, 6, 10, \\dots \\)",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the parameters:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 2, d = 4, n = 15 \\)</div><br><br>Step 2<br><br>Apply the sum formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{15} = \\frac{15}{2}\\{2(2) + (15 - 1)4\\} = \\frac{15}{2}(4 + 56) = \\frac{15}{2}(60) = 450 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 450 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 0 & -1 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 3 & 0 \\\\ 4 & 5 \\end{pmatrix} \\), find \\( 2A + B \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>First compute \\( 2A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2A = \\begin{pmatrix} 2 & 4 \\\\ 0 & -2 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Now add \\( B \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 2 & 4 \\\\ 0 & -2 \\end{pmatrix} + \\begin{pmatrix} 3 & 0 \\\\ 4 & 5 \\end{pmatrix} = \\begin{pmatrix} 5 & 4 \\\\ 4 & 3 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 5 & 4 \\\\ 4 & 3 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "The sum of the first \\( n \\) terms of a sequence is \\( S_n = n^2 + 2n \\). Find the 5th term.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the relation \\( u_n = S_n - S_{n-1} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = S_5 - S_4 \\)</div><br><br>Step 2<br><br>Calculate \\( S_5 \\) and \\( S_4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_5 = 5^2 + 2(5) = 35 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_4 = 4^2 + 2(4) = 24 \\)</div><br><br>Step 3<br><br>Find the difference:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = 35 - 24 = 11 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 11 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 3 & 5 \\\\ 2 & 4 \\end{pmatrix} \\), find \\( \\det A \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>For a \\( 2 \\times 2 \\) matrix \\( \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\), \\( \\det A = ad - bc \\).<br><br>Step 2<br><br>Substitute the entries:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (3)(4) - (5)(2) = 12 - 10 = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the 6th term of the geometric progression \\( 3, 6, 12, \\dots \\)",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term and common ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 3, r = \\frac{6}{3} = 2 \\)</div><br><br>Step 2<br><br>Calculate the 6th term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_6 = ar^5 = 3(2^5) = 3(32) = 96 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 96 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 4 & 2 \\\\ 6 & 3 \\end{pmatrix} \\), find \\( \\det A \\) and state whether \\( A \\) is singular.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compute the determinant:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (4)(3) - (2)(6) = 12 - 12 = 0 \\)</div><br><br>Step 2<br><br>Since \\( \\det A = 0 \\), the matrix \\( A \\) is singular.<br><br><strong>Final Answer:</strong><br><br>\\( \\det A = 0 \\), so \\( A \\) is singular."
   },
   {
     "type": "math_show",
-    "q": "In a geometric progression with all positive terms, the 2nd term is \\( 8 \\) and the 4th term is \\( 32 \\). Find the common ratio.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the ratio of the given terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{u_4}{u_2} = \\frac{ar^3}{ar} = r^2 \\)</div><br><br>Step 2<br><br>Substitute the values and solve for \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r^2 = \\frac{32}{8} = 4 \\implies r = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 2 & 0 \\\\ 1 & 3 \\end{pmatrix} \\), find \\( AB \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply row by column. The \\( (1,1) \\) and \\( (1,2) \\) entries are:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1\\cdot 2 + 2\\cdot 1 = 4, \\quad 1\\cdot 0 + 2\\cdot 3 = 6 \\)</div><br><br>Step 2<br><br>The \\( (2,1) \\) and \\( (2,2) \\) entries are:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3\\cdot 2 + 4\\cdot 1 = 10, \\quad 3\\cdot 0 + 4\\cdot 3 = 12 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AB = \\begin{pmatrix} 4 & 6 \\\\ 10 & 12 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 4 & 6 \\\\ 10 & 12 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "Insert one positive geometric mean between \\( 5 \\) and \\( 45 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the geometric mean formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{G.M.} = \\sqrt{xy} \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{G.M.} = \\sqrt{5 \\times 45} = \\sqrt{225} = 15 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 15 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix} \\) and \\( X = \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix} \\), find \\( AX \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( A \\) is \\( 2 \\times 2 \\) and \\( X \\) is \\( 2 \\times 1 \\), so \\( AX \\) is \\( 2 \\times 1 \\).<br><br>Step 2<br><br>Compute the product:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}\\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} 2\\cdot 4 + 1\\cdot(-1) \\\\ 0\\cdot 4 + 3\\cdot(-1) \\end{pmatrix} = \\begin{pmatrix} 7 \\\\ -3 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 7 \\\\ -3 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the sum of the first 6 terms of the geometric progression \\( 2, 4, 8, \\dots \\)",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the parameters:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 2, r = 2, n = 6 \\)</div><br><br>Step 2<br><br>Apply the sum formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_6 = \\frac{a(r^n - 1)}{r - 1} = \\frac{2(2^6 - 1)}{2 - 1} = 2(64 - 1) = 126 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 126 \\)"
+    "q": "Find \\( A^{-1} \\) if \\( A = \\begin{pmatrix} 2 & 1 \\\\ 5 & 3 \\end{pmatrix} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compute \\( \\det A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (2)(3) - (1)(5) = 6 - 5 = 1 \\)</div><br><br>Step 2<br><br>Then \\( A^{-1} = \\dfrac{1}{\\det A}\\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix} = \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix} \\).<br><br><strong>Final Answer:</strong><br><br>\\( A^{-1} = \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the sum to infinity of the geometric series \\( 24, 12, 6, \\dots \\)",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term and common ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 24, r = \\frac{12}{24} = \\frac{1}{2} \\)</div><br><br>Step 2<br><br>Apply the sum to infinity formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_\\infty = \\frac{a}{1 - r} = \\frac{24}{1 - \\frac{1}{2}} = \\frac{24}{\\frac{1}{2}} = 48 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 48 \\)"
+    "q": "Find \\( A^{-1} \\) if \\( A = \\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compute \\( \\det A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (3)(2) - (1)(5) = 6 - 5 = 1 \\)</div><br><br>Step 2<br><br>Hence \\( A^{-1} = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\).<br><br><strong>Final Answer:</strong><br><br>\\( A^{-1} = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "A geometric progression has first term \\( 5 \\) and common ratio \\( 2 \\). If the sum of the first \\( n \\) terms is \\( 155 \\), find \\( n \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the sum formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_n = \\frac{a(r^n - 1)}{r - 1} \\implies 155 = \\frac{5(2^n - 1)}{2 - 1} \\)</div><br><br>Step 2<br><br>Solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 155 = 5(2^n - 1) \\implies 31 = 2^n - 1 \\implies 2^n = 32 \\implies n = 5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix} \\), show that \\( A \\) has no inverse.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>A square matrix has an inverse if and only if its determinant is not zero. Compute:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (1)(4) - (2)(2) = 4 - 4 = 0 \\)</div><br><br>Step 2<br><br>Since \\( \\det A = 0 \\), \\( A \\) is singular and \\( A^{-1} \\) does not exist.<br><br><strong>Final Answer:</strong><br><br>\\( A^{-1} \\) does not exist."
   },
   {
     "type": "math_show",
-    "q": "The numbers \\( x \\), \\( x + 2 \\), and \\( x + 6 \\) are consecutive terms of a geometric progression. Find the positive value of \\( x \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up the geometric progression ratio equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x + 2)^2 = x(x + 6) \\)</div><br><br>Step 2<br><br>Expand and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + 4x + 4 = x^2 + 6x \\implies 2x = 4 \\implies x = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 2 & 5 \\\\ 1 & 3 \\end{pmatrix} \\), find \\( (A^T)^T \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>First find \\( A^T \\) by swapping rows and columns:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A^T = \\begin{pmatrix} 2 & 1 \\\\ 5 & 3 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Now transpose again:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (A^T)^T = \\begin{pmatrix} 2 & 5 \\\\ 1 & 3 \\end{pmatrix} = A \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (A^T)^T = A = \\begin{pmatrix} 2 & 5 \\\\ 1 & 3 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the range of values of \\( x \\) for which the infinite geometric series \\( 1 + (2x) + (2x)^2 + \\dots \\) converges.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>State the condition for convergence:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |r| < 1 \\implies |2x| < 1 \\)</div><br><br>Step 2<br><br>Solve the inequality:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -1 < 2x < 1 \\implies -\\frac{1}{2} < x < \\frac{1}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{1}{2} < x < \\frac{1}{2} \\)"
+    "q": "If \\( A = \\begin{pmatrix} 1 & 4 \\\\ 2 & 3 \\end{pmatrix} \\), find \\( A + A^T \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the transpose:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A^T = \\begin{pmatrix} 1 & 2 \\\\ 4 & 3 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Add \\( A \\) and \\( A^T \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 1 & 4 \\\\ 2 & 3 \\end{pmatrix} + \\begin{pmatrix} 1 & 2 \\\\ 4 & 3 \\end{pmatrix} = \\begin{pmatrix} 2 & 6 \\\\ 6 & 6 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 2 & 6 \\\\ 6 & 6 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "Three angles of a triangle are in arithmetic progression. If the smallest angle is \\( 35^\\circ \\), find the largest angle.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the angles be \\( a - d, a, a + d \\). Their sum is \\( 180^\\circ \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3a = 180^\\circ \\implies a = 60^\\circ \\)</div><br><br>Step 2<br><br>Use the smallest angle to find \\( d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a - d = 35^\\circ \\implies 60^\\circ - d = 35^\\circ \\implies d = 25^\\circ \\)</div><br><br>Step 3<br><br>Calculate the largest angle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a + d = 60^\\circ + 25^\\circ = 85^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 85^\\circ \\)"
+    "q": "If \\( A = \\begin{pmatrix} 2 & 0 \\\\ 1 & -1 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 3 & 1 \\\\ 0 & 2 \\end{pmatrix} \\), find \\( 3A - 2B \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compute the scalar multiples:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3A = \\begin{pmatrix} 6 & 0 \\\\ 3 & -3 \\end{pmatrix}, \\quad 2B = \\begin{pmatrix} 6 & 2 \\\\ 0 & 4 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Subtract:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 6 & 0 \\\\ 3 & -3 \\end{pmatrix} - \\begin{pmatrix} 6 & 2 \\\\ 0 & 4 \\end{pmatrix} = \\begin{pmatrix} 0 & -2 \\\\ 3 & -7 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 0 & -2 \\\\ 3 & -7 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "The product of the first three terms of a geometric progression is \\( 64 \\). If all terms are positive, find the second term.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the first three terms be \\( \\frac{a}{r}, a, ar \\). Their product is:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a}{r} \\times a \\times ar = a^3 \\)</div><br><br>Step 2<br><br>Solve for \\( a \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a^3 = 64 \\implies a = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 4 & 1 \\\\ -2 & 3 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 2 & 5 \\\\ 0 & 1 \\end{pmatrix} \\), find the element in the first row and second column of \\( A + B \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The required element is \\( a_{12} + b_{12} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 + 5 = 6 \\)</div><br><br>Step 2<br><br>So the \\( (1,2) \\) entry of \\( A + B \\) is 6.<br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
   },
   {
     "type": "math_show",
-    "q": "The sum of the first 10 terms of an arithmetic progression is \\( 100 \\). If the first term is \\( 1 \\), find the common difference.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the sum formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{10} = \\frac{10}{2}\\{2(1) + (10 - 1)d\\} = 100 \\)</div><br><br>Step 2<br><br>Simplify and solve for \\( d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5(2 + 9d) = 100 \\implies 2 + 9d = 20 \\implies 9d = 18 \\implies d = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 7 & -3 \\\\ 2 & 5 \\end{pmatrix} \\) and \\( O \\) is the \\( 2 \\times 2 \\) zero matrix, find \\( A + O \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The zero matrix of order \\( 2 \\times 2 \\) is \\( \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix} \\).<br><br>Step 2<br><br>Adding the zero matrix does not change \\( A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A + O = \\begin{pmatrix} 7 & -3 \\\\ 2 & 5 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 7 & -3 \\\\ 2 & 5 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the nth term rule for the sequence \\( 2, 5, 10, 17, \\dots \\)",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Observe the pattern in the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2 = 1^2 + 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5 = 2^2 + 1 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 10 = 3^2 + 1 \\)</div><br><br>Step 2<br><br>Generalize the pattern for the nth term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_n = n^2 + 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n^2 + 1 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 0 \\end{pmatrix} \\), find \\( (3A)^T \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>First compute \\( 3A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3A = \\begin{pmatrix} 3 & 6 \\\\ 9 & 0 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Now take the transpose:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (3A)^T = \\begin{pmatrix} 3 & 9 \\\\ 6 & 0 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 3 & 9 \\\\ 6 & 0 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "In a geometric progression, the second term is \\( 4 \\) and the sum to infinity is \\( 16 \\). Find the common ratio.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up the equations:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ar = 4 \\) and \\( \\frac{a}{1 - r} = 16 \\implies a = 16(1 - r) \\)</div><br><br>Step 2<br><br>Substitute \\( a \\) into the first equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 16(1 - r)r = 4 \\implies 16r - 16r^2 = 4 \\)</div><br><br>Step 3<br><br>Solve the quadratic equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 4r^2 - 4r + 1 = 0 \\implies (2r - 1)^2 = 0 \\implies r = \\frac{1}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+    "q": "Find \\( k \\) if \\( \\begin{pmatrix} 2 & k \\\\ 3 & 6 \\end{pmatrix} = \\begin{pmatrix} 2 & 4 \\\\ 3 & 6 \\end{pmatrix} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Equal matrices have equal corresponding elements.<br><br>Step 2<br><br>Comparing the \\( (1,2) \\) entries gives \\( k = 4 \\).<br><br><strong>Final Answer:</strong><br><br>\\( k = 4 \\)"
   },
   {
     "type": "math_show",
-    "q": "The nth term of an arithmetic progression is given by \\( u_n = 7 - 3n \\). Find the sum of the first 10 terms.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the first and tenth terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_1 = 7 - 3(1) = 4 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_{10} = 7 - 3(10) = -23 \\)</div><br><br>Step 2<br><br>Apply the sum formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{10} = \\frac{10}{2}(u_1 + u_{10}) = 5(4 - 23) = 5(-19) = -95 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -95 \\)"
+    "q": "State the order of a matrix with 8 elements that has 2 rows, and write a zero matrix of that order.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>If there are 2 rows and 8 elements, the number of columns is \\( 8 \\div 2 = 4 \\). The order is \\( 2 \\times 4 \\).<br><br>Step 2<br><br>The zero matrix of this order is<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 0 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 0 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\times 4 \\), \\( \\begin{pmatrix} 0 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 0 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "A ball is dropped from a height of \\( 81 \\) m. Each time it bounces, it reaches \\( \\frac{2}{3} \\) of its previous height. Find the height it reaches on the 4th bounce.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Model the bounce heights as a geometric progression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( h_n = 81 \\left(\\frac{2}{3}\\right)^n \\)</div><br><br>Step 2<br><br>Calculate the height of the 4th bounce:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( h_4 = 81 \\left(\\frac{2}{3}\\right)^4 = 81 \\left(\\frac{16}{81}\\right) = 16 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 16 \\)"
+    "q": "If \\( A \\) is \\( 3 \\times 2 \\) and \\( B \\) is \\( 3 \\times 2 \\), explain whether \\( AB \\) and \\( A + B \\) are defined.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( A + B \\) is defined because both matrices have the same order \\( 3 \\times 2 \\).<br><br>Step 2<br><br>\\( AB \\) is not defined, because the number of columns of \\( A \\) is 2, which is not equal to the number of rows of \\( B \\) (which is 3).<br><br><strong>Final Answer:</strong><br><br>\\( A + B \\) is defined; \\( AB \\) is not defined."
   },
   {
     "type": "math_show",
-    "q": "Find the sum of all two-digit numbers which are divisible by \\( 5 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the arithmetic progression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 10, 15, 20, \\dots, 95 \\)</div><br><br>Step 2<br><br>Find the number of terms \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 95 = 10 + (n - 1)5 \\implies 85 = 5(n - 1) \\implies n - 1 = 17 \\implies n = 18 \\)</div><br><br>Step 3<br><br>Calculate the sum:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{18} = \\frac{18}{2}(10 + 95) = 9(105) = 945 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 945 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 4 & 1 \\\\ 0 & -3 \\end{pmatrix} \\), find \\( \\det A \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( A \\) is upper triangular, so the determinant is the product of the diagonal entries.<br><br>Step 2<br><br>Compute:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (4)(-3) = -12 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -12 \\)"
   },
   {
     "type": "math_show",
-    "q": "In a geometric progression, the sum of the first 3 terms is \\( 21 \\) and the sum of the next 3 terms is \\( 168 \\). Find the common ratio.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the property of sums of consecutive blocks in a G.P.:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r^3 = \\frac{\\text{Sum of next 3 terms}}{\\text{Sum of first 3 terms}} \\)</div><br><br>Step 2<br><br>Substitute the values and solve for \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r^3 = \\frac{168}{21} = 8 \\implies r = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix} \\) and \\( I \\) is the \\( 2 \\times 2 \\) identity, find \\( A - I \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The identity is \\( I = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\).<br><br>Step 2<br><br>Subtract:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix} - \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 1 \\\\ 0 & 2 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 1 & 1 \\\\ 0 & 2 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "The 5th term of an arithmetic progression is \\( 18 \\) and the 9th term is \\( 34 \\). Find the first term.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the common difference:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_9 - u_5 = 4d \\implies 34 - 18 = 16 \\implies 4d = 16 \\implies d = 4 \\)</div><br><br>Step 2<br><br>Use the 5th term to find the first term \\( a \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = a + 4d \\implies 18 = a + 4(4) \\implies a + 16 = 18 \\implies a = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 1 & -1 \\\\ 2 & 3 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 0 & 4 \\\\ 1 & 2 \\end{pmatrix} \\), find \\( AB \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first row of the product is<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1\\cdot 0 + (-1)\\cdot 1,\\ 1\\cdot 4 + (-1)\\cdot 2) = ( -1,\\ 2 ) \\)</div><br><br>Step 2<br><br>The second row of the product is<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2\\cdot 0 + 3\\cdot 1,\\ 2\\cdot 4 + 3\\cdot 2) = ( 3,\\ 14 ) \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AB = \\begin{pmatrix} -1 & 2 \\\\ 3 & 14 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} -1 & 2 \\\\ 3 & 14 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "Evaluate the sum to infinity of the geometric series \\( 27 - 9 + 3 - 1 + \\dots \\)",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term and common ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 27, r = \\frac{-9}{27} = -\\frac{1}{3} \\)</div><br><br>Step 2<br><br>Apply the sum to infinity formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_\\infty = \\frac{a}{1 - r} = \\frac{27}{1 - \\left(-\\frac{1}{3}\\right)} = \\frac{27}{\\frac{4}{3}} = 27 \\times \\frac{3}{4} = \\frac{81}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{81}{4} \\)"
+    "q": "Find \\( x \\) so that \\( A = \\begin{pmatrix} x & 2 \\\\ 3 & 6 \\end{pmatrix} \\) is singular.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( A \\) is singular if and only if \\( \\det A = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x \\cdot 6 - 2 \\cdot 3 = 0 \\)</div><br><br>Step 2<br><br>Solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6x - 6 = 0 \\implies x = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 1 \\)"
   },
   {
     "type": "math_show",
-    "q": "A sequence is defined by \\( u_1 = 1 \\) and \\( u_n = u_{n-1} + 2n \\) for \\( n \\ge 2 \\). Find \\( u_4 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the second term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = u_1 + 2(2) = 1 + 4 = 5 \\)</div><br><br>Step 2<br><br>Calculate the third term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = u_2 + 2(3) = 5 + 6 = 11 \\)</div><br><br>Step 3<br><br>Calculate the fourth term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_4 = u_3 + 2(4) = 11 + 8 = 19 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 19 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix} \\), find \\( A^{-1} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\det A = (1)(1) - (2)(0) = 1 \\).<br><br>Step 2<br><br>Therefore \\( A^{-1} = \\begin{pmatrix} 1 & -2 \\\\ 0 & 1 \\end{pmatrix} \\).<br><br><strong>Final Answer:</strong><br><br>\\( A^{-1} = \\begin{pmatrix} 1 & -2 \\\\ 0 & 1 \\end{pmatrix} \\)"
   }
 ]
