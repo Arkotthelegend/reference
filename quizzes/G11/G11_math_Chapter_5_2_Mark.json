@@ -1,142 +1,152 @@
 [
   {
     "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 4 & -1 \\\\ 5 & 2 \\end{pmatrix} \\), find \\( A + B \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Add corresponding elements of the two matrices of the same order:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix} + \\begin{pmatrix} 4 & -1 \\\\ 5 & 2 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Simplify each entry:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 2+4 & 1+(-1) \\\\ 0+5 & 3+2 \\end{pmatrix} = \\begin{pmatrix} 6 & 0 \\\\ 5 & 5 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 6 & 0 \\\\ 5 & 5 \\end{pmatrix} \\)"
+    "q": "What are the values of \\( x \\) and \\( y \\) in the matrix equation \\( \\begin{pmatrix} 10 & 0 \\\\ 2y & 8 \\end{pmatrix} = \\begin{pmatrix} 2x & 0 \\\\ 8 & 8 \\end{pmatrix} \\)?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The two matrices are equal, so corresponding entries are equal.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 10 & 0 \\\\ 2y & 8 \\end{pmatrix} = \\begin{pmatrix} 2x & 0 \\\\ 8 & 8 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>By matrix equality, \\( 2x = 10 \\) and \\( 2y = 8 \\).<br><br>Therefore \\( x = 5 \\) and \\( y = 4 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 5,\\ y = 4 \\)"
   },
   {
     "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 5 & 4 \\\\ 3 & 2 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 1 & 6 \\\\ 2 & -1 \\end{pmatrix} \\), find \\( A - B \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Subtract corresponding elements:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 5 & 4 \\\\ 3 & 2 \\end{pmatrix} - \\begin{pmatrix} 1 & 6 \\\\ 2 & -1 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Simplify each entry:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 5-1 & 4-6 \\\\ 3-2 & 2-(-1) \\end{pmatrix} = \\begin{pmatrix} 4 & -2 \\\\ 1 & 3 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 4 & -2 \\\\ 1 & 3 \\end{pmatrix} \\)"
+    "q": "Determine the order of \\( A = \\begin{pmatrix} 2 & 0 & 1 & 3 \\end{pmatrix} \\) and write down the entry in the first row and third column.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( A \\) has 1 row and 4 columns, so it is a row matrix of order \\( 1 \\times 4 \\).<br><br>Step 2<br><br>The entry in the first row and third column is \\( 1 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1 \\times 4 \\), entry \\( 1 \\)"
   },
   {
     "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 3 & -2 \\\\ 1 & 4 \\end{pmatrix} \\), find \\( 2A \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply every element of \\( A \\) by the scalar 2:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2A = 2\\begin{pmatrix} 3 & -2 \\\\ 1 & 4 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 6 & -4 \\\\ 2 & 8 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 6 & -4 \\\\ 2 & 8 \\end{pmatrix} \\)"
+    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\\\ 5 & 6 \\end{pmatrix} \\), find \\( A^T \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( A \\) is of order \\( 3 \\times 2 \\). The transpose \\( A^T \\) is the \\( 2 \\times 3 \\) matrix whose rows are the columns of \\( A \\).<br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A^T = \\begin{pmatrix} 1 & 3 & 5 \\\\ 2 & 4 & 6 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( A^T = \\begin{pmatrix} 1 & 3 & 5 \\\\ 2 & 4 & 6 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the transpose of \\( A = \\begin{pmatrix} 1 & 0 & 4 \\\\ 2 & -3 & 5 \\end{pmatrix} \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The transpose is obtained by writing rows as columns. \\( A \\) is of order \\( 2 \\times 3 \\), so \\( A^T \\) is of order \\( 3 \\times 2 \\).<br><br>Step 2<br><br>Therefore<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A^T = \\begin{pmatrix} 1 & 2 \\\\ 0 & -3 \\\\ 4 & 5 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( A^T = \\begin{pmatrix} 1 & 2 \\\\ 0 & -3 \\\\ 4 & 5 \\end{pmatrix} \\)"
+    "q": "If \\( P = \\begin{pmatrix} 3 & -2 \\\\ 1 & 4 \\end{pmatrix} \\) and \\( Q = \\begin{pmatrix} 1 & 5 \\\\ 2 & 3 \\end{pmatrix} \\), find \\( P + Q \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The matrices have the same order, so add corresponding entries.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P + Q = \\begin{pmatrix} 3 & -2 \\\\ 1 & 4 \\end{pmatrix} + \\begin{pmatrix} 1 & 5 \\\\ 2 & 3 \\end{pmatrix} \\)</div><br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\begin{pmatrix} 3+1 & -2+5 \\\\ 1+2 & 4+3 \\end{pmatrix} = \\begin{pmatrix} 4 & 3 \\\\ 3 & 7 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 4 & 3 \\\\ 3 & 7 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the values of \\( x \\) and \\( y \\) if \\( \\begin{pmatrix} x & 3 \\\\ 2 & y \\end{pmatrix} = \\begin{pmatrix} 5 & 3 \\\\ 2 & -1 \\end{pmatrix} \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Equal matrices of the same order have equal corresponding elements.<br><br>Step 2<br><br>Comparing entries:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 5, \\quad y = -1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 5, \\quad y = -1 \\)"
+    "q": "Write down the negative of \\( \\begin{pmatrix} 5 & -8 \\\\ 4 & -7 \\end{pmatrix} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>If \\( A = (a_{ij}) \\), then \\( -A = (-a_{ij}) \\). Change the sign of each entry.<br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} -5 & -(-8) \\\\ -4 & -(-7) \\end{pmatrix} = \\begin{pmatrix} -5 & 8 \\\\ -4 & 7 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} -5 & 8 \\\\ -4 & 7 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "If \\( A \\) is of order \\( 2 \\times 3 \\) and \\( B \\) is of order \\( 3 \\times 4 \\), find the order of \\( AB \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The product \\( AB \\) is defined because the number of columns of \\( A \\) equals the number of rows of \\( B \\) (both 3).<br><br>Step 2<br><br>The order of \\( AB \\) is (rows of \\( A \\)) \\( \\times \\) (columns of \\( B \\)):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2 \\times 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\times 4 \\)"
+    "q": "If \\( A = \\begin{pmatrix} 3 & 2 \\\\ 1 & 4 \\end{pmatrix} \\), find \\( 5A \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply each entry of \\( A \\) by the scalar 5.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5A = 5\\begin{pmatrix} 3 & 2 \\\\ 1 & 4 \\end{pmatrix} \\)</div><br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\begin{pmatrix} 15 & 10 \\\\ 5 & 20 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 15 & 10 \\\\ 5 & 20 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 0 & -1 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 3 & 0 \\\\ 4 & 5 \\end{pmatrix} \\), find \\( 2A + B \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>First compute \\( 2A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2A = \\begin{pmatrix} 2 & 4 \\\\ 0 & -2 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Now add \\( B \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 2 & 4 \\\\ 0 & -2 \\end{pmatrix} + \\begin{pmatrix} 3 & 0 \\\\ 4 & 5 \\end{pmatrix} = \\begin{pmatrix} 5 & 4 \\\\ 4 & 3 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 5 & 4 \\\\ 4 & 3 \\end{pmatrix} \\)"
+    "q": "If \\( A = \\begin{pmatrix} 3 & 2 \\\\ 1 & 4 \\end{pmatrix} \\), find \\( (-1)A \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (-1)A = (-1)\\begin{pmatrix} 3 & 2 \\\\ 1 & 4 \\end{pmatrix} \\)</div><br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\begin{pmatrix} -3 & -2 \\\\ -1 & -4 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} -3 & -2 \\\\ -1 & -4 \\end{pmatrix} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Given that \\( O = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix} \\) and \\( A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\), show that \\( O + A = A \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( O + A = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix} + \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = A \\)</div><br><br>Step 2<br><br>The zero matrix is the identity element for addition of matrices.<br><br><strong>Final Answer:</strong><br><br>\\( O + A = A \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( A = \\begin{pmatrix} 4 & 1 \\\\ -2 & 3 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 2 & 5 \\\\ 0 & 1 \\end{pmatrix} \\), find \\( A - B \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A - B = \\begin{pmatrix} 4 & 1 \\\\ -2 & 3 \\end{pmatrix} - \\begin{pmatrix} 2 & 5 \\\\ 0 & 1 \\end{pmatrix} \\)</div><br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\begin{pmatrix} 4-2 & 1-5 \\\\ -2-0 & 3-1 \\end{pmatrix} = \\begin{pmatrix} 2 & -4 \\\\ -2 & 2 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 2 & -4 \\\\ -2 & 2 \\end{pmatrix} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Let \\( P = \\begin{pmatrix} x & 5 \\\\ -3 & y \\end{pmatrix} \\) and \\( Q = \\begin{pmatrix} 9 & -3 \\\\ 5 & -7 \\end{pmatrix} \\). Find \\( x \\) and \\( y \\) given that \\( P = Q^T \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The transpose of \\( Q \\) is obtained by writing rows as columns.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( Q^T = \\begin{pmatrix} 9 & 5 \\\\ -3 & -7 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>By matrix equality, \\( P = Q^T \\) gives \\( x = 9 \\) and \\( y = -7 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 9,\\ y = -7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( B = \\begin{pmatrix} -3 & 2 & 4 & -1 \\\\ -4 & 1 & 5 & 0 \\end{pmatrix} \\), find \\( (B^T)^T \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( B \\) is \\( 2 \\times 4 \\), so \\( B^T \\) is \\( 4 \\times 2 \\). Transposing again returns the original matrix.<br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (B^T)^T = B = \\begin{pmatrix} -3 & 2 & 4 & -1 \\\\ -4 & 1 & 5 & 0 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (B^T)^T = B \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( A \\) is of order \\( 1 \\times 2 \\) and \\( B \\) is of order \\( 2 \\times 2 \\), which of the products \\( AB \\) and \\( BA \\) is possible? State the order of any product that exists.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order of \\( A \\) is \\( 1 \\times 2 \\) and order of \\( B \\) is \\( 2 \\times 2 \\). The inner numbers 2 and 2 are the same, so \\( AB \\) exists and has order \\( 1 \\times 2 \\).<br><br>Step 2<br><br>Order of \\( B \\) is \\( 2 \\times 2 \\) and order of \\( A \\) is \\( 1 \\times 2 \\). The inner numbers 2 and 1 are different, so \\( BA \\) does not exist.<br><br><strong>Final Answer:</strong><br><br>\\( AB \\) exists and is \\( 1 \\times 2 \\); \\( BA \\) does not exist."
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( (2\\ {-3}\\ 4)\\begin{pmatrix} 5 \\\\ 1 \\\\ 2 \\end{pmatrix} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply each entry of the row matrix by the corresponding entry of the column matrix and add.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2)(5) + (-3)(1) + (4)(2) \\)</div><br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = 10 - 3 + 8 = 15 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (15) \\)"
   },
   {
     "type": "math_show",
     "q": "If \\( A = \\begin{pmatrix} 3 & 5 \\\\ 2 & 4 \\end{pmatrix} \\), find \\( \\det A \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>For a \\( 2 \\times 2 \\) matrix \\( \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\), \\( \\det A = ad - bc \\).<br><br>Step 2<br><br>Substitute the entries:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (3)(4) - (5)(2) = 12 - 10 = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>For \\( A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\), \\( \\det A = ad - bc \\).<br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (3)(4) - (5)(2) = 12 - 10 = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
   },
   {
     "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 4 & 2 \\\\ 6 & 3 \\end{pmatrix} \\), find \\( \\det A \\) and state whether \\( A \\) is singular.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compute the determinant:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (4)(3) - (2)(6) = 12 - 12 = 0 \\)</div><br><br>Step 2<br><br>Since \\( \\det A = 0 \\), the matrix \\( A \\) is singular.<br><br><strong>Final Answer:</strong><br><br>\\( \\det A = 0 \\), so \\( A \\) is singular."
+    "q": "Find, if it exists, the inverse of \\( A = \\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (3)(2) - (1)(5) = 6 - 5 = 1 \\ne 0 \\)</div>, so \\( A^{-1} \\) exists.<br><br>Step 2<br><br>Then \\( A^{-1} = \\dfrac{1}{\\det A}\\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\).<br><br><strong>Final Answer:</strong><br><br>\\( A^{-1} = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 2 & 0 \\\\ 1 & 3 \\end{pmatrix} \\), find \\( AB \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply row by column. The \\( (1,1) \\) and \\( (1,2) \\) entries are:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1\\cdot 2 + 2\\cdot 1 = 4, \\quad 1\\cdot 0 + 2\\cdot 3 = 6 \\)</div><br><br>Step 2<br><br>The \\( (2,1) \\) and \\( (2,2) \\) entries are:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3\\cdot 2 + 4\\cdot 1 = 10, \\quad 3\\cdot 0 + 4\\cdot 3 = 12 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AB = \\begin{pmatrix} 4 & 6 \\\\ 10 & 12 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 4 & 6 \\\\ 10 & 12 \\end{pmatrix} \\)"
+    "q": "Find \\( \\det N \\) if \\( N = \\begin{pmatrix} 6 & 3 \\\\ -4 & -2 \\end{pmatrix} \\) and state whether \\( N^{-1} \\) exists.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det N = (6)(-2) - (3)(-4) = -12 + 12 = 0 \\)</div><br><br>Step 2<br><br>Since \\( \\det N = 0 \\), \\( N \\) is singular and \\( N^{-1} \\) does not exist.<br><br><strong>Final Answer:</strong><br><br>\\( \\det N = 0 \\); \\( N^{-1} \\) does not exist."
   },
   {
     "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix} \\) and \\( X = \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix} \\), find \\( AX \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( A \\) is \\( 2 \\times 2 \\) and \\( X \\) is \\( 2 \\times 1 \\), so \\( AX \\) is \\( 2 \\times 1 \\).<br><br>Step 2<br><br>Compute the product:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}\\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} 2\\cdot 4 + 1\\cdot(-1) \\\\ 0\\cdot 4 + 3\\cdot(-1) \\end{pmatrix} = \\begin{pmatrix} 7 \\\\ -3 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 7 \\\\ -3 \\end{pmatrix} \\)"
+    "q": "If \\( A = \\begin{pmatrix} 7 & 5 \\\\ 6 & 4 \\end{pmatrix} \\) and \\( I = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\), find \\( AI \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AI = \\begin{pmatrix} 7 & 5 \\\\ 6 & 4 \\end{pmatrix}\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 7+0 & 0+5 \\\\ 6+0 & 0+4 \\end{pmatrix} \\)</div><br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\begin{pmatrix} 7 & 5 \\\\ 6 & 4 \\end{pmatrix} = A \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( AI = A = \\begin{pmatrix} 7 & 5 \\\\ 6 & 4 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "Find \\( A^{-1} \\) if \\( A = \\begin{pmatrix} 2 & 1 \\\\ 5 & 3 \\end{pmatrix} \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compute \\( \\det A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (2)(3) - (1)(5) = 6 - 5 = 1 \\)</div><br><br>Step 2<br><br>Then \\( A^{-1} = \\dfrac{1}{\\det A}\\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix} = \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix} \\).<br><br><strong>Final Answer:</strong><br><br>\\( A^{-1} = \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix} \\)"
+    "q": "If \\( A = \\begin{pmatrix} 1 & 2 & 3 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 4 \\\\ 0 \\\\ 1 \\end{pmatrix} \\), find \\( AB \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( A \\) is \\( 1 \\times 3 \\) and \\( B \\) is \\( 3 \\times 1 \\), so \\( AB \\) is \\( 1 \\times 1 \\).<br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AB = (1)(4) + (2)(0) + (3)(1) = 4 + 0 + 3 = (7) \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (7) \\)"
   },
   {
     "type": "math_show",
-    "q": "Find \\( A^{-1} \\) if \\( A = \\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix} \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compute \\( \\det A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (3)(2) - (1)(5) = 6 - 5 = 1 \\)</div><br><br>Step 2<br><br>Hence \\( A^{-1} = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\).<br><br><strong>Final Answer:</strong><br><br>\\( A^{-1} = \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\)"
+    "q": "Find the matrix \\( A \\) which satisfies \\( A + \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix} = \\begin{pmatrix} -4 \\\\ 3 \\end{pmatrix} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Add the negative of \\( \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix} \\) to both sides.<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A = \\begin{pmatrix} -4 \\\\ 3 \\end{pmatrix} - \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix} \\)</div><br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\begin{pmatrix} -7 \\\\ -1 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( A = \\begin{pmatrix} -7 \\\\ -1 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix} \\), show that \\( A \\) has no inverse.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>A square matrix has an inverse if and only if its determinant is not zero. Compute:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (1)(4) - (2)(2) = 4 - 4 = 0 \\)</div><br><br>Step 2<br><br>Since \\( \\det A = 0 \\), \\( A \\) is singular and \\( A^{-1} \\) does not exist.<br><br><strong>Final Answer:</strong><br><br>\\( A^{-1} \\) does not exist."
+    "q": "Solve \\( X + \\begin{pmatrix} -2 & 1 \\\\ 0 & -3 \\end{pmatrix} = \\begin{pmatrix} 3 & -1 \\\\ 5 & 4 \\end{pmatrix} \\) for the \\( 2 \\times 2 \\) matrix \\( X \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Add the negative of \\( \\begin{pmatrix} -2 & 1 \\\\ 0 & -3 \\end{pmatrix} \\) to both sides.<br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( X = \\begin{pmatrix} 3 & -1 \\\\ 5 & 4 \\end{pmatrix} - \\begin{pmatrix} -2 & 1 \\\\ 0 & -3 \\end{pmatrix} = \\begin{pmatrix} 5 & -2 \\\\ 5 & 7 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( X = \\begin{pmatrix} 5 & -2 \\\\ 5 & 7 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 2 & 5 \\\\ 1 & 3 \\end{pmatrix} \\), find \\( (A^T)^T \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>First find \\( A^T \\) by swapping rows and columns:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A^T = \\begin{pmatrix} 2 & 1 \\\\ 5 & 3 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Now transpose again:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (A^T)^T = \\begin{pmatrix} 2 & 5 \\\\ 1 & 3 \\end{pmatrix} = A \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (A^T)^T = A = \\begin{pmatrix} 2 & 5 \\\\ 1 & 3 \\end{pmatrix} \\)"
+    "q": "If \\( A = \\begin{pmatrix} 9 & 12 \\\\ 6 & 9 \\end{pmatrix} \\), find \\( \\dfrac{1}{3}A \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply each entry by \\( \\dfrac{1}{3} \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\dfrac{1}{3}A = \\begin{pmatrix} \\frac{9}{3} & \\frac{12}{3} \\\\ \\frac{6}{3} & \\frac{9}{3} \\end{pmatrix} \\)</div><br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\begin{pmatrix} 3 & 4 \\\\ 2 & 3 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 3 & 4 \\\\ 2 & 3 \\end{pmatrix} \\)"
   },
   {
     "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 1 & 4 \\\\ 2 & 3 \\end{pmatrix} \\), find \\( A + A^T \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the transpose:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A^T = \\begin{pmatrix} 1 & 2 \\\\ 4 & 3 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Add \\( A \\) and \\( A^T \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 1 & 4 \\\\ 2 & 3 \\end{pmatrix} + \\begin{pmatrix} 1 & 2 \\\\ 4 & 3 \\end{pmatrix} = \\begin{pmatrix} 2 & 6 \\\\ 6 & 6 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 2 & 6 \\\\ 6 & 6 \\end{pmatrix} \\)"
+    "q": "If \\( A = \\begin{pmatrix} 2 & 3 \\\\ 4 & 5 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} -2 & -3 \\\\ -4 & -5 \\end{pmatrix} \\), find \\( A + B \\) and hence name the relationship between \\( A \\) and \\( B \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A + B = \\begin{pmatrix} 2 & 3 \\\\ 4 & 5 \\end{pmatrix} + \\begin{pmatrix} -2 & -3 \\\\ -4 & -5 \\end{pmatrix} = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix} = O \\)</div><br><br>Step 2<br><br>Hence \\( B \\) is the negative of \\( A \\), written \\( B = -A \\).<br><br><strong>Final Answer:</strong><br><br>\\( A + B = O \\), so \\( B = -A \\)"
   },
   {
     "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 2 & 0 \\\\ 1 & -1 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 3 & 1 \\\\ 0 & 2 \\end{pmatrix} \\), find \\( 3A - 2B \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compute the scalar multiples:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3A = \\begin{pmatrix} 6 & 0 \\\\ 3 & -3 \\end{pmatrix}, \\quad 2B = \\begin{pmatrix} 6 & 2 \\\\ 0 & 4 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Subtract:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 6 & 0 \\\\ 3 & -3 \\end{pmatrix} - \\begin{pmatrix} 6 & 2 \\\\ 0 & 4 \\end{pmatrix} = \\begin{pmatrix} 0 & -2 \\\\ 3 & -7 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 0 & -2 \\\\ 3 & -7 \\end{pmatrix} \\)"
-  },
-  {
-    "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 4 & 1 \\\\ -2 & 3 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 2 & 5 \\\\ 0 & 1 \\end{pmatrix} \\), find the element in the first row and second column of \\( A + B \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The required element is \\( a_{12} + b_{12} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 + 5 = 6 \\)</div><br><br>Step 2<br><br>So the \\( (1,2) \\) entry of \\( A + B \\) is 6.<br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
-  },
-  {
-    "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 7 & -3 \\\\ 2 & 5 \\end{pmatrix} \\) and \\( O \\) is the \\( 2 \\times 2 \\) zero matrix, find \\( A + O \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The zero matrix of order \\( 2 \\times 2 \\) is \\( \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix} \\).<br><br>Step 2<br><br>Adding the zero matrix does not change \\( A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A + O = \\begin{pmatrix} 7 & -3 \\\\ 2 & 5 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 7 & -3 \\\\ 2 & 5 \\end{pmatrix} \\)"
-  },
-  {
-    "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 0 \\end{pmatrix} \\), find \\( (3A)^T \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>First compute \\( 3A \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3A = \\begin{pmatrix} 3 & 6 \\\\ 9 & 0 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Now take the transpose:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (3A)^T = \\begin{pmatrix} 3 & 9 \\\\ 6 & 0 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 3 & 9 \\\\ 6 & 0 \\end{pmatrix} \\)"
-  },
-  {
-    "type": "math_show",
-    "q": "Find \\( k \\) if \\( \\begin{pmatrix} 2 & k \\\\ 3 & 6 \\end{pmatrix} = \\begin{pmatrix} 2 & 4 \\\\ 3 & 6 \\end{pmatrix} \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Equal matrices have equal corresponding elements.<br><br>Step 2<br><br>Comparing the \\( (1,2) \\) entries gives \\( k = 4 \\).<br><br><strong>Final Answer:</strong><br><br>\\( k = 4 \\)"
-  },
-  {
-    "type": "math_show",
-    "q": "State the order of a matrix with 8 elements that has 2 rows, and write a zero matrix of that order.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>If there are 2 rows and 8 elements, the number of columns is \\( 8 \\div 2 = 4 \\). The order is \\( 2 \\times 4 \\).<br><br>Step 2<br><br>The zero matrix of this order is<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 0 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 0 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\times 4 \\), \\( \\begin{pmatrix} 0 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 0 \\end{pmatrix} \\)"
-  },
-  {
-    "type": "math_show",
-    "q": "If \\( A \\) is \\( 3 \\times 2 \\) and \\( B \\) is \\( 3 \\times 2 \\), explain whether \\( AB \\) and \\( A + B \\) are defined.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( A + B \\) is defined because both matrices have the same order \\( 3 \\times 2 \\).<br><br>Step 2<br><br>\\( AB \\) is not defined, because the number of columns of \\( A \\) is 2, which is not equal to the number of rows of \\( B \\) (which is 3).<br><br><strong>Final Answer:</strong><br><br>\\( A + B \\) is defined; \\( AB \\) is not defined."
-  },
-  {
-    "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 4 & 1 \\\\ 0 & -3 \\end{pmatrix} \\), find \\( \\det A \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( A \\) is upper triangular, so the determinant is the product of the diagonal entries.<br><br>Step 2<br><br>Compute:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (4)(-3) = -12 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -12 \\)"
-  },
-  {
-    "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix} \\) and \\( I \\) is the \\( 2 \\times 2 \\) identity, find \\( A - I \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The identity is \\( I = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\).<br><br>Step 2<br><br>Subtract:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix} - \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 1 \\\\ 0 & 2 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 1 & 1 \\\\ 0 & 2 \\end{pmatrix} \\)"
-  },
-  {
-    "type": "math_show",
-    "q": "If \\( A = \\begin{pmatrix} 1 & -1 \\\\ 2 & 3 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 0 & 4 \\\\ 1 & 2 \\end{pmatrix} \\), find \\( AB \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first row of the product is<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1\\cdot 0 + (-1)\\cdot 1,\\ 1\\cdot 4 + (-1)\\cdot 2) = ( -1,\\ 2 ) \\)</div><br><br>Step 2<br><br>The second row of the product is<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2\\cdot 0 + 3\\cdot 1,\\ 2\\cdot 4 + 3\\cdot 2) = ( 3,\\ 14 ) \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AB = \\begin{pmatrix} -1 & 2 \\\\ 3 & 14 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} -1 & 2 \\\\ 3 & 14 \\end{pmatrix} \\)"
-  },
-  {
-    "type": "math_show",
-    "q": "Find \\( x \\) so that \\( A = \\begin{pmatrix} x & 2 \\\\ 3 & 6 \\end{pmatrix} \\) is singular.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( A \\) is singular if and only if \\( \\det A = 0 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x \\cdot 6 - 2 \\cdot 3 = 0 \\)</div><br><br>Step 2<br><br>Solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6x - 6 = 0 \\implies x = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 1 \\)"
+    "q": "Evaluate \\( (2\\ 3)\\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2)(2) + (3)(1) \\)</div><br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = 4 + 3 = 7 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( (7) \\)"
   },
   {
     "type": "math_show",
     "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix} \\), find \\( A^{-1} \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\det A = (1)(1) - (2)(0) = 1 \\).<br><br>Step 2<br><br>Therefore \\( A^{-1} = \\begin{pmatrix} 1 & -2 \\\\ 0 & 1 \\end{pmatrix} \\).<br><br><strong>Final Answer:</strong><br><br>\\( A^{-1} = \\begin{pmatrix} 1 & -2 \\\\ 0 & 1 \\end{pmatrix} \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (1)(1) - (2)(0) = 1 \\ne 0 \\)</div>, so the inverse exists.<br><br>Step 2<br><br>\\( A^{-1} = \\begin{pmatrix} 1 & -2 \\\\ 0 & 1 \\end{pmatrix} \\).<br><br><strong>Final Answer:</strong><br><br>\\( A^{-1} = \\begin{pmatrix} 1 & -2 \\\\ 0 & 1 \\end{pmatrix} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( A = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 4 & 5 \\\\ 6 & 7 \\end{pmatrix} \\), find \\( IB \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( IB = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 4 & 5 \\\\ 6 & 7 \\end{pmatrix} = \\begin{pmatrix} 4+0 & 5+0 \\\\ 0+6 & 0+7 \\end{pmatrix} \\)</div><br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\begin{pmatrix} 4 & 5 \\\\ 6 & 7 \\end{pmatrix} = B \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( IB = B \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "State the order of \\( \\begin{pmatrix} a & b & c \\\\ d & e & f \\\\ g & h & i \\end{pmatrix} \\) and the entry in the second row and first column.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 rows and 3 columns, so the matrix is square of order \\( 3 \\times 3 \\).<br><br>Step 2<br><br>The entry in the second row and first column is \\( d \\).<br><br><strong>Final Answer:</strong><br><br>\\( 3 \\times 3 \\), entry \\( d \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( A = \\begin{pmatrix} 2 & 0 \\\\ 1 & 5 \\end{pmatrix} \\) and \\( B = \\begin{pmatrix} 1 & 0 \\\\ 2 & k \\end{pmatrix} \\), find \\( AB \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( AB = \\begin{pmatrix} 2 & 0 \\\\ 1 & 5 \\end{pmatrix}\\begin{pmatrix} 1 & 0 \\\\ 2 & k \\end{pmatrix} = \\begin{pmatrix} 2+0 & 0+0 \\\\ 1+10 & 0+5k \\end{pmatrix} \\)</div><br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( = \\begin{pmatrix} 2 & 0 \\\\ 11 & 5k \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 2 & 0 \\\\ 11 & 5k \\end{pmatrix} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( A = \\begin{pmatrix} 4 & 2 \\\\ 2 & 1 \\end{pmatrix} \\), find \\( \\det A \\) and state whether \\( A \\) is singular or non-singular.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\det A = (4)(1) - (2)(2) = 4 - 4 = 0 \\)</div><br><br>Step 2<br><br>Since \\( \\det A = 0 \\), \\( A \\) is singular.<br><br><strong>Final Answer:</strong><br><br>\\( \\det A = 0 \\); singular."
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 3 & 1 & 4 \\end{pmatrix} \\), write down the elements in the second row and the entry in the first row and second column.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The second row is \\( 3,\\ 1,\\ 4 \\).<br><br>Step 2<br><br>The entry in the first row and second column is \\( 2 \\).<br><br><strong>Final Answer:</strong><br><br>Second row: \\( 3,\\ 1,\\ 4 \\); entry \\( 2 \\)."
+  },
+  {
+    "type": "math_show",
+    "q": "Find \\( x \\) and \\( y \\) if \\( \\begin{pmatrix} 3x & -y \\end{pmatrix} = \\begin{pmatrix} 12 & 0 \\end{pmatrix} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The matrices have the same order \\( 1 \\times 2 \\). By matrix equality, corresponding entries are equal.<br><br>Step 2<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x = 12 \\implies x = 4 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -y = 0 \\implies y = 0 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 4,\\ y = 0 \\)"
   }
 ]

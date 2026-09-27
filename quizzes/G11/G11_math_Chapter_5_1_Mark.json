@@ -1,76 +1,208 @@
 [
   {
     "type": "mcq",
-    "q": "What is the order of the matrix \\( \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix} \\)?",
+    "q": "What is the order of \\( A = \\begin{pmatrix} 1 & 0 & 2 & -3 \\\\ 4 & 5 & 6 & 1 \\\\ 2 & 8 & 0 & 7 \\end{pmatrix} \\)?",
     "a": [
-      "\\( 2 \\times 3 \\)",
-      "\\( 3 \\times 2 \\)",
-      "\\( 2 \\times 2 \\)",
-      "\\( 3 \\times 3 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "How many elements does a matrix of order \\( 4 \\times 3 \\) have?",
-    "a": [
-      "\\( 7 \\)",
-      "\\( 12 \\)",
-      "\\( 16 \\)",
-      "\\( 9 \\)"
+      "\\( 4 \\times 3 \\)",
+      "\\( 3 \\times 4 \\)",
+      "\\( 3 \\times 3 \\)",
+      "\\( 4 \\times 4 \\)"
     ],
     "c": 1
   },
   {
     "type": "mcq",
-    "q": "A matrix with only one row is called a",
+    "q": "If \\( A = \\begin{pmatrix} 1 & 0 & 2 & -3 \\\\ 4 & 5 & 6 & 1 \\\\ 2 & 8 & 0 & 7 \\end{pmatrix} \\), the element \\( a_{23} \\) is",
     "a": [
-      "\\( \\text{column matrix} \\)",
-      "\\( \\text{square matrix} \\)",
-      "\\( \\text{row matrix} \\)",
+      "\\( 5 \\)",
+      "\\( 2 \\)",
+      "\\( 6 \\)",
+      "\\( 0 \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "\\( B = (4\\ 7\\ 2\\ 1) \\) is a row matrix of order",
+    "a": [
+      "\\( 4 \\times 1 \\)",
+      "\\( 1 \\times 4 \\)",
+      "\\( 4 \\times 4 \\)",
+      "\\( 2 \\times 2 \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "\\( C = \\begin{pmatrix} 4 \\\\ 0 \\\\ 3 \\end{pmatrix} \\) is a",
+    "a": [
+      "\\( \\text{row matrix of order } 1 \\times 3 \\)",
+      "\\( \\text{square matrix of order } 3 \\)",
+      "\\( \\text{column matrix of order } 3 \\times 1 \\)",
       "\\( \\text{zero matrix} \\)"
     ],
     "c": 2
   },
   {
     "type": "mcq",
-    "q": "A matrix with only one column is called a",
+    "q": "A matrix with the same number of rows and columns is called a",
     "a": [
       "\\( \\text{row matrix} \\)",
-      "\\( \\text{diagonal matrix} \\)",
-      "\\( \\text{scalar matrix} \\)",
-      "\\( \\text{column matrix} \\)"
+      "\\( \\text{column matrix} \\)",
+      "\\( \\text{zero matrix} \\)",
+      "\\( \\text{square matrix} \\)"
     ],
     "c": 3
   },
   {
     "type": "mcq",
-    "q": "A matrix with the same number of rows and columns is called a",
+    "q": "If \\( \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\), then",
     "a": [
-      "\\( \\text{square matrix} \\)",
-      "\\( \\text{row matrix} \\)",
-      "\\( \\text{rectangular matrix} \\)",
-      "\\( \\text{null matrix} \\)"
+      "\\( a=1,\\ b=2,\\ c=3,\\ d=4 \\)",
+      "\\( a=1,\\ b=3,\\ c=2,\\ d=4 \\)",
+      "\\( a=4,\\ b=3,\\ c=2,\\ d=1 \\)",
+      "\\( a=2,\\ b=1,\\ c=4,\\ d=3 \\)"
     ],
     "c": 0
   },
   {
     "type": "mcq",
-    "q": "A matrix in which every element is zero is called a",
+    "q": "\\( \\begin{pmatrix} 2 & 0 \\\\ 3 & 0 \\end{pmatrix} \\ne \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix} \\) because the two matrices",
     "a": [
-      "\\( \\text{identity matrix} \\)",
-      "\\( \\text{zero matrix} \\)",
-      "\\( \\text{scalar matrix} \\)",
-      "\\( \\text{unit matrix} \\)"
+      "\\( \\text{have different entries} \\)",
+      "\\( \\text{have different orders} \\)",
+      "\\( \\text{are both column matrices} \\)",
+      "\\( \\text{are both zero matrices} \\)"
     ],
     "c": 1
   },
   {
     "type": "mcq",
-    "q": "The \\( 2 \\times 2 \\) identity matrix is",
+    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\\\ 5 & 6 \\end{pmatrix} \\), then \\( A^T \\) is",
     "a": [
-      "\\( \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 3 & 5 \\\\ 2 & 4 & 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 6 & 5 \\\\ 4 & 3 \\\\ 2 & 1 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\\\ 5 & 6 \\end{pmatrix} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "How many elements does a matrix of order \\( 2 \\times 4 \\) have?",
+    "a": [
+      "\\( 6 \\)",
+      "\\( 8 \\)",
+      "\\( 4 \\)",
+      "\\( 2 \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The sum of a \\( 1 \\times 3 \\) matrix and a \\( 3 \\times 1 \\) matrix is",
+    "a": [
+      "\\( 1 \\times 1 \\)",
+      "\\( 3 \\times 3 \\)",
+      "\\( \\text{not possible} \\)",
+      "\\( 1 \\times 3 \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( P = \\begin{pmatrix} 3 & -2 \\\\ 1 & 4 \\end{pmatrix} \\) and \\( Q = \\begin{pmatrix} 1 & 5 \\\\ 2 & 3 \\end{pmatrix} \\), then \\( P + Q \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 4 & 3 \\\\ 3 & 7 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 4 & 3 \\\\ 3 & 12 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 2 & -7 \\\\ -1 & 1 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 3 & 10 \\\\ 2 & 12 \\end{pmatrix} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "A matrix whose elements are all zero is called a",
+    "a": [
+      "\\( \\text{unit matrix} \\)",
+      "\\( \\text{square matrix} \\)",
+      "\\( \\text{zero matrix} \\)",
+      "\\( \\text{row matrix} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "The zero matrix is the identity element for",
+    "a": [
+      "\\( \\text{matrix multiplication} \\)",
+      "\\( \\text{scalar multiplication} \\)",
+      "\\( \\text{the transpose} \\)",
+      "\\( \\text{addition of matrices} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( B = \\begin{pmatrix} 1 & -2 & 3 \\\\ -4 & 1 & -5 \\end{pmatrix} \\), then \\( -B \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} -1 & 2 & -3 \\\\ 4 & -1 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 1 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -1 & -2 & -3 \\\\ -4 & -1 & -5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 3 & 2 \\\\ 1 & 4 \\end{pmatrix} \\), then \\( 5A \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 8 & 7 \\\\ 6 & 9 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 15 & 10 \\\\ 5 & 20 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 15 & 2 \\\\ 1 & 20 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 5 & 5 \\\\ 5 & 5 \\end{pmatrix} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The product \\( AB \\) is defined only when the number of columns of \\( A \\) equals the number of",
+    "a": [
+      "\\( \\text{columns of } B \\)",
+      "\\( \\text{rows of } A \\)",
+      "\\( \\text{rows of } B \\)",
+      "\\( \\text{elements of } B \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A \\) is \\( 2 \\times 3 \\) and \\( B \\) is \\( 3 \\times 2 \\), the order of \\( AB \\) is",
+    "a": [
+      "\\( 3 \\times 3 \\)",
+      "\\( 2 \\times 2 \\)",
+      "\\( 2 \\times 3 \\)",
+      "\\( 3 \\times 2 \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "\\( (2\\ 3)\\begin{pmatrix} 5 \\\\ 1 \\end{pmatrix} \\) equals",
+    "a": [
+      "\\( (10) \\)",
+      "\\( (13) \\)",
+      "\\( (16) \\)",
+      "\\( (8) \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The unit matrix of order 2 is",
+    "a": [
       "\\( \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\)",
       "\\( \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\)",
       "\\( \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix} \\)"
     ],
@@ -78,397 +210,111 @@
   },
   {
     "type": "mcq",
-    "q": "Which of the following is a diagonal matrix?",
+    "q": "If \\( A \\) is a square matrix and \\( I \\) is the unit matrix of the same order, then",
     "a": [
-      "\\( \\begin{pmatrix} 1 & 2 \\\\ 0 & 3 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 2 & 0 \\\\ 0 & 5 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 0 & 4 \\\\ 4 & 0 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 1 & 1 \\\\ 0 & 0 \\end{pmatrix} \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "A square matrix in which all the diagonal elements are equal and all other elements are zero is a",
-    "a": [
-      "\\( \\text{row matrix} \\)",
-      "\\( \\text{zero matrix} \\)",
-      "\\( \\text{scalar matrix} \\)",
-      "\\( \\text{column matrix} \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "A square matrix \\( A \\) is symmetric if and only if",
-    "a": [
-      "\\( A = -A \\)",
-      "\\( A = A^{-1} \\)",
-      "\\( A = O \\)",
-      "\\( A = A^T \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A \\) is of order \\( 2 \\times 3 \\), then the order of \\( A^T \\) is",
-    "a": [
-      "\\( 3 \\times 2 \\)",
-      "\\( 2 \\times 3 \\)",
-      "\\( 2 \\times 2 \\)",
-      "\\( 3 \\times 3 \\)"
+      "\\( IA = AI = A \\)",
+      "\\( IA = O \\)",
+      "\\( AI = A^T \\)",
+      "\\( IA = -A \\)"
     ],
     "c": 0
   },
   {
     "type": "mcq",
-    "q": "Two matrices are equal if and only if they have the same order and",
+    "q": "In general, matrix multiplication is",
     "a": [
-      "\\( \\text{the same determinant} \\)",
-      "\\( \\text{corresponding elements equal} \\)",
-      "\\( \\text{the same trace} \\)",
-      "\\( \\text{the same transpose} \\)"
+      "\\( \\text{commutative} \\)",
+      "\\( \\text{not commutative} \\)",
+      "\\( \\text{not associative} \\)",
+      "\\( \\text{not defined for square matrices} \\)"
     ],
     "c": 1
   },
   {
     "type": "mcq",
-    "q": "The sum of a \\( 2 \\times 3 \\) matrix and a \\( 3 \\times 2 \\) matrix is",
+    "q": "If \\( A = \\begin{pmatrix} 3 & 1 \\\\ 2 & 4 \\end{pmatrix} \\), then \\( \\det A \\) is",
     "a": [
-      "\\( 2 \\times 2 \\)",
-      "\\( 3 \\times 3 \\)",
-      "\\( \\text{not defined} \\)",
-      "\\( 2 \\times 3 \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "\\( \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} + \\begin{pmatrix} 5 & 0 \\\\ -1 & 2 \\end{pmatrix} \\) equals",
-    "a": [
-      "\\( \\begin{pmatrix} 6 & 2 \\\\ 2 & 6 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 6 & 2 \\\\ 4 & 6 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 4 & 2 \\\\ 2 & 6 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 5 & 2 \\\\ 2 & 8 \\end{pmatrix} \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "\\( 3\\begin{pmatrix} 2 & -1 \\\\ 0 & 4 \\end{pmatrix} \\) equals",
-    "a": [
-      "\\( \\begin{pmatrix} 5 & 2 \\\\ 3 & 7 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 6 & -3 \\\\ 0 & 12 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 6 & -1 \\\\ 0 & 12 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 2 & -3 \\\\ 0 & 4 \\end{pmatrix} \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "\\( \\begin{pmatrix} 4 & 7 \\\\ 2 & 5 \\end{pmatrix} - \\begin{pmatrix} 1 & 3 \\\\ 2 & 1 \\end{pmatrix} \\) equals",
-    "a": [
-      "\\( \\begin{pmatrix} 3 & 4 \\\\ 0 & 6 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 5 & 10 \\\\ 4 & 6 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 3 & 4 \\\\ 0 & 4 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 3 & 10 \\\\ 0 & 4 \\end{pmatrix} \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "The transpose of \\( \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix} \\) is",
-    "a": [
-      "\\( \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\\\ 5 & 6 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 1 & 4 & 2 \\\\ 5 & 3 & 6 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 4 & 5 & 6 \\\\ 1 & 2 & 3 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 1 & 4 \\\\ 2 & 5 \\\\ 3 & 6 \\end{pmatrix} \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "The product \\( AB \\) is defined if and only if the number of columns of \\( A \\) equals the number of",
-    "a": [
-      "\\( \\text{columns of } B \\)",
-      "\\( \\text{rows of } B \\)",
-      "\\( \\text{rows of } A \\)",
-      "\\( \\text{elements of } B \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A \\) is \\( 2 \\times 3 \\) and \\( B \\) is \\( 3 \\times 2 \\), then the order of \\( AB \\) is",
-    "a": [
-      "\\( 2 \\times 2 \\)",
-      "\\( 3 \\times 3 \\)",
-      "\\( 2 \\times 3 \\)",
-      "\\( 3 \\times 2 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A \\) is \\( 3 \\times 2 \\) and \\( B \\) is \\( 2 \\times 4 \\), then the order of \\( AB \\) is",
-    "a": [
-      "\\( 2 \\times 3 \\)",
-      "\\( 3 \\times 4 \\)",
-      "\\( 2 \\times 4 \\)",
-      "\\( 3 \\times 2 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( I \\) is the identity matrix of the same order as the square matrix \\( A \\), then \\( IA \\) equals",
-    "a": [
-      "\\( O \\)",
-      "\\( A^T \\)",
-      "\\( A \\)",
-      "\\( A^{-1} \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( O \\) is the zero matrix of the same order as \\( A \\), then \\( A + O \\) equals",
-    "a": [
-      "\\( O \\)",
-      "\\( 2A \\)",
-      "\\( I \\)",
-      "\\( A \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A = \\begin{pmatrix} 2 & 3 \\\\ 1 & 4 \\end{pmatrix} \\), then \\( \\det A \\) is",
-    "a": [
-      "\\( 5 \\)",
-      "\\( 8 \\)",
-      "\\( 11 \\)",
-      "\\( 1 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A = \\begin{pmatrix} 3 & 6 \\\\ 1 & 2 \\end{pmatrix} \\), then \\( \\det A \\) is",
-    "a": [
-      "\\( 6 \\)",
-      "\\( 0 \\)",
+      "\\( 10 \\)",
       "\\( 12 \\)",
-      "\\( -3 \\)"
+      "\\( 14 \\)",
+      "\\( 5 \\)"
     ],
-    "c": 1
+    "c": 0
   },
   {
     "type": "mcq",
-    "q": "A square matrix with determinant equal to zero is called",
+    "q": "If \\( \\det A = 0 \\), then \\( A \\) is said to be",
     "a": [
       "\\( \\text{non-singular} \\)",
-      "\\( \\text{identity} \\)",
+      "\\( \\text{a unit matrix} \\)",
       "\\( \\text{singular} \\)",
-      "\\( \\text{scalar} \\)"
+      "\\( \\text{a row matrix} \\)"
     ],
     "c": 2
   },
   {
     "type": "mcq",
-    "q": "The inverse of a square matrix \\( A \\) exists if and only if",
+    "q": "The inverse \\( A^{-1} \\) exists if and only if",
     "a": [
       "\\( A = A^T \\)",
+      "\\( \\det A = 0 \\)",
       "\\( A \\text{ is a zero matrix} \\)",
-      "\\( A \\text{ is diagonal} \\)",
       "\\( \\det A \\ne 0 \\)"
     ],
     "c": 3
   },
   {
     "type": "mcq",
-    "q": "The value of \\( \\det I_n \\), where \\( I_n \\) is the \\( n \\times n \\) identity matrix, is",
+    "q": "For \\( A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\), \\( \\det A \\) is",
     "a": [
-      "\\( 1 \\)",
-      "\\( 0 \\)",
-      "\\( n \\)",
-      "\\( n^2 \\)"
+      "\\( ad - bc \\)",
+      "\\( ab - cd \\)",
+      "\\( ac - bd \\)",
+      "\\( a + d \\)"
     ],
     "c": 0
   },
   {
     "type": "mcq",
-    "q": "For any square matrix \\( A \\),",
+    "q": "If \\( AB = BA = I \\), then \\( B \\) is",
     "a": [
-      "\\( \\det(A^T) = -\\det A \\)",
-      "\\( \\det(A^T) = \\det A \\)",
-      "\\( \\det(A^T) = 0 \\)",
-      "\\( \\det(A^T) = 1 \\)"
+      "\\( \\text{the transpose of } A \\)",
+      "\\( \\text{the inverse of } A \\)",
+      "\\( \\text{the negative of } A \\)",
+      "\\( \\text{the zero matrix} \\)"
     ],
     "c": 1
   },
   {
     "type": "mcq",
-    "q": "Which identity is true for transposes?",
+    "q": "If \\( k \\) is a scalar and \\( O \\) is a zero matrix, then \\( kO \\) equals",
     "a": [
-      "\\( (A + B)^T = A^T B^T \\)",
-      "\\( (A + B)^T = A + B \\)",
-      "\\( (A + B)^T = A^T + B^T \\)",
-      "\\( (A + B)^T = B^T - A^T \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "For compatible matrices \\( A \\) and \\( B \\),",
-    "a": [
-      "\\( (AB)^T = A^T B^T \\)",
-      "\\( (AB)^T = AB \\)",
-      "\\( (AB)^T = B A \\)",
-      "\\( (AB)^T = B^T A^T \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "In general, matrix multiplication is",
-    "a": [
-      "\\( \\text{not commutative} \\)",
-      "\\( \\text{always commutative} \\)",
-      "\\( \\text{not associative} \\)",
-      "\\( \\text{not distributive} \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix} \\), then the element \\( a_{23} \\) is",
-    "a": [
-      "\\( 8 \\)",
-      "\\( 6 \\)",
-      "\\( 5 \\)",
-      "\\( 2 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The number of leading diagonal elements in a \\( 3 \\times 3 \\) square matrix is",
-    "a": [
-      "\\( 9 \\)",
-      "\\( 6 \\)",
-      "\\( 3 \\)",
-      "\\( 1 \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A \\) is \\( 3 \\times 2 \\) and \\( B \\) is \\( 2 \\times 3 \\), then the order of \\( BA \\) is",
-    "a": [
-      "\\( 3 \\times 3 \\)",
-      "\\( 3 \\times 2 \\)",
-      "\\( 2 \\times 3 \\)",
-      "\\( 2 \\times 2 \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "\\( \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}\\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\) equals",
-    "a": [
-      "\\( \\begin{pmatrix} 2 & 1 \\\\ 4 & 3 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 2 & 3 \\\\ 4 & 1 \\end{pmatrix} \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The inverse of the identity matrix \\( I \\) is",
-    "a": [
+      "\\( I \\)",
+      "\\( kI \\)",
       "\\( O \\)",
-      "\\( I \\)",
-      "\\( -I \\)",
-      "\\( I^T \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( \\begin{pmatrix} x & 2 \\\\ 3 & 4 \\end{pmatrix} = \\begin{pmatrix} 5 & 2 \\\\ 3 & 4 \\end{pmatrix} \\), then \\( x \\) is",
-    "a": [
-      "\\( 2 \\)",
-      "\\( 3 \\)",
-      "\\( 5 \\)",
-      "\\( 4 \\)"
+      "\\( -O \\)"
     ],
     "c": 2
   },
   {
     "type": "mcq",
-    "q": "If \\( A \\) is skew-symmetric, then every diagonal element of \\( A \\) is",
+    "q": "If \\( A \\) is \\( 1 \\times 2 \\) and \\( B \\) is \\( 2 \\times 2 \\), which product exists?",
     "a": [
-      "\\( 1 \\)",
-      "\\( -1 \\)",
-      "\\( \\text{equal} \\)",
-      "\\( 0 \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "Which of the following is an upper triangular matrix?",
-    "a": [
-      "\\( \\begin{pmatrix} 2 & 3 \\\\ 0 & 5 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 2 & 0 \\\\ 3 & 5 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 0 & 2 \\\\ 3 & 0 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\end{pmatrix} \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A \\) is a \\( 2 \\times 2 \\) matrix with \\( \\det A = 3 \\), then \\( \\det(2A) \\) is",
-    "a": [
-      "\\( 6 \\)",
-      "\\( 12 \\)",
-      "\\( 3 \\)",
-      "\\( 9 \\)"
+      "\\( BA \\text{ only} \\)",
+      "\\( AB \\text{ only} \\)",
+      "\\( \\text{both } AB \\text{ and } BA \\)",
+      "\\( \\text{neither} \\)"
     ],
     "c": 1
   },
   {
     "type": "mcq",
-    "q": "For any square matrix \\( A \\), \\( A + (-A) \\) equals",
+    "q": "If \\( A = \\begin{pmatrix} 2 & 4 \\\\ 1 & 2 \\end{pmatrix} \\), then \\( A \\) is",
     "a": [
-      "\\( I \\)",
-      "\\( A \\)",
-      "\\( O \\)",
-      "\\( A^T \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( 2A = O \\), where \\( O \\) is the zero matrix, then \\( A \\) is",
-    "a": [
-      "\\( I \\)",
-      "\\( -I \\)",
-      "\\( 2I \\)",
-      "\\( O \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "The adjoint of \\( \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\) is",
-    "a": [
-      "\\( \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} d & b \\\\ c & a \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} -d & b \\\\ c & -a \\end{pmatrix} \\)"
+      "\\( \\text{singular} \\)",
+      "\\( \\text{non-singular} \\)",
+      "\\( \\text{a unit matrix} \\)",
+      "\\( \\text{a column matrix} \\)"
     ],
     "c": 0
   },
@@ -476,77 +322,11 @@
     "type": "mcq",
     "q": "If \\( A = \\begin{pmatrix} 2 & 1 \\\\ 5 & 3 \\end{pmatrix} \\), then \\( A^{-1} \\) is",
     "a": [
-      "\\( \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\)",
       "\\( \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\)",
       "\\( \\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix} \\)",
       "\\( \\begin{pmatrix} -3 & 1 \\\\ 5 & -2 \\end{pmatrix} \\)"
     ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A \\) is a row matrix of order \\( 1 \\times 4 \\), then \\( A^T \\) is a",
-    "a": [
-      "\\( 1 \\times 4 \\text{ row matrix} \\)",
-      "\\( 4 \\times 4 \\text{ square matrix} \\)",
-      "\\( 4 \\times 1 \\text{ column matrix} \\)",
-      "\\( 1 \\times 1 \\text{ scalar} \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A \\) is invertible, then \\( A A^{-1} \\) equals",
-    "a": [
-      "\\( O \\)",
-      "\\( A \\)",
-      "\\( A^T \\)",
-      "\\( I \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix} \\), then \\( A \\) is",
-    "a": [
-      "\\( \\text{singular} \\)",
-      "\\( \\text{non-singular} \\)",
-      "\\( \\text{identity} \\)",
-      "\\( \\text{scalar} \\)"
-    ],
     "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "\\( \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 2 & 3 \\\\ 4 & 5 \\end{pmatrix} \\) equals",
-    "a": [
-      "\\( \\begin{pmatrix} 2 & 3 \\\\ 4 & 5 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 5 & 3 \\\\ 4 & 2 \\end{pmatrix} \\)",
-      "\\( \\begin{pmatrix} 2 & 4 \\\\ 3 & 5 \\end{pmatrix} \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The number of elements in the \\( 2 \\times 2 \\) identity matrix is",
-    "a": [
-      "\\( 2 \\)",
-      "\\( 4 \\)",
-      "\\( 1 \\)",
-      "\\( 3 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If \\( A \\) is \\( 2 \\times 3 \\) and \\( B \\) is \\( 2 \\times 3 \\), then \\( AB \\) is",
-    "a": [
-      "\\( 2 \\times 2 \\)",
-      "\\( 3 \\times 3 \\)",
-      "\\( \\text{not defined} \\)",
-      "\\( 2 \\times 3 \\)"
-    ],
-    "c": 2
   }
 ]
