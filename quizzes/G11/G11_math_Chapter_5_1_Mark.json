@@ -1,551 +1,331 @@
 [
   {
     "type": "mcq",
-    "q": "What is the 5th term of the sequence with general term \\( u_n = 3n - 2 \\)?",
+    "q": "What is the order of \\( A = \\begin{pmatrix} 1 & 0 & 2 & -3 \\\\ 4 & 5 & 6 & 1 \\\\ 2 & 8 & 0 & 7 \\end{pmatrix} \\)?",
     "a": [
-      "\\( 13 \\)",
-      "\\( 15 \\)",
-      "\\( 10 \\)",
-      "\\( 17 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "A sequence is defined recursively by \\( u_1 = 3 \\) and \\( u_n = 2u_{n-1} - 1 \\). What is \\( u_3 \\)?",
-    "a": [
-      "\\( 7 \\)",
-      "\\( 9 \\)",
-      "\\( 11 \\)",
-      "\\( 15 \\)"
+      "\\( 4 \\times 3 \\)",
+      "\\( 3 \\times 4 \\)",
+      "\\( 3 \\times 3 \\)",
+      "\\( 4 \\times 4 \\)"
     ],
     "c": 1
   },
   {
     "type": "mcq",
-    "q": "Which of the following represents a finite sequence?",
+    "q": "If \\( A = \\begin{pmatrix} 1 & 0 & 2 & -3 \\\\ 4 & 5 & 6 & 1 \\\\ 2 & 8 & 0 & 7 \\end{pmatrix} \\), the element \\( a_{23} \\) is",
     "a": [
-      "\\( 1, 4, 9, 16, ... \\)",
-      "\\( 2, 4, 6, 8, ... \\)",
-      "\\( 3, 6, 9, 12, 15 \\)",
-      "\\( 1, -1, 1, -1, ... \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "What is the common difference of the arithmetic progression \\( 5, 9, 13, 17, ... \\)?",
-    "a": [
-      "\\( 3 \\)",
       "\\( 5 \\)",
-      "\\( -4 \\)",
-      "\\( 4 \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "In an arithmetic progression, the first term is \\( 7 \\) and the common difference is \\( -3 \\). What is the 10th term?",
-    "a": [
-      "\\( -20 \\)",
-      "\\( -23 \\)",
-      "\\( 34 \\)",
-      "\\( 20 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "How many terms are in the arithmetic progression \\( 4, 9, 14, ..., 49 \\)?",
-    "a": [
-      "\\( 8 \\)",
-      "\\( 10 \\)",
-      "\\( 11 \\)",
-      "\\( 9 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "What is the arithmetic mean between \\( 8 \\) and \\( 24 \\)?",
-    "a": [
-      "\\( 12 \\)",
-      "\\( 32 \\)",
-      "\\( 16 \\)",
-      "\\( 18 \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "Which formula represents the sum of the first \\( n \\) terms of an arithmetic progression with first term \\( a \\) and common difference \\( d \\)?",
-    "a": [
-      "\\( S_n = \\frac{n}{2}(a - l) \\)",
-      "\\( S_n = n(a + d) \\)",
-      "\\( S_n = \\frac{n}{2}\\{2a - (n-1)d\\} \\)",
-      "\\( S_n = \\frac{n}{2}\\{2a + (n-1)d\\} \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "Find the sum of the first 10 terms of an arithmetic progression where \\( a = 2 \\) and \\( d = 3 \\).",
-    "a": [
-      "\\( 155 \\)",
-      "\\( 145 \\)",
-      "\\( 165 \\)",
-      "\\( 135 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The first term of an arithmetic progression is \\( 5 \\) and the last term is \\( 45 \\). If there are 10 terms, what is the sum?",
-    "a": [
-      "\\( 200 \\)",
-      "\\( 250 \\)",
-      "\\( 300 \\)",
-      "\\( 225 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "If the sum of the first \\( n \\) terms of a sequence is \\( S_n = n^2 \\), what is the 3rd term \\( u_3 \\)?",
-    "a": [
-      "\\( 9 \\)",
-      "\\( 4 \\)",
-      "\\( 5 \\)",
-      "\\( 7 \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "What is the common ratio of the geometric progression \\( 2, 6, 18, 54, ... \\)?",
-    "a": [
       "\\( 2 \\)",
-      "\\( 4 \\)",
-      "\\( \\frac{1}{3} \\)",
-      "\\( 3 \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "In a geometric progression, the first term is \\( 5 \\) and the common ratio is \\( 2 \\). What is the 4th term?",
-    "a": [
-      "\\( 40 \\)",
-      "\\( 20 \\)",
-      "\\( 80 \\)",
-      "\\( 10 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "How many terms are in the geometric progression \\( 3, 6, 12, ..., 96 \\)?",
-    "a": [
-      "\\( 5 \\)",
       "\\( 6 \\)",
-      "\\( 7 \\)",
-      "\\( 8 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "What is the geometric mean between \\( 4 \\) and \\( 25 \\)?",
-    "a": [
-      "\\( 20 \\)",
-      "\\( 15 \\)",
-      "\\( 10 \\)",
-      "\\( 12 \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "Find the sum of the first 4 terms of a geometric progression where \\( a = 3 \\) and \\( r = 2 \\).",
-    "a": [
-      "\\( 24 \\)",
-      "\\( 30 \\)",
-      "\\( 48 \\)",
-      "\\( 45 \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "Find the sum of the first 3 terms of a geometric progression where \\( a = 16 \\) and \\( r = \\frac{1}{2} \\).",
-    "a": [
-      "\\( 28 \\)",
-      "\\( 24 \\)",
-      "\\( 32 \\)",
-      "\\( 20 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "An infinite geometric series converges to a finite sum if and only if the common ratio \\( r \\) satisfies:",
-    "a": [
-      "\\( r > 1 \\)",
-      "\\( |r| < 1 \\)",
-      "\\( r = 1 \\)",
-      "\\( r < -1 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "What is the sum to infinity of the geometric series with first term \\( 10 \\) and common ratio \\( \\frac{1}{5} \\)?",
-    "a": [
-      "\\( 50 \\)",
-      "\\( 10 \\)",
-      "\\( 12.5 \\)",
-      "\\( 25 \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "Consider the sequence \\( 2, 5, 10, 17, ... \\). What is the general term \\( u_n \\)?",
-    "a": [
-      "\\( n^2 - 1 \\)",
-      "\\( 2n + 1 \\)",
-      "\\( n^2 + n \\)",
-      "\\( n^2 + 1 \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "In an arithmetic progression, the 5th term is \\( 17 \\) and the 8th term is \\( 29 \\). What is the common difference?",
-    "a": [
-      "\\( 4 \\)",
-      "\\( 3 \\)",
-      "\\( 5 \\)",
-      "\\( 6 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "Using the arithmetic progression from the previous question (\\( d = 4, u_5 = 17 \\)), what is the first term \\( a \\)?",
-    "a": [
-      "\\( 5 \\)",
-      "\\( 1 \\)",
-      "\\( 3 \\)",
       "\\( 0 \\)"
     ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "\\( B = (4\\ 7\\ 2\\ 1) \\) is a row matrix of order",
+    "a": [
+      "\\( 4 \\times 1 \\)",
+      "\\( 1 \\times 4 \\)",
+      "\\( 4 \\times 4 \\)",
+      "\\( 2 \\times 2 \\)"
+    ],
     "c": 1
   },
   {
     "type": "mcq",
-    "q": "In a geometric progression with positive terms, the 2nd term is \\( 12 \\) and the 4th term is \\( 108 \\). What is the common ratio \\( r \\)?",
+    "q": "\\( C = \\begin{pmatrix} 4 \\\\ 0 \\\\ 3 \\end{pmatrix} \\) is a",
     "a": [
-      "\\( 9 \\)",
+      "\\( \\text{row matrix of order } 1 \\times 3 \\)",
+      "\\( \\text{square matrix of order } 3 \\)",
+      "\\( \\text{column matrix of order } 3 \\times 1 \\)",
+      "\\( \\text{zero matrix} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "A matrix with the same number of rows and columns is called a",
+    "a": [
+      "\\( \\text{row matrix} \\)",
+      "\\( \\text{column matrix} \\)",
+      "\\( \\text{zero matrix} \\)",
+      "\\( \\text{square matrix} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\), then",
+    "a": [
+      "\\( a=1,\\ b=2,\\ c=3,\\ d=4 \\)",
+      "\\( a=1,\\ b=3,\\ c=2,\\ d=4 \\)",
+      "\\( a=4,\\ b=3,\\ c=2,\\ d=1 \\)",
+      "\\( a=2,\\ b=1,\\ c=4,\\ d=3 \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "\\( \\begin{pmatrix} 2 & 0 \\\\ 3 & 0 \\end{pmatrix} \\ne \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix} \\) because the two matrices",
+    "a": [
+      "\\( \\text{have different entries} \\)",
+      "\\( \\text{have different orders} \\)",
+      "\\( \\text{are both column matrices} \\)",
+      "\\( \\text{are both zero matrices} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\\\ 5 & 6 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 1 & 3 & 5 \\\\ 2 & 4 & 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 6 & 5 \\\\ 4 & 3 \\\\ 2 & 1 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\\\ 5 & 6 \\end{pmatrix} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "How many elements does a matrix of order \\( 2 \\times 4 \\) have?",
+    "a": [
       "\\( 6 \\)",
-      "\\( 3 \\)",
-      "\\( 4 \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "Using the geometric progression from the previous question (\\( r = 3, u_2 = 12 \\)), what is the first term \\( a \\)?",
-    "a": [
-      "\\( 12 \\)",
-      "\\( 3 \\)",
-      "\\( 6 \\)",
-      "\\( 4 \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "What is the sum of the first 5 positive even integers?",
-    "a": [
-      "\\( 30 \\)",
-      "\\( 25 \\)",
-      "\\( 20 \\)",
-      "\\( 35 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "The sum of the first \\( n \\) positive odd integers is given by \\( n^2 \\). What is the sum of the first 8 positive odd integers?",
-    "a": [
-      "\\( 16 \\)",
-      "\\( 64 \\)",
-      "\\( 36 \\)",
-      "\\( 81 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The sum of the first 10 terms of an arithmetic progression is \\( 0 \\). If the first term is \\( 9 \\), what is the common difference?",
-    "a": [
-      "\\( -1 \\)",
-      "\\( -3 \\)",
-      "\\( -2 \\)",
-      "\\( 2 \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "Which of the following common ratios allows a geometric series to have a sum to infinity?",
-    "a": [
-      "\\( r = 2 \\)",
-      "\\( r = -1 \\)",
-      "\\( r = 1.5 \\)",
-      "\\( r = -0.5 \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "The sum to infinity of a geometric progression is \\( 20 \\) and the first term is \\( 5 \\). What is the common ratio?",
-    "a": [
-      "\\( \\frac{3}{4} \\)",
-      "\\( \\frac{1}{4} \\)",
-      "\\( \\frac{4}{5} \\)",
-      "\\( \\frac{1}{5} \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "For the sequence defined by \\( u_n = \\frac{1}{n(n+1)} \\), what is the value of \\( u_3 \\)?",
-    "a": [
-      "\\( \\frac{1}{6} \\)",
-      "\\( \\frac{1}{12} \\)",
-      "\\( \\frac{1}{20} \\)",
-      "\\( \\frac{1}{3} \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "In an arithmetic progression with \\( a = 10 \\) and \\( d = -2 \\), which term is equal to \\( -10 \\)?",
-    "a": [
-      "\\( 9\\text{th} \\)",
-      "\\( 10\\text{th} \\)",
-      "\\( 11\\text{th} \\)",
-      "\\( 12\\text{th} \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "In a geometric progression, the first term is \\( 81 \\) and the common ratio is \\( -\\frac{1}{3} \\). What is the 4th term?",
-    "a": [
-      "\\( 3 \\)",
-      "\\( -9 \\)",
-      "\\( 9 \\)",
-      "\\( -3 \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "If the sum of the first \\( n \\) terms of an arithmetic progression is \\( S_n = 3n^2 + 2n \\), what is the first term \\( u_1 \\)?",
-    "a": [
-      "\\( 5 \\)",
-      "\\( 3 \\)",
-      "\\( 2 \\)",
-      "\\( 6 \\)"
-    ],
-    "c": 0
-  },
-  {
-    "type": "mcq",
-    "q": "Using the sum formula \\( S_n = 3n^2 + 2n \\) from the previous question, what is the 2nd term \\( u_2 \\)?",
-    "a": [
-      "\\( 16 \\)",
-      "\\( 11 \\)",
       "\\( 8 \\)",
-      "\\( 14 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "The sum of the first 3 terms of a geometric progression is \\( 21 \\). If the first term is \\( 1 \\) and the common ratio is positive, what is \\( r \\)?",
-    "a": [
-      "\\( 3 \\)",
-      "\\( 5 \\)",
       "\\( 4 \\)",
       "\\( 2 \\)"
     ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The sum of a \\( 1 \\times 3 \\) matrix and a \\( 3 \\times 1 \\) matrix is",
+    "a": [
+      "\\( 1 \\times 1 \\)",
+      "\\( 3 \\times 3 \\)",
+      "\\( \\text{not possible} \\)",
+      "\\( 1 \\times 3 \\)"
+    ],
     "c": 2
   },
   {
     "type": "mcq",
-    "q": "If the arithmetic mean of \\( x \\) and \\( y \\) is \\( 10 \\) and the geometric mean is \\( 8 \\), what is \\( x + y \\)?",
+    "q": "If \\( P = \\begin{pmatrix} 3 & -2 \\\\ 1 & 4 \\end{pmatrix} \\) and \\( Q = \\begin{pmatrix} 1 & 5 \\\\ 2 & 3 \\end{pmatrix} \\), then \\( P + Q \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 4 & 3 \\\\ 3 & 7 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 4 & 3 \\\\ 3 & 12 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 2 & -7 \\\\ -1 & 1 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 3 & 10 \\\\ 2 & 12 \\end{pmatrix} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "A matrix whose elements are all zero is called a",
+    "a": [
+      "\\( \\text{unit matrix} \\)",
+      "\\( \\text{square matrix} \\)",
+      "\\( \\text{zero matrix} \\)",
+      "\\( \\text{row matrix} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "The zero matrix is the identity element for",
+    "a": [
+      "\\( \\text{matrix multiplication} \\)",
+      "\\( \\text{scalar multiplication} \\)",
+      "\\( \\text{the transpose} \\)",
+      "\\( \\text{addition of matrices} \\)"
+    ],
+    "c": 3
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( B = \\begin{pmatrix} 1 & -2 & 3 \\\\ -4 & 1 & -5 \\end{pmatrix} \\), then \\( -B \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} -1 & 2 & -3 \\\\ 4 & -1 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 1 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -1 & -2 & -3 \\\\ -4 & -1 & -5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 3 & 2 \\\\ 1 & 4 \\end{pmatrix} \\), then \\( 5A \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 8 & 7 \\\\ 6 & 9 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 15 & 10 \\\\ 5 & 20 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 15 & 2 \\\\ 1 & 20 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 5 & 5 \\\\ 5 & 5 \\end{pmatrix} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The product \\( AB \\) is defined only when the number of columns of \\( A \\) equals the number of",
+    "a": [
+      "\\( \\text{columns of } B \\)",
+      "\\( \\text{rows of } A \\)",
+      "\\( \\text{rows of } B \\)",
+      "\\( \\text{elements of } B \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A \\) is \\( 2 \\times 3 \\) and \\( B \\) is \\( 3 \\times 2 \\), the order of \\( AB \\) is",
+    "a": [
+      "\\( 3 \\times 3 \\)",
+      "\\( 2 \\times 2 \\)",
+      "\\( 2 \\times 3 \\)",
+      "\\( 3 \\times 2 \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "\\( (2\\ 3)\\begin{pmatrix} 5 \\\\ 1 \\end{pmatrix} \\) equals",
+    "a": [
+      "\\( (10) \\)",
+      "\\( (13) \\)",
+      "\\( (16) \\)",
+      "\\( (8) \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "The unit matrix of order 2 is",
+    "a": [
+      "\\( \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix} \\)"
+    ],
+    "c": 2
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A \\) is a square matrix and \\( I \\) is the unit matrix of the same order, then",
+    "a": [
+      "\\( IA = AI = A \\)",
+      "\\( IA = O \\)",
+      "\\( AI = A^T \\)",
+      "\\( IA = -A \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "In general, matrix multiplication is",
+    "a": [
+      "\\( \\text{commutative} \\)",
+      "\\( \\text{not commutative} \\)",
+      "\\( \\text{not associative} \\)",
+      "\\( \\text{not defined for square matrices} \\)"
+    ],
+    "c": 1
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 3 & 1 \\\\ 2 & 4 \\end{pmatrix} \\), then \\( \\det A \\) is",
     "a": [
       "\\( 10 \\)",
-      "\\( 16 \\)",
-      "\\( 8 \\)",
-      "\\( 20 \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "How many terms are in the arithmetic progression \\( 10, 15, 20, ..., 100 \\)?",
-    "a": [
-      "\\( 18 \\)",
-      "\\( 19 \\)",
-      "\\( 20 \\)",
-      "\\( 21 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "In a geometric progression, the 3rd term is \\( 12 \\) and the 6th term is \\( 96 \\). What is the common ratio \\( r \\)?",
-    "a": [
-      "\\( 4 \\)",
-      "\\( 2 \\)",
-      "\\( 3 \\)",
-      "\\( 8 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "What is the sum to infinity of the geometric series \\( 1 + \\frac{1}{3} + \\frac{1}{9} + \\frac{1}{27} + ... \\)?",
-    "a": [
-      "\\( 1 \\)",
-      "\\( \\frac{4}{3} \\)",
-      "\\( \\frac{3}{2} \\)",
-      "\\( 3 \\)"
-    ],
-    "c": 2
-  },
-  {
-    "type": "mcq",
-    "q": "An arithmetic progression has the general term \\( u_n = 5n - 3 \\). What is the sum of the first 5 terms?",
-    "a": [
-      "\\( 50 \\)",
-      "\\( 55 \\)",
-      "\\( 65 \\)",
-      "\\( 60 \\)"
-    ],
-    "c": 3
-  },
-  {
-    "type": "mcq",
-    "q": "Find the sum of the first 4 terms of a geometric progression where \\( a = 2 \\) and \\( r = 3 \\).",
-    "a": [
-      "\\( 80 \\)",
-      "\\( 60 \\)",
-      "\\( 54 \\)",
-      "\\( 24 \\)"
+      "\\( 12 \\)",
+      "\\( 14 \\)",
+      "\\( 5 \\)"
     ],
     "c": 0
   },
   {
     "type": "mcq",
-    "q": "For the sequence defined by \\( u_n = (-1)^n n \\), what is the value of \\( u_4 \\)?",
+    "q": "If \\( \\det A = 0 \\), then \\( A \\) is said to be",
     "a": [
-      "\\( -4 \\)",
-      "\\( 4 \\)",
-      "\\( -16 \\)",
-      "\\( 16 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "In an arithmetic progression, the first term is \\( 3 \\) and the 10th term is \\( 30 \\). What is the common difference?",
-    "a": [
-      "\\( 2 \\)",
-      "\\( 4 \\)",
-      "\\( 3 \\)",
-      "\\( 5 \\)"
+      "\\( \\text{non-singular} \\)",
+      "\\( \\text{a unit matrix} \\)",
+      "\\( \\text{singular} \\)",
+      "\\( \\text{a row matrix} \\)"
     ],
     "c": 2
   },
   {
     "type": "mcq",
-    "q": "What is the sum to infinity of the geometric series \\( 8 - 4 + 2 - 1 + ... \\)?",
+    "q": "The inverse \\( A^{-1} \\) exists if and only if",
     "a": [
-      "\\( 4 \\)",
-      "\\( \\frac{8}{3} \\)",
-      "\\( 16 \\)",
-      "\\( \\frac{16}{3} \\)"
+      "\\( A = A^T \\)",
+      "\\( \\det A = 0 \\)",
+      "\\( A \\text{ is a zero matrix} \\)",
+      "\\( \\det A \\ne 0 \\)"
     ],
     "c": 3
   },
   {
     "type": "mcq",
-    "q": "If the sum of the first \\( n \\) terms of a sequence is \\( S_n = 2^n - 1 \\), what is the 3rd term \\( u_3 \\)?",
+    "q": "For \\( A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\), \\( \\det A \\) is",
     "a": [
-      "\\( 8 \\)",
-      "\\( 3 \\)",
-      "\\( 7 \\)",
-      "\\( 4 \\)"
+      "\\( ad - bc \\)",
+      "\\( ab - cd \\)",
+      "\\( ac - bd \\)",
+      "\\( a + d \\)"
     ],
-    "c": 3
+    "c": 0
   },
   {
     "type": "mcq",
-    "q": "What is the 6th term of the arithmetic progression \\( 3, 7, 11, 15, ... \\)?",
+    "q": "If \\( AB = BA = I \\), then \\( B \\) is",
     "a": [
-      "\\( 19 \\)",
-      "\\( 23 \\)",
-      "\\( 27 \\)",
-      "\\( 31 \\)"
-    ],
-    "c": 1
-  },
-  {
-    "type": "mcq",
-    "q": "In a geometric progression, if \\( u_1 = 10 \\) and \\( u_3 = 40 \\), what is the positive common ratio?",
-    "a": [
-      "\\( 4 \\)",
-      "\\( 2 \\)",
-      "\\( 5 \\)",
-      "\\( 3 \\)"
+      "\\( \\text{the transpose of } A \\)",
+      "\\( \\text{the inverse of } A \\)",
+      "\\( \\text{the negative of } A \\)",
+      "\\( \\text{the zero matrix} \\)"
     ],
     "c": 1
   },
   {
     "type": "mcq",
-    "q": "The sum of the first \\( n \\) terms of an A.P. is \\( S_n = n^2 + n \\). What is the common difference?",
+    "q": "If \\( k \\) is a scalar and \\( O \\) is a zero matrix, then \\( kO \\) equals",
     "a": [
-      "\\( 1 \\)",
-      "\\( 3 \\)",
-      "\\( 2 \\)",
-      "\\( 4 \\)"
+      "\\( I \\)",
+      "\\( kI \\)",
+      "\\( O \\)",
+      "\\( -O \\)"
     ],
     "c": 2
   },
   {
     "type": "mcq",
-    "q": "Which of the following is the formula for the \\( n \\)-th term of a geometric progression?",
+    "q": "If \\( A \\) is \\( 1 \\times 2 \\) and \\( B \\) is \\( 2 \\times 2 \\), which product exists?",
     "a": [
-      "\\( u_n = a + (n-1)d \\)",
-      "\\( u_n = ar^{n-1} \\)",
-      "\\( u_n = a r^n \\)",
-      "\\( u_n = \\frac{a(1-r^n)}{1-r} \\)"
+      "\\( BA \\text{ only} \\)",
+      "\\( AB \\text{ only} \\)",
+      "\\( \\text{both } AB \\text{ and } BA \\)",
+      "\\( \\text{neither} \\)"
     ],
     "c": 1
   },
   {
     "type": "mcq",
-    "q": "If \\( x, x+2, x+6 \\) are consecutive terms of a geometric progression, what is the positive value of \\( x \\)?",
+    "q": "If \\( A = \\begin{pmatrix} 2 & 4 \\\\ 1 & 2 \\end{pmatrix} \\), then \\( A \\) is",
     "a": [
-      "\\( 2 \\)",
-      "\\( 1 \\)",
-      "\\( 3 \\)",
-      "\\( 4 \\)"
+      "\\( \\text{singular} \\)",
+      "\\( \\text{non-singular} \\)",
+      "\\( \\text{a unit matrix} \\)",
+      "\\( \\text{a column matrix} \\)"
+    ],
+    "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 2 & 1 \\\\ 5 & 3 \\end{pmatrix} \\), then \\( A^{-1} \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 2 & -1 \\\\ -5 & 3 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 3 & 1 \\\\ 5 & 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -3 & 1 \\\\ 5 & -2 \\end{pmatrix} \\)"
     ],
     "c": 0
   }
