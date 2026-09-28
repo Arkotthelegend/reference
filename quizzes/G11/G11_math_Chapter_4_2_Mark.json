@@ -1,122 +1,152 @@
 [
   {
     "type": "math_show",
-    "q": "Compute the 5th term of the sequence whose general term is \\( u_n = 3n^2 - 2n + 1 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( n = 5 \\) into the general term formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = 3(5)^2 - 2(5) + 1 \\)</div><br><br>Step 2<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = 3(25) - 10 + 1 = 75 - 10 + 1 = 66 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 66 \\)"
+    "q": "Find the first four terms of the sequence defined by \\( u_n = 5n - 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Substitute \\( n = 1 \\) and \\( n = 2 \\) into the general term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_1 = 5(1) - 2 = 3 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = 5(2) - 2 = 8 \\)</div><br><br>Step 2<br><br>Substitute \\( n = 3 \\) and \\( n = 4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = 5(3) - 2 = 13 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_4 = 5(4) - 2 = 18 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3,\\ 8,\\ 13,\\ 18 \\)"
   },
   {
     "type": "math_show",
-    "q": "A sequence is defined by \\( u_1 = 3 \\) and \\( u_n = 2u_{n-1} - 1 \\) for \\( n \\ge 2 \\). Find \\( u_4 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the second and third terms using the recursive formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = 2(3) - 1 = 5 \\)</div><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = 2(5) - 1 = 9 \\)</div><br><br>Step 2<br><br>Calculate the fourth term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_4 = 2(9) - 1 = 17 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 17 \\)"
+    "q": "A sequence is defined by \\( u_1 = 6 \\) and \\( u_n = u_{n-1} + 4 \\) for \\( n \\ge 2 \\). Find \\( u_5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the recursive formula to find the next terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_2 = 6 + 4 = 10 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = 10 + 4 = 14 \\)</div><br><br>Step 2<br><br>Continue to the fifth term:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_4 = 14 + 4 = 18 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = 18 + 4 = 22 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 22 \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the 15th term of the arithmetic progression \\( 5, 9, 13, 17, \\dots \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a \\) and common difference \\( d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 5, \\quad d = 9 - 5 = 4 \\)</div><br><br>Step 2<br><br>Use the \\( n \\)th term formula \\( u_n = a + (n-1)d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_{15} = 5 + (15-1)(4) = 5 + 14(4) = 5 + 56 = 61 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 61 \\)"
+    "q": "Find the 15th term of the A.P. \\( 4,\\ 9,\\ 14,\\ 19,\\ \\dots \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a \\) and the common difference \\( d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 4,\\quad d = 9 - 4 = 5 \\)</div><br><br>Step 2<br><br>Use \\( u_n = a + (n-1)d \\) with \\( n = 15 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_{15} = 4 + 14 \\times 5 = 4 + 70 = 74 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 74 \\)"
   },
   {
     "type": "math_show",
-    "q": "Which term of the arithmetic progression \\( 40, 37, 34, \\dots \\) is \\( 13 \\)?",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( a \\) and \\( d \\), then set \\( u_n = 13 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 40, \\quad d = -3 \\)</div><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 13 = 40 + (n-1)(-3) \\)</div><br><br>Step 2<br><br>Solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -27 = -3(n-1) \\implies 9 = n - 1 \\implies n = 10 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10 \\text{th term} \\)"
+    "q": "Which term of the A.P. \\( 80,\\ 73,\\ 66,\\ \\dots \\) is \\( 24 \\)?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 80 \\) and \\( d = -7 \\). Set \\( u_n = 24 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 24 = 80 + (n-1)(-7) \\)</div><br><br>Step 2<br><br>Solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -56 = -7(n-1) \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n-1 = 8 \\implies n = 9 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 9\\text{th term} \\)"
   },
   {
     "type": "math_show",
-    "q": "The 4th term of an A.P. is \\( 14 \\) and the 9th term is \\( 34 \\). Find the common difference.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up the equations for the 4th and 9th terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_9 - u_4 = (a + 8d) - (a + 3d) = 5d \\)</div><br><br>Step 2<br><br>Substitute the given values and solve for \\( d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 34 - 14 = 5d \\implies 20 = 5d \\implies d = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+    "q": "The 6th term of an A.P. is \\( 20 \\) and the 11th term is \\( 40 \\). Find the common difference.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the given terms using \\( u_n = a + (n-1)d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_{11} - u_6 = 5d \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 40 - 20 = 5d \\implies d = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the sum of the first 20 terms of the arithmetic series \\( 2 + 7 + 12 + 17 + \\dots \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( a \\), \\( d \\), and \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 2, \\quad d = 5, \\quad n = 20 \\)</div><br><br>Step 2<br><br>Use the sum formula \\( S_n = \frac{n}{2}[2a + (n-1)d] \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{20} = \frac{20}{2}[2(2) + 19(5)] = 10[4 + 95] = 10(99) = 990 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 990 \\)"
+    "q": "Find the A.M. of \\( 16 \\) and \\( 28 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The arithmetic mean of two numbers \\( x \\) and \\( y \\) is \\( \\dfrac{x+y}{2} \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 16,\\quad y = 28 \\)</div><br><br>Step 2<br><br>Therefore<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{A.M.} = \\frac{16 + 28}{2} = \\frac{44}{2} = 22 \\)</div><br>So \\( 16,\\ 22,\\ 28 \\) is an A.P.<br><br><strong>Final Answer:</strong><br><br>\\( 22 \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the sum of the first 15 terms of an A.P. whose first term is \\( 8 \\) and last term is \\( 78 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the given values \\( n = 15 \\), \\( a = 8 \\), and \\( l = 78 \\).<br><br>Step 2<br><br>Use the sum formula involving the last term \\( S_n = \frac{n}{2}(a + l) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{15} = \frac{15}{2}(8 + 78) = \frac{15}{2}(86) = 15 \times 43 = 645 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 645 \\)"
+    "q": "If \\( 9,\\ x,\\ 25 \\) are consecutive terms of an A.P., find \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Then \\( x \\) is the A.M. of \\( 9 \\) and \\( 25 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{9 + 25}{2} \\)</div><br><br>Step 2<br><br>Simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\frac{34}{2} = 17 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 17 \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the sum of the first 12 terms of the A.P. whose 3rd term is \\( 10 \\) and 7th term is \\( 26 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the common difference \\( d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_7 - u_3 = 4d \\implies 26 - 10 = 4d \\implies d = 4 \\)</div><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = a + 2d \\implies 10 = a + 8 \\implies a = 2 \\)</div><br><br>Step 2<br><br>Calculate the sum of the first 12 terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{12} = \frac{12}{2}[2(2) + 11(4)] = 6[4 + 44] = 6(48) = 288 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 288 \\)"
+    "q": "Insert three arithmetic means between \\( 6 \\) and \\( 22 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the A.P. be \\( 6,\\ x_1,\\ x_2,\\ x_3,\\ 22 \\). Then \\( a = 6 \\) and \\( u_5 = 22 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6 + 4d = 22 \\implies 4d = 16 \\implies d = 4 \\)</div><br><br>Step 2<br><br>The three arithmetic means are<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x_1 = 6 + 4 = 10 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x_2 = 10 + 4 = 14 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x_3 = 14 + 4 = 18 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10,\\ 14,\\ 18 \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the 6th term of the geometric progression \\( 3, -6, 12, -24, \\dots \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a \\) and common ratio \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 3, \\quad r = \frac{-6}{3} = -2 \\)</div><br><br>Step 2<br><br>Use the \\( n \\)th term formula \\( u_n = ar^{n-1} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_6 = 3(-2)^{6-1} = 3(-2)^5 = 3(-32) = -96 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -96 \\)"
+    "q": "Find the sum of the first 20 terms of the A.P. \\( 1,\\ 5,\\ 9,\\ 13,\\ \\dots \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( a = 1 \\), \\( d = 4 \\) and \\( n = 20 \\).<br><br>Step 2<br><br>Use \\( S_n = \\dfrac{n}{2}\\{2a + (n-1)d\\} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{20} = \\frac{20}{2}\\{2(1) + 19(4)\\} = 10\\{2 + 76\\} = 10 \\times 78 = 780 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 780 \\)"
   },
   {
     "type": "math_show",
-    "q": "The 2nd term of a G.P. is \\( 12 \\) and the 5th term is \\( 324 \\). Find the common ratio, given that all terms are positive.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up the equations for the terms:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ar = 12 \\quad \text{and} \\quad ar^4 = 324 \\)</div><br><br>Step 2<br><br>Divide the second equation by the first to find \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \frac{ar^4}{ar} = \frac{324}{12} \\implies r^3 = 27 \\implies r = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+    "q": "Find the sum of the first 15 terms of an A.P. whose first term is \\( 7 \\) and last term is \\( 63 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( n = 15 \\), \\( a = 7 \\) and \\( l = 63 \\).<br><br>Step 2<br><br>Use \\( S_n = \\dfrac{n}{2}(a + l) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{15} = \\frac{15}{2}(7 + 63) = \\frac{15}{2}(70) = 15 \\times 35 = 525 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 525 \\)"
   },
   {
     "type": "math_show",
-    "q": "The second term of a G.P. is \\( 10 \\) and the fourth term is \\( 40 \\). Find the first term, given that the common ratio is positive.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up the equations and find \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( ar = 10 \\quad \text{and} \\quad ar^3 = 40 \\)</div><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \frac{ar^3}{ar} = \frac{40}{10} \\implies r^2 = 4 \\implies r = 2 \text{ (since } r > 0) \\)</div><br><br>Step 2<br><br>Substitute \\( r \\) back to find \\( a \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a(2) = 10 \\implies a = 5 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5 \\)"
+    "q": "The sum of the first \\( n \\) terms of a sequence is \\( S_n = 3n^2 - n \\). Find \\( u_5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( u_n = S_n - S_{n-1} \\) for \\( n = 5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_5 = 3(5)^2 - 5 = 75 - 5 = 70 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_4 = 3(4)^2 - 4 = 48 - 4 = 44 \\)</div><br><br>Step 2<br><br>Therefore<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = 70 - 44 = 26 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 26 \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the sum of the first 8 terms of the geometric series \\( 2 + 6 + 18 + \\dots \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( a \\), \\( r \\), and \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 2, \\quad r = 3, \\quad n = 8 \\)</div><br><br>Step 2<br><br>Use the sum formula \\( S_n = \frac{a(r^n - 1)}{r - 1} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_8 = \frac{2(3^8 - 1)}{3 - 1} = \frac{2(6561 - 1)}{2} = 6560 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 6560 \\)"
+    "q": "Find the 5th term of the G.P. \\( 4,\\ -8,\\ 16,\\ -32,\\ \\dots \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify \\( a = 4 \\) and \\( r = \\dfrac{-8}{4} = -2 \\).<br><br>Step 2<br><br>Use \\( u_n = ar^{n-1} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = 4(-2)^{4} = 4 \\times 16 = 64 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 64 \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the sum of the first 6 terms of a G.P. whose first term is \\( 5 \\) and common ratio is \\( 2 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the given values \\( a = 5 \\), \\( r = 2 \\), and \\( n = 6 \\).<br><br>Step 2<br><br>Apply the geometric series sum formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_6 = \frac{5(2^6 - 1)}{2 - 1} = 5(64 - 1) = 5(63) = 315 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 315 \\)"
+    "q": "The second term of a G.P. is \\( 18 \\) and the fifth term is \\( 486 \\). If every term is positive, find the common ratio.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Then \\( ar = 18 \\) and \\( ar^4 = 486 \\).<br><br>Step 2<br><br>Divide the second equation by the first:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{ar^4}{ar} = \\frac{486}{18} \\implies r^3 = 27 \\implies r = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the sum to infinity of the geometric series \\( 24 - 12 + 6 - 3 + \\dots \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the first term \\( a \\) and common ratio \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( a = 24, \\quad r = \frac{-12}{24} = -\frac{1}{2} \\)</div><br><br>Step 2<br><br>Use the sum to infinity formula \\( S_{\\infty} = \frac{a}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{\\infty} = \frac{24}{1 - (-\frac{1}{2})} = \frac{24}{\frac{3}{2}} = 24 \times \frac{2}{3} = 16 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 16 \\)"
+    "q": "Find the G.M. of \\( 16 \\) and \\( 25 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers \\( x \\) and \\( y \\) is \\( \\sqrt{xy} \\).<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 16,\\quad y = 25 \\)</div><br><br>Step 2<br><br>Therefore<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{G.M.} = \\sqrt{16 \\times 25} = \\sqrt{400} = 20 \\)</div><br>So \\( 16,\\ 20,\\ 25 \\) is a G.P.<br><br><strong>Final Answer:</strong><br><br>\\( 20 \\)"
   },
   {
     "type": "math_show",
-    "q": "The first term of a G.P. is \\( 18 \\) and its sum to infinity is \\( 27 \\). Find the common ratio.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up the sum to infinity equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{\\infty} = \frac{a}{1 - r} \\implies 27 = \frac{18}{1 - r} \\)</div><br><br>Step 2<br><br>Solve for \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 - r = \frac{18}{27} \\implies 1 - r = \frac{2}{3} \\implies r = \frac{1}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \frac{1}{3} \\)"
+    "q": "If \\( 6,\\ x,\\ 24 \\) are consecutive terms of a G.P. and \\( x > 0 \\), find \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Then \\( x \\) is the G.M. of \\( 6 \\) and \\( 24 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = \\sqrt{6 \\times 24} = \\sqrt{144} \\)</div><br><br>Step 2<br><br>Since \\( x > 0 \\),<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 12 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
   },
   {
     "type": "math_show",
-    "q": "The arithmetic mean of two positive numbers is \\( 13 \\) and their geometric mean is \\( 12 \\). Find the sum of their squares.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Translate the means into equations for \\( x \\) and \\( y \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \frac{x+y}{2} = 13 \\implies x+y = 26 \\)</div><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{xy} = 12 \\implies xy = 144 \\)</div><br><br>Step 2<br><br>Use the algebraic identity \\( x^2 + y^2 = (x+y)^2 - 2xy \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + y^2 = (26)^2 - 2(144) = 676 - 288 = 388 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 388 \\)"
+    "q": "Insert two geometric means between \\( 5 \\) and \\( 40 \\), given that every term is positive.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the G.P. be \\( 5,\\ g_1,\\ g_2,\\ 40 \\). Then \\( a = 5 \\) and \\( ar^3 = 40 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5r^3 = 40 \\implies r^3 = 8 \\implies r = 2 \\)</div><br><br>Step 2<br><br>The two geometric means are<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g_1 = 5 \\times 2 = 10 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g_2 = 10 \\times 2 = 20 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10,\\ 20 \\)"
   },
   {
     "type": "math_show",
-    "q": "The sum of the first \\( n \\) terms of a sequence is given by \\( S_n = 3n^2 + 2n \\). Find the 5th term of the sequence.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the relation \\( u_n = S_n - S_{n-1} \\) to find \\( u_5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = S_5 - S_4 \\)</div><br><br>Step 2<br><br>Calculate \\( S_5 \\) and \\( S_4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_5 = 3(5)^2 + 2(5) = 75 + 10 = 85 \\)</div><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_4 = 3(4)^2 + 2(4) = 48 + 8 = 56 \\)</div><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_5 = 85 - 56 = 29 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 29 \\)"
+    "q": "The A.M. of two positive numbers is \\( 17 \\) and their G.M. is \\( 8 \\). Find \\( x^2 + y^2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>A.M. and G.M. give<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{x+y}{2} = 17 \\implies x + y = 34 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{xy} = 8 \\implies xy = 64 \\)</div><br><br>Step 2<br><br>Use \\( x^2 + y^2 = (x+y)^2 - 2xy \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + y^2 = 34^2 - 2(64) = 1156 - 128 = 1028 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1028 \\)"
   },
   {
     "type": "math_show",
-    "q": "A theater has \\( 20 \\) seats in the first row, \\( 24 \\) seats in the second row, \\( 28 \\) in the third row, and so on. How many seats are in the 15th row?",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the sequence as an A.P. with \\( a = 20 \\) and \\( d = 4 \\).<br><br>Step 2<br><br>Apply the \\( n \\)th term formula for \\( n = 15 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_{15} = 20 + (15-1)(4) = 20 + 14(4) = 20 + 56 = 76 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 76 \\)"
+    "q": "Find the sum of the first 6 terms of the G.P. \\( 3,\\ 6,\\ 12,\\ 24,\\ \\dots \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 3 \\), \\( r = 2 \\) and \\( n = 6 \\).<br><br>Step 2<br><br>Use \\( S_n = \\dfrac{a(r^n - 1)}{r - 1} \\) since \\( r \\ne 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_6 = \\frac{3(2^6 - 1)}{2 - 1} = 3(64 - 1) = 189 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 189 \\)"
   },
   {
     "type": "math_show",
-    "q": "A sequence is defined by \\( u_1 = 50 \\) and \\( u_n = 2u_{n-1} \\) for \\( n \\ge 2 \\). Find \\( u_7 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify this as a geometric progression with \\( a = 50 \\) and \\( r = 2 \\).<br><br>Step 2<br><br>Calculate the 7th term using \\( u_n = ar^{n-1} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_7 = 50(2)^{7-1} = 50(2^6) = 50(64) = 3200 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3200 \\)"
+    "q": "Find the sum of the first 6 terms of the G.P. \\( 32,\\ 16,\\ 8,\\ \\dots \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 32 \\), \\( r = \\dfrac{1}{2} \\) and \\( n = 6 \\).<br><br>Step 2<br><br>Use \\( S_n = \\dfrac{a(1 - r^n)}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_6 = \\frac{32\\left(1 - \\left(\\frac{1}{2}\\right)^6\\right)}{1 - \\frac{1}{2}} = \\frac{32\\left(1 - \\frac{1}{64}\\right)}{\\frac{1}{2}} = 64 \\times \\frac{63}{64} = 63 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 63 \\)"
   },
   {
     "type": "math_show",
-    "q": "The first term of a G.P. is \\( 40 \\) and the sum to infinity is \\( 50 \\). Find the third term.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the common ratio \\( r \\) using the sum to infinity formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 50 = \frac{40}{1 - r} \\implies 1 - r = \frac{40}{50} = \frac{4}{5} \\implies r = \frac{1}{5} \\)</div><br><br>Step 2<br><br>Calculate the third term \\( u_3 = ar^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_3 = 40\\left(\frac{1}{5}\right)^2 = 40\\left(\frac{1}{25}\right) = \frac{40}{25} = \frac{8}{5} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \frac{8}{5} \\)"
+    "q": "Find the sum to infinity of the geometric series \\( 20 + 10 + 5 + \\cdots \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 20 \\) and \\( r = \\dfrac{10}{20} = \\dfrac{1}{2} \\).<br><br>Since \\( |r| = \\dfrac{1}{2} < 1 \\), the sum to infinity exists.<br><br>Step 2<br><br>Use \\( S = \\dfrac{a}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S = \\frac{20}{1 - \\frac{1}{2}} = \\frac{20}{\\frac{1}{2}} = 40 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 40 \\)"
   },
   {
     "type": "math_show",
-    "q": "Find the sum of all two-digit numbers which are multiples of \\( 7 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify the A.P.: \\( 14, 21, \\dots, 98 \\). Here \\( a = 14 \\), \\( d = 7 \\), \\( l = 98 \\).<br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 98 = 14 + (n-1)7 \\implies 84 = 7(n-1) \\implies n = 13 \\)</div><br><br>Step 2<br><br>Calculate the sum:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{13} = \frac{13}{2}(14 + 98) = \frac{13}{2}(112) = 13 \times 56 = 728 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 728 \\)"
+    "q": "The first term of a G.P. is \\( 15 \\) and its sum to infinity is \\( 45 \\). Find the common ratio.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( S = \\dfrac{a}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 45 = \\frac{15}{1 - r} \\)</div><br><br>Step 2<br><br>Solve for \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 - r = \\frac{15}{45} = \\frac{1}{3} \\implies r = \\frac{2}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{3} \\)"
   },
   {
     "type": "math_show",
-    "q": "The sum of the first 3 terms of a G.P. is \\( 26 \\) and the common ratio is \\( 3 \\). Find the first term.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Set up the sum equation using \\( S_n = \frac{a(r^n - 1)}{r - 1} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 26 = \frac{a(3^3 - 1)}{3 - 1} \\)</div><br><br>Step 2<br><br>Simplify and solve for \\( a \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 26 = \frac{a(26)}{2} \\implies 26 = 13a \\implies a = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+    "q": "Find the sum to infinity of \\( 24 - 12 + 6 - 3 + \\cdots \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 24 \\) and \\( r = \\dfrac{-12}{24} = -\\dfrac{1}{2} \\).<br><br>Since \\( |r| = \\dfrac{1}{2} < 1 \\), the sum to infinity exists.<br><br>Step 2<br><br>Use \\( S = \\dfrac{a}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S = \\frac{24}{1 - \\left(-\\frac{1}{2}\\right)} = \\frac{24}{\\frac{3}{2}} = 16 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 16 \\)"
   },
   {
     "type": "math_show",
-    "q": "Insert three arithmetic means between \\( 5 \\) and \\( 25 \\). Find the sum of these three means.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The sequence \\( 5, A_1, A_2, A_3, 25 \\) is an A.P. with 5 terms. Find \\( d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 25 = 5 + 4d \\implies 20 = 4d \\implies d = 5 \\)</div><br><br>Step 2<br><br>List the means and find their sum:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( A_1 = 10, \\quad A_2 = 15, \\quad A_3 = 20 \\)</div><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \text{Sum} = 10 + 15 + 20 = 45 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 45 \\)"
+    "q": "How many terms are there in the G.P. \\( 3,\\ 6,\\ 12,\\ \\dots,\\ 192 \\)?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 3 \\), \\( r = 2 \\) and \\( u_n = 192 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3 \\times 2^{n-1} = 192 \\implies 2^{n-1} = 64 \\)</div><br><br>Step 2<br><br>Therefore<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n-1 = 6 \\implies n = 7 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
   },
   {
     "type": "math_show",
-    "q": "Three consecutive terms of a G.P. are \\( x-2 \\), \\( x+2 \\), and \\( 2x+4 \\). Find the value of \\( x \\), given that all terms are positive.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the geometric mean property:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x+2)^2 = (x-2)(2x+4) \\)</div><br><br>Step 2<br><br>Factor and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x+2)^2 = 2(x-2)(x+2) \\)</div><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x+2 = 2(x-2) \\implies x+2 = 2x-4 \\implies x = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+    "q": "Find the sum of the first 8 positive odd integers.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The positive odd integers form the A.P. \\( 1,\\ 3,\\ 5,\\ \\dots \\) with \\( a = 1 \\), \\( d = 2 \\) and \\( n = 8 \\).<br><br>Step 2<br><br>Use \\( S_n = \\dfrac{n}{2}\\{2a + (n-1)d\\} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_8 = \\frac{8}{2}\\{2 + 7 \\times 2\\} = 4 \\times 16 = 64 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 64 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( 7,\\ x,\\ 19 \\) are consecutive terms of an A.P., find \\( x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Equate consecutive differences:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 7 = 19 - x \\)</div><br><br>Step 2<br><br>Solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x = 26 \\implies x = 13 \\)</div><br>This is the A.M. of \\( 7 \\) and \\( 19 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 13 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the G.M. of \\( 8 \\) and \\( 50 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( \\text{G.M.} = \\sqrt{xy} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{G.M.} = \\sqrt{8 \\times 50} = \\sqrt{400} \\)</div><br><br>Step 2<br><br>Therefore<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{G.M.} = 20 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine whether the sum to infinity of \\( 5 + 1 + 0.2 + 0.04 + \\cdots \\) exists. If it exists, find the sum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The common ratio is<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( r = \\frac{1}{5} = 0.2 \\)</div><br>Since \\( |r| = 0.2 < 1 \\), the sum to infinity exists.<br><br>Step 2<br><br>Use \\( S = \\dfrac{a}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S = \\frac{5}{1 - 0.2} = \\frac{5}{0.8} = \\frac{25}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{25}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 4th term of a G.P. with first term \\( 7 \\) and common ratio \\( -2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( u_n = ar^{n-1} \\) with \\( n = 4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_4 = 7(-2)^{3} \\)</div><br><br>Step 2<br><br>Simplify:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_4 = 7(-8) = -56 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -56 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of the first 12 terms of the A.P. \\( 10,\\ 7,\\ 4,\\ \\dots \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 10 \\), \\( d = -3 \\) and \\( n = 12 \\).<br><br>Step 2<br><br>Use \\( S_n = \\dfrac{n}{2}\\{2a + (n-1)d\\} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_{12} = \\frac{12}{2}\\{20 + 11(-3)\\} = 6\\{20 - 33\\} = 6(-13) = -78 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -78 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The A.M. of two positive numbers is \\( 10 \\) and their G.M. is \\( 8 \\). Find \\( x^2 + y^2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>From the definitions,<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{x+y}{2} = 10 \\implies x + y = 20 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{xy} = 8 \\implies xy = 64 \\)</div><br><br>Step 2<br><br>Then<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + y^2 = (x+y)^2 - 2xy = 400 - 128 = 272 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 272 \\)"
   }
 ]
