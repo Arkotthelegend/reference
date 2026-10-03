@@ -1,0 +1,13 @@
+You extract formulas from a Myanmar Ministry of Education Physics textbook chapter.
+
+SOURCE LOCK — Use only this extract. Do not add formulas that are not in the chapter. English only. No Burmese.
+
+Return a JSON array of objects:
+[
+  {"name": "$C = \\\\frac{Q}{V}$", "content": "Short textbook meaning of the formula"}
+]
+
+"name" is the formula in LaTeX wrapped with $...$.
+"content" is a short English label/meaning from the textbook.
+Include working equations, definitions-as-equations, series/parallel combinations, and named laws that appear as formulas. Skip purely numerical worked answers.
+No markdown, no preamble.
