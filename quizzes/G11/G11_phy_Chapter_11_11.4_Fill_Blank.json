@@ -3,114 +3,114 @@
     "type": "blank",
     "q": "A ____ is an electronic device which takes an information from the environment, makes a decision based on that information and then gives out the result.",
     "c": "logic gate",
-    "e": "Logic gates က basic logical operations ဆောင်ရွက်သော digital circuits ရဲ့ အခြေခံ building blocks ဖြစ်တယ်။"
+    "e": "ပတ်ဝန်းကျင်က အချက်ယူ၊ ဆုံးဖြတ်၊ ရလဒ်ထုတ်တဲ့ ကိရိယာကို လော့ဂျစ်ဂိတ်လို့ ခေါ်တယ်။ ကွက်လပ်ထဲ logic gate ထည့်။"
   },
   {
     "type": "blank",
     "q": "Logic gates can be built up using ____ of resistors, diodes and transistors.",
     "c": "discrete components",
-    "e": "ကနဦး logic gates ကို individual components ချိတ်၍ တည်ဆောက်ခဲ့တယ်။ ဒါကြောင့် discrete components လို့ မှတ်ပါ။"
+    "e": "ခံနိုင်အား ဒိုင်အုတ် ထရန်ဇစ်စတာ သီးခြားအစိတ်အပိုင်းနဲ့ လော့ဂျစ်ဂိတ် တည်လို့ရတယ်။ ကွက်လပ်ထဲ discrete components ထည့်။"
   },
   {
     "type": "blank",
     "q": "However, it is more convenient to use small ____.",
     "c": "integrated circuits (ICs)",
-    "e": "Modern logic gates ကို compact, reliable integrated circuits အဖြစ် ဖန်တီးတယ်။ ဒါကြောင့် integrated circuits (ICs) လို့ မှတ်ပါ။"
+    "e": "ဒါပေမဲ့ သေးတဲ့ ပေါင်းစပ်ဆားကစ် သုံးရ ပိုလွယ်တယ်။ ကွက်လပ်ထဲ integrated circuits (ICs) ထည့်။"
   },
   {
     "type": "blank",
     "q": "The five common logic gates are ____ gates.",
     "c": "AND, OR, NAND, NOR and NOT (inverter)",
-    "e": "ဒီ gates ငါးခုက digital logic design အားလုံးရဲ့ အခြေခံဖြစ်တယ်။"
+    "e": "အတွေ့များတဲ့ ငါးမျိုးက AND, OR, NAND, NOR, NOT ပဲ။ ကွက်လပ်မှာ ဒီစာရင်း ထည့်။"
   },
   {
     "type": "blank",
     "q": "Logic gate can have two or more inputs but only ____.",
     "c": "one output",
-    "e": "Standard logic gate က input signals အများကို process လုပ်ပြီး logical result တစ်ခု ထုတ်တယ်။ ဒါကြောင့် one output လို့ မှတ်ပါ။"
+    "e": "လော့ဂျစ်ဂိတ်မှာ ထည့်နှစ်ခုအထက် ရှိနိုင်ပေမဲ့ ထုတ် တစ်ခုပဲ။ ကွက်လပ်ထဲ one output ထည့်။"
   },
   {
     "type": "blank",
     "q": "But, NOT gate has only ____.",
     "c": "one input",
-    "e": "NOT gate က input signal တစ်ခုတည်းပေါ် လည်ပတ်သောကြောင့် basic gates မှာ ထူးခြားတယ်။ ဒါကြောင့် one input လို့ မှတ်ပါ။"
+    "e": "NOT မှာတော့ ထည့် တစ်ခုပဲ။ ကွက်လပ်ထဲ one input ထည့်။"
   },
   {
     "type": "blank",
     "q": "For a 2-input AND gate, output X is HIGH only when inputs A and B are ____.",
     "c": "HIGH",
-    "e": "AND gate က inputs အားလုံး true (HIGH) ဖြစ်မှသာ true (HIGH) output ထုတ်တယ်။"
+    "e": "AND နှစ်ထည့်မှာ A နဲ့ B နှစ်ခုလုံး HIGH မှ X HIGH ပဲ။ ကွက်လပ်ထဲ HIGH ထည့်။"
   },
   {
     "type": "blank",
     "q": "The Boolean expression for a 2-input AND gate is ____.",
     "c": "$X=AB$",
-    "e": "Boolean algebra မှာ AND operation ကို multiplication သို့မဟုတ် juxtaposition နဲ့ ကိုယ်စားပြုတယ်။ ဒါကြောင့် $X=AB$ လို့ မှတ်ပါ။"
+    "e": "AND ဘူလီယန်က $X=AB$ ပဲ။ ကွက်လပ်မှာ ဒီပုံသေနည်း ထည့်။ မြှောက်သဘောပဲ။"
   },
   {
     "type": "blank",
     "q": "For a 2-input OR gate, output X is LOW only when both A and B are ____.",
     "c": "LOW",
-    "e": "OR gate က inputs အားလုံး LOW ဖြစ်မှသာ LOW output ထုတ်တယ်။"
+    "e": "OR နှစ်ထည့်မှာ A နဲ့ B နှစ်ခုလုံး LOW မှ X LOW ပဲ။ ကွက်လပ်ထဲ LOW ထည့်။"
   },
   {
     "type": "blank",
     "q": "The Boolean expression for a 2-input OR gate is ____.",
     "c": "$X=A+B$",
-    "e": "Boolean algebra မှာ OR operation ကို addition နဲ့ ကိုယ်စားပြုတယ်။ ဒါကြောင့် $X=A+B$ လို့ မှတ်ပါ။"
+    "e": "OR ဘူလီယန်က $X=A+B$ ပဲ။ ကွက်လပ်မှာ ဒီပုံသေနည်း ထည့်။ ပေါင်းသဘောပဲ။"
   },
   {
     "type": "blank",
     "q": "For a 2-input NAND gate, output X is LOW only when inputs A and B are ____.",
     "c": "HIGH",
-    "e": "NAND gate က AND gate နောက်မှာ NOT gate ဖြစ်သောကြောင့် inputs အားလုံး HIGH ဖြစ်မှသာ LOW output ထုတ်တယ်။"
+    "e": "NAND နှစ်ထည့်မှာ A နဲ့ B နှစ်ခုလုံး HIGH မှ X LOW ပဲ။ ကွက်လပ်ထဲ HIGH ထည့်။ AND ပြောင်းပြန်ပဲ။"
   },
   {
     "type": "blank",
     "q": "The Boolean expression for a 2-input NAND gate is ____.",
     "c": "$X=\\overline{AB}$",
-    "e": "Overline က AND operation ရဲ့ logical complement (NOT) ကို ညွှန်တယ်။ ဒါကြောင့် $X=\\overline{AB}$ လို့ မှတ်ပါ။"
+    "e": "NAND ဘူလီယန်က $X=\\overline{AB}$ ပဲ။ ကွက်လပ်မှာ ဒီပုံသေနည်း ထည့်။"
   },
   {
     "type": "blank",
     "q": "For a 2-input NOR gate, output X is HIGH only when both A and B are ____.",
     "c": "LOW",
-    "e": "NOR gate က OR gate နောက်မှာ NOT gate ဖြစ်သောကြောင့် inputs အားလုံး LOW ဖြစ်မှသာ HIGH output ထုတ်တယ်။"
+    "e": "NOR နှစ်ထည့်မှာ A နဲ့ B နှစ်ခုလုံး LOW မှ X HIGH ပဲ။ ကွက်လပ်ထဲ LOW ထည့်။"
   },
   {
     "type": "blank",
     "q": "The Boolean expression for a 2-input NOR gate is ____.",
     "c": "$X=\\overline{A+B}$",
-    "e": "Overline က OR operation ရဲ့ logical complement (NOT) ကို ညွှန်တယ်။ ဒါကြောင့် $X=\\overline{A+B}$ လို့ မှတ်ပါ။"
+    "e": "NOR ဘူလီယန်က $X=\\overline{A+B}$ ပဲ။ ကွက်လပ်မှာ ဒီပုံသေနည်း ထည့်။"
   },
   {
     "type": "blank",
     "q": "The NAND gate and NOR gate are popular logic gates because they can be used as ____, that is, they alone can be used in combination to perform the functions of any other types of gates.",
     "c": "universal gates",
-    "e": "NAND နဲ့ NOR gates က functionally complete ဖြစ်သောကြောင့် ဒီ gate အမျိုးအစားတစ်ခုတည်းနဲ့ မည်သည့် digital circuit မဆို တည်ဆောက်နိုင်တယ်။ ဒါကြောင့် universal gates လို့ မှတ်ပါ။"
+    "e": "NAND နဲ့ NOR ကို စကြဝဠာဂိတ်လို့ ခေါ်တယ်။ တစ်မျိုးတည်း ပေါင်းပြီး တခြားဂိတ် လုပ်လို့ရတယ်။ ကွက်လပ်ထဲ universal gates ထည့်။"
   },
   {
     "type": "blank",
     "q": "The inverter (NOT gate) performs the operation called ____.",
     "c": "inversion",
-    "e": "Inversion သို့မဟုတ် complementation က input signal ရဲ့ logical state ကို ပြောင်းပြန်လှန်တယ်။"
+    "e": "NOT က ပြောင်းပြန်လုပ်တာ၊ inversion ပဲ။ ကွက်လပ်ထဲ inversion ထည့်။"
   },
   {
     "type": "blank",
     "q": "The inverter changes one logic level to the ____.",
     "c": "opposite level",
-    "e": "NOT gate က input 0 ဖြစ်လျှင် 1 ထုတ်ပြီး input 1 ဖြစ်လျှင် 0 ထုတ်တယ်။ ဒါကြောင့် opposite level လို့ မှတ်ပါ။"
+    "e": "NOT က လော့ဂျစ်အဆင့်ကို ဆန့်ကျင်အဆင့် ပြောင်းတယ်။ ကွက်လပ်ထဲ opposite level ထည့်။"
   },
   {
     "type": "blank",
     "q": "When a LOW level is applied to its input, a ____ will appear on its output.",
     "c": "HIGH level",
-    "e": "ဒါက NOT gate ရဲ့ inverting nature ကို ပြတယ်။ ဒါကြောင့် HIGH level လို့ မှတ်ပါ။"
+    "e": "LOW ထည့်ရင် HIGH ထွက်တယ်။ ကွက်လပ်ထဲ HIGH level ထည့်။"
   },
   {
     "type": "blank",
     "q": "The Boolean expression for a NOT gate is ____.",
     "c": "$X=\\overline{A}$",
-    "e": "Variable A ပေါ်ရှိ overline က logical NOT operation ကို ညွှန်တယ်။ ဒါကြောင့် $X=\\overline{A}$ လို့ မှတ်ပါ။"
+    "e": "NOT ဘူလီယန်က $X=\\overline{A}$ ပဲ။ ကွက်လပ်မှာ ဒီပုံသေနည်း ထည့်။"
   }
 ]
