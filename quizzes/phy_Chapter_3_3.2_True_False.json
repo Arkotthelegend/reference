@@ -3,54 +3,54 @@
     "q": "Consider an ideal fluid there must be laminar flow and no viscosity.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ideal အရည်က ချောစီးပြီး အပျစ်မရှိရဘူး။ ဒီယူဆချက်နှစ်ခုပေါ် continuity တည်တယ်။"
+    "e": "True. Consider an ideal fluid there must be laminar flow and no viscosity. Laminar flow moves in smooth layers with no mixing between neighbouring sheets."
   },
   {
     "q": "The density of an ideal fluid is constantly changing.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ideal အရည်သိပ်သည်းမှုက အမြဲပြောင်းမနေဘူး။ incompressible မို့ ပုံသေပဲ။"
+    "e": "False. An ideal fluid is incompressible, so its density stays constant. The error is the part about density ideal fluid constantly changing."
   },
   {
     "q": "In a pipe, all the liquid that flow through section 1 flow through section 2.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပိုက်အပိုင်း ၁ က အရည်အားလုံး အပိုင်း ၂ ကို ရောက်တယ်။ ကြားမှာ မပျောက်ဘူး။"
+    "e": "True. In a pipe, all the liquid that flow through section 1 flow through section 2. Incompressible continuity: what enters one cross-section leaves the other."
   },
   {
     "q": "The mass flowing in section 1 must be greater than the mass flowing in section 2.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ဒြဗ်ထုစီးက အပိုင်း ၂ မှာ ပိုများနေစရာ မလိုဘူး။ နှစ်နေရာ တူရမယ်။"
+    "e": "False. Continuity keeps mass flow the same through every section of a single pipe. The error is the part about mass flowing section greater."
   },
   {
     "q": "The equation $A_1 v_1 = A_2 v_2$ states that the liquid entering one end of the pipe leaves from the other end with a constant volume flow rate.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ A₁v₁ = A₂v₂ က ထုထည်စီးနှုန်း ပုံသေတယ်လို့ ပြောတယ်။ တစ်ဖက်ဝင် တစ်ဖက်ထွက် တူတယ်။"
+    "e": "True. The equation A₁ v₁ = A₂ v₂ states that the liquid entering one end of the pipe leaves from the other end with a constant volume flow rate. A₁v₁ = A₂v₂ keeps volume flow rate Av constant along the pipe."
   },
   {
     "q": "The larger the area of the pipe, the slower is the speed.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပိုက်ကျယ်ရင် အမြန်နှေးတယ်။ ဧရိယာနဲ့ အမြန် ပြောင်းပြန်ဆက်တယ်။"
+    "e": "True. The larger the area of the pipe, the slower is the speed. Continuity: Av is constant, so a wide section runs slowly."
   },
   {
     "q": "The smaller the area, the slower is the speed.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ဧရိယာငယ်ရင် အမြန်နှေးတာ မဟုတ်ဘူး။ ကျဉ်းရင် ပိုမြန်တယ်။"
+    "e": "False. Continuity says smaller area means larger speed, A v = constant. The error is the part about smaller area slower speed."
   },
   {
     "q": "The speed of water spraying from a hose increases by making the hose area smaller.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ နော်ဇယ်အပေါက်ငယ်ရင် ရေပက်အမြန်တိုးတယ်။ ဧရိယာလျော့ရင် အလျင်တိုးတယ်။"
+    "e": "True. The speed of water spraying from a hose increases by making the hose area smaller. A smaller nozzle area raises v so that Av stays the same."
   },
   {
     "q": "The speed of water spraying from a hose decreases by making the hose area smaller.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ နော်ဇယ်ကျဉ်းရင် အမြန်လျော့တယ်လို့ မပြောရဘူး။ continuity အရ ပိုမြန်တယ်။"
+    "e": "False. Narrowing the nozzle raises the exit speed, it does not lower it. The error is the part about speed water spraying hose decreases making."
   }
 ]

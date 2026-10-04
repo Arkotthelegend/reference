@@ -8,7 +8,7 @@
       "magnetic flux"
     ],
     "c": 2,
-    "e": "စီးပြောင်းနှုန်းရှိမှ ဖြစ်ပေါ် emf ပေါ်တယ်။ ဦးတည်က မူလပြောင်းကို ဆန့်ကျင်တယ်။ ဒီမေးခွန်းရဲ့ ဖြည့်စရာက magnetic flux ပဲ။ ကွက်လပ်/ရွေးချယ်မှုမှာ magnetic flux ဝင်မှ စာကြောင်း မှန်တယ်။"
+    "e": "Faraday's law states that the magnitude of induced emf in a wire loop is directly proportional to the rate of change of magnetic flux through that loop. electric field is not magnetic flux, and magnetic density is not magnetic flux either. Flux is B A cosθ; full when B is perpendicular to the area and zero when B lies in the plane."
   },
   {
     "q": "For a wire loop with $N$ identical turns, the induced emf $E$ is given by the equation $E = $ _____.",
@@ -19,7 +19,7 @@
       "$-N \\Phi_B t$"
     ],
     "c": 0,
-    "e": "ထရန်စဖော်မာက AC စီးပြောင်းနဲ့ ဗို့အချိုး ပြောင်းတယ်။ ပတ်များရင် ဗို့တက်၊ DC မှာ မလုပ်ဘူး။ ဒီမေးခွန်းရဲ့ ဖြည့်စရာက -N \\frac{d\\Phi_B}{dt} ပဲ။ ရွေးရင် -N \\frac{d\\Phi_B}{dt} ပဲ ကိုက်တယ်။"
+    "e": "For a wire loop with N identical turns, the induced emf E is given by the equation E = -N (dPhiB)/(dt). Put N (dPhiB)/(dt) or -N PhiB t in the gap and the sentence describes the wrong physics. Emf is energy per coulomb that a source pumps around a complete loop. A changing magnetic flux through a loop produces an induced emf and, if the path is closed, an induced current."
   },
   {
     "q": "In Faraday's law equation, the minus sign gives the _____ of the induced emf.",
@@ -30,7 +30,7 @@
       "resistance"
     ],
     "c": 1,
-    "e": "ဖာရာဒေးပုံထဲ အနှုတ်က ဖြစ်ပေါ် emf ရဲ့ ဦးတည်ချက်ပဲ။ ပမာဏ မဟုတ်ဘူး။ ကွက်လပ်/ရွေးချယ်မှုမှာ direction ဝင်မှ စာကြောင်း မှန်တယ်။"
+    "e": "In Faraday's law equation, the minus sign gives the direction of the induced emf. magnitude is not direction, and resistance is not direction either. A changing magnetic flux through a loop produces an induced emf and, if the path is closed, an induced current."
   },
   {
     "q": "An induced emf is always in a direction that opposes the change in the original magnetic flux that causes it; this statement is known as _____ Law.",
@@ -41,7 +41,7 @@
       "Lenz's"
     ],
     "c": 2,
-    "e": "လန့်ဇ်နိယာမက ဖြစ်ပေါ် emf က မူလစီးပြောင်းကို ဆန့်ကျင်တဲ့ဘက်မှာပဲ ရှိတယ်။ တိုးရင် လျှော့အောင်၊ လျော့ရင် တိုးအောင်ပဲ။ ကွက်လပ်/ရွေးချယ်မှုမှာ Lenz's ဝင်မှ စာကြောင်း မှန်တယ်။"
+    "e": "An induced emf is always in a direction that opposes the change in the original magnetic flux that causes it; this statement is known as Lenz's Law. Put Faraday's or Fleming's in the gap and the sentence describes the wrong physics. Lenz's law sets the sign: the induced emf fights the flux change that made it."
   },
   {
     "q": "Lenz's law is a good example of the principle of conservation of _____.",
@@ -52,7 +52,7 @@
       "mass"
     ],
     "c": 0,
-    "e": "လန့်ဇ်နိယာမက စွမ်းအင်ထိန်းသိမ်းမှုရဲ့ ဥပမာပဲ။ အလကား လျှပ်စစ်မပွားအောင် ဆန့်ကျင်တွန်းပေးတယ်။ ဒါကြောင့် energy ကို ယူရတယ်။"
+    "e": "Lenz's law is a good example of the principle of conservation of energy. Put momentum or mass in the gap and the sentence describes the wrong physics. Lenz's law sets the sign: the induced emf fights the flux change that made it."
   },
   {
     "q": "When a magnet is moved towards a coil, the magnetic flux through the coil increases, and the induced current must produce a magnetic field which _____ an increase in the original magnetic flux.",
@@ -63,7 +63,7 @@
       "doubles"
     ],
     "c": 1,
-    "e": "သံလိုက် ကွိုင်ဆီ နီးလာရင် စီးတိုးတယ်။ ဖြစ်ပေါ်လျှပ်စီးက အဲ့တိုးမှုကို ဆန့်ကျင်တဲ့ စက်ကွင်း ထုတ်တယ်။ ဒါကြောင့် opposes ကို ယူရတယ်။"
+    "e": "When a magnet is moved towards a coil, the magnetic flux through the coil increases, and the induced current must produce a magnetic field which opposes an increase in the original magnetic flux. Put supports or doubles in the gap and the sentence describes the wrong physics. Flux is B A cosθ; full when B is perpendicular to the area and zero when B lies in the plane."
   },
   {
     "q": "If the wire loop is not moving or is moving parallel to the magnetic field lines, there is _____ induced emf.",
@@ -74,6 +74,6 @@
       "no"
     ],
     "c": 2,
-    "e": "ကွိုင် ရပ်နေရင်ဖြစ်စေ၊ လိုင်းနဲ့ မျဉ်းပြိုင် ရွေ့ရင်ဖြစ်စေ စီးမပြောင်းလို့ emf မပေါ်ဘူး။ ဖြတ်မှ ပြောင်းတယ်။ ကွက်လပ်/ရွေးချယ်မှုမှာ no ဝင်မှ စာကြောင်း မှန်တယ်။"
+    "e": "If the wire loop is not moving or is moving parallel to the magnetic field lines, there is no induced emf. Put maximum or minimum in the gap and the sentence describes the wrong physics. A changing magnetic flux through a loop produces an induced emf and, if the path is closed, an induced current. In parallel, the same voltage sits across each branch and the currents add."
   }
 ]

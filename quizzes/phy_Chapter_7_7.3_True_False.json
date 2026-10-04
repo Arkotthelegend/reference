@@ -3,102 +3,102 @@
     "q": "A microscope is an optical instrument which uses lenses to make enlarged images of objects that are too small for the unaided eye to see.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ မှန်ဘီလူးက သေးလို့ မျက်စိမမီတဲ့ အရာကို ကြီးအောင် ပြတဲ့ အလင်းကိရိယာပဲ။ တစ်ဆင့်တည်း မဟုတ်၊ နှစ်ဆင့်ချဲ့မှ အသေးစိတ် မြင်ရတယ်။"
+    "e": "True. A compound microscope uses two convex lenses to enlarge a nearby tiny object. The object sits just outside the objective's focus, and total magnifying power is a product, not a sum. The objective should have the shorter focal length."
   },
   {
     "q": "A compound microscope has at least two concave lenses: an objective lens and an eyepiece lens.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ပေါင်းစပ်မှန်ဘီလူးက ခွက်မှန်ဘီလူး နှစ်ခု မဟုတ်ဘူး။ ခုံးမှန်ဘီလူး နှစ်ခု၊ အရာဝတ္ထုနားက နဲ့ မျက်စိနားက ပဲ။"
+    "e": "False. A compound microscope uses convex lenses, at least an objective and an eyepiece. Concave lenses diverge and will not build those real magnified images. Both stages are converging."
   },
   {
     "q": "The lens nearer the object is called the objective and the lens through which the final image is viewed is called the eyepiece.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အရာဝတ္ထုနဲ့ ပိုနီးတဲ့ မှန်ဘီလူးကို အရာဝတ္ထုမှန်ဘီလူးလို့ ခေါ်တယ်။ နောက်ဆုံးပုံ ကြည့်တဲ့ဘက်က မျက်စိမှန်ဘီလူးပဲ။"
+    "e": "True. In a microscope it is short-focus and throws a real magnified image. In an astronomical telescope it is long-focus and wide for light gathering. The eyepiece is the lens toward the eye and adds angular magnification."
   },
   {
     "q": "When the compound microscope is used, the object should be placed beyond $2F$, where $F$ is the focus of the objective.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ခုံးမှန်ဘီလူး နှစ်ခု၊ အရာဝတ္ထုနားက နဲ့ မျက်စိနားက ပဲ။ ပေါင်းစပ်မှန်ဘီလူးက ခွက်မှန်ဘီလူး နှစ်ခု မဟုတ်ဘူး။"
+    "e": "False. For a compound microscope the object sits just outside the objective's focal point, between F and 2F, not beyond 2F. Beyond 2F you get a diminished real image, which is the wrong start. The objective must magnify."
   },
   {
     "q": "The objective produces an image which is real, inverted and larger than the size of the object.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အလင်းကိရိယာက မှန်ဘီလူးနဲ့ ပုံဖော်တယ်။ ဖလင် ဒါမှမဟုတ် မြင်လွှာပေါ် တကယ့်ပုံ ကျမှ မှတ်တမ်းတင်လို့ရတယ်။ အလင်းဘယ်လောက်ဝင်သလဲ၊ ပုံဘယ်မှာကျသလဲ ဆိုတာ ခွဲကြည့်။"
+    "e": "True. In an astronomical telescope it is long-focus and wide for light gathering. The objective is the lens toward the object. In a microscope it is short-focus and throws a real magnified image."
   },
   {
     "q": "The eyepiece acts as a magnifying glass to view this image and the final image formed is virtual and on the same side as the object.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ မျက်စိမှန်ဘီလူးက ပထမပုံကို မှန်ဘီလူးချဲ့စက်လို ကြည့်တယ်။ နောက်ဆုံးပုံက အတု၊ အရာဝတ္ထုဘက်မှာပဲ ရှိတယ်။"
+    "e": "True. Telescope magnifying power wants this eyepiece short compared with the objective. The eyepiece is the lens toward the eye and adds angular magnification. Microscope magnifying power multiplies objective and eyepiece factors."
   },
   {
     "q": "The magnifying power (MP) of a compound microscope is the sum of the magnification of the objective and the magnifying power of the eyepiece.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ချဲ့အားစုစုပေါင်းက နှစ်ခု ပေါင်းလဒ် မဟုတ်ဘူး။ အရာဝတ္ထုမှန်ဘီလူး ချဲ့အားနဲ့ မျက်စိမှန်ဘီလူး ချဲ့အားကို မြှောက်မှ ရတယ်။"
+    "e": "False. Magnifying power of a compound microscope is a product, M_objective times M_eyepiece, not a sum. Each stage multiplies the previous size. Adding the two numbers undercounts the enlargement."
   },
   {
     "q": "For a large magnifying power of a compound microscope both the objective and the eyepiece should have short focal lengths.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ချဲ့အားကြီးချင်ရင် မှန်ဘီလူးနှစ်ခုလုံး အာရုံအလျား တိုရမယ်။ အရာဝတ္ထုမှန်ဘီလူးက မျက်စိမှန်ဘီလူးထက် ပိုတိုရင် ပိုကောင်းတယ်။"
+    "e": "True. The objective should have a shorter focal length than the eyepiece. A compound microscope uses at least two convex lenses to enlarge a nearby tiny object. The object sits just outside the objective's focus, and magnifying power is a product of the two stages."
   },
   {
     "q": "The focal length of the objective should be longer than that of the eyepiece.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ခုံးမှန်ဘီလူး နှစ်ခု၊ အရာဝတ္ထုနားက နဲ့ မျက်စိနားက ပဲ။ ပေါင်းစပ်မှန်ဘီလူးက ခွက်မှန်ဘီလူး နှစ်ခု မဟုတ်ဘူး။ ပေါင်းစပ်မှန်ဘီလူးမှာ ခုံးမှန်ဘီလူး အနည်းဆုံး နှစ်ခု ရှိတယ်။"
+    "e": "False. In a compound microscope the objective should have a shorter focal length than the eyepiece, so the first image is strongly magnified. A long-focus objective is the telescope choice. Microscope and telescope swap that ratio."
   },
   {
     "q": "As the magnifying power increases, the sharpness of images is reduced.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အလင်းဘယ်လောက်ဝင်သလဲ၊ ပုံဘယ်မှာကျသလဲ ဆိုတာ ခွဲကြည့်။ ဖလင် ဒါမှမဟုတ် မြင်လွှာပေါ် တကယ့်ပုံ ကျမှ မှတ်တမ်းတင်လို့ရတယ်။ အလင်းကိရိယာက မှန်ဘီလူးနဲ့ ပုံဖော်တယ်။"
+    "e": "True. magnifying and power have to stay with the same process. A different driver in place of magnifying would describe a different law."
   },
   {
     "q": "Electron microscope is a microscope with high magnification and resolution, employing electron beams in place of light and using electron lenses.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အီလက်ထရွန်မှန်ဘီလူးက အလင်းအစား အီလက်ထရွန်စီး သုံးတယ်။ ချဲ့အားနဲ့ ပုံကြည်လင်မှု ပိုမြင့်လို့ အသေးစိတ်ဖွဲ့စည်းပုံ ကြည့်ရာမှာ သုံးတယ်။"
+    "e": "True. Optical microscopes are the photon instruments. An electron microscope uses an electron beam and electron lenses instead of light and glass. Shorter electron wavelength gives higher magnification and resolution."
   },
   {
     "q": "Optical microscopes use simple lenses, whereas electron microscopes use electrostatic or electromagnetic lenses.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အရှိန်မြှင့် အီလက်ထရွန်စီးကို လျှပ်စစ် ဒါမှမဟုတ် သံလိုက်စက်ကွင်းမှန်ဘီလူးနဲ့ စုတယ်။ ဖန်မှန်ဘီလူးနဲ့ မရောနဲ့၊ အီလက်ထရွန်က ဖန်ထဲ မလွှတ်ဘူး။"
+    "e": "True. Shorter electron wavelength gives higher magnification and resolution. Optical microscopes are the photon instruments. An electron microscope uses an electron beam and electron lenses instead of light and glass."
   },
   {
     "q": "Optical microscopes use electrons, while electron microscopes use photons or light energy, which have shorter wavelengths that allows greater magnification.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အလင်းမှန်ဘီလူးက အီလက်ထရွန် သုံးတယ်ဆိုတာ ပြောင်းပြန်ပဲ။ အလင်းက ဖိုတွန်၊ အီလက်ထရွန်မှန်ဘီလူးက အီလက်ထရွန်မို့ လှိုင်းပိုတိုပြီး ချဲ့အား ပိုကြီးတယ်။"
+    "e": "False. Optical microscopes use light, photons; electron microscopes use electrons. The electron's shorter wavelength is why EM resolution is higher. The statement has the particles backwards."
   },
   {
     "q": "In an electron microscope, a beam of accelerated electrons is used as a source of illumination.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အီလက်ထရွန်မှန်ဘီလူးမှာ အရှိန်မြှင့် အီလက်ထရွန်စီးကို အလင်းရင်းလို သုံးတယ်။ အလင်းမီးအစား ဒီစီးက နမူနာကို ထိုးတယ်။"
+    "e": "True. Shorter electron wavelength gives higher magnification and resolution. Optical microscopes are the photon instruments. Electron microscope a beam of accelerated electrons cannot be dropped from this process without changing the law."
   },
   {
     "q": "There are two main types of electron microscope: the Scanning Electron Microscope (SEM) and the Transmission Electron Microscope (TEM).",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အီလက်ထရွန်မှန်ဘီလူး အဓိက နှစ်မျိုး ရှိတယ်၊ မျက်နှာပြင်စစ်တဲ့အမျိုးနဲ့ ဖောက်ကြည့်တဲ့အမျိုးပဲ။ ဖောက်ကြည့်တဲ့အမျိုးက နမူနာထဲကနေ အီလက်ထရွန် ဖြတ်သွားစေတယ်။"
+    "e": "True. Optical microscopes are the photon instruments. An electron microscope uses an electron beam and electron lenses instead of light and glass. Two main types of electron microscope the cannot be dropped from this process without changing the law."
   },
   {
     "q": "The accelerated electron beam is focused by simple glass lenses, and transmitted through the specimen.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ နီးတူအမည်နဲ့ မရောဘဲ ဒီဖြစ်စဉ်ရဲ့ အဓိပ္ပာယ်ကိုပဲ လိုက်။ ကိန်း၊ ယူနစ်၊ ဦးတည်ချက် သုံးခုကို မရောနဲ့။ ဒီစာကြောင်းက ဒီအခန်းရဲ့ သဘောတရားကို တိုက်ရိုက် ပြောတာပဲ။"
+    "e": "False. An electron beam is focused by electron lenses, magnetic or electric, not by simple glass. Glass is for photons. The specimen still sits in the beam, but the optics are electron optics."
   },
   {
     "q": "The image of the specimen may be viewed by projecting the magnified electron image onto a fluorescent viewing screen.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အလင်းကိရိယာက မှန်ဘီလူးနဲ့ ပုံဖော်တယ်။ ခုံးက စုတယ်၊ ခွက်က ဖြန့်တယ်လို့ မှတ်။ ဖလင် ဒါမှမဟုတ် မြင်လွှာပေါ် တကယ့်ပုံ ကျမှ မှတ်တမ်းတင်လို့ရတယ်။"
+    "e": "True. image and specimen have to stay with the same process. A different driver in place of image would describe a different law."
   }
 ]

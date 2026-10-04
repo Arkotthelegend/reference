@@ -2,36 +2,36 @@
   {
     "name": "$v = \\sqrt{\\frac{Y}{\\rho}}$",
     "content": "Speed of sound in a solid medium",
-    "e": "မာကျောမှုကို ယန်းမိုဒူလပ်နဲ့ တိုင်းပြီး သိပ်သည်းဆနဲ့ စားပြီး အမြန်ထုတ်တယ်။ အစိုင်အခဲထဲမှာ အသံအမြန်က ယန်းမိုဒူလပ်နဲ့ သိပ်သည်းဆပေါ် မူတည်တယ်။ အရည်ရဲ့ ထုမိုဒူလပ်နဲ့ မရောနဲ့၊ အစိုင်အခဲအတွက် ဒီကိန်းပဲ။"
+    "e": "In a solid, sound speed is the square root of Young's modulus over density. A stiffer solid at the same density carries sound faster. Liquids use bulk modulus here, not Y."
   },
   {
     "name": "$v = \\sqrt{\\frac{B}{\\rho}}$",
     "content": "Velocity of sound in liquids",
-    "e": "ဖိလို့ ထုပြောင်းတဲ့ ခံနိုင်အားကို ထုမိုဒူလပ်လို့ ခေါ်တယ်။ အရည်ထဲမှာ အသံအမြန်က ထုမိုဒူလပ်နဲ့ သိပ်သည်းဆနဲ့ ဆက်တယ်။ ယန်းမိုဒူလပ်က အစိုင်အခဲအတွက်၊ အရည်မှာ ဒီကိန်း မသုံးဘူး။ ဒီယူနစ်ကို ချိတ်။"
+    "e": "In a liquid, sound speed is the square root of bulk modulus over density. Bulk modulus measures how hard it is to squeeze the volume. Young's modulus is a solid's stretch modulus and does not belong in this liquid formula."
   },
   {
     "name": "$v = \\sqrt{\\frac{\\gamma P}{\\rho}}$",
     "content": "Velocity of sound in gases",
-    "e": "ဓာတ်ငွေ့ထဲမှာ အသံအမြန်က အပူမဝင်မထွက်ကိန်း၊ ဖိအားနဲ့ သိပ်သည်းဆပေါ် မူတည်တယ်။ အစိုင်အခဲ ယန်းမိုဒူလပ်နဲ့ မရောနဲ့၊ ဓာတ်ငွေ့မှာ ဖိအားက ပါလာတယ်။ ဒီသတ်မှတ်ချက်နဲ့ မရောနဲ့။"
+    "e": "In a gas, sound speed is the square root of gamma P over density. Gamma is the adiabatic heat-capacity ratio, and P is the gas pressure. That pressure factor is why weather and altitude change the speed of sound in air."
   },
   {
     "name": "$\\beta (\\text{dB}) = 10 \\log_{10} \\frac{I}{I_0}$",
     "content": "Intensity level of sound in decibels",
-    "e": "အသံပြင်းအားအဆင့်ကို စံနဲ့ နှိုင်းပြီး ဒက်စီဘယ်နဲ့ ပြတယ်။ နားခံနိုင်တဲ့ အသေးဆုံးကို စံထားမှ ဂဏန်းက အဓိပ္ပာယ်ရှိတယ်။ ဒီဖြစ်စဉ်ကို ကိုင်။"
+    "e": "Intensity level in decibels is ten times the log of I over I_0. I_0 is 10^-12 W m^-2, the hearing threshold. Adding 10 dB multiplies the intensity, and the judged loudness, by about ten."
   },
   {
     "name": "$v = \\frac{2d}{t}$",
     "content": "Formula used to determine the distance or speed using an echo",
-    "e": "အမြန် ညီမျှ အကွာအဝေးနှစ်ဆ ကို အချိန်နဲ့ စားတယ်။ ပြန်ခေါ်သံနဲ့ အကွာအဝေး တိုင်းနိုင်တယ်၊ သွားရောက်ချိန်က နှစ်ဆမ်းခရီးပဲ။"
+    "e": "An echo travels to the reflector and back, so the path is 2d. Speed is that double distance over the measured time. Solve for d if you already know v, which is how ranging with echoes works."
   },
   {
     "name": "$f_o = f_s \\left( \\frac{v \\pm v_o}{v \\mp v_s} \\right)$",
     "content": "Doppler equation in general form",
-    "e": "ဒါကို ဒေါ့ပလာ အကျိုးသက်ရောက်မှုလို့ ခေါ်တယ်၊ ကြားခံက မရွှေ့သေးဘူးလို့ ယူတယ်။ ရင်းမြစ်နဲ့ နား နီးဝေးရွေ့ရင် ကြားရတဲ့ နှုန်း ပြောင်းတယ်။ ဒီဆက်သွယ်မှုကို ခွဲ။"
+    "e": "This is the general Doppler formula for sound. Use the signs that raise frequency when source and observer approach and lower it when they recede. The wave speed v is the speed in the still medium."
   },
   {
     "name": "$I = \\frac{1}{2} \\rho v \\omega^2 A^2$",
     "content": "Intensity and loudness of sound related to amplitude",
-    "e": "ဒါပေမဲ့ ကျယ်ချိန်က နားခံစားမှုမို့ လူမတူရင် ကွာနိုင်သေးတယ်။ ပုံမှန်အားဖြင့် ပြင်းအားများရင် ကျယ်ချိန်လည်း များတယ်။ ဒီကိန်းကို ချိတ်။"
+    "e": "Sound intensity is proportional to amplitude squared, and also to density, speed and omega squared. Double the amplitude and the intensity rises fourfold, not twofold. Loudness is the ear's sensation of that intensity."
   }
 ]

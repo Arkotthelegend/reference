@@ -3,102 +3,102 @@
     "type": "tf",
     "q": "The tangential acceleration of a particle rotating about an axis is $a = r\\alpha$.",
     "c": "true",
-    "e": "မှန်တယ်။ ကွေးလမ်းပေါ် အလျင်ဦးတည်ချက်က လမ်းကြောင်းကို ထိစပ်တယ်။ အချင်းဝက်ထဲသို့ မဟုတ်၊ ထိစပ်မျဉ်းအတိုင်းပဲ။"
+    "e": "True. The tangential acceleration of a particle rotating about an axis is a = rα. Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "According to Newton's second law, the force on a rotating particle is $F = ma = mr\\omega$.",
     "c": "false",
-    "e": "မှားတယ်။ လည်မှုအတွက် နယူတန်ဒုတိယနိယာမက τ = Iα။ မျဉ်းဖြောင့် F=ma နဲ့ ပုံစံတူတယ်။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. The written claim is the opposite of the chapter fact. The written line says According to Newton's second law, the force on a rotating particle is F = ma = mrω."
   },
   {
     "type": "tf",
     "q": "The torque due to tangential force is $\\tau = Fr = (mr\\alpha)r = mr^2\\alpha$.",
     "c": "true",
-    "e": "မှန်တယ်။ ထိတွေ့အားကြောင့် အလိမ်အား τ = Fr = (mrα)r = mr²α ပဲ။ I = mr² နဲ့ ချိတ်တယ်။"
+    "e": "True. The torque due to tangential force is tau = Fr = (mrα)r = mr²α. Torque is r × F, a cross product, so it is a vector."
   },
   {
     "type": "tf",
     "q": "In the equation $\\tau = I\\alpha$, the term $I = mr$ is the moment of inertia of that particle about the axis.",
     "c": "false",
-    "e": "မှားတယ်။ လည်ကြန့်မှုက ဘယ်ဝင်ရိုးလဲ ဆိုတာနဲ့ တူမတူ ပြောင်းတယ်။ ဝင်ရိုးမဖော်ရင် I တန်ဖိုး မပြည့်စုံဘူး။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. Moment of inertia is Σ m r². It says how the mass is spread about the axis. The written line says In the equation tau = Iα, the term I = mr is the moment of inertia of that particle about the axis."
   },
   {
     "type": "tf",
     "q": "The moment of inertia of an object composed of particles is $I = m_1r_1^2 + m_2r_2^2 + \\dots + m_nr_n^2 = \\sum mr^2$.",
     "c": "true",
-    "e": "မှန်တယ်။ လည်ကြန့်မှုကို ပေါင်းလဒ် I = Σmr² လို့ ရေးတယ်။ အမှုန်တိုင်းကို ဒြပ်ထု × အကွာနှစ်ထပ် လုပ်ပေါင်းတယ်။"
+    "e": "True. The moment of inertia of an object composed of particles is I = m_1r_1² + m_2r_2² + dots + m_nr_n² = sum mr². Moment of inertia is Σ m r². It says how the mass is spread about the axis."
   },
   {
     "type": "tf",
     "q": "The moment of inertia of an object is defined as the sum of the products obtained by multiplying the mass of each particle in a given object and its distance from the axis.",
     "c": "false",
-    "e": "မှားတယ်။ လည်ကြန့်မှုက ဘယ်ဝင်ရိုးလဲ ဆိုတာနဲ့ တူမတူ ပြောင်းတယ်။ ဝင်ရိုးမဖော်ရင် I တန်ဖိုး မပြည့်စုံဘူး။"
+    "e": "False. Moment of inertia is Σ m r². It says how the mass is spread about the axis. The written line says The moment of inertia of an object is defined as the sum of the products obtained by multiplying the mass of each particle in a given object and its distance from the axis."
   },
   {
     "type": "tf",
     "q": "The moment of inertia is a scalar quantity.",
     "c": "true",
-    "e": "မှန်တယ်။ လည်ကြန့်မှုက အမှုန်ဒြပ်ထုတွေကို ဝင်ရိုးအကွာနှစ်ထပ်နဲ့ မြှောက်ပေါင်းတာ။"
+    "e": "True. The moment of inertia is a scalar quantity. Moment of inertia is Σ m r². It says how the mass is spread about the axis."
   },
   {
     "type": "tf",
     "q": "The SI unit of moment of inertia is kg m.",
     "c": "false",
-    "e": "မှားတယ်။ လည်ကြန့်မှုရဲ့ နိုင်ငံတကာယူနစ်က ကီလိုဂရမ် မီတာ²။ ဒြပ်ထုနဲ့ အကွာအဝေးနှစ်ထပ် မြှောက်လဒ်မို့ ဒီယူနစ် ရတယ်။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. Moment of inertia is Σ m r². It says how the mass is spread about the axis. The written line says The SI unit of moment of inertia is kg m."
   },
   {
     "type": "tf",
     "q": "The moment of inertia must be specified with respect to a chosen axis of rotation.",
     "c": "true",
-    "e": "မှန်တယ်။ လည်ကြန့်မှုက ဘယ်ဝင်ရိုးလဲ ဆိုတာနဲ့ တူမတူ ပြောင်းတယ်။ ဝင်ရိုးမဖော်ရင် I တန်ဖိုး မပြည့်စုံဘူး။"
+    "e": "True. The moment of inertia must be specified with respect to a chosen axis of rotation. Moment of inertia is Σ m r². It says how the mass is spread about the axis."
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a hoop or cylindrical shell is $I = MR^2$.",
     "c": "true",
-    "e": "မှန်တယ်။ ကွင်း ဒါမှမဟုတ် အခွံဆလင်ဒါရဲ့ လည်ကြန့်မှုက I = MR²။ ဒြပ်ထုအားလုံး အချင်းဝက်အကွာမှာ စုနေလို့။"
+    "e": "True. The moment of inertia for a hoop or cylindrical shell is I = MR². Moment of inertia is Σ m r². It says how the mass is spread about the axis."
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a long thin rod with rotation axis through end is $I = \\frac{1}{12}ML^2$.",
     "c": "false",
-    "e": "မှားတယ်။ လည်ကြန့်မှုက ဘယ်ဝင်ရိုးလဲ ဆိုတာနဲ့ တူမတူ ပြောင်းတယ်။ ဝင်ရိုးမဖော်ရင် I တန်ဖိုး မပြည့်စုံဘူး။ အဓိကစကားလုံးက အခိုက်အတန့်၊ ကြန့်မှု၊ ရှည် ပဲ။"
+    "e": "False. Moment of inertia is Σ m r². It says how the mass is spread about the axis. The written line says The moment of inertia for a long thin rod with rotation axis through end is I = (1)/(12)ML²."
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a solid cylinder or disk is $I = \\frac{1}{2}MR^2$.",
     "c": "true",
-    "e": "မှန်တယ်။ အစိုင်အခဲဆလင်ဒါ ဒါမှမဟုတ် ဒစ်ခ်က I = (၁/၂)MR²။ ကွင်းရဲ့ MR² နဲ့ မရောပါနဲ့။"
+    "e": "True. The moment of inertia for a solid cylinder or disk is I = (1)/(2)MR². Moment of inertia is Σ m r². It says how the mass is spread about the axis."
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a long thin rod with rotation axis through center is $I = \\frac{1}{3}ML^2$.",
     "c": "false",
-    "e": "မှားတယ်။ လည်ကြန့်မှုက ဘယ်ဝင်ရိုးလဲ ဆိုတာနဲ့ တူမတူ ပြောင်းတယ်။ ဝင်ရိုးမဖော်ရင် I တန်ဖိုး မပြည့်စုံဘူး။ အဓိကစကားလုံးက ကြန့်မှု၊ ရှည်၊ လည်မှု ပဲ။"
+    "e": "False. Moment of inertia is Σ m r². It says how the mass is spread about the axis. The written line says The moment of inertia for a long thin rod with rotation axis through center is I = (1)/(3)ML²."
   },
   {
     "type": "tf",
     "q": "The moment of inertia for a solid sphere is $I = \\frac{2}{5}MR^2$.",
     "c": "true",
-    "e": "မှန်တယ်။ အစိုင်အခဲစက်လုံးရဲ့ လည်ကြန့်မှုက (၂/၅)MR²။ ကွင်းရဲ့ MR² ထက် ငယ်တယ်၊ ဒြပ်ထုက ဗဟိုနီးတယ်။"
+    "e": "True. The moment of inertia for a solid sphere is I = (2)/(5)MR². Moment of inertia is Σ m r². It says how the mass is spread about the axis."
   },
   {
     "type": "tf",
     "q": "The centre of gravity of a particular object is a point at which all its weight may be considered to act.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒြပ်ဆွဲဗဟိုက ကိုယ်အလေးချိန်အားလုံး သက်ရောက်တယ်လို့ ယူတဲ့ မှတ်ပဲ။ ညီညာသိပ်သည်းဆ မျဉ်းတံမှာ အလယ်မှာ ရှိတယ်။"
+    "e": "True. The centre of gravity of a particular object is a point at which all its weight may be considered to act. centre has to stay in that role in the sentence."
   },
   {
     "type": "tf",
     "q": "For an object of regular shape and uniform density, the centre of gravity is at its geometrical center.",
     "c": "true",
-    "e": "မှန်တယ်။ ပုံမှန်ပုံနဲ့ သိပ်သည်းဆညီတဲ့ ကိုယ်ထည်မှာ ဒြပ်ဆွဲဗဟိုက ဂျီဩမေတြီဗဟိုမှာပဲ။ မညီရင် ရွေ့နိုင်တယ်။"
+    "e": "True. For an object of regular shape and uniform density, the centre of gravity is at its geometrical center. Density is mass per unit volume, ρ = m/V."
   },
   {
     "type": "tf",
     "q": "The weight of a metre stick of uniform density is considered to be acting at the 0 cm mark.",
     "c": "false",
-    "e": "မှားတယ်။ သိပ်သည်းမှုတူတဲ့ တစ်မီတာတုတ်ရဲ့ အလေးချိန်က အလယ် ၅၀ စင်တီမီတာမှတ်မှာ သက်ရောက်တယ်။ သုညမှတ်မှာ မဟုတ်ဘူး။"
+    "e": "False. Density is mass per unit volume, ρ = m/V. The written line says The weight of a metre stick of uniform density is considered to be acting at the 0 cm mark."
   }
 ]

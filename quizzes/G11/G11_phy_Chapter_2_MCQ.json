@@ -8,7 +8,7 @@
       "dot product",
       "vector product"
     ],
-    "e": "စကေးလာမြှောက်လဒ်ကို ဒေါ့မြှောက်လဒ်လို့လည်း ခေါ်တယ်။ ခရော့မြှောက်လဒ် က ခရော့ဘက်။"
+    "e": "A · B = AB cos θ. That number is the dot product, also called the scalar product. The scalar product of vectors A and B is defined as A · B = AB cos θ, where θ is the angle between A and B. This product is also called the dot product. Cross product or vector product is not this quantity."
   },
   {
     "type": "mcq",
@@ -19,7 +19,7 @@
       "dot product",
       "cross product"
     ],
-    "e": "ဗှတ္တာမြှောက်လဒ် A × B ကို ခရော့ထုတ်လို့လည်း ခေါ်တယ်။ ဒေါ့ထုတ်နဲ့ မရောပါနဲ့။"
+    "e": "A × B is the cross product, a vector perpendicular to both A and B. The vector product of vectors A and B is denoted by A × B. This product is also called the cross product. Do not trade cross product for scalar product or dot product."
   },
   {
     "type": "mcq",
@@ -30,7 +30,7 @@
       "$\\mathbf{A} \\times \\mathbf{B} = \\mathbf{B} \\times \\mathbf{A}$",
       "$\\mathbf{A} \\cdot \\mathbf{B} = -\\mathbf{B} \\cdot \\mathbf{A}$"
     ],
-    "e": "စကေးလာမြှောက်လဒ်က လဲလှယ်နိုင်တယ်။ အေဒေါ့ဘီ နဲ့ ဘီဒေါ့အေ တူတယ်၊ ထောင့်က တူတူမို့။"
+    "e": "Dot products make scalars with cos θ. Cross products make perpendicular vectors with sin θ. The scalar product has the commutative property described by the equation A · B = B · A. A × B = B × A or A · B = -B · A is a different relation from A · B = B · A."
   },
   {
     "type": "mcq",
@@ -41,7 +41,7 @@
       "$\\mathbf{A} \\times \\mathbf{B} = - (\\mathbf{B} \\times \\mathbf{A})$",
       "$\\mathbf{A} \\cdot \\mathbf{B} = - (\\mathbf{B} \\cdot \\mathbf{A})$"
     ],
-    "e": "ခရော့မြှောက်လဒ်က လဲလှယ်လို့ မရဘူး။ အေခရော့ဘီ = −(ဘီခရော့အေ)။"
+    "e": "The cross product anticommutes: A × B = −(B × A). Swap the order and the vector flips. The vector product does not obey the commutative property, and instead follows the relation A × B = - (B × A). A × B = B × A or A · B = - (B · A) is a different relation from A × B = - (B × A)."
   },
   {
     "type": "mcq",
@@ -52,7 +52,7 @@
       "cross product",
       "scalar product"
     ],
-    "e": "အလုပ်က စကေးလာပမာဏမို့ အားနဲ့ အရွေ့ရဲ့ စကေးလာမြှောက်လဒ်ပဲ။ ခရော့ထုတ်ရင် ဗှတ္တာထွက်တယ်။"
+    "e": "Work is F · s, a dot product, so work is a scalar. Work is a scalar quantity because it is the scalar product of force and displacement. Do not trade scalar product for vector product or cross product."
   },
   {
     "type": "mcq",
@@ -63,7 +63,7 @@
       "right-hand rule",
       "Fleming’s rule"
     ],
-    "e": "ဗှတ္တာမြှောက်လဒ်က ခရော့မြှောက်လဒ်။ ရလဒ်က ထောင့်မှန်ဗှတ္တာ၊ ဒီနေရာမှာ ညာလက်စည်းမျဉ်း။"
+    "e": "Dot products make scalars with cos θ. Cross products make perpendicular vectors with sin θ. The direction of the vector product A × B is determined by using the right-hand rule. Do not trade right-hand rule for left-hand rule or Fleming’s rule."
   },
   {
     "type": "mcq",
@@ -74,7 +74,7 @@
       "tensor",
       "scalar"
     ],
-    "e": "စကေးလာမြှောက်လဒ်ကို ဒေါ့မြှောက်လဒ်လို့လည်း ခေါ်တယ်။ ဗှတ္တာ က ခရော့ဘက်။"
+    "e": "A dot product is a scalar. The result of the scalar product of two vectors is a scalar. Vector or tensor is not this quantity."
   },
   {
     "type": "mcq",
@@ -85,7 +85,7 @@
       "vector",
       "unitless number"
     ],
-    "e": "ဗှတ္တာမြှောက်လဒ်က ခရော့မြှောက်လဒ်။ ရလဒ်က ထောင့်မှန်ဗှတ္တာ၊ ဒီနေရာမှာ ဗှတ္တာ။"
+    "e": "A cross product is a vector. The result of the vector product of two vectors is a vector. Do not trade vector for scalar or unitless number."
   },
   {
     "type": "mcq",
@@ -96,7 +96,7 @@
       "$\\mathbf{v} = \\boldsymbol{\\omega} \\times \\mathbf{r}$",
       "$\\mathbf{v} = \\mathbf{r} \\cdot \\boldsymbol{\\omega}$"
     ],
-    "e": "စက်ဝိုင်းရွေ့မှာ ထိတွေ့အလျင်က v = ω × r ပဲ။ စကေးလာမြှောက်လဒ် A · B မဟုတ်ဘူး။"
+    "e": "In circular motion the object stays on a circle. The velocity is tangent and the centripetal acceleration points to the centre. In circular motion, tangential velocity is expressed in terms of radius r and angular velocity boldsymbol{ω} as v = boldsymbol{ω} × r. v = boldsymbol{ω} · r or v = r · boldsymbol{ω} is a different relation from v = boldsymbol{ω} × r."
   },
   {
     "type": "mcq",
@@ -107,7 +107,7 @@
       "$AB \\tan \\theta$",
       "$AB \\sin \\theta$"
     ],
-    "e": "ဗှတ္တာမြှောက်လဒ်က ခရော့မြှောက်လဒ်။ ရလဒ်က ထောင့်မှန်ဗှတ္တာ၊ ဒီနေရာမှာ AB ဆိုင်း θ။"
+    "e": "The size of A × B is AB sin θ. The magnitude of the vector product A × B is given by AB sin θ. AB cos θ or AB tan θ is a different relation from AB sin θ."
   },
   {
     "type": "mcq",
@@ -118,7 +118,7 @@
       "torque",
       "angular momentum"
     ],
-    "e": "အားရဲ့ လှည့်အကျိုးကို အလိမ်အားလို့ တိုင်းတယ်။ လည်ကြန့်မှုက ဒြပ်ထုဖြန့်ကျက်၊ ထောင့်အဟုန်က လည်ရွေ့၊ မရောပါနဲ့။"
+    "e": "The turning effect of a force about a particular fulcrum is measured by the torque. Do not trade torque for moment of inertia or angular momentum."
   },
   {
     "type": "mcq",
@@ -129,7 +129,7 @@
       "dimensionless",
       "vector"
     ],
-    "e": "အလိမ်အားက ဗှတ္တာပမာဏပဲ။ ဦးတည်ချက်က လက်ယာစည်းနဲ့ ရတယ်။"
+    "e": "Torque is r × F, a cross product, so it is a vector. Torque is a vector quantity. Do not trade vector for scalar or dimensionless."
   },
   {
     "type": "mcq",
@@ -140,7 +140,7 @@
       "$\\boldsymbol{\\tau} = \\mathbf{F} \\times \\mathbf{r}$",
       "$\\boldsymbol{\\tau} = \\mathbf{r} \\cdot \\mathbf{F}$"
     ],
-    "e": "အလိမ်အားဗှတ္တာပုံကို τ = F × r လို့ ရေးထားရင် ဒါ ခရော့ထုတ်ပဲ။ ဒေါ့ထုတ် A · B မဟုတ်ဘူး။"
+    "e": "Torque is r × F, a cross product, so it is a vector. The vector form of torque is expressed as boldsymbol{tau} = F × r. boldsymbol{tau} = F · r or boldsymbol{tau} = r · F is a different relation from boldsymbol{tau} = F × r."
   },
   {
     "type": "mcq",
@@ -151,7 +151,7 @@
       "horizontal distance",
       "angular distance"
     ],
-    "e": "အလိမ်အားပမာဏက အားနဲ့ ထောက်မှတ်က ထောင့်မှန်အကွာရဲ့ မြှောက်လဒ်ပဲ။ sin θ ပါမှ မှန်တယ်။"
+    "e": "Torque is r × F, a cross product, so it is a vector. The magnitude of torque is defined as the product of the force and the perpendicular distance from the line of action of the force to the fulcrum. Do not trade perpendicular distance for horizontal distance or angular distance."
   },
   {
     "type": "mcq",
@@ -162,7 +162,7 @@
       "moment arm",
       "force arm"
     ],
-    "e": "ဒီအချက်ရဲ့ နာမည်ကို မေးတယ်၊ အား နဲ့ ဆိုင်တယ်။ လီဗာ နဲ့ မရောပါနဲ့။"
+    "e": "The perpendicular distance from the line of action of the force to the fulcrum is also called the moment arm. Do not trade moment arm for lever arm or force arm."
   },
   {
     "type": "mcq",
@@ -173,7 +173,7 @@
       "newton metre (N m)",
       "kg m² s⁻²"
     ],
-    "e": "SI မှာ အလိမ်အားကို နယူတန်မီတာ (N m) နဲ့ တိုင်းတယ်။ N m⁻¹ က စပရိန်ကိန်းဘက်ပဲ။"
+    "e": "Torque is r × F, a cross product, so it is a vector. In SI units, torque is measured in newton metre (N m). joule or kg m² s⁻² is a different relation from newton metre (N m)."
   },
   {
     "type": "mcq",
@@ -184,7 +184,7 @@
       "$r \\sin \\theta$",
       "$r$"
     ],
-    "e": "အားက လက်တံနဲ့ ၉၀ ဒီဂရီဆိုရင် moment arm d က r နဲ့ တူတယ်။ d = r ဆိုင်း θ မို့ ဆိုင်း ၉၀ = ၁ ဖြစ်လို့ပဲ။"
+    "e": "If a force acts at an angle of 90° to the lever arm, then the moment arm d is equal to r. zero or r sin θ is a different relation from r."
   },
   {
     "type": "mcq",
@@ -195,7 +195,7 @@
       "line of action of the force",
       "pivot line"
     ],
-    "e": "ဒီအချက်ရဲ့ နာမည်ကို မေးတယ်၊ အား နဲ့ ဆိုင်တယ်။ လည်ဝင်ရိုး နဲ့ မရောပါနဲ့။"
+    "e": "The line along which a force is considered to act is called the line of action of the force. Axis of rotation or pivot line is not this quantity."
   },
   {
     "type": "mcq",
@@ -206,7 +206,7 @@
       "tightening a nut with a spanner",
       "dropping a ball vertically"
     ],
-    "e": "အား ထဲ မဝင်တဲ့ ဥပမာကို ခွာခိုင်းတယ်။ မဝင်တာက အလုံးကို ဒေါင်လိုက်ချခြင်း။ ပွင့်ပေါက် တံခါး က ဒီအုပ်စုထဲ ဝင်နိုင်သေးတယ်။"
+    "e": "Examples of the turning effect of force include all of the following EXCEPT dropping a ball vertically. Opening a door or tightening a nut with a spanner is not this quantity."
   },
   {
     "type": "mcq",
@@ -217,7 +217,7 @@
       "center of mass",
       "axis of symmetry"
     ],
-    "e": "အားပေးလို့ လှည့်တဲ့မှတ်ကို ဖူလ်ခရမ် ဒါမှမဟုတ် ပိုက်ဗို့လို့ ခေါ်တယ်။ ဒြပ်ထုဗဟိုနဲ့ မရောပါနဲ့။"
+    "e": "The point about which an object turns when a force is applied is known as the fulcrum or pivot. Do not trade fulcrum or pivot for center of mass or axis of symmetry."
   },
   {
     "type": "mcq",
@@ -228,7 +228,7 @@
       "$mr^2$",
       "$m/r^2$"
     ],
-    "e": "လည်ကြန့်မှုက ဘယ်ဝင်ရိုးလဲ ဆိုတာနဲ့ တူမတူ ပြောင်းတယ်။ ဝင်ရိုးမဖော်ရင် I တန်ဖိုး မပြည့်စုံဘူး။ အဓိကစကားလုံးက အခိုက်အတန့်၊ ကြန့်မှု၊ အမှုန် ပဲ။"
+    "e": "Moment of inertia is Σ m r². It says how the mass is spread about the axis. The moment of inertia of a particle of mass m at distance r from the axis of rotation is mr². mr or m/r² is a different relation from mr²."
   },
   {
     "type": "mcq",
@@ -239,7 +239,7 @@
       "cube",
       "first power"
     ],
-    "e": "လည်ကြန့်မှုက ဘယ်ဝင်ရိုးလဲ ဆိုတာနဲ့ တူမတူ ပြောင်းတယ်။ ဝင်ရိုးမဖော်ရင် I တန်ဖိုး မပြည့်စုံဘူး။ အဓိကစကားလုံးက အခိုက်အတန့်၊ ကြန့်မှု၊ အရာဝတ္ထု ပဲ။"
+    "e": "Moment of inertia is Σ m r². It says how the mass is spread about the axis. The moment of inertia of an object is defined as the sum of the products obtained by multiplying the mass of each particle and the square of its distance from the axis. Do not trade square for cube or first power."
   },
   {
     "type": "mcq",
@@ -250,7 +250,7 @@
       "kg m²",
       "N m"
     ],
-    "e": "လည်ကြန့်မှုရဲ့ နိုင်ငံတကာယူနစ်က ကီလိုဂရမ် မီတာ²။ ဒြပ်ထုနဲ့ အကွာအဝေးနှစ်ထပ် မြှောက်လဒ်မို့ ဒီယူနစ် ရတယ်။"
+    "e": "Moment of inertia is Σ m r². It says how the mass is spread about the axis. The SI unit of moment of inertia is kg m². kg m or N m is a different relation from kg m²."
   },
   {
     "type": "mcq",
@@ -261,7 +261,7 @@
       "axis of rotation",
       "pivot point"
     ],
-    "e": "လည်ကြန့်မှုက အမှုန်ဒြပ်ထုတွေကို ဝင်ရိုးအကွာနှစ်ထပ်နဲ့ မြှောက်ပေါင်းတာ။"
+    "e": "Moment of inertia is Σ m r². It says how the mass is spread about the axis. Moment of inertia must be specified with respect to a chosen axis of rotation. Center of mass or pivot point is not this quantity."
   },
   {
     "type": "mcq",
@@ -272,7 +272,7 @@
       "$MR^2$",
       "$\\frac{2}{5} MR^2$"
     ],
-    "e": "လည်ကြန့်မှုက ဘယ်ဝင်ရိုးလဲ ဆိုတာနဲ့ တူမတူ ပြောင်းတယ်။ ဝင်ရိုးမဖော်ရင် I တန်ဖိုး မပြည့်စုံဘူး။"
+    "e": "Moment of inertia is Σ m r². It says how the mass is spread about the axis. For a solid sphere rotating about its axis, the moment of inertia is (2)/(5) MR². (1)/(2) MR² or MR² is a different relation from (2)/(5) MR²."
   },
   {
     "type": "mcq",
@@ -283,7 +283,7 @@
       "$MR^2$",
       "$\\frac{1}{12} ML^2$"
     ],
-    "e": "အကွင်း ဒါမှမဟုတ် အခွံလုံးလည်ရင် ဗဟိုဝင်ရိုးပတ် I က MR² ပဲ။ ½MR² က အတုံးလုံးဘက်ပဲ။"
+    "e": "Moment of inertia is Σ m r². It says how the mass is spread about the axis. For a hoop or cylindrical shell rotating about its central axis, the moment of inertia is MR². (1)/(2) MR² or (1)/(12) ML² is a different relation from MR²."
   },
   {
     "type": "mcq",
@@ -294,7 +294,7 @@
       "$\\frac{1}{12} ML^2$",
       "$ML^2$"
     ],
-    "e": "ချောင်းရှည်ကို အလယ်ကနေ အလျားနဲ့ ထောင့်မှန်ဝင်ရိုးပတ် လည်ရင် I က (၁/၁၂)ML² ပဲ။ တစ်ဖက်စွန်းက (၁/၃)ML² ပဲ။"
+    "e": "Moment of inertia is Σ m r². It says how the mass is spread about the axis. For a long thin rod rotating about an axis through its center and perpendicular to its length, the moment of inertia is (1)/(12) ML². (1)/(3) ML² or ML² is a different relation from (1)/(12) ML²."
   },
   {
     "type": "mcq",
@@ -305,7 +305,7 @@
       "$\\frac{1}{12} ML^2$",
       "$\\frac{1}{2} ML^2$"
     ],
-    "e": "ချောင်းရှည်ကို တစ်ဖက်စွန်းကနေ အလျားနဲ့ ထောင့်မှန်ဝင်ရိုးပတ် လည်ရင် I က (၁/၃)ML² ပဲ။ အလယ်က (၁/၁၂) ပဲ။"
+    "e": "Moment of inertia is Σ m r². It says how the mass is spread about the axis. For a long thin rod rotating about an axis through one end and perpendicular to its length, the moment of inertia is (1)/(3) ML². (1)/(12) ML² or (1)/(2) ML² is a different relation from (1)/(3) ML²."
   },
   {
     "type": "mcq",
@@ -316,7 +316,7 @@
       "$\\tau = I / \\alpha$",
       "$\\tau = \\alpha / I$"
     ],
-    "e": "အလိမ်အား၊ ကြန့်ကြာအချိန်နဲ့ ထောင့်အရှိန် ဆက်စပ်ချက်က τ = Iα ပဲ။ F = ma ရဲ့ လည်ဘက်ပုံစံပဲ။"
+    "e": "Angular acceleration is the rate of change of angular velocity, dω/dt. The relationship between torque tau, moment of inertia I, and angular acceleration α is tau = I α. tau = I / α or tau = α / I is a different relation from tau = I α."
   },
   {
     "type": "mcq",
@@ -327,7 +327,7 @@
       "geometrical center",
       "top surface"
     ],
-    "e": "ဒြပ်ဆွဲဗဟိုက ကိုယ်အလေးချိန်အားလုံး သက်ရောက်တယ်လို့ ယူတဲ့ မှတ်ပဲ။ ညီညာသိပ်သည်းဆ မျဉ်းတံမှာ အလယ်မှာ ရှိတယ်။"
+    "e": "Density is mass per unit volume, ρ = m/V. The center of gravity of an object of regular shape and uniform density is located at its geometrical center. Do not trade geometrical center for bottom edge or top surface."
   },
   {
     "type": "mcq",
@@ -338,7 +338,7 @@
       "zero",
       "equal to weight"
     ],
-    "e": "ငြိမ်မျှခြေမှာ ပေါင်းအား သုညပဲ။ အများဆုံး ဒါမှမဟုတ် အလေးချိန်နဲ့ တူတယ်လို့ မယူနဲ့။"
+    "e": "When a system is in static equilibrium, the resultant force on the system is zero. Do not trade zero for maximum or equal to weight."
   },
   {
     "type": "mcq",
@@ -349,7 +349,7 @@
       "maximum",
       "equal to angular momentum"
     ],
-    "e": "တည်ငြိမ်မျှခြေမှာ ပေါင်းအလိမ်အားက သုညပဲ။ အများဆုံး ဖြစ်နေရင် လည်မယ်။"
+    "e": "Torque is r × F, a cross product, so it is a vector. When a system is in static equilibrium, the resultant torque on the system is zero. Maximum or equal to angular momentum is not this quantity."
   },
   {
     "type": "mcq",
@@ -360,7 +360,7 @@
       "anticlockwise",
       "horizontal"
     ],
-    "e": "ဟန်ချက်အတွက် နာရီလက်တံအလိမ်အားစုက နာရီပြန်အလိမ်အားစုနဲ့ တူရတယ်။ အောက် ဒါမှမဟုတ် ပြင်ညီနဲ့ မရောပါနဲ့။"
+    "e": "Superposition: the resultant at a point is the sum of the individual displacements. The principle of moments states that for a pivoted object to be in balance, the total clockwise moment must equal the total anticlockwise moment. Downward or horizontal is not this quantity."
   },
   {
     "type": "mcq",
@@ -371,7 +371,7 @@
       "building site crane",
       "free-falling object"
     ],
-    "e": "အခိုက်အတန့် ထဲ မဝင်တဲ့ ဥပမာကို ခွာခိုင်းတယ်။ မဝင်တာက လွတ်ကျအရာ။ ခွင်လျှာ က ဒီအုပ်စုထဲ ဝင်နိုင်သေးတယ်။"
+    "e": "Superposition: the resultant at a point is the sum of the individual displacements. Applications of the principle of moments include all of the following EXCEPT free-falling object. Beam balance or building site crane is not this quantity."
   },
   {
     "type": "mcq",
@@ -382,7 +382,7 @@
       "downward",
       "torque"
     ],
-    "e": "မျဉ်းပြိုင်အားတွေရဲ့ ငြိမ်မျှခြေမှာ အပေါ်အားစုက အောက်အားစုနဲ့ တူရတယ်။ ဘေး ဒါမှမဟုတ် အလိမ်အားနဲ့ မရောပါနဲ့။"
+    "e": "In static equilibrium under parallel forces, the sum of upward forces equals the sum of downward forces. Sideways or torque is not this quantity."
   },
   {
     "type": "mcq",
@@ -393,7 +393,7 @@
       "50 cm",
       "100 cm"
     ],
-    "e": "ညီညာတဲ့ တစ်မီတာတုတ်ကို အလျားလိုက် မျှထားရင် အလေးချိန်က ၅၀ စင်တီမီတာမှတ်မှာ သက်ရောက်တယ်။ သုည ဒါမှမဟုတ် တစ်ရာမှတ် မဟုတ်ဘူး။"
+    "e": "For a uniform metre rule balanced horizontally, its weight is considered to act at the 50 cm mark. Do not trade 50 cm for 0 cm or 100 cm."
   },
   {
     "type": "mcq",
@@ -404,7 +404,7 @@
       "torque",
       "velocity"
     ],
-    "e": "ငြိမ်မျှခြေအတွက် အားမျှသလို အလိမ်အားလည်း မျှရတယ်။ စွမ်းအင် ဒါမှမဟုတ် အလျင် မျှတာ မဟုတ်ဘူး။"
+    "e": "The conditions of static equilibrium require both force balance and torque balance. Energy or velocity is not this quantity."
   },
   {
     "type": "mcq",
@@ -415,7 +415,7 @@
       "fulcrum",
       "geometrical center"
     ],
-    "e": "ကိုယ်ထည် ညီညာ သင်္ကေတရှိရင် ဒြပ်ဆွဲဗဟိုက ဂျီဩမေတြီဗဟိုမှာပဲ။ ထောင့်တစ်ခုမှာ မဟုတ်ဘူး။"
+    "e": "If an object is uniform and symmetric, its center of gravity lies at its geometrical center. Edge or fulcrum is not this quantity."
   },
   {
     "type": "mcq",
@@ -426,7 +426,7 @@
       "pivot",
       "top end"
     ],
-    "e": "ကိုယ်ရှည်တွေရဲ့ မျှခြေတွက်ရင် ပိုက်ဗို့ပတ်လည် အလိမ်အားယူရင် ပိုလွယ်တယ်။ ပိုက်ဗို့အားရဲ့ အလိမ်အား သုညဖြစ်လို့ပဲ။"
+    "e": "In analyzing equilibrium of extended bodies, we often take moments about the pivot to simplify calculations. Center of mass or top end is not this quantity."
   },
   {
     "type": "mcq",
@@ -437,7 +437,7 @@
       "equal to applied torque",
       "part of force balance"
     ],
-    "e": "ထောက်အားက အားမျှခြေထဲ ထည့်ရတယ်။ လျစ်လျူရှုလို့ မရဘူး၊ အလိမ်အားနဲ့ တူတယ်လို့လည်း မယူနဲ့။"
+    "e": "The reaction force at a support in equilibrium problems is typically part of force balance. Do not trade part of force balance for ignored or equal to applied torque."
   },
   {
     "type": "mcq",
@@ -448,7 +448,7 @@
       "angular velocity",
       "torque"
     ],
-    "e": "ထောင့်အဟုန် L က ကြန့်ကြာအချိန် I နဲ့ ထောင့်အလျင်ရဲ့ မြှောက်လဒ်ပဲ။ L = Iω ပဲ။"
+    "e": "Moment of inertia is Σ m r². It says how the mass is spread about the axis. Angular momentum L is defined as the product of moment of inertia I and angular velocity. Do not trade angular velocity for angular acceleration or torque."
   },
   {
     "type": "mcq",
@@ -459,7 +459,7 @@
       "N m",
       "kg m s⁻¹"
     ],
-    "e": "ထောင့်အဟုန်ရဲ့ SI ယူနစ်က kg m² s⁻¹ ပဲ။ kg m s⁻¹ က မျဉ်းဖြောင့်အဟုန်ပဲ။"
+    "e": "Circular motion uses angle, ω, and a centre-pointing acceleration v²/r. The SI unit of angular momentum is kg m² s⁻¹. N m or kg m s⁻¹ is a different relation from kg m² s⁻¹."
   },
   {
     "type": "mcq",
@@ -470,7 +470,7 @@
       "vector",
       "dimensionless"
     ],
-    "e": "ထောင့်အဟုန်က ဗှတ္တာပမာဏပဲ။ စကေးလာလို့ မမှတ်နဲ့။"
+    "e": "Circular motion uses angle, ω, and a centre-pointing acceleration v²/r. Angular momentum is a vector quantity. Do not trade vector for scalar or dimensionless."
   },
   {
     "type": "mcq",
@@ -481,7 +481,7 @@
       "increasing",
       "constant"
     ],
-    "e": "ပြင်ပအလိမ်အားသုညရင် စုစုပေါင်းထောင့်အဟုန်က မပြောင်းဘူး။ L က constant ပဲ။"
+    "e": "Torque is r × F, a cross product, so it is a vector. The law of conservation of angular momentum states that if there is no net external torque, the total angular momentum of the system is constant. Do not trade constant for zero or increasing."
   },
   {
     "type": "mcq",
@@ -492,7 +492,7 @@
       "remains the same",
       "increases"
     ],
-    "e": "ရေခဲစီးသူ လက်ဆန့်ရာကနေ လက်စုရင် I ကျလို့ ထောင့်အမြန်နှုန်း တက်တယ်။ L မပြောင်းလို့ပဲ။"
+    "e": "Moment of inertia is Σ m r². It says how the mass is spread about the axis. An ice skater spinning with arms extended pulls her arms inward. Her moment of inertia decreases, so her angular speed increases."
   },
   {
     "type": "mcq",
@@ -503,7 +503,7 @@
       "angular momentum is conserved",
       "muscles keep working"
     ],
-    "e": "ဆွဲအား အလိမ်အား နဲ့ မရောပါနဲ့။"
+    "e": "When a springboard diver rotates after jumping off the board, continued rotation occurs because angular momentum is conserved. Gravity provides torque or muscles keep working is not this quantity."
   },
   {
     "type": "mcq",
@@ -514,7 +514,7 @@
       "half",
       "unchanged"
     ],
-    "e": "ပြင်ပအလိမ်အားမရှိဘဲ I က ၂ ဆတက်ရင် ω က တစ်ဝက်ကျတယ်။ L = Iω မပြောင်းလို့ပဲ။"
+    "e": "Torque is r × F, a cross product, so it is a vector. If the moment of inertia of a rotating object increases by a factor of 2 with no external torque, its angular speed becomes half. Twice or unchanged is not this quantity."
   },
   {
     "type": "mcq",
@@ -525,7 +525,7 @@
       "angular velocity",
       "centripetal force"
     ],
-    "e": "ထောင့်အဟုန်ရဲ့ ဦးတည်ချက်က ထောင့်အလျင်ရဲ့ ဦးတည်ချက်နဲ့ တူတယ်။ အလိမ်အားနဲ့ အမြဲမတူဘူး။"
+    "e": "Circular motion uses angle, ω, and a centre-pointing acceleration v²/r. The direction of angular momentum is the same as the direction of angular velocity. Linear velocity or centripetal force is not this quantity."
   },
   {
     "type": "mcq",
@@ -536,7 +536,7 @@
       "$\\sum F = 0 \\Rightarrow L = \\text{constant}$",
       "$\\sum \\tau \\neq 0 \\Rightarrow L = \\text{constant}$"
     ],
-    "e": "ထောင့်အဟုန်ထိန်းသိမ်းဖို့ သင်္ကေတက Στ = ၀ ဆိုရင် L မပြောင်းဘူး။ ΣF = ၀ က မျဉ်းဖြောင့်အဟုန်ဘက်ပဲ။"
+    "e": "Circular motion uses angle, ω, and a centre-pointing acceleration v²/r. In symbols, the condition for conservation of angular momentum is sum tau = 0 Rightarrow L = constant. sum F = 0 Rightarrow L = constant or sum tau ≠ 0 Rightarrow L = constant is a different relation from sum tau = 0 Rightarrow L = constant."
   },
   {
     "type": "mcq",
@@ -547,6 +547,6 @@
       "stretch arms outward",
       "bend forward"
     ],
-    "e": "ဆွဲ လက်မောင်း အတွင်းသို့ နဲ့ မရောပါနဲ့။"
+    "e": "To slow down her rotation, an ice skater should stretch arms outward. Do not trade stretch arms outward for pull arms inward or bend forward."
   }
 ]

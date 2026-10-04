@@ -2,36 +2,36 @@
   {
     "name": "\\( H_{cond} = k A \\frac{T_2 - T_1}{l} \\)",
     "content": "Heat conduction",
-    "e": "H = k A (T₂−T₁)/l က conduction အပူစီးနှုန်းပါ။ k ကြီး၊ A ကျယ်၊ ΔT များ၊ l ပါးရင် မြန်တယ်။"
+    "e": "This is Fourier's conduction rate: H equals k A times the temperature drop over thickness l. Bigger k, bigger area, or a thinner wall raises the heat current. The unit of k is watt per metre per kelvin."
   },
   {
     "name": "\\( H_{conv} = q A (T_2 - T_1) \\)",
     "content": "Heat convection",
-    "e": "q က convective coefficient၊ ယူနစ် W m⁻² K⁻¹ ပါ။ အရည်ရွေ့မှ ဒီပုံစံ သုံးတယ်။"
+    "e": "Newton's law of cooling writes the convection rate as q A Delta T. The coefficient q lives in watt per metre squared per kelvin and depends on the fluid motion. You use this only when the fluid itself is moving."
   },
   {
     "name": "\\( H_{rad} = e \\sigma A T^4 \\)",
     "content": "Heat radiation",
-    "e": "H = e σ A T⁴ က ရောင်ခြည်နဲ့ ထုတ်တဲ့ အပူနှုန်းပါ။ T⁴ မို့ အပူချိန်နည်းနည်းကွာရင် ထုတ်အား အများကြီးကွာတယ်။"
+    "e": "Radiated heat current goes as e sigma A T to the fourth. Absolute temperature sits to the fourth power, so a small kelvin change swings the power hard. e is emissivity, 1 for a blackbody."
   },
   {
     "name": "\\( \\Delta U = Q - W \\)",
     "content": "First law of thermodynamics",
-    "e": "ΔU = Q − W က ပထမနိယာမပါ။ ဝင်အပူကနေ စနစ်က လုပ်တဲ့ အလုပ်ကို နှုတ်တယ်။"
+    "e": "First law: the change in internal energy is heat added to the system minus work done by the system. Flip the work sign and you are counting work done on the system instead. Q and W are energies in transit, not stored heat."
   },
   {
     "name": "\\( \\eta = \\frac{W}{Q_H} \\)",
     "content": "Heat engine efficiency",
-    "e": "η = W/Q_H က အပူအင်ဂျင်ရဲ့ အထိရောက်မှုပါ။ ထည့်တဲ့ အပူထဲက ဘယ်လောက် အလုပ်ဖြစ်လဲ ကြည့်တယ်။"
+    "e": "Heat-engine efficiency is work out divided by heat taken from the hot reservoir. Only that fraction of Q_H becomes useful work. The rest leaves as Q_C to the cold side."
   },
   {
     "name": "\\( \\eta = 1 - \\frac{Q_C}{Q_H} \\)",
     "content": "Heat engine efficiency (in terms of heat)",
-    "e": "အေးကန်ကို စွန့်တဲ့ အပူနည်းလေ အင်ဂျင်ပိုကောင်းလေပါ။ အပူနှစ်ခုနဲ့ပဲ တွက်လို့ရတယ်။"
+    "e": "For a cycle, W equals Q_H minus Q_C, so efficiency is also 1 minus the heat dumped over the heat taken. Smaller Q_C at fixed Q_H means a better engine. You can score the engine from the two heats alone."
   },
   {
     "name": "\\( \\eta_c = 1 - \\frac{T_C}{T_H} \\)",
     "content": "Carnot heat engine efficiency",
-    "e": "Kelvin စကေးသုံးရတယ်။ T_C နိမ့်လေ၊ T_H မြင့်လေ စံက ပိုမြင့်တယ်။"
+    "e": "Carnot efficiency is 1 minus T_C over T_H, with both temperatures on an absolute scale. Lower the cold reservoir or raise the hot one and the ceiling climbs. No real engine between those reservoirs can beat this value."
   }
 ]

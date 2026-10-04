@@ -3,210 +3,210 @@
     "q": "Heat engine is a system that converts heat to mechanical energy, which can then be used to do mechanical work.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပြောင်းပြန် စက်ကနေ အပူလုပ်တာ မဟုတ်။ heat engine က အပူကို စက်စွမ်းအင်ပြောင်းပြီး အလုပ်လုပ်ခိုင်းတယ်။"
+    "e": "True. It repeats a cycle so work keeps coming out. Turning work into heat is dissipation, not this engine. A heat engine converts heat into mechanical energy so it can do mechanical work."
   },
   {
     "q": "Heat engine is a system that converts mechanical energy to heat energy, which can then be used to do thermal work.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ mechanical → heat လို့ ရေးထားလို့ မှားတယ်။ အင်ဂျင်က အပူထည့်ပြီး အလုပ်ထုတ်တာပါ။"
+    "e": "False. A heat engine converts heat into mechanical energy so that mechanical work can be delivered. The opposite direction is closer to a mechanical dissipater. Cycle after cycle, work is the output."
   },
   {
     "q": "A series of processes in which a system is brought back to its initial state is called a cycle.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ မူလအခြေအနေ ပြန်ရောက်တဲ့ ဖြစ်စဉ်ဆက်ကို cycle လို့ ခေါ်တယ်။ တစ်ပတ်ပြည့်ရင် ΔU = 0 ပါ။"
+    "e": "True. A cycle is a series of processes that returns the system to its initial state. Net Delta U over a cycle is zero. Then W equals Q_H minus Q_C for a heat engine."
   },
   {
     "q": "Thermal efficiency for a heat engine is the ratio of work output to heat input.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ η = W / Q_H ပါ။ အလုပ်ထွက်အားကို ထည့်တဲ့ အပူနဲ့ စားတယ်။"
+    "e": "True. Thermal efficiency is work output over heat input, W/Q_H. You can also write 1 - Q_C/Q_H. Heat input over work output is the reciprocal, not the efficiency."
   },
   {
     "q": "Thermal efficiency for a heat engine is the ratio of heat input to work output.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ heat input / work output လို့ မှတ်ရင် ၁ ထက်ကြီးသွားမယ်။ အလုပ်ကို အပူနဲ့ စားရတယ်။"
+    "e": "False. Thermal efficiency is work output over heat input, W/Q_H, not the reciprocal. A ratio bigger than 1 would claim more work than the heat you paid. The leftover heat is Q_C."
   },
   {
     "q": "Applying the first law of thermodynamic to one complete cycle, remembering that there is no net change of internal energy ($\\Delta U = 0$), we get, $Q_H - Q_C = W$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပူကန်ဝင်အပူကနေ အေးကန်စွန့်အပူ နှုတ်ရင် အလုပ်ရတယ်။"
+    "e": "True. For an ideal gas it depends only on absolute temperature. Heat and work can change U but are not stored as heat or work. Internal energy U is the total microscopic energy of the particles."
   },
   {
     "q": "The transformation of heat into work is usually accomplished in practice by two general types of engine; the internal combustion engine and the steam engine.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အပူကနေ အလုပ်ပြောင်းတာ လက်တွေ့မှာ internal combustion နဲ့ steam engine နှစ်မျိုးနဲ့ လုပ်တယ်။"
+    "e": "True. In both, a gas in a cylinder is taken around a cycle. Nuclear or solar plants are different textbook chapters. Practical heat-into-work machines are internal combustion engines and steam engines."
   },
   {
     "q": "In the gasoline engines, the combustion of the gasoline and air takes place explosively by an electric spark.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဓာတ်ဆီအင်ဂျင်က လေ-လောင်စာ ရောပြီး electric spark နဲ့ ပေါက်ကွဲလောင်တယ်။"
+    "e": "True. Diesel instead compresses air only and injects fuel that auto-ignites. A gasoline engine ignites the fuel-air mix with an electric spark. Four of the six processes are piston strokes: intake, compression, power, exhaust."
   },
   {
     "q": "In the gasoline engines, the combustion of the gasoline and air takes place slowly by compression heat alone.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ compression heat alone က diesel ဘက်ပါ။ gasoline က မီးပွင့်နဲ့ ခေါ်လောင်တယ်။"
+    "e": "False. In a gasoline engine the mixture explodes from an electric spark, not from compression heat alone. Slow compression ignition is the diesel idea. Gasoline needs that spark at the end of the compression stroke."
   },
   {
     "q": "The cycle involves the performance of six processes, of which four require motion of the piston and are called strokes.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ စက်ဝန်းမှာ ဖြစ်စဉ်ခြောက်ခုရှိပြီး ပစ္စတင်ရွေ့တဲ့ လေးခုကို strokes လို့ ခေါ်တယ်။"
+    "e": "True. A gas confined by a piston in a cylinder is the usual thermodynamic system. Heat in, work out, and U can all be tracked on that cylinder. Strokes are the piston motions in an engine cycle."
   },
   {
     "q": "Intake stroke: A mixture of gasoline vapour and air is drawn into the cylinder by the suction stroke of the piston.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ intake မှာ ပစ္စတင်ဆွဲချလို့ ဓာတ်ဆီငွေ့နဲ့ လေ ရောပြီး ဆလင်ဒါထဲ ဝင်တယ်။ suction stroke ပါ။"
+    "e": "True. Diesel intake draws air only. Compression then raises p and T of whatever was drawn in. On the gasoline intake, or suction, stroke the piston draws in gasoline vapour and air."
   },
   {
     "q": "Compression stroke: The mixture of gasoline vapour and air is compressed until its pressure and temperature rise considerably.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ compression မှာ အရောအနှောကို ဖိလို့ ဖိအားနဲ့ အပူချိန် တက်လာတယ်။"
+    "e": "True. The compression stroke squeezes the charge until pressure and temperature rise sharply. Gasoline then waits for a spark; diesel waits for injected fuel. Volume falls; p and T climb."
   },
   {
     "q": "Explosion: Combustion of the hot mixture is caused to take place very rapidly by an electric spark.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဒါက explosion အဆင့်ပါ။ ပူနေတဲ့ အရောအနှောကို spark နဲ့ မြန်မြန်လောင်ခိုင်းတယ်။"
+    "e": "True. Gasoline combustion is a rapid spark explosion at nearly constant volume; the piston barely moves in that instant. Pressure jumps, then the power stroke expands the hot gases. Diesel ignition is compression heat plus injection, not that spark pop."
   },
   {
     "q": "Power stroke: The hot combustion products expand and push the piston out, thus suffering a drop in pressure and temperature.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Carnot က တူညီတဲ့ ကန်နှစ်ခုကြား အထက်ဆုံး စံပါ။ temperature. ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. That is the work-delivery leg. Exhaust then dumps what is left. On the power stroke the hot gases expand, push the piston, and drop in pressure and temperature."
   },
   {
     "q": "Valve exhaust: The combustion products at the end of the power stroke are still at a higher pressure and temperature than the outside.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Carnot က တူညီတဲ့ ကန်နှစ်ခုကြား အထက်ဆုံး စံပါ။ temperature ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. Exhaust then dumps what is left. On the power stroke the hot gases expand, push the piston, and drop in pressure and temperature. That is the work-delivery leg."
   },
   {
     "q": "Exhaust stroke: The piston pushes almost all the remaining combustion products out of the cylinder.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Carnot က တူညီတဲ့ ကန်နှစ်ခုကြား အထက်ဆုံး စံပါ။ combustion ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. They still leave hotter and at higher pressure than the outside. A slightly larger push than outside pressure is needed to empty the cylinder. The exhaust stroke has the piston push remaining combustion products out."
   },
   {
     "q": "The diesel engine operates on either a two-stroke or four-stroke cycle.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အပူအင်ဂျင်က အပူတစ်စိတ်တစ်ပိုင်းကို အလုပ်ပြောင်းတယ်။ four-stroke ကို ဒီမေးခွန်းထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "True. A full cycle has net Delta U = 0, so W = Q_H - Q_C. A diesel draws only air, then sprays fuel that ignites from compression heat and pressure. No spark is required at that instant."
   },
   {
     "q": "Unlike the spark-ignition gasoline engine, the diesel engine induces only air into the combustion chamber on its intake stroke.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ diesel က intake မှာ လေပဲ သွင်းတယ်။ လောင်စာကို နောက်မှ ပက်ထည့်တယ်။"
+    "e": "True. Four of the six processes are piston strokes: intake, compression, power, exhaust. Diesel instead compresses air only and injects fuel that auto-ignites. On the gasoline intake, or suction, stroke the piston draws in gasoline vapour and air."
   },
   {
     "q": "Unlike the spark-ignition gasoline engine, the diesel engine induces a mixture of fuel and air into the combustion chamber on its intake stroke.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ diesel က intake မှာ လေပဲ သွင်းတယ်။ လောင်စာကို ဖိပြီးမှ ပက်ထည့်တယ်။"
+    "e": "False. A diesel draws only air on the intake stroke. Fuel is sprayed in later and ignites from the heat and pressure. The gasoline engine is the one that intakes a fuel-air mixture."
   },
   {
     "q": "Diesel fuel is sprayed into the cylinder by the injector and immediately ignites because of the heat and pressure inside the cylinder.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အပူအင်ဂျင်က အပူတစ်စိတ်တစ်ပိုင်းကို အလုပ်ပြောင်းတယ်။ immediately ကို ဒီမေးခွန်းထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "True. Equal temperatures mean zero net heat flow. A diesel draws only air, then sprays fuel that ignites from compression heat and pressure. No spark is required at that instant."
   },
   {
     "q": "In 1824, Nicolas Leonard Sadi Carnot described a hypothetical engine known as Carnot engine.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ၁၈၂၄ မှာ Carnot က စိတ်ကူးအင်ဂျင်ကို ဖော်ပြခဲ့တယ်။"
+    "e": "True. In 1824 Sadi Carnot described a hypothetical reversible engine between two reservoirs. That Carnot engine sets the upper efficiency bound for every real engine on the same pair of temperatures. Friction and irreversibility make real engines worse."
   },
   {
     "q": "Carnot engine is a heat engine operates on an ideal reversible cycle (Carnot cycle) between two heat reservoirs.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Carnot က တူညီတဲ့ ကန်နှစ်ခုကြား အထက်ဆုံး စံပါ။ reservoirs. ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. It is an upper limit, not a workshop motor. All reversible engines on that pair share the same efficiency. The Carnot engine runs a reversible cycle of two isotherms and two adiabats between two reservoirs."
   },
   {
     "q": "Carnot engine is a heat engine operates on an irreversible cycle between two heat reservoirs.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ နောက်ပြန်လှည့်လို့ရတဲ့ စက်ဝန်းမို့ အထက်ဆုံး efficiency ပေးတယ်။ irreversible ဆိုရင် စံမမှီဘူး။"
+    "e": "False. The Carnot engine runs on an ideal reversible cycle between two reservoirs. Irreversibility is what makes real engines worse. Two isotherms and two adiabats, all reversible, make the Carnot loop."
   },
   {
     "q": "Carnot engine sets an upper limit on the efficiency of all other real engines.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Carnot က တကယ့်အင်ဂျင်အားလုံးရဲ့ အထက်ဆုံး စံကို သတ်မှတ်တယ်။"
+    "e": "True. You must use absolute temperatures in eta_c = 1 - T_C/T_H. Real cycles leak heat and generate friction, so they sit below that ceiling. Carnot sets an upper limit on the efficiency of steam, gasoline and diesel engines between the same temperatures."
   },
   {
     "q": "All real engines are less efficient than Carnot engine because they do not operate through a reversible cycle.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Carnot က တူညီတဲ့ ကန်နှစ်ခုကြား အထက်ဆုံး စံပါ။ reversible ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. All reversible engines on that pair share the same efficiency. The Carnot engine runs a reversible cycle of two isotherms and two adiabats between two reservoirs. It is an upper limit, not a workshop motor."
   },
   {
     "q": "All real engines are more efficient than Carnot engine because they operate through a reversible cycle.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ more efficient လို့ ရေးထားလို့ ပြောင်းပြန်ပါ။ ပွတ်တိုက်မှု၊ အပူလွင့်မှုကြောင့် စံကို မမီဘူး။"
+    "e": "False. Real engines are less efficient than Carnot, because they are not reversible and they lose energy to friction and conduction. Carnot sets the upper bound. Nobody beats that bound between the same two reservoirs."
   },
   {
     "q": "In a reversible process, the system undergoing the process can be returned to its initial condition along the same path on the p-V diagram.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ reversible ဖြစ်စဉ်မှာ p-V ပုံပေါ် တူညီတဲ့ လမ်းကြောင်းကနေ ပြန်လာနိုင်တယ်။"
+    "e": "True. In a reversible process you can return along the same p-V path to the start. Infinitesimally slow is the main thermodynamic condition. An irreversible process cannot retrace that path."
   },
   {
     "q": "The most important condition for a process to be reversible in thermodynamics is that the process should be carried out infinitesimally slowly.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ reversible ဖြစ်ဖို့ infinitesimally နှေးနှေးလုပ်ရတယ်။"
+    "e": "True. The two branches complement each other; they are not unrelated. A reversible process can retrace the same p-V path if you go infinitesimally slowly. Carnot's four legs are all reversible."
   },
   {
     "q": "The most important condition for a process to be reversible in thermodynamics is that the process should be carried out as rapidly as possible.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ rapidly as possible လို့ ပြောရင် quasi-static မဟုတ်တော့ဘူး။ ဖြည်းဖြည်းသာ နောက်ပြန်လှည့်လို့ရတယ်။"
+    "e": "False. Reversibility wants the process carried out infinitesimally slowly, so the system can retrace the same p-V path. Rush it and you leave equilibrium. Rapid is the irreversible direction."
   },
   {
     "q": "The Carnot cycle consists of four reversible processes; two isothermal processes and two adiabatic processes.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Carnot က တူညီတဲ့ ကန်နှစ်ခုကြား အထက်ဆုံး စံပါ။ isothermal ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. Isothermal means constant temperature, so for an ideal gas Delta U = 0 and W = Q. Heat must leak slowly enough to keep equilibrium. Work is n R T ln(Vf/Vi) for the ideal-gas case."
   },
   {
     "q": "The Carnot cycle consists of four reversible processes; two isobaric processes and two isochoric processes.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ Carnot cycle က isothermal နှစ်ခုနဲ့ adiabatic နှစ်ခုပါ။ isobaric/isochoric မဟုတ်ဘူး။"
+    "e": "False. The Carnot cycle is two reversible isotherms and two reversible adiabats. Isobaric and isochoric legs belong to other model cycles. Those four Carnot legs are what set the T_C/T_H efficiency."
   },
   {
     "q": "Carnot's theorem states that no engine operating between two heat reservoirs can be more efficient than a Carnot engine operating between the same reservoirs.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အပူအင်ဂျင်က အပူတစ်စိတ်တစ်ပိုင်းကို အလုပ်ပြောင်းတယ်။ reservoirs. ကို ဒီမေးခွန်းထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "True. Carnot's theorem: no engine between two reservoirs can be more efficient than a Carnot engine on those reservoirs. The corollary is that all reversible engines on that pair are equally efficient. Different efficiencies mean irreversibility or different temperatures."
   },
   {
     "q": "Carnot's theorem states that any engine operating between two heat reservoirs can be more efficient than a Carnot engine operating between the same reservoirs.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ပိုကောင်းနိုင်တယ် ဆိုရင် နိယာမကို ဆန့်ကျင်တယ်။ အထက်ဆုံးက Carnot ပါ။"
+    "e": "False. Carnot's theorem forbids any engine between two reservoirs from beating Carnot on those same reservoirs. More efficient than Carnot would break the second-law bound. Reversible engines on that pair are equally efficient, not wilder."
   },
   {
     "q": "A corollary to Carnot's theorem states that all reversible engines operating between the same heat reservoirs are equally efficient.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကွာတယ် ဆိုရင် မှားမယ်။"
+    "e": "True. The corollary is that all reversible engines on that pair are equally efficient. Different efficiencies mean irreversibility or different temperatures. Carnot's theorem: no engine between two reservoirs can be more efficient than a Carnot engine on those reservoirs."
   },
   {
     "q": "A corollary to Carnot's theorem states that all reversible engines operating between the same heat reservoirs have different efficiencies.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ different efficiencies လို့ ရေးထားလို့ corollary နဲ့ ဆန့်ကျင်တယ်။ စံချင်းတူရင် တူညီတယ်။"
+    "e": "False. The corollary is that all reversible engines between the same reservoirs are equally efficient. Different efficiencies would appear only if the engines were irreversible or the reservoirs differed. Carnot's value is shared, not scattered."
   }
 ]

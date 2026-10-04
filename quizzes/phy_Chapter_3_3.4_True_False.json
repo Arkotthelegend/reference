@@ -3,78 +3,78 @@
     "q": "The air flow moving above the top curved surface of the wing has a longer distance to travel and needs to go faster to have the same transit time as the air travelling along the lower flat surface.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ တောင်ပံအပေါ်ကွေးက လမ်းပိုရှည်လို့ လေပိုမြန်သွားရတယ်။ အောက်ပြန့်လမ်းနဲ့ ကြာချိန်တူအောင် မြန်ရတယ်။"
+    "e": "True. The air flow moving above the top curved surface of the wing has a longer distance to travel and needs to go faster to have the same transit time as the air travelling. Faster air over the longer top path lowers pressure there and lift appears."
   },
   {
     "q": "The velocity of air flow is low along the top surface and high along the bottom surface of an aeroplane wing.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ တောင်ပံအပေါ်အမြန်နည်း၊ အောက်အမြန်များလို့ မရေးရဘူး။ အပေါ်က ပိုမြန်တယ်။"
+    "e": "False. Air is faster over the longer top of the wing and slower under the bottom, so pressure is lower above. The error is the part about velocity air flow low along top."
   },
   {
     "q": "This causes a low pressure above the wing and a high pressure below the wing which provides a lift on the wing.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ တောင်ပံအပေါ်လျော့၊ အောက်ပိုဖိလို့ ပင့်အားပေါ်တယ်။ ဖိအားကွာက လေယာဉ်ကို မြှင့်တယ်။"
+    "e": "True. This causes a low pressure above the wing and a high pressure below the wing which provides a lift on the wing. The pressure difference across the wing is the lift."
   },
   {
     "q": "When the piston of the insect sprayer is pressed, the fast moving air causes a low pressure at the tip of the nozzle.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဖျန်းစက်ပစ္စတင်နှိပ်ရင် နော်ဇယ်ထိပ် လေမြန်ပြီး ဖိအားကျတယ်။ ဘူးထဲအရည် အဲဒီနည်းဖိအားဆီ စီးတက်တယ်။"
+    "e": "True. When the piston of the insect sprayer is pressed, the fast moving air causes a low pressure at the tip of the nozzle. Bernoulli: high speed, low pressure, so the sprayer sucks liquid up the stem."
   },
   {
     "q": "When the piston of the insect sprayer is pressed, the fast moving air causes a high pressure at the tip of the nozzle.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ နော်ဇယ်ထိပ် လေမြန်ရင် ဖိအားများတယ်လို့ မပြောရဘူး။ Bernoulli အရ ဖိအားနည်းတယ်။"
+    "e": "False. Fast air at the sprayer nozzle is low pressure, and that drop draws liquid up the stem. The error is the part about piston insect sprayer pressed fast moving."
   },
   {
     "q": "The liquid inside the container of an insect sprayer is at a higher pressure, and therefore rushes up through the stem and out the nozzle.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဘူးထဲဖိအားပိုများလို့ အရည်က ပင်စည်တက်ပြီး နော်ဇယ်က ထွက်တယ်။ ဖိအားကွာက စီးစေတယ်။"
+    "e": "True. The liquid inside the container of an insect sprayer is at a higher pressure, and therefore rushes up through the stem and out the nozzle. The still liquid sits at higher pressure than the fast nozzle air, so it rushes out."
   },
   {
     "q": "The Magnus effect is a particular manifestation of Bernoulli's theorem that is commonly associated with a spinning object moving through a fluid.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Magnus က လှည့်အရာ အရည်ထဲကပ်သွားတဲ့ Bernoulli အထူးပုံပဲ။ လှည့်မှ ဘေးဖိအားကွာတယ်။"
+    "e": "True. The Magnus effect is a particular manifestation of Bernoulli's theorem that is commonly associated with a spinning object moving through a fluid. Bernoulli's equation keeps p + ½ρv² + ρgh constant along a streamline for incompressible, non-viscous laminar flow."
   },
   {
     "q": "The Magnus effect is commonly associated with a stationary object moving through a vacuum.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ရပ်နေတဲ့ အရာ ဗလာထဲမှာ Magnus မပေါ်ဘူး။ လှည့်ပြီး အရည်ထဲကပ်မှ ဖြစ်တယ်။"
+    "e": "False. The Magnus effect needs a spinning object moving through a fluid, not a stationary object in vacuum. The error is the part about Magnus effect commonly associated stationary object."
   },
   {
     "q": "In the case of a ball spinning through the air, the turning ball drags some of the air around with it.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ လှည့်နေတဲ့ ဘောလုံးက ပတ်လေကို ခေါ်ခတ်တယ်။ တစ်ဖက်လေမြန် တစ်ဖက်လေနှေး ဖြစ်လာတယ်။"
+    "e": "True. In the case of a ball spinning through the air, the turning ball drags some of the air around with it. That dragged air plus the oncoming stream is the Magnus effect."
   },
   {
     "q": "During cyclones, moving air gains speed above the roof of a house causing the reduced pressure on the roof.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဆိုင်ကလုန်းလေ အမိုးပေါ် မြန်သွားလို့ အမိုးပေါ်ဖိအားကျတယ်။ Bernoulli အရ မြန်လေ ဖိအားနည်းတယ်။"
+    "e": "True. During cyclones, moving air gains speed above the roof of a house causing the reduced pressure on the roof. Fast cyclone air above the roof drops the outside pressure."
   },
   {
     "q": "During cyclones, moving air gains speed above the roof of a house causing the increased pressure on the roof.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အမိုးပေါ် လေမြန်ရင် ဖိအားတိုးတယ်လို့ မပြောရဘူး။ Bernoulli အရ လျော့တယ်။"
+    "e": "False. Faster air above the roof lowers pressure, it does not increase it. The error is the part about cyclones moving air gains speed above."
   },
   {
     "q": "Therefore the pressure inside the house is greater, which can raise the roof.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အိမ်ထဲဖိအားက ပိုများလို့ အမိုးပင့်နိုင်တယ်။ အောက်ကတွန်း အပေါ်ကနည်းတယ်။"
+    "e": "True. Therefore the pressure inside the house is greater, which can raise the roof. Higher indoor pressure than over the roof can lift the roof."
   },
   {
     "q": "Therefore the pressure inside the house is lower, which can raise the roof.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အိမ်ထဲဖိအားနည်းလို့ အမိုးပင့်တယ်လို့ မရေးရဘူး။ အတွင်းက ပိုများမှ ပင့်တယ်။"
+    "e": "False. The inside pressure is then higher than the roof-top pressure, and that difference can lift the roof. The error is the part about Therefore pressure inside house lower raise."
   }
 ]

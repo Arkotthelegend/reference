@@ -3,66 +3,66 @@
     "type": "tf",
     "q": "If a body is dropped from a height near the earth's surface, the body will fall with a constant acceleration $g$.",
     "c": "true",
-    "e": "မှန်တယ်။ ကမ္ဘာ့မျက်နှာပြင်နီး လွတ်ကျရင် ဂျီပုံသေနဲ့ ကျတယ်။"
+    "e": "True. If a body is dropped from a height near the earth's surface, the body will fall with a constant acceleration $g$. Acceleration is not velocity. It is how velocity is changing."
   },
   {
     "type": "tf",
     "q": "If the air resistance is neglected, the fall of the body is defined as free fall.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒြပ်ဆွဲအားက ဒြပ်ထုမြောက်လဒ်နဲ့ တိုက်ရိုက်၊ အကွာနှစ်ထပ်နဲ့ ပြောင်းပြန်ပဲ။"
+    "e": "True. If the air resistance is neglected, the fall of the body is defined as free fall. Every quantity named in that sentence is being used in its physics sense."
   },
   {
     "type": "tf",
     "q": "Equations of motion under constant acceleration described in chapter 2 cannot be used in free fall.",
     "c": "false",
-    "e": "မှားတယ်။ လွတ်ကျမှာ အရှိန်ပြောင်းက ဂျီပုံသေမို့ အခန်း ၂ ညီမျှခြင်းတွေ သုံးလို့ရတယ်။"
+    "e": "False. Free fall has constant acceleration g, so the constant-acceleration equations from linear motion still apply. Acceleration is not velocity. It is how velocity is changing."
   },
   {
     "type": "tf",
     "q": "In free fall equations, we will use the symbol $h$ for displacement $s$ and $g$ for acceleration $a$.",
     "c": "true",
-    "e": "မှန်တယ်။ လွတ်ကျမှာ ရွေ့ပြောင်းမှုကို အိတ်ချ်၊ အရှိန်ပြောင်းကို ဂျီနဲ့ ရေးတယ်။"
+    "e": "True. In free fall equations, we will use the symbol $h$ for displacement $s$ and $g$ for acceleration $a$. Displacement can be smaller than the path if the path bends."
   },
   {
     "type": "tf",
     "q": "The equations of motion for free fall become $v = v_0 + gt$, $v^2 = v_0^2 + 2gh$, and $h = v_0 t + \\frac{1}{2}gt^2$.",
     "c": "true",
-    "e": "မှန်တယ်။ လွတ်ကျညီမျှခြင်းက ဗီ = ဗီသုည + ဂျီတီ၊ ဗီနှစ်ထပ် = ဗီသုညနှစ်ထပ် + နှစ်ဂျီအိတ်ချ်ပဲ။"
+    "e": "True. The equations of motion for free fall become $v = v_0 + gt$, $v^2 = v_0^2 + 2gh$, and $h = v_0 t + \\frac{1}{2}gt^2$. Every quantity named in that sentence is being used in its physics sense."
   },
   {
     "type": "tf",
     "q": "The acceleration due to gravity $g$ is directed upwards (away from the centre of the earth).",
     "c": "false",
-    "e": "မှားတယ်။ ဒြပ်ဆွဲအရှိန်ပြောင်း ဂျီက ကမ္ဘာ့ဗဟိုဘက် အောက်သို့ပဲ။ အပေါ်မဟုတ်ဘူး။"
+    "e": "False. The acceleration due to gravity is represented by the symbol $g$. Acceleration is not velocity. It is how velocity is changing."
   },
   {
     "type": "tf",
     "q": "The value of $g$ varies only slightly from one place to another, and therefore, its value is assumed to be constant in the calculations.",
     "c": "true",
-    "e": "မှန်တယ်။ $g$ က နေရာအလိုက် အနည်းငယ်ပဲ ပြောင်းတယ်။ တွက်ချက်မှာ တည်ငြိမ်လို့ ယူလို့ရတယ်။"
+    "e": "True. The value of $g$ varies only slightly from one place to another, and therefore, its value is assumed to be constant in the calculations. Its value is assumed to be constant in the calculations is arithmetic you do after the data exist."
   },
   {
     "type": "tf",
     "q": "Displacement $h$ will be positive if it is below the origin and negative above the origin.",
     "c": "false",
-    "e": "မှားတယ်။ လွတ်ကျမှာ အပေါ်က အပေါင်း၊ အောက်က အနှုတ်ပဲ။ ပြောင်းပြန် မဟုတ်ဘူး။"
+    "e": "False. With upward positive, height above the origin is positive and below is negative, not the reverse."
   },
   {
     "type": "tf",
     "q": "Velocities $v_0$ and $v$ will be positive if they are directed upward and negative if directed downward.",
     "c": "true",
-    "e": "မှန်တယ်။ အထက်ကို အပေါင်း၊ အောက်ကို အနှုတ်လို့ ယူတယ်။ ဦးတည်ချက် နိမိတ်လက္ခဏာနဲ့ ခွဲတယ်။"
+    "e": "True. Velocities $v_0$ and $v$ will be positive if they are directed upward and negative if directed downward. Every quantity named in that sentence is being used in its physics sense."
   },
   {
     "type": "tf",
     "q": "Since acceleration $g$ is always directed downwards, its value will be negative (i.e., $g = -9.8 \\text{ m s}^{-2}$).",
     "c": "true",
-    "e": "မှန်တယ်။ $g$ က အမြဲ အောက်ဦးတည်တယ်။ အထက်ကို အပေါင်းယူရင် $g=-9.8\\text{ m s}^{-2}$ ပဲ။"
+    "e": "True. Since acceleration $g$ is always directed downwards, its value will be negative (i.e., $g = -9.8 \\text{ m s}^{-2}$). Acceleration is not velocity. It is how velocity is changing."
   },
   {
     "type": "tf",
     "q": "In solving free fall problems, we use a one-dimensional coordinate system with its origin taken as the initial position of the body under consideration.",
     "c": "true",
-    "e": "မှန်တယ်။ လွတ်ကျပြဿနာမှာ တစ်ဖက်တည်း ဝင်ရိုးသုံးပြီး စမှတ်က ကနဦးနေရာပဲ။"
+    "e": "True. In solving free fall problems, we use a one-dimensional coordinate system with its origin taken as the initial position of the body under consideration. Every quantity named in that sentence is being used in its physics sense."
   }
 ]

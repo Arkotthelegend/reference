@@ -3,84 +3,84 @@
     "type": "tf",
     "q": "Sometimes a physical quantity is too big or too small to be conveniently expressed in basic SI units.",
     "c": "true",
-    "e": "မှန်တယ်။ တန်ဖိုးကြီးလွန်း ငယ်လွန်းရင် ရှေ့ဆက်တပ်တယ်။ ကီလို၊ မီလီလိုပဲ။"
+    "e": "True. Sometimes a physical quantity is too big or too small to be conveniently expressed in basic SI units. SI writes every quantity as a number times an agreed unit."
   },
   {
     "type": "tf",
     "q": "Prefixes are multiples or sub-multiples of 2.",
     "c": "false",
-    "e": "မှားတယ်။ ရှေ့ဆက်က ဆယ်၏ ဆတိုး၊ ဆတိုးပိုင်းတွေပဲ။ နှစ်၏ ဆတိုး မဟုတ်ဘူး။"
+    "e": "False. SI prefixes are powers of ten, such as 10^3 or 10^-2, not powers of two. SI writes every quantity as a number times an agreed unit."
   },
   {
     "type": "tf",
     "q": "The prefix 'femto' has the symbol 'f' and the factor $10^{-15}$.",
     "c": "true",
-    "e": "မှန်တယ်။ femto က $10^{-15}$၊ သင်္ကေတက f ပဲ။ နျူကလိယအရွယ် အလျားကို ဖမ်တိုမီတာနဲ့ တိုင်းတယ်။"
+    "e": "True. The prefix 'femto' has the symbol 'f' and the factor $10^{-15}$. Every quantity named in that sentence is being used in its physics sense."
   },
   {
     "type": "tf",
     "q": "The prefix 'pico' has the symbol 'p' and the factor $10^{-9}$.",
     "c": "false",
-    "e": "မှားတယ်။ pico က $10^{-12}$၊ သင်္ကေတက p ပဲ။ $10^{-9}$ က nano ပဲ။"
+    "e": "False. The prefix 'kilo' has the symbol 'k' and the factor $10^{3}$. This claim used 'pico' 'p' $10^{-9}$ in place of 'kilo' 'k' $10^{3}$."
   },
   {
     "type": "tf",
     "q": "The prefix 'micro' has the symbol '$\\mu$' and the factor $10^{-6}$.",
     "c": "true",
-    "e": "မှန်တယ်။ micro က $10^{-6}$၊ သင်္ကေတက $\\mu$ ပဲ။ မီလီထက် သေးပြီး nano ထက် ကြီးတယ်။"
+    "e": "True. The prefix 'micro' has the symbol '$\\mu$' and the factor $10^{-6}$. Every quantity named in that sentence is being used in its physics sense."
   },
   {
     "type": "tf",
     "q": "The prefix 'milli' has the symbol 'm' and the factor $10^{3}$.",
     "c": "false",
-    "e": "မှားတယ်။ milli က $10^{-3}$၊ သင်္ကေတက m ပဲ။ $10^{3}$ က kilo ပဲ။"
+    "e": "False. The prefix 'kilo' has the symbol 'k' and the factor $10^{3}$. This claim used 'milli' 'm' in place of 'kilo' 'k'."
   },
   {
     "type": "tf",
     "q": "The prefix 'centi' has the symbol 'c' and the factor $10^{-2}$.",
     "c": "true",
-    "e": "မှန်တယ်။ centi က $10^{-2}$၊ သင်္ကေတက c ပဲ။ စင်တီမီတာက မီတာရဲ့ ရာဂဏန်းတစ်ပုံပဲ။"
+    "e": "True. The prefix 'centi' has the symbol 'c' and the factor $10^{-2}$. Every quantity named in that sentence is being used in its physics sense."
   },
   {
     "type": "tf",
     "q": "The prefix 'kilo' has the symbol 'k' and the factor $10^{3}$.",
     "c": "true",
-    "e": "မှန်တယ်။ kilo က $10^{3}$၊ သင်္ကေတက k ပဲ။ ကီလိုဂရမ် ဒါမှမဟုတ် ကီလိုမီတာမှာ ဒီကိန်းပဲ။"
+    "e": "True. The prefix 'kilo' has the symbol 'k' and the factor $10^{3}$. Every quantity named in that sentence is being used in its physics sense."
   },
   {
     "type": "tf",
     "q": "The prefix 'mega' has the symbol 'M' and the factor $10^{6}$.",
     "c": "true",
-    "e": "မှန်တယ်။ mega က $10^{6}$၊ သင်္ကေတက M ပဲ။ မီဂါဟတ်ဇ်လို ကြီးတဲ့ ကြိမ်နှုန်းမှာ သုံးတယ်။"
+    "e": "True. The prefix 'mega' has the symbol 'M' and the factor $10^{6}$. Every quantity named in that sentence is being used in its physics sense."
   },
   {
     "type": "tf",
     "q": "The prefix 'giga' has the symbol 'G' and the factor $10^{12}$.",
     "c": "false",
-    "e": "မှားတယ်။ giga က $10^{9}$၊ သင်္ကေတက G ပဲ။ $10^{12}$ က tera ပဲ။"
+    "e": "False. The prefix 'mega' has the symbol 'M' and the factor $10^{6}$. This claim used 'giga' 'G' $10^{12}$ in place of 'mega' 'M' $10^{6}$."
   },
   {
     "type": "tf",
     "q": "Scientific notation or standard form is written by placing the decimal point after the first nonzero digit.",
     "c": "true",
-    "e": "မှန်တယ်။ စံပုံက ပထမဆုံး သုညမဟုတ် ကိန်းနောက်မှာ ဒဿမ ထားတယ်။ ပြီးရင် $10$ ရဲ့ ကိန်းထပ်နဲ့ ရေးတယ်။"
+    "e": "True. Scientific notation or standard form is written by placing the decimal point after the first nonzero digit. Scientific notation or standard form is written by placing the decimal point after the first nonzero digit is the reference you compare length, mass, or time against."
   },
   {
     "type": "tf",
     "q": "In scientific notation, the power of 10 is determined by counting the number of places we have moved the original decimal point to the marked decimal point.",
     "c": "true",
-    "e": "မှန်တယ်။ စံပုံမှာ ဒဿမရွေ့တဲ့ အကြိမ်က $10$ ရဲ့ ကိန်းထပ်ပဲ။ ဘယ်ရွေ့ရင် အပေါင်း၊ ညာရွေ့ရင် အနှုတ်ပဲ။"
+    "e": "True. In scientific notation, the power of 10 is determined by counting the number of places we have moved the original decimal point to the marked decimal point. Every quantity named in that sentence is being used in its physics sense."
   },
   {
     "type": "tf",
     "q": "In scientific notation, if we moved the decimal point to the left, then the power is negative.",
     "c": "false",
-    "e": "မှားတယ်။ ဒဿမကို ဘယ်ရွှေ့ရင် ညွှန်းကိန်း အပေါင်းပဲ။ ညာရွှေ့မှ အနုတ်ပဲ။"
+    "e": "False. In scientific notation, if we moved the decimal point to the right, it is negative."
   },
   {
     "type": "tf",
     "q": "In scientific notation, if we moved the decimal point to the right, it is negative.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒဿမကို ညာရွေ့ရင် ကိန်းထပ်က အနှုတ်ပဲ။ ဘယ်ရွေ့ရင် အပေါင်းပဲ။"
+    "e": "True. In scientific notation, if we moved the decimal point to the right, it is negative. Every quantity named in that sentence is being used in its physics sense."
   }
 ]

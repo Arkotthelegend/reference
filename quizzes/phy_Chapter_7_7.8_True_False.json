@@ -3,96 +3,96 @@
     "q": "Photometry is the science of measuring visible light in units that are weighted according to the sensitivity of human eye.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အလင်းတိုင်းတာရေးက မြင်နိုင်အလင်းကို မျက်လုံးခံနိုင်အားနဲ့ ချိန်ပြီး တိုင်းတာပဲ။ နား ဒါမှမဟုတ် ဦးနှောက်ရဲ့ ခံနိုင်အားနဲ့ မချိန်ဘူး၊ မျက်လုံးပဲ။"
+    "e": "True. Main quantities are luminous flux, intensity, luminance and illuminance. Photometry measures visible light with weights matched to the human eye, about 400 nm to 700 nm. Peak eye sensitivity is green near 555 nm."
   },
   {
     "q": "The human eye responds only to light having wavelengths between about $400\text{ nm}$ and $900\text{ nm}$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ မျက်ဝန်းနဲ့ မျက်ဆံက အလင်းချိန်၊ မှန်ဘီလူးက အာရုံ၊ မြင်လွှာက ပုံခံမျက်နှာပြင်ပဲ။ မျက်လုံးက ကင်မရာနဲ့ တူတယ်၊ အလင်းထိန်း၊ အာရုံချိန်၊ ပုံဖမ်း ရှိတယ်။"
+    "e": "False. The human eye responds from about 400 nm to 700 nm, not out to 900 nm. 900 nm is infrared, which photometry of vision does not count. Green near 555 nm is the peak of that eye curve."
   },
   {
     "q": "Human eye is more sensitive to green light of $555\text{ nm}$ compared to other colors.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ မျက်လုံးက အစိမ်း ငါးရာငါးဆယ်ငါး နာနိုမီတာကို အခံနိုင်ဆုံးပဲ။ တစ်လျူမင်ကို ဒီလှိုင်းအလျားမှာ ဝပ်နဲ့ ဆက်ထားတယ်။"
+    "e": "True. A different driver in place of Human would describe a different law. Human and eye have to stay with the same process."
   },
   {
     "q": "In photometry, there are three main photometric quantities: luminous flux, luminous intensity, and illuminance.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အလင်းကျမှုက မျက်နှာပြင်ပေါ် ကျတဲ့ စုစုပေါင်း အလင်းစီးကို ဧရိယာနဲ့ စားတာပဲ။ ယူနစ်က လက်ခ်၊ ကန်ဒဲလာ ဒါမှမဟုတ် လျူမင်နဲ့ မရောနဲ့။"
+    "e": "False. Photometry also counts luminance, intensity per unit area in a given direction, as a main quantity. Flux, intensity, luminance, and illuminance are the set. Dropping luminance leaves the candela-per-square-metre idea out."
   },
   {
     "q": "Luminous flux is a measurement of the power of visible light produced by a light source.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အလင်းစီးက ရင်းမြစ်က ထွက်တဲ့ မြင်နိုင်အလင်း စွမ်းအင်နှုန်းပဲ။ လျူမင်နဲ့ တိုင်းတယ်၊ ကန်ဒဲလာ ဒါမှမဟုတ် လက်ခ်နဲ့ မရောနဲ့။"
+    "e": "True. The eye's peak wavelength is why 555 nm is the luminous standard. Luminous flux is the visible-light power of a source, measured in lumen. One lumen is 1/683 watt at 555 nm, not at 400 nm."
   },
   {
     "q": "Luminous flux is measured in lumen ($\text{lm}$).",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ လျူမင်နဲ့ တိုင်းတယ်၊ ကန်ဒဲလာ ဒါမှမဟုတ် လက်ခ်နဲ့ မရောနဲ့။ အလင်းစီးက ရင်းမြစ်က ထွက်တဲ့ မြင်နိုင်အလင်း စွမ်းအင်နှုန်းပဲ။"
+    "e": "True. Luminous flux is the visible-light power of a source, measured in lumen. One lumen is 1/683 watt at 555 nm, not at 400 nm. The eye's peak wavelength is why 555 nm is the luminous standard."
   },
   {
     "q": "One lumen is equivalent to $1/683\text{ watt}$ of light with a wavelength of $400\text{ nm}$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ တစ်လျူမင် ညီမျှချက်က လှိုင်းအလျား လေးရာမှာ မဟုတ်ဘူး။ အစိမ်း ငါးရာငါးဆယ်ငါးမှာ ဝပ်ရဲ့ ခြောက်ရာရှစ်ဆယ့်သုံးပုံတစ်ပုံပဲ။"
+    "e": "False. One lumen is 1/683 watt of light at 555 nm, the eye's peak, not at 400 nm. 400 nm is the violet edge where the eye is much less sensitive. That 555 nm choice is why luminous units track vision."
   },
   {
     "q": "Luminous intensity is a measure of the luminous flux emitted by a light source in a direction per unit solid angle.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ထုထောင့်ကို စတီရေဒီယန်နဲ့ တိုင်းတယ်။ ယူနစ်စက်လုံး မျက်နှာပြင်ပေါ် ယူနစ်ဧရိယာက ဗဟိုမှာ ဖုံးတဲ့ ထောင့်ပဲ။"
+    "e": "True. Luminous intensity is flux per unit solid angle, I_v = Phi / Omega, in candela. Candela is lumen per steradian. Lux is illuminance, not this candela quantity."
   },
   {
     "q": "Luminous intensity is measured in lux ($\text{lx}$) or lumen per steradian.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ယူနစ်က လက်ခ်၊ ကန်ဒဲလာ ဒါမှမဟုတ် လျူမင်နဲ့ မရောနဲ့။ အလင်းကျမှုက မျက်နှာပြင်ပေါ် ကျတဲ့ စုစုပေါင်း အလင်းစီးကို ဧရိယာနဲ့ စားတာပဲ။"
+    "e": "False. Luminous intensity is the candela, lumen per steradian, not lux. Lux is illuminance, lumen per square metre. Steradian is a solid angle, not an area."
   },
   {
     "q": "A solid angle is a measure of the amount of the field of view from some particular point that a given object covers.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ယူနစ်စက်လုံး မျက်နှာပြင်ပေါ် ယူနစ်ဧရိယာက ဗဟိုမှာ ဖုံးတဲ့ ထောင့်ပဲ။ ထုထောင့်ကို စတီရေဒီယန်နဲ့ တိုင်းတယ်။"
+    "e": "True. In a solid, v = sqrt(Y/rho), Young's modulus over density. Y and the bulk modulus are elasticity properties, unit N m^-2. Liquids use bulk modulus B instead of Y."
   },
   {
     "q": "In SI system, a solid angle is expressed in steradian ($\text{sr}$).",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ယူနစ်စက်လုံး မျက်နှာပြင်ပေါ် ယူနစ်ဧရိယာက ဗဟိုမှာ ဖုံးတဲ့ ထောင့်ပဲ။ ထုထောင့်ကို စတီရေဒီယန်နဲ့ တိုင်းတယ်။ ဒီသတ်မှတ်ချက်နဲ့ မရောနဲ့။"
+    "e": "True. In Delta U = Q - W, W is positive when the system does the work. Work done on the system is negative W in this convention. In a solid, v = sqrt(Y/rho), Young's modulus over density."
   },
   {
     "q": "Luminance is the luminous intensity per unit area of light travelling in a given direction.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ မျက်နှာပြင်တောက်ပမှုက တစ်ဦးတည်ချက်မှာ တစ်ဧရိယာက ထွက်တဲ့ အလင်းအားပဲ။ ယူနစ်က ကန်ဒဲလာ တစ်စတုရန်းမီတာ၊ လက်ခ်နဲ့ မရောနဲ့။"
+    "e": "True. Lux is illuminance, not this candela quantity. Luminous intensity is flux per unit solid angle, I_v = Phi / Omega, in candela. Candela is lumen per steradian."
   },
   {
     "q": "The SI unit for luminance is lux ($\text{lx}$).",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ မျက်နှာပြင်တောက်ပမှုယူနစ်က လက်ခ် မဟုတ်ဘူး။ လက်ခ်က မျက်နှာပြင်ပေါ်ကျတဲ့ အလင်းသိပ်သည်းဆအတွက်၊ တောက်ပမှုက ကန်ဒဲလာ တစ်စတုရန်းမီတာပဲ။"
+    "e": "False. Luminance's SI unit is candela per square metre. Lux is illuminance on a receiving surface. Mixing those units mixes outgoing brightness with landing light."
   },
   {
     "q": "Illuminance is the total luminous flux incident on a surface per unit area.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အလင်းကျမှုက မျက်နှာပြင်ပေါ် ကျတဲ့ စုစုပေါင်း အလင်းစီးကို ဧရိယာနဲ့ စားတာပဲ။ ယူနစ်က လက်ခ်၊ ကန်ဒဲလာ ဒါမှမဟုတ် လျူမင်နဲ့ မရောနဲ့။"
+    "e": "True. Illuminance is luminous flux landing per unit area, in lux, and follows E_v = I_v cos theta / r^2. It falls as the square of distance. School reading areas are often quoted near 500 lux."
   },
   {
     "q": "The SI unit for illuminance is lux ($\text{lx}$).",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ယူနစ်က လက်ခ်၊ ကန်ဒဲလာ ဒါမှမဟုတ် လျူမင်နဲ့ မရောနဲ့။ အလင်းကျမှုက မျက်နှာပြင်ပေါ် ကျတဲ့ စုစုပေါင်း အလင်းစီးကို ဧရိယာနဲ့ စားတာပဲ။"
+    "e": "True. It falls as the square of distance. School reading areas are often quoted near 500 lux. Illuminance is luminous flux landing per unit area, in lux, and follows E_v = I_v cos theta / r^2."
   },
   {
     "q": "The illuminance at any point on a surface is directly proportional to the square of the distance between the source and surface.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ မျက်နှာပြင်ပေါ် အလင်းကျမှုက အကွာအဝေး နှစ်ထပ်နဲ့ တိုက်ရိုက် အချိုးကျတယ်ဆိုတာ မှားတယ်။ နှစ်ထပ်နဲ့ ပြောင်းပြန် အချိုးကျတယ်၊ ဝေးရင် လျင်မြန်စွာ လျော့တယ်။"
+    "e": "False. Illuminance is inversely proportional to the square of the source-to-surface distance. Double r and E_v falls to one quarter. A direct r squared law would brighten a surface as you walked away."
   }
 ]

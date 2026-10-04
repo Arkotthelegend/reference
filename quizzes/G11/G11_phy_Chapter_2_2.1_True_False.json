@@ -3,138 +3,138 @@
     "type": "tf",
     "q": "Vectors can be multiplied in two different ways: the scalar product and the vector product.",
     "c": "true",
-    "e": "မှန်တယ်။ ဗှတ္တာနှစ်ခုကို စကေးလာမြှောက်လဒ်နဲ့ ဗှတ္တာမြှောက်လဒ် နှစ်မျိုးမြှောက်တယ်။ တင်းဆာမြှောက်လဒ်ကို ဒီသင်ခန်းစာမှာ မသုံးဘူး။"
+    "e": "True. Vectors can be multiplied in two different ways: the scalar product and the vector product. The two products are the scalar product and the vector product."
   },
   {
     "type": "tf",
     "q": "Vectors can be multiplied in three different ways: the scalar product, the vector product, and the tensor product.",
     "c": "false",
-    "e": "မှားတယ်။ ဒီအဆင့်မှာ ဗှတ္တာမြှောက်တာ စကေးလာနဲ့ ဗှတ္တာ နှစ်မျိုးပဲရှိတယ်။ တင်းဆာမြှောက်လဒ်ကို တတိယနည်းအဖြစ် မထည့်ရဘူး။"
+    "e": "False. Vectors can be multiplied in two different ways: the scalar product and the vector product. Vectors are multiplied in two ways here: the scalar (dot) product and the vector (cross) product. There is no third product in this chapter."
   },
   {
     "type": "tf",
     "q": "In the scalar product, a scalar can be formed by multiplying two vectors.",
     "c": "true",
-    "e": "မှန်တယ်။ စကေးလာမြှောက်လဒ်က ဗှတ္တာနှစ်ခုကနေ ဂဏန်းစကေးလာတစ်လုံး ထုတ်တယ်။ ရလဒ်က ဦးတည်ချက်မရှိတဲ့ ပမာဏပဲ။"
+    "e": "True. In the scalar product, a scalar can be formed by multiplying two vectors. Dot two vectors and you get a scalar."
   },
   {
     "type": "tf",
     "q": "In the scalar product, a vector can be formed by multiplying two vectors.",
     "c": "false",
-    "e": "မှားတယ်။ စကေးလာမြှောက်လဒ်က ဂဏန်းတစ်လုံး ထုတ်တယ်။ ဗှတ္တာ မထုတ်ဘူး။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. The claim puts vector where scalar belongs. In the scalar product, a scalar can be formed by multiplying two vectors. The scalar product outputs a number, not a vector."
   },
   {
     "type": "tf",
     "q": "The scalar product of vectors $\\vec{A}$ and $\\vec{B}$ is defined as $\\vec{A} \\cdot \\vec{B} = AB \\cos \\theta$.",
     "c": "true",
-    "e": "မှန်တယ်။ အေဒေါ့ဘီက အေဘီ ကိုဆိုင်း θ ပဲ။ θ က ဗှတ္တာနှစ်ခုကြားထောင့်ဖြစ်တယ်။ ဆိုင်း θ က ခရော့ဘက်မှာ သုံးတယ်။"
+    "e": "True. The scalar product of vectors A and B is defined as A · B = AB cos θ. A · B = AB cos θ. That number is the dot product, also called the scalar product."
   },
   {
     "type": "tf",
     "q": "The scalar product of vectors $\\vec{A}$ and $\\vec{B}$ is defined as $\\vec{A} \\cdot \\vec{B} = AB \\sin \\theta$.",
     "c": "false",
-    "e": "မှားတယ်။ စကေးလာမြှောက်လဒ်က အေဘီ ကိုဆိုင်း θ။ ဆိုင်းက ခရော့ဘက်မှာ သုံးတယ်။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. The claim puts sin where cos belongs. The scalar product of vectors A and B is defined as A · B = AB cos θ. The scalar product uses cos θ, not sin θ."
   },
   {
     "type": "tf",
     "q": "In the equation $\\vec{A} \\cdot \\vec{B} = AB \\cos \\theta$, $\\theta$ is the angle between $\\vec{A}$ and $\\vec{B}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒေါ့ထုတ်ကိန်းမှာ သီတာက အေနဲ့ ဘီကြားထောင့်ပဲ။ ဒီထောင့်မှန်မှ ကိုးဆိုင်းတန်ဖိုး မှန်တယ်။"
+    "e": "True. In the equation A · B = AB cos θ, θ is the angle between A and B. Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "The scalar product is also called the dot product.",
     "c": "true",
-    "e": "မှန်တယ်။ စကေးလာမြှောက်လဒ်ကို ဒေါ့မြှောက်လဒ်လို့လည်း ခေါ်တယ်။ အစက်နဲ့ ရေးတဲ့ အေ · ဘီ ပုံစံမို့ ဒီနာမည်ရတယ်။"
+    "e": "True. The scalar product is also called the dot product. A · B = AB cos θ. That number is the dot product, also called the scalar product."
   },
   {
     "type": "tf",
     "q": "The scalar product is also called the cross product.",
     "c": "false",
-    "e": "မှားတယ်။ စကေးလာမြှောက်လဒ်က ဒေါ့မြှောက်လဒ်ပဲ။ ခရော့မြှောက်လဒ်က ဗှတ္တာမြှောက်လဒ်ဖြစ်ပြီး ရလဒ်က ဗှတ္တာပဲ။"
+    "e": "False. The claim puts cross where dot belongs. The scalar product is also called the dot product. A × B is the cross product, a vector perpendicular to both A and B."
   },
   {
     "type": "tf",
     "q": "Work is the scalar product of force and displacement.",
     "c": "true",
-    "e": "မှန်တယ်။ အလုပ်က အားနဲ့ အရွေ့ရဲ့ စကေးလာမြှောက်လဒ်ပဲ။ ခရော့မြှောက်လဒ်က အလိမ်အားဘက်၊ မရောပါနဲ့။"
+    "e": "True. Work is the scalar product of force and displacement. W = F · s = Fs cos θ. That is a scalar product."
   },
   {
     "type": "tf",
     "q": "Work is the vector product of force and displacement.",
     "c": "false",
-    "e": "မှားတယ်။ ဗှတ္တာမြှောက်လဒ်က ခရော့မြှောက်လဒ်။ ရလဒ်က ထောင့်မှန်ဗှတ္တာ၊ ဒီနေရာမှာ။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. The claim puts vector where scalar belongs. Work is the scalar product of force and displacement. Work is a scalar product, F · s, not a vector product."
   },
   {
     "type": "tf",
     "q": "The scalar product has the commutative property as described by $\\vec{A} \\cdot \\vec{B} = \\vec{B} \\cdot \\vec{A}$.",
     "c": "true",
-    "e": "မှန်တယ်။ စကေးလာမြှောက်လဒ်က လဲလှယ်နိုင်တယ်။ အေဒေါ့ဘီ နဲ့ ဘီဒေါ့အေ တူတယ်၊ ထောင့်က တူတူမို့။"
+    "e": "True. The scalar product has the commutative property as described by A · B = B · A. Dot products make scalars with cos θ. Cross products make perpendicular vectors with sin θ."
   },
   {
     "type": "tf",
     "q": "The vector product of vectors $\\vec{A}$ and $\\vec{B}$ is defined as $\\vec{A} \\times \\vec{B} = \\vec{C}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဗှတ္တာမြှောက်လဒ်က ခရော့မြှောက်လဒ်။ ရလဒ်က ထောင့်မှန်ဗှတ္တာ၊ ဒီနေရာမှာ။"
+    "e": "True. The vector product of vectors A and B is defined as A × B = C. The vector product is A × B = C, with C = AB sin θ and C perpendicular to the A-B plane."
   },
   {
     "type": "tf",
     "q": "The magnitude of $\\vec{C}$ in the vector product $\\vec{A} \\times \\vec{B} = \\vec{C}$ is $C = AB \\cos \\theta$.",
     "c": "false",
-    "e": "မှားတယ်။ ဗှတ္တာမြှောက်လဒ်က ခရော့မြှောက်လဒ်။ ရလဒ်က ထောင့်မှန်ဗှတ္တာ၊ ဒီနေရာမှာ။"
+    "e": "False. The cross product uses sin θ, not cos θ."
   },
   {
     "type": "tf",
     "q": "The direction of $\\vec{C}$ in a vector product is determined by using the right-hand rule.",
     "c": "true",
-    "e": "မှန်တယ်။ ခရော့မြှောက်လဒ်ရဲ့ ဦးတည်ချက်ကို ညာလက်စည်းမျဉ်းနဲ့ ရှာတယ်။ လက်ညှိုး အေ၊ လက်ခလယ် ဘီ၊ လက်မ က အေခရော့ဘီ။"
+    "e": "True. The direction of C in a vector product is determined by using the right-hand rule. Point fingers along A, curl them toward B, and the thumb gives A × B."
   },
   {
     "type": "tf",
     "q": "The direction of $\\vec{C}$ is parallel to the plane that contains $\\vec{A}$ and $\\vec{B}$.",
     "c": "false",
-    "e": "မှားတယ်။ ကရော့စ်ထုတ်ကိန်း စီက အေနဲ့ ဘီပါတဲ့ လေယာဉ်ကို ထောင့်မှန်တယ်။ မျဉ်းပြိုင်ဆိုရင် ဦးတည်ချက် လွဲသွားမယ်။"
+    "e": "False. A × B stands perpendicular to the plane of A and B. Parallel would be wrong."
   },
   {
     "type": "tf",
     "q": "The result of the vector product is a vector quantity.",
     "c": "true",
-    "e": "မှန်တယ်။ ဗှတ္တာမြှောက်လဒ်ရဲ့ ရလဒ်က ဗှတ္တာပမာဏပဲ။ စကေးလာထွက်တာ ဒေါ့ထုတ်တာပဲ။"
+    "e": "True. The result of the vector product is a vector quantity. Dot products make scalars with cos θ. Cross products make perpendicular vectors with sin θ."
   },
   {
     "type": "tf",
     "q": "The vector product between two vectors is denoted by a cross ($\\times$), hence this product is called the cross product.",
     "c": "true",
-    "e": "မှန်တယ်။ ဗှတ္တာမြှောက်လဒ်က ခရော့မြှောက်လဒ်။ ရလဒ်က ထောင့်မှန်ဗှတ္တာ၊ ဒီနေရာမှာ။ အဓိကစကားလုံးက ဗှတ္တာ၊ မြှောက်လဒ်၊ ကြား ပဲ။"
+    "e": "True. The vector product between two vectors is denoted by a cross (×), hence this product is called the cross product. A × B is the cross product, a vector perpendicular to both A and B."
   },
   {
     "type": "tf",
     "q": "The vector product obeys the commutative property as $\\vec{A} \\times \\vec{B} = \\vec{B} \\times \\vec{A}$.",
     "c": "false",
-    "e": "မှားတယ်။ ခရော့မြှောက်လဒ်က လဲလှယ်လို့ မရဘူး။ အေခရော့ဘီ = −(ဘီခရော့အေ)။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. The scalar product has the commutative property as described by A · B = B · A. Dot products make scalars with cos θ. Cross products make perpendicular vectors with sin θ."
   },
   {
     "type": "tf",
     "q": "The formulae for the torque and the angular velocity are determined by using the vector product.",
     "c": "true",
-    "e": "မှန်တယ်။ ထောင့်အလျင်က ထောင့်အရွေ့ရဲ့ အချိန်ပြောင်းနှုန်းပဲ။ မျဉ်းဖြောင့်အလျင် v = rω နဲ့ ချိတ်တယ်။"
+    "e": "True. The formulae for the torque and the angular velocity are determined by using the vector product. Angular velocity is the rate of change of angular displacement, dθ/dt."
   },
   {
     "type": "tf",
     "q": "To use the right-hand rule, first you have to hold up your right hand so that index finger and middle finger are perpendicular to thumb.",
     "c": "true",
-    "e": "မှန်တယ်။ လက်ယာစည်းမှာ လက်ယာကို မတ်မတ်ထောင်ပြီး လက်ညှိုးနဲ့ လယ်လက်ချောင်းကို လက်မနဲ့ ထောင့်မှန်ထားရတယ်။"
+    "e": "True. To use the right-hand rule, first you have to hold up your right hand so that index finger and middle finger are perpendicular to thumb. Point fingers along A, curl them toward B, and the thumb gives A × B."
   },
   {
     "type": "tf",
     "q": "In the right-hand rule, your index finger points in the direction of $\\vec{B}$ and your middle finger points in the direction of $\\vec{A}$.",
     "c": "false",
-    "e": "မှားတယ်။ ခရော့မြှောက်လဒ်ရဲ့ ဦးတည်ချက်ကို ညာလက်စည်းမျဉ်းနဲ့ ရှာတယ်။ လက်ညှိုး အေ၊ လက်ခလယ် ဘီ၊ လက်မ က အေခရော့ဘီ။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. Point fingers along A, curl them toward B, and the thumb gives A × B."
   },
   {
     "type": "tf",
     "q": "In the right-hand rule, your thumb will point in the direction of the cross product $\\vec{A} \\times \\vec{B}$.",
     "c": "true",
-    "e": "မှန်တယ်။ လက်ယာစည်းမှာ လက်မက A × B ရဲ့ ဦးတည်ချက်ကို ပြတယ်။ လက်ညှိုးက ရလဒ် မဟုတ်ဘူး။"
+    "e": "True. In the right-hand rule, your thumb will point in the direction of the cross product A × B. A × B is the cross product, a vector perpendicular to both A and B."
   }
 ]

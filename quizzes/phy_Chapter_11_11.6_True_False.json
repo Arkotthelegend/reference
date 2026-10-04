@@ -3,120 +3,120 @@
     "q": "Electricity supplied to the house is a single-phase form of alternating current (AC).",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အိမ်ကို တစ်ဖေ့စ် AC ပို့တယ်။ ကြိုးထူထဲ လိုက်နဲ့ နျူထရယ် နှစ်ခု ပါပြီး အကာခွဲထားတယ်။"
+    "e": "True. Current is charge passing a point each second, and it needs a closed path. Electricity supplied to the house is a single-phase form of alternating current (AC)."
   },
   {
     "q": "One of the wires entering a house is the live wire (L) and the other is the neutral wire (N).",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ လိုက်က ဗို့မြင့်၊ နျူထရယ်က ပြန်လမ်း၊ မြေကြိုးက ကိုယ်ထည်ကာတယ်။ စိုရင် ရှော့ ပိုလွယ်တယ်။"
+    "e": "True. Neutral is held near zero by the supply company and completes the loop. The live wire (L) and the other is the neutral wire (N)."
   },
   {
     "q": "The live wire (L) is usually at zero volt while the neutral wire (N) carries a high voltage.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ပြောင်းပြန် ပြောထားလို့ မှားတယ်။ လိုက်ကို ထိရင် အန္တရာယ်ရှိတယ်၊ နျူထရယ်က ပြန်လမ်းပဲ။"
+    "e": "False. The right claim is this: The live wire (L) is a dangerous wire as it carries a high voltage while the neutral wire (N) is usually at zero volt. Voltage is potential difference, energy per unit charge between two points. The printed line wrongly says the live wire (L) is usually at zero volt while the neutral wire (N) carries a high voltage."
   },
   {
     "q": "The electricity is fed into the house through the main fuse, meter, main switch and then to the distribution box.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အိမ်ထဲ ဖျူးမူ၊ မီတာ၊ ပင်မခလုတ် ဖြတ်ပြီး ဖြန့်သေတ္တာဆီ ရောက်တယ်။ အဲ့ကနေ ဆားကစ်ခွဲတယ်။"
+    "e": "True. A fuse is a thin tin-lead wire that melts on overload and opens the circuit on purpose. The main fuse, meter, main switch and then to the distribution box."
   },
   {
     "q": "From the distribution box there are normally three circuits: the lighting circuit, the power circuit (ring main circuit) and heating circuit.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အိမ်ထဲ ဖျူးမူ၊ မီတာ၊ ပင်မခလုတ် ဖြတ်ပြီး ဖြန့်သေတ္တာဆီ ရောက်တယ်။ အဲ့ကနေ ဆားကစ်ခွဲတယ်။ ခန်းစာထဲ ဒီဆက်သွယ်ချက်ကို ပဲ အသားပေးထားတယ်။"
+    "e": "True. A ring main feeds sockets both ways around a loop so cable current is shared. The lighting circuit, the power circuit (ring main circuit) and heating circuit."
   },
   {
     "q": "Three cables are colour coded with blue for live (L), brown for neutral (N), and striped green-yellow for earth (E).",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အရောင် ပြောင်းပြန် ပြောထားလို့ မှားတယ်။ အပြာက နျူထရယ်၊ အညိုက လိုက်။"
+    "e": "False. The right claim is this: Three cables are colour coded with brown for live, blue for neutral, striped green-yellow for earth. The printed line wrongly says three cables are colour coded with blue for live (L), brown for neutral (N), and striped green-yellow for earth (E)."
   },
   {
     "q": "The old colour code for wiring is red for live, black for neutral and green for earth.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အဟောင်းက လိုက် အနီ၊ နျူထရယ် အမည်း၊ ကမ္ဘာမြေ အစိမ်း။ နေရာအချို့မှာ ဒီအရောင် ကျန်သေးတယ်။"
+    "e": "True. This old colour code for wiring is red for live, black for neutral and green for earth. Wiring is red for live, black for neutral and green for earth."
   },
   {
     "q": "In the lighting circuit, the light bulbs are arranged in parallel across the mains line.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ မီးသီးတွေကို ပြိုင်ဆက်ထားလို့ တစ်လုံးပိတ်လည်း ကျန်တာ မထိဘူး။ တစ်လုံးချင်း ၂၄၀ ဗို့ ရတယ်။"
+    "e": "True. The bulb filament is tungsten because it can sit near 3000 °C without melting. Circuit, the light bulbs are arranged in parallel across the mains line."
   },
   {
     "q": "The lighting circuit differs from the other two in that there are three wires: live, neutral, and earth.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ သုံးကြိုးလို့ ပြောလို့ မှားတယ်။ ကမ္ဘာမြေပါတာ ပါဝါ/အပူဆားကစ်ဘက် ပိုများတယ်။"
+    "e": "False. The right claim is this: All electrical appliances require two wires, the live and neutral wires to form a complete circuit. Neutral is held near zero by the supply company and completes the loop. The printed line wrongly says the lighting circuit differs from the other two in that there are three wires: live, neutral, and earth."
   },
   {
     "q": "A lighting circuit must be connected sequentially as live wire, fuse, switch, load and then to neutral wire.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ မီးဆားကစ် အစဉ်က လိုက် → ဖျူး → ခလုတ် → ဝန် → နျူထရယ်ပဲ။ ဖျူးနဲ့ ခလုတ်က လိုက်ဘက်မှာ ရှိရတယ်။"
+    "e": "True. The live conductor swings plus and minus and is the dangerous one. Sequentially as live wire, fuse, switch, load and then to neutral wire."
   },
   {
     "q": "A power circuit is an electrical system in which distribution points are connected to the main supply in a continuous closed circuit.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပါဝါဆားကစ်က ပလပ်တွေကို ကွင်းပတ်လမ်းနဲ့ ဆက်တယ်။ လမ်းနှစ်သွယ် ပြန်ပတ်တာပဲ။"
+    "e": "True. A ring main feeds sockets both ways around a loop so cable current is shared. Points are connected to the main supply in a continuous closed circuit."
   },
   {
     "q": "In a ring main circuit the live, neutral and earth wires form a loop of cable going from the consumer unit to all of the sockets in turn and then back to the consumer unit.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကွင်းပတ်လမ်းလို့ ခေါ်တယ်။ ကြိုးက ဖြန့်ယူနစ်ကနေ ပလပ်တွေ လှည့်ပြီး ပြန်ပတ်တယ်။"
+    "e": "True. Earth bonding dumps a fault current so the case cannot stay live. Of the sockets in turn and then back to the consumer unit."
   },
   {
     "q": "Power circuit is for the use of electric cookers, ovens, and washing machines.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ပါဝါကွင်းလို့ ပြောလို့ မှားတယ်။ ပါဝါကွင်းက တီဗီ၊ ကွန်ပျူတာလို ပါဝါနည်းတဲ့ ပလပ်တွေပဲ။"
+    "e": "False. The right claim is this: Heating circuit is for the utilization of appliances such as electric cookers, ovens, hot plates, washing machines and dryers. The printed line wrongly says power circuit is for the use of electric cookers, ovens, and washing machines."
   },
   {
     "q": "Since the current can flow to any particular socket by two ways in a ring main circuit, thinner wires can be used in the whole ring.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကွင်းပတ်လမ်းလို့ ခေါ်တယ်။ ကြိုးက ဖြန့်ယူနစ်ကနေ ပလပ်တွေ လှည့်ပြီး ပြန်ပတ်တယ်။ ဒီတစ်ချက်ပဲ ကိုင်ထားရင် ဖြေလွယ်တယ်။"
+    "e": "True. Current is charge passing a point each second, and it needs a closed path. Ring main circuit, thinner wires can be used in the whole ring."
   },
   {
     "q": "Each main ring circuit uses a 30 A fuse.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကွင်းပတ်လမ်း တစ်ခုချင်း ၃၀ အမ်ပီယာ ဖျူး သုံးတယ်။ ပလပ်များတာကို ဒီအဆင့်နဲ့ ကာတယ်။"
+    "e": "True. A fuse is a thin tin-lead wire that melts on overload and opens the circuit on purpose. The value 30 A is the figure this statement is using."
   },
   {
     "q": "Heating circuit is for the utilization of appliances such as electric cookers, ovens, hot plates, washing machines and dryers.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အပူဆားကစ်က မီးဖို၊ အပူပြား၊ အဝတ်လျှော်၊ အခြောက်စက်လို ပါဝါကြီးတဲ့ ပစ္စည်းတွေပဲ။"
+    "e": "True. Heating circuit is for the utilization of appliances such as electric cookers, ovens, hot plates, washing machines and dryers. Appliances such as electric cookers, ovens, hot plates, washing machines and dryers."
   },
   {
     "q": "The fuse of each circuit must be connected in the neutral (N) lead to protect the appliances.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ နျူထရယ်မှာ တပ်လို့ ပြောလို့ မှားတယ်။ နျူထရယ်ပြတ်သွားရင် ပစ္စည်းက လိုက်နဲ့ ဆက်နေသေးလို့ အန္တရာယ်ရှိတယ်။"
+    "e": "False. The right claim is this: The fuse of each circuit must be connected in the live lead and must never be in the neutral lead. A fuse is a thin tin-lead wire that melts on overload and opens the circuit on purpose. The printed line wrongly says the fuse of each circuit must be connected in the neutral (N) lead to protect the appliances."
   },
   {
     "q": "A circuit breaker is an automatic switch which trips when the current rises above the specified value.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဆားကစ်ဘရိတ်ကာက လျှပ်စီး သတ်မှတ်ချက်ကျော်ရင် အလိုအလျောက် ဖြတ်တယ်။ ဖျူးလို ပျော်စရာ မလိုဘူး။"
+    "e": "True. A breaker is a reusable automatic switch that trips on overload or a short. Automatic switch which trips when the current rises above the specified value."
   },
   {
     "q": "Earthing of an electrical appliance is the most important safety precaution.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကမ္ဘာမြေချိတ်တာ အရေးအကြီးဆုံး ဘေးကင်းနည်းပဲ။ ကိုယ်ထည် ဗို့မတင်အောင် မြေဆီ လွှတ်တယ်။"
+    "e": "True. Earth bonding dumps a fault current so the case cannot stay live. Earthing of an electrical appliance is the most important safety precaution."
   },
   {
     "q": "In any electrical appliance the earth wire is always connected to the metal case.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကမ္ဘာမြေကြိုးက ပစ္စည်းရဲ့ သတ္တုကိုယ်ထည်နဲ့ ဆက်တယ်။ လိုက်ထိသွားရင် မြေဆီ ထွက်သွားအောင်ပဲ။"
+    "e": "True. Earth bonding dumps a fault current so the case cannot stay live. In any electrical appliance the earth wire is always connected to the metal case."
   }
 ]

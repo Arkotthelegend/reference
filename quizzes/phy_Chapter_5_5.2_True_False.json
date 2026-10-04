@@ -3,222 +3,222 @@
     "q": "Thermodynamics is the study of systems involving energy in the form of heat and work.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ kinetic တစ်မျိုးတည်း မဟုတ်။"
+    "e": "True. Mechanical kinetic energy alone is not the whole subject. Thermodynamics studies systems whose energy appears as heat and work. A piston confining gas in a cylinder is the usual picture."
   },
   {
     "q": "Thermodynamics is the study of systems involving energy exclusively in the form of mechanical kinetic energy.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ စက်ရွေ့လျားစွမ်းအင်ပဲ လို့ ကန့်ရင် မှားတယ်။ heat and work ရဲ့ ဆက်စပ်မှုပါ။"
+    "e": "False. Thermodynamics studies heat and work, not mechanical kinetic energy alone. A piston-and-gas cylinder is the usual example. Internal energy includes microscopic motion, not just bulk KE."
   },
   {
     "q": "Thermal equilibrium is an important concept in thermodynamics.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ မျှရင် net အပူကူး မရှိဘူး။ thermal equilibrium က thermodynamics မှာ အရေးကြီးတယ်။ အပူချိန်တူရင် မျှတယ်။"
+    "e": "True. Maximum heat flow would mean the opposite, a temperature gap. Thermal equilibrium means no net heat transfer, which happens when temperatures match. Zeroth law then lets a thermometer define that shared temperature."
   },
   {
     "q": "When two systems are in thermal equilibrium, there is no net heat transfer between them.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ နှစ်ခု မျှရင် အကြား net အပူကူး မရှိဘူး။"
+    "e": "True. Maximum heat flow would mean the opposite, a temperature gap. Thermal equilibrium means no net heat transfer, which happens when temperatures match. Two systems are in thermal equilibrium there cannot be dropped from this process without changing the law."
   },
   {
     "q": "When two systems are in thermal equilibrium, there is maximum net heat transfer between them.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ မျှပြီးသား နှစ်ခုကြား အပူအများကြီး ကူးနေတယ်လို့ ထင်ရင် မျှခြေ မဖြစ်သေးဘူး။"
+    "e": "False. Thermal equilibrium means no net heat transfer. The two systems already share a temperature. Maximum flow would require a temperature difference."
   },
   {
     "q": "Systems at the same temperature will be in thermal equilibrium with each other.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အပူချိန်တူရင် အချင်းချင်း thermal equilibrium ဖြစ်တယ်။"
+    "e": "True. Thermal equilibrium means no net heat transfer, which happens when temperatures match. Zeroth law then lets a thermometer define that shared temperature. Maximum heat flow would mean the opposite, a temperature gap."
   },
   {
     "q": "The zeroth law of thermodynamics states that when two objects are separately in thermodynamic equilibrium with a third object, they all are in thermodynamic equilibrium with each other.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Zeroth law — တတိယနဲ့ သီးသန့်မျှတဲ့ နှစ်ခုဟာ အချင်းချင်းလည်း မျှတယ်။"
+    "e": "True. Zeroth law: if two objects are each in equilibrium with a third, they are in equilibrium with each other. That is how temperature becomes a comparable property. A fourth object is not part of the statement."
   },
   {
     "q": "The first law of thermodynamics is an application of the conservation energy for heat and thermodynamic processes.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ energy conservation ပါ။"
+    "e": "True. Momentum or mass conservation is a different book. First law is conservation of energy applied to heat and thermodynamic processes. Delta U = Q - W, with W the work done by the system."
   },
   {
     "q": "The first law of thermodynamics relates the change in internal energy of a system to heat added and the work done by the system.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ΔU = Q − W ပါ။"
+    "e": "True. W flips sign if work is done on the system instead. Delta U equals net heat into the system minus work done by the system. Q is positive when heat is added, negative when heat is removed."
   },
   {
     "q": "The change in internal energy $\\Delta U$ of a system is equal to the net heat flow $Q$ into the system minus the total work $W$ done by the system.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ΔU = Q − W ပါ။ ဝင်အပူကနေ စနစ်က လုပ်တဲ့ အလုပ်ကို နှုတ်တယ်။"
+    "e": "True. W flips sign if work is done on the system instead. Delta U equals net heat into the system minus work done by the system. Change in internal energy Delta U of cannot be dropped from this process without changing the law."
   },
   {
     "q": "The change in internal energy $\\Delta U$ of a system is equal to the net heat flow $Q$ into the system plus the total work $W$ done by the system.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ပထမနိယာမက ΔU = Q − W ပါ။ ပေါင်းလို့ မရဘူး။ စနစ်က လုပ်တဲ့ အလုပ်က အတွင်းစွမ်းအင်ကို လျော့တယ်။"
+    "e": "False. First law is Delta U = Q minus W, not Q plus W, when W is work done by the system. You subtract the energy the system spends as work. Adding W would count that energy twice."
   },
   {
     "q": "In the first law of thermodynamics, $Q$ is positive if heat is added to the system, and negative if heat is removed.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Q က စနစ်ထဲ အပူဝင်ရင် အပေါင်း၊ ထွက်ရင် အနုတ်ပါ။"
+    "e": "True. The two branches complement each other; they are not unrelated. Heat is energy flowing because temperatures differ. It is not a stored fluid sitting inside a body."
   },
   {
     "q": "In the first law of thermodynamics, $W$ is positive if work is done on the system, and negative if work is done by the system.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ on the system ကို အပေါင်းလို့ ထင်ရင် လက္ခဏာပြောင်းပြန်ပါ။ ΔU = Q − W ကို မှတ်။"
+    "e": "False. In this sign convention W is positive when the system does work, and negative when work is done on the system. Q is positive when heat is added. Flip those work signs and Delta U = Q - W fails."
   },
   {
     "q": "The internal energy $U$ of a system is defined as the sum of the energies of all the constituent particles.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ particles ပေါင်းတာပါ။ U က အမှုန်အားလုံးရဲ့ စွမ်းအင်ပေါင်းပါ။"
+    "e": "True. Heat and work can change U but are not stored as heat or work. Internal energy U is the sum of the energies of all constituent particles. For an ideal gas that total tracks absolute temperature only."
   },
   {
     "q": "The internal energy of ideal gases depends only on temperature, not on volume or pressure.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဖြစ်စဉ်တစ်ခုချင်း ဘယ်ကိန်းမပြောင်းလဲ ခွဲမှတ်။ temperature ကို ဒီမေးခွန်းထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "True. U is proportional to absolute temperature. An isothermal ideal-gas process therefore has Delta U = 0. Internal energy of an ideal gas depends only on temperature, not on volume or pressure."
   },
   {
     "q": "The internal energy of ideal gases depends only on volume and pressure, not on temperature.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ U က T ရဲ့ ဖန်ရှင်ပါ။ volume and pressure ပဲ လို့ ပြောရင် မှားတယ်။"
+    "e": "False. An ideal gas stores internal energy by temperature alone, not by volume or pressure. U is proportional to absolute temperature. Change V or p at fixed T and U stays put."
   },
   {
     "q": "Internal energy of an ideal gas is directly proportional to the absolute temperature.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ideal gas မှာ U က ပကတိအပူချိန်နဲ့ တိုက်ရိုက်အချိုးကျတယ်။"
+    "e": "True. The monoatomic formula is U = (3/2) n R T. Inverse or exponential would not match that kinetic-theory count. Ideal-gas internal energy is directly proportional to absolute temperature."
   },
   {
     "q": "Heat transfer and work are both energy in transit.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ transit ပါ၊ stored မဟုတ်။"
+    "e": "True. Heat and work are both energy in transit. Neither is stored as such inside the system. What stays behind is a change in internal energy."
   },
   {
     "q": "Heat transfer and work are both stored as such in a system.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ stored လို့ ခေါ်ရင် မှားတယ်။ နှစ်ခုလုံးက ဝင်ထွက်မှ ရှိတယ်၊ အထဲမှာ မနေဘူး။"
+    "e": "False. Heat and work are energy in transit, not stored inventories. What the system stores is internal energy. After the process, you cannot point to a pile of heat or a pile of work inside."
   },
   {
     "q": "Internal energy is a form of energy completely different from either heat or work.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ΔU = Q − W ကို လက္ခဏာမမှားအောင် သုံးတယ်။ completely ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. Heat and work are path-dependent transfers. After the process you can quote U; you cannot quote a leftover pile of heat. Internal energy is a stored state property, different from heat or work."
   },
   {
     "q": "A thermodynamic process may be defined as a change from one equilibrium state of a system to another.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ equilibrium state ချင်း ကူးတယ်။ ဖြစ်စဉ်က မျှခြေအခြေအနေတစ်ခုကနေ နောက်တစ်ခု ပြောင်းတာပါ။"
+    "e": "True. Quasi-static means you crawl slowly enough to stay in internal equilibrium. A sudden bang is not that ideal path. A thermodynamic process is a change from one equilibrium state to another."
   },
   {
     "q": "In thermodynamics, a quasi-static process is a thermodynamic process that happens slowly enough for the system to remain in internal physical thermodynamic equilibrium.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဝါကျထဲက ကိန်းဂဏန်းနဲ့ နာမည်ကို တိတိကျကျ မှတ်။ thermodynamics ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. You can then draw it as a curve on a p-V diagram and retrace it. Rapid processes jump off that curve. A quasi-static, or quasi-equilibrium, process is slow enough that the system remains in internal thermodynamic equilibrium."
   },
   {
     "q": "In thermodynamics, a quasi-static process is a thermodynamic process that happens very rapidly to prevent the system from remaining in internal physical thermodynamic equilibrium.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ quasi-static က အလွန်နှေးနှေးဖြစ်လို့ အတွင်းမျှခြေ မပျက်ဘူး။ မြန်မြန်လုပ်ရင် မျှခြေပျက်တယ်။"
+    "e": "False. A quasi-static process is slow enough that the system stays in internal equilibrium. Rapid jumps throw it off the equilibrium path. Slow, not fast, is the reversible ideal."
   },
   {
     "q": "An isobaric process occurs at constant pressure.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ isobaric က ဖိအားတူပါ။"
+    "e": "True. Work done by the system is then p Delta V. Constant volume is isochoric, constant temperature is isothermal. Isobaric means constant pressure."
   },
   {
     "q": "An isobaric process occurs at constant volume.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ constant volume လို့ ခေါ်ရင် နာမည်ရောတယ်။ iso-bar က ဖိအားမပြောင်းတာပါ။"
+    "e": "False. Isobaric means constant pressure. Constant volume is isochoric. At constant pressure the work is p Delta V."
   },
   {
     "q": "The work done by the system in an isobaric process is simply the pressure multiplied by the change in volume.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ΔU = Q − W ကို လက္ခဏာမမှားအောင် သုံးတယ်။ multiplied ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. Constant volume is isochoric, constant temperature is isothermal. Isobaric means constant pressure. Work done by the system is then p Delta V."
   },
   {
     "q": "An isochoric process occurs at constant volume.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ volume မပြောင်းရင် အလုပ်မရှိဘူး။ isochoric က ထုထည်တူပါ။"
+    "e": "True. For an ideal gas that heat is n Cv Delta T. Isochoric means constant volume, so W = p Delta V = 0. First law then says Delta U equals the heat that entered or left."
   },
   {
     "q": "When the volume of a thermodynamic system is constant, no work is done by the system because $W = p \\Delta V = 0$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ထုထည်မပြောင်းရင် W = pΔV = 0 မို့ အလုပ်မရှိဘူး။"
+    "e": "True. In Delta U = Q - W, W is positive when the system does the work. Work done on the system is negative W in this convention. Heat added is positive Q."
   },
   {
     "q": "According to the first law, in an isochoric process, the change in internal energy must equal any heat flowing into or out of the system.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဖြစ်စဉ်တစ်ခုချင်း ဘယ်ကိန်းမပြောင်းလဲ ခွဲမှတ်။ According ကို ဒီမေးခွန်းထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "True. Delta U equals net heat into the system minus work done by the system. Q is positive when heat is added, negative when heat is removed. W flips sign if work is done on the system instead."
   },
   {
     "q": "An isothermal process occurs at a constant temperature.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ isothermal က အပူချိန်တူပါ။"
+    "e": "True. Work is n R T ln(Vf/Vi) for the ideal-gas case. Isothermal means constant temperature, so for an ideal gas Delta U = 0 and W = Q. Heat must leak slowly enough to keep equilibrium."
   },
   {
     "q": "For an ideal gas, internal energy $U$ is only a function of the volume.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ volume ပေါ်ပဲ မူတည်တယ်လို့ ထင်ရင် မှားတယ်။ အပူချိန်ပြောင်းမှ U ပြောင်းတယ်။"
+    "e": "False. For an ideal gas, U is a function of temperature only, not of volume. An isothermal ideal-gas process therefore has Delta U = 0. Volume can change while U stays fixed."
   },
   {
     "q": "Internal energy is constant; therefore, $\\Delta U$ is equal to zero for an isothermal process.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ΔU = Q − W ကို လက္ခဏာမမှားအောင် သုံးတယ်။ isothermal ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. Heat must leak slowly enough to keep equilibrium. Work is n R T ln(Vf/Vi) for the ideal-gas case. Isothermal means constant temperature, so for an ideal gas Delta U = 0 and W = Q."
   },
   {
     "q": "Since $\\Delta U = 0$, according to the first law, $W = Q$ for an isothermal process.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဖြစ်စဉ်တစ်ခုချင်း ဘယ်ကိန်းမပြောင်းလဲ ခွဲမှတ်။ isothermal ကို ဒီမေးခွန်းထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "True. Work is n R T ln(Vf/Vi) for the ideal-gas case. Isothermal means constant temperature, so for an ideal gas Delta U = 0 and W = Q. Since Delta U 0 according to the cannot be dropped from this process without changing the law."
   },
   {
     "q": "In an adiabatic process, there is no heat transfer into or out of the system, i.e., $Q = 0$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ΔU = Q − W ကို လက္ခဏာမမှားအောင် သုံးတယ်။ adiabatic ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. Adiabatic means Q = 0, no heat in or out, often by insulating the system. First law collapses to Delta U = -W. Gamma = Cp/Cv then appears in the reversible adiabatic relations."
   },
   {
     "q": "In an adiabatic process, there is maximum heat transfer into or out of the system.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ adiabatic မှာ Q = 0 ပါ။ အပူအများဆုံး ဝင်ထွက်တယ် ဆိုတာ ပြောင်းပြန်ပါ။"
+    "e": "False. Adiabatic means Q = 0, no heat in or out. First law then collapses to Delta U = -W. Insulation, not a heat flood, is the adiabatic setup."
   },
   {
     "q": "The first law of thermodynamics $\\Delta U = Q - W$ is thus reduced to $\\Delta U = -W$ for an adiabatic process.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ΔU = Q − W ကို လက္ခဏာမမှားအောင် သုံးတယ်။ thermodynamics ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. Adiabatic means Q = 0, no heat in or out, often by insulating the system. First law collapses to Delta U = -W. First law of thermodynamics Delta U Q cannot be dropped from this process without changing the law."
   },
   {
     "q": "An adiabatic process can be done by enclosing the system in a thermal insulator.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ΔU = Q − W ကို လက္ခဏာမမှားအောင် သုံးတယ်။ insulator. ရဲ့ အဓိပ္ပာယ်ကို ဝါကျနဲ့ တွဲကြည့်။"
+    "e": "True. First law collapses to Delta U = -W. Gamma = Cp/Cv then appears in the reversible adiabatic relations. Low thermal conductivity means a poor conductor, a thermal insulator."
   }
 ]
