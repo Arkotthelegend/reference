@@ -3,162 +3,162 @@
     "type": "tf",
     "q": "Distance travelled by the body is the length of the path along which the body moves.",
     "c": "true",
-    "e": "မှန်တယ်။ ခရီးအကွာက လမ်းကြောင်းအရှည်ပဲ။ ဦးတည်ချက်မပါဘူး။"
+    "e": "True. Distance travelled by the body is the length of the path along which the body moves. Distance grows with the path, even if you return to the start."
   },
   {
     "type": "tf",
     "q": "Displacement is a scalar directed from the starting point to the end point.",
     "c": "false",
-    "e": "မှားတယ်။ ရွေ့ပြောင်းမှုက ဗက်တာပဲ။ စမှတ်ကနေ ဆုံးမှတ် ဦးတည်ချက်ပါတယ်။"
+    "e": "False. Displacement is a vector, directed from start to end. A scalar does not carry that direction. Displacement can be smaller than the path if the path bends."
   },
   {
     "type": "tf",
     "q": "Displacement is the distance travelled along a particular direction.",
     "c": "true",
-    "e": "မှန်တယ်။ ရွေ့ပြောင်းမှုက တိကျတဲ့ ဦးတည်ချက်ပါတဲ့ အကွာပဲ။ စမှတ်ကနေ ဆုံးမှတ်ပဲ။"
+    "e": "True. Displacement is the distance travelled along a particular direction. Distance grows with the path, even if you return to the start."
   },
   {
     "type": "tf",
     "q": "Distance has a specific direction.",
     "c": "false",
-    "e": "မှားတယ်။ အကွာအဝေးက စကေးလာ၊ ဦးတည်ရာမပါဘူး။ ရွေ့လျားမှုက ဗက်တာပဲ။"
+    "e": "False. Distance is a scalar. It has size only, no direction. A scalar is done once you have the size and the unit."
   },
   {
     "type": "tf",
     "q": "Distance has only magnitude, and therefore, it is a scalar.",
     "c": "true",
-    "e": "မှန်တယ်။ ခရီးအလျားက ပမာဏပဲ ရှိလို့ စကေးလာပဲ။ အလှည့်အနေက ဗက်တာ၊ ဦးတည်ချက်ပါတယ်။"
+    "e": "True. Distance has only magnitude, and therefore, it is a scalar. A scalar is done once you have the size and the unit."
   },
   {
     "type": "tf",
     "q": "Displacement has both magnitude and direction, and therefore, it is a vector.",
     "c": "true",
-    "e": "မှန်တယ်။ ရွေ့ပြောင်းမှုမှာ ပမာဏရော ဦးတည်ချက်ရော ရှိတယ်။ ဒါကြောင့် ဗက်တာပဲ။"
+    "e": "True. Displacement has both magnitude and direction, and therefore, it is a vector. Displacement can be smaller than the path if the path bends."
   },
   {
     "type": "tf",
     "q": "The average speed $v_{av}$ is the ratio of total distance $s$ to time taken $t$.",
     "c": "true",
-    "e": "မှန်တယ်။ ပျမ်းမျှအမြန်က စုခရီးကို ကြာချိန်နဲ့ စားတာပဲ။"
+    "e": "True. The average speed $v_{av}$ is the ratio of total distance $s$ to time taken $t$. The average speed is how fast the path length changes, with no direction."
   },
   {
     "type": "tf",
     "q": "The average speed $v_{av}$ is the ratio of total displacement to time taken $t$.",
     "c": "false",
-    "e": "မှားတယ်။ ပျမ်းမျှအမြန်က စုခရီး/အချိန်၊ ပျမ်းမျှအလျင်က စုရွေ့ပြောင်းမှု/အချိန်၊ လက်ငင်းက အခိုက်အတန့်ပဲ။"
+    "e": "False. The average speed $v_{av}$ is the ratio of total distance $s$ to time taken $t$. This claim used displacement in place of distance $s$."
   },
   {
     "type": "tf",
     "q": "The average velocity $v_{av}$ is the ratio of total displacement $s$ to time taken $t$.",
     "c": "true",
-    "e": "မှန်တယ်။ ပျမ်းမျှအလျင်က စုရွေ့ပြောင်းမှုကို ကြာချိန်နဲ့ စားတာပဲ။"
+    "e": "True. The average velocity $v_{av}$ is the ratio of total displacement $s$ to time taken $t$. Displacement can be smaller than the path if the path bends."
   },
   {
     "type": "tf",
     "q": "If the starting point and the end point are the same, the total displacement is zero.",
     "c": "true",
-    "e": "မှန်တယ်။ စမှတ်နဲ့ ဆုံးမှတ်တူရင် စုရွေ့ပြောင်းမှု သုညပဲ။ ခရီးတော့ ရှိနိုင်တယ်။"
+    "e": "True. If the starting point and the end point are the same, the total displacement is zero. Displacement can be smaller than the path if the path bends."
   },
   {
     "type": "tf",
     "q": "If the starting point and the end point are the same, the average velocity is zero.",
     "c": "true",
-    "e": "မှန်တယ်။ စမှတ်ဆုံးမှတ်တူရင် ပျမ်းမျှအလျင် သုညပဲ။ ပျမ်းမျှအမြန်က သုည မဟုတ်နိုင်ဘူး။"
+    "e": "True. If the starting point and the end point are the same, the average velocity is zero. Velocity is directed. Speed is the size of that velocity."
   },
   {
     "type": "tf",
     "q": "The speed and velocity which represent a motion for a certain period of time interval are called average speed and average velocity.",
     "c": "true",
-    "e": "မှန်တယ်။ တစ်ကာလလုံး ကိုယ်စားပြုတာ ပျမ်းမျှအမြန်နဲ့ ပျမ်းမျှအလျင်ပဲ။"
+    "e": "True. The speed and velocity which represent a motion for a certain period of time interval are called average speed and average velocity. Velocity is directed. Speed is the size of that velocity."
   },
   {
     "type": "tf",
     "q": "The speed or velocity at a particular instant of time are referred to as instantaneous speed and instantaneous velocity.",
     "c": "true",
-    "e": "မှန်တယ်။ အခိုက်အတန့် တန်ဖိုးက လက်ငင်းအမြန်နဲ့ လက်ငင်းအလျင်ပဲ။"
+    "e": "True. The speed or velocity at a particular instant of time are referred to as instantaneous speed and instantaneous velocity. A speedometer reading is the speed at that instant, not the trip average."
   },
   {
     "type": "tf",
     "q": "The speedometer of a car indicates the average speed of the car.",
     "c": "false",
-    "e": "မှားတယ်။ ကားအမြန်ပြက လက်ငင်းအမြန်ပဲ ပြတယ်။ ပျမ်းမျှ မဟုတ်ဘူး။"
+    "e": "False. A car speedometer shows instantaneous speed, the reading at that moment, not the average for a trip. A speedometer reading is the speed at that instant, not the trip average."
   },
   {
     "type": "tf",
     "q": "Instantaneous speed is defined as the time rate of change of distance.",
     "c": "true",
-    "e": "မှန်တယ်။ လက်ငင်းအမြန်က ခရီးပြောင်းနှုန်းပဲ။ အလျင်က ရွေ့ပြောင်းမှုပြောင်းနှုန်းပဲ။"
+    "e": "True. Instantaneous speed is defined as the time rate of change of distance. A speedometer reading is the speed at that instant, not the trip average."
   },
   {
     "type": "tf",
     "q": "Instantaneous velocity is defined as the time rate of change of distance.",
     "c": "false",
-    "e": "မှားတယ်။ လက်ငင်းအလျင်က ရွေ့ပြောင်းမှုပြောင်းနှုန်းပဲ။ ခရီးပြောင်းနှုန်းက လက်ငင်းအမြန်ပဲ။"
+    "e": "False. Instantaneous speed is defined as the time rate of change of distance. This claim used velocity in place of speed."
   },
   {
     "type": "tf",
     "q": "When a body is moving along a straight line with a constant speed, the velocity of the body is also constant.",
     "c": "true",
-    "e": "မှန်တယ်။ မျဉ်းဖြောင့်ပေါ် အမြန်တည်ငြိမ်ရင် အလျင်လည်း တည်ငြိမ်တယ်။ ဦးတည်ချက် မပြောင်းလို့ပဲ။"
+    "e": "True. When a body is moving along a straight line with a constant speed, the velocity of the body is also constant. Velocity is directed. Speed is the size of that velocity."
   },
   {
     "type": "tf",
     "q": "Motion with constant velocity is known as uniform motion.",
     "c": "true",
-    "e": "မှန်တယ်။ အလျင်တည်ငြိမ်တဲ့ ရွေ့ကို တူညီရွေ့လို့ ခေါ်တယ်။ အရှိန်က သုညပဲ။"
+    "e": "True. Motion with constant velocity is known as uniform motion. Velocity is directed. Speed is the size of that velocity."
   },
   {
     "type": "tf",
     "q": "For a motion with constant velocity, equal displacements take place in unequal intervals of time.",
     "c": "false",
-    "e": "မှားတယ်။ အလျင်ပုံသေရင် တူတဲ့အချိန်မှာ တူတဲ့ ရွေ့ပြောင်းမှု ရတယ်။ မတူတဲ့အချိန် မဟုတ်ဘူး။"
+    "e": "False. Constant velocity means equal displacements in equal times. Velocity is directed. Speed is the size of that velocity."
   },
   {
     "type": "tf",
     "q": "If either magnitude or direction or both magnitude and direction of the velocity changes, the body is said to have an acceleration.",
     "c": "true",
-    "e": "မှန်တယ်။ အလျင်ပမာဏဖြစ်စေ ဦးတည်ချက်ဖြစ်စေ ပြောင်းရင် အရှိန်ပြောင်း ရှိတယ်။"
+    "e": "True. If either magnitude or direction or both magnitude and direction of the velocity changes, the body is said to have an acceleration. Velocity is directed. Speed is the size of that velocity."
   },
   {
     "type": "tf",
     "q": "Motion with changing velocity is called non-uniform motion or accelerated motion.",
     "c": "true",
-    "e": "မှန်တယ်။ အလျင်ပြောင်းတဲ့ ရွေ့က တူညီမဟုတ် ရွေ့၊ ဒါမှမဟုတ် အရှိန်ရှိ ရွေ့ပဲ။"
+    "e": "True. Motion with changing velocity is called non-uniform motion or accelerated motion. Velocity is directed. Speed is the size of that velocity."
   },
   {
     "type": "tf",
     "q": "The average acceleration $a_{av}$ is defined by the equation $a_{av} = \\frac{v - v_0}{t}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ပျမ်းမျှအရှိန်ပြောင်းက အလျင်ပြောင်းကို အချိန်နဲ့ စားတာပဲ။"
+    "e": "True. The average acceleration $a_{av}$ is defined by the equation $a_{av} = \\frac{v - v_0}{t}$. Acceleration is not velocity. It is how velocity is changing."
   },
   {
     "type": "tf",
     "q": "Average acceleration is the ratio of the change in velocity to the distance taken.",
     "c": "false",
-    "e": "မှားတယ်။ ပျမ်းမျှအရှိန်ပြောင်းက အလျင်ပြောင်းကို အချိန်နဲ့ စားတာပဲ။ ခရီးနဲ့ မဟုတ်ဘူး။"
+    "e": "False. Instantaneous acceleration is the time rate of change of velocity. Velocity is directed. Speed is the size of that velocity."
   },
   {
     "type": "tf",
     "q": "Instantaneous acceleration $a = \\lim_{\\Delta t \\to 0} \\frac{\\Delta v}{\\Delta t} = \\frac{dv}{dt}$.",
     "c": "true",
-    "e": "မှန်တယ်။ လက်ငင်းအရှိန်ပြောင်းက အလျင်ရဲ့ အချိန်ပြောင်းနှုန်းပဲ။ ဒီဗီဒီတီပဲ။"
+    "e": "True. Instantaneous acceleration $a = \\lim_{\\Delta t \\to 0} \\frac{\\Delta v}{\\Delta t} = \\frac{dv}{dt}$. Acceleration is not velocity. It is how velocity is changing."
   },
   {
     "type": "tf",
     "q": "Instantaneous acceleration is the time rate of change of velocity.",
     "c": "true",
-    "e": "မှန်တယ်။ လက်ငင်းအရှိန်ပြောင်းက အလျင်ပြောင်းနှုန်းပဲ။ ပမာဏဖြစ်စေ ဦးတည်ချက်ဖြစ်စေ ပြောင်းရင် ရှိတယ်။"
+    "e": "True. Instantaneous acceleration is the time rate of change of velocity. Velocity is directed. Speed is the size of that velocity."
   },
   {
     "type": "tf",
     "q": "Acceleration is said to be positive if the magnitude of velocity is decreasing.",
     "c": "false",
-    "e": "မှားတယ်။ အလျင်ပမာဏကျရင် အရှိန် အနုတ်ပဲ။ တိုးမှ အပေါင်းပဲ။"
+    "e": "False. If speed is falling, that acceleration is negative in the usual 1-D sign choice. Positive acceleration means velocity is increasing that way. Velocity is directed."
   },
   {
     "type": "tf",
     "q": "Negative acceleration is usually called deceleration or retardation.",
     "c": "true",
-    "e": "မှန်တယ်။ အရှိန်အနှုတ်ကို ဆုတ်အရှိန် ဒါမှမဟုတ် retardation လို့ ခေါ်တယ်။ အလျင် လျော့နေတာပဲ။"
+    "e": "True. Negative acceleration is usually called deceleration or retardation. Acceleration is not velocity. It is how velocity is changing."
   }
 ]

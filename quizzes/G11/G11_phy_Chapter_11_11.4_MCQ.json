@@ -8,7 +8,7 @@
       "result",
       "voltage"
     ],
-    "e": "လော့ဂျစ်ဂိတ်က ဆုံးဖြတ်ပြီး ရလဒ်ထုတ်တယ်။ ထည့်၊ ဗို့ သက်သက် မဟုတ်။ ဒါကြောင့် result မှန်တယ်။"
+    "e": "A logic gate is an electronic device which takes information from the environment, makes a decision, and then gives out the result. Input or voltage is not this quantity."
   },
   {
     "type": "mcq",
@@ -19,7 +19,7 @@
       "small integrated circuits (ICs)",
       "mechanical relays"
     ],
-    "e": "လော့ဂျစ်ဂိတ်ကို သေးတဲ့ IC နဲ့ တည်ရိုးရှိတယ်။ ဗက်ကျူမ်၊ စက်ရီလေ မဟုတ်။ ဒါကြောင့် small integrated circuits (ICs) မှန်တယ်။"
+    "e": "Logic gates are commonly built using small integrated circuits (ICs). Do not trade small integrated circuits (ICs) for vacuum tubes or mechanical relays."
   },
   {
     "type": "mcq",
@@ -30,7 +30,7 @@
       "AND, OR, NAND, NOR, NOT",
       "ADD, SUB, MUL, DIV, MOD"
     ],
-    "e": "အတွေ့များတဲ့ ငါးမျိုးက AND OR NAND NOR NOT ပဲ။ XOR စာရင်း၊ ဂဏန်းသင်္ချာ မဟုတ်။ ဒါကြောင့် ဒုတိယစာရင်း မှန်တယ်။"
+    "e": "The five common logic gates are AND, OR, NAND, NOR, NOT. Do not trade AND, OR, NAND, NOR, NOT for AND, OR, XOR, XNOR, BUFFER or ADD, SUB, MUL, DIV, MOD."
   },
   {
     "type": "mcq",
@@ -41,7 +41,7 @@
       "two",
       "three"
     ],
-    "e": "NOT မှာ ထည့် တစ်ခုပဲ။ နှစ်၊ သုံး မဟုတ်။ ဒါကြောင့် one မှန်တယ်။"
+    "e": "A NOT gate has one input(s). Two or three is not this quantity."
   },
   {
     "type": "mcq",
@@ -52,7 +52,7 @@
       "either input is HIGH",
       "both inputs are HIGH"
     ],
-    "e": "AND က နှစ်ထည့်လုံး HIGH မှ ထုတ် HIGH ပဲ။ နှစ်ခု LOW၊ တစ်ခု HIGH မဟုတ်။ ဒါကြောင့် both inputs are HIGH မှန်တယ်။"
+    "e": "For a 2-input AND gate, the output is HIGH only when both inputs are HIGH. Do not trade both inputs are HIGH for both inputs are LOW or either input is HIGH."
   },
   {
     "type": "mcq",
@@ -63,7 +63,7 @@
       "either input is HIGH",
       "both inputs are LOW"
     ],
-    "e": "OR က နှစ်ထည့်လုံး LOW မှ ထုတ် LOW ပဲ။ နှစ်ခု HIGH၊ တစ်ခု HIGH မဟုတ်။ ဒါကြောင့် both inputs are LOW မှန်တယ်။"
+    "e": "For a 2-input OR gate, the output is LOW only when both inputs are LOW. Both inputs are high or either input is high is not this quantity."
   },
   {
     "type": "mcq",
@@ -74,7 +74,7 @@
       "either input is LOW",
       "both inputs are HIGH"
     ],
-    "e": "NAND က နှစ်ထည့်လုံး HIGH မှ ထုတ် LOW ပဲ။ နှစ်ခု LOW၊ တစ်ခု LOW မဟုတ်။ ဒါကြောင့် both inputs are HIGH မှန်တယ်။"
+    "e": "For a 2-input NAND gate, the output is LOW only when both inputs are HIGH. Do not trade both inputs are HIGH for both inputs are LOW or either input is LOW."
   },
   {
     "type": "mcq",
@@ -85,7 +85,7 @@
       "either input is HIGH",
       "both inputs are LOW"
     ],
-    "e": "NOR က နှစ်ထည့်လုံး LOW မှ ထုတ် HIGH ပဲ။ နှစ်ခု HIGH၊ တစ်ခု HIGH မဟုတ်။ ဒါကြောင့် both inputs are LOW မှန်တယ်။"
+    "e": "For a 2-input NOR gate, the output is HIGH only when both inputs are LOW. Both inputs are high or either input is high is not this quantity."
   },
   {
     "type": "mcq",
@@ -96,7 +96,7 @@
       "$X = AB$",
       "$X = \\overline{AB}$"
     ],
-    "e": "AND က $X=AB$ ပဲ။ $A+B$၊ မျဉ်းခြစ် မဟုတ်။ ဒါကြောင့် $X = AB$ မှန်တယ်။"
+    "e": "The Boolean expression for a 2-input AND gate is X = AB. X = A + B or X = AB is a different relation from X = AB."
   },
   {
     "type": "mcq",
@@ -107,7 +107,7 @@
       "$X = A + B$",
       "$X = \\overline{A + B}$"
     ],
-    "e": "OR က $X=A+B$ ပဲ။ $AB$၊ မျဉ်းခြစ်ပေါင်း မဟုတ်။ ဒါကြောင့် $X = A + B$ မှန်တယ်။"
+    "e": "The Boolean expression for a 2-input OR gate is X = A + B. X = AB or X = A + B is a different relation from X = A + B. X = a + b is what this sentence is naming. Stay with the quantity named in this sentence."
   },
   {
     "type": "mcq",
@@ -118,7 +118,7 @@
       "$X = \\overline{AB}$",
       "$X = \\overline{A + B}$"
     ],
-    "e": "NAND က $X=\\overline{AB}$ ပဲ။ $AB$၊ မျဉ်းခြစ်ပေါင်း မဟုတ်။ ဒါကြောင့် $X = \\overline{AB}$ မှန်တယ်။"
+    "e": "The Boolean expression for a 2-input NAND gate is X = AB. X = AB or X = A + B is a different relation from X = AB."
   },
   {
     "type": "mcq",
@@ -129,7 +129,7 @@
       "$X = A + B$",
       "$X = \\overline{A + B}$"
     ],
-    "e": "NOR က $X=\\overline{A+B}$ ပဲ။ မျဉ်းခြစ်မြှောက်၊ $A+B$ မဟုတ်။ ဒါကြောင့် $X = \\overline{A + B}$ မှန်တယ်။"
+    "e": "The Boolean expression for a 2-input NOR gate is X = A + B. X = AB or X = A + B is a different relation from X = A + B. X = a + b is what this sentence is naming. Stay with the quantity named in this sentence."
   },
   {
     "type": "mcq",
@@ -140,7 +140,7 @@
       "$X = \\overline{A}$",
       "$X = A + 1$"
     ],
-    "e": "NOT က $X=\\overline{A}$ ပဲ။ $A$ သက်သက်၊ $A+1$ မဟုတ်။ ဒါကြောင့် $X = \\overline{A}$ မှန်တယ်။"
+    "e": "The Boolean expression for a NOT gate is X = A. X = A or X = A + 1 is a different relation from X = A. X = a is what this sentence is naming. Stay with the quantity named in this sentence."
   },
   {
     "type": "mcq",
@@ -151,7 +151,7 @@
       "can replace any other gate type when combined",
       "are faster than others"
     ],
-    "e": "NAND NOR က ပေါင်းပြီး တခြားဂိတ် လုပ်လို့ရလို့ စကြဝဠာဂိတ်ပဲ။ ဓာတ်အားနည်း၊ မြန်လို့ မဟုတ်။ ဒါကြောင့် can replace any other gate type when combined မှန်တယ်။"
+    "e": "NAND and NOR gates are called universal gates because they can replace any other gate type when combined. Consume less power or are faster than others is not this quantity."
   },
   {
     "type": "mcq",
@@ -162,7 +162,7 @@
       "ZERO",
       "HIGH"
     ],
-    "e": "NOT က LOW ကို HIGH ပြောင်းတယ်။ LOW၊ ZERO မဟုတ်။ ဒါကြောင့် HIGH မှန်တယ်။"
+    "e": "The inverter (NOT gate) changes a LOW input to a HIGH output. Low or zero is not this quantity."
   },
   {
     "type": "mcq",
@@ -173,7 +173,7 @@
       "OR gate",
       "NAND gate"
     ],
-    "e": "တစ်ခု HIGH တစ်ခု LOW မှာ ထုတ် HIGH ရင် OR ပဲ။ AND၊ NAND မဟုတ်။ ဒါကြောင့် OR gate မှန်တယ်။"
+    "e": "A basic 2-input logic circuit has a HIGH on one input and a LOW on the other, and the output is HIGH. The gate is most likely a(n) OR gate. And gate or nand gate is not this quantity."
   },
   {
     "type": "mcq",
@@ -184,7 +184,7 @@
       "AND gate",
       "NOR gate"
     ],
-    "e": "ထည့်အားလုံး HIGH မှ ထုတ် HIGH ရင် AND ပဲ။ OR၊ NOR မဟုတ်။ ဒါကြောင့် AND gate မှန်တယ်။"
+    "e": "A logic circuit requires HIGHs on all its inputs to make the output HIGH. This describes a(n) AND gate. Do not trade AND gate for OR gate or NOR gate."
   },
   {
     "type": "mcq",
@@ -195,7 +195,7 @@
       "three",
       "four"
     ],
-    "e": "OR ကို NAND နှစ်လုံးနဲ့ တည်လို့ရတယ်။ သုံး၊ လေး မဟုတ်။ ဒါကြောင့် two မှန်တယ်။"
+    "e": "An OR gate can be constructed using three NAND gates. Do not trade three for two or four."
   },
   {
     "type": "mcq",
@@ -206,7 +206,7 @@
       "two",
       "three"
     ],
-    "e": "NOT ကို NAND တစ်လုံးနဲ့ တည်လို့ရတယ်။ နှစ်၊ သုံး မဟုတ်။ ဒါကြောင့် one မှန်တယ်။"
+    "e": "A NOT gate can be constructed using one NAND gate(s). Two or three is not this quantity."
   },
   {
     "type": "mcq",
@@ -217,7 +217,7 @@
       "two",
       "three"
     ],
-    "e": "AND ကို NAND နှစ်လုံးနဲ့ တည်လို့ရတယ်။ တစ်၊ သုံး မဟုတ်။ ဒါကြောင့် two မှန်တယ်။"
+    "e": "An AND gate can be constructed using two NAND gates. Do not trade two for one or three."
   },
   {
     "type": "mcq",
@@ -228,6 +228,6 @@
       "four",
       "five"
     ],
-    "e": "NOR ကို NAND လေးလုံးနဲ့ တည်လို့ရတယ်။ သုံး၊ ငါး မဟုတ်။ ဒါကြောင့် four မှန်တယ်။"
+    "e": "A NOR gate can be constructed using four NAND gates. Three or five is not this quantity."
   }
 ]

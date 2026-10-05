@@ -3,96 +3,96 @@
     "type": "tf",
     "q": "A liquid exerts pressure because of its weight.",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်က ကိုယ့်အလေးချိန်ကြောင့် ဖိအားပေးတယ်။ p = ρ g h မှာ ρg က အလေးချိန်သိပ်သည်းဆပဲ။"
+    "e": "True. A liquid exerts pressure because of its weight. Fluid pressure comes from weight. A barometer reads that pressure as the height of a mercury column."
   },
   {
     "type": "tf",
     "q": "A liquid exerts pressure because of its volume.",
     "c": "false",
-    "e": "မှားတယ်။ အရည်ဖိအားက အလေးချိန်ကြောင့်ပဲ၊ ထုထည်ကြောင့် မဟုတ်ဘူး။ ထုထည်တူရင်တောင် အနက်ကွာရင် ဖိအားကွာတယ်။"
+    "e": "False. The claim puts volume where weight belongs. A liquid exerts pressure because of its weight. Fluid pressure comes from weight."
   },
   {
     "type": "tf",
     "q": "The pressure in a liquid depends on the depth.",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်ဖိအားက အနက်ပေါ် မူတည်တယ်။ နက်လေ ဖိအားကြီးလေပဲ။"
+    "e": "True. The pressure in a liquid depends on the depth. In a static liquid, pressure rises with depth as ρgh."
   },
   {
     "type": "tf",
     "q": "The pressure exerted by the liquid at the bottom surface is $p = \\rho g h$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီပုံသေနည်းက ဖိအား နဲ့ ဆိုင်တယ်။ ရေးထားချက်က ဖိအား by အရည် at။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "True. The pressure exerted by the liquid at the bottom surface is p = ρ g h. In a static liquid, pressure rises with depth as ρgh."
   },
   {
     "type": "tf",
     "q": "The pressure exerted by the liquid is directly proportional to the height (or) depth of the liquid $h$ and the density $\\rho$.",
     "c": "true",
-    "e": "မှန်တယ်။ p = ρ g h မို့ ဖိအားက အနက် h နဲ့ သိပ်သည်းဆ ρ ကို တိုက်ရိုက်အချိုးကျတယ်။"
+    "e": "True. The pressure exerted by the liquid is directly proportional to the height (or) depth of the liquid h and the density ρ. Density is mass per unit volume, ρ = m/V."
   },
   {
     "type": "tf",
     "q": "The pressure exerted by the liquid is inversely proportional to the density $\\rho$.",
     "c": "false",
-    "e": "မှားတယ်။ ဒီပုံသေနည်းက ဖိအား နဲ့ ဆိုင်တယ်။ ရေးထားချက်က ဖိအား by အရည် is။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "False. The pressure exerted by the liquid is directly proportional to the height (or) depth of the liquid h and the density ρ. Density is mass per unit volume, ρ = m/V."
   },
   {
     "type": "tf",
     "q": "The pressure exerted by the liquid is independent of the base area (cross-sectional area).",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်ဖိအားက အောက်ခြေဧရိယာနဲ့ မဆိုင်ဘူး။ အနက်နဲ့ သိပ်သည်းဆပဲ လိုတယ်။"
+    "e": "True. The pressure exerted by the liquid is independent of the base area (cross-sectional area). Fluid pressure comes from weight. A barometer reads that pressure as the height of a mercury column."
   },
   {
     "type": "tf",
     "q": "The pressure exerted by the liquid depends heavily on the base area of the container.",
     "c": "false",
-    "e": "မှားတယ်။ အရည်ဖိအားက ပုံးအောက်ခြေဧရိယာပေါ် မူတည်မနေဘူး။ ဧရိယာကြီးရင် အလေးချိန်ပိုပေမဲ့ ဖိအားတူနိုင်တယ်။"
+    "e": "False. The pressure exerted by the liquid is independent of the base area (cross-sectional area). Fluid pressure comes from weight. A barometer reads that pressure as the height of a mercury column."
   },
   {
     "type": "tf",
     "q": "The true pressure at the depth $h$ in the liquid is $p = p_{\\text{atm}} + \\rho g h$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီပုံသေနည်းက ဖိအား နဲ့ ဆိုင်တယ်။ ရေးထားချက်က ဖိအား at h in အရည် i။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "True. The true pressure at the depth h in the liquid is p = patm + ρ g h. In a static liquid, pressure rises with depth as ρgh."
   },
   {
     "type": "tf",
     "q": "The true pressure at the depth $h$ in the liquid is $p = p_{\\text{atm}} - \\rho g h$.",
     "c": "false",
-    "e": "မှားတယ်။ ဒီပုံသေနည်းက ဖိအား နဲ့ ဆိုင်တယ်။ ရေးထားချက်က ဖိအား at h in အရည် i။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "False. The claim puts - where + belongs. The true pressure at the depth h in the liquid is p = patm + ρ g h. In a static liquid, pressure rises with depth as ρgh."
   },
   {
     "type": "tf",
     "q": "The deeper the point inside the liquid, the greater is the pressure at that point.",
     "c": "true",
-    "e": "မှန်တယ်။ နက်လေ အပေါ်က အရည်အလေးချိန်ပိုလို့ ဖိအားကြီးတယ်။"
+    "e": "True. The deeper the point inside the liquid, the greater is the pressure at that point. Fluid pressure comes from weight. A barometer reads that pressure as the height of a mercury column."
   },
   {
     "type": "tf",
     "q": "The deeper the point inside the liquid, the lesser is the pressure at that point.",
     "c": "false",
-    "e": "မှားတယ်။ နက်လေ ဖိအားငယ်တယ် မဟုတ်ဘူး၊ ပိုကြီးတယ်။ အပေါ်က အလေးချိန်ပိုများလို့ပဲ။"
+    "e": "False. The claim puts lesser where greater belongs. The deeper the point inside the liquid, the greater is the pressure at that point. Fluid pressure comes from weight."
   },
   {
     "type": "tf",
     "q": "The pressure in a liquid at a particular point acts equally in all directions.",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်ထဲ တစ်မှတ်မှာ ဖိအားက ဦးတည်ချက်အားလုံးကို တူတူသက်ရောက်တယ်။"
+    "e": "True. The pressure in a liquid at a particular point acts equally in all directions. Fluid pressure comes from weight. A barometer reads that pressure as the height of a mercury column."
   },
   {
     "type": "tf",
     "q": "The pressure in a liquid at a particular point acts only downwards.",
     "c": "false",
-    "e": "မှားတယ်။ ဖိအားက အောက်ချည်း မဟုတ်ဘူး။ အပေါ်၊ ဘေး၊ အောက် အားလုံးကို တူတူပေးတယ်။"
+    "e": "False. The claim puts only where equally belongs. The pressure in a liquid at a particular point acts equally in all directions. Fluid pressure comes from weight."
   },
   {
     "type": "tf",
     "q": "Pressure at any point inside a liquid is the same in all directions.",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်ထဲ တစ်မှတ်ရဲ့ ဖိအားက ဦးတည်ချက်တိုင်းမှာ တူတယ်။ ဒါကြောင့် ပေါလာအားနဲ့ ဘေးဖိအား ရှိတယ်။"
+    "e": "True. Pressure at any point inside a liquid is the same in all directions. Fluid pressure comes from weight. A barometer reads that pressure as the height of a mercury column."
   },
   {
     "type": "tf",
     "q": "If liquids of the same density are in containers all having the same height, the pressure exerted on their bases would be the same even though their weights and shapes are different.",
     "c": "true",
-    "e": "မှန်တယ်။ သိပ်သည်းဆတူ အမြင့်တူရင် အောက်ခြေဖိအားတူတယ်။ ပုံးပုံနဲ့ အလေးချိန်ကွာနေရင်တောင် p = ρgh က တူတယ်။"
+    "e": "True. If liquids of the same density are in containers all having the same height, the pressure exerted on their bases would be the same even though their weights and shapes are different. Density is mass per unit volume, ρ = m/V."
   }
 ]

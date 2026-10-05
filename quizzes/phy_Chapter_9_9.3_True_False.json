@@ -3,204 +3,204 @@
     "q": "A parallel-plate capacitor is the simplest capacitor.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပြိုင်ပြားအမျိုးက အရိုးဆုံးပုံပဲ။ ပြားနှစ်ခု မျဉ်းပြိုင်၊ ကြား လျှပ်ကာ၊ ဒါပဲ။"
+    "e": "True. Parallel-plate C grows with area and dielectric constant and falls when the gap grows. A parallel-plate capacitor is the simplest capacitor."
   },
   {
     "q": "A parallel-plate capacitor consists of two parallel metal plates separated by a conductor.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ကြားက လေ ဒါမှမဟုတ် လျှပ်ကာပဲ၊ လျှပ်ကူး မဟုတ်ဘူး။ လျှပ်ကူးခြားရင် ပြားနှစ်ခု တိုတောင်းသွားမယ်။"
+    "e": "False. The right claim is this: A parallel-plate capacitor consists of two parallel metal plates separated by air or other insulating material. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. The printed line wrongly says a parallel-plate capacitor consists of two parallel metal plates separated by a conductor."
   },
   {
     "q": "The surface charge density $\\sigma$ on each plate is expressed as $\\sigma = \\frac{A}{Q}$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ စီဂမာ ညီမျှ ကျူစားအေ၊ အေစားကျူ မဟုတ်ဘူး။ ဧရိယာနဲ့ စားမှ သိပ်သည်းဆ ရတယ်။"
+    "e": "False. The right claim is this: The surface charge density (charge per unit surface area) on each plate is expressed as sigma = Q/A. Charge is conserved; it is what a current carries and what a capacitor stores on its plates. The printed line wrongly says the surface charge density sigma on each plate is expressed as sigma = (A)/(Q)."
   },
   {
     "q": "If the plates of a parallel-plate capacitor are very close together, the electric field between the plates is uniform.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပြားနီးရင် ကြားကွင်း တူညီတယ်လို့ ယူလို့ရတယ်။ အစွန်းလေးပဲ နည်းနည်း ကွဲနိုင်တယ်။"
+    "e": "True. In parallel, the same voltage sits across each branch and the currents add. Are very close together, the electric field between the plates is uniform."
   },
   {
     "q": "The value of the electric field between the plates can be expressed as $E = \\frac{\\sigma}{\\varepsilon}$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပြားကြား ကွင်းအားက စီဂမာ စား စိမ့်ဝင်နိုင်အားပဲ။ သိပ်သည်းဆ များရင် ကွင်း ကြီးတယ်။"
+    "e": "True. Permittivity says how easily a material supports an electric field compared with vacuum. The relation in this line is E = (sigma)/(ε)."
   },
   {
     "q": "The electric field between the plates is expressed as $E = \\frac{Q}{\\varepsilon A}$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အီး ညီမျှ ကျူ စား စိမ့်ဝင်နိုင်အား ဆတိုး ဧရိယာ။ စီဂမာ ညီမျှ ကျူစားအေမို့ အီး ညီမျှ စီဂမာစား အက်ပ်ဆီလွန်နဲ့ တူတယ်။"
+    "e": "True. Permittivity says how easily a material supports an electric field compared with vacuum. The relation in this line is E = (Q)/(ε A)."
   },
   {
     "q": "Because the electric field between the plates is uniform, the magnitude of the potential difference V between the plates equals $E / d$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ဗို့ကွာက အီး ဆတိုး ဒီပဲ၊ အီးစားဒီ မဟုတ်ဘူး။ ကွင်းအား ဆတိုး အကွာမှ ဗို့ကွာ ရတယ်။"
+    "e": "False. The right claim is this: Because the electric field between the plates is uniform, the magnitude of the potential difference V between the plates equals Ed. Potential difference is the electrical push between two points; no push, no current. The printed line wrongly says because the electric field between the plates is uniform, the magnitude of the potential difference V between the plates equals E / d."
   },
   {
     "q": "The potential difference V between the plates is given by $V = \\frac{Qd}{\\varepsilon A}$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဗွီ ညီမျှ ကျူဒီ စား စိမ့်ဝင်နိုင်အား ဆတိုး ဧရိယာ။ ကွင်းအား ဆတိုး အကွာကို ကျူနဲ့ အေနဲ့ ပြန်ရေးတာပဲ။"
+    "e": "True. Permittivity says how easily a material supports an electric field compared with vacuum. The relation in this line is V = (Qd)/(ε A)."
   },
   {
     "q": "The capacitance of the parallel plate capacitor is $C = \\frac{\\varepsilon A}{d}$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပြိုင်ပြား စွမ်းရည်က စိမ့်ဝင်နိုင်အား ဆတိုး ဧရိယာ၊ စား အကွာ။ ပြားကျယ်ရင် တက်၊ ကွာရင် ကျတယ်။"
+    "e": "True. Parallel capacitors share voltage, charges add, and equivalent C is the sum. The relation in this line is C = (ε A)/(d)."
   },
   {
     "q": "For a given insulating material, the capacitance of a parallel-plate capacitor is inversely proportional to the area of its plates.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ဧရိယာနဲ့က တိုက်ရိုက် အချိုးကျတယ်၊ ပြောင်းပြန် မဟုတ်ဘူး။ ပြောင်းပြန်က အကွာနဲ့ပဲ။"
+    "e": "False. The right claim is this: For a given insulating material the capacitance of a parallel-plate capacitor is directly proportional to the area of its plates. In parallel, the same voltage sits across each branch and the currents add. The printed line wrongly says for a given insulating material, the capacitance of a parallel-plate capacitor is inversely proportional to the area of its plates."
   },
   {
     "q": "The capacitance of a parallel-plate capacitor is inversely proportional to the separation of the plates.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပြားအကွာ ကြီးရင် စွမ်းရည် ကျတယ်။ ဖော်မြူလာထဲ ဒီက ပိုင်းခြေမှာ နေတယ်။"
+    "e": "True. Parallel-plate C grows with area and dielectric constant and falls when the gap grows. A parallel-plate capacitor is inversely proportional to the separation of the plates."
   },
   {
     "q": "The permittivity $\\varepsilon$ of an insulating material is related to that of a vacuum $\\varepsilon_0$ as $\\varepsilon = \\frac{K}{\\varepsilon_0}$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အက်ပ်ဆီလွန် ညီမျှ ကေ ဆတိုး ဗလာတန်ဖိုး၊ ကေစားဗလာ မဟုတ်ဘူး။ ကေက အချိုးမို့ ဗလာနဲ့ မြှောက်ရတယ်။"
+    "e": "False. The right claim is this: The permittivity ε of an insulating material is related to that of a vacuum ε0 as ε = Kε0. Permittivity says how easily a material supports an electric field compared with vacuum. The printed line wrongly says the permittivity ε of an insulating material is related to that of a vacuum ε0 as ε = (K)/(ε0)."
   },
   {
     "q": "K is the dielectric constant or the relative permittivity of the insulating material.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကေက ကြားခံကိန်း၊ တစ်နည်း နှိုင်းရ စိမ့်ဝင်နိုင်အားပဲ။ ဗလာနဲ့ နှိုင်းထားတဲ့ ကိန်းပဲ။"
+    "e": "True. A dielectric polarizes between the plates, raising C and the voltage the gap can stand. K is the dielectric constant or the relative permittivity of the insulating material."
   },
   {
     "q": "For a vacuum, the dielectric constant K is equal to 0.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ဗလာမှာ ကေက တစ်ပဲ၊ သုည မဟုတ်ဘူး။ သုညဆိုရင် စိမ့်ဝင်နိုင်အား မရှိသလို ဖြစ်မယ်။"
+    "e": "False. The right claim is this: For a vacuum, the dielectric constant K is 1. Dielectric constant is permittivity over ε0, or C with the material over C with vacuum. The printed line wrongly says for a vacuum, the dielectric constant K is equal to 0."
   },
   {
     "q": "For insulating materials other than vacuum, the dielectric constant K is greater than 1.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဗလာမဟုတ်တဲ့ လျှပ်ကာတွေက ကေ တစ်ထက် ကြီးတယ်။ ကြီးမှ ကြားခံထည့်လို့ စွမ်းရည် တက်တယ်။"
+    "e": "True. An insulator does not let charge flow freely, so it can separate conductors or protect a live part. For insulating materials other than vacuum, the dielectric constant K is greater than 1."
   },
   {
     "q": "The dielectric constant of an insulating material is the ratio of its permittivity to that of vacuum.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကြားခံကိန်းက စိမ့်ဝင်နိုင်အား စား ဗလာတန်ဖိုးပဲ။ လေနဲ့ မနှိုင်းဘူး၊ ဗလာနဲ့ပဲ။"
+    "e": "True. Permittivity says how easily a material supports an electric field compared with vacuum. Insulating material is the ratio of its permittivity to that of vacuum."
   },
   {
     "q": "The dielectric constant K can be expressed as $K = \\frac{\\varepsilon_0}{\\varepsilon}$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ကေ ညီမျှ အက်ပ်ဆီလွန် စား ဗလာတန်ဖိုး၊ ပြောင်းပြန် မဟုတ်ဘူး။ ပြောင်းပြန်ရေးရင် ကေက တစ်အောက် ကျသွားမယ်။"
+    "e": "False. The right claim is this: The permittivity of vacuum ε0 can also be expressed in the unit A s^-1. Permittivity says how easily a material supports an electric field compared with vacuum. The printed line wrongly says the dielectric constant K can be expressed as K = (ε0)/(ε)."
   },
   {
     "q": "The dielectric constant is defined as the ratio of the capacitance of a capacitor with an insulating material to the capacitance of that capacitor with a vacuum.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကြားခံထည့် စွမ်းရည် စား ဗလာထည့် စွမ်းရည်က ကေပဲ။ စီ စား စီနုတ် သုညနဲ့ တူတယ်။"
+    "e": "True. An insulator does not let charge flow freely, so it can separate conductors or protect a live part. An insulating material to the capacitance of that capacitor with a vacuum."
   },
   {
     "q": "When a charged capacitor is disconnected from a battery and a dielectric is inserted, the charge Q of the capacitor increases.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ဖြုတ်ထားရင် အား ကျူ မပြောင်းဘူး၊ တက်တာ မဟုတ်ဘူး။ ပြောင်းတာက ဗို့ကွာ ကျသွားတာပဲ။"
+    "e": "False. The right claim is this: When a charged capacitor is disconnected and a dielectric is inserted, the capacitance of the capacitor increases. A dielectric polarizes between the plates, raising C and the voltage the gap can stand. The printed line wrongly says when a charged capacitor is disconnected from a battery and a dielectric is inserted, the charge Q of the capacitor increases."
   },
   {
     "q": "When a charged capacitor is disconnected from a battery and a dielectric is inserted, the potential difference of the capacitor is found to decrease.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဖြုတ်ပြီး ကြားခံထည့်ရင် ဗို့ကွာ ကျတယ်။ ကြားခံက ကွင်းလျှော့လို့ ဒီလို ဖြစ်တယ်။"
+    "e": "True. Potential difference is the electrical push between two points; no push, no current. Is inserted, the potential difference of the capacitor is found to decrease."
   },
   {
     "q": "Since the potential difference decreases when a dielectric is inserted into a disconnected charged capacitor, the capacitance of the capacitor increases.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အား မပြောင်း ဗို့ကျရင် စီ ညီမျှ ကျူစားဗွီအရ စွမ်းရည် တက်ရတယ်။ ဒါက ကြားခံထည့်ရင် စီတက်တဲ့ အကြောင်းပဲ။"
+    "e": "True. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. Inserted into a disconnected charged capacitor, the capacitance of the capacitor increases."
   },
   {
     "q": "The dielectric constant K can be expressed as the ratio of potential differences $K = \\frac{V}{V_0}$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ကေက ဗွီနုတ်သုည စား ဗွီပဲ၊ ဗွီစားဗွီနုတ်သုည မဟုတ်ဘူး။ ကြားခံထည့်ရင် ဗို့ကျလို့ ပိုင်းခြေငယ်မှ ကေ တစ်ထက်ကြီးတယ်။"
+    "e": "False. The right claim is this: The dielectric constant K can be defined as the ratio of the capacitance with an insulator to the capacitance with a vacuum. Dielectric constant is permittivity over ε0, or C with the material over C with vacuum. The printed line wrongly says the dielectric constant K can be expressed as the ratio of potential differences K = (V)/(V0)."
   },
   {
     "q": "Insulating materials have values of dielectric constant K less than unity.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ လျှပ်ကာတွေရဲ့ ကေက တစ်ထက် ကြီးတယ်၊ တစ်အောက် မဟုတ်ဘူး။ တစ်အောက်ဆို ကြားခံက စွမ်းရည် လျှော့စေမယ်။"
+    "e": "False. The right claim is this: Insulating materials have values of dielectric constant K greater than unity. Dielectric constant is permittivity over ε0, or C with the material over C with vacuum. The printed line wrongly says insulating materials have values of dielectric constant K less than unity."
   },
   {
     "q": "A dielectric provides an increase in capacitance.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကြားခံထည့်ရင် စွမ်းရည် တက်တယ်။ ကေ ဆတိုး စီနုတ်သုည ဖြစ်လို့ တစ်ထက်ကြီးတဲ့ ကေက စီကို ကြီးစေတယ်။"
+    "e": "True. A dielectric polarizes between the plates, raising C and the voltage the gap can stand. A dielectric provides an increase in capacitance."
   },
   {
     "q": "A dielectric decreases the maximum operating voltage of a capacitor.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ကြားခံက ခံနိုင်ဗို့ အမြင့်ကို တက်စေတယ်၊ လျှော့တာ မဟုတ်ဘူး။ လေထက် ကွင်းပိုခံနိုင်လို့ပဲ။"
+    "e": "False. The right claim is this: A dielectric increases the maximum operating voltage of a capacitor even though the physical size doesn't change. A dielectric polarizes between the plates, raising C and the voltage the gap can stand. The printed line wrongly says a dielectric decreases the maximum operating voltage of a capacitor."
   },
   {
     "q": "A dielectric provides possible mechanical support between the plates.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကြားခံက ပြားနှစ်ခု ကြားထဲ ထောက်ပေးနိုင်တယ်။ ပြားမထိအောင် ကူတယ်။"
+    "e": "True. A dielectric polarizes between the plates, raising C and the voltage the gap can stand. A dielectric provides possible mechanical support between the plates."
   },
   {
     "q": "Mechanical support from a dielectric allows the plates to be close together without electrical contact.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ထောက်ပေးလို့ ပြားနီးနီး ထားနိုင်ပြီး လျှပ်စစ်အဆက် မဖြစ်ဘူး။ အကွာငယ်မှ စွမ်းရည် တက်တယ်။"
+    "e": "True. A dielectric polarizes between the plates, raising C and the voltage the gap can stand. A dielectric allows the plates to be close together without electrical contact."
   },
   {
     "q": "Decreasing the separation d between plates decreases the capacitance C.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အကွာလျှော့ရင် စွမ်းရည် တက်တယ်၊ ကျတာ မဟုတ်ဘူး။ ဒီက ပိုင်းခြေမှာ နေလို့ ငယ်ရင် စီ ကြီးတယ်။"
+    "e": "False. The right claim is this: The capacitance of a parallel-plate capacitor is inversely proportional to the separation of the plates. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. The printed line wrongly says decreasing the separation d between plates decreases the capacitance C."
   },
   {
     "q": "A dielectric increases the maximum operating voltage of a capacitor even though the physical size of the capacitor doesn't change.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အရွယ်မချဲ့ဘဲ ကြားခံထည့်ရုံနဲ့ ခံနိုင်ဗို့ အမြင့် တက်တယ်။ ကွင်းပိုခံနိုင်လို့ ဗို့ပိုခံနိုင်တာပဲ။"
+    "e": "True. A dielectric polarizes between the plates, raising C and the voltage the gap can stand. A capacitor even though the physical size of the capacitor doesn't change."
   },
   {
     "q": "The dielectric may be able to withstand a smaller electric field between the plates than air.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ကြားခံက လေထက် ကြီးတဲ့ စက်ကွင်းကို ခံနိုင်တယ်၊ သေးတဲ့ကွင်းပဲ ခံနိုင်တာ မဟုတ်ဘူး။ ဒါကြောင့် ပြားပိုနီးနီး ထားလို့ရတယ်။"
+    "e": "False. The right claim is this: The dielectric may be able to withstand a larger electric field between the plates than air. A dielectric polarizes between the plates, raising C and the voltage the gap can stand. The printed line wrongly says the dielectric may be able to withstand a smaller electric field between the plates than air."
   },
   {
     "q": "The permittivity of vacuum $\\varepsilon_0$ is $8.85 \\times 10^{-12}$ C$^2$ N$^{-1}$ m$^{-2}$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဗလာ စိမ့်ဝင်နိုင်အားက ရှစ် ဒဿမရှစ်ငါး ဆယ်ထပ်အနုတ်ဆယ့်နှစ်၊ ယူနစ် ကူးလုမ်နှစ်ထပ် စား နယူတန် စား မီတာနှစ်ထပ်ပဲ။"
+    "e": "True. Permittivity says how easily a material supports an electric field compared with vacuum. The power 10^-12 is the conversion for this unit; a nearby prefix is a different size."
   },
   {
     "q": "The unit of permittivity of vacuum can also be written as F m$^{-1}$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဗလာ စိမ့်ဝင်နိုင်အားကို ဖာရဒ် စား မီတာနဲ့လည်း ရေးလို့ရတယ်။ စွမ်းရည်ယူနစ် စား အလျားယူနစ်ပဲ။"
+    "e": "True. Permittivity says how easily a material supports an electric field compared with vacuum. The unit of permittivity of vacuum can also be written as F m^-1."
   },
   {
     "q": "The dielectric constant of water at 18°C is 1.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ တစ်ဆယ့်ရှစ်ဒီဂရီမှာ ရေရဲ့ ကေက ရှစ်ဆယ့်တစ်ပဲ၊ တစ် မဟုတ်ဘူး။ တစ်က ဗလာရဲ့ တန်ဖိုးပဲ။"
+    "e": "False. The right claim is this: According to Table 9. 1, the dielectric constant of Water (18°C) is 81. Dielectric constant is permittivity over ε0, or C with the material over C with vacuum."
   },
   {
     "q": "The dielectric constant of air at 1 atm is 1.0006.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ လေ တစ်လေထုမှာ ကေက တစ် ဒဿမ သုည သုည သုည ခြောက်ပဲ။ ဗလာနဲ့ အရမ်းနီးတယ်။"
+    "e": "True. Dielectric constant is permittivity over ε0, or C with the material over C with vacuum. The dielectric constant of air at 1 atm is 1.0006."
   }
 ]

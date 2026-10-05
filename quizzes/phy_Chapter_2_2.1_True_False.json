@@ -3,312 +3,312 @@
     "q": "According to Newton's second law, an object that is accelerating must have a net force acting on it.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အရှိန်ပြောင်းတာနဲ့ အားကို ma နဲ့ ချိတ်တယ်။ အားမရှိရင် အလျင်တည်ငြိမ်နေရမယ်။"
+    "e": "True. According to Newton's second law, an object that is accelerating must have a net force acting on it. Newton's second law says a net force is required whenever there is acceleration, F_net = ma."
   },
   {
     "q": "According to Newton's second law, an object that is accelerating must have a net torque acting on it.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အရှိန်ပြောင်းဖို့ လိုတာက net force ပဲ၊ net torque မဟုတ်ဘူး။ torque က ထောင့်အရှိန်ပြောင်းတဲ့အခါသာ သုံးတယ်။"
+    "e": "False. Newton's second law for linear acceleration uses net force, F_net = ma, not net torque. The error is the part about According Newton second law object accelerating."
   },
   {
     "q": "An object moving in a circle must have a force applied to it to keep it moving in the circle.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ စက်ဝိုင်းပေါ်နေဖို့ အလယ်ဆီ အားတစ်ခု အမြဲလိုတယ်။ အားမရှိရင် မျဉ်းဖြောင့်ထွက်သွားမယ်။"
+    "e": "True. An object moving in a circle must have a force applied to it to keep it moving in the circle. Newton's second law needs a net inward force F_c = m a_C whenever the path is a circle."
   },
   {
     "q": "An object moving in a straight line must have a centripetal force applied to it to keep it moving.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ မျဉ်းဖြောင့်ရွေ့ရင် centripetal force မလိုဘူး။ အဲဒီအားက စက်ဝိုင်း/ကွေးလမ်းအတွက်သာပဲ။"
+    "e": "False. Centripetal force is for circular paths, not straight-line motion. A straight-line path does not need a centre-seeking force."
   },
   {
     "q": "The force applied to an object to keep it moving in a circle is known as the centripetal force.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ စက်ဝိုင်းပေါ်ထိန်းတဲ့ အလယ်ဦးတည်အားကို centripetal force လို့ ခေါ်တယ်။ နာမည်က ဦးတည်ချက်နဲ့ တိုက်ရတယ်။"
+    "e": "True. The force applied to an object to keep it moving in a circle is known as the centripetal force. Centripetal force is the real net inward force that keeps an object on a circular path, F_c = mv²/r."
   },
   {
     "q": "The force applied to an object to keep it moving in a circle is known as the centrifugal force.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ စက်ဝိုင်းပေါ်ထိန်းတာ centrifugal မဟုတ်ဘူး။ centrifugal က အစစ်အား မဟုတ်သလို အလယ်ကနေ အပြင်ထွက်ချင်သလို ခံစားရတာပဲ။"
+    "e": "False. The inward force that keeps circular motion is centripetal force, not centrifugal force. The error is the part about force applied object keep moving circle."
   },
   {
     "q": "For uniform circular motion, the acceleration is centripetal acceleration which is directed towards the centre of the circle at any moment.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အမြန်တူ စက်ဝိုင်းရွေ့မှာ centripetal acceleration က ဘယ်အချိန်မဆို အလယ်ဆီညွှန်တယ်။ ဦးတည်ချက်က မပြောင်းဘူး။"
+    "e": "True. For uniform circular motion, the acceleration is centripetal acceleration which is directed towards the centre of the circle at any moment. In uniform circular motion the speed is constant, but velocity still changes direction so a_C is present."
   },
   {
     "q": "For uniform circular motion, the acceleration is centripetal acceleration which is directed away from the centre of the circle at any moment.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ centripetal acceleration က အလယ်ကနေ အပြင် မညွှန်ဘူး။ အလယ်ဆီပဲ ညွှန်တယ်၊ ပြောင်းပြန်မှတ်ရင် ပတ်လမ်းသဘော ပျက်တယ်။"
+    "e": "False. Centripetal acceleration is directed toward the centre. a_C is inward, toward the centre, not outward."
   },
   {
     "q": "In the absence of centripetal force, the object would not move along a circle but move in a straight line, according to Newton's first law.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ centripetal force ပျောက်ရင် Newton's first law အရ မျဉ်းဖြောင့်ဆက်သွားမယ်။ စက်ဝိုင်းအလိုလို မနေဘူး။"
+    "e": "True. In the absence of centripetal force, the object would not move along a circle but move in a straight line, according to Newton's first law. A straight-line path does not need a centre-seeking force."
   },
   {
     "q": "In the absence of centripetal force, the object would continue moving along a circle, according to Newton's first law.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အားပျောက်ရင် စက်ဝိုင်းပေါ် ဆက်မနေဘူး။ inertia က မျဉ်းဖြောင့်ကိုပဲ ထိန်းတယ်။"
+    "e": "False. Without centripetal force, Newton's first law sends the object off in a straight line. The error is the part about absence centripetal force object continue moving."
   },
   {
     "q": "Using Newton's second law, the magnitude of the centripetal force is $F_c = m a_c$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ F_c = m a_c က Newton's second law ကို အလယ်အရှိန်ပြောင်းပေါ် တင်ထားတာပဲ။ ဒြဗ်ထုနဲ့ အရှိန်ပြောင်းမြှောက်ရတယ်။"
+    "e": "True. Using Newton's second law, the magnitude of the centripetal force is F_c = m a_c. Centripetal force is the real net inward force that keeps an object on a circular path, F_c = mv²/r."
   },
   {
     "q": "Using Newton's second law, the magnitude of the centripetal force is $F_c = \\frac{m}{a_c}$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ F_c = m / a_c ဆိုရင် ယူနစ်ပါ မကိုက်ဘူး။ မှန်တာက F_c = m a_c ပဲ။"
+    "e": "False. Newton's second law gives F_c = m a_c, not m/a_c. The error is the part about Newton second law magnitude centripetal force."
   },
   {
     "q": "Substituting $v = r\\omega$ in the centripetal force equation gives $F_c = m r \\omega^2$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ v = rω ထည့်ရင် F_c = m v^2 / r ကနေ F_c = m r ω^2 ရတယ်။ ထောင့်အလျင်နဲ့ ရေးတာပဲ။"
+    "e": "True. Substituting v = rω in the centripetal force equation gives F_c = m r ω². Centripetal force is the real net inward force that keeps an object on a circular path, F_c = mv²/r."
   },
   {
     "q": "Substituting $v = r\\omega$ in the centripetal force equation gives $F_c = m r^2 \\omega$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ F_c = m r^2 ω ဆိုရင် ပါဝါတွေ လွဲနေတယ်။ v = rω ထည့်ရင် m r ω^2 ရရမယ်။"
+    "e": "False. Substituting v = rω yields F_c = m r ω², not m r² ω. The error is the part about Substituting centripetal force equation gives."
   },
   {
     "q": "To swing a ball on the end of a string in a circle, the tension in the string provides the required centripetal force.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကြိုးနဲ့ ဘောလုံးလှည့်ရင် ကြိုးထဲက တင်းအားက centripetal ပေးတယ်။ ကြိုးက အလယ်ဆီ ဆွဲထားတယ်။"
+    "e": "True. To swing a ball on the end of a string in a circle, the tension in the string provides the required centripetal force. Centripetal force is the real net inward force that keeps an object on a circular path, F_c = mv²/r."
   },
   {
     "q": "To swing a ball on the end of a string in a horizontal circle, the weight of the ball provides the required centripetal force.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အလျားလိုက်စက်ဝိုင်းမှာ ဘောလုံးအလေးချိန်က ဒေါင်လိုက်မို့ centripetal မပေးဘူး။ တင်းအားကသာ အလယ်ဆီညွှန်တယ်။"
+    "e": "False. In a horizontal whirl the string tension provides centripetal force, not the ball's weight. The error is the part about swing ball end string horizontal circle."
   },
   {
     "q": "The gravitational force of the earth on the moon orbiting the earth is an example of a centripetal force.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကမ္ဘာက လကို ဆွဲတဲ့ ဒြပ်ဆွဲအားက လပတ်လမ်းကို ထိန်းတဲ့ centripetal ပဲ။ လက ကမ္ဘာကို ပတ်နေတယ်။"
+    "e": "True. The gravitational force of the earth on the moon orbiting the earth is an example of a centripetal force. Centripetal force is the real net inward force that keeps an object on a circular path, F_c = mv²/r."
   },
   {
     "q": "The gravitational force of the earth on the moon orbiting the earth is an example of a centrifugal force.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ လပတ်လမ်းကို ထိန်းတာ centrifugal မဟုတ်ဘူး။ ကမ္ဘာ–လ ဒြပ်ဆွဲအားက အလယ်ဆီညွှန်တဲ့ centripetal ပဲ။"
+    "e": "False. Earth's gravity on the Moon is the centripetal force of the orbit, not a centrifugal force. The error is the part about gravitational force earth moon orbiting example."
   },
   {
     "q": "The electric force acting on an electron orbiting the nucleus acts as the required centripetal force.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အီလက်ထရွန်ကို နျူကလိယပတ်လည် ထိန်းတာ လျှပ်စစ်ဆွဲအားပဲ။ အဲဒါ centripetal အဖြစ် အလုပ်လုပ်တယ်။"
+    "e": "True. The electric force acting on an electron orbiting the nucleus acts as the required centripetal force. Centripetal force is the real net inward force that keeps an object on a circular path, F_c = mv²/r."
   },
   {
     "q": "The magnetic force acting on an electron orbiting the nucleus acts as the required centripetal force.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အက်တမ်ပတ်လမ်းမှာ အဓိကက လျှပ်စစ်အားပဲ၊ သံလိုက်အား မဟုတ်ဘူး။ နျူကလိယဆွဲအားက Coulomb ဘက်မှာပဲ။"
+    "e": "False. The inward force on an orbiting electron is the electrostatic Coulomb force, not a magnetic force. The error is the part about magnetic force acting electron orbiting nucleus."
   },
   {
     "q": "When whirling a body attached to a string, if the tension force is normal to the direction of motion, it causes the body to move in a circular path.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ တင်းအားက ရွေ့လျားမှုနဲ့ ထောင့်မတ်ရင် ဦးတည်ချက်ပဲ ကွေ့ပြီး စက်ဝိုင်းဖြစ်တယ်။ အမြန်မပြောင်းဘူး။"
+    "e": "True. When whirling a body attached to a string, if the tension force is normal to the direction of motion, it causes the body to move in a circular path. Inward tension is perpendicular to the velocity, so it changes direction without doing speed work."
   },
   {
     "q": "When whirling a body attached to a string, if the tension force is parallel to the direction of motion, it causes the body to move in a circular path.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ တင်းအားက ရွေ့လျားမှုနဲ့ မျဉ်းပြိုင်ရင် အမြန်ပဲ ပြောင်းမယ်၊ စက်ဝိုင်းမဖြစ်ဘူး။ ထောင့်မတ်မှ ကွေ့တယ်။"
+    "e": "False. Tension must point toward the centre, perpendicular to the velocity, to keep circular motion. The error is the part about whirling body attached string tension force."
   },
   {
     "q": "An attractive gravitational force exists between the sun and the earth in a direction perpendicular to the path of the earth.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ နေ–ကမ္ဘာ ဆွဲအားက ကမ္ဘာသွားလမ်းနဲ့ ထောင့်မတ်တယ်။ ဒါမှ ဦးတည်ချက်ပြောင်းပြီး ပတ်နိုင်တယ်။"
+    "e": "True. An attractive gravitational force exists between the sun and the earth in a direction perpendicular to the path of the earth. Sun-Earth gravity is radial, at right angles to the instantaneous orbital velocity."
   },
   {
     "q": "An attractive gravitational force exists between the sun and the earth in a direction parallel to the path of the earth.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ နေ–ကမ္ဘာ ဆွဲအားက ပတ်လမ်းနဲ့ မျဉ်းပြိုင်ဆိုရင် ကမ္ဘာကွေ့မှာ မဟုတ်ဘူး။ အချင်းဦးတည် ထောင့်မတ်မှ ပတ်လမ်းကွေးတယ်။"
+    "e": "False. Sun-Earth gravity is radial, toward the Sun, not parallel to Earth's orbital path. The error is the part about attractive gravitational force exists sun earth."
   },
   {
     "q": "The Coulomb attractive force between the nucleus and the electron acts as the required centripetal force.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ နျူကလိယနဲ့ အီလက်ထရွန်ကြား Coulomb ဆွဲအားက ပတ်လမ်းထိန်းတဲ့ centripetal ပဲ။ ဆွဲမှ အလယ်ကို နေနိုင်တယ်။"
+    "e": "True. The Coulomb attractive force between the nucleus and the electron acts as the required centripetal force. Centripetal force is the real net inward force that keeps an object on a circular path, F_c = mv²/r."
   },
   {
     "q": "The Coulomb repulsive force between the nucleus and the electron acts as the required centripetal force.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ Coulomb တွန်းအားဆိုရင် အီလက်ထရွန်က နျူကလိယကနေ ခွာထွက်မယ်။ ဆွဲအားဖြစ်မှ ပတ်လမ်းရှိတယ်။"
+    "e": "False. The nucleus-electron force is Coulomb attraction, and that attraction supplies the centripetal force. The error is the part about Coulomb repulsive force nucleus electron acts."
   },
   {
     "q": "When a car turns in a circular path, a frictional force exists between the road and the car tires, acting normally to the direction of motion.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကားကွေ့ရင် တာယာပွတ်အားက ရွေ့လျားမှုနဲ့ ထောင့်မတ်တယ်။ ဘေးတိုက်ဆွဲမှ ကွေ့လမ်းပေါ်နေတယ်။"
+    "e": "True. When a car turns in a circular path, a frictional force exists between the road and the car tires, acting normally to the direction of motion. On a level curve, static friction points toward the centre, normal to the car's heading."
   },
   {
     "q": "When a car turns in a circular path, a frictional force exists between the road and the car tires, acting parallel to the direction of motion.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ တာယာပွတ်အားက ရွေ့လျားမှုနဲ့ မျဉ်းပြိုင်ရင် အမြန်ပဲ ပြောင်းမယ်။ ဘေးတိုက်ထောင့်မတ်မှ ကွေ့ထိန်းတယ်။"
+    "e": "False. Tension must point toward the centre, perpendicular to the velocity, to keep circular motion. The error is the part about car turns circular path frictional force."
   },
   {
     "q": "When a car moves in a circular path which is inclined to the horizontal, the horizontal component of the normal force provides the required centripetal force.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ လမ်းစောင်းရင် ဓာတ်ပြုအားရဲ့ အလျားလိုက်အပိုင်းက အလယ်ဆီညွှန်ပြီး centripetal ပေးတယ်။ ကားကွေ့ဖို့ ဒီအပိုင်းလိုတယ်။"
+    "e": "True. When a car moves in a circular path which is inclined to the horizontal, the horizontal component of the normal force provides the required centripetal force. Centripetal force is the real net inward force that keeps an object on a circular path, F_c = mv²/r."
   },
   {
     "q": "When a car moves in a circular path which is inclined to the horizontal, the vertical component of the normal force provides the required centripetal force.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ဒေါင်လိုက်အပိုင်းက အလေးချိန်နဲ့ မျှတာပဲ၊ အလယ်မဆွဲဘူး။ centripetal က အလျားလိုက်အပိုင်းမှာပဲ။"
+    "e": "False. On a banked curve the horizontal component of the normal force supplies centripetal requirement, not the vertical component. The error is the part about car moves circular path inclined horizontal."
   },
   {
     "q": "The upward thrust (lifting force) on an aeroplane acts normally to the aeroplane body.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ လေယာဉ်ကို ပင့်တဲ့အားက ကိုယ်ထည်မျက်နှာပြင်နဲ့ ထောင့်မတ်တယ်။ တောင်ပံအောက်ပိုဖိ၊ အပေါ်လျော့တဲ့ ဖိအားကွာက ဒီဦးတည်ချက်နဲ့ ထွက်တယ်။"
+    "e": "True. The upward thrust (lifting force) on an aeroplane acts normally to the aeroplane body. Lift is perpendicular to the wing/body, so banking gives that lift a horizontal centripetal part."
   },
   {
     "q": "The upward thrust (lifting force) on an aeroplane acts parallel to the aeroplane body.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ မြှင့်အားက ကိုယ်ထည်နဲ့ မျဉ်းပြိုင် မဟုတ်ဘူး။ ထောင့်မတ်မှ အပေါ်သို့ ပင့်တယ်။"
+    "e": "False. Lift on a wing is normal to the wing, not parallel to the fuselage. The error is the part about upward thrust lifting force aeroplane acts."
   },
   {
     "q": "When an aeroplane tilts, the horizontal component of the lifting force provides the centripetal force.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ တောင်ပံစောင်းရင် ပင့်အားကို ဖြိုပြီး အလျားလိုက်အပိုင်းက ကွေ့အားဖြစ်လာတယ်။ ဒါမှ ကောင်းကင်လမ်းကွေးနိုင်တယ်။"
+    "e": "True. When an aeroplane tilts, the horizontal component of the lifting force provides the centripetal force. Centripetal force is the real net inward force that keeps an object on a circular path, F_c = mv²/r."
   },
   {
     "q": "When an aeroplane tilts, the vertical component of the lifting force provides the centripetal force.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ လေယာဉ်ပင့်အားရဲ့ ဒေါင်လိုက်အပိုင်းက အလေးချိန်နဲ့ မျှတာပဲ။ ကွေ့ဖို့က အလျားလိုက်အပိုင်းလိုတယ်။"
+    "e": "False. When an aeroplane banks, the horizontal component of lift supplies centripetal force, not the vertical component. The error is the part about aeroplane tilts vertical component lifting force."
   },
   {
     "q": "On a flat unbanked road, the centripetal force for an automobile driving round a curve is supplied by friction between the tires and the road.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပြန့်လမ်းကွေ့မှာ တာယာပွတ်အားကသာ အလယ်ဆီဆွဲတယ်။ လမ်းဓာတ်ပြုအားက အောက်သို့ပဲ ညွှန်လို့ ကွေ့မထိန်းဘူး။"
+    "e": "True. On a flat unbanked road, the centripetal force for an automobile driving round a curve is supplied by friction between the tires and the road. Centripetal force is the real net inward force that keeps an object on a circular path, F_c = mv²/r."
   },
   {
     "q": "On a flat unbanked road, the centripetal force for an automobile driving round a curve is supplied by the normal force.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ပြန့်လမ်းမှာ ဓာတ်ပြုအားက ဒေါင်လိုက်ပဲ၊ အလယ်မဆွဲဘူး။ ပွတ်အားကသာ ကွေ့ထိန်းတယ်။"
+    "e": "False. On a flat unbanked road, friction of the tires supplies the centripetal force, not the vertical normal force. The error is the part about flat unbanked road centripetal force automobile."
   },
   {
     "q": "If the frictional force is not sufficient on an unbanked road, the car will skid out of the circular path.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပွတ်အား မလုံရင် ကားက စက်ဝိုင်းပေါ် မနေနိုင်လို့ ချော်ထွက်တယ်။ လမ်းစိုရင် ဒီအချက် ထင်ရှားတယ်။"
+    "e": "True. If the frictional force is not sufficient on an unbanked road, the car will skid out of the circular path. A banked track tilts so the horizontal part of the normal force can supply some or all of the centripetal requirement."
   },
   {
     "q": "If the normal force is not sufficient on an unbanked road, the car will skid out of the circular path.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ပြန့်လမ်းမှာ ချော်ထွက်တာ ပွတ်အား မလုံလို့ပဲ။ ဓာတ်ပြုအား မလုံလို့ မဟုတ်ဘူး၊ အဲဒီအားက ဒေါင်လိုက်ပဲ။"
+    "e": "False. On a flat unbanked road, friction of the tires supplies the centripetal force, not the vertical normal force. The error is the part about normal force sufficient unbanked road car."
   },
   {
     "q": "Banking of roads is raising the outer edge of the curved road higher than the inner edge.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ banking က ကွေ့လမ်းအပြင်အစွန်းကို အတွင်းထက် မြှင့်တာပဲ။ စောင်းမှ ဓာတ်ပြုအားက အလယ်အပိုင်းပေးတယ်။"
+    "e": "True. Banking of roads is raising the outer edge of the curved road higher than the inner edge. A banked track tilts so the horizontal part of the normal force can supply some or all of the centripetal requirement."
   },
   {
     "q": "Banking of roads is raising the inner edge of the curved road higher than the outer edge.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အတွင်းအစွန်းမြှင့်ရင် စောင်းပြောင်းပြန်ဖြစ်ပြီး ကွေ့အား မှားဦးတည်မယ်။ အပြင်ဘက်ကို မြှင့်ရတယ်။"
+    "e": "False. Particles at every radius move in circles about the axis, not just the outer edge. The error is the part about Banking roads raising inner edge curved."
   },
   {
     "q": "The angle that the inclined track makes with the horizontal is called the angle of banking.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ စောင်းလမ်းက အလျားလိုက်နဲ့ ပြုလုပ်တဲ့ ထောင့်ကို banking ထောင့်လို့ ခေါ်တယ်။ ဒေါင်လိုက်နဲ့ မတိုင်းဘူး။"
+    "e": "True. The angle that the inclined track makes with the horizontal is called the angle of banking. A banked track tilts so the horizontal part of the normal force can supply some or all of the centripetal requirement."
   },
   {
     "q": "The angle that the inclined track makes with the vertical is called the angle of banking.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ banking ထောင့်က ဒေါင်လိုက်နဲ့ မတိုင်းဘူး။ အလျားလိုက်နဲ့ စောင်းလမ်းကြား ထောင့်ပဲ။"
+    "e": "False. Angle of banking is the tilt of the track to the horizontal, not to the vertical. The error is the part about angle inclined track makes vertical banking."
   },
   {
     "q": "The normal force exerted by a banked road is perpendicular to the road.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ စောင်းလမ်းရဲ့ ဓာတ်ပြုအားက လမ်းနဲ့ ထောင့်မတ်တယ်။ ဒါ normal force ရဲ့ အဓိပ္ပာယ်ပဲ။"
+    "e": "True. The normal force exerted by a banked road is perpendicular to the road. A banked track tilts so the horizontal part of the normal force can supply some or all of the centripetal requirement."
   },
   {
     "q": "The normal force exerted by a banked road is parallel to the road.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ဓာတ်ပြုအားက လမ်းနဲ့ မျဉ်းပြိုင် မဟုတ်ဘူး။ ထောင့်မတ်မှ လမ်းက ကားကို ထောက်တယ်။"
+    "e": "False. The normal force is perpendicular to the road surface, not parallel to it. The error is the part about normal force exerted banked road parallel."
   },
   {
     "q": "For every banked curve, there is a limiting speed at which the entire centripetal force is supplied by the horizontal component of the normal force.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ limiting speed မှာ ဓာတ်ပြုအားရဲ့ အလျားလိုက်အပိုင်းက centripetal တစ်ခုလုံး ပေးတယ်။ ပွတ်အား မလိုတော့ဘူး။"
+    "e": "True. For every banked curve, there is a limiting speed at which the entire centripetal force is supplied by the horizontal component of the normal force. Centripetal force is the real net inward force that keeps an object on a circular path, F_c = mv²/r."
   },
   {
     "q": "For every banked curve, there is a limiting speed at which the entire centripetal force is supplied by the vertical component of the normal force.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ limiting speed ရဲ့ အလယ်အားက ဓာတ်ပြုအားရဲ့ အလျားလိုက်အပိုင်းကလာတယ်။ ဒေါင်လိုက်အပိုင်းက ကားမကျအောင် ထိန်းတာပဲ။"
+    "e": "False. At the design speed the horizontal component of N supplies the whole centripetal force. The error is the part about every banked curve limiting speed entire."
   },
   {
     "q": "At the limiting speed on a banked curve, the frictional force between the tires and the road is not required.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ limiting speed ရောက်ရင် ပွတ်အားမပါဘဲ စောင်းဓာတ်ပြုအားက အလယ်အား လုံအောင် ပေးတယ်။ တာယာချော်မနေအောင် စောင်းကို ဒီအမြန်နဲ့ ချိန်တယ်။"
+    "e": "True. At the limiting speed on a banked curve, the frictional force between the tires and the road is not required. A banked track tilts so the horizontal part of the normal force can supply some or all of the centripetal requirement."
   },
   {
     "q": "At the limiting speed on a banked curve, the frictional force between the tires and the road is at its maximum value.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အဲဒီအမြန်မှာ ပွတ်အား အများဆုံး မဟုတ်ဘူး၊ မလိုအောင် ဖြစ်နေတာပဲ။ စောင်းက အလယ်အား ပေးပြီးသား။"
+    "e": "False. At the design (limiting) banked speed, friction can be zero; N's horizontal part does the job. The error is the part about limiting speed banked curve frictional force."
   },
   {
     "q": "According to the banking angle equation, $\\tan \\theta = \\frac{v^2}{rg}$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ စောင်းထောင့်ပုံသေနည်းက $\\tan \\theta = v^2 / rg$ ပဲ။ tan ကို v^2 နဲ့ rg အချိုးနဲ့ ချိတ်တယ်။"
+    "e": "True. According to the banking angle equation, tan θ = (v²)/(rg). A banked track tilts so the horizontal part of the normal force can supply some or all of the centripetal requirement."
   },
   {
     "q": "According to the banking angle equation, $\\sin \\theta = \\frac{v^2}{rg}$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ $\\sin \\theta = v^2 / rg$ မဟုတ်ဘူး။ မှန်တဲ့ပုံစံက $\\tan \\theta = v^2 / rg$ ပဲ။"
+    "e": "False. The banking relation is tanθ = v²/(rg), not sinθ = v²/(rg). The error is the part about According banking angle equation sin."
   },
   {
     "q": "In the banking of roads, since there is no vertical motion, the net force on the car in the y direction is zero.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဒေါင်လိုက်ရွေ့ခြင်း မရှိလို့ y ဦးတည် net force က သုညပဲ။ မျှခြေမို့ အပေါ်အောက် မတက်ဘူး။"
+    "e": "True. In the banking of roads, since there is no vertical motion, the net force on the car in the y direction is zero. A banked track tilts so the horizontal part of the normal force can supply some or all of the centripetal requirement."
   },
   {
     "q": "In the banking of roads, since there is no vertical motion, the net force on the car in the y direction is equal to the centripetal force.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ဒေါင်လိုက် net force ကို centripetal နဲ့ မညီပါနဲ့။ centripetal က အလျားလိုက်ဘက်မှာပဲ ရှိတယ်။"
+    "e": "False. Vertical net force is zero if there is no vertical acceleration. Centripetal force is the horizontal net force."
   }
 ]

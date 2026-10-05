@@ -2,56 +2,56 @@
   {
     "name": "\\omega = \\omega_0 + \\alpha t",
     "content": "Kinematic equation for angular velocity",
-    "e": "ω = ω₀ + αt က v = v₀ + at ရဲ့ လည်အဆင်အပြင်။ α မပြောင်းတဲ့အခါ t ကြာရင် ω ဘယ်လောက် တိုးလဲ ရှာတာ။"
+    "e": "ω = ω₀ + αt is the rotational twin of v = v₀ + at. Use it when α is constant to find how ω grows with time t."
   },
   {
     "name": "\\theta = \\omega_0 t + \\frac{1}{2} \\alpha t^2",
     "content": "Kinematic equation for angular displacement",
-    "e": "θ = ω₀t + ½αt² က s = v₀t + ½at² နဲ့ ပုံစံတူတယ်။ α မပြောင်းတဲ့အခါ t အတွင်း ဘယ်လောက် လည်သလဲ ရှာတာ။"
+    "e": "θ = ω₀t + ½αt² matches s = v₀t + ½at². With constant α it gives the angle turned in time t."
   },
   {
     "name": "\\omega^2 = \\omega_0^2 + 2 \\alpha \\theta",
     "content": "Kinematic equation relating angular velocity, acceleration, and displacement",
-    "e": "ω² = ω₀² + 2αθ က v² = v₀² + 2as နဲ့ တူတယ်။ အချိန်မသိဘဲ θ နဲ့ ω ချိတ်ချင်ရင် ဒီညီမျှခြင်း သုံးတယ်။"
+    "e": "ω² = ω₀² + 2αθ is the analogue of v² = v₀² + 2as. Use it to link ω and θ when time is not known."
   },
   {
     "name": "\\bar{\\omega} = \\frac{\\omega + \\omega_0}{2}",
     "content": "Equation for average angular velocity",
-    "e": "ω̄ = (ω + ω₀)/2 က ပျမ်းမျှ ထောင့်အလျင်။ α မပြောင်းရင် အစနဲ့ အဆုံး ω ကို ပျမ်းမျှရုံပဲ၊ t နဲ့ စားစရာ မလိုဘူး။"
+    "e": "ω̄ = (ω + ω₀)/2 is the average angular velocity. For constant α you just average the start and end values of ω."
   },
   {
     "name": "a = \\sqrt{a_C^2 + a_T^2}",
     "content": "Magnitude of resultant acceleration",
-    "e": "ပိုက်သာဂိုရပ်သုံးပြီး |a| = √(a_C² + a_T²) ရတယ်။ နှစ်ဗှတ္တာ ထောင့်မတ်မို့ တန်းတူပေါင်းလို့ မရ၊ နှစ်ထပ်ကိန်းပေါင်းပြီး အမြစ်ထုတ်ရတယ်။"
+    "e": "The resultant acceleration has magnitude |a| = √(a_C² + a_T²). a_C and a_T are perpendicular, so you add them in quadrature, not as ordinary sums."
   },
   {
     "name": "\\tan \\phi = \\frac{a_T}{a_C}",
     "content": "Direction of resultant acceleration",
-    "e": "resultant ရဲ့ ဦးတည်ချက်က tanφ = a_T/a_C။ φ က a_c နဲ့ a ကြားက ထောင့်၊ a_T ကြီးရင် φ ပိုကြီးတယ်။"
+    "e": "The direction of the resultant acceleration satisfies tanφ = a_T/a_C. φ is the angle from a_C toward a, and a larger a_T makes φ larger."
   },
   {
     "name": "a_C = \\frac{v^2}{r}",
     "content": "Centripetal acceleration in terms of linear velocity",
-    "e": "a_C = v²/r က မျဉ်းအမြန်နှုန်းနဲ့ ရေးတဲ့ အလယ်အရှိန်ပြောင်း။ v ကြီးရင် a_C ကြီးပြီး r ကြီးရင် a_C ငယ်တယ်။"
+    "e": "a_C = v²/r is centripetal acceleration from linear speed. Larger v raises a_C; larger r lowers it."
   },
   {
     "name": "a_C = r \\omega^2",
     "content": "Centripetal acceleration in terms of angular velocity",
-    "e": "a_C = rω² က ထောင့်အလျင်နဲ့ ရေးတဲ့ ပုံစံ။ v = rω ကို v²/r ထဲ ထည့်လိုက်ရင် ဒီညီမျှခြင်း ရတယ်။"
+    "e": "a_C = rω² is centripetal acceleration from angular speed. Substituting v = rω into v²/r produces this form."
   },
   {
     "name": "s = r \\theta",
     "content": "Relation between linear displacement and angular displacement",
-    "e": "s = rθ က ခွေးအလျားနဲ့ ထောင့်ပြောင်း ဆက်စပ်မှု။ θ ကို radian နဲ့ တိုင်းမှ မှန်ပြီး အချင်းဝက် ကြီးရင် တူတဲ့ ထောင့်မှာ ခွေးပိုရှည်တယ်။"
+    "e": "s = rθ links arc length to angular displacement. θ must be in radians, and a larger radius gives a longer arc for the same angle."
   },
   {
     "name": "v = r \\omega",
     "content": "Relation between linear velocity and angular velocity",
-    "e": "v = rω က မျဉ်းအလျင်နဲ့ ထောင့်အလျင် ဆက်စပ်မှု။ ω တူရင် အပြင်ခွေးက v ပိုကြီးတယ်။"
+    "e": "v = rω links linear speed to angular speed. At the same ω, a particle farther from the axis has a larger v."
   },
   {
     "name": "a_T = r \\alpha",
     "content": "Relation between tangential acceleration and angular acceleration",
-    "e": "a_T = rα က တို့ထိအရှိန်ပြောင်းနဲ့ ထောင့်အရှိန်ပြောင်း ဆက်စပ်မှု။ α တူရင် r ကြီးတဲ့ အမှုန်က a_T ပိုကြီးတယ်။"
+    "e": "a_T = rα links tangential acceleration to angular acceleration. At the same α, a larger r means a larger a_T."
   }
 ]

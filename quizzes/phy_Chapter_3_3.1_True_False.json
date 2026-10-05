@@ -3,102 +3,102 @@
     "q": "Fluid is a substance that offers no permanent resistance to deforming forces.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်နဲ့ ဓာတ်ငွေ့က ပုံပျက်အားကို အမြဲမခံနိုင်ဘူး။ တွန်းရင် ပုံပြောင်းပြီး စီးသွားတယ်။"
+    "e": "True. Fluid is a substance that offers no permanent resistance to deforming forces. A fluid yields steadily under shear; it does not keep a fixed shape."
   },
   {
     "q": "Fluid statics concentrates on fluids in motion, while fluid dynamics concerns with the fluids at rest.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ statics က ငြိမ်အရည်၊ dynamics က စီးအရည်ပဲ။ စာကြောင်းက နှစ်ခု ပြောင်းပြန်ရေးထားတယ်။"
+    "e": "False. Fluid statics studies fluids at rest. The error is the part about Fluid statics concentrates fluids motion dynamics."
   },
   {
     "q": "Motion of fluids can be classified by two types, laminar flow and turbulent flow.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်စီးကို ချောအလွှာစီးနဲ့ ရောစီး နှစ်မျိုး ခွဲတယ်။ laminar နဲ့ turbulent ပဲ။"
+    "e": "True. Motion of fluids can be classified by two types, laminar flow and turbulent flow. Laminar flow moves in smooth layers with no mixing between neighbouring sheets."
   },
   {
     "q": "If fluid particles are moving steady in smooth paths in layers, with each layer moving smoothly past the adjacent layers with no mixing, such a flow is called turbulent flow.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အလွှာချင်း ချောချောကျော်၊ မရောတာ turbulent မဟုတ်ဘူး။ အဲဒါ laminar ပဲ။"
+    "e": "False. Smooth layered motion with no mixing is laminar flow, not turbulent flow. The error is the part about fluid particles moving steady smooth paths."
   },
   {
     "q": "In this steady laminar flow, streamlines do not cross each other.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ချောစီးတည်ငြိမ်တဲ့အခါ စီးမျဉ်းတွေ တစ်ခုနဲ့တစ်ခု မဖြတ်ဘူး။ ခွဲနေမှ laminar ဖြစ်တယ်။"
+    "e": "True. In this steady laminar flow, streamlines do not cross each other. A streamline is the path a fluid particle follows. In steady laminar flow, streamlines do not cross."
   },
   {
     "q": "Every fluid particle arriving at a given point has a different velocity in steady laminar flow.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ steady laminar မှာ တစ်နေရာရောက်တဲ့ အမှုန်တိုင်း အလျင်တူတယ်။ မတူဘူးလို့ ရေးရင် ရောစီးနဲ့ ရောသွားမယ်။"
+    "e": "False. In steady laminar flow every particle arriving at a given point has the same velocity. The error is the part about Every fluid particle arriving given point."
   },
   {
     "q": "If the flow or path of the fluid particles are irregular, their direction is always changing or whirling, this fluid movement is called turbulent flow.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ လမ်းကြောင်း မမှန်၊ ဦးတည်ချက် လှည့်နေရင် turbulent ပဲ။ whirling က ရောစီးလက္ခဏာပဲ။"
+    "e": "True. If the flow or path of the fluid particles are irregular, their direction is always changing or whirling, this fluid movement is called turbulent flow. Turbulent flow is irregular and whirling, so speed and direction at a point keep changing."
   },
   {
     "q": "In turbulent flow the speed of the fluid at a point is continuously undergoing changes in both magnitude and direction.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ရောစီးမှာ တစ်မှတ်ရဲ့ အမြန်က တန်ဖိုးရော ဦးတည်ချက်ပါ မနားဘူး။ ပုံသေအလျင် မထားနိုင်ဘူး။"
+    "e": "True. In turbulent flow the speed of the fluid at a point is continuously undergoing changes in both magnitude and direction. Turbulent flow is irregular and whirling, so speed and direction at a point keep changing."
   },
   {
     "q": "The volume of a gas depends on pressure and temperature obeying Boyle's law and Charles' law.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဓာတ်ငွေ့ထုထည်က Boyle နဲ့ Charles နိယာမအတိုင်း ဖိအားနဲ့ အပူချိန်ပေါ် မူတည်တယ်။ နှစ်ခုလုံး လိုက်နာတယ်။"
+    "e": "True. The volume of a gas depends on pressure and temperature obeying Boyle's law and Charles' law. Gas volume depends on p and T through Boyle and Charles."
   },
   {
     "q": "The volume of a liquid depends heavily on pressure if the temperature is constant.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အပူချိန်ပုံသေရင် အရည်ထုထည်က ဖိအားနဲ့ မပြောင်းလောက်ဘူး။ ဓာတ်ငွေ့လို ကျုံ့မသွားဘူး။"
+    "e": "False. A liquid's volume is almost independent of pressure at fixed temperature; liquids are nearly incompressible. The error is the part about volume liquid depends heavily pressure temperature."
   },
   {
     "q": "Ideal laminar fluid flow considers the fluid is compressible.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ideal laminar က အရည်ကို ဖိသိပ်လွယ်လို့ မယူဘူး။ incompressible လို့ပဲ ယူတယ်။"
+    "e": "False. Ideal laminar Bernoulli flow treats the fluid as incompressible. The error is the part about Ideal laminar fluid flow considers compressible."
   },
   {
     "q": "Ideal laminar fluid flow considers the flow has no friction or friction is neglected.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ideal စီးမှာ အတွင်းပွတ်ကို မေ့ထားတယ်။ viscosity သုညယူတာပဲ။"
+    "e": "True. Ideal laminar fluid flow considers the flow has no friction or friction is neglected. Laminar flow moves in smooth layers with no mixing between neighbouring sheets."
   },
   {
     "q": "Internal friction in fluids is called viscosity.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်အတွင်း ပွတ်ခုခံကို viscosity လို့ ခေါ်တယ်။ အလွှာချင်း ကပ်ဆွဲတာရဲ့ နာမည်ပဲ။"
+    "e": "True. Internal friction in fluids is called viscosity. Viscosity is shear stress divided by velocity gradient, η = (F/A)/(dv/dy)."
   },
   {
     "q": "Ideal laminar fluid flow considers high viscosity.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ideal laminar က viscosity များတယ်လို့ မယူဘူး။ ပွတ်မရှိလို့ သုညယူတယ်။"
+    "e": "False. Ideal Bernoulli flow is non-viscous, so internal friction is neglected. The error is the part about Ideal laminar fluid flow considers high."
   },
   {
     "q": "Ideal laminar fluid flow considers the fluid flow is laminar (steady) and turbulent flow is not taken into account.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ideal မော်ဒယ်က ချောစီးပဲ ထည့်ပြီး ရောစီးကို ဖယ်ထားတယ်။ turbulent ကို ထည့်မတွက်ဘူး။"
+    "e": "True. Ideal laminar fluid flow considers the fluid flow is laminar (steady) and turbulent flow is not taken into account. Laminar flow moves in smooth layers with no mixing between neighbouring sheets."
   },
   {
     "q": "Sea breeze is a laminar flow and storm is a turbulent flow.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပင်လယ်ကမ်းလေချောက ချောစီး၊ မုန်တိုင်းက ရောစီးပဲ။ ဥပမာနှစ်ခုက ဆန့်ကျင်ဖက်ပဲ။"
+    "e": "True. Sea breeze is a laminar flow and storm is a turbulent flow. Laminar flow moves in smooth layers with no mixing between neighbouring sheets."
   },
   {
     "q": "Sea breeze is a turbulent flow and storm is a laminar flow.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ပင်လယ်လေချောကို ရောစီး၊ မုန်တိုင်းကို ချောစီးလို့ ပြောင်းပြန်ရေးထားတယ်။"
+    "e": "False. A sea breeze is typically smoother laminar-like flow; a storm is turbulent. The error is the part about Sea breeze turbulent flow storm laminar."
   }
 ]

@@ -3,138 +3,138 @@
     "type": "tf",
     "q": "In most of the musical instruments, the stretched strings act as a source of sound.",
     "c": "true",
-    "e": "မှန်တယ်။ တူရိယာအများစုမှာ ဆွဲကြိုးက အသံအရင်းပဲ။ လေတိုင်က နောက်အမျိုးအစားပဲ။"
+    "e": "True. In most of the musical instruments, the stretched strings act as a source of sound. A string fixed at both ends has nodes at the ends. The fundamental wavelength is 2L."
   },
   {
     "type": "tf",
     "q": "When the stretched strings are plucked, progressive waves are produced.",
     "c": "false",
-    "e": "မှားတယ်။ ဆွဲကြိုးကို တီးရင် တိုးတက်လှိုင်းမဟုတ်၊ တည်နေလှိုင်း ဖြစ်တယ်။ စွန်းက နုတ်ပဲ။"
+    "e": "False. A string fixed at both ends has nodes at the ends. The fundamental wavelength is 2L."
   },
   {
     "type": "tf",
     "q": "When the string is plucked, the stationary waves with nodes at the fixed ends are formed.",
     "c": "true",
-    "e": "မှန်တယ်။ ကြိုးကို ဆွဲတီးရင် ပိတ်စွန်းနှစ်ဖက်မှာ နုတ်ရှိတဲ့ တည်နေလှိုင်း ဖြစ်တယ်။ စွန်းက ရွှေ့လို့ မရဘူး။"
+    "e": "True. When the string is plucked, the stationary waves with nodes at the fixed ends are formed. Standing waves stay put with nodes and antinodes. Progressive waves travel and carry energy."
   },
   {
     "type": "tf",
     "q": "When the string is plucked, the stationary waves with antinodes at the fixed ends are formed.",
     "c": "false",
-    "e": "မှားတယ်။ အန်တီနုတ်က နုတ်မှတ်နှစ်ခုကြား အကြီးဆုံးတုန်တဲ့ မှတ်ပဲ။ နုတ်မှတ်က ငြိမ်တယ်။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. The claim puts antinodes where nodes belongs. When the string is plucked, the stationary waves with nodes at the fixed ends are formed. Antinodes are the peaks of vibration, midway between nodes."
   },
   {
     "type": "tf",
     "q": "The waves that are formed on the string are called harmonics.",
     "c": "true",
-    "e": "မှန်တယ်။ ကြိုးပေါ် ဖြစ်တဲ့ လှိုင်းတွေကို ဟာမိုနစ်လို့ ခေါ်တယ်။ တိုးတက်လှိုင်းလို့ မခေါ်ရဘူး။"
+    "e": "True. The waves that are formed on the string are called harmonics. Harmonics are integer multiples of the fundamental frequency."
   },
   {
     "type": "tf",
     "q": "For the $n^{th}$ harmonic, the wavelength is given by $\\lambda_n = rac{2l}{n}$ where $n=1, 2, 3, ...$.",
     "c": "true",
-    "e": "မှန်တယ်။ လှိုင်း ရဲ့ ပုံသေနည်းကို မေးတယ်။"
+    "e": "True. For the n^th harmonic, the wavelength is given by λ_n = rac{2l}{n} where n=1, 2, 3,. Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "For the $n^{th}$ harmonic, the wavelength is given by $\\lambda_n = rac{l}{n}$ where $n=1, 2, 3, ...$.",
     "c": "false",
-    "e": "မှားတယ်။ လှိုင်း ရဲ့ ပုံသေနည်းကို မေးတယ်။"
+    "e": "False. The claim puts rac{l}{n} where rac{2l}{n} belongs. For the n^th harmonic, the wavelength is given by λ_n = rac{2l}{n} where n=1, 2, 3,."
   },
   {
     "type": "tf",
     "q": "The corresponding frequencies are calculated from $v = f_n \\lambda_n$, where $v$ is the velocity of the wave in a string.",
     "c": "true",
-    "e": "မှန်တယ်။ ကြိမ်နှုန်းတွေကို v = fₙ λₙ ကနေ တွက်တယ်။ v က ကြိုးထဲ လှိုင်းအလျင်ပဲ။"
+    "e": "True. The corresponding frequencies are calculated from v = f_n λ_n, where v is the velocity of the wave in a string. Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "The frequencies of a vibrating string of length $l$ are given by $f_n = rac{nv}{2l}$ where $n=1, 2, 3, ...$.",
     "c": "true",
-    "e": "မှန်တယ်။ ကြိုးတုန်ခါမှု ရဲ့ ပုံသေနည်းကို မေးတယ်။"
+    "e": "True. The frequencies of a vibrating string of length l are given by f_n = rac{nv}{2l} where n=1, 2, 3,. Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "Vibration of a string in one single segment is called the fundamental or first harmonic.",
     "c": "true",
-    "e": "မှန်တယ်။ ကြိုး တစ်ပိုင်းတည်း တုန်တာက အခြေခံ ဒါမှမဟုတ် ပထမ ဟာမိုနစ်ပဲ။"
+    "e": "True. Vibration of a string in one single segment is called the fundamental or first harmonic. The fundamental is the lowest standing-wave frequency. Higher ones are harmonics or overtones."
   },
   {
     "type": "tf",
     "q": "Vibration of a string in one single segment is called the first overtone.",
     "c": "false",
-    "e": "မှားတယ်။ ကြိုး တစ်ပိုင်းတည်း တုန်တာက ပထမ အိုဗာတုန်းမဟုတ်၊ အခြေခံ ဒါမှမဟုတ် ပထမ ဟာမိုနစ်ပဲ။"
+    "e": "False. The claim puts first where fundamental belongs. Vibration of a string in one single segment is called the fundamental or first harmonic. Harmonics are integer multiples of the fundamental frequency."
   },
   {
     "type": "tf",
     "q": "A musical tone which is part of the harmonic series above a fundamental note is called an overtone.",
     "c": "true",
-    "e": "မှန်တယ်။ အခြေခံသံအပေါ် ဟာမိုနစ်စီးရီးထဲက သံကို အိုဗာတုန်းလို့ ခေါ်တယ်။"
+    "e": "True. A musical tone which is part of the harmonic series above a fundamental note is called an overtone. The fundamental is the lowest standing-wave frequency. Higher ones are harmonics or overtones."
   },
   {
     "type": "tf",
     "q": "The velocity of a wave in a vibrating string depends on the tension of the string and mass per unit length of the string.",
     "c": "true",
-    "e": "မှန်တယ်။ တုန်ကြိုးထဲ လှိုင်းအလျင်က တင်းအားနဲ့ တစ်ယူနစ်အလျားဒြပ်ထုပေါ် မူတည်တယ်။"
+    "e": "True. The velocity of a wave in a vibrating string depends on the tension of the string and mass per unit length of the string. velocity has to stay in that role in the sentence."
   },
   {
     "type": "tf",
     "q": "The velocity of a wave in a vibrating string is given by the formula $v = \\sqrt{ rac{T}{\\mu}}$.",
     "c": "true",
-    "e": "မှန်တယ်။ တုန်ကြိုးထဲ လှိုင်းအလျင် v = √(T/μ) ပဲ။ T က တင်းအား၊ μ က တစ်မီတာဒြပ်ထုပဲ။"
+    "e": "True. The velocity of a wave in a vibrating string is given by the formula v = √( rac{T}{μ}). Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "The velocity of a wave in a vibrating string is given by the formula $v = \\sqrt{ rac{\\mu}{T}}$.",
     "c": "false",
-    "e": "မှားတယ်။ ကြိုးလှိုင်းအလျင်က √(T/μ) ပဲ။ √(μ/T) ဆိုရင် တင်းအားနဲ့ ဒြပ်ထု ပြောင်းပြန်မှားတယ်။"
+    "e": "False. The claim puts rac{μ}{t} where rac{t}{μ} belongs. The velocity of a wave in a vibrating string is given by the formula v = √( rac{T}{μ})."
   },
   {
     "type": "tf",
     "q": "In the formula $v = \\sqrt{ rac{T}{\\mu}}$, $T$ represents the tension of the string.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီပုံသေနည်းက ကြိုးတုန်ခါမှု နဲ့ ဆိုင်တယ်။ ရေးထားချက်က In ပုံသေနည်း v = √( )μ, T ကိုယ်စားပြု t။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "True. In the formula v = √( rac{T}{μ}), T represents the tension of the string. Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "In the formula $v = \\sqrt{ rac{T}{\\mu}}$, $\\mu$ represents the total mass of the string.",
     "c": "false",
-    "e": "မှားတယ်။ ဒီပုံသေနည်းက ကြိုးတုန်ခါမှု နဲ့ ဆိုင်တယ်။ ရေးထားချက်က In ပုံသေနည်း v = √( )μ, μ ကိုယ်စားပြု t။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "False. In the formula v = √( rac{T}{μ}), T represents the tension of the string."
   },
   {
     "type": "tf",
     "q": "The frequencies of the vibrating string can also be written in terms of $T$ and $\\mu$ as $f_n = rac{n}{2l} \\sqrt{ rac{T}{\\mu}}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ကြိုးကြိမ်နှုန်းကို f_n = (n / 2l) √(T/μ) လို့လည်း ရေးတယ်။ တင်းအားကြီးရင် ကြိမ်နှုန်းတက်တယ်။"
+    "e": "True. The frequencies of the vibrating string can also be written in terms of T and μ as f_n = rac{n}{2l} √( rac{T}{μ}). Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "For the second harmonic, $n=2$, the frequency is $f_2 = 2f_1$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီပုံသေနည်းက ကြိမ်နှုန်း နဲ့ ဆိုင်တယ်။ ရေးထားချက်က , n=2, is f။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "True. For the second harmonic, n=2, the frequency is f_2 = 2f_1. Frequency is the number of turns per second, the reciprocal of the period."
   },
   {
     "type": "tf",
     "q": "For the third harmonic, $n=3$, the frequency is $f_3 = 3f_1$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီပုံသေနည်းက ကြိမ်နှုန်း နဲ့ ဆိုင်တယ်။ ရေးထားချက်က , n=3, is f_။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "True. For the third harmonic, n=3, the frequency is f_3 = 3f_1. Frequency is the number of turns per second, the reciprocal of the period."
   },
   {
     "type": "tf",
     "q": "Mass per unit length of the string is the ratio of mass to length of the string.",
     "c": "true",
-    "e": "မှန်တယ်။ ကြိုးတုန်ခါမှု ရဲ့ ယူနစ်ကို မေးတယ်။"
+    "e": "True. Mass per unit length of the string is the ratio of mass to length of the string. Mass has to stay in that role in the sentence."
   },
   {
     "type": "tf",
     "q": "Mass per unit length can be expressed as $\\mu = ho A$, where $A$ is the uniform cross-sectional area of the string.",
     "c": "true",
-    "e": "မှန်တယ်။ တစ်ယူနစ်အလျားဒြပ်ထု μ = ρA၊ A က ကြိုးဖြတ်ပိုင်းဧရိယာပဲ။ သိပ်သည်းဆချည်း မဟုတ်ဘူး။"
+    "e": "True. Mass per unit length can be expressed as μ = ho A, where A is the uniform cross-sectional area of the string. Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "In the expression $\\mu = ho A$, $ ho$ represents the volume of the string.",
     "c": "false",
-    "e": "မှားတယ်။ ဒီပုံသေနည်းက ကြိုးတုန်ခါမှု နဲ့ ဆိုင်တယ်။ ရေးထားချက်က In μ = ho A, ho ကိုယ်စားပြု vo။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "False. The written claim is the opposite of the chapter fact. The written line says In the expression μ = ho A, ho represents the volume of the string."
   }
 ]

@@ -3,78 +3,78 @@
     "q": "Bernoulli's equation relates the pressure, flow speed, and height for the steady (laminar) flow of an ideal incompressible fluid.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Bernoulli က ဖိအား၊ စီးအမြန်၊ အမြင့်ကို ချောစီး ideal အရည်အတွက် ချိတ်တယ်။ သုံးကိန်းပဲ။"
+    "e": "True. Bernoulli's equation relates the pressure, flow speed, and height for the steady (laminar) flow of an ideal incompressible fluid. Laminar flow moves in smooth layers with no mixing between neighbouring sheets."
   },
   {
     "q": "The internal friction of the fluid flow is very high in Bernoulli's equation.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ Bernoulli ထဲ အတွင်းပွတ် အလွန်များတယ်လို့ မယူဘူး။ ပွတ်ကို မေ့ထားတယ်။"
+    "e": "False. Bernoulli's equation assumes non-viscous flow, so internal friction is taken as zero. The error is the part about internal friction fluid flow high Bernoulli."
   },
   {
     "q": "Bernoulli's equation can be derived using the work-energy principle to a fluid flowing in a tube.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပြွန်စီးကို work-energy နိယာမနဲ့ Bernoulli ကို ဖော်တယ်။ အလုပ်နဲ့ စက်စွမ်းအင် ချိတ်တယ်။"
+    "e": "True. Bernoulli's equation can be derived using the work-energy principle to a fluid flowing in a tube. Pressure work on a fluid slug equals the change of its mechanical energy."
   },
   {
     "q": "According to work-energy principle, the work done on this section of fluid must equal the change in total mechanical energy.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်အပိုင်းပေါ် အလုပ်က စက်စွမ်းအင်ပြောင်းလဲမှုနဲ့ ညီရမယ်။ kinetic+potential ပေါင်းတာပဲ။"
+    "e": "True. According to work-energy principle, the work done on this section of fluid must equal the change in total mechanical energy. Pressure work on a fluid slug equals the change of its mechanical energy."
   },
   {
     "q": "Total mechanical energy is the sum of kinetic energy and thermal energy.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ စက်စွမ်းအင်က ရွေ့စွမ်းအင်နဲ့ အပူစွမ်းအင် ပေါင်းတာ မဟုတ်ဘူး။ potential ထည့်ရတယ်၊ thermal မထည့်ဘူး။"
+    "e": "False. Mechanical energy here is kinetic plus gravitational potential, not thermal energy. The error is the part about Total mechanical energy sum kinetic thermal."
   },
   {
     "q": "Since the fluid is incompressible, $A_1 \\Delta x_1 = A_2 \\Delta x_2 = \\Delta V$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ incompressible မို့ A₁Δx₁ = A₂Δx₂ = ΔV ပဲ။ ထုထည်အပိုင်း တူတယ်။"
+    "e": "True. Since the fluid is incompressible, A₁ Δ x₁ = A₂ Δ x₂ = Δ V. Equal volumes A Δx pass both sections because the liquid cannot change density."
   },
   {
     "q": "The work done on the fluid in this case is due to the viscosity of the fluid.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အရည်ပေါ် အလုပ်က အပျစ်ကြောင့် မဟုတ်ဘူး။ ဖိအားက တွန်းအလုပ်ပေးတယ်။"
+    "e": "False. In the Bernoulli derivation the work is pressure work pΔV, with viscosity neglected. The error is the part about work done fluid case due viscosity."
   },
   {
     "q": "The mass of the fluid between a and b is $\\rho \\Delta V$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ a နဲ့ b ကြား ဒြဗ်ထုက ρΔV ပဲ။ သိပ်သည်းမှုနဲ့ ထုထည်အပိုင်း မြှောက်တယ်။"
+    "e": "True. The mass of the fluid between a and b is ρ Δ V. That mass is density times the volume slug, m = ρ ΔV."
   },
   {
     "q": "The change in kinetic energy is $\\frac{1}{2} \\rho \\Delta V (v_2^2 - v_1^2)$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ရွေ့စွမ်းအင်ပြောင်းလဲမှုက ½ρΔV(v₂²−v₁²) ပဲ။ ဒြဗ်ထုက ρΔV မို့ ဒီပုံစံရတယ်။"
+    "e": "True. The change in kinetic energy is (1)/(2) ρ Δ V (v₂² - v₁²). ΔK = ½ ρ ΔV (v₂² − v₁²) for that incompressible slug."
   },
   {
     "q": "The change in potential energy is $\\rho \\Delta V g (h_2 - h_1)$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အနေအထားစွမ်းအင်ပြောင်းလဲမှုက ρΔV g (h₂−h₁) ပဲ။ အမြင့်ကွာတာနဲ့ ချိတ်တယ်။"
+    "e": "True. The change in potential energy is ρ Δ V g (h₂ - h₁). ΔU = ρ ΔV g (h₂ − h₁) as the slug changes height."
   },
   {
     "q": "Bernoulli's theorem states that the sum of pressure energy, kinetic energy and potential energy per unit volume of an incompressible, non-viscous fluid in a streamlined laminar flow remains constant.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ တစ်ယူနစ်ထုထည် ဖိအား+ရွေ့+အနေအထား စွမ်းအင်ပေါင်း ချောစီးမှာ ပုံသေတယ်။ ဒါ Bernoulli အဆိုပဲ။"
+    "e": "True. Bernoulli's theorem states that the sum of pressure energy, kinetic energy and potential energy per unit volume of an incompressible, non-viscous fluid in a streamlined. A streamline is the path a fluid particle follows. In steady laminar flow, streamlines do not cross."
   },
   {
     "q": "Bernoulli's theorem states that the sum of pressure energy, kinetic energy and potential energy per unit mass remains constant.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ တစ်ယူနစ်ဒြဗ်ထုနဲ့ မရေးဘူး။ တစ်ယူနစ်ထုထည်နဲ့ ပေါင်းရင် ပုံသေတယ်။"
+    "e": "False. Bernoulli's textbook form is per unit volume: p + ½ρv² + ρgh = constant. The error is the part about Bernoulli theorem states sum pressure energy."
   },
   {
     "q": "The equation is $p + \\frac{1}{2} \\rho v^2 + \\rho g h = \\text{constant}$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပုံသေနည်းက p + ½ρv² + ρgh = constant ပဲ။ သုံးသက်က သုံးစွမ်းအင်ပဲ။"
+    "e": "True. The equation is p + (1)/(2) ρ v² + ρ g h = constant. Keep the exact quantity, direction or number named in the statement."
   }
 ]

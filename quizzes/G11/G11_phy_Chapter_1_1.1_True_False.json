@@ -3,84 +3,84 @@
     "type": "tf",
     "q": "In Grade 10, one dimensional motion such as linear motion and free fall motion was studied.",
     "c": "true",
-    "e": "မှန်တယ်။ ဆယ်တန်းမှာ မျဉ်းဖြောင့်ရွေ့လျားမှုနဲ့ လွတ်ကျမှုလို တစ်ဖက်ရွေ့ကို သင်ခဲ့တယ်။ ဒီအခန်းက နှစ်ဖက်ကို တိုးချဲ့တာ၊ အရင်အခြေခံက တစ်ဖက်ပဲ။"
+    "e": "True. In Grade 10, one dimensional motion such as linear motion and free fall motion was studied. Grade 10 stayed on one axis: linear motion and free fall."
   },
   {
     "type": "tf",
     "q": "Two-dimensional motion is the simplest type of motion which can be encountered in many cases.",
     "c": "false",
-    "e": "မှားတယ်။ အရိုးရှင်းဆုံးရွေ့လျားမှုက တစ်ဖက်ရွေ့လျားမှုပဲ။ နှစ်ဖက်က ပိုရှုပ်တယ်၊ ဆယ်တန်းက တစ်ဖက်ကို အရင်သင်ခဲ့တယ်။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. One-dimensional motion is the simple case. Two-dimensional motion is harder because x and y can both change."
   },
   {
     "type": "tf",
     "q": "In two-dimensional motion, the object may move in both the x and y direction simultaneously.",
     "c": "true",
-    "e": "မှန်တယ်။ နှစ်ဖက်မြင်မှာ x နဲ့ y တပြိုင်နက် ရွေ့နိုင်တယ်။ လေယာဉ်ပြင်ပေါ်က ရွေ့လျားမှုပဲ။"
+    "e": "True. In two-dimensional motion, the object may move in both the x and y direction simultaneously. The object is free to change x and y at the same time."
   },
   {
     "type": "tf",
     "q": "In order to describe the motion of an object in two dimensions, scalar concept must be used.",
     "c": "false",
-    "e": "မှားတယ်။ နှစ်ဖက်မြင်ရွေ့လျားမှုကို ဗှတ္တာနဲ့ ဖော်ပြရတယ်။ စကေးလာက ပမာဏချည်းမို့ ဦးတည်ချက်မပါဘူး။"
+    "e": "False. A plane displacement has size and direction, so you need a vector, not a scalar."
   },
   {
     "type": "tf",
     "q": "The displacement vector of the object from P to Q is $\\Delta \\vec{r}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီပုံသေနည်းက ဗှတ္တာ နဲ့ ဆိုင်တယ်။ ရေးထားချက်က of အရာဝတ္ထု P to။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "True. The displacement vector of the object from P to Q is Δr. The change of position from P to Q is the displacement vector Δr."
   },
   {
     "type": "tf",
     "q": "The perpendicular components of $\\Delta \\vec{r}$ are $\\Delta x$ and $\\Delta y$.",
     "c": "true",
-    "e": "မှန်တယ်။ အရွေ့ဗှတ္တာကို ထောင့်မှန် အလျား Δx နဲ့ ဒေါင်လိုက် Δy ခွဲတယ်။ နှစ်ပိုင်းပေါင်းမှ မူလဗှတ္တာ ပြန်ရတယ်။"
+    "e": "True. The perpendicular components of Δr are Δx and Δy. Δr splits into a horizontal piece Δx and a vertical piece Δy."
   },
   {
     "type": "tf",
     "q": "The magnitude of $\\Delta \\vec{r}$ is given by $\\Delta r = \\sqrt{(\\Delta x)^2 - (\\Delta y)^2}$.",
     "c": "false",
-    "e": "မှားတယ်။ ဒီရူပဗေဒအချက် ရဲ့ ပုံသေနည်းကို မေးတယ်။"
+    "e": "False. The size of Δr is the Pythagorean root of Δx² plus Δy². You do not add Δx and Δy raw, and you do not subtract the squares. The squares under a magnitude are added."
   },
   {
     "type": "tf",
     "q": "To find the direction of $\\Delta \\vec{r}$, the formula $\\tan \\theta = \\frac{\\Delta y}{\\Delta x}$ is used.",
     "c": "true",
-    "e": "မှန်တယ်။ အရွေ့ဗှတ္တာဦးတည်ချက်က tan θ = Δy / Δx နဲ့ ရှာတယ်။ θ က ပြင်ညီနဲ့ ထောင့်ပဲ။"
+    "e": "True. To find the direction of Δr, the formula tan θ = (Δy)/(Δx) is used. The direction angle uses opposite over adjacent: tan θ = Δy/Δx."
   },
   {
     "type": "tf",
     "q": "Instantaneous velocity is given by $\\vec{v} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ချက်ချင်းအလျင် v = lim Δt→၀ Δr/Δt ပဲ။ အရွေ့ဗှတ္တာရဲ့ အချိန်ပြောင်းနှုန်းပဲ။"
+    "e": "True. Instantaneous velocity is given by v = limitΔt → 0 (Δr)/(Δt). Instantaneous velocity is the limit of Δr/Δt as Δt goes to zero, which is dr/dt."
   },
   {
     "type": "tf",
     "q": "Average acceleration is given by $\\vec{a}_{avg} = \\frac{\\Delta \\vec{v}}{\\Delta t}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ပျမ်းမျှအရှိန် a_avg = Δv/Δt ပဲ။ Δr/Δt က ပျမ်းမျှအလျင်ပဲ။"
+    "e": "True. Average acceleration is given by aavg = (Δv)/(Δt). Average acceleration is the change of velocity over the time interval, Δv/Δt."
   },
   {
     "type": "tf",
     "q": "Instantaneous acceleration is given by $\\vec{a} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{v}}{\\Delta t}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ချက်ချင်းအရှိန် a = lim Δt→၀ Δv/Δt ပဲ။ အလျင်ရဲ့ အချိန်ပြောင်းနှုန်းပဲ။"
+    "e": "True. Instantaneous acceleration is given by a = limitΔt → 0 (Δv)/(Δt). Instantaneous acceleration is the limit of Δv/Δt, which is dv/dt."
   },
   {
     "type": "tf",
     "q": "An object moving with constant speed along a curved path is not accelerating.",
     "c": "false",
-    "e": "မှားတယ်။ ကွေးလမ်းပေါ် အမြန်တူနေရင်တောင် ဦးတည်ချက်ပြောင်းလို့ အရှိန်ရှိတယ်။ အလျင်က ဗှတ္တာမို့ ဦးတည်ချက်ပြောင်းတာက အရှိန်ပဲ။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. Speed can stay the same while the velocity vector turns. That turn is an acceleration."
   },
   {
     "type": "tf",
     "q": "The direction of the velocity of an object moving along a curved path is tangential to its path.",
     "c": "true",
-    "e": "မှန်တယ်။ ကွေးလမ်းပေါ်က အလျင်ဦးတည်ချက်က လမ်းကြောင်းနဲ့ ထိတွေ့ပဲ။ ဒါကြောင့်ပဲ အလျင်က ဗှတ္တာအနေနဲ့ ပြောင်းတယ်။"
+    "e": "True. The direction of the velocity of an object moving along a curved path is tangential to its path. On a curve the velocity arrow is tangent to the path, not along a radius."
   },
   {
     "type": "tf",
     "q": "An object is accelerated whenever the velocity changes in magnitude, direction, or both.",
     "c": "true",
-    "e": "မှန်တယ်။ အလျင်ပမာဏ ဒါမှမဟုတ် ဦးတည်ချက် ဒါမှမဟုတ် နှစ်ခုလုံး ပြောင်းရင် အရှိန်ရှိတယ်။"
+    "e": "True. An object is accelerated whenever the velocity changes in magnitude, direction, or both. Acceleration is a change of the velocity vector: size, direction, or both."
   }
 ]

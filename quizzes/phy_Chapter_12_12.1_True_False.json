@@ -3,282 +3,282 @@
     "q": "Active electrical components are capable of operating without an external power source.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ Active တွေက အပြင်က ပါဝါမထောက်ရင် မလှုပ်ဘူး။ Transistor၊ LED လိုဟာတွေ ကိုယ့်ဘာသာ မအလုပ်လုပ်ဘူး။"
+    "e": "False. The right claim is this: Passive electrical components are capable of operating without an external power source. Passive parts need no extra power source; they cannot add energy to the signal. The printed line wrongly says active electrical components are capable of operating without an external power source."
   },
   {
     "q": "Passive electrical components are resistors, capacitors, inductors, transformers, LDR, transducer, etc.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ခံနိုင်အား၊ ကာပတ်စီတာ၊ ကွိုင်၊ ထရန်စဖော်မာ၊ LDR၊ အသွင်ပြောင်းကိရိယာတွေက passive အုပ်စုပဲ။ ကိုယ့်ထဲက ပါဝါမလိုဘူး။"
+    "e": "True. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. Passive electrical components are resistors, capacitors, inductors, transformers, LDR, transducer, etc."
   },
   {
     "q": "A zener diode is a lightly doped semiconductor pn junction diode.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ Zener က အညစ်အကြေးများများထည့်ထားတာ၊ နည်းနည်းထည့်တာ မဟုတ်ဘူး။ နည်းနည်းထည့်ရင် avalanche ဘက်ရောက်မယ်။"
+    "e": "False. The right claim is this: Zener diode is a heavily doped semiconductor pn junction diode. Semiconductor behaviour sits between conductor and insulator and is doping-tunable. The printed line wrongly says a zener diode is a lightly doped semiconductor pn junction diode."
   },
   {
     "q": "A zener diode makes the current flow in the backward direction when reverse biased.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပြန်ဘက်စောင်းပြီး ဖြိုခွဲဗို့ရောက်ရင် Zener ထဲ လျှပ်စီး နောက်ပြန်စီးတယ်။ ဒါ့ကြောင့် နှစ်ဖက်သုံးလို့ရတာပဲ။"
+    "e": "True. A diode lets current through one way and blocks the other, the pn junction rectifier. A zener diode makes the current flow in the backward direction when reverse biased."
   },
   {
     "q": "A zener diode operates like the normal diode when in the forward-bias mode, and has a turn-on voltage of between 0.3 and 0.7 V.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ရှေ့ဘက်စောင်းမှာ Zener က ပုံမှန်ဒိုင်အုတ်လိုပဲ ဖွင့်တယ်။ ဖွင့်ဗို့က ၀.၃ ကနေ ၀.၇ ဗို့လောက်ပဲ။"
+    "e": "True. A zener is heavily doped so reverse breakdown is sharp and usable as a voltage clamp. The value 0.7 V is the figure this statement is using."
   },
   {
     "q": "When the voltage across the terminals of a zener diode is reversed and the potential reaches the zener voltage, the junction breaks down and the current flows in the forward direction.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ဖြိုခွဲဗို့ရောက်ရင် လျှပ်စီးက ပြန်ဘက်စီးတယ်၊ ရှေ့ဘက်မဟုတ်ဘူး။ ဦးတည်ကို ပြန်မလှည့်အောင် သတိထား။"
+    "e": "False. The right claim is this: When the voltage across the terminals of a zener diode is reversed and the potential reaches the zener voltage, the junction breaks down and the current flows in the reverse direction. Current is charge passing a point each second, and it needs a closed path. The printed line wrongly says when the voltage across the terminals of a zener diode is reversed and the potential reaches the zener voltage, the junction breaks down and the current flows in the forward direction."
   },
   {
     "q": "The zener voltage is also known as the breakdown voltage or knee voltage.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Zener ဗို့ကို ဖြိုခွဲဗို့ ဒါမှမဟုတ် ဒူးကွေးဗို့လို့လည်း ခေါ်တယ်။ ဂရပ်ပေါ် ဒူးကွေးတဲ့ နေရာပဲ။"
+    "e": "True. Voltage is potential difference, energy per unit charge between two points. The zener voltage is also known as the breakdown voltage or knee voltage."
   },
   {
     "q": "Avalanche breakdown occurs at junctions which being heavily doped have narrow depletion layers.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ Avalanche က ဒိုပင်းနည်းပြီး ကုန်ခမ်းလွှာ ကျယ်တဲ့ ဆုံမှတ်မှာ ဖြစ်တယ်။ ကျဉ်းတာက Zener ဖြိုခွဲပဲ။"
+    "e": "False. The right claim is this: Zener breakdown occurs at junctions which being heavily doped have narrow depletion layers. A zener is heavily doped so reverse breakdown is sharp and usable as a voltage clamp. The printed line wrongly says avalanche breakdown occurs at junctions which being heavily doped have narrow depletion layers."
   },
   {
     "q": "Zener breakdown occurs at junctions which being heavily doped have narrow depletion layers.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Zener ဖြိုခွဲက ဒိုပင်းများပြီး ကုန်ခမ်းလွှာ ကျဉ်းတဲ့ ဆုံမှတ်မှာ ဖြစ်တယ်။ Avalanche နဲ့ ပြောင်းပြန်မှတ်။"
+    "e": "True. A zener is heavily doped so reverse breakdown is sharp and usable as a voltage clamp. Zener breakdown occurs at junctions which being heavily doped have narrow depletion layers."
   },
   {
     "q": "The voltage drop across the zener diode always remains constant irrespective of the applied voltage.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Zener ပေါ် ဗို့ကျတာ ထည့်ဗို့ ပြောင်းပြောင်း မလိုက်ဘူး။ အမြဲတမ်း တည်ငြိမ်နေလို့ ဗို့အားထိန်း သုံးလို့ရတယ်။"
+    "e": "True. Voltage is potential difference, energy per unit charge between two points. Across the zener diode always remains constant irrespective of the applied voltage."
   },
   {
     "q": "The constant voltage drop feature of the zener diode makes it suitable for current regulation as reference elements and surge suppressors.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ တည်ငြိမ်ဗို့ကျက ဗို့အားထိန်းအတွက်ပဲ၊ လျှပ်စီးထိန်း မဟုတ်ဘူး။ ရည်ညွှန်းဒြပ်၊ လှိုင်းလွန်ဖိတွေမှာ ဗို့ကို ကိုင်တာပဲ။"
+    "e": "False. The right claim is this: The voltage drop feature makes the zener diode suitable for voltage regulation as reference elements, surge suppressors, and in switching applications and clipper circuits. A zener is heavily doped so reverse breakdown is sharp and usable as a voltage clamp. The printed line wrongly says the constant voltage drop feature of the zener diode makes it suitable for current regulation as reference elements and surge suppressors."
   },
   {
     "q": "A normal diode allows current to flow only in one direction while zener diode allows current to flow in both directions.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပုံမှန်ဒိုင်အုတ်က တစ်ဖက်တည်း၊ Zener က ရှေ့ဘက်ရော ပြန်ဘက်ပါ စီးတယ်။ ဒါပဲ ကွာခြားချက်ပဲ။"
+    "e": "True. A zener is heavily doped so reverse breakdown is sharp and usable as a voltage clamp. One direction while zener diode allows current to flow in both directions."
   },
   {
     "q": "A LED is a semiconductor light source that emits light when current flows through it.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ LED က တစ်ပိုင်းလျှပ်ကူး အလင်းရင်းမြစ်ပဲ။ လျှပ်စီး ရှေ့ဘက်စီးမှ အလင်းထွက်တယ်။"
+    "e": "True. Current is charge passing a point each second, and it needs a closed path. A semiconductor light source that emits light when current flows through it."
   },
   {
     "q": "A light emitting diode emits a fairly narrow bandwidth of visible or invisible light when its internal diode junction attains a reverse-biased current.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ LED က ပြန်ဘက်စောင်းရင် မလင်းဘူး။ ရှေ့ဘက်စောင်း လျှပ်စီးရောက်မှ ကျဉ်းတဲ့ လှိုင်းအလျား ထုတ်တယ်။"
+    "e": "False. The right claim is this: A LED is a semiconductor light source that emits light when current flows through it. It is a semiconductor light source capable of emitting a fairly narrow bandwidth of visible or invisible light when its internal diode junction attains a forward-biased current or voltage. Semiconductor behaviour sits between conductor and insulator and is doping-tunable."
   },
   {
     "q": "The visible lights that an LED emits are usually orange, red, yellow, or green.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ မြင်ရတဲ့ LED အရောင်တွေက လိမ္မော်၊ အနီ၊ အဝါ၊ အစိမ်းများတယ်။ အဲ့အကွာအဝေးမှာ အများဆုံး ထုတ်တယ်။"
+    "e": "True. An LED emits a narrow band of light when forward current crosses the junction. The visible lights that an LED emits are usually orange, red, yellow, or green."
   },
   {
     "q": "The commonly used invisible light for LED is ultraviolet light.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ မမြင်ရတဲ့ LED က ခရမ်းလွန်မဟုတ်၊ အနီအောက်ပိုင်း အလင်းကို အများဆုံး သုံးတယ်။ လှိုင်းအလျား ဘက်ကို မရောနဲ့။"
+    "e": "False. The right claim is this: A LED is a semiconductor light source capable of emitting a fairly narrow bandwidth of visible (or) invisible light when its internal diode junction attains a forward-biased current (or) voltage. Semiconductor behaviour sits between conductor and insulator and is doping-tunable. The printed line wrongly says the commonly used invisible light for LED is ultraviolet light."
   },
   {
     "q": "LEDs do not directly produce white light, but use a blue LED with a phosphor coating to convert blue light to white light by a process called fluorescence.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အဖြူ LED က တိုက်ရိုက်မထုတ်ဘူး။ အပြာ LED ပေါ် ဖော့စဖာတင်ပြီး ဖလူအိုရက်စင့်နဲ့ ပြောင်းတာပဲ။"
+    "e": "True. An LED emits a narrow band of light when forward current crosses the junction. To convert blue light to white light by a process called fluorescence."
   },
   {
     "q": "Very low voltage (1 to 2 V) and current (5 to 20 mA) are enough to drive the LED.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ LED ကို ၁–၂ ဗို့၊ ၅–၂၀ မီလီအမ်ပီလောက်နဲ့ မောင်းလို့ရတယ်။ ဗို့မြင့် မီးသီးလို မလိုအပ်ဘူး။"
+    "e": "True. Current is charge passing a point each second, and it needs a closed path. The value 2 V is the figure this statement is using."
   },
   {
     "q": "The response time of an LED is about 10 ms.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ LED တုံ့ပြန်ချိန်က ၁၀ မီလီစက္ကန့်မဟုတ်၊ ၁၀ နာနိုစက္ကန့်လောက်ပဲ။ ယူနစ်လေးလေးချင်း မရောနဲ့။"
+    "e": "False. The right claim is this: Fast action and no warmup time is an advantage of LED, and the response time is about 10 ns. An LED emits a narrow band of light when forward current crosses the junction. The printed line wrongly says the response time of an LED is about 10 ms."
   },
   {
     "q": "An LED has a much narrower bandwidth (wavelength spread) compared to the laser.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ လေဆာက လှိုင်းအလျား ပိုကျဉ်းတယ်။ LED က လေဆာလောက် မကျဉ်းဘူး၊ ပိုကျယ်တယ်။"
+    "e": "False. A laser has the narrower bandwidth; an LED is broader than a laser. An LED emits a narrow band of light when forward current crosses the junction. The printed line wrongly says an LED has a much narrower bandwidth (wavelength spread) compared to the laser."
   },
   {
     "q": "A photodiode is a semiconductor device that converts light into electrical current.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Photodiode က အလင်းကို လျှပ်စစ်လျှပ်စီးအဖြစ် ပြောင်းတယ်။ ဖိုတွန်စုပ်လို့ အားသယ်ပေါ်တာပဲ။"
+    "e": "True. Semiconductor behaviour sits between conductor and insulator and is doping-tunable. A photodiode is a semiconductor device that converts light into electrical current."
   },
   {
     "q": "Photodiodes work in forward biased mode.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ Photodiode က ပြန်ဘက်စောင်းမုဒ်မှာ သုံးတယ်။ ရှေ့ဘက်စောင်းရင် အလင်းအာရုံခံပုံ မပေါ်ဘူး။"
+    "e": "False. The right claim is this: Photodiodes work in reverse biased mode. A photodiode turns light into current; reverse bias is the usual sensing mode. The printed line wrongly says photodiodes work in forward biased mode."
   },
   {
     "q": "When the photodiode is illuminated with light of energy $hv$ greater than the energy gap $E_g$ of the semiconductor, electron-hole pairs are generated.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဖိုတွန်စွမ်းအင် ကွာဟချက်ထက်ကြီးမှ photodiode ထဲ အီလက်ထရွန်-အပေါက် စုံတွဲ ပေါ်တယ်။ မကြီးရင် စုပ်လို့ မရဘူး။"
+    "e": "True. A photodiode turns light into current; reverse bias is the usual sensing mode. Than the energy gap Eg of the semiconductor, electron-hole pairs are generated."
   },
   {
     "q": "The magnitude of the photocurrent depends on the frequency of incident light.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အလင်းလျှပ်စီး အရွယ်က ကြိမ်နှုန်းမဟုတ်၊ တိုက်ရိုက်အလင်း ပြင်းအားပေါ် မူတည်တယ်။ ဘယ်လောက်ထွန်းလဲပဲ ကြည့်။"
+    "e": "False. The right claim is this: The magnitude of the photocurrent depends on the intensity of incident light. The printed line wrongly says the magnitude of the photocurrent depends on the frequency of incident light."
   },
   {
     "q": "A small amount of current called dark current is produced when no light is falling due to the flow of majority carriers.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အမှောင်လျှပ်စီးက လူနည်းစုအားသယ်ကြောင့်ပဲ၊ လူများစု မဟုတ်ဘူး။ အလင်းမကျခင် နည်းနည်းစီးနေတာပဲ။"
+    "e": "False. The right claim is this: A small amount of current, due to the flow of minority carriers, is also produced when no light is falling and is called dark current. Current is charge passing a point each second, and it needs a closed path. The printed line wrongly says a small amount of current called dark current is produced when no light is falling due to the flow of majority carriers."
   },
   {
     "q": "Silicon is most often used to fabricate photodiodes, though germanium and gallium arsenide can also be used.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Photodiode ကို ဆီလီကွန်နဲ့ အများဆုံးလုပ်တယ်။ ဂျာမေနီယမ်နဲ့ ဂယ်လီယမ် အာဆင်းနိုက်လည်း သုံးလို့ရသေးတယ်။"
+    "e": "True. A photodiode turns light into current; reverse bias is the usual sensing mode. To fabricate photodiodes, though germanium and gallium arsenide can also be used."
   },
   {
     "q": "A light dependent resistor (LDR) is a temperature controlled variable resistor.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ LDR က အပူထိန်းမဟုတ်၊ အလင်းထိန်း ပြောင်းလဲခုခံပဲ။ အပူဘက်က thermistor ပဲ။"
+    "e": "False. The right claim is this: A light dependent resistor (LDR) is a light controlled variable resistor. Resistance opposes current and turns electrical energy into heat. The printed line wrongly says a light dependent resistor (LDR) is a temperature controlled variable resistor."
   },
   {
     "q": "Special semiconductor crystals, such as cadmium sulfide or lead sulfide, are used to make photo resistors.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဓာတ်ပုံခုခံကို ကက်ဒ်မီယမ် ဆာလ်ဖိုင်ဒ် ဒါမှမဟုတ် ခဲဆာလ်ဖိုင်ဒ် ကြည်လုံးနဲ့ လုပ်တယ်။ အလင်းစုပ်ရင် အားသယ်လွတ်လာတယ်။"
+    "e": "True. Resistance opposes current and turns electrical energy into heat. As cadmium sulfide or lead sulfide, are used to make photo resistors."
   },
   {
     "q": "When an LDR is exposed to light, it takes a few milliseconds to lower its resistance.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ LDR ကို အလင်းထိုးလိုက်ရင် ခံနိုင်အားကျဖို့ မီလီစက္ကန့်အနည်းငယ် ကြာတယ်။ ချက်ချင်း မဟုတ်ပေမဲ့ မြန်တယ်။"
+    "e": "True. Resistance opposes current and turns electrical energy into heat. Exposed to light, it takes a few milliseconds to lower its resistance."
   },
   {
     "q": "A thermistor is a light sensor that exhibits a large change in resistance proportional to a change in light intensity.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ Thermistor က အလင်းအာရုံခံ မဟုတ်ဘူး။ အပူချိန်လိုက် ခံနိုင်အား ကြီးကြီးပြောင်းတာပဲ။"
+    "e": "False. The right claim is this: A thermistor is a temperature sensor that exhibits a large change in resistance proportional to a change in temperature. A thermistor's resistance swings hard with temperature, which is how it senses heat. The printed line wrongly says a thermistor is a light sensor that exhibits a large change in resistance proportional to a change in light intensity."
   },
   {
     "q": "In the Negative Temperature Coefficient (NTC) thermistor, the resistance decreases as the temperature increases.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ NTC thermistor က ပူလာရင် ခံနိုင်အား ကျတယ်။ အပူတက်တာနဲ့ ဆန့်ကျင်ဘက်လိုက်တယ်။"
+    "e": "True. A thermistor's resistance swings hard with temperature, which is how it senses heat. In the Negative Temperature Coefficient (NTC) thermistor, the resistance decreases as the temperature increases."
   },
   {
     "q": "In the Positive Temperature Coefficient (PTC) thermistor, the resistance decreases as the temperature increases.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ PTC က ပူလာရင် ခံနိုင်အား တက်တယ်၊ ကျတာ မဟုတ်ဘူး။ NTC နဲ့ ပြောင်းပြန်မှတ်။"
+    "e": "False. The right claim is this: In the Negative Temperature Coefficient (NTC) thermistor, the resistance decreases as the temperature increases. A thermistor's resistance swings hard with temperature, which is how it senses heat. The printed line wrongly says in the Positive Temperature Coefficient (PTC) thermistor, the resistance decreases as the temperature increases."
   },
   {
     "q": "A liquid crystal display (LCD) is a flat-panel display that uses the light-modulating properties of liquid crystals combined with polarizers.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ LCD က ပြားချပ် မျက်နှာပြင်ပဲ။ အရည်ပုံဆောင်ခဲနဲ့ ဝင်ရိုးစွန်းစစ် ပေါင်းပြီး ပုံဖော်တယ်။"
+    "e": "True. An LCD twists polarized light through a liquid-crystal layer instead of emitting light. Display that uses the light-modulating properties of liquid crystals combined with polarizers."
   },
   {
     "q": "Liquid crystals emit light directly to produce images in color or monochrome.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အရည်ပုံဆောင်ခဲက ကိုယ်တိုင် အလင်းမထုတ်ဘူး။ နောက်ခံအလင်း ဒါမှမဟုတ် ရောင်ပြန်နဲ့ ပုံမြင်ရအောင် လုပ်တယ်။"
+    "e": "False. The right claim is this: Liquid crystals do not emit light directly, instead using a backlight or reflector to produce images in color or monochrome. Liquid crystals sit between ordinary liquids and solid crystals in their molecular order. The printed line wrongly says liquid crystals emit light directly to produce images in color or monochrome."
   },
   {
     "q": "In an LCD, a polarizing glass filter is placed in front and behind all the pixels, with the front filter placed at 45 degrees.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ရှေ့နောက် ဝင်ရိုးစွန်းမှန်က ၄၅ ဒီဂရီမဟုတ်၊ ၉၀ ဒီဂရီ ချိန်ထားတယ်။ ထောင့်ကို မရောနဲ့။"
+    "e": "False. The polarizers on an LCD are crossed at 90 degrees, not 45. An LCD twists polarized light through a liquid-crystal layer instead of emitting light. The printed line wrongly says in an LCD, a polarizing glass filter is placed in front and behind all the pixels, with the front filter placed at 45 degrees."
   },
   {
     "q": "LCDs consume much less power than LEDs and gas-plasma displays because they work on the principle of blocking light rather than emitting it.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ LCD က အလင်းပိတ်ထားတာမို့ LED၊ ပလာစမာထက် ဓာတ်အား နည်းနည်းကုန်တယ်။ ကိုယ်တိုင်မလင်းလို့ပဲ။"
+    "e": "True. LCDs consume much less power than LEDs and gas-plasma displays because they work on the principle of blocking light rather than emitting it. They work on the principle of blocking light rather than emitting it."
   },
   {
     "q": "Active electrical components require a power source to operate.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Active တွေက ပါဝါရင်းမြစ် လိုတယ်။ Transistor၊ ဒိုင်အုတ်၊ LED တွေ ကိုယ့်ဘာသာ မလှုပ်ဘူး။"
+    "e": "True. Active parts need an external power source; they can amplify. Active electrical components require a power source to operate."
   },
   {
     "q": "A TRIAC is a three terminal AC switch and is considered a passive electrical component.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ TRIAC က လှည့်လျှပ်စီး ခလုတ်၊ တိုင်သုံးချောင်း၊ active အုပ်စုပဲ။ Passive လို့ မခေါ်ရဘူး။"
+    "e": "False. A TRIAC is an active three-terminal AC switch, not a passive part. AC reverses on a clock; household supply is this reversing current. The printed line wrongly says a TRIAC is a three terminal AC switch and is considered a passive electrical component."
   },
   {
     "q": "Zener diodes are used as surge suppressors and in clipper circuits.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Zener ကို လှိုင်းလွန်ဖိနဲ့ ညှပ်ပတ်လမ်းမှာ သုံးတယ်။ တည်ငြိမ်ဗို့ကျကို အသုံးချတာပဲ။"
+    "e": "True. A zener is heavily doped so reverse breakdown is sharp and usable as a voltage clamp. Zener diodes are used as surge suppressors and in clipper circuits."
   },
   {
     "q": "LEDs are typically used as ON/OFF indicator lights in electrical appliances such as televisions and computers.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ LED ကို ရုပ်မြင်သံကြား၊ ကွန်ပျူတာမှာ ဖွင့်/ပိတ် ပြမီးအဖြစ် သုံးများတယ်။ ရှေ့ဘက်စောင်းမှ လင်းတာပဲ။"
+    "e": "True. LEDs are typically used as ON/OFF indicator lights in electrical appliances such as televisions and computers. As ON/OFF indicator lights in electrical appliances such as televisions and computers."
   },
   {
     "q": "The energy in an LED is radiated in the form of heat.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ LED ထဲက စွမ်းအင်က အပူမဟုတ်၊ အလင်းအဖြစ် ထွက်တယ်။ ပူလင်းမီးသီးနဲ့ မရောနဲ့။"
+    "e": "False. The right claim is this: Low-resistance copper wires should be used as coils to reduce energy loss in the form of heat. Resistance opposes current and turns electrical energy into heat. The printed line wrongly says the energy in an LED is radiated in the form of heat."
   },
   {
     "q": "A current limiting resistor should be connected in parallel with an LED in the circuit to protect it.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ LED ကာကွယ်ဖို့ ခုခံကို တန်းစီထည့်ရတယ်။ မျဉ်းပြိုင်ဆိုရင် လျှပ်စီးကန့်မရဘူး။"
+    "e": "False. The right claim is this: A current limiting resistor should be connected in series with LED in the circuit to protect the LED. An LED emits a narrow band of light when forward current crosses the junction. The printed line wrongly says a current limiting resistor should be connected in parallel with an LED in the circuit to protect it."
   },
   {
     "q": "Photodiodes can be used as photosensors in compact disc (CD) players and televisions.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Photodiode ကို စီဒီဖွင့်စက်၊ ရုပ်မြင်သံကြားမှာ အလင်းအာရုံခံအဖြစ် သုံးတယ်။ အလင်းပြန်လာတာကို လျှပ်စီးပြောင်းတယ်။"
+    "e": "True. A photodiode turns light into current; reverse bias is the usual sensing mode. Photodiodes can be used as photosensors in compact disc (CD) players and televisions."
   },
   {
     "q": "An LDR becomes a good conductor of electric current in the dark.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ LDR က မှောင်ရင် ခံနိုင်အားမြင့်လို့ မစီးဘူး။ အလင်းထွန်းမှ ကောင်းတဲ့ လျှပ်ကူး ဖြစ်လာတယ်။"
+    "e": "False. The right claim is this: When electric current passes through a conductor, the electrons in the conductor are accelerated due to electric field. Current is charge passing a point each second, and it needs a closed path. The printed line wrongly says an LDR becomes a good conductor of electric current in the dark."
   },
   {
     "q": "Thermistors contain semiconducting metallic oxides whose resistance changes with temperature.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ Thermistor ထဲမှာ တစ်ပိုင်းလျှပ်ကူး သတ္တုအောက်ဆိုဒ် ပါတယ်။ အပူလိုက် ခံနိုင်အား ပြောင်းတယ်။"
+    "e": "True. Resistance opposes current and turns electrical energy into heat. Thermistors contain semiconducting metallic oxides whose resistance changes with temperature."
   },
   {
     "q": "PTC thermistors are used to break the circuit at preset temperatures.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ PTC thermistor က ကြိုသတ်မှတ် အပူရောက်ရင် ပတ်လမ်း ဖြတ်ပစ်တယ်။ ခံနိုင်အား တက်လို့ ဖြတ်တာပဲ။"
+    "e": "True. A thermistor's resistance swings hard with temperature, which is how it senses heat. PTC thermistors are used to break the circuit at preset temperatures."
   },
   {
     "q": "LCDs have begun being replaced by new display technologies such as organic light-emitting diodes (OLEDs).",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ LCD နောက်မှာ OLED လို အော်ဂဲနစ် အလင်းထုတ်ဒိုင်အုတ်တွေက စားဝင်လာတယ်။ ကိုယ်တိုင်လင်းတဲ့ မျက်နှာပြင် အသစ်ပဲ။"
+    "e": "True. A diode lets current through one way and blocks the other, the pn junction rectifier. Being replaced by new display technologies such as organic light-emitting diodes (OLEDs)."
   }
 ]

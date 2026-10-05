@@ -3,150 +3,150 @@
     "q": "A capacitor stores electrical energy in the form of a magnetic field.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ သိမ်းပုံက လျှပ်စစ်စက်ကွင်းပဲ၊ သံလိုက်ကွင်း မဟုတ်ဘူး။ သံလိုက်ကွင်းထဲ သိမ်းရင် ကွိုင် ဖြစ်မယ်။"
+    "e": "False. The right claim is this: A capacitor stores electrical energy in the form of an electric field. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. The printed line wrongly says a capacitor stores electrical energy in the form of a magnetic field."
   },
   {
     "q": "When the capacitor is charged, the charging process can be viewed as the apparent transfer of charge between two conductors.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အားသွင်းတာကို ပြားနှစ်ခုကြား အားရွှေ့သလို မြင်လို့ရတယ်။ တစ်ဖက် လျော့၊ တစ်ဖက် ပိုတာပဲ။"
+    "e": "True. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. Can be viewed as the apparent transfer of charge between two conductors."
   },
   {
     "q": "During charging, the charge is transferred from a conductor at higher potential to a conductor at lower potential.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အားက ဗို့နိမ့်ကနေ ဗို့မြင့်ဆီ ရွှေ့ရတယ်၊ ပြောင်းပြန် မဟုတ်ဘူး။ မြင့်ဆီ ရွှေ့ရလို့ အလုပ်လုပ်ရတယ်။"
+    "e": "False. The right claim is this: The charge has been transferred from a conductor at lower potential to a conductor at higher potential. Charge is conserved; it is what a current carries and what a capacitor stores on its plates. The printed line wrongly says during charging, the charge is transferred from a conductor at higher potential to a conductor at lower potential."
   },
   {
     "q": "Work has been done for the transfer of charge between the two conductors of a capacitor.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အားရွှေ့ရင် အလုပ်လုပ်ရတယ်။ ဒီအလုပ်က ပြားကြား စက်ကွင်းထဲ စွမ်းအင်အဖြစ် ကျန်တယ်။"
+    "e": "True. The plates must conduct so charge can spread; the gap must insulate or the field collapses. For the transfer of charge between the two conductors of a capacitor."
   },
   {
     "q": "The magnitude of the charge on the two conductors increases gradually and the potential difference between them also increases gradually during charging.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အားသွင်းစဉ် အားပမာဏ တဖြည်းဖြည်း တက်၊ ဗို့ကွာလည်း တဖြည်းဖြည်း တက်တယ်။ တစ်ခါတည်း ပြည့်တာ မဟုတ်ဘူး။"
+    "e": "True. While charging, plate voltage climbs toward the battery value as 1 minus a decaying exponential. Gradually and the potential difference between them also increases gradually during charging."
   },
   {
     "q": "The work done in charging the capacitor is given by the shaded area under the Q-V curve.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အား-ဗို့ မျဉ်းအောက် အရိပ်က အားသွင်းအလုပ်ပဲ။ တြိဂံဧရိယာ ဖြစ်လို့ တစ်ဝက် ကျူဗွီ ရတယ်။"
+    "e": "True. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. The capacitor is given by the shaded area under the Q-V curve."
   },
   {
     "q": "The work done in charging the capacitor is equal to $QV$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အလုပ်က တစ်ဝက် ကျူဗွီပဲ၊ ကျူဗွီ အပြည့် မဟုတ်ဘူး။ ပျမ်းမျှဗို့ သုံးရလို့ တစ်ဝက် ကျန်တယ်။"
+    "e": "False. The right claim is this: The work done in charging the capacitor is given by the shaded area under the curve. While charging, plate voltage climbs toward the battery value as 1 minus a decaying exponential. The printed line wrongly says the work done in charging the capacitor is equal to QV."
   },
   {
     "q": "The energy stored by the capacitor is equal to $\\frac{1}{2}QV$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ သိမ်းစွမ်းအင်က တစ်ဝက် ကျူဗွီပဲ။ ပျမ်းမျှဗို့ ဆတိုး အားနဲ့ တူတယ်။"
+    "e": "True. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. The energy stored by the capacitor is equal to (1)/(2)QV."
   },
   {
     "q": "Before a capacitor is charged, the potential difference between two conductors is maximum.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ မသွင်းခင် ဗို့ကွာက သုညပဲ၊ အမြင့်ဆုံး မဟုတ်ဘူး။ အမြင့်ဆုံးက အားပြည့်ခါနီးမှ ရတယ်။"
+    "e": "False. The right claim is this: Before a capacitor is charged, the potential difference between its two conductors is zero. Potential difference is the electrical push between two points; no push, no current. The printed line wrongly says before a capacitor is charged, the potential difference between two conductors is maximum."
   },
   {
     "q": "The average potential difference of the capacitor before and after it is charged is $\\frac{0 + V}{2}$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အစ သုည၊ အဆုံး ဗွီ၊ ပျမ်းမျှက ဗွီ စား နှစ်ပဲ။ ဒီပျမ်းမျှနဲ့ အားမြှောက်မှ အလုပ် ရတယ်။"
+    "e": "True. Potential difference is the electrical push between two points; no push, no current. The capacitor before and after it is charged is (0 + V)/(2)."
   },
   {
     "q": "The work done W for transferring charge of Q between the two conductors is $W = V_{avg} Q$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အလုပ်က ပျမ်းမျှဗို့ ဆတိုး အားပဲ။ ပျမ်းမျှက ဗွီ စား နှစ်မို့ တစ်ဝက် ကျူဗွီ ဖြစ်တယ်။"
+    "e": "True. Charge is conserved; it is what a current carries and what a capacitor stores on its plates. The relation in this line is W = Vavg Q."
   },
   {
     "q": "The electrical energy stored by the capacitor is in the form of an electric field.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ သိမ်းစွမ်းအင်က ပြားကြား လျှပ်စစ်စက်ကွင်းထဲမှာပဲ။ သံလိုက်ကွင်းထဲ မဟုတ်ဘူး။"
+    "e": "True. Electrical energy is what a current carries through a circuit, later turned into heat, light or motion. Stored by the capacitor is in the form of an electric field."
   },
   {
     "q": "Since $C = \\frac{Q}{V}$, the energy W of the capacitor can be expressed as $W = \\frac{1}{2}CV^2$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကျူ နေရာမှာ စီဗွီ ထည့်ရင် တစ်ဝက် စီ ဗွီနှစ်ထပ် ရတယ်။ ဗို့သိရင် ဒီပုံစံ သုံးတယ်။"
+    "e": "True. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. The relation in this line is C = (Q)/(V), the energy W of the capacitor c."
   },
   {
     "q": "The energy of a capacitor can also be expressed as $W = \\frac{1}{2}QC$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ တစ်ဝက် ကျူစီ မဟုတ်ဘူး၊ တစ်ဝက် ကျူနှစ်ထပ် စား စီ ဒါမှမဟုတ် တစ်ဝက် ကျူဗွီပဲ။ ကျူစီ မြှောက်ရင် ယူနစ်ပါ မှားမယ်။"
+    "e": "False. The right claim is this: The energy W of the capacitor can also be expressed in terms of Q and C as W = (1)/(2)Q^2/C. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. The printed line wrongly says the energy of a capacitor can also be expressed as W = (1)/(2)QC."
   },
   {
     "q": "Placing a resistor in the charging circuit speeds up the charging process.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ခုခံအား ထည့်ရင် အားသွင်း နှေးတယ်၊ မြန်တာ မဟုတ်ဘူး။ စီးကို ဟန့်လို့ ကြန့်ကြာကိန်း ရှည်တယ်။"
+    "e": "False. The right claim is this: Placing a resistor in the charging circuit slows down the charging process. While charging, plate voltage climbs toward the battery value as 1 minus a decaying exponential. The printed line wrongly says placing a resistor in the charging circuit speeds up the charging process."
   },
   {
     "q": "The greater the values of resistance and capacitance, the longer it takes to charge the capacitor.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ခုခံအားနဲ့ စွမ်းရည် ကြီးရင် အားသွင်းချိန် ပိုကြာတယ်။ ကြန့်ကြာကိန်း ကြီးလို့ နှေးနှေး ပြည့်တယ်။"
+    "e": "True. Charge is conserved; it is what a current carries and what a capacitor stores on its plates. Of resistance and capacitance, the longer it takes to charge the capacitor."
   },
   {
     "q": "The product of the resistance R and the capacitance C is called the time constant $\\tau$ of a capacitor.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အာ ဆတိုး စီက ကြန့်ကြာကိန်း တော်ပဲ။ အားသွင်းအားထုတ် နှစ်ခုလုံးမှာ ဒီကိန်း သုံးတယ်။"
+    "e": "True. RC is the charging and discharging time scale; after a few RC the exponential has almost settled. The capacitance C is called the time constant tau of a capacitor."
   },
   {
     "q": "The time constant of a capacitor charging or discharging process is measured in farads.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ကြန့်ကြာကိန်းယူနစ်က စက္ကန့်ပဲ၊ ဖာရဒ် မဟုတ်ဘူး။ ဖာရဒ်က စွမ်းရည်ယူနစ်ပဲ။"
+    "e": "False. The right claim is this: The product of the resistance R and the capacitance C is called the time constant τ of a capacitor charging or discharging process. It is measured in second. RC is the charging and discharging time scale; after a few RC the exponential has almost settled."
   },
   {
     "q": "During charging, the voltage rises with time according to the equation $V_c = V_0(1 - e^{-t/RC})$.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အားသွင်းဗို့က တစ်နုတ် အင်္ကျီပေါင်းအနုတ် တီစားအာစီ အတိုင်း တက်တယ်။ အစသုည၊ အဆုံး ဗွီနုတ်နီးပါး။"
+    "e": "True. Voltage is potential difference, energy per unit charge between two points. The relation in this line is Vc = V0(1 - e^-t/RC)."
   },
   {
     "q": "In the charging equation, $V_0$ is the voltage provided by the capacitor.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ဗွီနုတ်က ဘက်ထရီက ပေးတဲ့ ဗို့ပဲ၊ ကိရိယာကိုယ်တိုင် ပေးတာ မဟုတ်ဘူး။ အားသွင်းရင် ဒီဗို့ဆီ ချဉ်းကပ်တယ်။"
+    "e": "False. The right claim is this: The voltage of the capacitor falls off with time according to the equation Vc = V0 e^-t/RC. Voltage is potential difference, energy per unit charge between two points. The printed line wrongly says in the charging equation, V0 is the voltage provided by the capacitor."
   },
   {
     "q": "After being charged, the capacitor can be discharged through the load resistor R.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပြည့်ပြီးရင် ဝန်ခုခံအား မှတဆင့် အားထုတ်လို့ရတယ်။ ဗို့က အချိန်နဲ့အမျှ ကျသွားတယ်။"
+    "e": "True. While discharging, voltage decays toward zero as a pure exponential with the same RC. After being charged, the capacitor can be discharged through the load resistor R."
   },
   {
     "q": "During the discharging process, the voltage of the capacitor falls off with time according to the equation $V_c = V_0(e^{t/RC})$.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အားထုတ်ပုံက အင်္ကျီပေါင်းအနုတ် တီစားအာစီပဲ၊ အပေါင်းတီ မဟုတ်ဘူး။ အပေါင်းတီဆို ဗို့ တက်သွားမယ်၊ အဲ့ဒါ မဖြစ်ဘူး။"
+    "e": "False. The right claim is this: The voltage of the capacitor falls off with time during discharging according to the equation Vc = V0(1 - e^-t/RC). While discharging, voltage decays toward zero as a pure exponential with the same RC. The printed line wrongly says during the discharging process, the voltage of the capacitor falls off with time according to the equation Vc = V0(e^t/RC)."
   },
   {
     "q": "The voltage characteristics of charging and discharging a capacitor are linear with respect to time.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အားသွင်းအားထုတ် ဗို့က အချိန်နဲ့ မျဉ်းဖြောင့် မဟုတ်ဘူး၊ ကွေးနေတယ်။ အင်္ကျီပေါင်း ပါလို့ ကွေးကွေး တက်ကျတယ်။"
+    "e": "False. The right claim is this: The product of the resistance R and the capacitance C is called the time constant of a capacitor charging or discharging process. While charging, plate voltage climbs toward the battery value as 1 minus a decaying exponential. The printed line wrongly says the voltage characteristics of charging and discharging a capacitor are linear with respect to time."
   },
   {
     "q": "Energy stored in a capacitor can be analyzed from the Q-V graph.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အား-ဗို့ ဂရပ်က သိမ်းစွမ်းအင် ဖတ်ဖို့ သုံးတယ်။ မျဉ်းအောက် ဧရိယာက စွမ်းအင်ပဲ။"
+    "e": "True. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. Energy stored in a capacitor can be analyzed from the Q-V graph."
   },
   {
     "q": "The energy stored in a capacitor is equal to the total area of the rectangle in the Q-V graph.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ စွမ်းအင်က တြိဂံဧရိယာပဲ၊ စတုဂံအပြည့် မဟုတ်ဘူး။ စတုဂံအပြည့်ဆို ကျူဗွီ ဖြစ်ပြီး နှစ်ဆ များတယ်။"
+    "e": "False. The right claim is this: The energy stored by the capacitor is equal to (1)/(2)QV. Two conductors and a dielectric hold opposite charge, so energy sits in the electric field. The printed line wrongly says the energy stored in a capacitor is equal to the total area of the rectangle in the Q-V graph."
   }
 ]

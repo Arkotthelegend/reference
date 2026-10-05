@@ -8,7 +8,7 @@
       "volume difference"
     ],
     "c": 0,
-    "e": "ဖိအားကွာလို့ မဟုတ်ဘူး။ ဖြေက temperature difference ပါ။"
+    "e": "Heat is energy that flows from a hotter system to a colder one. A temperature difference is the cause, not a mass or volume gap. A mass difference does not by itself drive heat."
   },
   {
     "q": "In fluids, heat is mainly transferred by _____.",
@@ -19,7 +19,7 @@
       "radiation"
     ],
     "c": 1,
-    "e": "conduction လို့ ခေါ်ရင် မှားမယ်။ ဖြေက convection ပါ။ transferred ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "In fluids the main heat carrier is convection, because the fluid itself moves. Hot, less dense fluid rises and cooler fluid sinks. Conduction is neighbour vibration without bulk flow, so it is the wrong mode when the fluid itself is moving."
   },
   {
     "q": "In solids, heat is transferred by the _____ process.",
@@ -30,7 +30,7 @@
       "conduction"
     ],
     "c": 2,
-    "e": "solid ထဲ အပူက conduction နဲ့ ကူးတယ်။ အမှုန်တွေ တုန်ပြီး အိမ်နီးချင်းကို ပေးတယ်။ ဖြေက conduction ပါ။"
+    "e": "In a solid, heat travels by conduction. Atoms stay in place and vibrate, handing energy to neighbours. Convection needs a moving fluid, so it is the wrong mode inside a rigid solid."
   },
   {
     "q": "The third way to transfer heat energy is by radiation in the form of _____.",
@@ -41,7 +41,7 @@
       "sound waves"
     ],
     "c": 1,
-    "e": "တတိယလမ်းက radiation၊ လျှပ်စစ်သံလိုက်လှိုင်းပုံစံပါ။ ဒီနေရာမှာ electromagnetic waves ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။"
+    "e": "Thermal radiation is electromagnetic waves. No material medium is required, and vacuum does not attenuate the wave. Mechanical waves need matter; thermal radiation does not."
   },
   {
     "q": "In heat conduction, heat energy is transferred internally by vibrations of _____.",
@@ -52,7 +52,7 @@
       "nuclei"
     ],
     "c": 0,
-    "e": "အစိုင်အခဲထဲ အပူက အမှုန်တုန်ပြီး ကပ်ရက်ဆက် ကူးတယ်။ ဒီနေရာမှာ atoms and molecules ကို ထည့်မှ ဝါကျက ပြည့်တယ်။"
+    "e": "Conduction hands energy to neighbouring atoms while the bulk stays put. Metals add free electrons on top of those vibrations. Protons stay in nuclei; they do not stream as a heat current."
   },
   {
     "q": "Metals are generally very good conductors of heat because they have many _____.",
@@ -63,7 +63,7 @@
       "free electrons"
     ],
     "c": 2,
-    "e": "သတ္တုကောင်းစီးတာ free electrons များလို့ပါ။ ဒီအချက်က conductors ကို တိတိကျကျ ပြောတာပါ။"
+    "e": "Metals have many free electrons. Those electrons can drift and carry thermal energy, so metals are good heat conductors. Bound protons are not the mobile heat carriers in a metal."
   },
   {
     "q": "The rate of heat conduction through a material is inversely proportional to the _____ of the material.",
@@ -74,7 +74,7 @@
       "temperature"
     ],
     "c": 1,
-    "e": "thickness နဲ့ ပြောင်းပြန်အချိုးကျတယ်။ ဖြေက thickness ပါ။ proportional ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Heat current through a slab is inversely proportional to thickness l. A thinner wall, larger area, or larger Delta T raises H. Area sits in the numerator of H; it does not go in the denominator like thickness."
   },
   {
     "q": "In SI units, thermal conductivity $k$ is expressed in _____.",
@@ -85,7 +85,7 @@
       "$J kg^{-1} K^{-1}$"
     ],
     "c": 0,
-    "e": "k ကို W m⁻¹ K⁻¹ နဲ့ တိုင်းတယ်။ $W m^{-1} K^{-1}$ က ဒီဝါကျရဲ့ အဓိကဖြည့်စရာပါ။"
+    "e": "Thermal conductivity k measures how readily a material carries heat. SI unit is watt per metre per kelvin. High k is a conductor; low k is an insulator. SI units thermal conductivity k is expressed cannot be dropped from this process without changing the law."
   },
   {
     "q": "The ratio $\\frac{T_2 - T_1}{l}$ is called the temperature _____.",
@@ -96,7 +96,7 @@
       "temperature gradient"
     ],
     "c": 2,
-    "e": "(T₂−T₁)/l ကို temperature gradient လို့ ခေါ်တယ်။ ဒီကွာခြားချက်ကို မရောပါနဲ့။"
+    "e": "Temperature gradient is (T2 - T1)/l, the temperature drop per unit thickness. Fourier says heat flux density is proportional to that gradient. Heat flux is the current per area, not the name of (T2-T1)/l."
   },
   {
     "q": "Fourier's law states that the rate of heat flow per unit area is proportional to the magnitude of _____.",
@@ -107,7 +107,7 @@
       "thermal resistance"
     ],
     "c": 1,
-    "e": "heat flux က gradient ကြီးလေ ကြီးလေပါ။ temperature gradient က ဒီဝါကျရဲ့ အဓိကဖြည့်စရာပါ။"
+    "e": "Temperature gradient is (T2 - T1)/l, the temperature drop per unit thickness. Fourier says heat flux density is proportional to that gradient. Heat capacity stores energy per kelvin; Fourier's law is about gradient and flux."
   },
   {
     "q": "In the differential form of Fourier's law, the negative sign indicates that temperature $T$ must _____ as distance $x$ increases.",
@@ -118,7 +118,7 @@
       "remain constant"
     ],
     "c": 0,
-    "e": "အနုတ်လက္ခဏာက x တိုးရင် T ကျရမယ်လို့ ပြတယ်။ အပူက ပူရာကနေ အေးရာဆီ စီးတယ်။ differential ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "The minus sign in Fourier's local law says temperature must decrease as distance x increases along the heat flow. Heat runs down the gradient. Temperature falls along the heat-flow direction; it does not increase."
   },
   {
     "q": "In SI units, heat flux density is measured in _____.",
@@ -129,7 +129,7 @@
       "$W m^{-2}$"
     ],
     "c": 2,
-    "e": "heat flux density က W m⁻²၊ heat current က W ပါ။ တစ်စတုရန်းနှုန်းနဲ့ စုစုပေါင်းနှုန်း ကွာတယ်။ ဖြေက $W m^{-2}$ ပါ။"
+    "e": "Heat is energy flowing because temperatures differ. It is not a stored fluid sitting inside a body. Equal temperatures mean zero net heat flow. SI units heat flux density is measured cannot be dropped from this process without changing the law."
   },
   {
     "q": "A high value for thermal conductivity indicates that the material is a good _____.",
@@ -140,7 +140,7 @@
       "blackbody"
     ],
     "c": 1,
-    "e": "k ကြီးရင် ကောင်းတဲ့ thermal conductor ပါ။ သေးရင် insulator ပါ။ conductivity ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Thermal conductivity k measures how readily a material carries heat. SI unit is watt per metre per kelvin. High k is a conductor, not an insulator."
   },
   {
     "q": "Materials such as rubber, wood, and styrofoam are poor conductors of heat and have _____ conductivity values.",
@@ -151,7 +151,7 @@
       "infinite"
     ],
     "c": 0,
-    "e": "ရော်ဘာ၊ သစ်သား၊ styrofoam က အပူမစီးသလောက်၊ k သေးတယ်။ ဒီနေရာမှာ low ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။ conductivity ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Rubber, wood and styrofoam are poor heat conductors with low k. They make good thermal insulators. Rubber and wood are low-k materials."
   },
   {
     "q": "Heat convection is the flow of heat through a fluid from places of higher temperature to places of lower temperature by _____ of the fluid itself.",
@@ -162,7 +162,7 @@
       "movement"
     ],
     "c": 2,
-    "e": "solid ထဲ မဖြစ်ဘူး။ ဖြေက movement ပါ။"
+    "e": "Convection is heat flow through a fluid by movement of the fluid itself, from hotter places to colder places. Buoyancy drives natural convection because hot fluid is less dense. Vibration without bulk flow is conduction, not convection."
   },
   {
     "q": "Convection occurs only in a liquid or a gas, never in a _____.",
@@ -173,7 +173,7 @@
       "liquid"
     ],
     "c": 1,
-    "e": "solid ထဲ အမှုန်တွေ မရွှေ့နိုင်လို့ပါ။ ဖြေက solid ပါ။ Convection ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Convection is heat carried by the fluid itself as it circulates. Hot fluid is less dense, so buoyancy lifts it. Convection does occur in a gas; the forbidden place is a solid."
   },
   {
     "q": "Buoyant force is what drives _____ convection.",
@@ -184,7 +184,7 @@
       "artificial"
     ],
     "c": 0,
-    "e": "forced က ပြင်ပက တွန်းအားပေးမှ ဖြစ်တာပါ။ ဖြေက natural ပါ။ convection. ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Hotter fluid is less dense, so an upward buoyant force lifts it while cooler fluid sinks. That cell is a convection current. Buoyancy without a fan is natural convection."
   },
   {
     "q": "The basic equation for the rate of convection heat transfer is known as Newton's law of _____.",
@@ -195,7 +195,7 @@
       "cooling"
     ],
     "c": 2,
-    "e": "convection နှုန်းရဲ့ အခြေခံညီမျှခြင်းက Newton's law of cooling ပါ။ ဒီကွာခြားချက်ကို မရောပါနဲ့။"
+    "e": "Newton's law of cooling is the basic convection-rate equation, H = q A (T2 - T1). q is the convective coefficient in W m^-2 K^-1. Newton's convection law is named cooling."
   },
   {
     "q": "In Newton's law of cooling, the convective heat transfer coefficient $q$ is expressed in SI units as _____.",
@@ -206,7 +206,7 @@
       "$J s^{-1} K^{-1}$"
     ],
     "c": 1,
-    "e": "q ရဲ့ SI က W m⁻² K⁻¹ ပါ။ k ရဲ့ W m⁻¹ K⁻¹ နဲ့ ကွာတယ်။"
+    "e": "Newton's law of cooling is the basic convection-rate equation, H = q A (T2 - T1). q is the convective coefficient in W m^-2 K^-1. Fourier's name stays with conduction."
   },
   {
     "q": "When the surrounding fluid temperature is greater than the surface temperature, heat is _____ by the object.",
@@ -217,7 +217,7 @@
       "created"
     ],
     "c": 0,
-    "e": "gained ဖြစ်တယ်။ ဖြေက gained ပါ။"
+    "e": "Heat is energy flowing because temperatures differ. It is not a stored fluid sitting inside a body. If the fluid is hotter than the surface, the object gains heat."
   },
   {
     "q": "Heat radiation is a transfer of heat that does not require a _____ medium.",
@@ -228,7 +228,7 @@
       "material"
     ],
     "c": 2,
-    "e": "material medium မရှိလည်း ရောက်တယ်။ ဖြေက material ပါ။"
+    "e": "Radiation is heat as electromagnetic waves. No material medium is required, and vacuum does not weaken the wave. Radiation does not even need a fluid."
   },
   {
     "q": "Energy transfer by radiation is the fastest, traveling at the speed of _____.",
@@ -239,7 +239,7 @@
       "wind"
     ],
     "c": 1,
-    "e": "radiation က အလင်းအမြန်နဲ့ အမြန်ဆုံး၊ vacuum ထဲမှာ မလျော့ဘူး။ speed of light ပါ။ ဖြေက light ပါ။"
+    "e": "Radiation is heat as electromagnetic waves. No material medium is required, and vacuum does not weaken the wave. Radiation travels at the speed of light, not sound."
   },
   {
     "q": "All bodies at a temperature above _____ emit thermal radiation.",
@@ -250,7 +250,7 @@
       "room temperature"
     ],
     "c": 0,
-    "e": "absolute zero အထက်ရှိသမျှ ကိုယ်ထည်က အပူရောင်ခြည် ထုတ်တယ်။ temperature ကို တခြားနာမည်နဲ့ မရောပါနဲ့။"
+    "e": "Radiation is heat as electromagnetic waves. No material medium is required, and vacuum does not weaken the wave. Thermal emission starts above 0 K, not merely above freezing."
   },
   {
     "q": "Radiation is mostly considered to be a _____ phenomenon for solids that are opaque to thermal radiation.",
@@ -261,7 +261,7 @@
       "surface"
     ],
     "c": 2,
-    "e": "surface phenomenon ပါ။ ဖြေက surface ပါ။ considered ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Radiation is heat as electromagnetic waves. No material medium is required, and vacuum does not weaken the wave. Opaque-solid radiation is a surface effect, not a volume effect."
   },
   {
     "q": "The object which can absorb all the electromagnetic radiations falling upon it is called a _____.",
@@ -272,7 +272,7 @@
       "graybody"
     ],
     "c": 1,
-    "e": "ကျလာသမျှ ရောင်ခြည်အကုန်စုပ်တာ blackbody ပါ။ electromagnetic ကို တခြားနာမည်နဲ့ မရောပါနဲ့။"
+    "e": "Thermal radiation is electromagnetic waves. No material medium is required, and vacuum does not attenuate the wave. A white or reflecting body is a poor absorber, not a blackbody."
   },
   {
     "q": "The total emissive power is defined as the total radiant energy emitted from unit area of a surface in _____.",
@@ -283,7 +283,7 @@
       "one hour"
     ],
     "c": 0,
-    "e": "one second မှာ တိုင်းတယ်။ ဖြေက one second ပါ။"
+    "e": "Total emissive power is all wavelengths of radiant energy leaving unit area in one second. For a blackbody it grows as T^4. Emissive power is energy per unit area per second."
   },
   {
     "q": "The total emissive power of a blackbody is directly proportional to the _____ power of absolute temperature.",
@@ -294,7 +294,7 @@
       "fourth"
     ],
     "c": 2,
-    "e": "T⁴ ပါ၊ T² မဟုတ်။ ဖြေက fourth ပါ။ proportional ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Total emissive power is all wavelengths of radiant energy leaving unit area in one second. For a blackbody it grows as T^4. Stefan-Boltzmann is T to the fourth, not T squared."
   },
   {
     "q": "Stefan's constant $\\sigma$ has the value of _____.",
@@ -305,7 +305,7 @@
       "$5.685 \\times 10^{8} W m^{-2} K^{-4}$"
     ],
     "c": 1,
-    "e": "ထပ်ကိန်းနဲ့ ယူနစ် မမှားအောင် ကြည့်။ ဖြေက $5.685 \\times 10^{-8} W m^{-2} K^{-4}$ ပါ။"
+    "e": "Stefan-Boltzmann's law is e0 = sigma T^4. Sigma is about 5.685 x 10^-8 W m^-2 K^-4. Watch the metre squared, not metre to the minus one."
   },
   {
     "q": "Emissivity is defined as the ratio of the total emissive power of an object to that of the _____, at the same temperature.",
@@ -316,7 +316,7 @@
       "sun"
     ],
     "c": 0,
-    "e": "emissivity က တူညီတဲ့ T နဲ့ လှိုင်းအလျားမှာ ကိုယ်ထည်ထုတ်အား / blackbody ထုတ်အား ပါ။ temperature. ကို တခြားနာမည်နဲ့ မရောပါနဲ့။"
+    "e": "Total emissive power is all wavelengths of radiant energy leaving unit area in one second. For a blackbody it grows as T^4. A white or reflecting body is a poor absorber, not a blackbody."
   },
   {
     "q": "A black object is a good absorber and a good radiator whose emissivity is close to _____.",
@@ -327,6 +327,6 @@
       "1"
     ],
     "c": 2,
-    "e": "ငွေရောင်က ၀ နီးပါး။ ဖြေက 1 ပါ။ emissivity ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "A black object is a good absorber and a good radiator, so emissivity is close to 1. White, clear, or silver-coated surfaces sit near 0. Emissivity near 0 is a shiny poor radiator, not a black object."
   }
 ]

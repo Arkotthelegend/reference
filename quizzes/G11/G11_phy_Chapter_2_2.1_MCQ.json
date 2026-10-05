@@ -8,7 +8,7 @@
       "dot product",
       "vector product"
     ],
-    "e": "စကေးလာမြှောက်လဒ်ကို ဒေါ့မြှောက်လဒ်လို့လည်း ခေါ်တယ်။ ခရော့မြှောက်လဒ် က ခရော့ဘက်။"
+    "e": "A · B = AB cos θ. That number is the dot product, also called the scalar product. The scalar product of vectors A and B is defined as A · B = AB cos θ, where θ is the angle between A and B. This product is also called the dot product. Cross product or vector product is not this quantity."
   },
   {
     "type": "mcq",
@@ -19,7 +19,7 @@
       "dot product",
       "cross product"
     ],
-    "e": "ဗှတ္တာမြှောက်လဒ် A × B ကို ခရော့ထုတ်လို့လည်း ခေါ်တယ်။ ဒေါ့ထုတ်နဲ့ မရောပါနဲ့။"
+    "e": "A × B is the cross product, a vector perpendicular to both A and B. The vector product of vectors A and B is denoted by A × B. This product is also called the cross product. Do not trade cross product for scalar product or dot product."
   },
   {
     "type": "mcq",
@@ -30,7 +30,7 @@
       "$\\mathbf{A} \\times \\mathbf{B} = \\mathbf{B} \\times \\mathbf{A}$",
       "$\\mathbf{A} \\cdot \\mathbf{B} = -\\mathbf{B} \\cdot \\mathbf{A}$"
     ],
-    "e": "စကေးလာမြှောက်လဒ်က လဲလှယ်နိုင်တယ်။ အေဒေါ့ဘီ နဲ့ ဘီဒေါ့အေ တူတယ်၊ ထောင့်က တူတူမို့။"
+    "e": "Dot products make scalars with cos θ. Cross products make perpendicular vectors with sin θ. The scalar product has the commutative property described by the equation A · B = B · A. A × B = B × A or A · B = -B · A is a different relation from A · B = B · A."
   },
   {
     "type": "mcq",
@@ -41,7 +41,7 @@
       "$\\mathbf{A} \\times \\mathbf{B} = - (\\mathbf{B} \\times \\mathbf{A})$",
       "$\\mathbf{A} \\cdot \\mathbf{B} = - (\\mathbf{B} \\cdot \\mathbf{A})$"
     ],
-    "e": "ခရော့မြှောက်လဒ်က လဲလှယ်လို့ မရဘူး။ အေခရော့ဘီ = −(ဘီခရော့အေ)။"
+    "e": "The cross product anticommutes: A × B = −(B × A). Swap the order and the vector flips. The vector product does not obey the commutative property, and instead follows the relation A × B = - (B × A). A × B = B × A or A · B = - (B · A) is a different relation from A × B = - (B × A)."
   },
   {
     "type": "mcq",
@@ -52,7 +52,7 @@
       "cross product",
       "scalar product"
     ],
-    "e": "အလုပ်က စကေးလာပမာဏမို့ အားနဲ့ အရွေ့ရဲ့ စကေးလာမြှောက်လဒ်ပဲ။ ခရော့ထုတ်ရင် ဗှတ္တာထွက်တယ်။"
+    "e": "Work is F · s, a dot product, so work is a scalar. Work is a scalar quantity because it is the scalar product of force and displacement. Do not trade scalar product for vector product or cross product."
   },
   {
     "type": "mcq",
@@ -63,7 +63,7 @@
       "right-hand rule",
       "Fleming’s rule"
     ],
-    "e": "ဗှတ္တာမြှောက်လဒ်က ခရော့မြှောက်လဒ်။ ရလဒ်က ထောင့်မှန်ဗှတ္တာ၊ ဒီနေရာမှာ ညာလက်စည်းမျဉ်း။"
+    "e": "Dot products make scalars with cos θ. Cross products make perpendicular vectors with sin θ. The direction of the vector product A × B is determined by using the right-hand rule. Do not trade right-hand rule for left-hand rule or Fleming’s rule."
   },
   {
     "type": "mcq",
@@ -74,7 +74,7 @@
       "tensor",
       "scalar"
     ],
-    "e": "စကေးလာမြှောက်လဒ်ကို ဒေါ့မြှောက်လဒ်လို့လည်း ခေါ်တယ်။ ဗှတ္တာ က ခရော့ဘက်။"
+    "e": "A dot product is a scalar. The result of the scalar product of two vectors is a scalar. Vector or tensor is not this quantity."
   },
   {
     "type": "mcq",
@@ -85,7 +85,7 @@
       "vector",
       "unitless number"
     ],
-    "e": "ဗှတ္တာမြှောက်လဒ်က ခရော့မြှောက်လဒ်။ ရလဒ်က ထောင့်မှန်ဗှတ္တာ၊ ဒီနေရာမှာ ဗှတ္တာ။"
+    "e": "A cross product is a vector. The result of the vector product of two vectors is a vector. Do not trade vector for scalar or unitless number."
   },
   {
     "type": "mcq",
@@ -96,7 +96,7 @@
       "$\\mathbf{v} = \\boldsymbol{\\omega} \\times \\mathbf{r}$",
       "$\\mathbf{v} = \\mathbf{r} \\cdot \\boldsymbol{\\omega}$"
     ],
-    "e": "စက်ဝိုင်းရွေ့မှာ ထိတွေ့အလျင်က v = ω × r ပဲ။ စကေးလာမြှောက်လဒ် A · B မဟုတ်ဘူး။"
+    "e": "In circular motion the object stays on a circle. The velocity is tangent and the centripetal acceleration points to the centre. In circular motion, tangential velocity is expressed in terms of radius r and angular velocity boldsymbol{ω} as v = boldsymbol{ω} × r. v = boldsymbol{ω} · r or v = r · boldsymbol{ω} is a different relation from v = boldsymbol{ω} × r."
   },
   {
     "type": "mcq",
@@ -107,6 +107,6 @@
       "$AB \\tan \\theta$",
       "$AB \\sin \\theta$"
     ],
-    "e": "ဗှတ္တာမြှောက်လဒ်က ခရော့မြှောက်လဒ်။ ရလဒ်က ထောင့်မှန်ဗှတ္တာ၊ ဒီနေရာမှာ AB ဆိုင်း θ။"
+    "e": "The size of A × B is AB sin θ. The magnitude of the vector product A × B is given by AB sin θ. AB cos θ or AB tan θ is a different relation from AB sin θ."
   }
 ]

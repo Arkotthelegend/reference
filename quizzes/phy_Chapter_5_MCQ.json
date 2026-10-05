@@ -8,7 +8,7 @@
       "volume difference"
     ],
     "c": 0,
-    "e": "ဖိအားကွာလို့ မဟုတ်ဘူး။ ဖြေက temperature difference ပါ။ transferred ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Heat is energy that flows from a hotter system to a colder one. A temperature difference is the cause, not a mass or volume gap. A mass difference does not by itself drive heat."
   },
   {
     "q": "In fluids, heat is mainly transferred by _____.",
@@ -19,7 +19,7 @@
       "radiation"
     ],
     "c": 1,
-    "e": "အရည်ထဲမှာ အပူကို အဓိက သယ်တာ convection ပါ။ အရည်ကိုယ်တိုင် ရွေ့ပြီး သယ်တယ်။ transferred ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "In fluids the main heat carrier is convection, because the fluid itself moves. Hot, less dense fluid rises and cooler fluid sinks. Conduction is neighbour vibration without bulk flow, so it is the wrong mode when the fluid itself is moving."
   },
   {
     "q": "In solids, heat is transferred by the _____ process.",
@@ -30,7 +30,7 @@
       "conduction"
     ],
     "c": 2,
-    "e": "အမှုန်တွေ တုန်ပြီး အိမ်နီးချင်းကို ပေးတယ်။ ဖြေက conduction ပါ။"
+    "e": "In a solid, heat travels by conduction. Atoms stay in place and vibrate, handing energy to neighbours. Convection needs a moving fluid, so it is the wrong mode inside a rigid solid."
   },
   {
     "q": "The third way to transfer heat energy is by radiation in the form of _____.",
@@ -41,7 +41,7 @@
       "sound waves"
     ],
     "c": 1,
-    "e": "တတိယလမ်းက radiation၊ လျှပ်စစ်သံလိုက်လှိုင်းပုံစံပါ။ ဒီနေရာမှာ electromagnetic waves ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။ radiation ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Thermal radiation is electromagnetic waves. No material medium is required, and vacuum does not attenuate the wave. Mechanical waves need matter; thermal radiation does not."
   },
   {
     "q": "In heat conduction, heat energy is transferred internally by vibrations of _____.",
@@ -52,7 +52,7 @@
       "nuclei"
     ],
     "c": 0,
-    "e": "အစိုင်အခဲထဲ အပူက အမှုန်တုန်ပြီး ကပ်ရက်ဆက် ကူးတယ်။ ဒီနေရာမှာ atoms and molecules ကို ထည့်မှ ဝါကျက ပြည့်တယ်။ transferred ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Conduction hands energy to neighbouring atoms while the bulk stays put. Metals add free electrons on top of those vibrations. Protons stay in nuclei; they do not stream as a heat current."
   },
   {
     "q": "Metals are generally very good conductors of heat because they have many _____.",
@@ -63,7 +63,7 @@
       "free electrons"
     ],
     "c": 2,
-    "e": "သတ္တုကောင်းစီးတာ free electrons များလို့ပါ။ conductors ကို တခြားနာမည်နဲ့ မရောပါနဲ့။"
+    "e": "Metals have many free electrons. Those electrons can drift and carry thermal energy, so metals are good heat conductors. Bound protons are not the mobile heat carriers in a metal."
   },
   {
     "q": "The rate of heat conduction through a material is inversely proportional to the _____ of the material.",
@@ -74,7 +74,7 @@
       "temperature"
     ],
     "c": 1,
-    "e": "thickness နဲ့ ပြောင်းပြန်အချိုးကျတယ်။ ဖြေက thickness ပါ။ စာအုပ်က ဒီအချက်ကို သီးသန့် တင်ပြထားတယ်။"
+    "e": "Heat current through a slab is inversely proportional to thickness l. A thinner wall, larger area, or larger Delta T raises H. Area sits in the numerator of H; it does not go in the denominator like thickness."
   },
   {
     "q": "In SI units, thermal conductivity $k$ is expressed in _____.",
@@ -85,7 +85,7 @@
       "$J kg^{-1} K^{-1}$"
     ],
     "c": 0,
-    "e": "k ကို W m⁻¹ K⁻¹ နဲ့ တိုင်းတယ်။ ဒီနေရာမှာ $W m^{-1} K^{-1}$ ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။"
+    "e": "Thermal conductivity k measures how readily a material carries heat. SI unit is watt per metre per kelvin. High k is a conductor; low k is an insulator. SI units thermal conductivity k is expressed cannot be dropped from this process without changing the law."
   },
   {
     "q": "The ratio $\\frac{T_2 - T_1}{l}$ is called the temperature _____.",
@@ -96,7 +96,7 @@
       "temperature gradient"
     ],
     "c": 2,
-    "e": "(T₂−T₁)/l ကို temperature gradient လို့ ခေါ်တယ်။ အကွာအဝေးအလိုက် အပူချိန်ပြောင်းနှုန်းပါ။ ဖြေက temperature gradient ပါ။"
+    "e": "Temperature gradient is (T2 - T1)/l, the temperature drop per unit thickness. Fourier says heat flux density is proportional to that gradient. Heat flux is the current per area, not the name of (T2-T1)/l."
   },
   {
     "q": "Fourier's law states that the rate of heat flow per unit area is proportional to the magnitude of _____.",
@@ -107,7 +107,7 @@
       "thermal resistance"
     ],
     "c": 1,
-    "e": "heat flux က gradient ကြီးလေ ကြီးလေပါ။ ဒီနေရာမှာ temperature gradient ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။"
+    "e": "Temperature gradient is (T2 - T1)/l, the temperature drop per unit thickness. Fourier says heat flux density is proportional to that gradient. Heat capacity stores energy per kelvin; Fourier's law is about gradient and flux."
   },
   {
     "q": "In the differential form of Fourier's law, the negative sign indicates that temperature $T$ must _____ as distance $x$ increases.",
@@ -118,7 +118,7 @@
       "remain constant"
     ],
     "c": 0,
-    "e": "အနုတ်လက္ခဏာက x တိုးရင် T ကျရမယ်လို့ ပြတယ်။ အပူက ပူရာကနေ အေးရာဆီ စီးတယ်။ နာမည်တူ တခြားဝေါဟာရနဲ့ မရောပါနဲ့။"
+    "e": "The minus sign in Fourier's local law says temperature must decrease as distance x increases along the heat flow. Heat runs down the gradient. Temperature falls along the heat-flow direction; it does not increase."
   },
   {
     "q": "In SI units, heat flux density is measured in _____.",
@@ -129,7 +129,7 @@
       "$W m^{-2}$"
     ],
     "c": 2,
-    "e": "တစ်စတုရန်းနှုန်းနဲ့ စုစုပေါင်းနှုန်း ကွာတယ်။ ဖြေက $W m^{-2}$ ပါ။"
+    "e": "Heat is energy flowing because temperatures differ. It is not a stored fluid sitting inside a body. Equal temperatures mean zero net heat flow. SI units heat flux density is measured cannot be dropped from this process without changing the law."
   },
   {
     "q": "A high value for thermal conductivity indicates that the material is a good _____.",
@@ -140,7 +140,7 @@
       "blackbody"
     ],
     "c": 1,
-    "e": "k ကြီးရင် ကောင်းတဲ့ thermal conductor ပါ။ သေးရင် insulator ပါ။ လမ်းကြောင်းအစီအစဉ် မပြောင်းပါနဲ့။"
+    "e": "Thermal conductivity k measures how readily a material carries heat. SI unit is watt per metre per kelvin. High k is a conductor, not an insulator."
   },
   {
     "q": "Materials such as rubber, wood, and styrofoam are poor conductors of heat and have _____ conductivity values.",
@@ -151,7 +151,7 @@
       "infinite"
     ],
     "c": 0,
-    "e": "low conductivity ပါ။ ဖြေက low ပါ။ conductivity ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Rubber, wood and styrofoam are poor heat conductors with low k. They make good thermal insulators. Rubber and wood are low-k materials."
   },
   {
     "q": "Heat convection is the flow of heat through a fluid from places of higher temperature to places of lower temperature by _____ of the fluid itself.",
@@ -162,7 +162,7 @@
       "movement"
     ],
     "c": 2,
-    "e": "solid ထဲ မဖြစ်ဘူး။ ဖြေက movement ပါ။ temperature ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Convection is heat flow through a fluid by movement of the fluid itself, from hotter places to colder places. Buoyancy drives natural convection because hot fluid is less dense. Vibration without bulk flow is conduction, not convection."
   },
   {
     "q": "Convection occurs only in a liquid or a gas, never in a _____.",
@@ -173,7 +173,7 @@
       "liquid"
     ],
     "c": 1,
-    "e": "solid ထဲ အမှုန်တွေ မရွှေ့နိုင်လို့ပါ။ ဖြေက solid ပါ။ ယူနစ်နဲ့ သင်္ကေတ မလဲပါနဲ့။"
+    "e": "Convection is heat carried by the fluid itself as it circulates. Hot fluid is less dense, so buoyancy lifts it. Convection does occur in a gas; the forbidden place is a solid."
   },
   {
     "q": "Buoyant force is what drives _____ convection.",
@@ -184,7 +184,7 @@
       "artificial"
     ],
     "c": 0,
-    "e": "forced က ပြင်ပက တွန်းအားပေးမှ ဖြစ်တာပါ။ ဖြေက natural ပါ။ လမ်းကြောင်းအစီအစဉ် မပြောင်းပါနဲ့။"
+    "e": "Hotter fluid is less dense, so an upward buoyant force lifts it while cooler fluid sinks. That cell is a convection current. Buoyancy without a fan is natural convection."
   },
   {
     "q": "The basic equation for the rate of convection heat transfer is known as Newton's law of _____.",
@@ -195,7 +195,7 @@
       "cooling"
     ],
     "c": 2,
-    "e": "Fourier နဲ့ မရောပါနဲ့။ ဖြေက cooling ပါ။"
+    "e": "Newton's law of cooling is the basic convection-rate equation, H = q A (T2 - T1). q is the convective coefficient in W m^-2 K^-1. Newton's convection law is named cooling."
   },
   {
     "q": "In Newton's law of cooling, the convective heat transfer coefficient $q$ is expressed in SI units as _____.",
@@ -206,7 +206,7 @@
       "$J s^{-1} K^{-1}$"
     ],
     "c": 1,
-    "e": "q ရဲ့ SI က W m⁻² K⁻¹ ပါ။ k ရဲ့ W m⁻¹ K⁻¹ နဲ့ ကွာတယ်။ coefficient ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Newton's law of cooling is the basic convection-rate equation, H = q A (T2 - T1). q is the convective coefficient in W m^-2 K^-1. Fourier's name stays with conduction."
   },
   {
     "q": "When the surrounding fluid temperature is greater than the surface temperature, heat is _____ by the object.",
@@ -217,7 +217,7 @@
       "created"
     ],
     "c": 0,
-    "e": "gained ဖြစ်တယ်။ ဖြေက gained ပါ။ surrounding ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Heat is energy flowing because temperatures differ. It is not a stored fluid sitting inside a body. If the fluid is hotter than the surface, the object gains heat."
   },
   {
     "q": "Heat radiation is a transfer of heat that does not require a _____ medium.",
@@ -228,7 +228,7 @@
       "material"
     ],
     "c": 2,
-    "e": "material medium မရှိလည်း ရောက်တယ်။ ဖြေက material ပါ။ စာအုပ်က ဒီအချက်ကို သီးသန့် တင်ပြထားတယ်။"
+    "e": "Radiation is heat as electromagnetic waves. No material medium is required, and vacuum does not weaken the wave. Radiation does not even need a fluid."
   },
   {
     "q": "Energy transfer by radiation is the fastest, traveling at the speed of _____.",
@@ -239,7 +239,7 @@
       "wind"
     ],
     "c": 1,
-    "e": "speed of light ပါ။ ဖြေက light ပါ။ radiation ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Radiation is heat as electromagnetic waves. No material medium is required, and vacuum does not weaken the wave. Radiation travels at the speed of light, not sound."
   },
   {
     "q": "All bodies at a temperature above _____ emit thermal radiation.",
@@ -250,7 +250,7 @@
       "room temperature"
     ],
     "c": 0,
-    "e": "အေးနေတဲ့ အရာလည်း ထုတ်တယ်။ ဖြေက absolute zero ပါ။"
+    "e": "Radiation is heat as electromagnetic waves. No material medium is required, and vacuum does not weaken the wave. Thermal emission starts above 0 K, not merely above freezing."
   },
   {
     "q": "Radiation is mostly considered to be a _____ phenomenon for solids that are opaque to thermal radiation.",
@@ -261,7 +261,7 @@
       "surface"
     ],
     "c": 2,
-    "e": "surface phenomenon ပါ။ ဖြေက surface ပါ။ စာအုပ်က ဒီအချက်ကို သီးသန့် တင်ပြထားတယ်။"
+    "e": "Radiation is heat as electromagnetic waves. No material medium is required, and vacuum does not weaken the wave. Opaque-solid radiation is a surface effect, not a volume effect."
   },
   {
     "q": "The object which can absorb all the electromagnetic radiations falling upon it is called a _____.",
@@ -272,7 +272,7 @@
       "graybody"
     ],
     "c": 1,
-    "e": "ကျလာသမျှ ရောင်ခြည်အကုန်စုပ်တာ blackbody ပါ။ electromagnetic ကို တခြားနာမည်နဲ့ မရောပါနဲ့။ electromagnetic ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Thermal radiation is electromagnetic waves. No material medium is required, and vacuum does not attenuate the wave. A white or reflecting body is a poor absorber, not a blackbody."
   },
   {
     "q": "The total emissive power is defined as the total radiant energy emitted from unit area of a surface in _____.",
@@ -283,7 +283,7 @@
       "one hour"
     ],
     "c": 0,
-    "e": "total emissive power က တစ်စတုရန်း၊ တစ်စက္ကန့်မှာ ထုတ်တဲ့ လှိုင်းအလျားအမျိုးမျိုးရဲ့ စုစုပေါင်းပါ။ one second မှာ တိုင်းတယ်။ ဖြေက one second ပါ။"
+    "e": "Total emissive power is all wavelengths of radiant energy leaving unit area in one second. For a blackbody it grows as T^4. Emissive power is energy per unit area per second."
   },
   {
     "q": "The total emissive power of a blackbody is directly proportional to the _____ power of absolute temperature.",
@@ -294,7 +294,7 @@
       "fourth"
     ],
     "c": 2,
-    "e": "blackbody ထုတ်အားက ပကတိအပူချိန်ရဲ့ စတုတ္ထထပ်နဲ့ အချိုးကျတယ်။ ဒီနေရာမှာ fourth ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။"
+    "e": "Total emissive power is all wavelengths of radiant energy leaving unit area in one second. For a blackbody it grows as T^4. Stefan-Boltzmann is T to the fourth, not T squared."
   },
   {
     "q": "Stefan's constant $\\sigma$ has the value of _____.",
@@ -305,7 +305,7 @@
       "$5.685 \\times 10^{8} W m^{-2} K^{-4}$"
     ],
     "c": 1,
-    "e": "σ = 5.685 × 10⁻⁸ W m⁻² K⁻⁴ ပါ။ ဒီနေရာမှာ $5.685 \\times 10^{-8} W m^{-2} K^{-4}$ ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။"
+    "e": "Stefan-Boltzmann's law is e0 = sigma T^4. Sigma is about 5.685 x 10^-8 W m^-2 K^-4. Watch the metre squared, not metre to the minus one."
   },
   {
     "q": "Emissivity is defined as the ratio of the total emissive power of an object to that of the _____, at the same temperature.",
@@ -316,7 +316,7 @@
       "sun"
     ],
     "c": 0,
-    "e": "ratio ပါ။ ဖြေက blackbody ပါ။"
+    "e": "Total emissive power is all wavelengths of radiant energy leaving unit area in one second. For a blackbody it grows as T^4. A white or reflecting body is a poor absorber, not a blackbody."
   },
   {
     "q": "A black object is a good absorber and a good radiator whose emissivity is close to _____.",
@@ -327,7 +327,7 @@
       "1"
     ],
     "c": 2,
-    "e": "အမည်းရောင်က စုပ်အား၊ ထုတ်အား ကောင်းပြီး ε ≈ 1 ပါ။ emissivity ကို တခြားနာမည်နဲ့ မရောပါနဲ့။"
+    "e": "A black object is a good absorber and a good radiator, so emissivity is close to 1. White, clear, or silver-coated surfaces sit near 0. Emissivity near 0 is a shiny poor radiator, not a black object."
   },
   {
     "q": "Thermodynamics is the study of systems involving energy in the form of _____.",
@@ -338,7 +338,7 @@
       "work and volume"
     ],
     "c": 1,
-    "e": "kinetic တစ်မျိုးတည်း မဟုတ်။ ဖြေက heat and work ပါ။ Thermodynamics ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Thermodynamics studies systems whose energy appears as heat and work. A piston confining gas in a cylinder is the usual picture. Radiation from an opaque solid is not scored as a mass phenomenon."
   },
   {
     "q": "When two systems are in thermal equilibrium, there is no net _____ between them.",
@@ -349,7 +349,7 @@
       "temperature change"
     ],
     "c": 0,
-    "e": "နှစ်ခု မျှရင် အကြား net အပူကူး မရှိဘူး။ ဒီနေရာမှာ heat transfer ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။"
+    "e": "Thermal equilibrium means no net heat transfer, which happens when temperatures match. Zeroth law then lets a thermometer define that shared temperature. Temperature difference drives conduction; thickness is the inverse factor."
   },
   {
     "q": "The Zeroth Law states that if two objects are in equilibrium with a third, they are in equilibrium with _____.",
@@ -360,7 +360,7 @@
       "a fourth object"
     ],
     "c": 2,
-    "e": "စာအုပ်က ဒီမေးခွန်းမှာ a fourth object ကို ဖြည့်ခိုင်းတယ်။ ဒီအချက်က equilibrium ကို တိတိကျကျ ပြောတာပါ။ equilibrium ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Zeroth law: if two objects are each in equilibrium with a third, they are in equilibrium with each other. That is how temperature becomes a comparable property. A fourth object is not part of the statement."
   },
   {
     "q": "The first law of thermodynamics is an application of the conservation of _____ for thermodynamic processes.",
@@ -371,7 +371,7 @@
       "mass"
     ],
     "c": 1,
-    "e": "ပထမနိယာမက အပူဖြစ်စဉ်မှာ စွမ်းအင်ထိန်းသိမ်းမှုကို သုံးတာပါ။ energy conservation ပါ။ ဖြေက energy ပါ။"
+    "e": "First law is conservation of energy applied to heat and thermodynamic processes. Delta U = Q - W, with W the work done by the system. Radiation from an opaque solid is not scored as a mass phenomenon."
   },
   {
     "q": "In the equation $\\Delta U = Q - W$, $W$ is positive if work is done _____ the system.",
@@ -382,7 +382,7 @@
       "against"
     ],
     "c": 0,
-    "e": "ဒီသင်္ကေတမှာ စနစ်က အလုပ်လုပ်ရင် W အပေါင်းပါ။ by the system ဖြစ်ရင် နှုတ်ရတယ်။ ဖြေက by ပါ။"
+    "e": "In Delta U = Q - W, W is positive when the system does the work. Work done on the system is negative W in this convention. Heat added is positive Q. Equation Delta U Q W W is cannot be dropped from this process without changing the law."
   },
   {
     "q": "The internal energy of an ideal gas depends only on _____.",
@@ -393,7 +393,7 @@
       "temperature"
     ],
     "c": 2,
-    "e": "ထုထည်၊ ဖိအားပေါ် မမူတည်ဘူး။ ဖြေက temperature ပါ။"
+    "e": "Internal energy of an ideal gas depends only on temperature, not on volume or pressure. U is proportional to absolute temperature. Opaque-solid radiation is a surface effect, not a volume effect."
   },
   {
     "q": "The internal energy of an ideal monoatomic gas is given by the formula $U = $ _____.",
@@ -404,7 +404,7 @@
       "$\\frac{5}{2} n R T$"
     ],
     "c": 1,
-    "e": "monoatomic ideal gas မှာ U = 3/2 nRT ပါ။ ဒီနေရာမှာ $\\frac{3}{2} n R T$ ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။"
+    "e": "Internal energy U is the total microscopic energy of the particles. For an ideal gas it depends only on absolute temperature. Heat and work can change U but are not stored as heat or work. Internal energy of an ideal monoatomic gas cannot be dropped from this process without changing the law."
   },
   {
     "q": "Heat transfer and work are both energy in _____.",
@@ -415,7 +415,7 @@
       "equilibrium"
     ],
     "c": 0,
-    "e": "transit ပါ၊ stored မဟုတ်။ ဖြေက transit ပါ။ transfer ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Heat is energy flowing because temperatures differ. It is not a stored fluid sitting inside a body. Equal temperatures mean zero net heat flow. Sonar is the sound analogue."
   },
   {
     "q": "A thermodynamic process may be defined as a change from one _____ state of a system to another.",
@@ -426,7 +426,7 @@
       "equilibrium"
     ],
     "c": 2,
-    "e": "ဖြစ်စဉ်က မျှခြေအခြေအနေတစ်ခုကနေ နောက်တစ်ခု ပြောင်းတာပါ။ ဒီနေရာမှာ equilibrium ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။ စာအုပ်က ဒီအချက်ကို သီးသန့် တင်ပြထားတယ်။"
+    "e": "A thermodynamic process is a change from one equilibrium state to another. Quasi-static means you crawl slowly enough to stay in internal equilibrium. A sudden bang is not that ideal path. Thermodynamic process may be defined as a cannot be dropped from this process without changing the law."
   },
   {
     "q": "A quasi-static process happens slowly enough for the system to remain in internal physical thermodynamic _____.",
@@ -437,7 +437,7 @@
       "potential"
     ],
     "c": 1,
-    "e": "slowly enough လုပ်မှ equilibrium ထိန်းနိုင်တယ်။ ဖြေက equilibrium ပါ။"
+    "e": "A quasi-static, or quasi-equilibrium, process is slow enough that the system remains in internal thermodynamic equilibrium. You can then draw it as a curve on a p-V diagram and retrace it. Rapid processes jump off that curve. Quasi static process happens slowly enough for cannot be dropped from this process without changing the law."
   },
   {
     "q": "An isobaric process occurs at constant _____.",
@@ -448,7 +448,7 @@
       "temperature"
     ],
     "c": 0,
-    "e": "ထုထည်တူတာ isochoric။ ဖြေက pressure ပါ။ နာမည်တူ တခြားဝေါဟာရနဲ့ မရောပါနဲ့။"
+    "e": "Isobaric means constant pressure. Work done by the system is then p Delta V. Opaque-solid radiation is a surface effect, not a volume effect."
   },
   {
     "q": "In an isobaric process, the work done by the system is equal to the pressure multiplied by the change in _____.",
@@ -459,7 +459,7 @@
       "volume"
     ],
     "c": 2,
-    "e": "ဖိအားတူရင် W = p ΔV ပါ။ ထုထည်ပြောင်းမှ အလုပ်ရှိတယ်။ multiplied ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Isobaric means constant pressure. Work done by the system is then p Delta V. Temperature difference drives conduction; thickness is the inverse factor."
   },
   {
     "q": "An isochoric process occurs at constant _____.",
@@ -470,7 +470,7 @@
       "temperature"
     ],
     "c": 1,
-    "e": "volume မပြောင်းရင် အလုပ်မရှိဘူး။ ဖြေက volume ပါ။ အနီးစပ်စပ် အဓိပ္ပာယ်နဲ့ မယူပါနဲ့။"
+    "e": "Isochoric means constant volume, so W = p Delta V = 0. First law then says Delta U equals the heat that entered or left. Temperature difference drives conduction; thickness is the inverse factor."
   },
   {
     "q": "In an isochoric process, the work done by the system is _____.",
@@ -481,7 +481,7 @@
       "infinity"
     ],
     "c": 0,
-    "e": "zero ပါ။ ဖြေက zero ပါ။ isochoric ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Isochoric means constant volume, so W = p Delta V = 0. First law then says Delta U equals the heat that entered or left. For an ideal gas that heat is n Cv Delta T. Isochoric process the work done by the cannot be dropped from this process without changing the law."
   },
   {
     "q": "For an isochoric process, the change in internal energy is expressed as $\\Delta U = $ _____.",
@@ -492,7 +492,7 @@
       "$n C_v \\Delta T$"
     ],
     "c": 2,
-    "e": "ထုထည်တူရင် ΔU = n C_v ΔT ပါ။ အလုပ်မရှိလို့ အပူက U ကို တိုက်ရိုက်ပြောင်းတယ်။ ဖြေက $n C_v \\Delta T$ ပါ။"
+    "e": "Delta U equals net heat into the system minus work done by the system. Q is positive when heat is added, negative when heat is removed. W flips sign if work is done on the system instead. Isochoric means constant volume, so W = p Delta V = 0."
   },
   {
     "q": "An isothermal process occurs at a constant _____.",
@@ -503,7 +503,7 @@
       "volume"
     ],
     "c": 1,
-    "e": "isothermal က အပူချိန်တူပါ။ ဒီနေရာမှာ temperature ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။ isothermal ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Isothermal means constant temperature, so for an ideal gas Delta U = 0 and W = Q. Heat must leak slowly enough to keep equilibrium. Opaque-solid radiation is a surface effect, not a volume effect."
   },
   {
     "q": "For an ideal gas undergoing an isothermal process, $\\Delta U$ is equal to _____.",
@@ -514,7 +514,7 @@
       "minimum"
     ],
     "c": 0,
-    "e": "Q = W ဖြစ်သွားတယ်။ ဖြေက zero ပါ။"
+    "e": "Isothermal means constant temperature, so for an ideal gas Delta U = 0 and W = Q. Heat must leak slowly enough to keep equilibrium. Isochoric holds V; isobaric holds p; adiabatic holds Q at zero. Ideal gas undergoing an isothermal process Delta cannot be dropped from this process without changing the law."
   },
   {
     "q": "The work done in an isothermal process can be calculated using the formula $W = $ _____.",
@@ -525,7 +525,7 @@
       "$n R T \\ln(\\frac{V_f}{V_i})$"
     ],
     "c": 2,
-    "e": "ထုထည်အချိုးရဲ့ သဘာဝလော့ဂါရစ်သမ် ပါဝင်တယ်။ ဖြေက $n R T \\ln(\\frac{V_f}{V_i})$ ပါ။ calculated ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Isothermal means constant temperature, so for an ideal gas Delta U = 0 and W = Q. Heat must leak slowly enough to keep equilibrium. Isochoric holds V; isobaric holds p; adiabatic holds Q at zero. Work done in an isothermal process can cannot be dropped from this process without changing the law."
   },
   {
     "q": "In an adiabatic process, the heat transfer $Q$ is _____.",
@@ -536,7 +536,7 @@
       "-1"
     ],
     "c": 1,
-    "e": "အပူမဝင်မထွက်ဘူး။ ဖြေက 0 ပါ။ adiabatic ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Adiabatic means Q = 0, no heat in or out, often by insulating the system. First law collapses to Delta U = -W. Isothermal holds T and lets heat leak; adiabatic forbids heat. Gamma = Cp/Cv then appears in the reversible adiabatic relations."
   },
   {
     "q": "In an adiabatic process, the first law of thermodynamics reduces to $\\Delta U = $ _____.",
@@ -547,7 +547,7 @@
       "$Q$"
     ],
     "c": 0,
-    "e": "Q = 0 မို့ ΔU = −W ဖြစ်သွားတယ်။ ဒီနေရာမှာ $-W$ ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။"
+    "e": "Adiabatic means Q = 0, no heat in or out, often by insulating the system. First law collapses to Delta U = -W. Isothermal holds T and lets heat leak; adiabatic forbids heat. Adiabatic process the first law of thermodynamics cannot be dropped from this process without changing the law."
   },
   {
     "q": "The ratio of the heat capacities $\\gamma$ is defined as $\\gamma = $ _____.",
@@ -558,7 +558,7 @@
       "$C_p / C_v$"
     ],
     "c": 2,
-    "e": "γ = C_p / C_v ပါ။ adiabatic မှာ ဒီအချိုး သုံးတယ်။ ဖြေက $C_p / C_v$ ပါ။"
+    "e": "Heat is energy flowing because temperatures differ. It is not a stored fluid sitting inside a body. Equal temperatures mean zero net heat flow. Ratio of the heat capacities gamma is cannot be dropped from this process without changing the law."
   },
   {
     "q": "A good example of a thermodynamic system is gas confined by a _____ in a cylinder.",
@@ -569,7 +569,7 @@
       "spring"
     ],
     "c": 1,
-    "e": "piston က ထုထည်ပြောင်းပေးတယ်။ ဖြေက piston ပါ။ လမ်းကြောင်းအစီအစဉ် မပြောင်းပါနဲ့။"
+    "e": "A gas trapped by a piston in a cylinder is a clean thermodynamic system. You can add heat, do work, and track U. Valves and springs may appear in engines, but the textbook starter is the piston. Example of a thermodynamic system is gas cannot be dropped from this process without changing the law."
   },
   {
     "q": "Systems at the same temperature will be in thermal _____ with each other.",
@@ -580,7 +580,7 @@
       "reaction"
     ],
     "c": 0,
-    "e": "အပူချိန်တူရင် အချင်းချင်း thermal equilibrium ဖြစ်တယ်။ ဒီအချက်က temperature ကို တိတိကျကျ ပြောတာပါ။ temperature ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Thermal equilibrium means the same temperature and no net heat flow. Zeroth law lets that shared temperature be compared. Exposure time is how long the shutter is open."
   },
   {
     "q": "The simple definition of thermodynamic equilibrium is provided by the _____ Law of Thermodynamics.",
@@ -591,7 +591,7 @@
       "Zeroth"
     ],
     "c": 2,
-    "e": "မျှခြေရဲ့ ရိုးရိုးအဓိပ္ပာယ်ကို Zeroth Law က ပေးတယ်။ ဒီအချက်က Thermodynamics. ကို တိတိကျကျ ပြောတာပါ။"
+    "e": "Zeroth law: if A and B each equilibrate with C, then A equilibrates with B. That shared equilibrium is what a thermometer reads as temperature. Stefan-Boltzmann is T to the fourth, not T squared."
   },
   {
     "q": "In the first law of thermodynamics, $Q$ is negative if heat is _____ from the system.",
@@ -602,7 +602,7 @@
       "constant"
     ],
     "c": 1,
-    "e": "removed ဖြစ်ရင် လက္ခဏာပြောင်းတယ်။ ဖြေက removed ပါ။"
+    "e": "Thermodynamics maps equilibrium states involving heat and work. Heat transfer then asks how energy actually flows. The two branches complement each other; they are not unrelated."
   },
   {
     "q": "The internal energy $U$ of a system is defined as the sum of the energies of all the constituent _____.",
@@ -613,7 +613,7 @@
       "electrons"
     ],
     "c": 0,
-    "e": "particles ပေါင်းတာပါ။ ဖြေက particles ပါ။ constituent ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Internal energy U is the total microscopic energy of the particles. For an ideal gas it depends only on absolute temperature. Heat and work can change U but are not stored as heat or work. Energy U of a system is defined cannot be dropped from this process without changing the law."
   },
   {
     "q": "The internal energy of an ideal gas is _____ proportional to the absolute temperature.",
@@ -624,7 +624,7 @@
       "directly"
     ],
     "c": 2,
-    "e": "directly ပါ။ ဖြေက directly ပါ။"
+    "e": "Internal energy U is the total microscopic energy of the particles. For an ideal gas it depends only on absolute temperature. Heat and work can change U but are not stored as heat or work. Internal energy of an ideal gas is cannot be dropped from this process without changing the law."
   },
   {
     "q": "Neither heat nor work is _____ as such in a system; both can change the internal energy.",
@@ -635,7 +635,7 @@
       "destroyed"
     ],
     "c": 1,
-    "e": "stored မဟုတ်။ ဖြေက stored ပါ။"
+    "e": "Internal energy U is the total microscopic energy of the particles. For an ideal gas it depends only on absolute temperature. Heat is not created at the surface; it is gained or lost."
   },
   {
     "q": "During a thermodynamic process, a system passes through various _____ states to a final state.",
@@ -646,7 +646,7 @@
       "isobaric"
     ],
     "c": 0,
-    "e": "ဖြစ်စဉ်တစ်ခုမှာ စနစ်က quasistatic အခြေအနေတွေ ဖြတ်ပြီး နောက်ဆုံးရောက်တယ်။ thermodynamic ကို တခြားနာမည်နဲ့ မရောပါနဲ့။"
+    "e": "In Delta U = Q - W, W is positive when the system does the work. Work done on the system is negative W in this convention. Heat added is positive Q. Thermodynamic process a system passes through various cannot be dropped from this process without changing the law."
   },
   {
     "q": "A quasi-static process happens _____ enough for the system to remain in internal equilibrium.",
@@ -657,7 +657,7 @@
       "slowly"
     ],
     "c": 2,
-    "e": "slowly enough လုပ်မှ equilibrium ထိန်းနိုင်တယ်။ ဖြေက slowly ပါ။"
+    "e": "A quasi-static, or quasi-equilibrium, process is slow enough that the system remains in internal thermodynamic equilibrium. You can then draw it as a curve on a p-V diagram and retrace it. Rapid processes jump off that curve. Quasi static process happens enough for the cannot be dropped from this process without changing the law."
   },
   {
     "q": "A heat engine is a system that converts heat to _____ energy.",
@@ -668,7 +668,7 @@
       "electrical"
     ],
     "c": 1,
-    "e": "heat engine က အပူကို စက်စွမ်းအင်ပြောင်းပြီး အလုပ်လုပ်ခိုင်းတယ်။ ဒီနေရာမှာ mechanical ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။ converts ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "A heat engine converts heat into mechanical energy so it can do mechanical work. It repeats a cycle so work keeps coming out. Turning work into heat is dissipation, not this engine. Heat engine is a system that converts cannot be dropped from this process without changing the law."
   },
   {
     "q": "A series of processes in which a system is brought back to its initial state is called a _____.",
@@ -679,7 +679,7 @@
       "process"
     ],
     "c": 0,
-    "e": "မူလအခြေအနေ ပြန်ရောက်တဲ့ ဖြစ်စဉ်ဆက်ကို cycle လို့ ခေါ်တယ်။ processes ကို တခြားနာမည်နဲ့ မရောပါနဲ့။"
+    "e": "A cycle is a series of processes that returns the system to its initial state. Net Delta U over a cycle is zero. Then W equals Q_H minus Q_C for a heat engine. Processes in which a system is brought cannot be dropped from this process without changing the law."
   },
   {
     "q": "Thermal efficiency for a heat engine is the ratio of work output to _____.",
@@ -690,7 +690,7 @@
       "heat input"
     ],
     "c": 2,
-    "e": "η = W / Q_H ပါ။ အလုပ်ထွက်အားကို ထည့်တဲ့ အပူနဲ့ စားတယ်။"
+    "e": "Thermal efficiency is work output over heat input, W/Q_H. You can also write 1 - Q_C/Q_H. Heat input over work output is the reciprocal, not the efficiency. Thermal efficiency for a heat engine is cannot be dropped from this process without changing the law."
   },
   {
     "q": "Applying the first law to one complete cycle of a heat engine, the net change of internal energy $\\Delta U$ is _____.",
@@ -701,7 +701,7 @@
       "negative"
     ],
     "c": 1,
-    "e": "တစ်ပတ်ပြည့်ရင် ΔU = 0 မို့ Q_H − Q_C = W ပါ။ ဒီနေရာမှာ zero ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။"
+    "e": "Internal energy U is the total microscopic energy of the particles. For an ideal gas it depends only on absolute temperature. f-numbers in this chapter are positive ratios."
   },
   {
     "q": "The transformation of heat into work is usually accomplished by the internal combustion engine and the _____ engine.",
@@ -712,7 +712,7 @@
       "solar"
     ],
     "c": 0,
-    "e": "အပူကနေ အလုပ်ပြောင်းတာ လက်တွေ့မှာ internal combustion နဲ့ steam engine နှစ်မျိုးနဲ့ လုပ်တယ်။ ဒီအချက်က transformation ကို တိတိကျကျ ပြောတာပါ။ transformation ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Practical heat-into-work machines are internal combustion engines and steam engines. In both, a gas in a cylinder is taken around a cycle. Nuclear or solar plants are different textbook chapters."
   },
   {
     "q": "In a gasoline engine, the combustion of the mixture takes place explosively by an _____.",
@@ -723,7 +723,7 @@
       "glow plug"
     ],
     "c": 2,
-    "e": "ရောစပ်လောင်စာက မီးပွင့်နဲ့ မြန်မြန်လောင်တယ်။ glow plug က ဒီဝါကျရဲ့ အဓိကဖြည့်စရာပါ။"
+    "e": "A gasoline engine intakes fuel plus air and ignites with an electric spark. Four piston motions are the strokes: intake, compression, power, exhaust. Diesel instead intakes air only and auto-ignites injected fuel. Efficiency is W over Q_H."
   },
   {
     "q": "The gasoline engine cycle involves processes where four require motion of the piston and are called _____.",
@@ -734,7 +734,7 @@
       "gears"
     ],
     "c": 1,
-    "e": "ပစ္စတင်ရွေ့တဲ့ လေးခုက strokes ပါ။ processes ကို တခြားနာမည်နဲ့ မရောပါနဲ့။ processes ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Four piston motions in the gasoline cycle are the strokes: intake, compression, power, exhaust. Spark ignition happens between compression and power, at nearly constant volume. Diesel still has strokes but intakes air only. A gasoline engine intakes fuel plus air and ignites with an electric spark."
   },
   {
     "q": "During the intake stroke, a mixture is drawn into the cylinder by the _____ stroke of the piston.",
@@ -745,7 +745,7 @@
       "exhaust"
     ],
     "c": 0,
-    "e": "ဆွဲသွင်း stroke က အရောအနှောကို ဆလင်ဒါထဲ ဆွဲသွင်းတယ်။ suction က ဒီဝါကျရဲ့ အဓိကဖြည့်စရာပါ။"
+    "e": "On the gasoline intake, or suction, stroke the piston draws in gasoline vapour and air. Diesel intake draws air only. Compression then raises p and T of whatever was drawn in. Intake stroke a mixture is drawn into cannot be dropped from this process without changing the law."
   },
   {
     "q": "In a gasoline engine, the volume remains unchanged and the piston does not move during the _____ process.",
@@ -756,7 +756,7 @@
       "explosion"
     ],
     "c": 2,
-    "e": "အပူဝင်ပြီး ဖိအားတက်တယ်။ ဖြေက explosion ပါ။ unchanged ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "A gasoline engine intakes fuel plus air and ignites with an electric spark. Four piston motions are the strokes: intake, compression, power, exhaust. Diesel instead intakes air only and auto-ignites injected fuel. A gas confined by a piston in a cylinder is the usual thermodynamic system."
   },
   {
     "q": "The theoretical efficiency of a gasoline engine depends on the compression ratio and the ratio of _____ heat capacities.",
@@ -767,7 +767,7 @@
       "specific"
     ],
     "c": 1,
-    "e": "ဓာတ်ဆီအင်ဂျင် သီအိုရီ efficiency က ဖိနှုန်းနဲ့ molar heat capacity အချိုးပေါ် မူတည်တယ်။ capacities. ကို တခြားနာမည်နဲ့ မရောပါနဲ့။ capacities. ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Heat-engine efficiency is work out divided by heat in, W/Q_H or 1 - Q_C/Q_H. Carnot replaces the heat ratio with T_C/T_H on an absolute scale. Radiation from an opaque solid is not scored as a mass phenomenon."
   },
   {
     "q": "Unlike the spark-ignition gasoline engine, the diesel engine induces only _____ into the combustion chamber on its intake stroke.",
@@ -778,7 +778,7 @@
       "oxygen"
     ],
     "c": 0,
-    "e": "fuel+air ရောသွင်းတာ gasoline ပါ။ ဖြေက air ပါ။ နာမည်တူ တခြားဝေါဟာရနဲ့ မရောပါနဲ့။"
+    "e": "A gasoline engine ignites the fuel-air mix with an electric spark. Four of the six processes are piston strokes: intake, compression, power, exhaust. Diesel instead compresses air only and injects fuel that auto-ignites. On the gasoline intake, or suction, stroke the piston draws in gasoline vapour and air."
   },
   {
     "q": "In a diesel engine, fuel ignites immediately because of the _____ inside the cylinder.",
@@ -789,7 +789,7 @@
       "heat and pressure"
     ],
     "c": 2,
-    "e": "spark မလိုဘူး။ ဖြေက heat and pressure ပါ။"
+    "e": "Heat is energy flowing because temperatures differ. It is not a stored fluid sitting inside a body. Equal temperatures mean zero net heat flow. Efficiency is W over Q_H."
   },
   {
     "q": "In 1824, Nicolas Leonard Sadi Carnot described a hypothetical engine known as the _____ engine.",
@@ -800,7 +800,7 @@
       "Kelvin"
     ],
     "c": 1,
-    "e": "၁၈၂၄ မှာ Carnot က စိတ်ကူးအင်ဂျင်ကို ဖော်ပြခဲ့တယ်။ ဒါကို Carnot engine လို့ ခေါ်တယ်။ ဖြေက Carnot ပါ။ hypothetical ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "In 1824 Sadi Carnot described a hypothetical reversible engine between two reservoirs. That Carnot engine sets the upper efficiency bound for every real engine on the same pair of temperatures. Real engines sit below this reversible ceiling because of friction and finite-speed flow. Friction and irreversibility make real engines worse."
   },
   {
     "q": "The Carnot engine operates on an ideal reversible cycle between _____ heat reservoirs.",
@@ -811,7 +811,7 @@
       "four"
     ],
     "c": 0,
-    "e": "Carnot က အပူကန်နှစ်ခုကြား ideal reversible cycle နဲ့ လည်တယ်။ ဒီနေရာမှာ two ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။"
+    "e": "The Carnot engine runs a reversible cycle of two isotherms and two adiabats between two reservoirs. It is an upper limit, not a workshop motor. Real engines sit below this reversible ceiling because of friction and finite-speed flow."
   },
   {
     "q": "The Carnot engine sets an _____ limit on the efficiency of all other real engines.",
@@ -822,7 +822,7 @@
       "upper"
     ],
     "c": 2,
-    "e": "Carnot က တကယ့်အင်ဂျင်အားလုံးရဲ့ အထက်ဆုံး စံကို သတ်မှတ်တယ်။ upper limit ပါ။ ဖြေက upper ပါ။ efficiency ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Heat-engine efficiency is work out divided by heat in, W/Q_H or 1 - Q_C/Q_H. Carnot replaces the heat ratio with T_C/T_H on an absolute scale. Real engines sit below this reversible ceiling because of friction and finite-speed flow. The reciprocal, heat in over work out, is not efficiency."
   },
   {
     "q": "All real engines are less efficient than the Carnot engine because they do not operate through a _____ cycle.",
@@ -833,7 +833,7 @@
       "adiabatic"
     ],
     "c": 1,
-    "e": "တကယ့်အင်ဂျင်က reversible cycle မဟုတ်လို့ Carnot ထက် နည်းတယ်။ ဒီအချက်က efficient ကို တိတိကျကျ ပြောတာပါ။"
+    "e": "The Carnot engine runs a reversible cycle of two isotherms and two adiabats between two reservoirs. It is an upper limit, not a workshop motor. Real engines sit below this reversible ceiling because of friction and finite-speed flow. Carnot's reversible engine between two reservoirs sets the efficiency ceiling."
   },
   {
     "q": "In a reversible process, the system can be returned to its initial condition along the same path on the _____ diagram.",
@@ -844,7 +844,7 @@
       "$P-T$"
     ],
     "c": 0,
-    "e": "reversible ဖြစ်စဉ်မှာ p-V ပုံပေါ် တူညီတဲ့ လမ်းကြောင်းကနေ ပြန်လာနိုင်တယ်။ လမ်းကြောင်းမတူရင် irreversible ပါ။ ဖြေက $p-V$ ပါ။"
+    "e": "In a reversible process you can return along the same p-V path to the start. Infinitesimally slow is the main thermodynamic condition. An irreversible process cannot retrace that path. A reversible process can retrace the same p-V path if you go infinitesimally slowly."
   },
   {
     "q": "The most important condition for a process to be reversible is that it should be carried out _____ slowly.",
@@ -855,7 +855,7 @@
       "infinitesimally"
     ],
     "c": 2,
-    "e": "reversible ဖြစ်ဖို့ အလွန်နှေးနှေး လုပ်ရတယ်။ infinitesimally slowly က အရေးအကြီးဆုံး အခြေအနေပါ။ ဖြေက infinitesimally ပါ။"
+    "e": "A reversible process can retrace the same p-V path if you go infinitesimally slowly. Carnot's four legs are all reversible. Friction and finite-speed flow make real engines irreversible and less efficient. Important condition for a process to be cannot be dropped from this process without changing the law."
   },
   {
     "q": "The Carnot cycle consists of two isothermal processes and two _____ processes.",
@@ -866,7 +866,7 @@
       "isobaric"
     ],
     "c": 1,
-    "e": "isobaric/isochoric မဟုတ်။ ဖြေက adiabatic ပါ။"
+    "e": "Isothermal means constant temperature, so for an ideal gas Delta U = 0 and W = Q. Heat must leak slowly enough to keep equilibrium. Isochoric holds V; isobaric holds p; adiabatic holds Q at zero. Carnot cycle consists of two isothermal processes cannot be dropped from this process without changing the law."
   },
   {
     "q": "During reversible isothermal expansion, the gas is placed in thermal contact with the reservoir at temperature _____.",
@@ -877,7 +877,7 @@
       "$T_0$"
     ],
     "c": 0,
-    "e": "isothermal ချဲ့တဲ့အခါ ပူကန် T_H နဲ့ ထိတွေ့ထားတယ်။ အပူဝင်ပြီး အပူချိန်မကျအောင် ထိန်းတယ်။ ဖြေက $T_H$ ပါ။"
+    "e": "Isothermal means constant temperature, so for an ideal gas Delta U = 0 and W = Q. Heat must leak slowly enough to keep equilibrium. Isochoric holds V; isobaric holds p; adiabatic holds Q at zero. Reversible isothermal expansion the gas is placed cannot be dropped from this process without changing the law."
   },
   {
     "q": "Kelvin proposed defining the ratio of temperatures as the ratio of heat absorbed to heat _____.",
@@ -888,7 +888,7 @@
       "rejected"
     ],
     "c": 2,
-    "e": "Kelvin က အပူချိန်အချိုးကို စုပ်အပူ / စွန့်အပူ အချိုးနဲ့ သတ်မှတ်ဖို့ အဆိုပြုတယ်။ ဒီနေရာမှာ rejected ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။ temperatures ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Heat is energy flowing because temperatures differ. It is not a stored fluid sitting inside a body. Equal temperatures mean zero net heat flow. Kelvin proposed defining the ratio of temperatures cannot be dropped from this process without changing the law."
   },
   {
     "q": "Carnot's theorem states that no engine can be more efficient than a _____ engine operating between the same reservoirs.",
@@ -899,7 +899,7 @@
       "Steam"
     ],
     "c": 1,
-    "e": "တူညီတဲ့ ကန်နှစ်ခုကြား Carnot ထက် ပိုကောင်းတဲ့ အင်ဂျင် မရှိဘူး။ reservoirs. ကို တခြားနာမည်နဲ့ မရောပါနဲ့။ reservoirs. ကို ဒီဝါကျထဲမှာ တိတိကျကျ သုံးထားတယ်။"
+    "e": "Carnot's theorem: no engine between two reservoirs can be more efficient than a Carnot engine on those reservoirs. The corollary is that all reversible engines on that pair are equally efficient. Real engines sit below this reversible ceiling because of friction and finite-speed flow."
   },
   {
     "q": "A corollary to Carnot's theorem states that all _____ engines operating between the same reservoirs are equally efficient.",
@@ -910,7 +910,7 @@
       "combustion"
     ],
     "c": 0,
-    "e": "ကွာတယ် ဆိုရင် မှားမယ်။ ဖြေက reversible ပါ။"
+    "e": "Carnot's theorem: no engine between two reservoirs can be more efficient than a Carnot engine on those reservoirs. The corollary is that all reversible engines on that pair are equally efficient. Real engines sit below this reversible ceiling because of friction and finite-speed flow. Different efficiencies mean irreversibility or different temperatures."
   },
   {
     "q": "In the Carnot efficiency equation, the temperatures of the reservoirs must be expressed as _____ temperatures.",
@@ -921,6 +921,6 @@
       "absolute"
     ],
     "c": 2,
-    "e": "Carnot ဖော်မြူလာမှာ ကန်အပူချိန်တွေကို ပကတိအပူချိန် (Kelvin) နဲ့ ထည့်ရတယ်။ ဒီနေရာမှာ absolute ကို ထည့်မှ အဓိပ္ပာယ်ပြည့်တယ်။"
+    "e": "Heat-engine efficiency is work out divided by heat in, W/Q_H or 1 - Q_C/Q_H. Carnot replaces the heat ratio with T_C/T_H on an absolute scale. Real engines sit below this reversible ceiling because of friction and finite-speed flow. Carnot's reversible engine between two reservoirs sets the efficiency ceiling."
   }
 ]

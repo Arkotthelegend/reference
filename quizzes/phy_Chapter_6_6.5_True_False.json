@@ -3,96 +3,96 @@
     "q": "The pitch of the note (how high it is) is determined by its frequency.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အသံအမြင့်နိမ့်က နှုန်းက ဆုံးဖြတ်တယ်။ နှုန်းများရင် ပိုစူးတယ်၊ လှိုင်းအမြင့် ဒါမှမဟုတ် လှိုင်းပုံစံ မဟုတ်ဘူး။"
+    "e": "True. Greater frequency, higher pitch. Amplitude sets loudness, not pitch. Pitch, how high the note is, is set by frequency."
   },
   {
     "q": "The pitch of the note (how high it is) is determined by its amplitude.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အသံအမြင့်ကို လှိုင်းအမြင့်နဲ့ ဆက်ထားလို့ မှားတယ်။ အသံအမြင့်နိမ့်က လှိုင်းအမြင့်ပေါ် မူတည်တယ်လို့ ထင်ရင် မှားတယ်။ နှုန်းများရင် အသံစူးတယ်၊ လှိုင်းအမြင့်က ကျယ်ချိန်ဘက်ပဲ။"
+    "e": "False. Pitch is set by frequency, not amplitude. Larger amplitude makes a louder note. Higher frequency makes a higher note."
   },
   {
     "q": "The greater the frequency, the higher is the pitch.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ နှုန်းများရင် ပိုစူးတယ်၊ လှိုင်းအမြင့် ဒါမှမဟုတ် လှိုင်းပုံစံ မဟုတ်ဘူး။ အသံအမြင့်နိမ့်က နှုန်းက ဆုံးဖြတ်တယ်။"
+    "e": "True. Pitch is how high the note sounds, and frequency sets it. Raise frequency and pitch rises. Amplitude changes loudness, not high-or-low character."
   },
   {
     "q": "The loudness of the note depends upon the amplitude of the wave that produces it.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီသုံးခုကို မရောမှ တူရိယာသံ ခွဲတတ်မယ်။ နှုန်းက အသံအမြင့်၊ လှိုင်းအမြင့်က ကျယ်ချိန်၊ လှိုင်းပုံစံက အရည်အသွေးပဲ။"
+    "e": "True. Intensity is proportional to A squared, and is the objective W m^-2 measure. Loudness itself is a subjective sensation. Loudness depends on amplitude: bigger A, more energy, louder note."
   },
   {
     "q": "The greater the amplitude, the louder the note, because more energy is used to produce a larger amplitude.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အသံလှိုင်းက ကြားခံထဲမှာ ဖိအားအနေနဲ့ သွားတယ်။ ကြားခံမရှိရင် ဒီလှိုင်း မရောက်နိုင်ဘူး။ ပြန်ဟပ်၊ အားလျော့၊ နှုန်းပြောင်း ဆိုတာ တစ်ခုချင်း သဘောမတူဘူး။"
+    "e": "True. greater and amplitude have to stay with the same process. A different driver in place of greater would describe a different law."
   },
   {
     "q": "The greater the amplitude, the softer the note, because less energy is used to produce a larger amplitude.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အသံလှိုင်းက ကြားခံထဲမှာ ဖိအားအနေနဲ့ သွားတယ်။ ပြန်ဟပ်၊ အားလျော့၊ နှုန်းပြောင်း ဆိုတာ တစ်ခုချင်း သဘောမတူဘူး။ နှုန်း၊ အား၊ ကြားခံ ဘယ်ဟာ ပြောင်းသလဲ ခွဲမှ ဒီအချက် ရှင်းတယ်။"
+    "e": "False. Larger amplitude means a louder note, because more energy went into the wave. Softer would be a smaller amplitude. Energy and loudness rise together with A."
   },
   {
     "q": "Quality of a sound is the characteristic which distinguishes the two sounds of the same loudness and same pitch but emitted by two different instruments.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ လှိုင်းပုံစံက ညှော်သံ ဒါမှမဟုတ် သဟဇာတအရေအတွက်ပေါ် မူတည်တယ်။ ပြင်းအား ဒါမှမဟုတ် ကျယ်ချိန်နဲ့ မရောနဲ့၊ ဒါက ဝိသေသအရောင်အသွေးပဲ။ တူညီတဲ့ အသံအမြင့်နဲ့ ကျယ်ချိန်ရှိပေမဲ့ တူရိယာချင်း ခွဲတတ်တာက အသံအရည်အသွေးပဲ။"
+    "e": "True. It usually grows with intensity, which itself grows with amplitude squared. Two listeners can disagree, so loudness is subjective. Sound is a longitudinal pressure wave in a compressible medium."
   },
   {
     "q": "The notes produced by the violin is richer than others because it has more overtones.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ လှိုင်းပုံစံက ညှော်သံ ဒါမှမဟုတ် သဟဇာတအရေအတွက်ပေါ် မူတည်တယ်။ တယောသံ ကြွယ်ဝတာက ညှော်သံ ပိုများလို့ပဲ။ တူညီတဲ့ အသံအမြင့်နဲ့ ကျယ်ချိန်ရှိပေမဲ့ တူရိယာချင်း ခွဲတတ်တာက အသံအရည်အသွေးပဲ။"
+    "e": "True. A different driver in place of notes would describe a different law. notes and produced have to stay with the same process."
   },
   {
     "q": "Notes of the same pitch played upon different musical instruments are distinguished from each other by their quality.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ လှိုင်းပုံစံက ညှော်သံ ဒါမှမဟုတ် သဟဇာတအရေအတွက်ပေါ် မူတည်တယ်။ တယောသံ ကြွယ်ဝတာက ညှော်သံ ပိုများလို့ပဲ။ ပြင်းအား ဒါမှမဟုတ် ကျယ်ချိန်နဲ့ မရောနဲ့၊ ဒါက ဝိသေသအရောင်အသွေးပဲ။"
+    "e": "True. Amplitude changes loudness, not high-or-low character. Pitch is how high the note sounds, and frequency sets it. Raise frequency and pitch rises."
   },
   {
     "q": "The timbre of a sound depends on its waveform, which varies with the number of overtones or harmonics.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ တူညီတဲ့ အသံအမြင့်နဲ့ ကျယ်ချိန်ရှိပေမဲ့ တူရိယာချင်း ခွဲတတ်တာက အသံအရည်အသွေးပဲ။ တယောသံ ကြွယ်ဝတာက ညှော်သံ ပိုများလို့ပဲ။ လှိုင်းပုံစံက ညှော်သံ ဒါမှမဟုတ် သဟဇာတအရေအတွက်ပေါ် မူတည်တယ်။"
+    "e": "True. Sound is a longitudinal pressure wave in a compressible medium. It is not electromagnetic, so it cannot cross vacuum. Timbre, or quality, lets you tell instruments apart at the same pitch and loudness."
   },
   {
     "q": "The intensity of the sound at a place is the energy transmitted per second per unit area held normally to direction of sound.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ အသံပြင်းအားအဆင့်ကို စံနဲ့ နှိုင်းပြီး ဒက်စီဘယ်နဲ့ ပြတယ်။ နားခံနိုင်တဲ့ အသေးဆုံးကို စံထားမှ ဂဏန်းက အဓိပ္ပာယ်ရှိတယ်။"
+    "e": "True. Intensity is proportional to amplitude squared, not to amplitude itself. Sound is a longitudinal pressure wave in a compressible medium. It is not electromagnetic, so it cannot cross vacuum."
   },
   {
     "q": "The intensity of a wave is directly proportional to the amplitude of the wave.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ အသံပြင်းအားအဆင့်ကို စံနဲ့ နှိုင်းပြီး ဒက်စီဘယ်နဲ့ ပြတယ်။ နားခံနိုင်တဲ့ အသေးဆုံးကို စံထားမှ ဂဏန်းက အဓိပ္ပာယ်ရှိတယ်။"
+    "e": "False. Intensity is proportional to amplitude squared, not to amplitude itself. Double A and I becomes four times. That is why I carries A^2 in I = (1/2) rho v omega^2 A^2."
   },
   {
     "q": "Loudness is a sensation and hence, unlike intensity, it depends on the observer.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ကျယ်ချိန်က ခံစားမှုမို့ နားထောင်သူပေါ် မူတည်တယ်။ ပြင်းအားက တိုင်းလို့ရတဲ့ ရုပ်ပိုင်းဆိုင်ရာ ကိန်း၊ ကျယ်ချိန်က နားဘက်က ခံစားချက်ပဲ။"
+    "e": "True. Intensity is proportional to amplitude squared, not to amplitude itself. Loudness is the ear's sensation of a sound. It usually grows with intensity, which itself grows with amplitude squared."
   },
   {
     "q": "To the human ears, the loudness of the sound is subjective.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပြင်းအားက တိုင်းလို့ရတဲ့ ရုပ်ပိုင်းဆိုင်ရာ ကိန်း၊ ကျယ်ချိန်က နားဘက်က ခံစားချက်ပဲ။ ကျယ်ချိန်က ခံစားမှုမို့ နားထောင်သူပေါ် မူတည်တယ်။"
+    "e": "True. Two listeners can disagree, so loudness is subjective. Sound is a longitudinal pressure wave in a compressible medium. It is not electromagnetic, so it cannot cross vacuum."
   },
   {
     "q": "To the human ears, the loudness of the sound is objective.",
     "type": "tf",
     "c": "false",
-    "e": "မှားတယ်။ ကျယ်ချိန်ကို တိုင်းကိရိယာလို မြင်ထားလို့ မှားတယ်။ ကျယ်ချိန်ကို တိုင်းကိရိယာလို အများတူတဲ့ တန်ဖိုးလို့ မမြင်ရဘူး။ နားခံစားမှုမို့ လူတစ်ယောက်နဲ့တစ်ယောက် မတူနိုင်ဘူး။"
+    "e": "False. Loudness is a sensation, so to human ears it is subjective. Intensity is the objective watt-per-square-metre measure. Two listeners can disagree on loudness at the same intensity."
   },
   {
     "q": "Normally the greater the intensity, the greater the loudness of the sound is.",
     "type": "tf",
     "c": "true",
-    "e": "မှန်တယ်။ ပုံမှန်အားဖြင့် ပြင်းအားများရင် ကျယ်ချိန်လည်း များတယ်။ ဒါပေမဲ့ ကျယ်ချိန်က နားခံစားမှုမို့ လူမတူရင် ကွာနိုင်သေးတယ်။"
+    "e": "True. It is not electromagnetic, so it cannot cross vacuum. Stiffer media generally carry it faster. Sound intensity is power per unit area, in W m^-2."
   }
 ]

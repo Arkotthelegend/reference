@@ -3,180 +3,180 @@
     "type": "tf",
     "q": "When bodies are immersed in a liquid there is loss in weight.",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်ထဲ နှစ်လိုက်ရင် အလေးချိန် ဆုံးရှုံးသလို ထင်ရတယ်။ အပေါ်တွန်းအားကြောင့် ပေါ်တဲ့အလေးချိန် နည်းသွားတာပဲ။"
+    "e": "True. When bodies are immersed in a liquid there is loss in weight. bodies has to stay in that role in the sentence."
   },
   {
     "type": "tf",
     "q": "When bodies are immersed in a liquid there is gain in weight.",
     "c": "false",
-    "e": "မှားတယ်။ အရည်ထဲ နှစ်လိုက်ရင် အလေးချိန် တိုးလာတာ မဟုတ်ဘူး။ အပေါ်တွန်းအားကြောင့် ပေါ်တဲ့အလေးချိန် နည်းသွားတယ်။"
+    "e": "False. The claim puts gain where loss belongs. When bodies are immersed in a liquid there is loss in weight."
   },
   {
     "type": "tf",
     "q": "The loss in weight of an immersed body is because of a property of liquids called buoyancy.",
     "c": "true",
-    "e": "မှန်တယ်။ နှစ်ထားတဲ့ ကိုယ်ထည် အလေးချိန်လျော့တာက အရည်ရဲ့ ပေါပေါဂုဏ်ကြောင့်ပဲ။ ဒြပ်ထုပျောက်လို့ မဟုတ်ဘူး။"
+    "e": "True. The loss in weight of an immersed body is because of a property of liquids called buoyancy. Buoyant force is the upward push of the fluid, equal to the weight of the displaced fluid."
   },
   {
     "type": "tf",
     "q": "The loss in weight of an immersed body is because of a property of liquids called viscosity.",
     "c": "false",
-    "e": "မှားတယ်။ ဒီအချက်ရဲ့ နာမည်ကို မေးတယ်၊ ဒီရူပဗေဒအချက် နဲ့ ဆိုင်တယ်။"
+    "e": "False. The claim puts viscosity where buoyancy belongs. The loss in weight of an immersed body is because of a property of liquids called buoyancy."
   },
   {
     "type": "tf",
     "q": "Since buoyant force is directed upward, it is called upward thrust.",
     "c": "true",
-    "e": "မှန်တယ်။ ပေါပေါအားက အပေါ်ထိုးမို့ အပေါ်ထိုးအားလို့ ခေါ်တယ်။ အလေးချိန်နဲ့ ဦးတည်ချက် ဆန့်ကျင်တယ်။"
+    "e": "True. Since buoyant force is directed upward, it is called upward thrust. Buoyant force is the upward push of the fluid, equal to the weight of the displaced fluid."
   },
   {
     "type": "tf",
     "q": "Since buoyant force is directed downward, it is called downward thrust.",
     "c": "false",
-    "e": "မှားတယ်။ ဒီအချက်ရဲ့ နာမည်ကို မေးတယ်၊ အား နဲ့ ဆိုင်တယ်။"
+    "e": "False. The claim puts downward where upward belongs. Since buoyant force is directed upward, it is called upward thrust. Buoyant force is the upward push of the fluid, equal to the weight of the displaced fluid."
   },
   {
     "type": "tf",
     "q": "The net force acting on a totally immersed block in the upward direction is $F = A \\rho g H$.",
     "c": "true",
-    "e": "မှန်တယ်။ အပြည့်နစ်တဲ့တုံးပေါ် အပေါ်သို့ပေါင်းအားက F = A ρ g H ပဲ။ အောက်ဖိအားနဲ့ အပေါ်ဖိအားကွာက ပေါလာအားပဲ။"
+    "e": "True. The net force acting on a totally immersed block in the upward direction is F = A ρ g H. Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "This upward force is called the buoyant force or upward thrust.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီအပေါ်အားကို ပေါပေါအား ဒါမှမဟုတ် အပေါ်ထိုးအားလို့ ခေါ်တယ်။ ဆွဲအား မဟုတ်ဘူး။"
+    "e": "True. This upward force is called the buoyant force or upward thrust. Buoyant force is the upward push of the fluid, equal to the weight of the displaced fluid."
   },
   {
     "type": "tf",
     "q": "The upward thrust is equal to the weight of liquid displaced.",
     "c": "true",
-    "e": "မှန်တယ်။ အပေါ်တွန်းအားက ဖယ်ရှားအရည်အလေးချိန်နဲ့ ညီတယ်။ ဒါက အာခိမီဒီးစ်နိယာမပဲ။"
+    "e": "True. The upward thrust is equal to the weight of liquid displaced. upward has to stay in that role in the sentence."
   },
   {
     "type": "tf",
     "q": "Archimedes' principle states that the upward thrust acting on a body which is immersed in a liquid is equal to the weight of the liquid displaced by the body.",
     "c": "true",
-    "e": "မှန်တယ်။ အာခိမီဒီးနိယာမက အပေါ်တွန်းအားဟာ ဖယ်ထုတ်အရည်အလေးချိန်နဲ့ ညီတာ။ ဒီနေရာမှာ လို့ ဖြည့်ရတယ်။"
+    "e": "True. Archimedes' principle states that the upward thrust acting on a body which is immersed in a liquid is equal to the weight of the liquid displaced by the body. Archimedes' principle: the upthrust equals the weight of fluid displaced."
   },
   {
     "type": "tf",
     "q": "Archimedes' principle states that the upward thrust acting on a body which is immersed in a liquid is equal to the volume of the liquid displaced by the body.",
     "c": "false",
-    "e": "မှားတယ်။ နှစ်ထားကိုယ်ထည်ပေါ် အပေါ်တွန်းအားက ဖယ်ထုတ်အရည်ရဲ့ အလေးချိန်နဲ့ ညီတယ်။ ထုထည်နဲ့ တိုက်ရိုက် မညီ၊ အလေးချိန်ပဲ။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. The claim puts volume where weight belongs. Archimedes' principle states that the upward thrust acting on a body which is immersed in a liquid is equal to the weight of the liquid displaced by the body. Archimedes' principle: the upthrust equals the weight of fluid displaced."
   },
   {
     "type": "tf",
     "q": "Archimedes' principle is true not only for liquids but also for gases.",
     "c": "true",
-    "e": "မှန်တယ်။ အာခိမီဒီးနိယာမက အရည်မှာတင် မဟုတ်၊ ဓာတ်ငွေ့မှာလည်း မှန်တယ်။ ပေါလောတွန်းအားက ဖယ်ထုတ်အလေးချိန်နဲ့ ညီတယ်။"
+    "e": "True. Archimedes' principle is true not only for liquids but also for gases. Archimedes' principle: the upthrust equals the weight of fluid displaced."
   },
   {
     "type": "tf",
     "q": "Archimedes' principle is true only for liquids and not for gases.",
     "c": "false",
-    "e": "မှားတယ်။ အာခိမီဒီးနိယာမက အရည်မှာတင် မဟုတ်၊ ဓာတ်ငွေ့မှာလည်း မှန်တယ်။ ပေါလောတွန်းအားက ဖယ်ထုတ်အလေးချိန်နဲ့ ညီတယ်။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. Archimedes' principle is true not only for liquids but also for gases. Archimedes' principle: the upthrust equals the weight of fluid displaced."
   },
   {
     "type": "tf",
     "q": "The densities of various substances can be obtained by using Archimedes' principle.",
     "c": "true",
-    "e": "မှန်တယ်။ ပစ္စည်းသိပ်သည်းဆတွေကို အာခီမီးဒီးစ်နိယာမနဲ့ ရှာလို့ရတယ်။ ပေါပေါအားက ဖယ်ရည်အလေးချိန်ပဲ။"
+    "e": "True. The densities of various substances can be obtained by using Archimedes' principle. Archimedes' principle: the upthrust equals the weight of fluid displaced."
   },
   {
     "type": "tf",
     "q": "The weight of a body when it is immersed in a liquid is called apparent weight.",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်ထဲ နှစ်ထားတဲ့အခါ တိုင်းရတဲ့ အလေးချိန်ကို ထင်ရှားအလေးချိန်လို့ ခေါ်တယ်။ တကယ်အလေးချိန်က လေထဲပဲ။"
+    "e": "True. The weight of a body when it is immersed in a liquid is called apparent weight. weight has to stay in that role in the sentence."
   },
   {
     "type": "tf",
     "q": "The weight of a body when it is immersed in a liquid is called actual weight.",
     "c": "false",
-    "e": "မှားတယ်။ အရည်ထဲ နှစ်ထားတဲ့ အလေးချိန်ကို တကယ်အလေးချိန်လို့ မခေါ်ရဘူး။ ထင်ရှားအလေးချိန်ပဲ။"
+    "e": "False. The claim puts actual where apparent belongs. The weight of a body when it is immersed in a liquid is called apparent weight."
   },
   {
     "type": "tf",
     "q": "Apparent weight is less than the actual weight of the body because of upward thrust of the liquid acting on it.",
     "c": "true",
-    "e": "မှန်တယ်။ ပေါ်တဲ့အလေးချိန်က တကယ့်အလေးချိန်ထက် နည်းတယ်၊ အရည်ရဲ့ အပေါ်တွန်းအားကြောင့်ပဲ။ ဒီအားက ဖယ်ရှားအရည်အလေးချိန်နဲ့ ညီတယ်။"
+    "e": "True. Apparent weight is less than the actual weight of the body because of upward thrust of the liquid acting on it. Apparent has to stay in that role in the sentence."
   },
   {
     "type": "tf",
     "q": "Apparent weight is greater than the actual weight of the body because of downward thrust of the liquid.",
     "c": "false",
-    "e": "မှားတယ်။ ပေါ်တဲ့အလေးချိန်က တကယ့်အလေးချိန်ထက် ကြီးမလာဘူး။ အပေါ်တွန်းအားကြောင့် ပိုနည်းသွားတယ်၊ အောက်တွန်းအား မဟုတ်ဘူး။"
+    "e": "False. The claim puts greater where less belongs. Apparent weight is less than the actual weight of the body because of upward thrust of the liquid acting on it."
   },
   {
     "type": "tf",
     "q": "The actual weight of a body before it is immersed in a liquid is $w = mg = \\rho V g$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီပုံသေနည်းက ဒီရူပဗေဒအချက် နဲ့ ဆိုင်တယ်။ ရေးထားချက်က of a မတိုင် it is။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "True. The actual weight of a body before it is immersed in a liquid is w = mg = ρ V g. Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "The upward thrust of the liquid is $\\rho_0 V g$, where $\\rho_0$ is the density of the liquid.",
     "c": "true",
-    "e": "မှန်တယ်။ အဓိကစကားလုံးက အပေါ်သို့၊ တွန်းအား၊ အရည် ပဲ။"
+    "e": "True. The upward thrust of the liquid is ρ_0 V g, where ρ_0 is the density of the liquid. Density is mass per unit volume, ρ = m/V."
   },
   {
     "type": "tf",
     "q": "The weight of the body immersed in the liquid (apparent weight) is $w_f = w - \\text{upward thrust}$.",
     "c": "true",
-    "e": "မှန်တယ်။ အရည်ထဲ ပေါ်တဲ့အလေးချိန်က တကယ့်အလေးချိန်က အပေါ်တွန်းအား နှုတ်ထားတာပဲ။ ဒီညီမျှခြင်းနဲ့ တွက်ရတယ်။"
+    "e": "True. The weight of the body immersed in the liquid (apparent weight) is w_f = w - upward thrust. Keep the symbols and the sign in that relation."
   },
   {
     "type": "tf",
     "q": "If the weight of the body is greater than the upward thrust, the body will sink.",
     "c": "true",
-    "e": "မှန်တယ်။ အဓိကစကားလုံးက အလေးချိန်၊ ကိုယ်ထည်၊ ပိုကြီး ပဲ။"
+    "e": "True. If the weight of the body is greater than the upward thrust, the body will sink. weight has to stay in that role in the sentence."
   },
   {
     "type": "tf",
     "q": "If the weight of the body is greater than the upward thrust, the body will float.",
     "c": "false",
-    "e": "မှားတယ်။ အလေးချိန်က အပေါ်တွန်းအားထက် ကြီးရင် နစ်တယ်။ ပေါလောဖို့ အပေါ်တွန်းအားက အလေးချိန်နဲ့ မျှရမယ်။"
+    "e": "False. The claim puts float where sink belongs. If the weight of the body is greater than the upward thrust, the body will sink."
   },
   {
     "type": "tf",
     "q": "If the weight of the body is smaller than the upward thrust, the body will rise up to the surface.",
     "c": "true",
-    "e": "မှန်တယ်။ အဓိကစကားလုံးက အလေးချိန်၊ ကိုယ်ထည်၊ ပိုငယ် ပဲ။"
+    "e": "True. If the weight of the body is smaller than the upward thrust, the body will rise up to the surface. weight has to stay in that role in the sentence."
   },
   {
     "type": "tf",
     "q": "A body will float in a liquid (fluid) if the upward thrust acting on it is equal to its weight.",
     "c": "true",
-    "e": "မှန်တယ်။ အပေါ်ထိုးအားက ကိုယ်အလေးချိန်နဲ့ ညီရင် အရည်ထဲ ပေါလောပဲ။ ပိုကြီးရင် တက်၊ ပိုနည်းရင် နစ်တယ်။"
+    "e": "True. A body will float in a liquid (fluid) if the upward thrust acting on it is equal to its weight. Fluid pressure comes from weight. A barometer reads that pressure as the height of a mercury column."
   },
   {
     "type": "tf",
     "q": "A body will float in a liquid (fluid) if the upward thrust acting on it is greater than its weight.",
     "c": "false",
-    "e": "မှားတယ်။ စီးပစ္စည်းက ကိုယ်အလေးချိန်ကြောင့် ဖိအားပေးနိုင်တယ်။ ပုံသဏ္ဌာန်ကြောင့် မဟုတ်၊ အလေးချိန်ကြောင့်ပဲ။ စာကြောင်းထဲမှာ လွဲတဲ့အချက် ပါနေတယ်။"
+    "e": "False. The claim puts greater where equal belongs. A body will float in a liquid (fluid) if the upward thrust acting on it is equal to its weight. Fluid pressure comes from weight."
   },
   {
     "type": "tf",
     "q": "According to the floating condition, the ratio of the densities is equal to the ratio of the immersed volume to the volume of the whole body: $\\frac{\\rho}{\\rho_0} = \\frac{V_s}{V}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ပေါလောအခြေအနေမှာ သိပ်သည်းမှုအချိုးက နှစ်မြှုပ်ထုထည်နဲ့ တစ်ကိုယ်လုံးထုထည် အချိုးနဲ့ ညီတယ်။ ညီမျှခြင်း ၃.၈ က ဒီအတိုင်းပဲ။"
+    "e": "True. According to the floating condition, the ratio of the densities is equal to the ratio of the immersed volume to the volume of the whole body: (ρ)/(ρ_0) = (V_s)/(V). Semiconductors use electrons and holes. Doping makes n-type or p-type; a diode rectifies."
   },
   {
     "type": "tf",
     "q": "According to the floating condition, the ratio of the densities is equal to the ratio of the total volume to the immersed volume.",
     "c": "false",
-    "e": "မှားတယ်။ သိပ်သည်းမှုအချိုးက တစ်ကိုယ်လုံးထုထည်ကို နှစ်မြှုပ်ထုထည်နဲ့ စားတာ မဟုတ်ဘူး။ နှစ်မြှုပ်ကို တစ်ကိုယ်လုံးနဲ့ စားမှ မှန်တယ်။"
+    "e": "False. The claim puts total where immersed belongs. According to the floating condition, the ratio of the densities is equal to the ratio of the immersed volume to the volume of the whole body: (ρ)/(ρ_0) = (V_s)/(V)."
   },
   {
     "type": "tf",
     "q": "An iceberg has a density of $0.92 \\times 10^3 \\text{ kg m}^{-3}$ at $0^{\\circ}\\text{C}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီပုံသေနည်းက ဒီရူပဗေဒအချက် နဲ့ ဆိုင်တယ်။ ရေးထားချက်က An a သိပ်သည်းဆ of 0.92 × 10³ kg m^-3 a။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "True. An iceberg has a density of 0.92 × 10³ kg m^-3 at 0°C. Density is mass per unit volume, ρ = m/V."
   },
   {
     "type": "tf",
     "q": "Ocean water has a density of about $1.025 \\times 10^3 \\text{ kg m}^{-3}$.",
     "c": "true",
-    "e": "မှန်တယ်။ ဒီပုံသေနည်းက ဒီရူပဗေဒအချက် နဲ့ ဆိုင်တယ်။ ရေးထားချက်က a သိပ်သည်းဆ of ပတ်လည် 1.025 × 10³ k။ သင်္ကေတနဲ့ ယူနစ်ကို တစ်လုံးချင်း စစ်။"
+    "e": "True. Ocean water has a density of about 1.025 × 10³ kg m^-3. Density is mass per unit volume, ρ = m/V."
   }
 ]
