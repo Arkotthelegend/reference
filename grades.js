@@ -46,6 +46,14 @@ ENGLISH GRAMMAR (shared for Grade 10, 11, and 12)
     quizzes/past_simple.json
     notes/grammar_past_simple.json
   Do not put G10_/G11_ prefixes or G10/G11 folders on grammar files.
+
+ENGLISH DIALOGUE (combined for Grade 10, 11, and 12)
+  Files stay per grade:
+    quizzes/en_dialogues.json
+    quizzes/G11/G11_en_dialogues.json
+    quizzes/G10/G10_en_dialogues.json
+  Anyone who opens Dialogue after buying English for any grade
+  sees all three lists together.
 ============================================================
 */
 
@@ -618,17 +626,18 @@ function quizUrlCandidates(fileName) {
 
 const _quizHitCache = {};
 
-function quizCacheKey(fileName) {
-    return String(getSelectedGrade()) + ':' + stripGradeFilePrefix(String(fileName || '').replace(/\.json$/i, ''));
+function quizCacheKey(fileName, grade) {
+    return String(grade == null ? getSelectedGrade() : grade) + ':' + stripGradeFilePrefix(String(fileName || '').replace(/\.json$/i, ''));
 }
 
 function quizBust(url) {
     return url + (url.indexOf('?') >= 0 ? '&' : '?') + 'cb=' + Date.now();
 }
 
-function fetchQuizResponse(fileName) {
-    const urls = quizUrlCandidates(fileName);
-    const key = quizCacheKey(fileName);
+function fetchQuizResponse(fileName, grade) {
+    if (grade == null) grade = getSelectedGrade();
+    const urls = quizUrlCandidatesForGrade(grade, fileName);
+    const key = quizCacheKey(fileName, grade);
     function tryOne(url) {
         return fetch(quizBust(url)).then(function (res) {
             return res.ok ? { url: url, res: res } : null;
@@ -683,8 +692,8 @@ function parseQuizJsonText(text) {
     return JSON.parse(t.slice(start));
 }
 
-function fetchQuizJson(fileName) {
-    return fetchQuizResponse(fileName).then(function (res) { return res.text(); }).then(parseQuizJsonText);
+function fetchQuizJson(fileName, grade) {
+    return fetchQuizResponse(fileName, grade).then(function (res) { return res.text(); }).then(parseQuizJsonText);
 }
 
 refreshSubjectsFromGrade();
