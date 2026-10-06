@@ -5832,6 +5832,7 @@ async function openArticleDetail(articleId) {
       let paidUsers = {};
         window.paidUsers = paidUsers; 
         let userBought = {}; // const အစား let ပြောင်းပေးရမည်
+        window.userBought = userBought;
 
         const userId = tg.initDataUnsafe?.user?.id?.toString() || "Guest";
 
@@ -5842,6 +5843,7 @@ async function openArticleDetail(articleId) {
             paidUsers = JSON.parse(cached);
             window.paidUsers = paidUsers;
             userBought = paidUsers[userId] || {};
+            window.userBought = userBought;
             applyVolunteerChrome();
             applyAdminChrome();
             syncTrialButton();
@@ -5870,6 +5872,7 @@ async function fetchPaidUsers() {
         paidUsers = newData;
         window.paidUsers = paidUsers;
         userBought = paidUsers[userId] || {};
+        window.userBought = userBought;
         localStorage.setItem('cached_paid_users_v22', JSON.stringify(newData));
         applyVolunteerChrome();
         applyAdminChrome();
