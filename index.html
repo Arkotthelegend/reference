@@ -229,9 +229,8 @@ body.page-no-nav .container {
         font-size: 1.02rem; font-weight: 600; line-height: 1.45;
         min-height: 52px;
         display: flex; justify-content: space-between; align-items: center; 
-        cursor: pointer; color: var(--white); transition: transform 0.1s ease; 
+        cursor: pointer; color: var(--white); transition: background-color 0.08s linear; 
     }
-    .subject-card:active { transform: scale(0.97); }
     .locked { background: var(--lock) !important; opacity: 0.4; border-color: transparent !important; }
     .locked span:last-child { color: var(--text-muted) !important; }
 
@@ -253,7 +252,7 @@ body.page-no-nav .container {
         background: var(--bn-btn, #2B3139); color: var(--white); border: 1px solid var(--bn-line, #2B3139); padding: 14px 16px; border-radius: 8px; 
         font-weight: 600; margin: 8px 0; cursor: pointer; text-align: center; font-size: 1rem; 
         line-height: 1.45;
-        transition: transform 0.1s ease, background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+        transition: background-color 0.08s linear, border-color 0.08s linear, color 0.08s linear;
     }
     .btn:active { transform: scale(0.97); }
     .back-btn { background: #181A20 !important; border: 1px solid #2B3139 !important; color: #848E9C !important; margin-top: 25px !important; }
@@ -650,7 +649,7 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 0;
     min-width: 48px;
     min-height: 48px;
     font-size: 0.6rem;
@@ -658,18 +657,19 @@ input:checked + .slider:before {
     filter: none; 
     opacity: 0.55; 
     cursor: pointer; 
-    transition: opacity 0.15s ease, color 0.15s ease;
+    transition: opacity 0.15s ease, color 0.15s ease, background-color 0.08s linear;
     color: var(--nav-icon-inactive);
     line-height: 1.15;
+    border-radius: 10px;
 }
 .nav-ico {
-    font-size: 1.2rem;
+    font-size: 1.45rem;
     line-height: 1;
     filter: grayscale(100%);
 }
 .nav-ico:empty { display: none; }
 .nav-lbl {
-    letter-spacing: 0;
+    display: none !important;
 }
 
 .nav-active { 
@@ -680,6 +680,47 @@ input:checked + .slider:before {
 }
 .nav-active .nav-ico {
     filter: grayscale(0%);
+}
+.nav-item:active {
+    background: rgba(240, 185, 11, 0.22);
+}
+
+/* Cheap tap flash for menu → quiz. Color only, no scale/filter (low-end).
+   Quiz / flashcard / glossary keep their own animation. */
+#home-tabs-row .btn:active,
+#home-trial-btn:active,
+#subject-list .subject-card:active,
+#old-subject-list .subject-card:active,
+#daily-screen .subject-card:active,
+#menu-content .btn:active,
+#activity-content .btn:active,
+#old-menu-content .btn:active,
+#menu-screen .back-btn:active,
+#activity-screen .back-btn:active,
+#old-menu-screen .back-btn:active {
+    transform: none !important;
+    background: #3d4654 !important;
+    border-color: #F0B90B !important;
+}
+#home-tabs-row .btn:active,
+#menu-content .btn.btn-practice:active,
+#activity-content .btn.btn-practice:active,
+#old-menu-content .btn.btn-practice:active,
+#menu-content .btn.btn-all-chapter:active,
+#activity-content .btn.btn-all-chapter:active,
+#old-menu-content .btn.btn-all-chapter:active {
+    background: #d4a309 !important;
+    border-color: #d4a309 !important;
+    color: #0B0E11 !important;
+}
+#home-trial-btn.trial-outline-btn:active {
+    background: rgba(34, 197, 94, 0.2) !important;
+    border-color: #22C55E !important;
+    color: #22C55E !important;
+}
+#user-bio, .profile-bio-edit, #profile-bio-editor,
+.peer-bio, .friend-row-bio {
+    display: none !important;
 }
 	/* ============================================================
            📱 GRID LAYOUT FIX (ဘာသာရပ်များကို ၂ ကော်လံ ခွဲပြသရန်)
@@ -1972,17 +2013,6 @@ html body[data-theme] .btn.btn-test {
     font-size: 0.72rem;
     margin-top: 3px;
 }
-.rank-copy-btn {
-    width: auto !important;
-    display: inline-block !important;
-    margin: 8px 0 0 !important;
-    padding: 8px 12px !important;
-    font-size: 0.78rem !important;
-    background: #1E293B !important;
-    color: var(--accent) !important;
-    border: 1px solid var(--accent) !important;
-}
-
 /* --- Stats Screen Content --- */
 #stats-screen .profile-info-card,
 #stats-screen .leaderboard-item,
@@ -2066,7 +2096,8 @@ html body[data-theme] .btn.btn-test {
     box-shadow: none !important;
 }
 .old-btn:active {
-    transform: scale(0.97);
+    transform: none;
+    background: #d4a309 !important;
 }
 .old-q-chip {
     display: inline-flex;
@@ -3304,7 +3335,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <!-- Free Trial Button (visible on both tabs now) -->
     <div class="home-trial-wrap">
         <button id="home-trial-btn" class="btn trial-outline-btn" onclick="openTrialMenu()">
-            🎁 ဘာသာရပ်များကို အစမ်းသုံးရန်
+            🎁 ဘာသာရပ်များကို လေ့ကျင့်ရန်
         </button>
 		    
         <div id="admin-announcement" style="margin-top: 20px; padding: 15px; background: rgba(56, 189, 248, 0.1); border-radius: 12px; border: 1px solid var(--accent); color: var(--accent); font-size: 0.9rem; text-align: center; display: none;">
@@ -3323,12 +3354,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <img id="profile-avatar" alt="" class="hide">
                 <div id="profile-avatar-fallback" aria-hidden="true">?</div>
                 <h2 id="user-name" style="margin: 10px 0 5px;">Scholar</h2>
-                <p id="user-bio" class="profile-bio is-empty">Add a short bio</p>
-                <button type="button" class="profile-bio-edit" id="profile-bio-edit">Edit bio</button>
-                <div id="profile-bio-editor" hidden>
-                    <textarea id="profile-bio-input" maxlength="80" rows="2" placeholder="Short bio (80 letters)"></textarea>
-                    <button type="button" class="btn social-mini-btn" id="profile-bio-save">Save</button>
-                </div>
                 <p id="volunteer-chip" class="vol-chip">REED Volunteer</p>
                 <p id="user-id-text" style="color: #94A3B8; margin-bottom: 10px;"></p>
                 </div>
@@ -3721,13 +3746,13 @@ body.volunteer-role .vol-report-link { display: block !important; }
 </div>
 		
    <div class="nav">
-    <div class="nav-item nav-active" data-tab="home" onclick="changeTab('home', this)"><span class="nav-ico">🏠</span><span class="nav-lbl">Study</span></div>
-    <div class="nav-item" data-tab="time" onclick="changeTab('time', this)"><span class="nav-ico">🕒</span><span class="nav-lbl">Time</span></div>
-    <div class="nav-item" data-tab="social" onclick="changeTab('social', this)"><span class="nav-ico">🏆</span><span class="nav-lbl">Rank</span></div>
-    <div class="nav-item" data-tab="stats" onclick="changeTab('stats', this)"><span class="nav-ico">📈</span><span class="nav-lbl">Analysis</span></div>
-    <div class="nav-item" data-tab="profile" onclick="changeTab('profile', this)"><span class="nav-ico">👤</span><span class="nav-lbl">Me</span></div>
-    <div class="nav-item" id="nav-post" data-tab="post" hidden onclick="changeTab('post', this)"><span class="nav-ico">📸</span><span class="nav-lbl">Post</span></div>
-    <div class="nav-item" id="nav-cust" data-tab="cust" hidden onclick="changeTab('cust', this)"><span class="nav-ico">📊</span><span class="nav-lbl">Cust</span></div>
+    <div class="nav-item nav-active" data-tab="home" aria-label="Study" onclick="changeTab('home', this)"><span class="nav-ico">🏠</span></div>
+    <div class="nav-item" data-tab="time" aria-label="Time" onclick="changeTab('time', this)"><span class="nav-ico">📊</span></div>
+    <div class="nav-item" data-tab="social" aria-label="Rank" onclick="changeTab('social', this)"><span class="nav-ico">🏆</span></div>
+    <div class="nav-item" data-tab="stats" aria-label="Analysis" onclick="changeTab('stats', this)"><span class="nav-ico">📈</span></div>
+    <div class="nav-item" data-tab="profile" aria-label="Me" onclick="changeTab('profile', this)"><span class="nav-ico">👤</span></div>
+    <div class="nav-item" id="nav-post" data-tab="post" aria-label="Post" hidden onclick="changeTab('post', this)"><span class="nav-ico">📸</span></div>
+    <div class="nav-item" id="nav-cust" data-tab="cust" aria-label="Cust" hidden onclick="changeTab('cust', this)"><span class="nav-ico">📊</span></div>
 </div>
 
 <div id="peer-preview" hidden>
@@ -3764,12 +3789,12 @@ body.volunteer-role .vol-report-link { display: block !important; }
     </div>
 </div>
 
-    <script src="./grades.js?v=17"></script>
+    <script src="./grades.js?v=18"></script>
     <script src="./timetable.js?v=30"></script>
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
-    <script src="./friends.js?v=16"></script>
+    <script src="./friends.js?v=17"></script>
     <script>
 
 		function reedRememberTgUser(user) {
@@ -5807,6 +5832,7 @@ async function openArticleDetail(articleId) {
       let paidUsers = {};
         window.paidUsers = paidUsers; 
         let userBought = {}; // const အစား let ပြောင်းပေးရမည်
+        window.userBought = userBought;
 
         const userId = tg.initDataUnsafe?.user?.id?.toString() || "Guest";
 
@@ -5817,8 +5843,10 @@ async function openArticleDetail(articleId) {
             paidUsers = JSON.parse(cached);
             window.paidUsers = paidUsers;
             userBought = paidUsers[userId] || {};
+            window.userBought = userBought;
             applyVolunteerChrome();
             applyAdminChrome();
+            syncTrialButton();
             renderSubjects();
             initOldSubjects();
             return true; // Cache ရှိတယ်
@@ -5844,9 +5872,11 @@ async function fetchPaidUsers() {
         paidUsers = newData;
         window.paidUsers = paidUsers;
         userBought = paidUsers[userId] || {};
+        window.userBought = userBought;
         localStorage.setItem('cached_paid_users_v22', JSON.stringify(newData));
         applyVolunteerChrome();
         applyAdminChrome();
+        syncTrialButton();
         renderSubjects();
         initOldSubjects();
         renderProfileData();
@@ -6134,6 +6164,31 @@ function isPaidUnlock(subId) {
     return isExpiryValid(userBought[prefix + 'all']) || isExpiryValid(userBought[prefix + subId]);
 }
 
+function hasPaidSubscription() {
+    if (typeof recordHasPaidSubjects === 'function') return recordHasPaidSubjects(userBought);
+    const bought = (typeof userBought === 'object' && userBought) ? userBought : {};
+    for (const k in bought) {
+        if (!Object.prototype.hasOwnProperty.call(bought, k)) continue;
+        if (k === 'vol' || k === 'isVolunteer' || k === 'name' || k === 'photo' || k === 'photo_url' || k === 'bio') continue;
+        const val = bought[k];
+        if (val && typeof val === 'object' && !Array.isArray(val)) continue;
+        if (isExpiryValid(val)) return true;
+    }
+    return false;
+}
+
+function syncTrialButton() {
+    const btn = document.getElementById('home-trial-btn');
+    if (!btn) return;
+    const hide = hasPaidSubscription();
+    btn.hidden = hide;
+    btn.style.display = hide ? 'none' : '';
+    if (hide) {
+        const overlay = document.getElementById('beginner-guide');
+        if (overlay && !overlay.hidden) endBeginnerGuide();
+    }
+}
+
 function isVolunteerUnlock(subId) {
     const vol = volunteerMap();
     const prefix = (getGradeCfg().sheetPrefix) || '';
@@ -6200,6 +6255,7 @@ function unlockCard(div, sub) {
         function renderSubjects() {
     const list = document.getElementById('subject-list');
     list.innerHTML = '';
+    syncTrialButton();
 
     subjects.forEach(sub => {
         let isPaid = checkAccess(sub.id);
@@ -6370,13 +6426,36 @@ function chooseThenQuiz(title, fileName, onBackToList, oldMenu) {
             content.innerHTML = '';
             document.getElementById('activity-back-btn').onclick = () => openSubjectMenu(currentSubject);
             try {
-                const data = await fetchQuizJson('en_dialogues');
+                const data = await fetchCombinedEnDialogues();
+                if (!data.length) throw new Error('empty');
                 data.forEach((item, index) => {
                     createBtn(item.title, content, () => showENDialogueModes(data, index));
                 });
             } catch (e) {
                 tg.showAlert('Dialogue ဖိုင်မတွေ့သေးပါ။');
             }
+        }
+
+        let combinedDialogueCache = null;
+        function fetchCombinedEnDialogues() {
+            if (combinedDialogueCache) return Promise.resolve(combinedDialogueCache);
+            const grades = [10, 11, 12];
+            return Promise.all(grades.map(function (g) {
+                return fetchQuizJson('en_dialogues', g).then(function (data) {
+                    const list = Array.isArray(data) ? data : [];
+                    return list.map(function (item) {
+                        const copy = {};
+                        for (const k in item) {
+                            if (Object.prototype.hasOwnProperty.call(item, k)) copy[k] = item[k];
+                        }
+                        copy.title = 'G' + g + ' · ' + (item.title || 'Dialogue');
+                        return copy;
+                    });
+                }).catch(function () { return []; });
+            })).then(function (parts) {
+                combinedDialogueCache = parts[0].concat(parts[1] || [], parts[2] || []);
+                return combinedDialogueCache;
+            });
         }
 
         function parseDialogueLines(text) {
@@ -8674,6 +8753,7 @@ const BEGINNER_GUIDE_KEY = 'reed_beginner_guide_v1';
 let beginnerGuideStep = 0;
 
 function shouldShowBeginnerGuide() {
+    if (hasPaidSubscription()) return false;
     if (!document.getElementById('home-trial-btn') || !document.getElementById('beginner-guide')) return false;
     try {
         if (new URLSearchParams(location.search).get('guide') === '1') return true;
@@ -9501,20 +9581,6 @@ async function refreshRankSnapshot() {
     }
 }
 
-function copyRankCard() {
-    const snap = lastRankSnapshot;
-    if (!snap || !snap.myRank) {
-        tg.showAlert('No scores yet');
-        return;
-    }
-    const text = 'G' + snap.grade + ' #' + snap.myRank + (snap.percentile ? ' · ' + snap.percentile + '%' : '') + (snap.acc != null ? '\n' + snap.acc + '%' : '');
-    navigator.clipboard.writeText(text).then(function () {
-        tg.showAlert('Copied');
-    }).catch(function () {
-        tg.showAlert(text);
-    });
-}
-
 async function loadLeaderboard() {
     const subjectEl = document.getElementById('leaderboard-subject');
     const subject = subjectEl ? subjectEl.value : 'all';
@@ -9744,13 +9810,6 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
             </div>
         `;
         listDiv.appendChild(div);
-    }
-    if (myRank !== -1) {
-        const copyBtn = document.createElement('button');
-        copyBtn.className = 'btn rank-copy-btn';
-        copyBtn.innerText = '📋';
-        copyBtn.onclick = copyRankCard;
-        listDiv.appendChild(copyBtn);
     }
     if (window.REEDSocial && REEDSocial.fillPhotos) {
         const photoIds = topEntries.map(function (e) { return e.userId; });

@@ -315,13 +315,13 @@
     function publishMe() {
         var uid = meId();
         if (!uid) return Promise.resolve();
-        rememberProfile(uid, meName(), '', readMyBio());
+        rememberProfile(uid, meName(), '', '');
         return socialGet('saveProfile', {
             userId: uid,
             fromId: uid,
             name: meName(),
             userName: meName(),
-            bio: readMyBio()
+            bio: ''
         });
     }
 
@@ -525,7 +525,6 @@
         return '<button type="button" class="friend-row" data-peer="' + esc(id) + '" data-name="' + esc(name) + '">'
             + avatarHtml(name, photo, 'social-avatar', id)
             + '<div class="friend-row-info"><div class="friend-row-name">' + esc(name) + '</div>'
-            + (row.bio ? '<div class="friend-row-bio">' + esc(row.bio) + '</div>' : '')
             + '<div class="friend-row-meta">ID ' + esc(id) + '</div></div></button>'
             + (actionsHtml || '');
     }
@@ -817,40 +816,11 @@
                 if (back) closePeerPreview(e);
             });
         }
-        bindBioEditor();
     }
 
-    function paintMyBio() {
-        var el = document.getElementById('user-bio');
-        if (!el) return;
-        var bio = readMyBio();
-        el.textContent = bio || 'Add a short bio';
-        el.classList.toggle('is-empty', !bio);
-    }
+    function paintMyBio() {}
 
-    function bindBioEditor() {
-        var edit = document.getElementById('profile-bio-edit');
-        var box = document.getElementById('profile-bio-editor');
-        var input = document.getElementById('profile-bio-input');
-        var save = document.getElementById('profile-bio-save');
-        if (!edit || edit._reedBound) return;
-        edit._reedBound = true;
-        edit.onclick = function () {
-            if (!box || !input) return;
-            box.hidden = false;
-            input.value = readMyBio();
-            input.focus();
-        };
-        if (save) {
-            save.onclick = function () {
-                var text = String(input.value || '').replace(/\s+/g, ' ').trim().slice(0, BIO_MAX);
-                writeMyBio(text);
-                paintMyBio();
-                if (box) box.hidden = true;
-                publishMe();
-            };
-        }
-    }
+    function bindBioEditor() {}
 
     function applyAvatar(id, url) {
         if (!id || !url) return;
