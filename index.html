@@ -8405,7 +8405,9 @@ function stopQuizTimerChrome() {
 
 function offerWeakRetry(remaining) {
     if (!remaining) {
-        tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
+        const doneMsg = "ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉";
+        try { tg.showAlert(doneMsg); }
+        catch (e) { if (typeof window.alert === 'function') window.alert(doneMsg); }
         return;
     }
     const file = currentQuizFile;
