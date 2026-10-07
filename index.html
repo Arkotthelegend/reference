@@ -6521,10 +6521,7 @@ function chooseThenQuiz(title, fileName, onBackToList, oldMenu) {
 }
 
 function startOrPickQuiz(title, fileName, onBack, oldMenu) {
-    const key = pickerFileKey(fileName);
-    const n = (key && quizAllowsWeakList(key)) ? weakCountFor(key) : 0;
-    if (n > 0) chooseThenQuiz(title, fileName, onBack, oldMenu);
-    else startQuizFile(fileName, onBack);
+    chooseThenQuiz(title, fileName, onBack, oldMenu);
 }
 
         function showENUnits(typeName) {
@@ -7433,7 +7430,10 @@ function showSubChaptersMenu(subId, chapterName) {
     showScreen('activity');
     document.getElementById('activity-title').innerText = chapterName;
     const content = document.getElementById('activity-content');
-    
+    content.classList.remove('play-pick');
+    content.classList.remove('play-modes');
+    content.innerHTML = '';
+
     document.getElementById('activity-back-btn').onclick = () => {
         if (isTrialFlow) {
             openTrialMenu();
@@ -7448,15 +7448,11 @@ function showSubChaptersMenu(subId, chapterName) {
     const hasDef = (typeof gradeHasDefinition !== 'function') || gradeHasDefinition(subId, chapterName);
     const hasFormula = (typeof gradeHasFormula !== 'function') || gradeHasFormula(subId, chapterName);
 
-    if (quizTypes.length) {
-        fillPlayModeList(content, function () {
-            showChapterQuizTypes(subId, chapterName);
+    quizTypes.forEach(function (type) {
+        createBtn(type.replace('_', ' '), content, function () {
+            openChapterQuizType(subId, chapterName, type);
         });
-    } else {
-        content.innerHTML = '';
-        content.classList.remove('play-pick');
-        content.classList.remove('play-modes');
-    }
+    });
 
     if ((subId === 'phy' || subId === 'eco') && hasDef) {
         createBtn("Definition", content, () => loadDefinitions(subId, chapterName));
@@ -7470,20 +7466,7 @@ function showSubChaptersMenu(subId, chapterName) {
 }
 
 function showChapterQuizTypes(subId, chapterName) {
-    showScreen('activity');
-    const modeLabel = isTestPlay() ? 'Test' : 'Practice';
-    document.getElementById('activity-title').innerText = `${chapterName} · ${modeLabel}`;
-    const content = document.getElementById('activity-content');
-    content.classList.remove('play-pick');
-    content.innerHTML = '';
-    document.getElementById('activity-back-btn').onclick = () => showSubChaptersMenu(subId, chapterName);
-
-    const quizTypes = (typeof gradeQuizTypes === 'function') ? gradeQuizTypes(subId, chapterName) : ['True_False', 'Fill_Blank', 'MCQ'];
-    quizTypes.forEach(type => {
-        createBtn(type.replace('_', ' '), content, () => {
-            openChapterQuizType(subId, chapterName, type);
-        });
-    });
+    showSubChaptersMenu(subId, chapterName);
 }
 
 function chapterQuizHasOnlyWhole(subId, chapterName, quizType) {
@@ -7497,7 +7480,7 @@ function chapterQuizHasOnlyWhole(subId, chapterName, quizType) {
 function openChapterQuizType(subId, chapterName, type) {
     if (chapterQuizHasOnlyWhole(subId, chapterName, type)) {
         const fileName = `${subId}_${chapterName}_${type}`.replace(/ /g, "_");
-        startOrPickQuiz(type.replace('_', ' '), fileName, () => showChapterQuizTypes(subId, chapterName));
+        startOrPickQuiz(type.replace('_', ' '), fileName, () => showSubChaptersMenu(subId, chapterName));
         return;
     }
     showQuizSubChapters(subId, chapterName, type);
@@ -7514,7 +7497,7 @@ function showQuizSubChapters(subId, chapterName, quizType) {
     const content = document.getElementById('activity-content');
     content.innerHTML = '';
     
-    document.getElementById('activity-back-btn').onclick = () => showChapterQuizTypes(subId, chapterName);
+    document.getElementById('activity-back-btn').onclick = () => showSubChaptersMenu(subId, chapterName);
 
     const hasWhole = (typeof gradeHasWholeQuiz !== 'function') || gradeHasWholeQuiz(subId, chapterName, quizType);
     if (hasWhole) {
