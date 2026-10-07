@@ -274,10 +274,19 @@ body.page-no-nav .container {
         letter-spacing: 0.02em;
         min-height: 52px;
     }
+    .btn-weak {
+        background: transparent !important;
+        border: 1px solid #F0B90B !important;
+        color: #F0B90B !important;
+        font-weight: 800 !important;
+        grid-column: 1 / -1 !important;
+    }
     #activity-content .btn.btn-practice,
     #activity-content .btn.btn-test,
+    #activity-content .btn.btn-weak,
     #old-menu-content .btn.btn-practice,
     #old-menu-content .btn.btn-test,
+    #old-menu-content .btn.btn-weak,
     #activity-content .btn.btn-all-chapter,
     #old-menu-content .btn.btn-all-chapter {
         font-size: 1.05rem !important;
@@ -712,6 +721,12 @@ input:checked + .slider:before {
     background: #d4a309 !important;
     border-color: #d4a309 !important;
     color: #0B0E11 !important;
+}
+#activity-content .btn.btn-weak:active,
+#old-menu-content .btn.btn-weak:active {
+    background: rgba(240, 185, 11, 0.18) !important;
+    border-color: #F0B90B !important;
+    color: #F0B90B !important;
 }
 #home-trial-btn.trial-outline-btn:active {
     background: rgba(34, 197, 94, 0.2) !important;
@@ -4604,6 +4619,92 @@ function setQuizKeysHint(text) {
         let rankPeriod = 'all';
         let quizPlayMode = 'practice';
         function isTestPlay() { return quizPlayMode === 'test'; }
+        let isWeakQuizFlow = false;
+        let weakQuizBack = null;
+        const WEAK_Q_CAP = 80;
+
+        function weakQKey() {
+            const id = (typeof telegramUserId === 'function' ? telegramUserId() : '') || 'guest';
+            return 'reed_weak_v1_' + id;
+        }
+        function weakFileKey(fileName) {
+            return String(fileName || currentQuizFile || '').replace(/\.json$/i, '');
+        }
+        function questionWeakId(q) {
+            const s = String((q && q.type) || '') + '\n' + String((q && q.q) || '') + '\n' + String((q && q.c) || '');
+            let h = 2166136261;
+            for (let i = 0; i < s.length; i++) {
+                h ^= s.charCodeAt(i);
+                h = Math.imul(h, 16777619);
+            }
+            return ('00000000' + (h >>> 0).toString(16)).slice(-8);
+        }
+        function readWeakMap() {
+            try { return JSON.parse(localStorage.getItem(weakQKey()) || '{}') || {}; }
+            catch (e) { return {}; }
+        }
+        function writeWeakMap(map) {
+            try { localStorage.setItem(weakQKey(), JSON.stringify(map)); } catch (e) {}
+        }
+        function quizAllowsWeakList(fileName) {
+            const f = String(fileName || '');
+            if (!f || f.indexOf('daily_') === 0) return false;
+            if (/_\d+_?Marks?/i.test(f) || /2_Mark|3_Mark|1_Mark|1-Mark/.test(f)) return false;
+            return true;
+        }
+        function weakListFor(fileName) {
+            const list = readWeakMap()[weakFileKey(fileName)] || [];
+            return Array.isArray(list) ? list : [];
+        }
+        function weakCountFor(fileName) {
+            return weakListFor(fileName).length;
+        }
+        function recordWeakAnswer(q, isCorrect) {
+            if (!q || q.type === 'math_show') return;
+            const file = weakFileKey(currentQuizFile);
+            if (!file || !quizAllowsWeakList(file)) return;
+            const id = questionWeakId(q);
+            if (!id) return;
+            const map = readWeakMap();
+            let list = Array.isArray(map[file]) ? map[file].slice() : [];
+            let idx = -1;
+            for (let i = 0; i < list.length; i++) {
+                if (list[i] && list[i].id === id) { idx = i; break; }
+            }
+            if (isCorrect) {
+                if (idx >= 0) list.splice(idx, 1);
+            } else if (idx >= 0) {
+                list[idx].n = (parseInt(list[idx].n, 10) || 1) + 1;
+            } else {
+                list.push({ id: id, n: 1 });
+                if (list.length > WEAK_Q_CAP) list = list.slice(list.length - WEAK_Q_CAP);
+            }
+            if (list.length) map[file] = list;
+            else delete map[file];
+            writeWeakMap(map);
+        }
+        function filterWeakQuestions(data, fileName) {
+            const list = weakListFor(fileName);
+            if (!list.length) return [];
+            const order = {};
+            list.forEach(function (row, i) {
+                if (row && row.id) order[row.id] = { n: parseInt(row.n, 10) || 1, i: i };
+            });
+            const out = (data || []).filter(function (q) {
+                return q && q.type !== 'math_show' && order[questionWeakId(q)];
+            });
+            out.sort(function (a, b) {
+                const aa = order[questionWeakId(a)];
+                const bb = order[questionWeakId(b)];
+                const dn = (bb.n || 0) - (aa.n || 0);
+                return dn !== 0 ? dn : ((aa.i || 0) - (bb.i || 0));
+            });
+            return out;
+        }
+        function pickerFileKey(fileName) {
+            if (!fileName) return '';
+            return (typeof withGradePrefix === 'function') ? withGradePrefix(fileName) : fileName;
+        }
         let pendingStatsTab = 'summary';
         let leaderboardCache = { at: 0, rows: null, grade: 0 };
         let lastRankSnapshot = null;
@@ -4824,6 +4925,10 @@ function getStatDisplayName(key, item) {
     return item.chapter || '';
 }
 async function submitScore(timeTaken = 0) {
+    if (isWeakQuizFlow) {
+        resetTimer();
+        return;
+    }
     // 🚫 Do NOT save Daily Quiz data to statistics
     if (currentQuizFile && currentQuizFile.startsWith('daily_')) {
         console.log("Daily Quiz data not saved to sheet.");
@@ -6133,7 +6238,7 @@ function showOldGeneralActivities(subId, partName, modePicked) {
         types.forEach(type => {
             createOldBtn(type.replace('_', ' '), list, () => {
                 const fileName = `old_${subId}_${partName}_${type}`.replace(/ /g, "_");
-                startQuizFile(fileName, () => showOldGeneralActivities(subId, partName, true));
+                startOrPickQuiz(type.replace('_', ' '), fileName, () => showOldGeneralActivities(subId, partName, true), true);
             });
         });
     }
@@ -6339,21 +6444,32 @@ function clearPlayPick(el) {
     }
 }
 
-function fillPlayModeList(container, onChosen) {
+function fillPlayModeList(container, onChosen, fileName) {
     if (!container) return;
     container.innerHTML = '';
     container.classList.add('play-modes');
     createBtn('Practice', container, function () {
         quizPlayMode = 'practice';
+        isWeakQuizFlow = false;
         onChosen('practice');
     }, 'btn-practice');
     createBtn('Test', container, function () {
         quizPlayMode = 'test';
+        isWeakQuizFlow = false;
         onChosen('test');
     }, 'btn-test');
+    const key = pickerFileKey(fileName);
+    const n = (key && quizAllowsWeakList(key)) ? weakCountFor(key) : 0;
+    if (n > 0) {
+        createBtn('Weak (' + n + ')', container, function () {
+            quizPlayMode = 'practice';
+            isWeakQuizFlow = true;
+            onChosen('weak');
+        }, 'btn-weak');
+    }
 }
 
-function showPlayModePicker(title, onBack, onChosen, oldMenu) {
+function showPlayModePicker(title, onBack, onChosen, oldMenu, fileName) {
     if (oldMenu) {
         showScreen('old-menu');
         setOldMenuTitle(title);
@@ -6363,7 +6479,7 @@ function showPlayModePicker(title, onBack, onChosen, oldMenu) {
         };
         fillPlayModeList(list, function (mode) {
             onChosen(mode);
-        });
+        }, fileName);
         return;
     }
     showScreen('activity');
@@ -6374,7 +6490,7 @@ function showPlayModePicker(title, onBack, onChosen, oldMenu) {
     };
     fillPlayModeList(content, function (mode) {
         onChosen(mode);
-    });
+    }, fileName);
 }
 
 function leaveCurrentQuiz(onBack) {
@@ -6385,7 +6501,10 @@ function leaveCurrentQuiz(onBack) {
     }
 }
 
-function startQuizFile(fileName, onBack) {
+function startQuizFile(fileName, onBack, weak) {
+    isWeakQuizFlow = !!weak;
+    weakQuizBack = onBack;
+    if (weak) quizPlayMode = 'practice';
     const back = document.getElementById('quiz-back-btn');
     if (back) {
         back.innerText = "ထွက်မည်";
@@ -6396,9 +6515,16 @@ function startQuizFile(fileName, onBack) {
 }
 
 function chooseThenQuiz(title, fileName, onBackToList, oldMenu) {
-    showPlayModePicker(title, onBackToList, function () {
-        startQuizFile(fileName, onBackToList);
-    }, oldMenu);
+    showPlayModePicker(title, onBackToList, function (mode) {
+        startQuizFile(fileName, onBackToList, mode === 'weak');
+    }, oldMenu, fileName);
+}
+
+function startOrPickQuiz(title, fileName, onBack, oldMenu) {
+    const key = pickerFileKey(fileName);
+    const n = (key && quizAllowsWeakList(key)) ? weakCountFor(key) : 0;
+    if (n > 0) chooseThenQuiz(title, fileName, onBack, oldMenu);
+    else startQuizFile(fileName, onBack);
 }
 
         function showENUnits(typeName) {
@@ -7371,7 +7497,7 @@ function chapterQuizHasOnlyWhole(subId, chapterName, quizType) {
 function openChapterQuizType(subId, chapterName, type) {
     if (chapterQuizHasOnlyWhole(subId, chapterName, type)) {
         const fileName = `${subId}_${chapterName}_${type}`.replace(/ /g, "_");
-        startQuizFile(fileName, () => showChapterQuizTypes(subId, chapterName));
+        startOrPickQuiz(type.replace('_', ' '), fileName, () => showChapterQuizTypes(subId, chapterName));
         return;
     }
     showQuizSubChapters(subId, chapterName, type);
@@ -7398,7 +7524,7 @@ function showQuizSubChapters(subId, chapterName, quizType) {
         fullBtn.style.gridColumn = "1 / -1";
         fullBtn.onclick = () => {
             const fileName = `${subId}_${chapterName}_${quizType}`.replace(/ /g, "_");
-            startQuizFile(fileName, () => showQuizSubChapters(subId, chapterName, quizType));
+            startOrPickQuiz(quizType.replace('_', ' '), fileName, () => showQuizSubChapters(subId, chapterName, quizType));
         };
         content.appendChild(fullBtn);
     }
@@ -7410,7 +7536,7 @@ function showQuizSubChapters(subId, chapterName, quizType) {
         createBtn(subChap, content, () => {
             const activityPartName = `${chapterName}_${subChap}`;
             const fileName = `${subId}_${activityPartName}_${quizType}`.replace(/ /g, "_");
-            startQuizFile(fileName, () => showQuizSubChapters(subId, chapterName, quizType));
+            startOrPickQuiz(subChap, fileName, () => showQuizSubChapters(subId, chapterName, quizType));
         });
     });
 }
@@ -7799,8 +7925,7 @@ function updateFlashUI() {
                 if (type === 'Definition') {
                     initFlashcards(fileName, "Definition", () => { showScreen('activity'); showGeneralActivities(subId, partName, parentChapter); });
                 } else {
-                    initQuiz(fileName);
-                    document.getElementById('quiz-back-btn').onclick = () => showGeneralActivities(subId, partName, parentChapter);
+                    startOrPickQuiz(type.replace('_', ' '), fileName, () => showGeneralActivities(subId, partName, parentChapter));
                 }
             });
         });
@@ -7875,8 +8000,16 @@ function applyQuizPlayChrome() {
             tg.showAlert("မေးခွန်းမရှိပါ- " + fileName);
             return;
         }
-        
-        if (isTestPlay()) {
+
+        if (isWeakQuizFlow) {
+            currentQuestions = filterWeakQuestions(data, currentQuizFile);
+            if (!currentQuestions.length) {
+                isWeakQuizFlow = false;
+                tg.showAlert('မှားသည့်မေးခွန်း မရှိပါ။');
+                return;
+            }
+            quizPlayMode = 'practice';
+        } else if (isTestPlay()) {
             currentQuestions = shuffleArray(data); 
         } else {
             currentQuestions = [...data];
@@ -8128,6 +8261,7 @@ function loadQuestion() {
                 const options = document.querySelectorAll('.option-btn');
                 const isCorrect = (i === correctIdx);
 
+                recordWeakAnswer(q, isCorrect);
                 if (isCorrect) {
                     options[i].classList.add('correct-answer');
                     if (typeof score !== 'undefined' && isTestPlay()) {
@@ -8179,6 +8313,7 @@ function loadQuestion() {
 
             const correct = quizBlankAnswer(q);
             const isCorrect = !!correct && input.value.trim().toLowerCase() === String(correct).toLowerCase();
+            recordWeakAnswer(q, isCorrect);
 
             if(isCorrect) {
                 input.style.borderColor = '#10B981';
@@ -8253,28 +8388,62 @@ function selectOption(index) {
     }
 }
 
+function stopQuizTimerChrome() {
+    const nextBtn = document.getElementById('next-btn');
+    if (nextBtn) nextBtn.style.display = 'none';
+    if (isTimerRunning) {
+        clearInterval(quizTimerInterval);
+        isTimerRunning = false;
+        const startBtn = document.getElementById('timer-start-btn');
+        if (startBtn) {
+            startBtn.innerText = "⏹ ပြီးဆုံးပါပြီ";
+            startBtn.disabled = true;
+            startBtn.style.opacity = "0.5";
+        }
+    }
+}
+
+function offerWeakRetry(remaining) {
+    if (!remaining) {
+        const doneMsg = "ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉";
+        try { tg.showAlert(doneMsg); }
+        catch (e) { if (typeof window.alert === 'function') window.alert(doneMsg); }
+        return;
+    }
+    const file = currentQuizFile;
+    const back = weakQuizBack;
+    const goWeak = function () {
+        if (file) startQuizFile(file, back, true);
+    };
+    const msg = 'မှားသည့်မေးခွန်းများ (' + remaining + ') ထပ်လေ့ကျင့်မလား။';
+    if (tg && typeof tg.showPopup === 'function') {
+        try {
+            tg.showPopup({
+                title: 'မှားသည့်မေးခွန်းများ',
+                message: msg,
+                buttons: [
+                    { id: 'weak', type: 'default', text: 'မှားသည့်မေးခွန်းများ' },
+                    { id: 'done', type: 'ok' }
+                ]
+            }, function (btnId) {
+                if (btnId === 'weak') goWeak();
+            });
+            return;
+        } catch (e) {}
+    }
+    if (typeof window.confirm === 'function' && window.confirm(msg)) goWeak();
+}
+
 function nextQuestion() {
     if (currentIdx < currentQuestions.length - 1) {
         currentIdx++;
         loadQuestion();
-        } else { 
-        tg.showAlert("ဂုဏ်ယူပါသည်။ မေးခွန်းများအားလုံး ဖြေဆိုပြီးပါပြီ 🎉");
-        const finalTime = quizSeconds; // Capture time before stopping
-        submitScore(finalTime); // ⬅️ Send result to statistics sheet (only if random+timer active) // ⬅️ Send result to statistics sheet
-        
-        // နောက်ထပ်နှိပ်စရာ မေးခွန်းမရှိတော့တဲ့အတွက် "နောက်တစ်ပုဒ်သို့" ခလုတ်ကို ဖျောက်ထားလိုက်ပါမည်
-        document.getElementById('next-btn').style.display = 'none';
-
-        // --- ⏱ Timer ကို ရပ်တန့်မည့် Code ---
-        if (isTimerRunning) {
-            clearInterval(quizTimerInterval);
-            isTimerRunning = false;
-            // ခလုတ်စာသားကို ပြောင်းပြီး ထပ်နှိပ်လို့မရအောင် ပိတ်ထားပါမည်
-            const startBtn = document.getElementById('timer-start-btn');
-            startBtn.innerText = "⏹ ပြီးဆုံးပါပြီ";
-            startBtn.disabled = true; 
-            startBtn.style.opacity = "0.5"; // ပိတ်ထားကြောင်း သိသာစေရန် မှိန်ထားမည်
-        }
+    } else {
+        const finalTime = quizSeconds;
+        submitScore(finalTime);
+        stopQuizTimerChrome();
+        const n = quizAllowsWeakList(currentQuizFile) ? weakCountFor(currentQuizFile) : 0;
+        offerWeakRetry(n);
     }
 }
 
