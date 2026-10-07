@@ -8625,6 +8625,7 @@ function applyGradeUI() {
 
 function setSelectedGrade(grade) {
     localStorage.setItem('selectedGrade', String(grade));
+    if (typeof syncStatsGradePicker === 'function') syncStatsGradePicker(grade);
     applyGradeUI();
     renderProfileData();
 }
@@ -8984,22 +8985,30 @@ function formatPracticeClock(seconds) {
 }
 
 function profilePracticeTotals() {
+    var grade = getSelectedGrade();
     var time = 0;
     var questions = 0;
+    var snap = (lastRankSnapshot && lastRankSnapshot.grade === grade) ? lastRankSnapshot : null;
+    if (snap) {
+        time = parseInt(snap.totalTime, 10) || 0;
+        questions = parseInt(snap.questions, 10) || 0;
+    }
     var best = {};
     var localBest = (getLocalStats().bestScores) || {};
     Object.keys(localBest).forEach(function (k) { best[k] = localBest[k]; });
     Object.keys(statsBestScores || {}).forEach(function (k) { best[k] = statsBestScores[k]; });
+    var localTime = 0;
+    var localQ = 0;
     Object.keys(best).forEach(function (k) {
+        if (typeof isRankableQuizFile === 'function' && !isRankableQuizFile(k)) return;
         var b = best[k] || {};
-        time += parseInt(b.timeTaken || 0, 10) || 0;
-        questions += parseInt(b.total || 0, 10) || 0;
+        if (!scoreBelongsToGrade(b, k, grade)) return;
+        localTime += parseInt(b.timeTaken || 0, 10) || 0;
+        localQ += parseInt(b.total || 0, 10) || 0;
     });
-    if (lastRankSnapshot) {
-        if (lastRankSnapshot.totalTime) time = Math.max(time, lastRankSnapshot.totalTime);
-        if (lastRankSnapshot.questions) questions = Math.max(questions, lastRankSnapshot.questions);
-    }
-    return { time: time, questions: questions };
+    if (localTime > time) time = localTime;
+    if (localQ > questions) questions = localQ;
+    return { time: time, questions: questions, grade: grade };
 }
 
 function fillProfilePulseStats() {
@@ -9027,8 +9036,8 @@ function fillProfilePulseStats() {
 
     var rankVal = document.getElementById('profile-rank-value');
     var rankSub = document.getElementById('profile-rank-sub');
-    var snap = lastRankSnapshot;
-    var grade = (snap && snap.grade) || getSelectedGrade();
+    var grade = getSelectedGrade();
+    var snap = (lastRankSnapshot && lastRankSnapshot.grade === grade) ? lastRankSnapshot : null;
     if (rankVal) rankVal.textContent = (snap && snap.myRank) ? ('#' + snap.myRank) : '—';
     if (rankSub) {
         if (snap && snap.myRank) {
