@@ -7465,10 +7465,6 @@ function showSubChaptersMenu(subId, chapterName) {
     }
 }
 
-function showChapterQuizTypes(subId, chapterName) {
-    showSubChaptersMenu(subId, chapterName);
-}
-
 function chapterQuizHasOnlyWhole(subId, chapterName, quizType) {
     const subs = (typeof gradeSubChaptersForType === 'function')
         ? gradeSubChaptersForType(subId, chapterName, quizType)
