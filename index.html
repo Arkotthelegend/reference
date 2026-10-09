@@ -2782,10 +2782,49 @@ body.showing-articles .container {
 #cust-search { margin: 0 0 10px; }
 #cust-screen .tt-chip { width: auto !important; max-width: none !important; flex: 1 1 calc(50% - 8px); margin: 0 !important; padding: 10px !important; border-radius: 12px; background: #162235 !important; border: 1px solid #334155 !important; color: #E2E8F0 !important; font-size: 0.78rem !important; font-weight: 700; }
 #cust-screen .tt-chip.on { border-color: #F0B90B !important; color: #F0B90B !important; background: #0B0F19 !important; }
+#bank-screen { padding: 4px 2px 20px; text-align: left; }
+#bank-screen h2 { color: #F0B90B; font-size: 1.15rem; margin: 0 0 6px; }
+#bank-screen select, #bank-screen input, #bank-screen textarea {
+    width: 100%; box-sizing: border-box; margin: 4px 0 0; padding: 10px 12px;
+    border-radius: 12px; border: 1px solid #334155; background: #0B0F19; color: #fff;
+    font-size: 0.95rem; font-weight: 700; font-family: inherit;
+}
+#bank-screen textarea { min-height: 88px; font-weight: 600; line-height: 1.45; }
+#bank-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.bank-tab {
+    flex: 1 1 calc(25% - 8px); margin: 0; padding: 10px;
+    border-radius: 12px; background: #162235; border: 1px solid #334155;
+    color: #E2E8F0; font-size: 0.78rem; font-weight: 800; cursor: pointer;
+}
+.bank-tab.on { border-color: #F0B90B; color: #F0B90B; background: #0B0F19; }
+#bank-auth { color: #F0B90B; font-size: 0.78rem; font-weight: 700; min-height: 1.2em; margin: 0 0 10px; }
+.bank-filters { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 0 10px; }
+.bank-filters label { color: #94A3B8; font-size: 0.72rem; font-weight: 800; }
+.bank-row {
+    display: block; width: 100%; text-align: left; margin: 0 0 8px; padding: 12px;
+    background: #162235; border: 1px solid #334155; border-radius: 12px; color: #E2E8F0;
+    cursor: pointer;
+}
+.bank-row b { display: block; font-size: 0.88rem; line-height: 1.4; margin: 0 0 4px; }
+.bank-row span { color: #94A3B8; font-size: 0.72rem; }
+.bank-page { display: flex; gap: 8px; margin: 10px 0; }
+.bank-issue { background: #162235; border: 1px solid #334155; border-radius: 12px; padding: 10px 12px; margin: 0 0 8px; }
+.bank-issue b { display: block; color: #F0B90B; font-size: 0.82rem; }
+.bank-issue span { display: block; color: #94A3B8; font-size: 0.75rem; margin-top: 3px; }
+.bank-err { color: #F87171; font-size: 0.82rem; font-weight: 700; }
+.bank-ok { color: #0ECB81; font-size: 0.82rem; font-weight: 700; }
+.bank-preview-card { background: #0B0F19; border: 1px solid #1E293B; border-radius: 14px; padding: 12px; margin: 10px 0 16px; }
+.bank-preview-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; color: #94A3B8; font-size: 0.75rem; font-weight: 700; }
+.bank-q { color: #fff; font-weight: 700; line-height: 1.45; }
+.bank-e { color: #94A3B8; font-size: 0.82rem; line-height: 1.45; }
+.bank-q svg, .bank-e svg, .bank-opts svg { max-width: 100%; height: auto; display: block; margin: 8px auto; }
+.bank-opts { margin: 0; padding-left: 18px; color: #E2E8F0; }
+.bank-opts li.on { color: #0ECB81; font-weight: 800; }
 .cust-check { display: flex; align-items: center; gap: 8px; color: #E2E8F0; font-size: 0.82rem; font-weight: 700; margin: 8px 0; }
 .cust-check input { width: auto !important; }
 body:not(.admin-role) #nav-post,
-body:not(.admin-role) #nav-cust { display: none !important; }
+body:not(.admin-role) #nav-cust,
+body:not(.admin-role) #nav-bank { display: none !important; }
 .nav-item[hidden] { display: none !important; }
 body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
 #time-screen .btn:disabled { opacity: 0.55; }
@@ -2808,6 +2847,7 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
     #time-screen.active-screen,
     #post-screen.active-screen,
     #cust-screen.active-screen,
+    #bank-screen.active-screen,
     #poem-screen.active-screen,
     #flashcard-screen.active-screen,
     #glossary-screen.active-screen,
@@ -3756,6 +3796,96 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <div id="cust-logs"></div>
 </div>
 
+<div id="bank-screen" class="screen">
+    <h2>Question bank</h2>
+    <p class="post-help">Read-only view of <b>quizzes/*.json</b>. Student practice still loads those files. Google Sheets is not the question database.</p>
+    <p id="bank-auth"></p>
+    <div id="bank-tabs">
+        <button type="button" class="bank-tab on" data-bank-tab="overview">Overview</button>
+        <button type="button" class="bank-tab" data-bank-tab="bank">Bank</button>
+        <button type="button" class="bank-tab" data-bank-tab="health">Health</button>
+        <button type="button" class="bank-tab" data-bank-tab="draft">Draft</button>
+    </div>
+    <div id="bank-pane-overview">
+        <div id="bank-overview"></div>
+    </div>
+    <div id="bank-pane-bank" hidden>
+        <div class="bank-filters">
+            <label>Grade
+                <select id="bank-grade">
+                    <option value="12">12</option>
+                    <option value="11">11</option>
+                    <option value="10">10</option>
+                    <option value="">All</option>
+                </select>
+            </label>
+            <label>Subject
+                <select id="bank-subject">
+                    <option value="">All</option>
+                    <option value="phy">Physics</option>
+                    <option value="chem">Chemistry</option>
+                    <option value="bio">Biology</option>
+                    <option value="eco">Economics</option>
+                    <option value="math">Maths</option>
+                    <option value="en">English</option>
+                    <option value="mm">Myanmar</option>
+                </select>
+            </label>
+            <label>Type
+                <select id="bank-kind">
+                    <option value="">All</option>
+                    <option value="True_False">True / False</option>
+                    <option value="Fill_Blank">Fill blank</option>
+                    <option value="MCQ">MCQ</option>
+                    <option value="math_mark">Math marks</option>
+                    <option value="definition">Definition</option>
+                </select>
+            </label>
+            <label>Search
+                <input id="bank-q" type="search" placeholder="Question text or file#index" autocomplete="off">
+            </label>
+        </div>
+        <button type="button" class="btn" id="bank-search-go">Search</button>
+        <p class="post-help" id="bank-list-meta"></p>
+        <div id="bank-preview" hidden></div>
+        <div id="bank-list"></div>
+        <div class="bank-page">
+            <button type="button" class="btn" id="bank-prev">Prev</button>
+            <button type="button" class="btn" id="bank-next">Next</button>
+        </div>
+    </div>
+    <div id="bank-pane-health" hidden>
+        <div id="bank-health"></div>
+    </div>
+    <div id="bank-pane-draft" hidden>
+        <p class="post-help">Validate a question in the live JSON format. Saving to git or Sheets is not enabled.</p>
+        <label class="post-label">TYPE
+            <select id="bank-draft-type">
+                <option value="mcq">mcq</option>
+                <option value="tf">tf</option>
+                <option value="blank">blank</option>
+            </select>
+        </label>
+        <label class="post-label">QUESTION TEXT
+            <textarea id="bank-draft-q" placeholder="Question text. Math can use \( ... \)."></textarea>
+        </label>
+        <div id="bank-draft-options">
+            <label class="post-label">OPTIONS (one per line)
+                <textarea id="bank-draft-a" placeholder="circle&#10;straight line&#10;parabola"></textarea>
+            </label>
+        </div>
+        <label class="post-label">CORRECT ANSWER
+            <input id="bank-draft-c" placeholder="0 for MCQ index, true/false, or blank text">
+        </label>
+        <label class="post-label">EXPLANATION (optional)
+            <textarea id="bank-draft-e"></textarea>
+        </label>
+        <button type="button" class="btn" id="bank-validate">Validate</button>
+        <button type="button" class="btn" id="bank-save">Save (blocked)</button>
+        <p id="bank-draft-msg"></p>
+    </div>
+</div>
+
 <div id="articles-channel-bar" class="articles-channel-bar">
     <button class="btn" onclick="openChannel()">📢 Join Telegram Channel</button>
 </div>
@@ -3768,6 +3898,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <div class="nav-item" data-tab="profile" aria-label="Me" onclick="changeTab('profile', this)"><span class="nav-ico">👤</span></div>
     <div class="nav-item" id="nav-post" data-tab="post" aria-label="Post" hidden onclick="changeTab('post', this)"><span class="nav-ico">📸</span></div>
     <div class="nav-item" id="nav-cust" data-tab="cust" aria-label="Cust" hidden onclick="changeTab('cust', this)"><span class="nav-ico">📊</span></div>
+    <div class="nav-item" id="nav-bank" data-tab="bank" aria-label="Bank" hidden onclick="changeTab('bank', this)"><span class="nav-ico">📚</span></div>
 </div>
 
 <div id="peer-preview" hidden>
@@ -3809,6 +3940,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./grammar-rewrite.js?v=1"></script>
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
+    <script src="./question-bank.js?v=3"></script>
     <script src="./friends.js?v=17"></script>
     <script>
 
@@ -8509,7 +8641,7 @@ function nextQuestion() {
     );
 		  
 		   const nav = document.querySelector('.nav');
-    const mainTabs = ['home', 'time', 'social', 'stats', 'profile', 'post', 'cust'];
+    const mainTabs = ['home', 'time', 'social', 'stats', 'profile', 'post', 'cust', 'bank'];
     if (mainTabs.includes(id)) {
         nav.classList.remove('nav-hidden');
         document.body.classList.remove('page-no-nav');
@@ -8568,6 +8700,9 @@ function goTab(id) {
             REEDCustomers.applyChrome();
             REEDCustomers.loadSheet();
         }
+    }
+    if(id === 'bank') {
+        if (window.REEDQuestionBank) REEDQuestionBank.open();
     }
 }
 
@@ -8637,6 +8772,7 @@ function isAppAdmin() {
 function applyAdminChrome() {
     if (window.REEDQuizPost) REEDQuizPost.applyChrome();
     if (window.REEDCustomers) REEDCustomers.applyChrome();
+    if (window.REEDQuestionBank) REEDQuestionBank.applyChrome();
 }
 
 function renderProfileData() {
