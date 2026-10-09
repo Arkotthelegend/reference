@@ -315,7 +315,14 @@
             paintBankList();
             return;
         }
-        var take = files.slice(0, 24);
+        var pathHits = [];
+        var rest = [];
+        files.forEach(function (f) {
+            if (q && String(f.path).toLowerCase().indexOf(q) !== -1) pathHits.push(f);
+            else rest.push(f);
+        });
+        var cap = q ? 80 : 16;
+        var take = pathHits.concat(rest).slice(0, cap);
         loadMsg = 'Loading ' + take.length + ' file' + (take.length === 1 ? '' : 's') + '…';
         paintBankList();
         Promise.all(take.map(function (f) {
