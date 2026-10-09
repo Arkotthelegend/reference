@@ -289,6 +289,9 @@
             if (subject && f.subject !== subject) return false;
             if (kind && f.kind !== kind) return false;
             return true;
+        }).sort(function (a, b) {
+            if (!!a.old !== !!b.old) return a.old ? 1 : -1;
+            return String(a.path).localeCompare(String(b.path));
         });
     }
 
@@ -365,7 +368,7 @@
         if (meta) meta.textContent = loadMsg || (loaded.length ? loaded.length + ' shown' : '');
         if (!list) return;
         if (!loaded.length) {
-            list.innerHTML = '<p class="post-help">' + esc(loadMsg || 'Choose a subject and search.') + '</p>';
+            list.innerHTML = loadMsg ? '' : '<p class="post-help">Choose a subject and search.</p>';
             return;
         }
         var start = page * PAGE;
