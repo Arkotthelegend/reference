@@ -24,6 +24,9 @@ export default {
     if (request.method === 'OPTIONS') {
       return corsResponse(new Response(null, { status: 204 }));
     }
+    if (isAdminApiPath(url)) {
+      return corsResponse(await handleAdminApi(request, env));
+    }
     if (request.method === 'GET' && isPhotoPath(url)) {
       try {
         return corsResponse(await serveTelegramPhoto(photoIdFromUrl(url), env));
@@ -71,6 +74,109 @@ function corsResponse(res) {
   headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   headers.set('Access-Control-Allow-Headers', 'Content-Type');
   return new Response(res.body, { status: res.status, headers: headers });
+}
+
+function jsonResponse(obj, status) {
+  return new Response(JSON.stringify(obj), {
+    status: status || 200,
+    headers: { 'Content-Type': 'application/json; charset=utf-8' }
+  });
+}
+
+function isAdminApiPath(url) {
+  var p = url.pathname.replace(/\/+$/, '') || '/';
+  return p === '/admin/whoami' || p === '/admin/questions';
+}
+
+function adminIdsFromEnv(env) {
+  var raw = (env && (env.ADMIN_IDS || env.ADMIN_ID)) || '8432363664';
+  return String(raw).split(/[,\s]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+}
+
+function teEncode(s) {
+  return new TextEncoder().encode(String(s || ''));
+}
+
+function hexFromBuf(buf) {
+  var bytes = new Uint8Array(buf);
+  var out = '';
+  for (var i = 0; i < bytes.length; i++) out += bytes[i].toString(16).padStart(2, '0');
+  return out;
+}
+
+async function hmacSha256(keyBytes, dataBytes) {
+  var key = await crypto.subtle.importKey(
+    'raw',
+    keyBytes,
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+  return crypto.subtle.sign('HMAC', key, dataBytes);
+}
+
+async function telegramInitDataUser(initData, botToken) {
+  var raw = String(initData || '');
+  if (!raw || !botToken) return null;
+  var params = new URLSearchParams(raw);
+  var hash = params.get('hash') || '';
+  if (!hash) return null;
+  params.delete('hash');
+  var authDate = Number(params.get('auth_date') || 0);
+  if (!authDate || !isFinite(authDate)) return null;
+  var age = Date.now() / 1000 - authDate;
+  if (age > 86400 || age < -60) return null;
+  var pairs = [];
+  params.forEach(function (value, key) {
+    pairs.push(key + '=' + value);
+  });
+  pairs.sort();
+  var secret = await hmacSha256(teEncode('WebAppData'), teEncode(botToken));
+  var check = hexFromBuf(await hmacSha256(new Uint8Array(secret), teEncode(pairs.join('\n'))));
+  if (check !== hash.toLowerCase()) return null;
+  var userRaw = params.get('user');
+  if (!userRaw) return { id: '' };
+  try {
+    var user = JSON.parse(userRaw);
+    return { id: user && user.id != null ? String(user.id) : '' };
+  } catch (e) {
+    return { id: '' };
+  }
+}
+
+async function readAdminBody(request) {
+  try {
+    return await request.json();
+  } catch (e) {
+    return {};
+  }
+}
+
+async function handleAdminApi(request, env) {
+  var url = new URL(request.url);
+  var path = url.pathname.replace(/\/+$/, '') || '/';
+  if (request.method !== 'POST') {
+    return jsonResponse({ ok: false, error: 'method_not_allowed' }, 405);
+  }
+  var body = await readAdminBody(request);
+  var initData = (body && body.initData) || '';
+  var user = await telegramInitDataUser(initData, env && env.BOT_TOKEN);
+  if (!user) {
+    return jsonResponse({ ok: false, admin: false, error: 'unauthorized' }, 401);
+  }
+  var admin = adminIdsFromEnv(env).indexOf(user.id) !== -1;
+  if (path === '/admin/whoami') {
+    return jsonResponse({ ok: true, admin: admin, userId: user.id });
+  }
+  if (path === '/admin/questions') {
+    if (!admin) return jsonResponse({ ok: false, error: 'forbidden' }, 403);
+    return jsonResponse({
+      ok: false,
+      error: 'writes_disabled',
+      message: 'Question files live in git JSON, not Sheets. Writes stay off until a GitHub token is added as a Worker secret.'
+    }, 403);
+  }
+  return jsonResponse({ ok: false, error: 'not_found' }, 404);
 }
 
 function isPhotoPath(url) {
@@ -422,3 +528,10 @@ async function sendTelegramVideo(chatId, video, caption, botToken, replyMarkup) 
   if (replyMarkup) payload.reply_markup = replyMarkup;
   return telegramApi(botToken, 'sendVideo', payload);
 }
+
+export {
+  telegramInitDataUser,
+  handleAdminApi,
+  isAdminApiPath,
+  adminIdsFromEnv
+};
