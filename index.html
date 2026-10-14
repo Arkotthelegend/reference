@@ -295,7 +295,7 @@ body.page-no-nav .container {
 
     /* Quiz Option Buttons */
     .option-btn { background: var(--card-bg) !important; border: 1px solid #334155; color: var(--white); font-weight: 600; border-radius: 12px; }
-    .option-btn.speed-picked { box-shadow: inset 0 0 0 2px #F0B90B; }
+    #quiz-screen .option-btn.speed-picked { border-color: #F0B90B !important; box-shadow: inset 0 0 0 3px #F0B90B; background: rgba(240, 185, 11, 0.22) !important; }
     .correct-opt, .correct-answer { background: #065F46 !important; border: 2px solid #10B981 !important; color: var(--white) !important; }
     .wrong-opt, .wrong-answer { background: #991B1B !important; border: 2px solid #EF4444 !important; color: var(--white) !important; }
 
@@ -2350,6 +2350,17 @@ body.math-expand-page .container {
 }
 .opt-key {
     display: none;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: rgba(240, 185, 11, 0.15);
+    border: 1px solid rgba(240, 185, 11, 0.4);
+    color: var(--accent, #F0B90B);
+    font-size: 0.75rem;
+    font-weight: 800;
+    flex-shrink: 0;
 }
 .quiz-keys-hint {
     display: none;
@@ -2359,25 +2370,21 @@ body.math-expand-page .container {
     margin-top: 6px;
     line-height: 1.4;
 }
-@media (hover: hover) and (pointer: fine) {
-    .opt-key {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 22px;
-        height: 22px;
-        border-radius: 6px;
-        background: rgba(240, 185, 11, 0.15);
-        border: 1px solid rgba(240, 185, 11, 0.4);
-        color: var(--accent, #F0B90B);
-        font-size: 0.75rem;
-        font-weight: 800;
-        flex-shrink: 0;
-    }
-    .quiz-keys-hint {
-        display: block;
-    }
+#quiz-keycatch {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    border: 0;
+    padding: 0;
+    pointer-events: none;
 }
+@media (hover: hover) and (pointer: fine) {
+    .opt-key { display: inline-flex; }
+    .quiz-keys-hint { display: block; }
+}
+#quiz-screen.quiz-test .opt-key { display: inline-flex; }
+#quiz-screen.quiz-test .quiz-keys-hint { display: block; }
 
 /* Explanation panel (hidden by default) */
 #explanation-box {
@@ -3584,6 +3591,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     
    <div id="question-box"></div> 
     <div id="quiz-options"></div>
+    <input id="quiz-keycatch" type="text" inputmode="none" autocomplete="off" aria-hidden="true" tabindex="-1" readonly>
     <div id="quiz-keys-hint" class="quiz-keys-hint"></div>
     
     <!-- Explanation appears here so it doesn't cover options -->
@@ -8120,33 +8128,40 @@ function quizBlankParts(q) {
     return [raw];
 }
 
+function focusQuizField(el) {
+    if (!el) return;
+    try { el.focus({ preventScroll: true }); }
+    catch (err) { try { el.focus(); } catch (e2) {} }
+}
+
+function focusTestChoiceKeys() {
+    if (!isTestPlay()) return;
+    focusQuizField(document.getElementById('quiz-keycatch'));
+}
+
 function focusTestTypingInput() {
     if (!isTestPlay()) return;
     const inputs = document.querySelectorAll('#quiz-options .quiz-input');
     let target = null;
     for (let i = 0; i < inputs.length; i++) {
-        if (!inputs[i].disabled && !String(inputs[i].value || '').trim()) {
+        if (!inputs[i].disabled && !inputs[i].readOnly && !String(inputs[i].value || '').trim()) {
             target = inputs[i];
             break;
         }
     }
     if (!target && inputs.length && !inputs[0].disabled) target = inputs[0];
     if (target) {
-        try { target.focus({ preventScroll: true }); }
-        catch (err) { try { target.focus(); } catch (e2) {} }
+        focusQuizField(target);
         return;
     }
     const active = document.activeElement;
-    if (active && active.blur && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) {
+    if (active && active.id !== 'quiz-keycatch' && active.blur && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) {
         active.blur();
     }
 }
 
-function gradeOpenBlank(andAdvance) {
-    if (isAnswered) {
-        if (andAdvance && isTestPlay()) nextQuestion();
-        return;
-    }
+function gradeOpenBlank() {
+    if (isAnswered) return;
     const q = currentQuestions[currentIdx];
     if (!q) return;
     const inputs = Array.from(document.querySelectorAll('#quiz-options .quiz-input'));
@@ -8175,11 +8190,6 @@ function gradeOpenBlank(andAdvance) {
         if (sd) sd.innerText = `ရမှတ်: ${score}`;
     }
 
-    if (andAdvance && isTestPlay()) {
-        nextQuestion();
-        return;
-    }
-
     if (multi && parts && parts.length === inputs.length) {
         inputs.forEach(function (el, i) {
             const ok = !!String(parts[i]).trim() && el.value.trim().toLowerCase() === String(parts[i]).trim().toLowerCase();
@@ -8194,7 +8204,7 @@ function gradeOpenBlank(andAdvance) {
         inputs[0].style.background = 'rgba(239, 68, 68, 0.1)';
     }
 
-    if (quizShowsExplanation()) {
+    if (isTestPlay() || quizShowsExplanation()) {
         const explText = buildExplanationText(q, isCorrect, correct);
         renderExplanationPanel(explText, isCorrect, correct);
     } else if (isCorrect) {
@@ -8214,7 +8224,8 @@ function speedSubmitAndAdvance() {
     const q = currentQuestions[currentIdx];
     if (!q) return;
     if (!isAnswered && q.type === 'blank') {
-        gradeOpenBlank(true);
+        gradeOpenBlank();
+        focusTestChoiceKeys();
         return;
     }
     if (!isAnswered && (q.type === 'mcq' || q.type === 'tf')) {
@@ -8451,19 +8462,29 @@ function loadQuestion() {
         sBtn.style.maxWidth = '280px';
         sBtn.style.margin = '10px auto 0 auto';
         sBtn.innerText = "အဖြေစစ်မည်";
-        sBtn.onclick = function () { gradeOpenBlank(isTestPlay()); };
+        sBtn.onclick = function () {
+            gradeOpenBlank();
+            if (isTestPlay()) focusTestChoiceKeys();
+        };
         optDiv.appendChild(sBtn);
         setQuizKeysHint(isTestPlay()
             ? (count > 1
-                ? 'Laptop: type · Enter = next blank, then submit'
-                : 'Laptop: type · Enter = submit')
+                ? 'Laptop: Enter moves to the next blank, then checks. Enter again = next question'
+                : 'Laptop: Enter = check · Enter again = next question')
             : 'Laptop: Space = Next');
     } else {
         setQuizKeysHint('');
     }
 
     typesetQuizMath();
-    focusTestTypingInput();
+    if (!isTestPlay()) {
+        const catcher = document.getElementById('quiz-keycatch');
+        if (catcher && document.activeElement === catcher) catcher.blur();
+    } else if (q.type === 'mcq' || q.type === 'tf') {
+        focusTestChoiceKeys();
+    } else {
+        focusTestTypingInput();
+    }
 }
 
 function selectOption(index) {
@@ -10138,20 +10159,34 @@ function openNewsFromProfile() {
     tg.openTelegramLink('https://t.me/REED_education');
 }
 
+function quizKeyName(e) {
+    const key = e.key || '';
+    if (key && key !== 'Unidentified' && key !== 'Process') return key;
+    const code = e.code || '';
+    if (/^Digit[1-9]$/.test(code)) return code.slice(5);
+    if (/^Numpad[1-9]$/.test(code)) return code.slice(6);
+    if (/^Key[A-Z]$/.test(code)) return code.slice(3).toLowerCase();
+    if (code === 'Enter' || code === 'NumpadEnter') return 'Enter';
+    return key;
+}
+
 document.addEventListener('keydown', function(e) {
     if (e.ctrlKey || e.altKey || e.metaKey) return;
     if (e.repeat) return;
-    if (e.isComposing || e.keyCode === 229) return;
+    if (e.isComposing) return;
+    const keyName = quizKeyName(e);
+    if (!keyName || keyName === 'Unidentified' || keyName === 'Process') return;
 
     const tag = (e.target && e.target.tagName) || '';
+    const keyCatch = !!(e.target && e.target.id === 'quiz-keycatch');
     const quizOn = document.getElementById('quiz-screen')?.classList.contains('active-screen');
     const mathOn = document.getElementById('math-solution-screen')?.classList.contains('active-screen');
     const flashOn = document.getElementById('flashcard-screen')?.classList.contains('active-screen');
     const rewriteOn = flashOn && document.getElementById('flashcard-screen')?.classList.contains('flash-rewrite-on');
     const inQuizField = !!(e.target && e.target.closest && e.target.closest('#quiz-options'));
 
-    if (e.key === 'Enter' && isTestPlay() && (quizOn || mathOn)) {
-        const typingElsewhere = (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) && !inQuizField;
+    if (keyName === 'Enter' && isTestPlay() && (quizOn || mathOn)) {
+        const typingElsewhere = (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) && !inQuizField && !keyCatch;
         if (typingElsewhere) return;
         e.preventDefault();
         if (mathOn) {
@@ -10159,24 +10194,32 @@ document.addEventListener('keydown', function(e) {
             if (mathNext && mathNext.style.display !== 'none' && !mathNext.disabled) mathNext.click();
             return;
         }
-        if (tag === 'INPUT' && e.target.classList.contains('quiz-input')) {
+        const qNow = currentQuestions[currentIdx];
+        if (qNow && qNow.type === 'blank' && isAnswered) {
+            nextQuestion();
+            return;
+        }
+        if (tag === 'INPUT' && e.target.classList.contains('quiz-input') && !isAnswered) {
             const inputs = Array.from(document.querySelectorAll('#quiz-options .quiz-input'));
             const i = inputs.indexOf(e.target);
             for (let j = i + 1; j < inputs.length; j++) {
                 if (!inputs[j].disabled && !String(inputs[j].value || '').trim()) {
-                    inputs[j].focus();
+                    focusQuizField(inputs[j]);
                     return;
                 }
             }
+            gradeOpenBlank();
+            focusTestChoiceKeys();
+            return;
         }
         speedSubmitAndAdvance();
         return;
     }
 
-    if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
+    if ((tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) && !keyCatch) return;
     if (!quizOn && !mathOn && !rewriteOn) return;
 
-    if (e.key === ' ' || e.code === 'Space') {
+    if (keyName === ' ' || e.code === 'Space') {
         e.preventDefault();
         if (rewriteOn) {
             const wrap = document.getElementById('rw-answer-wrap');
@@ -10199,10 +10242,10 @@ document.addEventListener('keydown', function(e) {
     if (!quizOn || isAnswered) return;
     const btns = document.querySelectorAll('#quiz-options .option-btn');
     let idx = -1;
-    if (e.key >= '1' && e.key <= '9') idx = parseInt(e.key, 10) - 1;
-    if (isTestPlay() && idx < 0 && /^[a-zA-Z]$/.test(e.key)) {
+    if (keyName >= '1' && keyName <= '9') idx = parseInt(keyName, 10) - 1;
+    if (isTestPlay() && idx < 0 && /^[a-zA-Z]$/.test(keyName)) {
         const q = currentQuestions[currentIdx];
-        const k = e.key.toLowerCase();
+        const k = keyName.toLowerCase();
         if (q && q.type === 'tf') {
             if (k === 't') idx = 0;
             else if (k === 'f') idx = 1;
