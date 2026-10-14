@@ -3617,7 +3617,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         <button class="btn back-btn" id="math-quit-btn" type="button">ထွက်မည်</button>
         <button class="btn" id="math-prev-btn" type="button">မေးခွန်းသို့</button>
         <button class="btn next-btn" id="math-next-btn" type="button">နောက်သို့ →</button>
-        <div class="quiz-keys-hint">Laptop: Space = Next</div>
+        <div class="quiz-keys-hint"></div>
     </div>
     <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">Report a mistake</button>
 </div>
@@ -8351,7 +8351,7 @@ function loadQuestion() {
                 };
             }
         };
-        setQuizKeysHint(isTestPlay() ? 'Laptop: Enter or Space = Next' : 'Laptop: Space = Next');
+        setQuizKeysHint(isTestPlay() ? 'Laptop: Enter = next' : '');
     }
     else if (q.type === 'mcq' || q.type === 'tf') {
         let opts = [];
@@ -8427,12 +8427,12 @@ function loadQuestion() {
         });
         if (isTestPlay()) {
             setQuizKeysHint(q.type === 'tf'
-                ? 'Laptop: 1 or T = True · 2 or F = False · Enter = submit'
-                : 'Laptop: 1–' + opts.length + ' or A–' + String.fromCharCode(64 + Math.min(opts.length, 9)) + ' to choose · Enter = submit');
+                ? 'Laptop: 1 or T = True · 2 or F = False · Enter = next'
+                : 'Laptop: 1–' + opts.length + ' or A–' + String.fromCharCode(64 + Math.min(opts.length, 9)) + ' shows the answer · Enter = next');
         } else {
             setQuizKeysHint(q.type === 'tf'
-                ? 'Laptop: 1 = True · 2 = False · Space = Next'
-                : 'Laptop: ' + opts.map((_, n) => n + 1).join(' ') + ' to choose · Space = Next');
+                ? 'Laptop: 1 = True · 2 = False'
+                : 'Laptop: ' + opts.map((_, n) => n + 1).join(' ') + ' to choose');
         }
     }
     else if (q.type === 'blank') {
@@ -8471,7 +8471,7 @@ function loadQuestion() {
             ? (count > 1
                 ? 'Laptop: Enter moves to the next blank, then checks. Enter again = next question'
                 : 'Laptop: Enter = check · Enter again = next question')
-            : 'Laptop: Space = Next');
+            : '');
     } else {
         setQuizKeysHint('');
     }
@@ -10212,6 +10212,10 @@ document.addEventListener('keydown', function(e) {
             focusTestChoiceKeys();
             return;
         }
+        if (qNow && (qNow.type === 'mcq' || qNow.type === 'tf')) {
+            nextQuestion();
+            return;
+        }
         speedSubmitAndAdvance();
         return;
     }
@@ -10220,23 +10224,17 @@ document.addEventListener('keydown', function(e) {
     if (!quizOn && !mathOn && !rewriteOn) return;
 
     if (keyName === ' ' || e.code === 'Space') {
-        e.preventDefault();
         if (rewriteOn) {
+            e.preventDefault();
             const wrap = document.getElementById('rw-answer-wrap');
             if (wrap && wrap.hidden) revealRewriteAnswer();
             else nextFlash();
             return;
         }
-        if (mathOn) {
-            const mathNext = document.getElementById('math-next-btn');
-            if (mathNext && mathNext.style.display !== 'none' && !mathNext.disabled) mathNext.click();
+        if (quizOn || mathOn) {
+            e.preventDefault();
             return;
         }
-        const next = document.getElementById('next-btn');
-        if (next && next.style.display !== 'none' && !next.disabled) {
-            next.click();
-        }
-        return;
     }
 
     if (!quizOn || isAnswered) return;
@@ -10255,16 +10253,6 @@ document.addEventListener('keydown', function(e) {
     }
     if (idx < 0 || !btns[idx] || btns[idx].disabled) return;
     e.preventDefault();
-    if (isTestPlay()) {
-        speedPickIndex = idx;
-        btns.forEach(function (b, i) {
-            const on = i === idx;
-            b.classList.toggle('speed-picked', on);
-            if (on) b.setAttribute('aria-pressed', 'true');
-            else b.removeAttribute('aria-pressed');
-        });
-        return;
-    }
     btns[idx].click();
 });
     </script>
