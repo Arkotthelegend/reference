@@ -295,6 +295,7 @@ body.page-no-nav .container {
 
     /* Quiz Option Buttons */
     .option-btn { background: var(--card-bg) !important; border: 1px solid #334155; color: var(--white); font-weight: 600; border-radius: 12px; }
+    .option-btn.speed-picked { box-shadow: inset 0 0 0 2px #F0B90B; }
     .correct-opt, .correct-answer { background: #065F46 !important; border: 2px solid #10B981 !important; color: var(--white) !important; }
     .wrong-opt, .wrong-answer { background: #991B1B !important; border: 2px solid #EF4444 !important; color: var(--white) !important; }
 
@@ -6001,6 +6002,7 @@ async function fetchPaidUsers() {
         let flashIdx = 0;
         let flashCards = [];
         let isAnswered = false;
+        let speedPickIndex = -1;
 		let currentQuizFile = '';
         let quizLoadSequence = 0;
         // မူလရှိနေသော const userId နှင့် const userBought နေရာများကို အပေါ်သို့ ရွှေ့လိုက်ပါပြီ။
@@ -7382,7 +7384,7 @@ function showSubMenu(typeName, cat, titles) {
         createBtn("ဥပမာအလင်္ကာ", content, () => initFlashcards("mm_ဥပမာအလင်္ကာ", "ဥပမာအလင်္ကာ", backToAlinkar));
         createBtn("ရူပကအလင်္ကာ", content, () => initFlashcards("mm_ရူပကအလင်္ကာ", "ရူပကအလင်္ကာ", backToAlinkar));
         createBtn("ဝင်္ကဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_ဝင်္ကဝုတ္တိအလင်္ကာ", "ဝင်္ကဝုတ္တိအလင်္ကာ", backToAlinkar));
-        createBtn("အတိယဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_အတိသယဝုတ္တိအလင်္ကာ", "အတိသယဝုတ္တိအလင်္ကာ", backToAlinkar));
+        createBtn("အတိသယဝုတ္တိအလင်္ကာ", content, () => initFlashcards("mm_အတိသယဝုတ္တိအလင်္ကာ", "အတိသယဝုတ္တိအလင်္ကာ", backToAlinkar));
         createBtn("မြည်သံစွဲအလင်္ကာ", content, () => initFlashcards("mm_မြည်သံစွဲအလင်္ကာ", "မြည်သံစွဲအလင်္ကာ", backToAlinkar));
 
     } else {
@@ -7883,6 +7885,9 @@ function updateFlashUI() {
         if (partName === 'Chapter 2') {
             mathMarks = ['3_Marks'];
         }
+        if (partName === 'Chapter 7' && getSelectedGrade() === 12) {
+            mathMarks = ['2_Marks', '3_Marks'];
+        }
         if (typeof gradeMathMarks === 'function') {
             const fromFiles = gradeMathMarks(partName);
             if (fromFiles && fromFiles.length) mathMarks = fromFiles;
@@ -7923,6 +7928,11 @@ function startTestTimer() {
     }, 1000);
 }
 
+function isWorkedMathQuiz(fileName) {
+    const name = String(fileName || '').split('/').pop().replace(/\.json$/i, '');
+    return /_(?:2|3)_marks?$/i.test(name);
+}
+
 function applyQuizPlayChrome() {
     const quizScreen = document.getElementById('quiz-screen');
     const mark = document.getElementById('markcount');
@@ -7931,7 +7941,7 @@ function applyQuizPlayChrome() {
     const startBtn = document.getElementById('timer-start-btn');
     const resetBtn = document.getElementById('timer-reset-btn');
     const display = document.getElementById('timer-display');
-    const hideTimerForMath = !!(currentQuizFile && (currentQuizFile.includes('2_Marks') || currentQuizFile.includes('3_Marks')));
+    const hideTimerForMath = isWorkedMathQuiz(currentQuizFile);
     const testOn = isTestPlay() && !hideTimerForMath;
 
     if (quizScreen) {
@@ -8087,8 +8097,142 @@ function quizShowsExplanation() {
     return /(?:^|\/|_)(en_|eco_|phy_|chem_|bio_|eng_)/.test(f);
 }
 
+function quizBlankSlotCount(q) {
+    const marks = String((q && q.q) || '').match(/_{2,}/g);
+    return marks && marks.length ? marks.length : 1;
+}
+
+function quizBlankParts(q) {
+    const n = quizBlankSlotCount(q);
+    if (q && Array.isArray(q.blanks) && q.blanks.length > 1) {
+        return q.blanks.map(function (part) { return String(part == null ? '' : part).trim(); });
+    }
+    if (q && Array.isArray(q.c) && q.c.length > 1) {
+        return q.c.map(function (part) { return String(part == null ? '' : part).trim(); });
+    }
+    const raw = String(quizBlankAnswer(q) || '').trim();
+    if (n <= 1) return [raw];
+    const seps = [/\s*\/\s*/, /\s*;\s*/, /\s*၊\s*/, /\s*\|\s*/, /\s*နှင့်\s*/];
+    for (let s = 0; s < seps.length; s++) {
+        const parts = raw.split(seps[s]).map(function (part) { return part.trim(); }).filter(Boolean);
+        if (parts.length === n) return parts;
+    }
+    return [raw];
+}
+
+function focusTestTypingInput() {
+    if (!isTestPlay()) return;
+    const inputs = document.querySelectorAll('#quiz-options .quiz-input');
+    let target = null;
+    for (let i = 0; i < inputs.length; i++) {
+        if (!inputs[i].disabled && !String(inputs[i].value || '').trim()) {
+            target = inputs[i];
+            break;
+        }
+    }
+    if (!target && inputs.length && !inputs[0].disabled) target = inputs[0];
+    if (target) {
+        try { target.focus({ preventScroll: true }); }
+        catch (err) { try { target.focus(); } catch (e2) {} }
+        return;
+    }
+    const active = document.activeElement;
+    if (active && active.blur && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) {
+        active.blur();
+    }
+}
+
+function gradeOpenBlank(andAdvance) {
+    if (isAnswered) {
+        if (andAdvance && isTestPlay()) nextQuestion();
+        return;
+    }
+    const q = currentQuestions[currentIdx];
+    if (!q) return;
+    const inputs = Array.from(document.querySelectorAll('#quiz-options .quiz-input'));
+    const sBtn = document.querySelector('#quiz-options .quiz-blank-submit');
+    if (!inputs.length) return;
+    isAnswered = true;
+    inputs.forEach(function (el) { el.disabled = true; });
+    if (sBtn) sBtn.disabled = true;
+
+    const multi = inputs.length > 1;
+    const parts = multi ? quizBlankParts(q) : null;
+    const correct = quizBlankAnswer(q);
+    let isCorrect = false;
+    if (multi && parts && parts.length === inputs.length) {
+        isCorrect = parts.every(function (part, i) {
+            return !!String(part).trim() && inputs[i].value.trim().toLowerCase() === String(part).trim().toLowerCase();
+        });
+    } else {
+        isCorrect = !!correct && inputs[0].value.trim().toLowerCase() === String(correct).toLowerCase();
+    }
+
+    recordWeakAnswer(q, isCorrect);
+    if (isCorrect && typeof score !== 'undefined' && isTestPlay()) {
+        score++;
+        const sd = document.getElementById('score-display');
+        if (sd) sd.innerText = `ရမှတ်: ${score}`;
+    }
+
+    if (andAdvance && isTestPlay()) {
+        nextQuestion();
+        return;
+    }
+
+    if (multi && parts && parts.length === inputs.length) {
+        inputs.forEach(function (el, i) {
+            const ok = !!String(parts[i]).trim() && el.value.trim().toLowerCase() === String(parts[i]).trim().toLowerCase();
+            el.style.borderColor = ok ? '#10B981' : '#EF4444';
+            el.style.background = ok ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)';
+        });
+    } else if (isCorrect) {
+        inputs[0].style.borderColor = '#10B981';
+        inputs[0].style.background = 'rgba(16, 185, 129, 0.1)';
+    } else {
+        inputs[0].style.borderColor = '#EF4444';
+        inputs[0].style.background = 'rgba(239, 68, 68, 0.1)';
+    }
+
+    if (quizShowsExplanation()) {
+        const explText = buildExplanationText(q, isCorrect, correct);
+        renderExplanationPanel(explText, isCorrect, correct);
+    } else if (isCorrect) {
+        tg.showAlert("မှန်ကန်ပါသည်။ ✅");
+    } else {
+        tg.showAlert("အဖြေမှန်မှာ: " + correct + "\nအခြားသောအဖြေမှန်များလည်းရှိနိုင်ပါသည်");
+    }
+
+    const nextBtnStyled = document.getElementById('next-btn');
+    nextBtnStyled.style.display = 'block';
+    nextBtnStyled.className = 'next-btn-styled';
+    nextBtnStyled.innerText = 'နောက်တစ်ပုဒ်သို့ ⮕';
+}
+
+function speedSubmitAndAdvance() {
+    if (!isTestPlay()) return;
+    const q = currentQuestions[currentIdx];
+    if (!q) return;
+    if (!isAnswered && q.type === 'blank') {
+        gradeOpenBlank(true);
+        return;
+    }
+    if (!isAnswered && (q.type === 'mcq' || q.type === 'tf')) {
+        const btns = document.querySelectorAll('#quiz-options .option-btn');
+        const btn = btns[speedPickIndex];
+        if (speedPickIndex < 0 || !btn || btn.disabled) return;
+        if (typeof btn.onclick === 'function') btn.onclick();
+        else btn.click();
+        if (isAnswered) nextQuestion();
+        return;
+    }
+    const next = document.getElementById('next-btn');
+    if (next && next.style.display !== 'none' && !next.disabled) next.click();
+}
+
 function loadQuestion() {
     isAnswered = false;
+    speedPickIndex = -1;
 
     // Reset explanation panel
     const explBox = document.getElementById('explanation-box');
@@ -8108,7 +8252,7 @@ function loadQuestion() {
         q.type = 'math_show';
     }
 
-    const isMath2Or3Mark = !!(currentQuizFile && (currentQuizFile.includes('2_Marks') || currentQuizFile.includes('3_Marks')));
+    const isMath2Or3Mark = isWorkedMathQuiz(currentQuizFile);
     const isMathExpand = q.type === 'math_show' || isMath2Or3Mark;
     const quizScreen = document.getElementById('quiz-screen');
     if (quizScreen) quizScreen.classList.toggle('math-expand', isMathExpand);
@@ -8196,7 +8340,7 @@ function loadQuestion() {
                 };
             }
         };
-        setQuizKeysHint('Laptop: Space = Next');
+        setQuizKeysHint(isTestPlay() ? 'Laptop: Enter or Space = Next' : 'Laptop: Space = Next');
     }
     else if (q.type === 'mcq' || q.type === 'tf') {
         let opts = [];
@@ -8237,21 +8381,23 @@ function loadQuestion() {
             btn.onclick = () => {
                 if(isAnswered) return;
                 isAnswered = true;
+                speedPickIndex = -1;
+                document.querySelectorAll('#quiz-options .option-btn').forEach(function (b) {
+                    b.classList.remove('speed-picked');
+                    b.removeAttribute('aria-pressed');
+                });
                 const options = document.querySelectorAll('.option-btn');
-                const isCorrect = (i === correctIdx);
+                const answerText = String(opts[correctIdx] == null ? '' : opts[correctIdx]).trim();
+                const isCorrect = !!answerText && String(opts[i]).trim() === answerText;
 
                 recordWeakAnswer(q, isCorrect);
-                if (isCorrect) {
-                    options[i].classList.add('correct-answer');
-                    if (typeof score !== 'undefined' && isTestPlay()) {
-                        score++;
-                        document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
-                    }
-                } else {
-                    options.forEach((b, idx) => {
-                        if(idx === correctIdx) b.classList.add('correct-answer');
-                        else if(idx === i) b.classList.add('wrong-answer');
-                    });
+                options.forEach((b, idx) => {
+                    if (answerText && String(opts[idx]).trim() === answerText) b.classList.add('correct-answer');
+                    else if (idx === i) b.classList.add('wrong-answer');
+                });
+                if (isCorrect && typeof score !== 'undefined' && isTestPlay()) {
+                    score++;
+                    document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
                 }
                 options.forEach(b => b.disabled = true);
 
@@ -8268,67 +8414,56 @@ function loadQuestion() {
             };
             optDiv.appendChild(btn);
         });
-        setQuizKeysHint(q.type === 'tf'
-            ? 'Laptop: 1 = True · 2 = False · Space = Next'
-            : 'Laptop: ' + opts.map((_, n) => n + 1).join(' ') + ' to choose · Space = Next');
+        if (isTestPlay()) {
+            setQuizKeysHint(q.type === 'tf'
+                ? 'Laptop: 1 or T = True · 2 or F = False · Enter = submit'
+                : 'Laptop: 1–' + opts.length + ' or A–' + String.fromCharCode(64 + Math.min(opts.length, 9)) + ' to choose · Enter = submit');
+        } else {
+            setQuizKeysHint(q.type === 'tf'
+                ? 'Laptop: 1 = True · 2 = False · Space = Next'
+                : 'Laptop: ' + opts.map((_, n) => n + 1).join(' ') + ' to choose · Space = Next');
+        }
     }
     else if (q.type === 'blank') {
-        const input = document.createElement('input');
-        input.className = 'quiz-input';
-        input.placeholder = "အဖြေရိုက်ထည့်ပါ...";
+        const parts = quizBlankParts(q);
+        const multi = isTestPlay() && parts.length > 1;
+        const count = multi ? parts.length : 1;
+        for (let bi = 0; bi < count; bi++) {
+            const input = document.createElement('input');
+            input.className = 'quiz-input';
+            input.type = 'text';
+            input.placeholder = "အဖြေရိုက်ထည့်ပါ...";
+            if (isTestPlay()) {
+                input.enterKeyHint = (bi === count - 1) ? 'done' : 'next';
+                input.setAttribute('autocomplete', 'off');
+                input.setAttribute('autocapitalize', 'none');
+                input.setAttribute('autocorrect', 'off');
+                input.setAttribute('spellcheck', 'false');
+                input.setAttribute('inputmode', 'text');
+            }
+            optDiv.appendChild(input);
+        }
 
         const sBtn = document.createElement('button');
-        sBtn.className = 'btn';
+        sBtn.type = 'button';
+        sBtn.className = 'btn quiz-blank-submit';
         sBtn.style.width = '100%';
         sBtn.style.maxWidth = '280px';
         sBtn.style.margin = '10px auto 0 auto';
         sBtn.innerText = "အဖြေစစ်မည်";
-
-        sBtn.onclick = () => {
-            if(isAnswered) return;
-            isAnswered = true;
-            input.disabled = true;
-            sBtn.disabled = true;
-
-            const correct = quizBlankAnswer(q);
-            const isCorrect = !!correct && input.value.trim().toLowerCase() === String(correct).toLowerCase();
-            recordWeakAnswer(q, isCorrect);
-
-            if(isCorrect) {
-                input.style.borderColor = '#10B981';
-                input.style.background = 'rgba(16, 185, 129, 0.1)';
-                if (typeof score !== 'undefined' && isTestPlay()) {
-                    score++;
-                    document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
-                }
-            } else {
-                input.style.borderColor = '#EF4444';
-                input.style.background = 'rgba(239, 68, 68, 0.1)';
-            }
-
-            if (isExplSubject) {
-                const explText = buildExplanationText(q, isCorrect, correct);
-                renderExplanationPanel(explText, isCorrect, correct);
-            } else {
-                if(isCorrect) {
-                    tg.showAlert("မှန်ကန်ပါသည်။ ✅");
-                } else {
-                    tg.showAlert("အဖြေမှန်မှာ: " + correct + "\nအခြားသောအဖြေမှန်များလည်းရှိနိုင်ပါသည်");
-                }
-            }
-
-            const nextBtnStyled = document.getElementById('next-btn');
-            nextBtnStyled.style.display = 'block';
-            nextBtnStyled.className = 'next-btn-styled';
-            nextBtnStyled.innerText = 'နောက်တစ်ပုဒ်သို့ ⮕';
-        };
-        optDiv.append(input, sBtn);
-        setQuizKeysHint('Laptop: Space = Next');
+        sBtn.onclick = function () { gradeOpenBlank(isTestPlay()); };
+        optDiv.appendChild(sBtn);
+        setQuizKeysHint(isTestPlay()
+            ? (count > 1
+                ? 'Laptop: type · Enter = next blank, then submit'
+                : 'Laptop: type · Enter = submit')
+            : 'Laptop: Space = Next');
     } else {
         setQuizKeysHint('');
     }
 
     typesetQuizMath();
+    focusTestTypingInput();
 }
 
 function selectOption(index) {
@@ -10004,15 +10139,41 @@ function openNewsFromProfile() {
 }
 
 document.addEventListener('keydown', function(e) {
-    const tag = (e.target && e.target.tagName) || '';
-    if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
     if (e.ctrlKey || e.altKey || e.metaKey) return;
     if (e.repeat) return;
+    if (e.isComposing || e.keyCode === 229) return;
 
+    const tag = (e.target && e.target.tagName) || '';
     const quizOn = document.getElementById('quiz-screen')?.classList.contains('active-screen');
     const mathOn = document.getElementById('math-solution-screen')?.classList.contains('active-screen');
     const flashOn = document.getElementById('flashcard-screen')?.classList.contains('active-screen');
     const rewriteOn = flashOn && document.getElementById('flashcard-screen')?.classList.contains('flash-rewrite-on');
+    const inQuizField = !!(e.target && e.target.closest && e.target.closest('#quiz-options'));
+
+    if (e.key === 'Enter' && isTestPlay() && (quizOn || mathOn)) {
+        const typingElsewhere = (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) && !inQuizField;
+        if (typingElsewhere) return;
+        e.preventDefault();
+        if (mathOn) {
+            const mathNext = document.getElementById('math-next-btn');
+            if (mathNext && mathNext.style.display !== 'none' && !mathNext.disabled) mathNext.click();
+            return;
+        }
+        if (tag === 'INPUT' && e.target.classList.contains('quiz-input')) {
+            const inputs = Array.from(document.querySelectorAll('#quiz-options .quiz-input'));
+            const i = inputs.indexOf(e.target);
+            for (let j = i + 1; j < inputs.length; j++) {
+                if (!inputs[j].disabled && !String(inputs[j].value || '').trim()) {
+                    inputs[j].focus();
+                    return;
+                }
+            }
+        }
+        speedSubmitAndAdvance();
+        return;
+    }
+
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
     if (!quizOn && !mathOn && !rewriteOn) return;
 
     if (e.key === ' ' || e.code === 'Space') {
@@ -10036,14 +10197,32 @@ document.addEventListener('keydown', function(e) {
     }
 
     if (!quizOn || isAnswered) return;
-    if (e.key >= '1' && e.key <= '9') {
-        const idx = parseInt(e.key, 10) - 1;
-        const btns = document.querySelectorAll('#quiz-options .option-btn');
-        if (btns[idx] && !btns[idx].disabled) {
-            e.preventDefault();
-            btns[idx].click();
+    const btns = document.querySelectorAll('#quiz-options .option-btn');
+    let idx = -1;
+    if (e.key >= '1' && e.key <= '9') idx = parseInt(e.key, 10) - 1;
+    if (isTestPlay() && idx < 0 && /^[a-zA-Z]$/.test(e.key)) {
+        const q = currentQuestions[currentIdx];
+        const k = e.key.toLowerCase();
+        if (q && q.type === 'tf') {
+            if (k === 't') idx = 0;
+            else if (k === 'f') idx = 1;
+        } else if (k >= 'a' && k <= 'i') {
+            idx = k.charCodeAt(0) - 97;
         }
     }
+    if (idx < 0 || !btns[idx] || btns[idx].disabled) return;
+    e.preventDefault();
+    if (isTestPlay()) {
+        speedPickIndex = idx;
+        btns.forEach(function (b, i) {
+            const on = i === idx;
+            b.classList.toggle('speed-picked', on);
+            if (on) b.setAttribute('aria-pressed', 'true');
+            else b.removeAttribute('aria-pressed');
+        });
+        return;
+    }
+    btns[idx].click();
 });
     </script>
 	
