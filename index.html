@@ -678,6 +678,13 @@ input:checked + .slider:before {
     filter: grayscale(100%);
 }
 .nav-ico:empty { display: none; }
+.nav-word {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1;
+}
 .nav-lbl {
     display: none !important;
 }
@@ -742,27 +749,32 @@ input:checked + .slider:before {
            📱 GRID LAYOUT FIX (ဘာသာရပ်များကို ၂ ကော်လံ ခွဲပြသရန်)
            ============================================================ */
         
-        /* Subject List Container များကို Grid (၂ ကွက်ယှဉ်) ပုံစံပြောင်းခြင်း */
+        /* Subject menus are one full-width row each. */
         #subject-list, 
-        #old-subject-list, 
+        #old-subject-list,
+        #test-subject-list,
+        #test-old-subject-list,
         #daily-screen .daily-grid {
-            display: grid !important;
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 12px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 8px !important;
         }
 
-        /* နေရာကျဉ်းသွားသည့်အတွက် Card များကို အံဝင်ခွင်ကျဖြစ်အောင် ပြန်ချိန်ခြင်း */
         .subject-card {
-            margin-bottom: 0 !important; /* Grid တွင် Gap သုံးထားသဖြင့် Margin ကို ပယ်ဖျက်မည် */
-            padding: 16px 14px !important;
-            font-size: 0.95rem !important;
+            margin-bottom: 0 !important;
+            padding: 16px 18px !important;
+            font-size: 1rem !important;
             font-weight: 600 !important;
-            line-height: 1.45 !important;
-            min-height: 52px !important;
+            line-height: 1.4 !important;
+            min-height: 56px !important;
+            height: auto !important;
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
-            height: 100% !important; /* Card များ အမြင့်ညီစေရန် */
+            background: #14171c !important;
+            border: 1px solid rgba(255, 255, 255, 0.06) !important;
+            border-radius: 14px !important;
+            box-shadow: inset 3px 0 0 rgba(240, 185, 11, 0.75);
         }
 
         /* ညာဘက်ထောင့်က မြား (➔) သို့မဟုတ် သော့ (🔒) ကို နေရာချရန် */
@@ -777,19 +789,41 @@ input:checked + .slider:before {
 
         /* ၁။ Free Trial နှင့် အခြား Menu ခလုတ်များအားလုံးကို ၂ ကော်လံ ခွဲခြင်း */
        #activity-content, #menu-content, #old-menu-content {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 10px !important;
-    grid-auto-rows: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: stretch !important;
 }
 #activity-content .btn, #menu-content .btn, #old-menu-content .btn {
     margin: 0 !important;
-    height: 100% !important;
-    font-size: 0.95rem !important;
-    padding: 12px 10px !important;
+    height: auto !important;
+    min-height: 54px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em;
+    padding: 14px 16px !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    gap: 12px;
+    background: #14171c !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 14px !important;
+    box-shadow: none !important;
+}
+#activity-content .btn::before, #menu-content .btn::before, #old-menu-content .btn::before {
+    content: '';
+    width: 3px;
+    height: 16px;
+    border-radius: 2px;
+    background: #F0B90B;
+    flex: 0 0 3px;
+}
+#menu-title, #activity-title, #old-menu-title, #test-screen > h2 {
+    letter-spacing: 0.03em;
+    font-weight: 700;
+    margin-bottom: 18px;
 }
 #glossary-screen { padding-bottom: 8px; }
 #glossary-screen.active-screen {
@@ -3365,9 +3399,28 @@ body.volunteer-role .vol-report-link { display: block !important; }
         </div>
     </div>
 </div>
+		<div id="test-screen" class="screen">
+    <h2 style="text-align: center; color: var(--accent);">Test</h2>
+    <div class="grade-picker-row" id="test-grade-row">
+        <button type="button" class="grade-btn" data-grade="10" onclick="setSelectedGrade(10)">Grade 10</button>
+        <button type="button" class="grade-btn" data-grade="11" onclick="setSelectedGrade(11)">Grade 11</button>
+        <button type="button" class="grade-btn active" data-grade="12" onclick="setSelectedGrade(12)">Grade 12</button>
+    </div>
+    <div id="test-tabs-row" style="display: flex; gap: 10px; margin: 14px 0; padding: 0 5px;">
+        <button id="test-tab-current" type="button" class="btn" style="flex:1; background: #F0B90B; color: #0B0E11;" onclick="switchTestTab('current')">ဘာသာရပ်များ</button>
+        <button id="test-tab-old" type="button" class="btn" style="flex:1; background: #1E2329; color: var(--white); opacity: 0.6;" onclick="switchTestTab('old')">မေးခွန်းဟောင်းများ</button>
+    </div>
+    <div id="test-current-section">
+        <div id="test-subject-list"></div>
+    </div>
+    <div id="test-old-section" style="display: none;">
+        <div style="text-align:center; margin: 0 0 12px;"><span class="old-q-chip">Old question</span></div>
+        <div id="test-old-subject-list"></div>
+    </div>
+</div>
 		<div id="old-menu-screen" class="screen">
             <h2 id="old-menu-title" style="text-align: center; color: var(--accent); margin-bottom: 20px;"></h2>
-            <div id="old-menu-content" style="padding: 0 10px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; grid-auto-rows: 1fr;"></div>
+            <div id="old-menu-content" style="padding: 0 10px;"></div>
             <button class="btn back-btn" id="old-menu-back-btn" style="margin-top: 20px;">နောက်သို့</button>
         </div>
 		
@@ -3514,7 +3567,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         <div id="menu-screen" class="screen">
             <h2 id="menu-title" style="text-align: center; color: var(--accent);"></h2>
             <div id="menu-content"></div>
-            <button class="btn back-btn" onclick="showScreen('home')">ပင်မစာမျက်နှာသို့</button>
+            <button class="btn back-btn" onclick="leaveSubjectMenu()">ပင်မစာမျက်နှာသို့</button>
         </div>
 
         <div id="activity-screen" class="screen">
@@ -3771,6 +3824,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 		
    <div class="nav">
     <div class="nav-item nav-active" data-tab="home" aria-label="Study" onclick="changeTab('home', this)"><span class="nav-ico">🏠</span></div>
+    <div class="nav-item" data-tab="test" aria-label="Test" onclick="changeTab('test', this)"><span class="nav-word">Test</span></div>
     <div class="nav-item" data-tab="time" aria-label="Time" onclick="changeTab('time', this)"><span class="nav-ico">📊</span></div>
     <div class="nav-item" data-tab="social" aria-label="Rank" onclick="changeTab('social', this)"><span class="nav-ico">🏆</span></div>
     <div class="nav-item" data-tab="stats" aria-label="Analysis" onclick="changeTab('stats', this)"><span class="nav-ico">📈</span></div>
@@ -4627,7 +4681,12 @@ function setQuizKeysHint(text) {
         const RANK_TZ = 'Asia/Yangon';
         let rankPeriod = 'all';
         let quizPlayMode = 'practice';
+        let testTabActive = false;
         function isTestPlay() { return quizPlayMode === 'test'; }
+        function syncEntryMode() {
+            if (isWeakQuizFlow) return;
+            quizPlayMode = testTabActive ? 'test' : 'practice';
+        }
         let isWeakQuizFlow = false;
         let weakQuizBack = null;
         const WEAK_Q_CAP = 80;
@@ -6082,39 +6141,98 @@ function setOldMenuTitle(text) {
         `<span>${text}</span><span class="old-q-chip">Old question</span>`;
 }
 		
-		function initOldSubjects() {
-    const list = document.getElementById('old-subject-list');
+function fillSubjectCards(list, oldFlow) {
     if (!list) return;
     list.innerHTML = '';
-
     subjects.forEach(sub => {
-        let isPaid = checkAccess(sub.id);
-
-        const card = document.createElement('div');
-        card.className = `subject-card ${isPaid ? '' : 'locked'}`;
-        if (isPaid && isVolunteerUnlock(sub.id) && !isPaidUnlock(sub.id)) card.classList.add('vol-unlocked');
+        const isPaid = checkAccess(sub.id);
+        const div = document.createElement('div');
+        div.className = `subject-card ${isPaid ? '' : 'locked'}`;
+        if (isPaid && isVolunteerUnlock(sub.id) && !isPaidUnlock(sub.id)) div.classList.add('vol-unlocked');
         const volMark = (isPaid && isVolunteerUnlock(sub.id) && !isPaidUnlock(sub.id)) ? '<span class="vol-card-mark">VOL</span>' : '';
-        card.innerHTML = `<span>${sub.name}${volMark} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
-
-        card.onclick = () => {
-            if (isPaid) {
+        div.innerHTML = `<span>${sub.name}${volMark} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
+        div.onclick = () => {
+            if (!isPaid) {
+                tg.showAlert(oldFlow
+                    ? "ဒီဘာသာရပ်ကို ဝယ်ယူထားခြင်း မရှိသေးပါ။ Unlock လုပ်ရန် ဆက်သွယ်ပါ။"
+                    : "ဘာသာရပ်၀ယ်ယူထားသူများသာ အသုံးပြုနိုင်ပါသည်။");
+                return;
+            }
+            if (oldFlow) {
                 currentSubject = sub;
                 isAnswered = false;
-				setOldQuestionContext(true);
-                showScreen('old-menu');   // ⬅️ Go to separate screen
+                setOldQuestionContext(true);
+                showScreen('old-menu');
                 showOldMenu(sub);
-            } else {
-                tg.showAlert("ဒီဘာသာရပ်ကို ဝယ်ယူထားခြင်း မရှိသေးပါ။ Unlock လုပ်ရန် ဆက်သွယ်ပါ။");
+                return;
             }
+            setOldQuestionContext(false);
+            openSubjectMenu(sub);
         };
-        list.appendChild(card);
+        list.appendChild(div);
     });
+}
+
+function initOldSubjects() {
+    fillSubjectCards(document.getElementById('old-subject-list'), true);
+}
+
+function switchTestTab(tab) {
+    const cfg = (typeof getGradeCfg === 'function') ? getGradeCfg() : { showOldQuestions: true };
+    if (tab === 'old' && !cfg.showOldQuestions) tab = 'current';
+    const currentSection = document.getElementById('test-current-section');
+    const oldSection = document.getElementById('test-old-section');
+    const currentBtn = document.getElementById('test-tab-current');
+    const oldBtn = document.getElementById('test-tab-old');
+    if (!currentSection || !oldSection) return;
+    const showOld = tab === 'old';
+    currentSection.style.display = showOld ? 'none' : 'block';
+    oldSection.style.display = showOld ? 'block' : 'none';
+    if (currentBtn) {
+        currentBtn.style.opacity = showOld ? '0.6' : '1';
+        currentBtn.style.background = showOld ? '#1E2329' : '#F0B90B';
+        currentBtn.style.color = showOld ? 'var(--white)' : '#0B0E11';
+    }
+    if (oldBtn) {
+        oldBtn.style.opacity = showOld ? '1' : '0.6';
+        oldBtn.style.background = showOld ? '#F0B90B' : '#1E2329';
+        oldBtn.style.color = showOld ? '#0B0E11' : 'var(--white)';
+    }
+}
+
+function renderTestHome() {
+    const row = document.getElementById('test-grade-row');
+    const grade = (typeof getSelectedGrade === 'function') ? getSelectedGrade() : 12;
+    if (row) {
+        row.querySelectorAll('.grade-btn').forEach(function (btn) {
+            btn.classList.toggle('active', parseInt(btn.getAttribute('data-grade'), 10) === grade);
+        });
+    }
+    const cfg = (typeof getGradeCfg === 'function') ? getGradeCfg() : { showOldQuestions: true, label: 'Grade ' + grade };
+    const tabs = document.getElementById('test-tabs-row');
+    const oldBtn = document.getElementById('test-tab-old');
+    const currentBtn = document.getElementById('test-tab-current');
+    if (currentBtn) currentBtn.innerText = cfg.label + ' ဘာသာရပ်များ';
+    if (tabs) tabs.style.display = cfg.showOldQuestions ? 'flex' : 'none';
+    if (oldBtn) oldBtn.style.display = cfg.showOldQuestions ? '' : 'none';
+    if (!cfg.showOldQuestions) switchTestTab('current');
+    fillSubjectCards(document.getElementById('test-subject-list'), false);
+    fillSubjectCards(document.getElementById('test-old-subject-list'), true);
 }
 
 function backToOldSubjects() {
 	setOldQuestionContext(false);
+    if (testTabActive) {
+        showScreen('test');
+        switchTestTab('old');
+        return;
+    }
     showScreen('home');
     switchHomeTab('old');
+}
+
+function leaveSubjectMenu() {
+    showScreen(testTabActive ? 'test' : 'home');
 }
 
 function openOldMenu() {
@@ -6218,19 +6336,14 @@ function showOldMMChapters(typeName, cat) {
 }
 
 function showOldGeneralActivities(subId, partName, modePicked) {
-    if (!modePicked) {
-        showPlayModePicker(partName, () => showOldMenu(currentSubject), function () {
-            showOldGeneralActivities(subId, partName, true);
-        }, true);
-        return;
-    }
+    syncEntryMode();
     openOldMenu();
     const list = document.getElementById('old-menu-content');
     list.classList.remove('play-pick');
     list.innerHTML = '';
     const modeLabel = isTestPlay() ? 'Test' : 'Practice';
     setOldMenuTitle(`${partName} · ${modeLabel}`);
-    document.getElementById('old-menu-back-btn').onclick = () => showOldGeneralActivities(subId, partName);
+    document.getElementById('old-menu-back-btn').onclick = () => showOldMenu(currentSubject);
 
     if (subId === 'math') {
         let marksArray = ['1_Mark', '2_Marks', '3_Marks'];
@@ -6368,25 +6481,8 @@ function unlockCard(div, sub) {
 }
 
         function renderSubjects() {
-    const list = document.getElementById('subject-list');
-    list.innerHTML = '';
+    fillSubjectCards(document.getElementById('subject-list'), false);
     syncTrialButton();
-
-    subjects.forEach(sub => {
-        let isPaid = checkAccess(sub.id);
-
-        const div = document.createElement('div');
-        div.className = `subject-card ${isPaid ? '' : 'locked'}`;
-        if (isPaid && isVolunteerUnlock(sub.id) && !isPaidUnlock(sub.id)) div.classList.add('vol-unlocked');
-        const volMark = (isPaid && isVolunteerUnlock(sub.id) && !isPaidUnlock(sub.id)) ? '<span class="vol-card-mark">VOL</span>' : '';
-        div.innerHTML = `<span>${sub.name}${volMark} ${isPaid ? '' : '🔒'}</span> <span>➔</span>`;
-        
-                div.onclick = () => {
-            setOldQuestionContext(false);      // ⬅️ ADD THIS LINE
-            isPaid ? openSubjectMenu(sub) : tg.showAlert("ဘာသာရပ်၀ယ်ယူထားသူများသာ အသုံးပြုနိုင်ပါသည်။");
-        };
-        list.appendChild(div);
-    });
 }
 
 function openSubjectMenu(sub) {
@@ -6395,7 +6491,7 @@ function openSubjectMenu(sub) {
 
     if (!checkAccess(sub.id)) {
         tg.showAlert("တစ်ဘာသာလုံးကို‌လေ့ကျင့်ဖို့ ဒီဘာသာရပ်ကိုဝယ်ယူလိုက်ပါ");
-        showScreen('home');
+        showScreen(testTabActive ? 'test' : 'home');
         return;
     }
 
@@ -6515,6 +6611,7 @@ function startQuizFile(fileName, onBack, weak) {
     isWeakQuizFlow = !!weak;
     weakQuizBack = onBack;
     if (weak) quizPlayMode = 'practice';
+    else syncEntryMode();
     const back = document.getElementById('quiz-back-btn');
     if (back) {
         back.innerText = "ထွက်မည်";
@@ -6525,9 +6622,8 @@ function startQuizFile(fileName, onBack, weak) {
 }
 
 function chooseThenQuiz(title, fileName, onBackToList, oldMenu) {
-    showPlayModePicker(title, onBackToList, function (mode) {
-        startQuizFile(fileName, onBackToList, mode === 'weak');
-    }, oldMenu, fileName);
+    isWeakQuizFlow = false;
+    startQuizFile(fileName, onBackToList, false);
 }
 
 function startOrPickQuiz(title, fileName, onBack, oldMenu) {
@@ -7863,12 +7959,7 @@ function updateFlashUI() {
             openTrialMenu();
         }
     };
-    if (subId === 'math' && !modePicked) {
-        showPlayModePicker(displayTitle, backFromChapter, function () {
-            showGeneralActivities(subId, partName, parentChapter, true);
-        });
-        return;
-    }
+    syncEntryMode();
     showScreen('activity');
     
     // အခန်းခွဲ ဖြစ်နေလျှင် ဖြတ်ထုတ်ပြသရန်
@@ -7881,10 +7972,6 @@ function updateFlashUI() {
     content.innerHTML = '';
 
     document.getElementById('activity-back-btn').onclick = () => {
-        if (subId === 'math' && modePicked) {
-            showGeneralActivities(subId, partName, parentChapter, false);
-            return;
-        }
         backFromChapter();
     };
 
@@ -8665,7 +8752,7 @@ function nextQuestion() {
     );
 		  
 		   const nav = document.querySelector('.nav');
-    const mainTabs = ['home', 'time', 'social', 'stats', 'profile', 'post', 'cust'];
+    const mainTabs = ['home', 'test', 'time', 'social', 'stats', 'profile', 'post', 'cust'];
     if (mainTabs.includes(id)) {
         nav.classList.remove('nav-hidden');
         document.body.classList.remove('page-no-nav');
@@ -8686,12 +8773,20 @@ function goTab(id) {
     showScreen(id);
     document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('nav-active'));
     if (el) el.classList.add('nav-active');
+    testTabActive = (id === 'test');
+    syncEntryMode();
     if(id === 'home') {
 		setOldQuestionContext(false);
         isTrialFlow = false; 
         renderSubjects();
         if (getGradeCfg().showOldQuestions) backToOldSubjects();
         switchHomeTab('current');
+    }
+    if(id === 'test') {
+        setOldQuestionContext(false);
+        isTrialFlow = false;
+        renderTestHome();
+        switchTestTab('current');
     }
     if(id === 'profile') {
         renderProfileData();
@@ -8925,6 +9020,7 @@ function applyGradeUI() {
     applyAdminChrome();
     renderSubjects();
     initOldSubjects();
+    if (typeof renderTestHome === 'function') renderTestHome();
 }
 
 function setSelectedGrade(grade) {
