@@ -254,7 +254,6 @@ body.page-no-nav .container {
         line-height: 1.45;
         transition: background-color 0.08s linear, border-color 0.08s linear, color 0.08s linear;
     }
-    .btn:active { transform: scale(0.97); }
     .back-btn { background: #181A20 !important; border: 1px solid #2B3139 !important; color: #848E9C !important; margin-top: 25px !important; }
     .btn.locked { background: #181A20; border: 1px solid #2B3139; color: #474D57; opacity: 0.5; cursor: not-allowed; }
     .btn-practice, .btn-all-chapter {
@@ -1325,69 +1324,7 @@ body[data-theme] .container {
     position: relative;
     overflow: hidden;
 }
-.leaderboard-item:active { transform: scale(0.98); }
-
-/* One short press: scale down, then release. Transform and opacity only. */
-@media (prefers-reduced-motion: no-preference) {
-    .subject-card,
-    .btn,
-    .option-btn,
-    .grade-btn,
-    .gloss-term,
-    .mini-back,
-    .leaderboard-item,
-    .profile-btn-stats,
-    .profile-btn-shop,
-    #study-continue {
-        transition: transform 80ms ease-out, opacity 80ms ease-out;
-    }
-    .option-btn {
-        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 80ms ease-out, opacity 80ms ease-out;
-    }
-    .nav-item {
-        transition: opacity 0.15s ease, color 0.15s ease, background-color 0.08s linear, transform 80ms ease-out;
-    }
-    .subject-card:not(.locked):active,
-    .btn:not(.locked):active,
-    .option-btn:active,
-    .grade-btn:active,
-    .gloss-term:active,
-    .mini-back:active,
-    .leaderboard-item:active,
-    .profile-btn-stats:active,
-    .profile-btn-shop:active,
-    #study-continue:active {
-        transform: scale(0.95);
-        opacity: 0.76;
-        transition-duration: 60ms;
-    }
-    .subject-card.locked:active,
-    .btn.locked:active {
-        transform: scale(0.95);
-        transition-duration: 60ms;
-    }
-    .nav-item:active {
-        transform: scale(0.95) !important;
-        transition-duration: 60ms;
-    }
-}
-@media (prefers-reduced-motion: reduce) {
-    .subject-card:active,
-    .btn:active,
-    .option-btn:active,
-    .grade-btn:active,
-    .gloss-term:active,
-    .mini-back:active,
-    .leaderboard-item:active,
-    .profile-btn-stats:active,
-    .profile-btn-shop:active,
-    #study-continue:active,
-    .nav-item:active {
-        transform: none !important;
-        animation: none !important;
-        transition: none !important;
-    }
-}
+.leaderboard-item:active { transform: none; }
 .leaderboard-item.is-me {
     border: 2px solid var(--accent);
     background: linear-gradient(145deg, #0F172A, #162235);
@@ -1876,7 +1813,94 @@ html body[data-theme] .btn.btn-test {
 }
 
 .profile-btn-shop:active {
-    transform: scale(0.97);
+    transform: none;
+}
+
+/* Gold flows inside the pressed row, then leaves. The row does not move. */
+.subject-card,
+.btn,
+.option-btn,
+.grade-btn,
+.gloss-term,
+.mini-back,
+.leaderboard-item,
+.profile-btn-stats,
+.profile-btn-shop,
+#study-continue,
+.nav-item {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+.subject-card:active,
+.btn:active,
+.option-btn:active,
+.grade-btn:active,
+.gloss-term:active,
+.mini-back:active,
+.leaderboard-item:active,
+.profile-btn-stats:active,
+.profile-btn-shop:active,
+#study-continue:active,
+.nav-item:active {
+    transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes reed-gold-flow {
+        from { transform: translate3d(-105%, 0, 0); }
+        to { transform: translate3d(105%, 0, 0); }
+    }
+    .subject-card:active::after,
+    .btn:active::after,
+    .option-btn:active::after,
+    .grade-btn:active::after,
+    .gloss-term:active::after,
+    .mini-back:active::after,
+    .leaderboard-item:active::after,
+    .profile-btn-stats:active::after,
+    .profile-btn-shop:active::after,
+    #study-continue:active::after,
+    .nav-item:active::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        pointer-events: none;
+        background: linear-gradient(90deg, rgba(240, 185, 11, 0) 0%, rgba(240, 185, 11, 0.35) 24%, #FCD535 44%, #F0B90B 50%, #FCD535 56%, rgba(240, 185, 11, 0.35) 76%, rgba(240, 185, 11, 0) 100%);
+        animation: reed-gold-flow 450ms ease-in-out forwards;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .subject-card:active,
+    .btn:active,
+    .option-btn:active,
+    .grade-btn:active,
+    .gloss-term:active,
+    .mini-back:active,
+    .leaderboard-item:active,
+    .profile-btn-stats:active,
+    .profile-btn-shop:active,
+    #study-continue:active,
+    .nav-item:active {
+        transform: none;
+    }
+    .subject-card:active::after,
+    .btn:active::after,
+    .option-btn:active::after,
+    .grade-btn:active::after,
+    .gloss-term:active::after,
+    .mini-back:active::after,
+    .leaderboard-item:active::after,
+    .profile-btn-stats:active::after,
+    .profile-btn-shop:active::after,
+    #study-continue:active::after,
+    .nav-item:active::after {
+        content: none;
+        animation: none;
+    }
 }
 
 /* Theme shop card improvements */
