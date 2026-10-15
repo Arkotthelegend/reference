@@ -3652,7 +3652,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <h2 id="user-name" style="margin: 10px 0 5px;">Scholar</h2>
                 <p id="volunteer-chip" class="vol-chip">REED Volunteer</p>
                 <p id="user-id-text" style="color: #94A3B8; margin-bottom: 10px;"></p>
-                <button type="button" id="add-home-btn" hidden onclick="reedAddHome()">Add to Home</button>
+                <button type="button" id="add-home-btn" hidden>Add to Home</button>
                 </div>
 
                 <div class="profile-info-card">
@@ -4129,7 +4129,11 @@ body.volunteer-role .vol-report-link { display: block !important; }
         }
         window.reedPlaceSwitchPills = placeSwitchPills;
         window.addEventListener('resize', placeSwitchPills);
+        function isAddHome(node) {
+            return !!(node && node.closest && node.closest('#add-home-btn'));
+        }
         document.addEventListener('pointerdown', function (e) {
+            if (isAddHome(e.target)) return;
             if (reduced() || (e.button && e.button !== 0)) return;
             var nav = e.target.closest && e.target.closest('.nav-item');
             if (nav) { popNav(nav); return; }
@@ -4138,6 +4142,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
             arm(row);
         }, true);
         document.addEventListener('keydown', function (e) {
+            if (isAddHome(e.target)) return;
             if (reduced()) return;
             if (e.key !== 'Enter' && e.key !== ' ' && e.code !== 'Space') return;
             var nav = e.target.closest && e.target.closest('.nav-item');
@@ -4147,6 +4152,10 @@ body.volunteer-role .vol-report-link { display: block !important; }
             arm(row);
         }, true);
         document.addEventListener('click', function (e) {
+            if (isAddHome(e.target)) {
+                if (typeof window.reedAddHome === 'function') window.reedAddHome();
+                return;
+            }
             var row = flowRow(e.target);
             if (!row || reduced()) return;
             if (row.getAttribute('data-reed-go') === '1') {
@@ -9264,15 +9273,28 @@ function reedOfferHome() {
         btn.hidden = true;
     }
 }
+function reedHomePrompt(tg) {
+    var text = 'Add to Home needs the Main Mini App.';
+    if (tg && typeof tg.showPopup === 'function') {
+        try {
+            tg.showPopup({ message: text, buttons: [{ id: 'ok', type: 'ok' }] });
+            return;
+        } catch (e) {}
+    }
+    if (tg && typeof tg.showAlert === 'function') {
+        try { tg.showAlert(text); } catch (e2) {}
+    }
+}
 function reedAddHome() {
     var btn = document.getElementById('add-home-btn');
     var tg = window.Telegram && window.Telegram.WebApp;
     if (!tg || typeof tg.addToHomeScreen !== 'function') {
+        reedHomePrompt(tg);
         if (btn) btn.hidden = true;
         return;
     }
     try { tg.addToHomeScreen(); }
-    catch (e) { if (btn) btn.hidden = true; }
+    catch (e) { reedHomePrompt(tg); }
 }
 function telegramUserId() {
     var live = window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user;
