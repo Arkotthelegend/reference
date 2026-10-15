@@ -797,7 +797,7 @@ input:checked + .slider:before {
 #activity-content .btn, #menu-content .btn, #old-menu-content .btn {
     margin: 0 !important;
     height: auto !important;
-    min-height: 54px !important;
+    min-height: 68px !important;
     font-size: 1rem !important;
     font-weight: 600 !important;
     letter-spacing: 0.01em;
@@ -806,11 +806,67 @@ input:checked + .slider:before {
     align-items: center !important;
     justify-content: flex-start !important;
     text-align: left !important;
-    gap: 12px;
+    gap: 14px;
     background: #14171c !important;
     border: 1px solid rgba(255, 255, 255, 0.06) !important;
     border-radius: 14px !important;
     box-shadow: none !important;
+}
+.row-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 0; flex: 1; }
+.row-name { font-weight: 650; line-height: 1.35; }
+.row-count { color: #F0B90B; font-size: 0.82rem; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.row-count.is-check { color: #10B981; font-size: 1rem; }
+.row-track { display: block; width: 100%; height: 2px; margin-top: 6px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+.row-bar { display: block; height: 2px; background: #F0B90B; }
+#study-continue {
+    width: 100%;
+    margin: 0 0 14px;
+    min-height: 72px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    text-align: left;
+    background: #14171c;
+    border: 1px solid rgba(240, 185, 11, 0.45);
+    border-radius: 14px;
+    color: #fff;
+}
+#study-continue[hidden] { display: none !important; }
+#study-continue .row-name { font-size: 1.02rem; }
+#quiz-end { display: none; }
+#quiz-screen.quiz-done #question-box,
+#quiz-screen.quiz-done #quiz-options,
+#quiz-screen.quiz-done #explanation-box,
+#quiz-screen.quiz-done #quiz-keys-hint,
+#quiz-screen.quiz-done #quiz-footer,
+#quiz-screen.quiz-done #quiz-progress { display: none !important; }
+#quiz-screen.quiz-done #quiz-end {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 56px 16px 24px;
+}
+.quiz-end-num {
+    font-size: 4.4rem;
+    font-weight: 700;
+    color: #F0B90B;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+#quiz-end-next { width: min(100%, 320px) !important; min-height: 56px; }
+#quiz-options .option-btn.correct-answer {
+    background: #047857 !important;
+    border: 2px solid #34D399 !important;
+    color: #fff !important;
+}
+#quiz-options .option-btn.wrong-answer {
+    background: #B91C1C !important;
+    border: 2px solid #FCA5A5 !important;
+    color: #fff !important;
 }
 #activity-content .btn::before, #menu-content .btn::before, #old-menu-content .btn::before {
     content: '';
@@ -3381,6 +3437,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
 
     <div class="container">
         <div id="home-screen" class="screen active-screen">
+    <button type="button" id="study-continue" hidden></button>
     <!-- Two Tabs -->
   <div id="home-tabs-row" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 0 5px;">
     <button id="home-tab-current" class="btn" style="flex:1; background: #F0B90B; color: #0B0E11;" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
@@ -3665,6 +3722,10 @@ body.volunteer-role .vol-report-link { display: block !important; }
         <button id="math-sol-footer-btn" class="btn" type="button">အဖြေကြည့်ရန်</button>
         <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
         <button class="btn back-btn" id="quiz-back-btn" style="margin-top: 10px;">ထွက်မည်</button>
+    </div>
+    <div id="quiz-end">
+        <div class="quiz-end-num" id="quiz-end-num">0</div>
+        <button type="button" class="btn" id="quiz-end-next">→</button>
     </div>
     <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">Report a mistake</button>
 </div>
@@ -5042,7 +5103,7 @@ async function submitScore(timeTaken = 0) {
         timeTaken: timeTaken,
         date: now,
         isOld: (getSelectedGrade() === 12 && meta.isOld),
-        grade: getSelectedGrade()
+        grade: (typeof getSelectedGrade === 'function') ? getSelectedGrade() : 12
     });
     if (localStats.history.length > 100) localStats.history = localStats.history.slice(0, 100);
     
@@ -5979,7 +6040,7 @@ window.oldENGrammarTopics = oldENGrammarTopics;
 
 // မေးခွန်းဟောင်းအတွက် သီးသန့် Button ဖန်တီးပေးသည့် Function
 function createOldBtn(txt, parent, act) {
-    createBtn(txt, parent, act);
+    return createBtn(txt, parent, act);
 }
 
 		let isOldQuestionFlow = false;
@@ -6122,7 +6183,7 @@ function showOldMenu(sub) {
     } else {
         for (let i = 1; i <= sub.chapters; i++) {
             if (sub.id === 'eco' && i === 6) continue;
-            createOldBtn(`Chapter ${i}`, list, () => showOldGeneralActivities(sub.id, `Chapter ${i}`));
+            tagQuizScope(createOldBtn(`Chapter ${i}`, list, () => showOldGeneralActivities(sub.id, `Chapter ${i}`)), 'old_' + sub.id + '_Chapter_' + i);
         }
     }
 }
@@ -6135,10 +6196,10 @@ function showOldENUnits(typeName) {
     document.getElementById('old-menu-back-btn').onclick = () => showOldMenu(currentSubject);
 
     for (let i = 1; i <= 12; i++) {
-        createOldBtn(`Unit ${i}`, list, () => {
-            const fileName = `old_en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`;
+        const fileName = `old_en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`;
+        tagQuizFile(createOldBtn(`Unit ${i}`, list, () => {
             chooseThenQuiz(`Unit ${i}`, fileName, () => showOldENUnits(typeName), true);
-        });
+        }), fileName);
     }
 }
 
@@ -6189,10 +6250,10 @@ function showOldMMChapters(typeName, cat) {
     document.getElementById('old-menu-back-btn').onclick = () => showOldMMQuizOptions(typeName);
 
     ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃'].forEach(chapter => {
-        createOldBtn(chapter, list, () => {
-            const fileName = `old_mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+        const fileName = `old_mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+        tagQuizFile(createOldBtn(chapter, list, () => {
             chooseThenQuiz(chapter, fileName, () => showOldMMChapters(typeName, cat), true);
-        });
+        }), fileName);
     });
 }
 
@@ -6212,18 +6273,22 @@ function showOldGeneralActivities(subId, partName, modePicked) {
         if (partName === 'Chapter 7') marksArray = ['1_Mark', '2_Marks'];
 
         marksArray.forEach(mark => {
-            createOldBtn(mark.replace('_', ' '), list, () => {
-                const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
+            const fileName = `old_math_${partName}_${mark}`.replace(/ /g, "_");
+            const label = mark.replace('_', ' ');
+            tagQuizFile(createOldBtn(label, list, () => {
+                activeQuizLabel = label;
+                captureQuizSiblings(fileName);
                 startQuizFile(fileName, () => showOldGeneralActivities(subId, partName, true));
-            });
+            }), fileName);
         });
     } else {
         let types = ['True_False', 'Fill_Blank', 'MCQ'];
         types.forEach(type => {
-            createOldBtn(type.replace('_', ' '), list, () => {
-                const fileName = `old_${subId}_${partName}_${type}`.replace(/ /g, "_");
-                startOrPickQuiz(type.replace('_', ' '), fileName, () => showOldGeneralActivities(subId, partName, true), true);
-            });
+            const fileName = `old_${subId}_${partName}_${type}`.replace(/ /g, "_");
+            const label = type.replace('_', ' ');
+            tagQuizFile(createOldBtn(label, list, () => {
+                startOrPickQuiz(label, fileName, () => showOldGeneralActivities(subId, partName, true), true);
+            }), fileName);
         });
     }
 }
@@ -6387,16 +6452,16 @@ function openSubjectMenu(sub) {
     } else if (sub.id === 'phy' || sub.id === 'chem') {
         for(let i=1; i<=sub.chapters; i++) {
             if (skip.includes(i)) continue;
-            createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
+            tagQuizScope(createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`)), sub.id + '_Chapter_' + i);
         }
     } else {
         for(let i=1; i<=sub.chapters; i++) {
             if (skip.includes(i)) continue;
             
             if (sub.id === 'math') {
-                createBtn(`Chapter ${i}`, content, () => showGeneralActivities(sub.id, `Chapter ${i}`));
+                tagQuizScope(createBtn(`Chapter ${i}`, content, () => showGeneralActivities(sub.id, `Chapter ${i}`)), sub.id + '_Chapter_' + i);
             } else {
-                createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`));
+                tagQuizScope(createBtn(`Chapter ${i}`, content, () => showSubChaptersMenu(sub.id, `Chapter ${i}`)), sub.id + '_Chapter_' + i);
             }
         }
     }
@@ -6484,6 +6549,8 @@ function startQuizFile(fileName, onBack, weak) {
 
 function chooseThenQuiz(title, fileName, onBackToList, oldMenu) {
     isWeakQuizFlow = false;
+    activeQuizLabel = title || '';
+    captureQuizSiblings(fileName);
     startQuizFile(fileName, onBackToList, false);
 }
 
@@ -6502,10 +6569,10 @@ function startOrPickQuiz(title, fileName, onBack, oldMenu) {
             const listed = (typeof gradeEnUnitsForType === 'function') ? gradeEnUnitsForType(typeName) : null;
             const units = (listed && listed.length) ? listed : Array.from({ length: unitCount }, (_, i) => i + 1);
             units.forEach(i => {
-                createBtn(`Unit ${i}`, content, () => {
-                    const fileName = `en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`;
+                const fileName = `en_unit${i}_${typeName.toLowerCase().replace(' ', '_')}`;
+                tagQuizFile(createBtn(`Unit ${i}`, content, () => {
                     chooseThenQuiz(`Unit ${i}`, fileName, () => showENUnits(typeName));
-                });
+                }), fileName);
             });
         }
 
@@ -7283,20 +7350,21 @@ function showMMChapters(typeName, cat) {
     allBtn.innerText = `${cat}အကုန်လေ့ကျင့်မည်`;
     allBtn.style.gridColumn = '1 / -1';
     allBtn.style.marginBottom = '4px';
+    const allFile = `mm_${cat}_all_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
     allBtn.onclick = () => {
-        const fileName = `mm_${cat}_all_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
-        chooseThenQuiz(`${cat} အကုန်`, fileName, () => showMMChapters(typeName, cat));
+        chooseThenQuiz(`${cat} အကုန်`, allFile, () => showMMChapters(typeName, cat));
     };
     content.appendChild(allBtn);
+    tagQuizFile(allBtn, allFile);
 
     const mmChapters = (typeof gradeMmChaptersFor === 'function')
         ? gradeMmChaptersFor(cat)
         : (getGradeCfg().mmChapters || ['အခန်း ၁', 'အခန်း ၂', 'အခန်း ၃']);
     mmChapters.forEach(chapter => {
-        createBtn(chapter, content, () => {
-            const fileName = `mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+        const fileName = `mm_${cat}_${chapter}_${typeName}`.replace(/\//g, "_").replace(/ /g, "_");
+        tagQuizFile(createBtn(chapter, content, () => {
             chooseThenQuiz(chapter, fileName, () => showMMChapters(typeName, cat));
-        });
+        }), fileName);
     });
 }
 
@@ -7468,22 +7536,23 @@ function showQuizSubChapters(subId, chapterName, quizType) {
         fullBtn.className = 'btn btn-all-chapter';
         fullBtn.innerText = "တစ်ခန်းလုံး";
         fullBtn.style.gridColumn = "1 / -1";
+        const wholeFile = `${subId}_${chapterName}_${quizType}`.replace(/ /g, "_");
         fullBtn.onclick = () => {
-            const fileName = `${subId}_${chapterName}_${quizType}`.replace(/ /g, "_");
-            startOrPickQuiz(quizType.replace('_', ' '), fileName, () => showQuizSubChapters(subId, chapterName, quizType));
+            startOrPickQuiz(quizType.replace('_', ' '), wholeFile, () => showQuizSubChapters(subId, chapterName, quizType));
         };
         content.appendChild(fullBtn);
+        tagQuizFile(fullBtn, wholeFile);
     }
 
     const subChapters = (typeof gradeSubChaptersForType === 'function')
         ? gradeSubChaptersForType(subId, chapterName, quizType)
         : ((getGradeCfg().subChapters[subId] && getGradeCfg().subChapters[subId][chapterName]) || []);
     subChapters.forEach(subChap => {
-        createBtn(subChap, content, () => {
-            const activityPartName = `${chapterName}_${subChap}`;
-            const fileName = `${subId}_${activityPartName}_${quizType}`.replace(/ /g, "_");
+        const activityPartName = `${chapterName}_${subChap}`;
+        const fileName = `${subId}_${activityPartName}_${quizType}`.replace(/ /g, "_");
+        tagQuizFile(createBtn(subChap, content, () => {
             startOrPickQuiz(subChap, fileName, () => showQuizSubChapters(subId, chapterName, quizType));
-        });
+        }), fileName);
     });
 }
 
@@ -7630,10 +7699,10 @@ async function loadFormulas(subId, chapterName) {
     };
 
     ['True_False', 'Fill_Blank', 'MCQ'].forEach(type => {
-        createBtn(type.replace('_', ' '), content, () => {
-            const fileName = `${subId}_${partName}_${type}`.replace(/ /g, "_");
+        const fileName = `${subId}_${partName}_${type}`.replace(/ /g, "_");
+        tagQuizFile(createBtn(type.replace('_', ' '), content, () => {
             chooseThenQuiz(type.replace('_', ' '), fileName, () => showPhyChemActivities(subId, partName, parentChapter));
-        });
+        }), fileName);
     });
 }
 
@@ -7850,24 +7919,28 @@ function updateFlashUI() {
         }
         
         mathMarks.forEach(mark => {
-            createBtn(mark.replace('_', ' '), content, () => {
-                const fileName = `math_${partName}_${mark}`.replace(/ /g, "_");
+            const fileName = `math_${partName}_${mark}`.replace(/ /g, "_");
+            const label = mark.replace('_', ' ');
+            tagQuizFile(createBtn(label, content, () => {
+                activeQuizLabel = label;
+                captureQuizSiblings(fileName);
                 startQuizFile(fileName, () => showGeneralActivities(subId, partName, parentChapter, true));
-            });
+            }), fileName);
         });
     } else {
         let types = ['True_False', 'Fill_Blank', 'MCQ']; 
 
         types.forEach(type => {
-            createBtn(type.replace('_', ' '), content, () => {
-                const fileName = `${subId}_${partName}_${type}`.replace(/ /g, "_");
-                
+            const fileName = `${subId}_${partName}_${type}`.replace(/ /g, "_");
+            const label = type.replace('_', ' ');
+            const btn = createBtn(label, content, () => {
                 if (type === 'Definition') {
                     initFlashcards(fileName, "Definition", () => { showScreen('activity'); showGeneralActivities(subId, partName, parentChapter); });
                 } else {
-                    startOrPickQuiz(type.replace('_', ' '), fileName, () => showGeneralActivities(subId, partName, parentChapter));
+                    startOrPickQuiz(label, fileName, () => showGeneralActivities(subId, partName, parentChapter));
                 }
             });
+            if (type !== 'Definition') tagQuizFile(btn, fileName);
         });
     }
 }
@@ -7961,7 +8034,12 @@ function applyQuizPlayChrome() {
         }
         
         currentIdx = 0;
+        if (!isTestPlay() && resumeQuizIndex >= 0) {
+            currentIdx = Math.min(resumeQuizIndex, Math.max(0, currentQuestions.length - 1));
+        }
+        resumeQuizIndex = -1;
         score = 0;
+        sessionCorrect = 0;
         quizSeconds = 0;
         if (isTimerRunning) {
             clearInterval(quizTimerInterval);
@@ -7969,6 +8047,7 @@ function applyQuizPlayChrome() {
         }
         showScreen('quiz');
         applyQuizPlayChrome();
+        hideQuizEnd();
         loadQuestion();
     } catch (e) {
         if (loadId !== quizLoadSequence) return;
@@ -8132,10 +8211,14 @@ function gradeOpenBlank() {
     }
 
     recordWeakAnswer(q, isCorrect);
-    if (isCorrect && typeof score !== 'undefined' && isTestPlay()) {
-        score++;
-        const sd = document.getElementById('score-display');
-        if (sd) sd.innerText = `ရမှတ်: ${score}`;
+    saveStudySpot(false, true);
+    if (isCorrect) {
+        sessionCorrect++;
+        if (typeof score !== 'undefined' && isTestPlay()) {
+            score++;
+            const sd = document.getElementById('score-display');
+            if (sd) sd.innerText = `ရမှတ်: ${score}`;
+        }
     }
 
     if (multi && parts && parts.length === inputs.length) {
@@ -8192,6 +8275,7 @@ function speedSubmitAndAdvance() {
 function loadQuestion() {
     isAnswered = false;
     speedPickIndex = -1;
+    hideQuizEnd();
 
     // Reset explanation panel
     const explBox = document.getElementById('explanation-box');
@@ -8350,13 +8434,17 @@ function loadQuestion() {
                 const isCorrect = !!answerText && String(opts[i]).trim() === answerText;
 
                 recordWeakAnswer(q, isCorrect);
+                saveStudySpot(false, true);
                 options.forEach((b, idx) => {
                     if (answerText && String(opts[idx]).trim() === answerText) b.classList.add('correct-answer');
                     else if (idx === i) b.classList.add('wrong-answer');
                 });
-                if (isCorrect && typeof score !== 'undefined' && isTestPlay()) {
-                    score++;
-                    document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
+                if (isCorrect) {
+                    sessionCorrect++;
+                    if (typeof score !== 'undefined' && isTestPlay()) {
+                        score++;
+                        document.getElementById('score-display').innerText = `ရမှတ်: ${score}`;
+                    }
                 }
                 options.forEach(b => b.disabled = true);
 
@@ -8425,6 +8513,7 @@ function loadQuestion() {
     }
 
     typesetQuizMath();
+    if (currentIdx > 0) saveStudySpot(false);
     if (!isTestPlay()) {
         const catcher = document.getElementById('quiz-keycatch');
         if (catcher && document.activeElement === catcher) catcher.blur();
@@ -8525,8 +8614,8 @@ function nextQuestion() {
         const finalTime = quizSeconds;
         submitScore(finalTime);
         stopQuizTimerChrome();
-        const n = quizAllowsWeakList(currentQuizFile) ? weakCountFor(currentQuizFile) : 0;
-        offerWeakRetry(n);
+        saveStudySpot(true);
+        showQuizEnd();
     }
 }
 
@@ -8589,10 +8678,213 @@ function nextQuestion() {
         function createBtn(txt, parent, act, extraClass) {
             const b = document.createElement('button');
             b.className = extraClass ? ('btn ' + extraClass) : 'btn';
-            b.innerText = txt;
+            b.setAttribute('data-reed-name', txt);
+            const copy = document.createElement('span');
+            copy.className = 'row-copy';
+            const name = document.createElement('span');
+            name.className = 'row-name';
+            name.textContent = txt;
+            copy.appendChild(name);
+            b.appendChild(copy);
             b.onclick = act;
             parent.appendChild(b);
+            return b;
         }
+
+let resumeQuizIndex = -1;
+let sessionCorrect = 0;
+let quizSiblings = [];
+let quizSiblingAt = -1;
+let activeQuizLabel = '';
+
+function studyProgKey() {
+    const id = (typeof telegramUserId === 'function' ? telegramUserId() : '') || 'guest';
+    return 'reed_study_prog_v1_' + (id || 'guest');
+}
+function readStudyProg() {
+    try { return JSON.parse(localStorage.getItem(studyProgKey()) || '{}') || {}; }
+    catch (e) { return {}; }
+}
+function writeStudyProg(data) {
+    try { localStorage.setItem(studyProgKey(), JSON.stringify(data)); } catch (e) {}
+}
+function studyFileKey(fileName) {
+    const raw = String(fileName || '').replace(/\.json$/i, '');
+    if (typeof withGradePrefix === 'function') return withGradePrefix(raw);
+    return raw;
+}
+function saveStudySpot(done, touched) {
+    if (isTestPlay() || isWeakQuizFlow) return;
+    if (!currentQuizFile || !currentQuestions || !currentQuestions.length) return;
+    if (!done && !touched && currentIdx <= 0) return;
+    const data = readStudyProg();
+    const files = data.files || {};
+    const key = studyFileKey(currentQuizFile);
+    const pos = done ? currentQuestions.length : (currentIdx + 1);
+    files[key] = {
+        total: currentQuestions.length,
+        pos: pos,
+        done: !!done,
+        name: activeQuizLabel || key,
+        grade: (typeof getSelectedGrade === 'function') ? getSelectedGrade() : 12,
+        at: Date.now()
+    };
+    data.files = files;
+    data.last = done ? '' : key;
+    writeStudyProg(data);
+}
+function progressForFile(fileName) {
+    const key = studyFileKey(fileName);
+    const row = (readStudyProg().files || {})[key];
+    if (!row || !row.total) return null;
+    return row;
+}
+function progressForScope(scope) {
+    const key = studyFileKey(scope);
+    const files = readStudyProg().files || {};
+    let pos = 0;
+    let total = 0;
+    let any = false;
+    let allDone = true;
+    Object.keys(files).forEach(function (name) {
+        if (name !== key && name.indexOf(key + '_') !== 0) return;
+        const row = files[name];
+        if (!row || !row.total) return;
+        any = true;
+        total += row.total;
+        pos += row.done ? row.total : Math.max(0, (row.pos || 1) - 1);
+        if (!row.done) allDone = false;
+    });
+    if (!any) return null;
+    return { pos: pos, total: total, done: allDone && total > 0 };
+}
+function paintQuizCue(btn) {
+    if (!btn) return;
+    const name = btn.getAttribute('data-reed-name') || '';
+    let copy = btn.querySelector('.row-copy');
+    if (!copy) {
+        btn.textContent = '';
+        copy = document.createElement('span');
+        copy.className = 'row-copy';
+        btn.appendChild(copy);
+    }
+    copy.textContent = '';
+    const nameEl = document.createElement('span');
+    nameEl.className = 'row-name';
+    nameEl.textContent = name;
+    copy.appendChild(nameEl);
+    const file = btn.getAttribute('data-reed-file');
+    const scope = btn.getAttribute('data-reed-scope');
+    const row = file ? progressForFile(file) : (scope ? progressForScope(scope) : null);
+    if (!row) return;
+    const count = document.createElement('span');
+    count.className = 'row-count' + (row.done ? ' is-check' : '');
+    count.textContent = row.done ? '✓' : ((row.pos || 0) + '/' + row.total);
+    copy.appendChild(count);
+    if (!row.done && row.total) {
+        const track = document.createElement('span');
+        track.className = 'row-track';
+        const bar = document.createElement('span');
+        bar.className = 'row-bar';
+        const pct = Math.max(0, Math.min(100, Math.round(((row.pos || 0) / row.total) * 100)));
+        bar.style.width = pct + '%';
+        track.appendChild(bar);
+        copy.appendChild(track);
+    }
+}
+function tagQuizFile(btn, fileName) {
+    if (!btn) return btn;
+    if (!btn.getAttribute('data-reed-name')) btn.setAttribute('data-reed-name', (btn.textContent || '').trim());
+    btn.setAttribute('data-reed-file', fileName);
+    paintQuizCue(btn);
+    return btn;
+}
+function tagQuizScope(btn, scope) {
+    if (!btn) return btn;
+    btn.setAttribute('data-reed-scope', scope);
+    paintQuizCue(btn);
+    return btn;
+}
+function refreshStudyCues() {
+    document.querySelectorAll('[data-reed-file],[data-reed-scope]').forEach(paintQuizCue);
+    const row = document.getElementById('study-continue');
+    if (!row) return;
+    const data = readStudyProg();
+    const last = data.last && data.files && data.files[data.last];
+    if (!last || last.done) {
+        row.hidden = true;
+        row.onclick = null;
+        return;
+    }
+    row.hidden = false;
+    row.innerHTML = '';
+    const name = document.createElement('span');
+    name.className = 'row-name';
+    name.textContent = last.name || data.last;
+    const count = document.createElement('span');
+    count.className = 'row-count';
+    count.textContent = (last.pos || 1) + '/' + last.total;
+    const track = document.createElement('span');
+    track.className = 'row-track';
+    const bar = document.createElement('span');
+    bar.className = 'row-bar';
+    bar.style.width = Math.max(0, Math.min(100, Math.round((((last.pos || 1) - 1) / last.total) * 100))) + '%';
+    track.appendChild(bar);
+    row.append(name, count, track);
+    row.onclick = function () {
+        testTabActive = false;
+        if (last.grade && typeof setSelectedGrade === 'function') setSelectedGrade(last.grade);
+        syncEntryMode();
+        activeQuizLabel = last.name || '';
+        resumeQuizIndex = Math.max(0, (last.pos || 1) - 1);
+        startQuizFile(data.last, function () { showScreen('home'); }, false);
+    };
+}
+function hideQuizEnd() {
+    const screen = document.getElementById('quiz-screen');
+    if (screen) screen.classList.remove('quiz-done');
+}
+function showQuizEnd() {
+    const screen = document.getElementById('quiz-screen');
+    const num = document.getElementById('quiz-end-num');
+    const next = document.getElementById('quiz-end-next');
+    if (!screen || !num || !next) return;
+    const total = (currentQuestions && currentQuestions.length) || 0;
+    const math = currentQuestions && currentQuestions[0] && currentQuestions[0].type === 'math_show';
+    const got = math ? total : sessionCorrect;
+    num.textContent = total ? (got + '/' + total) : String(got);
+    const nxt = quizSiblings[quizSiblingAt + 1];
+    if (nxt) {
+        next.textContent = nxt.label || '→';
+        next.onclick = function () {
+            hideQuizEnd();
+            activeQuizLabel = nxt.label || '';
+            resumeQuizIndex = -1;
+            startQuizFile(nxt.file, weakQuizBack, false);
+        };
+    } else {
+        next.textContent = '→';
+        next.onclick = function () {
+            hideQuizEnd();
+            if (typeof weakQuizBack === 'function') weakQuizBack();
+            else showScreen('home');
+        };
+    }
+    screen.classList.add('quiz-done');
+}
+function captureQuizSiblings(fileName) {
+    const btn = document.activeElement;
+    const parent = btn && btn.parentElement;
+    if (!parent) {
+        quizSiblings = [];
+        quizSiblingAt = -1;
+        return;
+    }
+    quizSiblings = Array.from(parent.querySelectorAll('[data-reed-file]')).map(function (el) {
+        return { file: el.getAttribute('data-reed-file'), label: el.getAttribute('data-reed-name') || '' };
+    });
+    quizSiblingAt = quizSiblings.findIndex(function (row) { return row.file === fileName; });
+}
 
       function showScreen(id) {
     if (id !== 'quiz') {
@@ -8600,7 +8892,12 @@ function nextQuestion() {
         resetTimer(); 
     }
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
-    document.getElementById(id + '-screen').classList.add('active-screen');
+    const nextScreen = document.getElementById(id + '-screen');
+    if (!nextScreen) return;
+    nextScreen.classList.add('active-screen');
+    if (id === 'home' || id === 'activity' || id === 'menu' || id === 'old-menu' || id === 'test') {
+        if (typeof refreshStudyCues === 'function') refreshStudyCues();
+    }
     
     updateOldQuestionBadges();
     const quizScreen = document.getElementById('quiz-screen');
