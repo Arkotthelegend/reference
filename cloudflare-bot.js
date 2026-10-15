@@ -6,6 +6,12 @@
    GET /photo?id=TELEGRAM_ID  live Telegram profile JPEG for Rank.
    POST webhook stays the /start + chat helper.
 
+   Channel posts: in this bot chat, the admin sends
+     /post
+     the post text
+   The bot publishes that text to @REED_education with an Open App button under it.
+   Channel posts cannot use a web_app button, so the button is a t.me mini-app link.
+
    /start caption is a few short Burmese lines.
    Video is sent if any of these work, in order:
      1) START_VIDEO_FILE_ID (must come from THIS bot)
@@ -46,7 +52,9 @@ export default {
     const chatId = msg && msg.chat && msg.chat.id;
     if (chatId && msg) {
       try {
-        if (commandName(msg.text) === '/start') {
+        if (commandName(msg.text) === '/post' && isPrivateChat(msg)) {
+          await handleChannelPost(msg, env);
+        } else if (commandName(msg.text) === '/start') {
           await sendStartWelcome(chatId, env);
         } else if (videoFileIdFromMessage(msg) && isPrivateChat(msg)) {
           await sendTelegramMessage(
@@ -136,6 +144,63 @@ function startKeyboard() {
       [{ text: 'Channel join မည်', url: 'https://t.me/REED_education' }]
     ]
   };
+}
+
+var CHANNEL_CHAT = '@REED_education';
+var OPEN_APP_LABEL = 'Open App';
+var OPEN_APP_URL = 'https://t.me/reededucation_bot?startapp';
+var POST_ADMIN_ID = '8432363664';
+
+function openAppKeyboard() {
+  return {
+    inline_keyboard: [
+      [{ text: OPEN_APP_LABEL, url: OPEN_APP_URL }]
+    ]
+  };
+}
+
+function isPostAdmin(msg, env) {
+  var id = String(msg && msg.from && msg.from.id || '');
+  var extra = String((env && env.ADMIN_TELEGRAM_ID) || '').trim();
+  return id === POST_ADMIN_ID || (extra && id === extra);
+}
+
+function textAfterPost(text) {
+  var raw = String(text || '');
+  var match = raw.match(/^\/post(?:@\w+)?(?:\s+([\s\S]*))?$/i);
+  if (!match) return '';
+  return String(match[1] || '').trim();
+}
+
+async function handleChannelPost(msg, env) {
+  var chatId = msg.chat.id;
+  if (!isPostAdmin(msg, env)) {
+    await sendTelegramMessage(chatId, 'Not allowed.', env.BOT_TOKEN);
+    return;
+  }
+  var body = textAfterPost(msg.text);
+  if (!body && msg.reply_to_message) {
+    body = String(msg.reply_to_message.text || msg.reply_to_message.caption || '').trim();
+  }
+  if (!body) {
+    await sendTelegramMessage(chatId, '/post\ntext', env.BOT_TOKEN);
+    return;
+  }
+  if (body.length > 4096) {
+    await sendTelegramMessage(chatId, 'Too long.', env.BOT_TOKEN);
+    return;
+  }
+  var sent = await telegramApiJson(env.BOT_TOKEN, 'sendMessage', {
+    chat_id: CHANNEL_CHAT,
+    text: body,
+    reply_markup: openAppKeyboard()
+  });
+  if (sent && sent.ok) {
+    await sendTelegramMessage(chatId, 'Posted.', env.BOT_TOKEN);
+    return;
+  }
+  var why = (sent && sent.description) ? String(sent.description) : 'Could not post.';
+  await sendTelegramMessage(chatId, why, env.BOT_TOKEN);
 }
 
 function howToOpenReply() {
