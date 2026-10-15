@@ -749,15 +749,15 @@ input:checked + .slider:before {
            📱 GRID LAYOUT FIX (ဘာသာရပ်များကို ၂ ကော်လံ ခွဲပြသရန်)
            ============================================================ */
         
-        /* Subject menus are one full-width row each. */
+        /* Subject lists are two columns. Other menus stay one column. */
         #subject-list, 
         #old-subject-list,
         #test-subject-list,
         #test-old-subject-list,
         #daily-screen .daily-grid {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 8px !important;
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
         }
 
         .subject-card {
@@ -767,7 +767,7 @@ input:checked + .slider:before {
             font-weight: 600 !important;
             line-height: 1.4 !important;
             min-height: 56px !important;
-            height: auto !important;
+            height: 100% !important;
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
@@ -819,6 +819,18 @@ input:checked + .slider:before {
     border-radius: 2px;
     background: #F0B90B;
     flex: 0 0 3px;
+}
+#activity-content .btn.btn-all-chapter,
+#menu-content .btn.btn-all-chapter,
+#old-menu-content .btn.btn-all-chapter {
+    background: #F0B90B !important;
+    color: #0B0E11 !important;
+    border-color: #F0B90B !important;
+}
+#activity-content .btn.btn-all-chapter::before,
+#menu-content .btn.btn-all-chapter::before,
+#old-menu-content .btn.btn-all-chapter::before {
+    background: #0B0E11;
 }
 #menu-title, #activity-title, #old-menu-title, #test-screen > h2 {
     letter-spacing: 0.03em;
@@ -3400,11 +3412,11 @@ body.volunteer-role .vol-report-link { display: block !important; }
     </div>
 </div>
 		<div id="test-screen" class="screen">
-    <h2 style="text-align: center; color: var(--accent);">Test</h2>
+    <h2 style="text-align: center; color: var(--accent);">Exam</h2>
     <div class="grade-picker-row" id="test-grade-row">
-        <button type="button" class="grade-btn" data-grade="10" onclick="setSelectedGrade(10)">Grade 10</button>
-        <button type="button" class="grade-btn" data-grade="11" onclick="setSelectedGrade(11)">Grade 11</button>
         <button type="button" class="grade-btn active" data-grade="12" onclick="setSelectedGrade(12)">Grade 12</button>
+        <button type="button" class="grade-btn" data-grade="11" onclick="setSelectedGrade(11)">Grade 11</button>
+        <button type="button" class="grade-btn" data-grade="10" onclick="setSelectedGrade(10)">Grade 10</button>
     </div>
     <div id="test-tabs-row" style="display: flex; gap: 10px; margin: 14px 0; padding: 0 5px;">
         <button id="test-tab-current" type="button" class="btn" style="flex:1; background: #F0B90B; color: #0B0E11;" onclick="switchTestTab('current')">ဘာသာရပ်များ</button>
@@ -3438,7 +3450,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     <b id="bought-subjects-heading" style="color: var(--accent);">ဝယ်ယူပြီးသော ဘာသာရပ်များ</b>
                     <div id="bought-items-container" class="bought-container"></div>
                     <button id="profile-buy-btn" class="btn buy-btn" onclick="copyTelegram()">ဘာသာရပ်ဝယ်ယူရန် ဆက်သွယ်ရန်</button>
-					<button type="button" class="btn news-outline-btn" onclick="openNewsFromProfile()" style="margin-top: 12px;">📰 News</button>
 					 </div>
 					 
             </div> 
@@ -3581,7 +3592,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <button type="button" class="mini-back" id="glossary-back-btn" aria-label="နောက်သို့">←</button>
                 <h2 id="glossary-title">ခက်ဆစ်</h2>
             </div>
-            <button type="button" id="glossary-test-btn" class="btn btn-test">Test</button>
+            <button type="button" id="glossary-test-btn" class="btn btn-test">Exam</button>
             <div id="glossary-list" class="gloss-list"></div>
             <button type="button" class="vol-report-link" onclick="reportQuestionMistake()">Report a mistake</button>
         </div>
@@ -3686,29 +3697,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <h2 id="poem-title" style="text-align: center; color: var(--accent);"></h2>
     <div id="poem-body" class="poem-content"></div>
     <button class="btn back-btn" onclick="showENPoemOptions()">နောက်သို့</button>
-</div>
-
-<!-- Articles List Screen -->
-<div id="articles-screen" class="screen">
-    <div class="mini-head">
-        <button type="button" class="mini-back" onclick="goTab('profile')" aria-label="Back">←</button>
-        <h2>📰 News</h2>
-    </div>
-    <div id="articles-list" style="padding: 15px;">
-        <div style="text-align: center; color: var(--text-muted); padding: 40px;">ဆွဲယူနေသည်...</div>
-    </div>
-</div>
-
-<!-- Article Detail Screen -->
-<div id="article-detail-screen" class="screen">
-    <div style="padding: 20px; padding-bottom: 100px;">
-        <div class="mini-head">
-            <button type="button" class="mini-back" onclick="showScreen('articles')" aria-label="Back">←</button>
-            <h2 id="article-detail-title" style="color: var(--accent); margin: 0; font-size: 1.05rem; line-height: 1.35;"></h2>
-        </div>
-        <div id="article-detail-date" style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 20px;"></div>
-        <div id="article-detail-body" style="background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid var(--accent); line-height: 1.8; color: var(--white); font-size: 0.95rem;"></div>
-    </div>
 </div>
 
 <div id="time-screen" class="screen">
@@ -3818,13 +3806,9 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <div id="cust-logs"></div>
 </div>
 
-<div id="articles-channel-bar" class="articles-channel-bar">
-    <button class="btn" onclick="openChannel()">📢 Join Telegram Channel</button>
-</div>
-		
    <div class="nav">
     <div class="nav-item nav-active" data-tab="home" aria-label="Study" onclick="changeTab('home', this)"><span class="nav-ico">🏠</span></div>
-    <div class="nav-item" data-tab="test" aria-label="Test" onclick="changeTab('test', this)"><span class="nav-word">Test</span></div>
+    <div class="nav-item" data-tab="test" aria-label="Exam" onclick="changeTab('test', this)"><span class="nav-word">Exam</span></div>
     <div class="nav-item" data-tab="time" aria-label="Time" onclick="changeTab('time', this)"><span class="nav-ico">📊</span></div>
     <div class="nav-item" data-tab="social" aria-label="Rank" onclick="changeTab('social', this)"><span class="nav-ico">🏆</span></div>
     <div class="nav-item" data-tab="stats" aria-label="Analysis" onclick="changeTab('stats', this)"><span class="nav-ico">📈</span></div>
@@ -4685,7 +4669,7 @@ function setQuizKeysHint(text) {
         function isTestPlay() { return quizPlayMode === 'test'; }
         function syncEntryMode() {
             if (isWeakQuizFlow) return;
-            quizPlayMode = testTabActive ? 'test' : 'practice';
+            quizPlayMode = (testTabActive && hasPaidSubscription()) ? 'test' : 'practice';
         }
         let isWeakQuizFlow = false;
         let weakQuizBack = null;
@@ -5847,129 +5831,6 @@ function getSubjectNameEn(id) {
         arrow.classList.add('open');
     }
 }
-		// ===== ARTICLES SYSTEM (JSON Based) =====
-let articlesIndex = [];
-
-async function loadArticlesIndex() {
-    const container = document.getElementById('articles-list');
-    container.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 40px;">ဆွဲယူနေသည်...</div>';
-    
-    try {
-        const res = await fetch('./articles/index.json');
-        if (!res.ok) throw new Error();
-        articlesIndex = await res.json();
-        renderArticlesList();
-    } catch (e) {
-        container.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 40px;">ဆောင်းပါးများ မရရှိသေးပါ</div>';
-    }
-}
-
-function renderArticlesList() {
-    const container = document.getElementById('articles-list');
-    container.innerHTML = '';
-    
-    if (!articlesIndex || articlesIndex.length === 0) {
-        container.innerHTML = '<div style="text-align: center; color: var(--text-muted); padding: 40px;">ဆောင်းပါးများ မရှိသေးပါ</div>';
-        return;
-    }
-    
-    articlesIndex.forEach(article => {
-        const div = document.createElement('div');
-        div.style.cssText = 'background: var(--card-bg); border-radius: 14px; margin-bottom: 12px; border: 1px solid #334155; overflow: hidden; cursor: pointer; transition: transform 0.1s ease;';
-        div.innerHTML = `
-                        <div style="padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; pointer-events: none;">
-                <div style="flex: 1; min-width: 0;">
-                    <div style="font-weight: 700; color: var(--white); font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${article.title}</div>
-                    ${article.date ? `<div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">${article.date}</div>` : ''}
-                </div>
-                <span style="color: var(--accent); font-size: 1.2rem; margin-left: 10px;">➔</span>
-            </div>
-        `;
-        
-        div.onmousedown = () => div.style.transform = 'scale(0.98)';
-        div.onmouseup = () => div.style.transform = 'scale(1)';
-        div.onmouseleave = () => div.style.transform = 'scale(1)';
-        div.onclick = () => openArticleDetail(article.id);
-        container.appendChild(div);
-    });
-}
-
-async function openArticleDetail(articleId) {
-    try {
-        const res = await fetch(`./articles/${articleId}.json`);
-        if (!res.ok) throw new Error();
-        const article = await res.json();
-        
-        document.getElementById('article-detail-title').innerText = article.title;
-        document.getElementById('article-detail-date').innerText = article.date || '';
-        
-        const bodyDiv = document.getElementById('article-detail-body');
-        bodyDiv.innerHTML = '';
-        
-        // Helper to render each block
-        const renderBlock = (block) => {
-            // Case 1: Plain text paragraph
-            if (typeof block === 'string') {
-                const p = document.createElement('p');
-                p.style.margin = '0 0 14px 0';
-                p.style.lineHeight = '1.8';
-                p.style.color = 'var(--white)';
-                p.innerText = block;
-                return p;
-            }
-            
-            // Case 2: Image object
-            if (typeof block === 'object' && block.type === 'image') {
-                const wrapper = document.createElement('div');
-                wrapper.style.cssText = 'margin: 16px 0; text-align: center;';
-                
-                const img = document.createElement('img');
-                                img.src = block.src;
-                img.alt = block.caption || 'Image';
-                img.loading = 'lazy';
-                img.style.cssText = 'width: 100%; max-width: 100%; border-radius: 12px; display: block; border: 1px solid #334155;';
-        
-                
-                wrapper.appendChild(img);
-                
-                // Optional caption
-                if (block.caption) {
-                    const cap = document.createElement('div');
-                    cap.style.cssText = 'margin-top: 8px; font-size: 0.8rem; color: var(--text-muted); font-style: italic;';
-                    cap.innerText = block.caption;
-                    wrapper.appendChild(cap);
-                }
-                
-                return wrapper;
-            }
-            
-            // Case 3: Raw HTML fallback (for advanced use)
-            if (typeof block === 'object' && block.type === 'html') {
-                const div = document.createElement('div');
-                div.style.margin = '0 0 14px 0';
-                div.innerHTML = block.value;
-                return div;
-            }
-            
-            return document.createElement('span');
-        };
-        
-        // Support both old array format and new mixed format
-        if (Array.isArray(article.content)) {
-            article.content.forEach(block => {
-                bodyDiv.appendChild(renderBlock(block));
-            });
-        } else if (typeof article.content === 'string') {
-            // Legacy single-string HTML support
-            bodyDiv.innerHTML = article.content;
-        }
-        
-        showScreen('article-detail');
-    } catch (e) {
-        tg.showAlert("ဆောင်းပါး ဖွင့်ရာတွင် အမှားတစ်ခု ဖြစ်သွားပါသည်။");
-    }
-}
-		
         const tg = window.Telegram.WebApp;
         (function setupTelegramViewport(app) {
             var color = '#0B0F19';
@@ -6341,7 +6202,7 @@ function showOldGeneralActivities(subId, partName, modePicked) {
     const list = document.getElementById('old-menu-content');
     list.classList.remove('play-pick');
     list.innerHTML = '';
-    const modeLabel = isTestPlay() ? 'Test' : 'Practice';
+    const modeLabel = isTestPlay() ? 'Exam' : 'Practice';
     setOldMenuTitle(`${partName} · ${modeLabel}`);
     document.getElementById('old-menu-back-btn').onclick = () => showOldMenu(currentSubject);
 
@@ -6559,7 +6420,7 @@ function fillPlayModeList(container, onChosen, fileName) {
         isWeakQuizFlow = false;
         onChosen('practice');
     }, 'btn-practice');
-    createBtn('Test', container, function () {
+    createBtn('Exam', container, function () {
         quizPlayMode = 'test';
         isWeakQuizFlow = false;
         onChosen('test');
@@ -7964,7 +7825,7 @@ function updateFlashUI() {
     
     // အခန်းခွဲ ဖြစ်နေလျှင် ဖြတ်ထုတ်ပြသရန်
     document.getElementById('activity-title').innerText = subId === 'math'
-        ? `${displayTitle} · ${isTestPlay() ? 'Test' : 'Practice'}`
+        ? `${displayTitle} · ${isTestPlay() ? 'Exam' : 'Practice'}`
         : displayTitle;
     
     const content = document.getElementById('activity-content');
@@ -8760,7 +8621,6 @@ function nextQuestion() {
         nav.classList.add('nav-hidden');
         document.body.classList.add('page-no-nav');
     }
-    document.body.classList.toggle('showing-articles', id === 'articles');
 }
 
 function goTab(id) {
@@ -8770,6 +8630,11 @@ function goTab(id) {
 }
 
         function changeTab(id, el) {
+    if (id === 'test' && !hasPaidSubscription()) {
+        try { tg.showAlert('ဘာသာရပ်၀ယ်ယူထားသူများသာ Exam ကို အသုံးပြုနိုင်ပါသည်။'); }
+        catch (e) {}
+        return;
+    }
     showScreen(id);
     document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('nav-active'));
     if (el) el.classList.add('nav-active');
@@ -8795,7 +8660,6 @@ function goTab(id) {
             REEDSocial.publishMe();
         }
     }
-    if(id === 'articles') loadArticlesIndex();
     if(id === 'stats') {
         pendingStatsTab = (pendingStatsTab === 'leaderboard') ? 'summary' : (pendingStatsTab || 'summary');
         syncStatsGradePicker(getSelectedGrade());
@@ -9607,7 +9471,7 @@ function glossaryTitle(fileName, markTitle) {
 function setGlossaryTestBtn() {
     const btn = document.getElementById('glossary-test-btn');
     if (!btn) return;
-    btn.textContent = 'Test';
+    btn.textContent = 'Exam';
     btn.classList.toggle('on', !!glossaryTestOn);
 }
 
@@ -10225,11 +10089,6 @@ function renderLeaderboard(entries, currentUserId, subject, grade) {
         if (myRank !== -1 && entries[myEntryIndex]) photoIds.push(entries[myEntryIndex].userId);
         REEDSocial.fillPhotos(photoIds);
     }
-}
-
-function openNewsFromProfile() {
-    showScreen('articles');
-    loadArticlesIndex();
 }
 
 		function copyTelegram() {
