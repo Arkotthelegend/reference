@@ -1987,20 +1987,14 @@ html body[data-theme] .btn.btn-test {
     content: '';
     position: absolute;
     z-index: 0;
-    top: 3px;
-    bottom: 3px;
-    left: 3px;
-    width: calc((100% - 6px) / 3);
+    left: 0;
+    top: 0;
+    width: var(--reed-pill-w, 0px);
+    height: var(--reed-pill-h, 0px);
     border-radius: 8px;
     background: var(--accent, #F0B90B);
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(var(--reed-pill-x, 0px), var(--reed-pill-y, 0px), 0);
     pointer-events: none;
-}
-.grade-picker-row:has(> .grade-btn:nth-child(2).active)::before {
-    transform: translate3d(100%, 0, 0);
-}
-.grade-picker-row:has(> .grade-btn:nth-child(3).active)::before {
-    transform: translate3d(200%, 0, 0);
 }
 .grade-picker-row > .grade-btn {
     position: relative;
@@ -2016,37 +2010,39 @@ html body[data-theme] .btn.btn-test {
 .stats-tabs-row {
     position: relative;
 }
+#home-tabs-row,
+#test-tabs-row {
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 8px !important;
+}
 #home-tabs-row::before,
 #test-tabs-row::before,
 .stats-tabs-row::before {
     content: '';
     position: absolute;
     z-index: 0;
+    left: 0;
     top: 0;
-    bottom: 0;
+    width: var(--reed-pill-w, 0px);
+    height: var(--reed-pill-h, 0px);
     border-radius: 8px;
     background: #F0B90B;
     pointer-events: none;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(var(--reed-pill-x, 0px), var(--reed-pill-y, 0px), 0);
 }
-#home-tabs-row::before,
-#test-tabs-row::before {
-    left: 5px;
-    width: calc((100% - 20px) / 2);
-}
-#home-tabs-row:has(.reed-on:last-child)::before,
-#test-tabs-row:has(.reed-on:last-child)::before {
-    transform: translate3d(calc(100% + 10px), 0, 0);
-}
-.stats-tabs-row::before {
-    left: 10px;
-    width: calc((100% - 32px) / 3);
-}
-.stats-tabs-row:has(#tab-best.stats-tab-active)::before {
-    transform: translate3d(calc(100% + 6px), 0, 0);
-}
-.stats-tabs-row:has(#tab-old.stats-tab-active)::before {
-    transform: translate3d(calc(200% + 12px), 0, 0);
+#home-tabs-row > .btn,
+#test-tabs-row > .btn {
+    width: auto !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 12px 8px !important;
+    font-size: 0.92rem !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    word-wrap: normal !important;
+    overflow-wrap: normal !important;
 }
 #home-tabs-row > .btn,
 #test-tabs-row > .btn,
@@ -2055,6 +2051,7 @@ html body[data-theme] .btn.btn-test {
     z-index: 1;
     background: #1E2329 !important;
     color: #EAECEF !important;
+    overflow: visible !important;
 }
 #home-tabs-row > .btn:not(.reed-on),
 #test-tabs-row > .btn:not(.reed-on) {
@@ -2077,7 +2074,7 @@ html body[data-theme] .btn.btn-test {
     #home-tabs-row::before,
     #test-tabs-row::before,
     .stats-tabs-row::before {
-        transition: transform 180ms ease-out;
+        transition: transform 180ms ease-out, width 180ms ease-out, height 180ms ease-out;
     }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -3568,8 +3565,8 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <button type="button" id="study-continue" hidden></button>
     <!-- Two Tabs -->
   <div id="home-tabs-row" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 0 5px;">
-    <button id="home-tab-current" class="btn reed-on" style="flex:1;" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
-    <button id="home-tab-old" class="btn" style="flex:1;" onclick="switchHomeTab('old')">မေးခွန်းဟောင်းများ</button>
+    <button id="home-tab-current" class="btn reed-on" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
+    <button id="home-tab-old" class="btn" onclick="switchHomeTab('old')">မေးခွန်းဟောင်းများ</button>
 </div>
     
     <!-- Current Subjects Section -->
@@ -3604,8 +3601,8 @@ body.volunteer-role .vol-report-link { display: block !important; }
         <button type="button" class="grade-btn" data-grade="10" onclick="setSelectedGrade(10)">Grade 10</button>
     </div>
     <div id="test-tabs-row" style="display: flex; gap: 10px; margin: 14px 0; padding: 0 5px;">
-        <button id="test-tab-current" type="button" class="btn reed-on" style="flex:1;" onclick="switchTestTab('current')">ဘာသာရပ်များ</button>
-        <button id="test-tab-old" type="button" class="btn" style="flex:1;" onclick="switchTestTab('old')">မေးခွန်းဟောင်းများ</button>
+        <button id="test-tab-current" type="button" class="btn reed-on" onclick="switchTestTab('current')">ဘာသာရပ်များ</button>
+        <button id="test-tab-old" type="button" class="btn" onclick="switchTestTab('old')">မေးခွန်းဟောင်းများ</button>
     </div>
     <div id="test-current-section">
         <div id="test-subject-list"></div>
@@ -4075,6 +4072,36 @@ body.volunteer-role .vol-report-link { display: block !important; }
             nav.classList.add('reed-pop');
             window.setTimeout(function () { nav.classList.remove('reed-pop'); }, 160);
         }
+        function placeSwitchPill(row) {
+            if (!row || row.offsetParent === null) return;
+            var buttons = [];
+            var kids = row.children;
+            for (var i = 0; i < kids.length; i++) {
+                var el = kids[i];
+                if (!el || el.tagName !== 'BUTTON') continue;
+                if (window.getComputedStyle(el).display === 'none') continue;
+                buttons.push(el);
+            }
+            var selected = null;
+            for (var j = 0; j < buttons.length; j++) {
+                var b = buttons[j];
+                if (b.classList.contains('reed-on') || b.classList.contains('stats-tab-active') || b.classList.contains('active')) selected = b;
+            }
+            if (!selected) selected = buttons[0];
+            if (!selected || selected.offsetWidth === 0) return;
+            row.style.setProperty('--reed-pill-x', selected.offsetLeft + 'px');
+            row.style.setProperty('--reed-pill-y', selected.offsetTop + 'px');
+            row.style.setProperty('--reed-pill-w', selected.offsetWidth + 'px');
+            row.style.setProperty('--reed-pill-h', selected.offsetHeight + 'px');
+        }
+        function placeSwitchPills() {
+            placeSwitchPill(document.getElementById('home-tabs-row'));
+            placeSwitchPill(document.getElementById('test-tabs-row'));
+            var rows = document.querySelectorAll('.stats-tabs-row, .grade-picker-row');
+            for (var i = 0; i < rows.length; i++) placeSwitchPill(rows[i]);
+        }
+        window.reedPlaceSwitchPills = placeSwitchPills;
+        window.addEventListener('resize', placeSwitchPills);
         document.addEventListener('pointerdown', function (e) {
             if (reduced() || (e.button && e.button !== 0)) return;
             var nav = e.target.closest && e.target.closest('.nav-item');
@@ -6315,6 +6342,7 @@ function switchTestTab(tab) {
         testTabs.classList.add('reed-sliding');
         window.setTimeout(function () { testTabs.classList.remove('reed-sliding'); }, 200);
     }
+    if (window.reedPlaceSwitchPills) window.reedPlaceSwitchPills();
 }
 
 function renderTestHome() {
@@ -9176,6 +9204,7 @@ function goTab(id) {
             REEDCustomers.loadSheet();
         }
     }
+    if (window.reedPlaceSwitchPills) window.reedPlaceSwitchPills();
 }
 
 function telegramUserId() {
@@ -9227,6 +9256,7 @@ function switchHomeTab(tab) {
         homeTabs.classList.add('reed-sliding');
         window.setTimeout(function () { homeTabs.classList.remove('reed-sliding'); }, 200);
     }
+    if (window.reedPlaceSwitchPills) window.reedPlaceSwitchPills();
 }
 function isAppAdmin() {
     const id = String((tg && tg.initDataUnsafe && tg.initDataUnsafe.user && tg.initDataUnsafe.user.id) || '');
@@ -9320,6 +9350,7 @@ function renderProfileData() {
         fillProfilePulseStats();
         refreshRankSnapshot();
         applyAdminChrome();
+        if (window.reedPlaceSwitchPills) window.reedPlaceSwitchPills();
         return;
     }
     dynamicArea.innerHTML = `
@@ -9358,6 +9389,7 @@ function renderProfileData() {
     fillProfilePulseStats();
     refreshRankSnapshot();
     applyAdminChrome();
+    if (window.reedPlaceSwitchPills) window.reedPlaceSwitchPills();
 }
 
 function applyGradeUI() {
@@ -9389,6 +9421,7 @@ function applyGradeUI() {
     renderSubjects();
     initOldSubjects();
     if (typeof renderTestHome === 'function') renderTestHome();
+    if (window.reedPlaceSwitchPills) window.reedPlaceSwitchPills();
 }
 
 function setSelectedGrade(grade) {
@@ -10219,6 +10252,7 @@ function switchStatsTab(tabName) {
         statsTabs.classList.add('reed-sliding');
         window.setTimeout(function () { statsTabs.classList.remove('reed-sliding'); }, 200);
     }
+    if (window.reedPlaceSwitchPills) window.reedPlaceSwitchPills();
 }
 
 		function calculateRankScore(totalScore, totalPossible, totalTime) {
