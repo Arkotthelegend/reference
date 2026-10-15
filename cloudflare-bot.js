@@ -9,7 +9,11 @@
    Channel posts: in this bot chat, the admin sends
      /post
      the post text
-   The bot publishes that text to @REED_education with an Open App button under it.
+
+     + label
+   The bot publishes that text to @REED_education with one button under it.
+   A line that is only "+ label" sets the button text and is not posted.
+   With no such line the button says Open App.
    Channel posts cannot use a web_app button, so the button is a t.me mini-app link.
 
    /start caption is a few short Burmese lines.
@@ -151,12 +155,35 @@ var OPEN_APP_LABEL = 'Open App';
 var OPEN_APP_URL = 'https://t.me/reededucation_bot?startapp';
 var POST_ADMIN_ID = '8432363664';
 
-function openAppKeyboard() {
+function cutButtonLabel(label) {
+  var chars = Array.from(String(label || ''));
+  if (chars.length <= 64) return chars.join('');
+  return chars.slice(0, 64).join('');
+}
+
+function openAppKeyboard(label) {
+  var text = cutButtonLabel(String(label || '').trim()) || OPEN_APP_LABEL;
   return {
     inline_keyboard: [
-      [{ text: OPEN_APP_LABEL, url: OPEN_APP_URL }]
+      [{ text: text, url: OPEN_APP_URL }]
     ]
   };
+}
+
+function splitChannelPost(body) {
+  var lines = String(body || '').replace(/\r\n/g, '\n').split('\n');
+  var label = '';
+  var kept = [];
+  for (var i = 0; i < lines.length; i++) {
+    var match = String(lines[i]).match(/^\s*\+(?:\s+(.*?))?\s*$/);
+    if (match) {
+      var next = String(match[1] || '').trim();
+      if (next) label = cutButtonLabel(next);
+      continue;
+    }
+    kept.push(lines[i]);
+  }
+  return { text: kept.join('\n').trim(), label: label };
 }
 
 function isPostAdmin(msg, env) {
@@ -182,6 +209,8 @@ async function handleChannelPost(msg, env) {
   if (!body && msg.reply_to_message) {
     body = String(msg.reply_to_message.text || msg.reply_to_message.caption || '').trim();
   }
+  var parsed = splitChannelPost(body);
+  body = parsed.text;
   if (!body) {
     await sendTelegramMessage(chatId, '/post\ntext', env.BOT_TOKEN);
     return;
@@ -193,7 +222,7 @@ async function handleChannelPost(msg, env) {
   var sent = await telegramApiJson(env.BOT_TOKEN, 'sendMessage', {
     chat_id: CHANNEL_CHAT,
     text: body,
-    reply_markup: openAppKeyboard()
+    reply_markup: openAppKeyboard(parsed.label)
   });
   if (sent && sent.ok) {
     await sendTelegramMessage(chatId, 'Posted.', env.BOT_TOKEN);
