@@ -6,8 +6,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;500;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="manifest" href="/manifest.json?v=2">
+	<link rel="manifest" href="/manifest.json?v=3">
+<link rel="icon" href="/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#F0B90B">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="REED">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         if (!window.Telegram || !window.Telegram.WebApp) {
@@ -46,7 +52,15 @@
             } catch (e) {}
             return false;
         }
-        mark(inTg() ? 'app' : 'pending');
+        function homeLaunch() {
+            try {
+                if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) return true;
+                if (window.navigator.standalone === true) return true;
+                if (/[?&]source=home(?:&|$)/.test(String(location.search || ''))) return true;
+            } catch (e) {}
+            return false;
+        }
+        mark((inTg() || homeLaunch()) ? 'app' : 'pending');
     })();
     </script>
     <style>
@@ -3156,6 +3170,18 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
         margin-top: 12px !important;
         padding: 16px !important;
     }
+    #add-home-btn {
+        width: auto !important;
+        margin: 4px auto 8px;
+        padding: 8px 14px;
+        border-radius: 10px;
+        border: 1px solid #F0B90B;
+        background: transparent;
+        color: #F0B90B;
+        font-weight: 700;
+        font-size: 0.9rem;
+    }
+    #add-home-btn[hidden] { display: none !important; }
     #dynamic-content-area {
         padding: 0 4px 12px;
     }
@@ -3626,6 +3652,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <h2 id="user-name" style="margin: 10px 0 5px;">Scholar</h2>
                 <p id="volunteer-chip" class="vol-chip">REED Volunteer</p>
                 <p id="user-id-text" style="color: #94A3B8; margin-bottom: 10px;"></p>
+                <button type="button" id="add-home-btn" hidden onclick="reedAddHome()">Add to Home</button>
                 </div>
 
                 <div class="profile-info-card">
@@ -4805,14 +4832,22 @@ body.volunteer-role .vol-report-link { display: block !important; }
     })();
         }
 
+		function reedHomeLaunch() {
+		    try {
+		        if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) return true;
+		        if (window.navigator.standalone === true) return true;
+		        if (/[?&]source=home(?:&|$)/.test(String(location.search || ''))) return true;
+		    } catch (e) {}
+		    return false;
+		}
 		function reedBootShell() {
-		    if (reedInTelegram()) {
+		    if (reedInTelegram() || reedHomeLaunch()) {
 		        document.documentElement.setAttribute('data-reed-shell', 'app');
 		        return;
 		    }
 		    var started = Date.now();
 		    (function waitTg() {
-		        if (reedInTelegram()) {
+		        if (reedInTelegram() || reedHomeLaunch()) {
 		            document.documentElement.setAttribute('data-reed-shell', 'app');
 		            return;
 		        }
@@ -9175,6 +9210,7 @@ function goTab(id) {
     }
     if(id === 'profile') {
         renderProfileData();
+        reedOfferHome();
         if (window.REEDSocial) {
             REEDSocial.paintMyBio();
             REEDSocial.publishMe();
@@ -9207,6 +9243,37 @@ function goTab(id) {
     if (window.reedPlaceSwitchPills) window.reedPlaceSwitchPills();
 }
 
+function reedOfferHome() {
+    var btn = document.getElementById('add-home-btn');
+    if (!btn) return;
+    btn.hidden = true;
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if (!tg || typeof tg.addToHomeScreen !== 'function' || typeof tg.checkHomeScreenStatus !== 'function') return;
+    if (tg.onEvent && !btn._reedHomeListen) {
+        btn._reedHomeListen = true;
+        try {
+            tg.onEvent('homeScreenAdded', function () { btn.hidden = true; });
+        } catch (e) {}
+    }
+    try {
+        tg.checkHomeScreenStatus(function (status) {
+            var s = status && typeof status === 'object' ? String(status.status || status.homeScreenStatus || '') : String(status || '');
+            btn.hidden = (s === 'added' || s === 'unsupported' || !s);
+        });
+    } catch (e2) {
+        btn.hidden = true;
+    }
+}
+function reedAddHome() {
+    var btn = document.getElementById('add-home-btn');
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if (!tg || typeof tg.addToHomeScreen !== 'function') {
+        if (btn) btn.hidden = true;
+        return;
+    }
+    try { tg.addToHomeScreen(); }
+    catch (e) { if (btn) btn.hidden = true; }
+}
 function telegramUserId() {
     var live = window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user;
     if (live && live.id != null) return String(live.id);
