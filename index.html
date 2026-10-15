@@ -1816,33 +1816,25 @@ html body[data-theme] .btn.btn-test {
     transform: none;
 }
 
-/* Gold flows inside the pressed row, then leaves. The row does not move. */
+/* Gold flows inside subject, chapter, and quiz rows. The row does not move. */
 .subject-card,
-.btn,
-.option-btn,
-.grade-btn,
-.gloss-term,
-.mini-back,
-.leaderboard-item,
-.profile-btn-stats,
-.profile-btn-shop,
-#study-continue,
-.nav-item {
+#menu-content .btn,
+#activity-content .btn,
+#old-menu-content .btn,
+#study-continue {
     position: relative;
     overflow: hidden;
     isolation: isolate;
 }
 .subject-card:active,
-.btn:active,
-.option-btn:active,
-.grade-btn:active,
-.gloss-term:active,
-.mini-back:active,
-.leaderboard-item:active,
-.profile-btn-stats:active,
-.profile-btn-shop:active,
+#menu-content .btn:active,
+#activity-content .btn:active,
+#old-menu-content .btn:active,
 #study-continue:active,
-.nav-item:active {
+.nav-item:active,
+.back-btn:active,
+.mini-back:active,
+.grade-btn:active {
     transform: none;
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -1850,17 +1842,16 @@ html body[data-theme] .btn.btn-test {
         from { transform: translate3d(-105%, 0, 0); }
         to { transform: translate3d(105%, 0, 0); }
     }
+    @keyframes reed-nav-pop {
+        0% { transform: scale(1); }
+        40% { transform: scale(1.18); }
+        100% { transform: scale(1); }
+    }
     .subject-card.reed-flow::after,
-    .btn.reed-flow::after,
-    .option-btn.reed-flow::after,
-    .grade-btn.reed-flow::after,
-    .gloss-term.reed-flow::after,
-    .mini-back.reed-flow::after,
-    .leaderboard-item.reed-flow::after,
-    .profile-btn-stats.reed-flow::after,
-    .profile-btn-shop.reed-flow::after,
-    #study-continue.reed-flow::after,
-    .nav-item.reed-flow::after {
+    #menu-content .btn.reed-flow::after,
+    #activity-content .btn.reed-flow::after,
+    #old-menu-content .btn.reed-flow::after,
+    #study-continue.reed-flow::after {
         content: '';
         position: absolute;
         z-index: -1;
@@ -1870,35 +1861,17 @@ html body[data-theme] .btn.btn-test {
         width: 100%;
         pointer-events: none;
         background: linear-gradient(90deg, rgba(240, 185, 11, 0) 0%, rgba(240, 185, 11, 0.35) 24%, #FCD535 44%, #F0B90B 50%, #FCD535 56%, rgba(240, 185, 11, 0.35) 76%, rgba(240, 185, 11, 0) 100%);
-        animation: reed-gold-flow 300ms ease-in-out forwards;
+        animation: reed-gold-flow 200ms ease-in-out forwards;
+    }
+    .nav-item.reed-pop .nav-ico,
+    .nav-item.reed-pop .nav-word {
+        animation: reed-nav-pop 140ms ease-out;
     }
 }
 @media (prefers-reduced-motion: reduce) {
-    .subject-card:active,
-    .btn:active,
-    .option-btn:active,
-    .grade-btn:active,
-    .gloss-term:active,
-    .mini-back:active,
-    .leaderboard-item:active,
-    .profile-btn-stats:active,
-    .profile-btn-shop:active,
-    #study-continue:active,
-    .nav-item:active {
-        transform: none;
-    }
-    .subject-card:active::after,
-    .btn:active::after,
-    .option-btn:active::after,
-    .grade-btn:active::after,
-    .gloss-term:active::after,
-    .mini-back:active::after,
-    .leaderboard-item:active::after,
-    .profile-btn-stats:active::after,
-    .profile-btn-shop:active::after,
-    #study-continue:active::after,
-    .nav-item:active::after,
-    .reed-flow::after {
+    .reed-flow::after,
+    .nav-item.reed-pop .nav-ico,
+    .nav-item.reed-pop .nav-word {
         content: none;
         animation: none;
     }
@@ -2006,6 +1979,114 @@ html body[data-theme] .btn.btn-test {
     color: #0B0E11;
     opacity: 1;
     border: none;
+}
+.grade-picker-row {
+    position: relative;
+}
+.grade-picker-row::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    width: calc((100% - 6px) / 3);
+    border-radius: 8px;
+    background: var(--accent, #F0B90B);
+    transform: translate3d(0, 0, 0);
+    pointer-events: none;
+}
+.grade-picker-row:has(> .grade-btn:nth-child(2).active)::before {
+    transform: translate3d(100%, 0, 0);
+}
+.grade-picker-row:has(> .grade-btn:nth-child(3).active)::before {
+    transform: translate3d(200%, 0, 0);
+}
+.grade-picker-row > .grade-btn {
+    position: relative;
+    z-index: 1;
+    background: transparent !important;
+}
+.grade-picker-row > .grade-btn.active {
+    background: transparent !important;
+    color: #0B0E11;
+}
+#home-tabs-row,
+#test-tabs-row,
+.stats-tabs-row {
+    position: relative;
+}
+#home-tabs-row::before,
+#test-tabs-row::before,
+.stats-tabs-row::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 8px;
+    background: #F0B90B;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0);
+}
+#home-tabs-row::before,
+#test-tabs-row::before {
+    left: 5px;
+    width: calc((100% - 20px) / 2);
+}
+#home-tabs-row:has(.reed-on:last-child)::before,
+#test-tabs-row:has(.reed-on:last-child)::before {
+    transform: translate3d(calc(100% + 10px), 0, 0);
+}
+.stats-tabs-row::before {
+    left: 10px;
+    width: calc((100% - 32px) / 3);
+}
+.stats-tabs-row:has(#tab-best.stats-tab-active)::before {
+    transform: translate3d(calc(100% + 6px), 0, 0);
+}
+.stats-tabs-row:has(#tab-old.stats-tab-active)::before {
+    transform: translate3d(calc(200% + 12px), 0, 0);
+}
+#home-tabs-row > .btn,
+#test-tabs-row > .btn,
+.stats-tabs-row > .stats-tab-btn {
+    position: relative;
+    z-index: 1;
+    background: #1E2329 !important;
+    color: #EAECEF !important;
+}
+#home-tabs-row > .btn:not(.reed-on),
+#test-tabs-row > .btn:not(.reed-on) {
+    opacity: 0.65;
+}
+#home-tabs-row > .btn.reed-on,
+#test-tabs-row > .btn.reed-on,
+.stats-tabs-row > .stats-tab-btn.stats-tab-active {
+    background: transparent !important;
+    color: #0B0E11 !important;
+    opacity: 1 !important;
+}
+#home-tabs-row.reed-sliding > .btn,
+#test-tabs-row.reed-sliding > .btn,
+.stats-tabs-row.reed-sliding > .stats-tab-btn {
+    background: transparent !important;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .grade-picker-row::before,
+    #home-tabs-row::before,
+    #test-tabs-row::before,
+    .stats-tabs-row::before {
+        transition: transform 180ms ease-out;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .grade-picker-row::before,
+    #home-tabs-row::before,
+    #test-tabs-row::before,
+    .stats-tabs-row::before {
+        transition: none;
+    }
 }
 
 .profile-pulse { margin-top: 12px; }
@@ -3487,8 +3568,8 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <button type="button" id="study-continue" hidden></button>
     <!-- Two Tabs -->
   <div id="home-tabs-row" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 0 5px;">
-    <button id="home-tab-current" class="btn" style="flex:1; background: #F0B90B; color: #0B0E11;" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
-    <button id="home-tab-old" class="btn" style="flex:1; background: #1E2329; color: var(--white); opacity: 0.6;" onclick="switchHomeTab('old')">မေးခွန်းဟောင်းများ</button>
+    <button id="home-tab-current" class="btn reed-on" style="flex:1;" onclick="switchHomeTab('current')">Grade 12 ဘာသာရပ်များ</button>
+    <button id="home-tab-old" class="btn" style="flex:1;" onclick="switchHomeTab('old')">မေးခွန်းဟောင်းများ</button>
 </div>
     
     <!-- Current Subjects Section -->
@@ -3523,8 +3604,8 @@ body.volunteer-role .vol-report-link { display: block !important; }
         <button type="button" class="grade-btn" data-grade="10" onclick="setSelectedGrade(10)">Grade 10</button>
     </div>
     <div id="test-tabs-row" style="display: flex; gap: 10px; margin: 14px 0; padding: 0 5px;">
-        <button id="test-tab-current" type="button" class="btn" style="flex:1; background: #F0B90B; color: #0B0E11;" onclick="switchTestTab('current')">ဘာသာရပ်များ</button>
-        <button id="test-tab-old" type="button" class="btn" style="flex:1; background: #1E2329; color: var(--white); opacity: 0.6;" onclick="switchTestTab('old')">မေးခွန်းဟောင်းများ</button>
+        <button id="test-tab-current" type="button" class="btn reed-on" style="flex:1;" onclick="switchTestTab('current')">ဘာသာရပ်များ</button>
+        <button id="test-tab-old" type="button" class="btn" style="flex:1;" onclick="switchTestTab('old')">မေးခွန်းဟောင်းများ</button>
     </div>
     <div id="test-current-section">
         <div id="test-subject-list"></div>
@@ -3620,7 +3701,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         </div>
     </div>
     
-                         <div style="display: flex; gap: 6px; padding: 0 10px; margin-bottom: 15px;">
+                         <div class="stats-tabs-row" style="display: flex; gap: 6px; padding: 0 10px; margin-bottom: 15px;">
         <button class="btn stats-tab-btn stats-tab-active" id="tab-summary" onclick="switchStatsTab('summary')"><span class="stats-tab-ico">📈</span><span class="stats-tab-lbl">Summary</span></button>
         <button class="btn stats-tab-btn stats-tab-inactive" id="tab-best" onclick="switchStatsTab('best')"><span class="stats-tab-lbl">Best</span></button>
         <button class="btn stats-tab-btn stats-tab-inactive" id="tab-old" onclick="switchStatsTab('old')"><span class="stats-tab-ico">📜</span><span class="stats-tab-lbl">Old</span></button>
@@ -3967,39 +4048,52 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./friends.js?v=17"></script>
     <script>
     (function () {
-        var SEL = '.subject-card, .btn, .option-btn, .grade-btn, .gloss-term, .mini-back, .leaderboard-item, .profile-btn-stats, .profile-btn-shop, #study-continue, .nav-item';
-        var WAIT = 300;
+        var FLOW = '.subject-card, #menu-content .btn, #activity-content .btn, #old-menu-content .btn, #study-continue';
+        var WAIT = 100;
         function reduced() {
             return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
         }
-        function rowFrom(node) {
+        function flowRow(node) {
             if (!node || !node.closest) return null;
-            return node.closest(SEL);
+            var row = node.closest(FLOW);
+            if (!row) return null;
+            if (row.classList.contains('back-btn') || row.classList.contains('mini-back')) return null;
+            return row;
         }
         function play(row) {
             if (row.classList.contains('reed-flow')) return;
             row.classList.add('reed-flow');
-            window.setTimeout(function () { row.classList.remove('reed-flow'); }, 340);
+            window.setTimeout(function () { row.classList.remove('reed-flow'); }, 220);
         }
         function arm(row) {
             if (!row._reedT) row._reedT = Date.now();
             play(row);
         }
+        function popNav(nav) {
+            nav.classList.remove('reed-pop');
+            void nav.offsetWidth;
+            nav.classList.add('reed-pop');
+            window.setTimeout(function () { nav.classList.remove('reed-pop'); }, 160);
+        }
         document.addEventListener('pointerdown', function (e) {
             if (reduced() || (e.button && e.button !== 0)) return;
-            var row = rowFrom(e.target);
+            var nav = e.target.closest && e.target.closest('.nav-item');
+            if (nav) { popNav(nav); return; }
+            var row = flowRow(e.target);
             if (!row) return;
             arm(row);
         }, true);
         document.addEventListener('keydown', function (e) {
             if (reduced()) return;
             if (e.key !== 'Enter' && e.key !== ' ' && e.code !== 'Space') return;
-            var row = rowFrom(e.target);
+            var nav = e.target.closest && e.target.closest('.nav-item');
+            if (nav && e.target === nav) { popNav(nav); return; }
+            var row = flowRow(e.target);
             if (!row || e.target !== row) return;
             arm(row);
         }, true);
         document.addEventListener('click', function (e) {
-            var row = rowFrom(e.target);
+            var row = flowRow(e.target);
             if (!row || reduced()) return;
             if (row.getAttribute('data-reed-go') === '1') {
                 row.removeAttribute('data-reed-go');
@@ -6211,17 +6305,15 @@ function switchTestTab(tab) {
     const oldBtn = document.getElementById('test-tab-old');
     if (!currentSection || !oldSection) return;
     const showOld = tab === 'old';
+    var testChanged = !!(oldBtn && oldBtn.classList.contains('reed-on')) !== showOld;
     currentSection.style.display = showOld ? 'none' : 'block';
     oldSection.style.display = showOld ? 'block' : 'none';
-    if (currentBtn) {
-        currentBtn.style.opacity = showOld ? '0.6' : '1';
-        currentBtn.style.background = showOld ? '#1E2329' : '#F0B90B';
-        currentBtn.style.color = showOld ? 'var(--white)' : '#0B0E11';
-    }
-    if (oldBtn) {
-        oldBtn.style.opacity = showOld ? '1' : '0.6';
-        oldBtn.style.background = showOld ? '#F0B90B' : '#1E2329';
-        oldBtn.style.color = showOld ? '#0B0E11' : 'var(--white)';
+    if (currentBtn) currentBtn.classList.toggle('reed-on', !showOld);
+    if (oldBtn) oldBtn.classList.toggle('reed-on', showOld);
+    var testTabs = document.getElementById('test-tabs-row');
+    if (testChanged && testTabs && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+        testTabs.classList.add('reed-sliding');
+        window.setTimeout(function () { testTabs.classList.remove('reed-sliding'); }, 200);
     }
 }
 
@@ -9124,24 +9216,16 @@ function switchHomeTab(tab) {
     const currentBtn = document.getElementById('home-tab-current');
     const oldBtn = document.getElementById('home-tab-old');
     
-    if(tab === 'current') {
-        currentSection.style.display = 'block';
-        oldSection.style.display = 'none';
-        currentBtn.style.opacity = '1';
-        currentBtn.style.background = 'var(--accent)';
-        currentBtn.style.color = '#000';
-        oldBtn.style.opacity = '0.6';
-        oldBtn.style.background = '#1E293B';
-        oldBtn.style.color = 'var(--white)';
-    } else {
-        currentSection.style.display = 'none';
-        oldSection.style.display = 'block';
-        oldBtn.style.opacity = '1';
-        oldBtn.style.background = 'var(--accent)';
-        oldBtn.style.color = '#000';
-        currentBtn.style.opacity = '0.6';
-        currentBtn.style.background = '#1E293B';
-        currentBtn.style.color = 'var(--white)';
+    var showOld = tab !== 'current';
+    var homeChanged = !!(oldBtn && oldBtn.classList.contains('reed-on')) !== showOld;
+    if (currentSection) currentSection.style.display = showOld ? 'none' : 'block';
+    if (oldSection) oldSection.style.display = showOld ? 'block' : 'none';
+    if (currentBtn) currentBtn.classList.toggle('reed-on', !showOld);
+    if (oldBtn) oldBtn.classList.toggle('reed-on', showOld);
+    var homeTabs = document.getElementById('home-tabs-row');
+    if (homeChanged && homeTabs && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+        homeTabs.classList.add('reed-sliding');
+        window.setTimeout(function () { homeTabs.classList.remove('reed-sliding'); }, 200);
     }
 }
 function isAppAdmin() {
@@ -9218,6 +9302,26 @@ function renderProfileData() {
     if (leftoverStreak) leftoverStreak.remove();
 
     const dynamicArea = document.getElementById('dynamic-content-area');
+    const existingGradeBtns = dynamicArea.querySelectorAll('.grade-picker-row .grade-btn');
+    if (existingGradeBtns.length) {
+        existingGradeBtns.forEach(function (btn) {
+            var label = btn.textContent || '';
+            var g = label.indexOf('12') !== -1 ? 12 : (label.indexOf('11') !== -1 ? 11 : 10);
+            btn.classList.toggle('active', g === selectedGrade);
+        });
+        var rankSub = document.getElementById('profile-rank-sub');
+        if (rankSub) rankSub.textContent = 'Grade ' + selectedGrade;
+        var streakNum = document.getElementById('profile-streak-num');
+        if (streakNum) streakNum.textContent = '🔥 ' + currentStreak;
+        var streakUnit = document.getElementById('profile-streak-unit');
+        if (streakUnit) streakUnit.textContent = currentStreak === 1 ? 'day in a row' : 'days in a row';
+        var streakBest = document.getElementById('profile-streak-best');
+        if (streakBest) streakBest.textContent = String(rememberBestStreak(currentStreak));
+        fillProfilePulseStats();
+        refreshRankSnapshot();
+        applyAdminChrome();
+        return;
+    }
     dynamicArea.innerHTML = `
     <div class="grade-picker">
         <span class="grade-picker-label">Grade ရွေးချယ်ပါ</span>
@@ -10091,6 +10195,8 @@ function switchStatsTab(tabName) {
         showStatsScreen('leaderboard');
         return;
     }
+    var statsBtn = document.getElementById('tab-' + tabName);
+    var statsChanged = !(statsBtn && statsBtn.classList.contains('stats-tab-active'));
     ['summary', 'best', 'old'].forEach(t => {
         const el = document.getElementById('stats-tab-' + t);
         if (el) el.style.display = 'none';
@@ -10107,6 +10213,11 @@ function switchStatsTab(tabName) {
     if (activeBtn) {
         activeBtn.classList.remove('stats-tab-inactive');
         activeBtn.classList.add('stats-tab-active');
+    }
+    var statsTabs = document.querySelector('.stats-tabs-row');
+    if (statsChanged && statsTabs && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+        statsTabs.classList.add('reed-sliding');
+        window.setTimeout(function () { statsTabs.classList.remove('reed-sliding'); }, 200);
     }
 }
 
