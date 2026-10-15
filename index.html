@@ -1850,17 +1850,17 @@ html body[data-theme] .btn.btn-test {
         from { transform: translate3d(-105%, 0, 0); }
         to { transform: translate3d(105%, 0, 0); }
     }
-    .subject-card:active::after,
-    .btn:active::after,
-    .option-btn:active::after,
-    .grade-btn:active::after,
-    .gloss-term:active::after,
-    .mini-back:active::after,
-    .leaderboard-item:active::after,
-    .profile-btn-stats:active::after,
-    .profile-btn-shop:active::after,
-    #study-continue:active::after,
-    .nav-item:active::after {
+    .subject-card.reed-flow::after,
+    .btn.reed-flow::after,
+    .option-btn.reed-flow::after,
+    .grade-btn.reed-flow::after,
+    .gloss-term.reed-flow::after,
+    .mini-back.reed-flow::after,
+    .leaderboard-item.reed-flow::after,
+    .profile-btn-stats.reed-flow::after,
+    .profile-btn-shop.reed-flow::after,
+    #study-continue.reed-flow::after,
+    .nav-item.reed-flow::after {
         content: '';
         position: absolute;
         z-index: -1;
@@ -1870,7 +1870,7 @@ html body[data-theme] .btn.btn-test {
         width: 100%;
         pointer-events: none;
         background: linear-gradient(90deg, rgba(240, 185, 11, 0) 0%, rgba(240, 185, 11, 0.35) 24%, #FCD535 44%, #F0B90B 50%, #FCD535 56%, rgba(240, 185, 11, 0.35) 76%, rgba(240, 185, 11, 0) 100%);
-        animation: reed-gold-flow 450ms ease-in-out forwards;
+        animation: reed-gold-flow 300ms ease-in-out forwards;
     }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1897,7 +1897,8 @@ html body[data-theme] .btn.btn-test {
     .profile-btn-stats:active::after,
     .profile-btn-shop:active::after,
     #study-continue:active::after,
-    .nav-item:active::after {
+    .nav-item:active::after,
+    .reed-flow::after {
         content: none;
         animation: none;
     }
@@ -3964,6 +3965,62 @@ body.volunteer-role .vol-report-link { display: block !important; }
     <script src="./quiz-post.js?v=13"></script>
     <script src="./customer-analysis.js?v=2"></script>
     <script src="./friends.js?v=17"></script>
+    <script>
+    (function () {
+        var SEL = '.subject-card, .btn, .option-btn, .grade-btn, .gloss-term, .mini-back, .leaderboard-item, .profile-btn-stats, .profile-btn-shop, #study-continue, .nav-item';
+        var WAIT = 300;
+        function reduced() {
+            return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+        }
+        function rowFrom(node) {
+            if (!node || !node.closest) return null;
+            return node.closest(SEL);
+        }
+        function play(row) {
+            if (row.classList.contains('reed-flow')) return;
+            row.classList.add('reed-flow');
+            window.setTimeout(function () { row.classList.remove('reed-flow'); }, 340);
+        }
+        function arm(row) {
+            if (!row._reedT) row._reedT = Date.now();
+            play(row);
+        }
+        document.addEventListener('pointerdown', function (e) {
+            if (reduced() || (e.button && e.button !== 0)) return;
+            var row = rowFrom(e.target);
+            if (!row) return;
+            arm(row);
+        }, true);
+        document.addEventListener('keydown', function (e) {
+            if (reduced()) return;
+            if (e.key !== 'Enter' && e.key !== ' ' && e.code !== 'Space') return;
+            var row = rowFrom(e.target);
+            if (!row || e.target !== row) return;
+            arm(row);
+        }, true);
+        document.addEventListener('click', function (e) {
+            var row = rowFrom(e.target);
+            if (!row || reduced()) return;
+            if (row.getAttribute('data-reed-go') === '1') {
+                row.removeAttribute('data-reed-go');
+                row._reedT = 0;
+                return;
+            }
+            if (!row._reedT) return;
+            e.preventDefault();
+            e.stopPropagation();
+            if (row.getAttribute('data-reed-wait') === '1') return;
+            row.setAttribute('data-reed-wait', '1');
+            var wait = WAIT - (Date.now() - row._reedT);
+            if (wait < 0) wait = 0;
+            window.setTimeout(function () {
+                row.removeAttribute('data-reed-wait');
+                row.setAttribute('data-reed-go', '1');
+                row.click();
+            }, wait);
+        }, true);
+    })();
+    </script>
     <script>
 
 		function reedRememberTgUser(user) {
