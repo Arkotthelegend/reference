@@ -7956,6 +7956,7 @@ async function loadFormulas(subId, chapterName) {
 function openTrialMenu() {
 	setOldQuestionContext(false);
     isTrialFlow = true;
+    if (typeof endBeginnerGuide === 'function') endBeginnerGuide();
     showScreen('activity');
     document.getElementById('activity-title').innerText = "Free Trial (စမ်းသုံးရန်)";
     const content = document.getElementById('activity-content');
@@ -9598,6 +9599,10 @@ function maybeBeginnerGuide() {
 }
 
 function showBeginnerGuideStep(step) {
+    if (!shouldShowBeginnerGuide()) return;
+    if (isTrialFlow) return;
+    const homeNow = document.getElementById('home-screen');
+    if (homeNow && !homeNow.classList.contains('active-screen')) return;
     beginnerGuideStep = step;
     const overlay = document.getElementById('beginner-guide');
     const textEl = document.getElementById('beginner-guide-text');
