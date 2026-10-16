@@ -3170,18 +3170,6 @@ body.admin-role .nav-item { min-width: 36px; font-size: 0.52rem; }
         margin-top: 12px !important;
         padding: 16px !important;
     }
-    #add-home-btn {
-        width: auto !important;
-        margin: 4px auto 8px;
-        padding: 8px 14px;
-        border-radius: 10px;
-        border: 1px solid #F0B90B;
-        background: transparent;
-        color: #F0B90B;
-        font-weight: 700;
-        font-size: 0.9rem;
-    }
-    #add-home-btn[hidden] { display: none !important; }
     #dynamic-content-area {
         padding: 0 4px 12px;
     }
@@ -3652,7 +3640,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
                 <h2 id="user-name" style="margin: 10px 0 5px;">Scholar</h2>
                 <p id="volunteer-chip" class="vol-chip">REED Volunteer</p>
                 <p id="user-id-text" style="color: #94A3B8; margin-bottom: 10px;"></p>
-                <button type="button" id="add-home-btn" hidden>Add to Home</button>
                 </div>
 
                 <div class="profile-info-card">
@@ -4129,11 +4116,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
         }
         window.reedPlaceSwitchPills = placeSwitchPills;
         window.addEventListener('resize', placeSwitchPills);
-        function isAddHome(node) {
-            return !!(node && node.closest && node.closest('#add-home-btn'));
-        }
         document.addEventListener('pointerdown', function (e) {
-            if (isAddHome(e.target)) return;
             if (reduced() || (e.button && e.button !== 0)) return;
             var nav = e.target.closest && e.target.closest('.nav-item');
             if (nav) { popNav(nav); return; }
@@ -4142,7 +4125,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
             arm(row);
         }, true);
         document.addEventListener('keydown', function (e) {
-            if (isAddHome(e.target)) return;
             if (reduced()) return;
             if (e.key !== 'Enter' && e.key !== ' ' && e.code !== 'Space') return;
             var nav = e.target.closest && e.target.closest('.nav-item');
@@ -4152,10 +4134,6 @@ body.volunteer-role .vol-report-link { display: block !important; }
             arm(row);
         }, true);
         document.addEventListener('click', function (e) {
-            if (isAddHome(e.target)) {
-                if (typeof window.reedAddHome === 'function') window.reedAddHome();
-                return;
-            }
             var row = flowRow(e.target);
             if (!row || reduced()) return;
             if (row.getAttribute('data-reed-go') === '1') {
@@ -9219,7 +9197,6 @@ function goTab(id) {
     }
     if(id === 'profile') {
         renderProfileData();
-        reedOfferHome();
         if (window.REEDSocial) {
             REEDSocial.paintMyBio();
             REEDSocial.publishMe();
@@ -9252,50 +9229,6 @@ function goTab(id) {
     if (window.reedPlaceSwitchPills) window.reedPlaceSwitchPills();
 }
 
-function reedOfferHome() {
-    var btn = document.getElementById('add-home-btn');
-    if (!btn) return;
-    btn.hidden = true;
-    var tg = window.Telegram && window.Telegram.WebApp;
-    if (!tg || typeof tg.addToHomeScreen !== 'function' || typeof tg.checkHomeScreenStatus !== 'function') return;
-    if (tg.onEvent && !btn._reedHomeListen) {
-        btn._reedHomeListen = true;
-        try {
-            tg.onEvent('homeScreenAdded', function () { btn.hidden = true; });
-        } catch (e) {}
-    }
-    try {
-        tg.checkHomeScreenStatus(function (status) {
-            var s = status && typeof status === 'object' ? String(status.status || status.homeScreenStatus || '') : String(status || '');
-            btn.hidden = (s === 'added' || s === 'unsupported' || !s);
-        });
-    } catch (e2) {
-        btn.hidden = true;
-    }
-}
-function reedHomePrompt(tg) {
-    var text = 'Add to Home needs the Main Mini App.';
-    if (tg && typeof tg.showPopup === 'function') {
-        try {
-            tg.showPopup({ message: text, buttons: [{ id: 'ok', type: 'ok' }] });
-            return;
-        } catch (e) {}
-    }
-    if (tg && typeof tg.showAlert === 'function') {
-        try { tg.showAlert(text); } catch (e2) {}
-    }
-}
-function reedAddHome() {
-    var btn = document.getElementById('add-home-btn');
-    var tg = window.Telegram && window.Telegram.WebApp;
-    if (!tg || typeof tg.addToHomeScreen !== 'function') {
-        reedHomePrompt(tg);
-        if (btn) btn.hidden = true;
-        return;
-    }
-    try { tg.addToHomeScreen(); }
-    catch (e) { reedHomePrompt(tg); }
-}
 function telegramUserId() {
     var live = window.Telegram && Telegram.WebApp && Telegram.WebApp.initDataUnsafe && Telegram.WebApp.initDataUnsafe.user;
     if (live && live.id != null) return String(live.id);
