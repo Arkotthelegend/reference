@@ -352,11 +352,20 @@ function gradeChoice(text) {
     .replace(/၁၁/g, '11')
     .replace(/၁၂/g, '12');
   var found = [];
-  var re = /(?:^|[^\d])(10|11|12)(?!\d)/g;
-  var match;
-  while ((match = re.exec(raw))) {
-    var n = Number(match[1]);
+  function add(n) {
     if (found.indexOf(n) === -1) found.push(n);
+  }
+  var patterns = [
+    /grade\s*(10|11|12)/ig,
+    /\bg\s*(10|11|12)\b/ig,
+    /(?:^|[^\d])(10|11|12)\s*တန်း/g,
+    /တန်း\s*(10|11|12)/g,
+    /(?:^|[^\d])(10|11|12)(?!\d)\s*(?:bio|eco|biology|econom)/ig,
+    /(?:bio|eco|biology|econom)\s*(10|11|12)(?!\d)/ig
+  ];
+  for (var p = 0; p < patterns.length; p++) {
+    var match;
+    while ((match = patterns[p].exec(raw))) add(Number(match[1]));
   }
   return found.length === 1 ? found[0] : 0;
 }
@@ -420,12 +429,21 @@ async function replyForIntent(chatId, text, env, msg) {
       return;
     }
   }
+  if (hinted === 'study') {
+    await sendStudyAnswer(chatId, text, env);
+    return;
+  }
   var intent = await classifyIntent(text, env && env.OPENAI_API_KEY);
   if (intent === 'hello' || intent === 'price' || intent === 'pay' || intent === 'reed') {
     await sendMeaning(chatId, intent, env);
     return;
   }
-  await sendUnmatched(msg || { chat: { id: chatId }, text: text, from: {} }, env);
+  if (intent === 'study') {
+    await sendStudyAnswer(chatId, text, env);
+    return;
+  }
+  var answer = await studyAnswer(text, env && env.OPENAI_API_KEY);
+  if (answer) await sendTelegramMessage(chatId, answer, env.BOT_TOKEN);
 }
 
 function isHello(text) {
@@ -446,17 +464,68 @@ function isReedQuestion(text) {
   return false;
 }
 
+function isStudyQuestion(text) {
+  var s = String(text || '');
+  return /practice|stud(?:y|ying)|revise|revision|quiz|chapter|exam|higher grade|how (?:do|to|can).{0,24}(?:practice|study|learn)|လေ့ကျင့်|ကျက်|စာမေးပွဲ|အခန်း/i.test(s);
+}
+
 function keywordIntent(text) {
   var s = String(text || '');
   if (/ဈေး|price|ဘယ်လောက်|how much|ဈေးနှုန်း/i.test(s)) return 'price';
   if (/k\s*pay|\bkbz\b|\bwave\b|transfer|ငွေလွှဲ|ငွေပို့|ဝယ်မယ်|ဝယ်ချင်|want to buy|\bbuy\b/i.test(s)) return 'pay';
   if (isHello(s)) return 'hello';
+  if (isStudyQuestion(s)) return 'study';
   if (isReedQuestion(s)) return 'reed';
   return 'other';
 }
 
 function allowedMeanings() {
-  return ['hello', 'price', 'pay', 'reed', 'other'];
+  return ['hello', 'price', 'pay', 'reed', 'study', 'other'];
+}
+
+var STUDY_FACTS = [
+  'You answer only about Reed App and studying. Two or three short sentences. Plain text. No markdown.',
+  'Write the names Reed and App in English letters. Never write those names in Burmese script.',
+  'Match the customer language.',
+  'Facts: Reed App is an objective-question specialist. Other practice is minor.',
+  'Grades are 10, 11, and 12. Pick one grade. Unlocks stay on that grade.',
+  'Only the 6-subject pack is sold: Myanmar, English, Maths, Physics, Chemistry, plus Biology or Economics.',
+  'Prices in MMK: 1 month 9500, 3 months 19500, 6 months 29500, 13 months 34500.',
+  'Chapter 1 can be tried. Later chapters open after the pack is bought.',
+  'If the message is daily life or personal, or not about Reed, the app, studying, practice, grades, quizzes, or subjects, reply with exactly SKIP.'
+].join('\n');
+
+async function studyAnswer(text, apiKey) {
+  if (!apiKey) return '';
+  try {
+    var response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + apiKey,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        temperature: 0.2,
+        max_tokens: 180,
+        messages: [
+          { role: 'system', content: STUDY_FACTS },
+          { role: 'user', content: String(text || '') }
+        ]
+      })
+    });
+    var data = await response.json();
+    var said = String(data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || '').trim();
+    if (!said || /^skip$/i.test(said)) return '';
+    return stripFancyText(said);
+  } catch (e) {
+    return '';
+  }
+}
+
+async function sendStudyAnswer(chatId, text, env) {
+  var answer = await studyAnswer(text, env && env.OPENAI_API_KEY);
+  if (answer) await sendTelegramMessage(chatId, answer, env.BOT_TOKEN);
 }
 
 async function classifyIntent(text, apiKey) {
@@ -480,7 +549,7 @@ async function classifyIntent(text, apiKey) {
         messages: [
           {
             role: 'system',
-            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '. Use reed for a question about Reed, the app, or what it is for, including an indirect question that does not say Reed.'
+            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '. reed means what Reed or the app is for. study means practicing, quizzes, chapters, or higher grades. other means daily life or personal.'
           },
           { role: 'user', content: raw }
         ]
@@ -499,7 +568,11 @@ async function classifyIntent(text, apiKey) {
 function paymentPhoto(msg) {
   if (!msg) return null;
   if (msg.photo && msg.photo.length) return msg.photo[msg.photo.length - 1];
-  if (msg.document && String(msg.document.mime_type || '').indexOf('image/') === 0) return msg.document;
+  var doc = msg.document;
+  if (!doc) return null;
+  var mime = String(doc.mime_type || '');
+  var name = String(doc.file_name || '');
+  if (mime.indexOf('image/') === 0 || /\.(jpe?g|png|webp|gif)$/i.test(name)) return doc;
   return null;
 }
 
@@ -648,7 +721,9 @@ async function readSlip(fileId, env) {
   var bin = await fetch('https://api.telegram.org/file/bot' + env.BOT_TOKEN + '/' + path);
   if (!bin.ok) return empty;
   var bytes = new Uint8Array(await bin.arrayBuffer());
-  var b64 = bytesToBase64(bytes);
+  var b64 = '';
+  try { b64 = bytesToBase64(bytes); } catch (e) { return empty; }
+  if (!b64) return empty;
   var mime = /\.png$/i.test(path) ? 'image/png' : 'image/jpeg';
   try {
     var response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -685,22 +760,47 @@ async function readSlip(fileId, env) {
   }
 }
 
+async function forwardUnplannedPayment(msg, env, amount) {
+  var id = String(msg.from && msg.from.id || msg.chat.id);
+  var caption = 'Payment\nID: ' + id + '\nAmount: ' + (amount || '-');
+  var photo = paymentPhoto(msg);
+  if (photo && photo.file_id) {
+    var sent = await telegramApiJson(env.BOT_TOKEN, 'sendPhoto', {
+      chat_id: POST_ADMIN_ID,
+      photo: photo.file_id,
+      caption: caption
+    });
+    if (sent && sent.ok) return;
+  }
+  await telegramApiJson(env.BOT_TOKEN, 'sendMessage', {
+    chat_id: POST_ADMIN_ID,
+    text: caption
+  });
+}
+
 async function handlePaymentPhoto(msg, env) {
   var photo = paymentPhoto(msg);
-  var slip = photo ? await readSlip(photo.file_id, env) : { amount: '', note: '' };
-  var months = monthsForAmount(slip && slip.amount);
+  var slip = { amount: '', note: '' };
+  try {
+    if (photo) slip = await readSlip(photo.file_id, env) || slip;
+  } catch (e) {}
+  var amount = amountNumber(slip && slip.amount);
+  var months = PLAN_BY_AMOUNT[amount] || 0;
   var note = buyerNote(slip, msg);
   var sixth = sixthSubject(note);
   var grade = gradeChoice(note);
-  if (months) await rememberSlip(env, msg.chat.id, months);
-  if (sixth && grade && months) {
-    var opened = await openBuyerSubjects(msg, env, grade, sixth);
-    if (opened) {
-      await sendMeaning(msg.chat.id, 'complete', env);
-      return;
-    }
+  if (!months) {
+    await forwardUnplannedPayment(msg, env, amount);
+    return;
   }
-  if (!sixth || !grade) await sendMeaning(msg.chat.id, 'askag', env);
+  await rememberSlip(env, msg.chat.id, months);
+  if (sixth && grade) {
+    var opened = await openBuyerSubjects(msg, env, grade, sixth);
+    if (opened) await sendMeaning(msg.chat.id, 'complete', env);
+    else await forwardUnplannedPayment(msg, env, amount);
+    return;
+  }
+  await sendMeaning(msg.chat.id, 'askag', env);
 }
 
 function bytesToBase64(bytes) {
