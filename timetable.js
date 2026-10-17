@@ -1849,20 +1849,60 @@
         });
     }
 
-    function openHttpsFile(fileUrl) {
-        if (!fileUrl) return false;
+    function httpsFileUrl(text) {
+        var u = httpsUrl(text);
+        return u.indexOf('https://') === 0 ? u : '';
+    }
+
+    function canDownloadFile(tg) {
+        if (!tg || typeof tg.downloadFile !== 'function') return false;
+        if (typeof tg.isVersionAtLeast === 'function' && !tg.isVersionAtLeast('8.0')) return false;
+        return true;
+    }
+
+    function requestTelegramDownload(url, fileName) {
         var tg = webApp();
+        var fileUrl = httpsFileUrl(url);
+        if (!fileUrl || !fileName || !canDownloadFile(tg)) return false;
         try {
-            if (tg && typeof tg.openLink === 'function') {
-                tg.openLink(fileUrl, { try_instant_view: false });
-                return true;
-            }
-        } catch (e) {}
-        try {
-            window.open(fileUrl, '_blank');
+            tg.downloadFile({ url: fileUrl, file_name: fileName }, function () {});
             return true;
-        } catch (e2) {}
-        return false;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function showSaveSheet(src, fileName) {
+        if (!src) return false;
+        var old = document.getElementById('tt-save-sheet');
+        if (old) old.remove();
+        var sheet = document.createElement('div');
+        sheet.id = 'tt-save-sheet';
+        sheet.setAttribute('role', 'dialog');
+        sheet.style.cssText = 'position:fixed;inset:0;z-index:100000;background:rgba(8,10,14,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;';
+        var note = document.createElement('p');
+        note.textContent = 'Long press the image to save.';
+        note.style.cssText = 'color:#F0B90B;font-weight:800;margin:0 0 12px;text-align:center;';
+        var pic = document.createElement('img');
+        pic.src = src;
+        pic.alt = fileName || 'Timetable';
+        pic.style.cssText = 'max-width:100%;max-height:72vh;object-fit:contain;background:#fff;border-radius:12px;-webkit-touch-callout:default;';
+        var close = document.createElement('button');
+        close.type = 'button';
+        close.textContent = 'Close';
+        close.style.cssText = 'margin-top:14px;padding:12px 22px;border:0;border-radius:999px;background:#F0B90B;color:#0B0F19;font-weight:800;';
+        close.onclick = function () { sheet.remove(); };
+        sheet.appendChild(note);
+        sheet.appendChild(pic);
+        sheet.appendChild(close);
+        document.body.appendChild(sheet);
+        return true;
+    }
+
+    function showBlobSheet(blob, fileName) {
+        var src = '';
+        try { src = URL.createObjectURL(blob); } catch (e) {}
+        return showSaveSheet(src, fileName);
     }
 
     function asPngBlob(blob) {
@@ -1917,30 +1957,43 @@
         }
     }
 
-    function saveImage(api, blob, fileName, onState) {
+    function deliverImage(api, blob, fileName, knownUrl) {
+        fileName = fileName || 'REED.png';
+        var ready = httpsFileUrl(knownUrl);
+        var hostedPromise = ready
+            ? Promise.resolve({ url: ready, sentToChat: false })
+            : hostPng(api, blob, fileName);
+        return hostedPromise.then(function (hosted) {
+            hosted = hosted || { url: '', sentToChat: false };
+            var url = httpsFileUrl(hosted.url);
+            if (url && requestTelegramDownload(url, fileName)) {
+                return { ok: true, url: url, sentToChat: false, downloaded: true, showedImage: false };
+            }
+            if (hosted.sentToChat) {
+                return { ok: true, url: url, sentToChat: true, downloaded: false, showedImage: false };
+            }
+            var showed = url ? showSaveSheet(url, fileName) : showBlobSheet(blob, fileName);
+            return { ok: showed, url: url, sentToChat: false, downloaded: false, showedImage: showed };
+        }).catch(function () {
+            var showed = showBlobSheet(blob, fileName);
+            return { ok: showed, url: '', sentToChat: false, downloaded: false, showedImage: showed };
+        });
+    }
+
+    function saveImage(api, blob, fileName, onState, knownUrl) {
         api = api || {};
         fileName = fileName || 'REED.png';
         onState = onState || function () {};
         blob = asPngBlob(blob);
-        if (!blob) return Promise.resolve({ ok: false, url: '', sentToChat: false });
-        onState(true, 'Sending…');
-        return hostPng(api, blob, fileName).then(function (hosted) {
-            hosted = hosted || { url: '', sentToChat: false };
-            if (hosted.sentToChat) {
-                return { ok: true, url: hosted.url || '', sentToChat: true, openedLink: false };
-            }
-            if (hosted.url && openHttpsFile(hosted.url)) {
-                return { ok: true, url: hosted.url, sentToChat: false, openedLink: true };
-            }
-            return tryBlobSave(blob, fileName).then(function (ok) {
-                return { ok: ok, url: hosted.url || '', sentToChat: false, openedLink: false };
-            });
-        }).then(function (result) {
+        if (!blob && !httpsFileUrl(knownUrl)) return Promise.resolve({ ok: false, url: '', sentToChat: false });
+        onState(true, 'Saving…');
+        return deliverImage(api, blob, fileName, knownUrl).then(function (result) {
             onState(false);
             return result;
         }, function () {
             onState(false);
-            return { ok: false, url: '', sentToChat: false, openedLink: false };
+            var showed = blob ? showBlobSheet(blob, fileName) : false;
+            return { ok: showed, url: '', sentToChat: false, downloaded: false, showedImage: showed };
         });
     }
 
@@ -1953,9 +2006,9 @@
         }
         return saveImage(api, blob, fileName, onState).then(function (result) {
             if (!result.ok) {
-                if (api && api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
-            } else {
-                tellSaved(api, result.sentToChat, result.openedLink, 'image');
+                if (api && api.alert) api.alert('ပုံကို ဖွင့်မရပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
+            } else if (!result.downloaded && !result.showedImage) {
+                tellSaved(api, result.sentToChat, false, 'image');
             }
             return { url: result.url || '', sentToChat: !!result.sentToChat };
         });
@@ -1978,12 +2031,12 @@
         }
         saveImage(api, blob, name, function (busy, label) {
             setDlState(idx, busy, label);
-        }).then(function (result) {
+        }, img && img._httpsUrl).then(function (result) {
             if (img && result && result.url) img._httpsUrl = result.url;
             if (!result.ok) {
-                if (api && api.alert) api.alert('ဖုန်းထဲ သိမ်းမရပါ။ အင်တာနက် ဖွင့်ပြီး ထပ်နှိပ်ပါ။');
-            } else {
-                tellSaved(api, result.sentToChat, result.openedLink, 'timetable');
+                if (api && api.alert) api.alert('ပုံကို ဖွင့်မရပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
+            } else if (!result.downloaded && !result.showedImage) {
+                tellSaved(api, result.sentToChat, false, 'timetable');
             }
         });
     }
