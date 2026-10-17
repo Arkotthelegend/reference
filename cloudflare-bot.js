@@ -77,16 +77,16 @@ export default {
           await sendStartWelcome(chatId, env);
         } else if (isPostAdmin(msg, env) && isPrivateChat(msg) && meaningWord(msg.text)) {
           await handleSaveReply(msg, env);
-        } else if (isPostAdmin(msg, env) && isPrivateChat(msg) && (paymentPhoto(msg) || voiceFile(msg))) {
-          // Admin media is a saved reply, never a customer payment slip.
-        } else if (paymentPhoto(msg) && isPrivateChat(msg)) {
-          await handlePaymentPhoto(msg, env);
         } else if (videoFileIdFromMessage(msg) && isPrivateChat(msg) && isPostAdmin(msg, env)) {
           await sendTelegramMessage(
             chatId,
             'Save this as Worker secret START_VIDEO_FILE_ID:\n' + videoFileIdFromMessage(msg),
             env.BOT_TOKEN
           );
+        } else if (isPostAdmin(msg, env) && isPrivateChat(msg)) {
+          // Admin text, photo, or voice is a saved reply, never a customer payment slip.
+        } else if (paymentPhoto(msg) && isPrivateChat(msg)) {
+          await handlePaymentPhoto(msg, env);
         } else if (typeof msg.text === 'string' && msg.text.trim()) {
           await replyForIntent(chatId, msg.text, env, msg);
         } else if (isPrivateChat(msg) && !isPostAdmin(msg, env)) {
@@ -219,11 +219,13 @@ function voiceFile(msg) {
 function mediaRecord(msg) {
   if (!msg) return null;
   var voice = voiceFile(msg);
-  if (voice) return { type: 'voice', fileId: voice.file_id, caption: '' };
+  if (voice) return { type: 'voice', fileId: voice.file_id, caption: '', text: '' };
   var photo = paymentPhoto(msg);
   if (photo && photo.file_id) {
-    return { type: 'photo', fileId: photo.file_id, caption: String(msg.caption || '') };
+    return { type: 'photo', fileId: photo.file_id, caption: String(msg.caption || ''), text: '' };
   }
+  var text = String(msg.text || '').trim();
+  if (text && !meaningWord(text)) return { type: 'text', fileId: '', caption: '', text: text };
   return null;
 }
 
@@ -260,7 +262,7 @@ async function handleSaveReply(msg, env) {
   var word = meaningWord(msg.text);
   var media = mediaRecord(msg.reply_to_message);
   if (!media) {
-    await sendTelegramMessage(msg.chat.id, 'Reply to the photo or voice.', env.BOT_TOKEN);
+    await sendTelegramMessage(msg.chat.id, 'Reply to the text, photo, or voice.', env.BOT_TOKEN);
     return;
   }
   var from = msg.reply_to_message;
@@ -270,7 +272,8 @@ async function handleSaveReply(msg, env) {
     messageId: from.message_id,
     fileId: media.fileId,
     type: media.type,
-    caption: media.caption
+    caption: media.caption,
+    text: media.text
   });
   await sendTelegramMessage(
     msg.chat.id,
@@ -280,12 +283,22 @@ async function handleSaveReply(msg, env) {
 }
 
 async function sendSavedReply(chatId, record, env) {
-  var copied = await telegramApiJson(env.BOT_TOKEN, 'copyMessage', {
-    chat_id: chatId,
-    from_chat_id: record.fromChatId,
-    message_id: record.messageId
-  });
-  if (copied && copied.ok) return true;
+  if (record.messageId && record.fromChatId) {
+    var copied = await telegramApiJson(env.BOT_TOKEN, 'copyMessage', {
+      chat_id: chatId,
+      from_chat_id: record.fromChatId,
+      message_id: record.messageId
+    });
+    if (copied && copied.ok) return true;
+  }
+  if (record.type === 'text') {
+    if (!record.text) return false;
+    var text = await telegramApiJson(env.BOT_TOKEN, 'sendMessage', {
+      chat_id: chatId,
+      text: record.text
+    });
+    return !!(text && text.ok);
+  }
   if (record.type === 'voice') {
     var voice = await telegramApiJson(env.BOT_TOKEN, 'sendVoice', {
       chat_id: chatId,
@@ -301,7 +314,7 @@ async function sendSavedReply(chatId, record, env) {
 
 async function sendMeaning(chatId, meaning, env) {
   var saved = await loadReplyRecord(env, meaning);
-  if (saved && saved.messageId && saved.fileId) {
+  if (saved && saved.messageId && (saved.fileId || saved.text)) {
     try {
       if (await sendSavedReply(chatId, saved, env)) return true;
     } catch (e) {}
@@ -333,6 +346,27 @@ async function clearPending(env, chatId) {
   try { await env.REPLIES.delete(pendingKey(chatId)); } catch (e) {}
 }
 
+function gradeChoice(text) {
+  var raw = String(text || '')
+    .replace(/၁၀/g, '10')
+    .replace(/၁၁/g, '11')
+    .replace(/၁၂/g, '12');
+  var found = [];
+  var re = /(?:^|[^\d])(10|11|12)(?!\d)/g;
+  var match;
+  while ((match = re.exec(raw))) {
+    var n = Number(match[1]);
+    if (found.indexOf(n) === -1) found.push(n);
+  }
+  return found.length === 1 ? found[0] : 0;
+}
+
+function buyerNote(slip, msg) {
+  return [slip && slip.note, msg && msg.caption, msg && msg.text].filter(function (part) {
+    return String(part || '').trim();
+  }).join('\n');
+}
+
 function sixthSubject(text) {
   var raw = String(text || '');
   var bio = /biology|\bbio\b|ဇီဝ/i.test(raw);
@@ -357,9 +391,9 @@ async function openBuyerSubjects(msg, env, grade, sixth) {
     subjects: CORE_SUBJECTS.concat([sixth]),
     months: months
   });
-  if (!wrote || wrote.success !== true) return;
+  if (!wrote || wrote.success !== true) return false;
   await clearPending(env, msg.chat.id);
-  await sendTelegramMessage(msg.chat.id, 'ဘာသာရပ်ဖွင့်ပြီးပါပြီ။ App ကို ပိတ်ပြီး ပြန်ဖွင့်ပါ။', env.BOT_TOKEN);
+  return true;
 }
 
 async function sendUnmatched(msg, env) {
@@ -372,11 +406,19 @@ async function replyForIntent(chatId, text, env, msg) {
     await sendMeaning(chatId, hinted, env);
     return;
   }
+  var pending = await loadPending(env, chatId);
   var sixth = sixthSubject(text);
-  var grade = parseAsk(text).grade;
-  if (sixth && grade) {
-    await openBuyerSubjects(msg || { chat: { id: chatId }, text: text, from: {} }, env, grade, sixth);
-    return;
+  var grade = gradeChoice(text);
+  if (pending && Number(pending.months)) {
+    if (sixth && grade) {
+      var opened = await openBuyerSubjects(msg || { chat: { id: chatId }, text: text, from: {} }, env, grade, sixth);
+      if (opened) await sendMeaning(chatId, 'complete', env);
+      return;
+    }
+    if (sixth || grade) {
+      await sendMeaning(chatId, 'askag', env);
+      return;
+    }
   }
   var intent = await classifyIntent(text, env && env.OPENAI_API_KEY);
   if (intent === 'hello' || intent === 'price' || intent === 'pay' || intent === 'reed') {
@@ -598,7 +640,7 @@ function payKeyboard() {
 }
 
 async function readSlip(fileId, env) {
-  var empty = { amount: '', name: '', time: '', last4: '' };
+  var empty = { amount: '', name: '', time: '', last4: '', note: '' };
   if (!env || !env.OPENAI_API_KEY || !fileId) return empty;
   var file = await telegramApiJson(env.BOT_TOKEN, 'getFile', { file_id: fileId });
   var path = file && file.result && file.result.file_path;
@@ -618,12 +660,12 @@ async function readSlip(fileId, env) {
       body: JSON.stringify({
         model: 'gpt-4o-mini',
         temperature: 0,
-        max_tokens: 180,
+        max_tokens: 240,
         response_format: { type: 'json_object' },
         messages: [{
           role: 'user',
           content: [
-            { type: 'text', text: 'Read this payment slip. Return JSON only with keys amount, name, time, last4. amount is the money paid, not a phone number, fee of 0, or transaction id. On KBZ Pay use the large amount line such as -40,000.00 Ks and drop the leading minus. On Wave use the large amount under the yellow title; it may be Burmese digits with commas, such as ၅,၀၀၀.၀၀ ကျပ်. Convert Burmese digits to English digits. name is the payer. time is the transfer time. last4 is the last digits shown. Use empty strings if missing.' },
+            { type: 'text', text: 'Read this payment slip. Return JSON only with keys amount, name, time, last4, note. amount is the money paid, not a phone number, fee of 0, or transaction id. On KBZ Pay use the large amount line such as -40,000.00 Ks and drop the leading minus. On Wave use the large amount under the yellow title; it may be Burmese digits with commas, such as ၅,၀၀၀.၀၀ ကျပ်. Convert Burmese digits to English digits. name is the payer. time is the transfer time. last4 is the last digits shown. note is only the မှတ်ချက် line, where Grade and Bio or Eco are written. Copy that line as written. Leave note empty if that line is blank. Do not guess a grade or subject. Use empty strings if missing.' },
             { type: 'image_url', image_url: { url: 'data:' + mime + ';base64,' + b64 } }
           ]
         }]
@@ -635,7 +677,8 @@ async function readSlip(fileId, env) {
       amount: String(parsed.amount || ''),
       name: String(parsed.name || ''),
       time: String(parsed.time || ''),
-      last4: String(parsed.last4 || '')
+      last4: String(parsed.last4 || ''),
+      note: String(parsed.note || '')
     };
   } catch (e) {
     return empty;
@@ -644,14 +687,20 @@ async function readSlip(fileId, env) {
 
 async function handlePaymentPhoto(msg, env) {
   var photo = paymentPhoto(msg);
-  var slip = photo ? await readSlip(photo.file_id, env) : { amount: '' };
+  var slip = photo ? await readSlip(photo.file_id, env) : { amount: '', note: '' };
   var months = monthsForAmount(slip && slip.amount);
-  await rememberSlip(env, msg.chat.id, months);
-  var note = msg.caption || '';
+  var note = buyerNote(slip, msg);
   var sixth = sixthSubject(note);
-  var grade = parseAsk(note).grade;
-  if (sixth && grade && months) await openBuyerSubjects(msg, env, grade, sixth);
-  await sendMeaning(msg.chat.id, 'idask', env);
+  var grade = gradeChoice(note);
+  if (months) await rememberSlip(env, msg.chat.id, months);
+  if (sixth && grade && months) {
+    var opened = await openBuyerSubjects(msg, env, grade, sixth);
+    if (opened) {
+      await sendMeaning(msg.chat.id, 'complete', env);
+      return;
+    }
+  }
+  if (!sixth || !grade) await sendMeaning(msg.chat.id, 'askag', env);
 }
 
 function bytesToBase64(bytes) {
