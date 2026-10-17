@@ -149,12 +149,12 @@ function aboutReedReply() {
 
 function startReply() {
   return [
-    'ရီးဒ်ပညာရေးမှ ကြိုဆိုပါတယ်။',
-    'ကျွန်တော်တို့က ၁၀ တန်း၊ ၁၁ တန်း၊ ၁၂ တန်းအတွက် လေ့ကျင့်ရေး Mini App ပါ။',
-    'Telegram ထဲမှာပဲ ဘာသာရပ်တွေ လေ့ကျင့်လို့ရပါတယ်။',
-    'အက်ပ်ဖွင့်ရန် Start Practice ကို နှိပ်လိုက်ပါ။',
+    'Reed မှ ကြိုဆိုပါတယ်။',
+    'Reed App က objective question အတွက်ပါ။ တစ်ခြားလေ့ကျင့်မှုက နည်းပါတယ်။',
+    'Grade 10, 11, 12။',
+    'App ဖွင့်ရန် Start Practice ကို နှိပ်ပါ။',
     '',
-    'သတင်းနဲ့ အကြောင်းအရာအသစ်တွေအတွက် Channel ကို join ပေးပါ — @REED_education'
+    'သတင်းအတွက် Channel ကို join ပေးပါ — @REED_education'
   ].join('\n');
 }
 
@@ -174,12 +174,12 @@ var PAID_SHEET_URL = 'https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeG
 var PLAN_BY_AMOUNT = { 9500: 1, 19500: 3, 29500: 6, 34500: 13 };
 var PLAN_PRICE = { 1: 9500, 3: 19500, 6: 29500, 13: 34500 };
 var FIXED_REPLIES = {
-  price: 'ဘာသာရပ်အားလုံး ၁ လ ၉၅၀၀၊ ၃ လ ၁၉၅၀၀၊ ၆ လ ၂၉၅၀၀၊ ၁၃ လ ၃၄၅၀၀ ကျပ်ပါ။ Grade 10, 11, 12 အတူတူပါ။',
-  pay: 'ငွေလွှဲပြေစာပုံကို ဒီချတ်မှာ ပို့ပါ။ ပုံအောက်မှာ Grade နဲ့ ဘာသာရပ်ရေးပါ။ ဥပမာ Grade 10 Myanmar။',
-  grade: 'Grade 10, 11, 12 ထဲက တစ်တန်းရွေးပါ။ ဝယ်ထားတဲ့ဘာသာရပ်က အဲဒီတန်းမှာပဲ ပွင့်ပါတယ်။',
-  locked: 'Chapter 1 က အခမဲ့ စမ်းသုံးလို့ရပါတယ်။ ကျန်တဲ့အခန်းတွေက ဝယ်ပြီးမှ ပွင့်ပါတယ်။',
-  photo: 'ပြေစာရပါပြီ။ စစ်ပြီးမှ ဘာသာရပ်ဖွင့်ပေးပါမယ်။',
-  other: 'ဈေး၊ ငွေပေးနည်း၊ Grade၊ ပိတ်ထားတဲ့ဘာသာရပ် မေးနိုင်ပါတယ်။ ဝယ်ရန် @minaphayarkot။'
+  price: 'ဘာသာစုံ ၁ လ ၉၅၀၀၊ ၃ လ ၁၉၅၀၀၊ ၆ လ ၂၉၅၀၀၊ ၁၃ လ ၃၄၅၀၀ ကျပ်ပါ။ Grade 10, 11, 12 အတူတူပါ။',
+  pay: 'ငွေလွှဲပြေစာပုံကို ဒီချတ်မှာ ပို့ပါ။ ပုံအောက်မှာ Grade ရေးပါ။ ဥပမာ Grade 10။ ဘာသာစုံပဲ ရောင်းပါတယ်။',
+  grade: 'Grade 10, 11, 12 ထဲက တစ်တန်းရွေးပါ။ ဘာသာစုံက အဲဒီတန်းမှာပဲ ပွင့်ပါတယ်။',
+  locked: 'Chapter 1 က အခမဲ့ စမ်းသုံးလို့ရပါတယ်။ ကျန်တာက ဘာသာစုံဝယ်မှ ပွင့်ပါတယ်။',
+  photo: 'ပြေစာရပါပြီ။ စစ်ပြီးမှ ဘာသာစုံဖွင့်ပေးပါမယ်။',
+  other: 'Reed App က objective question အတွက်ပါ။ တစ်ခြားလေ့ကျင့်မှုက နည်းပါတယ်။ ဈေး၊ ငွေပေးနည်း၊ Grade မေးနိုင်ပါတယ်။'
 };
 var SUBJECT_WORDS = [
   ['all', /all|အားလုံး/i],
@@ -422,7 +422,6 @@ async function handlePaymentPhoto(msg, env) {
     await sendTelegramMessage(msg.chat.id, fixedReply('pay'), env.BOT_TOKEN);
     return;
   }
-  if (!ask.subjects.length) ask.subjects = ['all'];
   var slip = await readSlip(photo.file_id, env);
   var months = monthsForAmount(slip.amount);
   var caption = paymentCaption({
@@ -432,7 +431,7 @@ async function handlePaymentPhoto(msg, env) {
     time: slip.time,
     last4: slip.last4,
     grade: ask.grade,
-    subjects: ask.subjects,
+    subjects: ['all'],
     months: months
   });
   var sent = await telegramApiJson(env.BOT_TOKEN, 'sendPhoto', {
@@ -517,6 +516,7 @@ async function handlePayDecision(q, env) {
     });
     return;
   } else {
+    fields.subjects = ['all'];
     var wrote = await savePaidSubjects(fields);
     if (!wrote || wrote.success !== true) {
       await telegramApiJson(env.BOT_TOKEN, 'sendMessage', {
@@ -525,7 +525,7 @@ async function handlePayDecision(q, env) {
       });
       return;
     }
-    customerText = 'ဘာသာရပ်ဖွင့်ပြီးပါပြီ။ အက်ပ်ကို ပိတ်ပြီး ပြန်ဖွင့်ပါ။';
+    customerText = 'ဘာသာစုံဖွင့်ပြီးပါပြီ။ App ကို ပိတ်ပြီး ပြန်ဖွင့်ပါ။';
     nextStatus = 'approved';
   }
   if (fields.id && customerText) await sendTelegramMessage(fields.id, customerText, env.BOT_TOKEN);
@@ -782,7 +782,8 @@ async function getAIReply(question, apiKey) {
     'You are Reed, the in-chat helper for Reed Education. You are friendly, specific, and practical.',
     '',
     'WHAT REED IS:',
-    'Reed Education is a Telegram Mini App for Myanmar Grade 10, 11, and 12 students. Website: reededucation.net. Contact to buy: @minaphayarkot. No Play Store or App Store install.',
+    'Reed App is an objective-question specialist for Myanmar Grade 10, 11, and 12. Other practice is minor. Website: reededucation.net. Contact to buy: @minaphayarkot. No Play Store or App Store install.',
+    'Write the names Reed and App in English letters. Never write those names in Burmese script.',
     '',
     'BOT vs CHANNEL — never mix these up:',
     '• @reededucation_bot is THIS chat. The user is already typing here. This bot opens the Mini App.',
@@ -814,14 +815,13 @@ async function getAIReply(question, apiKey) {
     '• Free: Chapter 1 trial. Other chapters need a paid unlock or volunteer unlock.',
     '',
     'PRICING (MMK):',
-    'Sold as all-subjects only. No per-subject sales.',
+    'Only the 6-subject pack (ဘာသာစုံ) is sold. Never offer one subject, two subjects, or a smaller pack.',
     '• 1 month: 9,500',
     '• 3 months: 19,500',
     '• 6 months: 29,500',
     '• 13 months: 34,500',
-    'Same prices for Grade 10, 11, and 12. Grade 12 also includes old questions.',
-    'Weekly timetable made by AI is included.',
-    'How to buy: Me → contact to buy (copies @minaphayarkot). Send your Telegram ID, grade, and plan.',
+    'Same prices for Grade 10, 11, and 12. Approval opens every subject on that grade.',
+    'How to buy: send the payment photo in this chat with the grade. Contact: @minaphayarkot.',
     '',
     'OTHER: Theme shop still exists on Me. Website landing page is only a preview; the real app is inside Telegram.',
     '',
