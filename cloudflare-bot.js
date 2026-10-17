@@ -872,31 +872,33 @@ async function readSlip(fileId, env) {
 }
 
 function usedTxnKey(txn) {
-  return 'used:txn:' + txn;
+  return 'txn:' + txn;
 }
 
-function usedTimeKey(timeText) {
-  return 'used:time:' + englishDigits(timeText).replace(/\s+/g, '');
+async function slipAlreadyUsed(env, txn) {
+  if (!env || !env.REPLIES || !txn) return false;
+  return !!(await env.REPLIES.get(usedTxnKey(txn)));
 }
 
-async function slipAlreadyUsed(env, txn, timeText) {
-  if (!env || !env.REPLIES) return false;
-  if (txn && await env.REPLIES.get(usedTxnKey(txn))) return true;
-  var clock = englishDigits(timeText);
-  if (/\d{1,2}:\d{2}/.test(clock) && await env.REPLIES.get(usedTimeKey(timeText))) return true;
-  return false;
+async function markSlipUsed(env, txn) {
+  if (!env || !env.REPLIES || !txn) return;
+  await env.REPLIES.put(usedTxnKey(txn), '1');
 }
 
-async function markSlipUsed(env, txn, timeText) {
-  if (!env || !env.REPLIES) return;
-  if (txn) await env.REPLIES.put(usedTxnKey(txn), '1');
-  var clock = englishDigits(timeText);
-  if (/\d{1,2}:\d{2}/.test(clock)) await env.REPLIES.put(usedTimeKey(timeText), '1');
+function customerForwardLines(msg) {
+  var from = (msg && msg.from) || {};
+  var id = String(from.id || (msg && msg.chat && msg.chat.id) || '');
+  var username = String(from.username || '').replace(/^@/, '');
+  var name = [from.first_name, from.last_name].filter(Boolean).join(' ') || '-';
+  return [
+    'ID: ' + id,
+    'User: ' + (username ? '@' + username : 'no username'),
+    'Name: ' + name
+  ].join('\n');
 }
 
 async function forwardUnplannedPayment(msg, env, amount, extra) {
-  var id = String(msg.from && msg.from.id || msg.chat.id);
-  var caption = 'Payment\nID: ' + id + '\nAmount: ' + (amount || '-');
+  var caption = 'Payment\n' + customerForwardLines(msg) + '\nAmount: ' + (amount || '-');
   if (extra) caption += '\n' + extra;
   var photo = paymentPhoto(msg);
   if (photo && photo.file_id) {
@@ -921,18 +923,24 @@ async function handlePaymentPhoto(msg, env) {
   } catch (e) {}
   var amount = amountNumber(slip && slip.amount);
   var months = PLAN_BY_AMOUNT[amount] || 0;
-  var day = receiptDay(slip && slip.time);
-  var today = yangonToday();
-  var txn = txnId(slip && (slip.txn || slip.last4));
-  var old = !!(day && day < today);
-  var used = false;
-  try { used = await slipAlreadyUsed(env, txn, slip && slip.time); } catch (e) {}
-  if (!months || old || used) {
-    var why = !months ? 'Amount is not a plan.' : (old ? 'Receipt is before today.' : 'Receipt was already used.');
-    await forwardUnplannedPayment(msg, env, amount, why + '\nTime: ' + (slip.time || '-') + '\nTxn: ' + (txn || '-'));
+  var txn = txnId(slip && slip.txn);
+  var detail = 'Txn: ' + (txn || '-');
+  if (!txn) {
+    await forwardUnplannedPayment(msg, env, amount, 'Transaction id was not read.\n' + detail);
     return;
   }
-  try { await markSlipUsed(env, txn, slip && slip.time); } catch (e) {}
+  var used = false;
+  try { used = await slipAlreadyUsed(env, txn); } catch (e) {}
+  if (used) {
+    await forwardUnplannedPayment(msg, env, amount, 'Receipt was already used.\n' + detail);
+    return;
+  }
+  if (!months) {
+    try { await markSlipUsed(env, txn); } catch (e) {}
+    await forwardUnplannedPayment(msg, env, amount, 'Amount is not a plan.\n' + detail);
+    return;
+  }
+  try { await markSlipUsed(env, txn); } catch (e) {}
   await rememberSlip(env, msg.chat.id, months);
   var note = buyerNote(slip, msg);
   var sixth = sixthSubject(note);
