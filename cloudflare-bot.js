@@ -229,13 +229,35 @@ function mediaRecord(msg) {
   return null;
 }
 
+function canonMeaning(word) {
+  var w = String(word || '').toLowerCase();
+  if (w === 'stepbystep' || w === 'step-by-step' || w === 'step_by_step') return 'stepbstep';
+  return w;
+}
+
 function replyKey(word) {
-  return 'reply:' + word;
+  return 'reply:' + canonMeaning(word);
 }
 
 async function saveReplyRecord(env, word, record) {
-  if (!env || !env.REPLIES || !word) return false;
-  await env.REPLIES.put(replyKey(word), JSON.stringify(record));
+  var key = canonMeaning(word);
+  if (!env || !env.REPLIES || !key) return false;
+  if (key === 'stepbstep') {
+    var existing = await loadReplyRecord(env, key);
+    var parts = existing && existing.parts ? existing.parts.slice() : [];
+    if ((!parts.length) && existing && existing.type) parts = [existing];
+    var replaced = false;
+    for (var i = 0; i < parts.length; i++) {
+      if (parts[i].type === record.type) {
+        parts[i] = record;
+        replaced = true;
+      }
+    }
+    if (!replaced) parts.push(record);
+    await env.REPLIES.put(replyKey(key), JSON.stringify({ meaning: key, parts: parts }));
+    return true;
+  }
+  await env.REPLIES.put(replyKey(key), JSON.stringify(record));
   return true;
 }
 
@@ -259,7 +281,7 @@ async function savedMeanings(env) {
 }
 
 async function handleSaveReply(msg, env) {
-  var word = meaningWord(msg.text);
+  var word = canonMeaning(meaningWord(msg.text));
   var media = mediaRecord(msg.reply_to_message);
   if (!media) {
     await sendTelegramMessage(msg.chat.id, 'Reply to the text, photo, or voice.', env.BOT_TOKEN);
@@ -313,13 +335,19 @@ async function sendSavedReply(chatId, record, env) {
 }
 
 async function sendMeaning(chatId, meaning, env) {
-  var saved = await loadReplyRecord(env, meaning);
-  if (saved && saved.messageId && (saved.fileId || saved.text)) {
-    try {
-      if (await sendSavedReply(chatId, saved, env)) return true;
-    } catch (e) {}
+  var saved = await loadReplyRecord(env, canonMeaning(meaning));
+  var parts = saved && saved.parts && saved.parts.length ? saved.parts : null;
+  if (!parts && saved && (saved.fileId || saved.text || saved.messageId)) parts = [saved];
+  if (parts) {
+    var sent = false;
+    for (var i = 0; i < parts.length; i++) {
+      try {
+        if (await sendSavedReply(chatId, parts[i], env)) sent = true;
+      } catch (e) {}
+    }
+    if (sent) return true;
   }
-  var text = FIXED_REPLIES[meaning];
+  var text = FIXED_REPLIES[canonMeaning(meaning)];
   if (!text) return false;
   await sendTelegramMessage(chatId, text, env.BOT_TOKEN);
   return true;
@@ -411,7 +439,7 @@ async function sendUnmatched(msg, env) {
 
 async function replyForIntent(chatId, text, env, msg) {
   var hinted = keywordIntent(text);
-  if (hinted === 'hello' || hinted === 'price' || hinted === 'pay' || hinted === 'reed') {
+  if (hinted === 'hello' || hinted === 'price' || hinted === 'pay' || hinted === 'reed' || hinted === 'explain' || hinted === 'stepbstep') {
     await sendMeaning(chatId, hinted, env);
     return;
   }
@@ -434,7 +462,7 @@ async function replyForIntent(chatId, text, env, msg) {
     return;
   }
   var intent = await classifyIntent(text, env && env.OPENAI_API_KEY);
-  if (intent === 'hello' || intent === 'price' || intent === 'pay' || intent === 'reed') {
+  if (intent === 'hello' || intent === 'price' || intent === 'pay' || intent === 'reed' || intent === 'explain' || intent === 'stepbstep') {
     await sendMeaning(chatId, intent, env);
     return;
   }
@@ -464,6 +492,18 @@ function isReedQuestion(text) {
   return false;
 }
 
+function isExplainQuestion(text) {
+  var s = String(text || '');
+  if (!/explain|explanation|ရှင်းပြ|ရှင်းပေး/i.test(s)) return false;
+  if (/\breed\b|reededucation|ရီးဒ်|ရိဒ်|\bapp\b|အက်ပ်|အက်ပ|\bbot\b|\bthis\b|\bit\b/i.test(s)) return true;
+  return /^(?:please\s+)?(?:explain|explanation|ရှင်းပြ(?:ပါ|ပေး)?)[.!? ]*$/i.test(s.trim());
+}
+
+function isEnterQuestion(text) {
+  var s = String(text || '');
+  return /how (?:do|to|can|should).{0,48}(?:open|enter|get in|start)|(?:open|enter|get into) (?:the |this )?(?:app|bot)|app ထဲ|အက်ပ်ထဲ|ဘယ်လိုဖွင့်|ဘယ်လိုဝင်|ဝင်ရမလဲ|ဖွင့်ရမလဲ/i.test(s);
+}
+
 function isStudyQuestion(text) {
   var s = String(text || '');
   return /practice|stud(?:y|ying)|revise|revision|quiz|chapter|exam|higher grade|how (?:do|to|can).{0,24}(?:practice|study|learn)|လေ့ကျင့်|ကျက်|စာမေးပွဲ|အခန်း/i.test(s);
@@ -474,13 +514,15 @@ function keywordIntent(text) {
   if (/ဈေး|price|ဘယ်လောက်|how much|ဈေးနှုန်း/i.test(s)) return 'price';
   if (/k\s*pay|\bkbz\b|\bwave\b|transfer|ငွေလွှဲ|ငွေပို့|ဝယ်မယ်|ဝယ်ချင်|want to buy|\bbuy\b/i.test(s)) return 'pay';
   if (isHello(s)) return 'hello';
+  if (isExplainQuestion(s)) return 'explain';
+  if (isEnterQuestion(s)) return 'stepbstep';
   if (isStudyQuestion(s)) return 'study';
   if (isReedQuestion(s)) return 'reed';
   return 'other';
 }
 
 function allowedMeanings() {
-  return ['hello', 'price', 'pay', 'reed', 'study', 'other'];
+  return ['hello', 'price', 'pay', 'reed', 'explain', 'stepbstep', 'study', 'other'];
 }
 
 var STUDY_FACTS = [
@@ -549,7 +591,7 @@ async function classifyIntent(text, apiKey) {
         messages: [
           {
             role: 'system',
-            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '. reed means what Reed or the app is for. study means practicing, quizzes, chapters, or higher grades. other means daily life or personal.'
+            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '. explain means they want Reed or the app explained. stepbstep means how to open or enter the app. reed means what Reed is. study means practicing or higher grades. other means daily life or personal.'
           },
           { role: 'user', content: raw }
         ]
@@ -595,10 +637,16 @@ function parseAsk(text) {
   return { grade: grade, subjects: subjects };
 }
 
-function amountNumber(text) {
-  var s = String(text || '')
+function englishDigits(text) {
+  return String(text || '')
     .replace(/[၀-၉]/g, function (d) { return String('၀၁၂၃၄၅၆၇၈၉'.indexOf(d)); })
-    .replace(/၊/g, ',');
+    .replace(/[၊\u104A\uFF0C]/g, ',')
+    .replace(/(\d)[။\u104B](?=\d)/g, '$1.')
+    .replace(/(\d)[\s\u00A0\u2009\u202F]+(?=\d)/g, '$1');
+}
+
+function amountNumber(text) {
+  var s = englishDigits(text);
   var money = [];
   var plain = [];
   var re = /-?\s*(\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d+))?/g;
@@ -617,6 +665,61 @@ function amountNumber(text) {
   if (money.length) return money[0];
   if (plain.length === 1) return plain[0];
   return 0;
+}
+
+function txnId(text) {
+  var s = englishDigits(text);
+  var best = '';
+  var re = /\d{8,}/g;
+  var match;
+  while ((match = re.exec(s))) {
+    var id = match[0];
+    if (/^09\d{6,10}$/.test(id)) continue;
+    if (id.length > best.length) best = id;
+  }
+  return best;
+}
+
+function pad2(n) {
+  var s = String(n);
+  return s.length < 2 ? '0' + s : s;
+}
+
+function ymd(year, month, day) {
+  var y = Number(year);
+  var m = Number(month);
+  var d = Number(day);
+  if (!y || m < 1 || m > 12 || d < 1 || d > 31) return '';
+  return y + '-' + pad2(m) + '-' + pad2(d);
+}
+
+function receiptDay(timeText) {
+  var s = englishDigits(timeText);
+  var numeric = s.match(/(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{4})/);
+  if (numeric) {
+    var a = Number(numeric[1]);
+    var b = Number(numeric[2]);
+    var year = Number(numeric[3]);
+    var day = a;
+    var month = b;
+    if (month > 12 && day <= 12) {
+      day = b;
+      month = a;
+    }
+    return ymd(year, month, day);
+  }
+  var months = [
+    ['january', 1], ['february', 2], ['march', 3], ['april', 4], ['may', 5], ['june', 6],
+    ['july', 7], ['august', 8], ['september', 9], ['october', 10], ['november', 11], ['december', 12],
+    ['jan', 1], ['feb', 2], ['mar', 3], ['apr', 4], ['jun', 6], ['jul', 7], ['aug', 8], ['sep', 9], ['oct', 10], ['nov', 11], ['dec', 12],
+    ['ဇန်နဝါရီ', 1], ['ဖေဖော်ဝါရီ', 2], ['မတ်', 3], ['ဧပြီ', 4], ['မေ', 5], ['ဇွန်', 6],
+    ['ဇူလိုင်', 7], ['သြဂုတ်', 8], ['စက်တင်ဘာ', 9], ['အောက်တိုဘာ', 10], ['နိုဝင်ဘာ', 11], ['ဒီဇင်ဘာ', 12]
+  ];
+  for (var i = 0; i < months.length; i++) {
+    var hit = s.match(new RegExp('(\\d{1,2})\\s*' + months[i][0] + '\\s*(\\d{4})', 'i'));
+    if (hit) return ymd(hit[2], months[i][1], hit[1]);
+  }
+  return '';
 }
 
 function monthsForAmount(amount) {
@@ -713,7 +816,7 @@ function payKeyboard() {
 }
 
 async function readSlip(fileId, env) {
-  var empty = { amount: '', name: '', time: '', last4: '', note: '' };
+  var empty = { amount: '', name: '', time: '', last4: '', note: '', txn: '' };
   if (!env || !env.OPENAI_API_KEY || !fileId) return empty;
   var file = await telegramApiJson(env.BOT_TOKEN, 'getFile', { file_id: fileId });
   var path = file && file.result && file.result.file_path;
@@ -740,7 +843,7 @@ async function readSlip(fileId, env) {
         messages: [{
           role: 'user',
           content: [
-            { type: 'text', text: 'Read this payment slip. Return JSON only with keys amount, name, time, last4, note. amount is the money paid, not a phone number, fee of 0, or transaction id. On KBZ Pay use the large amount line such as -40,000.00 Ks and drop the leading minus. On Wave use the large amount under the yellow title; it may be Burmese digits with commas, such as ၅,၀၀၀.၀၀ ကျပ်. Convert Burmese digits to English digits. name is the payer. time is the transfer time. last4 is the last digits shown. note is only the မှတ်ချက် line, where Grade and Bio or Eco are written. Copy that line as written. Leave note empty if that line is blank. Do not guess a grade or subject. Use empty strings if missing.' },
+            { type: 'text', text: 'Read this payment slip. Return JSON only with keys amount, name, time, txn, last4, note. Convert every Burmese digit ၀၁၂၃၄၅၆၇၈၉ to 0123456789 before you return numbers. amount is English digits of the large paid total only. On KBZ Pay that is the large line such as -40,000.00 Ks; drop the leading minus, so 40000. On Wave that is the large number under the yellow title. ၅,၀၀၀ or ၅,၀၀၀.၀၀ ကျပ် must be returned as 5000. Do not use the phone number, a 0.00 fee, or the transaction id as amount. time is the transfer date and time as shown, such as 15/10/2026 18:03:06 on KBZ, or a Burmese date on Wave. txn is the transaction id only: the long KBZ number, or the long Wave number, never a 09 phone. last4 is the last digits shown. note is only the မှတ်ချက် line. Copy it as written. Leave note empty if that line is blank. Do not guess a grade or subject. Use empty strings if missing.' },
             { type: 'image_url', image_url: { url: 'data:' + mime + ';base64,' + b64 } }
           ]
         }]
@@ -753,16 +856,41 @@ async function readSlip(fileId, env) {
       name: String(parsed.name || ''),
       time: String(parsed.time || ''),
       last4: String(parsed.last4 || ''),
-      note: String(parsed.note || '')
+      note: String(parsed.note || ''),
+      txn: String(parsed.txn || '')
     };
   } catch (e) {
     return empty;
   }
 }
 
-async function forwardUnplannedPayment(msg, env, amount) {
+function usedTxnKey(txn) {
+  return 'used:txn:' + txn;
+}
+
+function usedTimeKey(timeText) {
+  return 'used:time:' + englishDigits(timeText).replace(/\s+/g, '');
+}
+
+async function slipAlreadyUsed(env, txn, timeText) {
+  if (!env || !env.REPLIES) return false;
+  if (txn && await env.REPLIES.get(usedTxnKey(txn))) return true;
+  var clock = englishDigits(timeText);
+  if (/\d{1,2}:\d{2}/.test(clock) && await env.REPLIES.get(usedTimeKey(timeText))) return true;
+  return false;
+}
+
+async function markSlipUsed(env, txn, timeText) {
+  if (!env || !env.REPLIES) return;
+  if (txn) await env.REPLIES.put(usedTxnKey(txn), '1');
+  var clock = englishDigits(timeText);
+  if (/\d{1,2}:\d{2}/.test(clock)) await env.REPLIES.put(usedTimeKey(timeText), '1');
+}
+
+async function forwardUnplannedPayment(msg, env, amount, extra) {
   var id = String(msg.from && msg.from.id || msg.chat.id);
   var caption = 'Payment\nID: ' + id + '\nAmount: ' + (amount || '-');
+  if (extra) caption += '\n' + extra;
   var photo = paymentPhoto(msg);
   if (photo && photo.file_id) {
     var sent = await telegramApiJson(env.BOT_TOKEN, 'sendPhoto', {
@@ -780,24 +908,32 @@ async function forwardUnplannedPayment(msg, env, amount) {
 
 async function handlePaymentPhoto(msg, env) {
   var photo = paymentPhoto(msg);
-  var slip = { amount: '', note: '' };
+  var slip = { amount: '', note: '', time: '', txn: '' };
   try {
     if (photo) slip = await readSlip(photo.file_id, env) || slip;
   } catch (e) {}
   var amount = amountNumber(slip && slip.amount);
   var months = PLAN_BY_AMOUNT[amount] || 0;
+  var day = receiptDay(slip && slip.time);
+  var today = yangonToday();
+  var txn = txnId(slip && (slip.txn || slip.last4));
+  var old = !!(day && day < today);
+  var used = false;
+  try { used = await slipAlreadyUsed(env, txn, slip && slip.time); } catch (e) {}
+  if (!months || old || used) {
+    var why = !months ? 'Amount is not a plan.' : (old ? 'Receipt is before today.' : 'Receipt was already used.');
+    await forwardUnplannedPayment(msg, env, amount, why + '\nTime: ' + (slip.time || '-') + '\nTxn: ' + (txn || '-'));
+    return;
+  }
+  try { await markSlipUsed(env, txn, slip && slip.time); } catch (e) {}
+  await rememberSlip(env, msg.chat.id, months);
   var note = buyerNote(slip, msg);
   var sixth = sixthSubject(note);
   var grade = gradeChoice(note);
-  if (!months) {
-    await forwardUnplannedPayment(msg, env, amount);
-    return;
-  }
-  await rememberSlip(env, msg.chat.id, months);
   if (sixth && grade) {
     var opened = await openBuyerSubjects(msg, env, grade, sixth);
     if (opened) await sendMeaning(msg.chat.id, 'complete', env);
-    else await forwardUnplannedPayment(msg, env, amount);
+    else await forwardUnplannedPayment(msg, env, amount, 'Sheet was not written.');
     return;
   }
   await sendMeaning(msg.chat.id, 'askag', env);
