@@ -1802,9 +1802,6 @@
             var data = parseJsonish(t) || {};
             var u = (data.data && (data.data.url || data.data.link)) || data.url || '';
             u = String(u || '').replace('http://', 'https://');
-            if (u.indexOf('tmpfiles.org/') >= 0 && u.indexOf('/dl/') < 0) {
-                u = u.replace('://tmpfiles.org/', '://tmpfiles.org/dl/');
-            }
             return httpsUrl(u);
         }).catch(function () { return ''; });
     }
@@ -1858,6 +1855,23 @@
         if (!tg || typeof tg.downloadFile !== 'function') return false;
         if (typeof tg.isVersionAtLeast === 'function' && !tg.isVersionAtLeast('8.0')) return false;
         return true;
+    }
+
+    function hostileFileUrl(url) {
+        return /tmpfiles\.org|drive\.google\.com|docs\.google\.com|googleusercontent\.com|script\.google\.com/i.test(String(url || ''));
+    }
+
+    function confirmPng(url) {
+        var fileUrl = httpsFileUrl(url);
+        if (!fileUrl || hostileFileUrl(fileUrl)) return Promise.resolve(false);
+        return fetch(fileUrl).then(function (res) {
+            var type = String(res.headers.get('content-type') || '').toLowerCase();
+            if (!res.ok || type.indexOf('text/html') >= 0) return false;
+            return res.arrayBuffer().then(function (buf) {
+                var b = new Uint8Array(buf);
+                return b.length >= 8 && b[0] === 0x89 && b[1] === 0x50 && b[2] === 0x4E && b[3] === 0x47;
+            });
+        }).catch(function () { return false; });
     }
 
     function requestTelegramDownload(url, fileName) {
@@ -1966,14 +1980,16 @@
         return hostedPromise.then(function (hosted) {
             hosted = hosted || { url: '', sentToChat: false };
             var url = httpsFileUrl(hosted.url);
-            if (url && requestTelegramDownload(url, fileName)) {
-                return { ok: true, url: url, sentToChat: false, downloaded: true, showedImage: false };
-            }
-            if (hosted.sentToChat) {
-                return { ok: true, url: url, sentToChat: true, downloaded: false, showedImage: false };
-            }
-            var showed = url ? showSaveSheet(url, fileName) : showBlobSheet(blob, fileName);
-            return { ok: showed, url: url, sentToChat: false, downloaded: false, showedImage: showed };
+            return confirmPng(url).then(function (isPng) {
+                if (isPng && requestTelegramDownload(url, fileName)) {
+                    return { ok: true, url: url, sentToChat: false, downloaded: true, showedImage: false };
+                }
+                if (hosted.sentToChat && !url) {
+                    return { ok: true, url: '', sentToChat: true, downloaded: false, showedImage: false };
+                }
+                var showed = showBlobSheet(blob, fileName);
+                return { ok: showed, url: isPng ? url : '', sentToChat: false, downloaded: false, showedImage: showed };
+            });
         }).catch(function () {
             var showed = showBlobSheet(blob, fileName);
             return { ok: showed, url: '', sentToChat: false, downloaded: false, showedImage: showed };
