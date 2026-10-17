@@ -3,6 +3,10 @@
    Optional: START_VIDEO_FILE_ID, START_VIDEO_URL
    Paste this file into the Worker and deploy. No KV.
 
+   Daily sales to the admin needs a Cloudflare Cron Trigger on this worker:
+   30 17 * * *  (23:30 Asia/Yangon).
+   Paid unlocks are written with the existing TG APP SHEET web app (saveMulti).
+
    GET /photo?id=TELEGRAM_ID  live Telegram profile JPEG for Rank.
    POST webhook stays the /start + chat helper.
 
@@ -29,6 +33,9 @@
 var DEFAULT_START_VIDEO_URL = 'https://reededucation.net/start-welcome.mp4?v=2';
 
 export default {
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(sendDailySales(env));
+  },
   async fetch(request, env) {
     var url = new URL(request.url);
     if (request.method === 'OPTIONS') {
@@ -52,14 +59,23 @@ export default {
       return new Response('OK', { status: 200 });
     }
 
+    if (update && update.callback_query) {
+      try { await handlePayDecision(update.callback_query, env); } catch (e) {}
+      return new Response('OK', { status: 200 });
+    }
+
     const msg = update && update.message;
     const chatId = msg && msg.chat && msg.chat.id;
     if (chatId && msg) {
       try {
         if (commandName(msg.text) === '/post' && isPrivateChat(msg)) {
           await handleChannelPost(msg, env);
+        } else if (commandName(msg.text) === '/sales' && isPrivateChat(msg)) {
+          await handleSalesCommand(msg, env);
         } else if (commandName(msg.text) === '/start') {
           await sendStartWelcome(chatId, env);
+        } else if (paymentPhoto(msg) && isPrivateChat(msg)) {
+          await handlePaymentPhoto(msg, env);
         } else if (videoFileIdFromMessage(msg) && isPrivateChat(msg)) {
           await sendTelegramMessage(
             chatId,
@@ -67,8 +83,8 @@ export default {
             env.BOT_TOKEN
           );
         } else if (typeof msg.text === 'string' && msg.text.trim()) {
-          const reply = await getAIReply(msg.text, env.OPENAI_API_KEY);
-          await sendTelegramMessage(chatId, reply, env.BOT_TOKEN);
+          var intent = await classifyIntent(msg.text, env.OPENAI_API_KEY);
+          await sendTelegramMessage(chatId, fixedReply(intent), env.BOT_TOKEN);
         }
       } catch (e) {}
     }
@@ -154,6 +170,455 @@ var CHANNEL_CHAT = '@REED_education';
 var OPEN_APP_LABEL = 'Open App';
 var OPEN_APP_URL = 'https://t.me/reededucation_bot?startapp';
 var POST_ADMIN_ID = '8432363664';
+var PAID_SHEET_URL = 'https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeGy1d0a2XPEyq8nAZ4hj_WClNNEdJFqtj3CBwkbypxOqgjr-7oV/exec';
+var PLAN_BY_AMOUNT = { 9500: 1, 19500: 3, 29500: 6, 34500: 13 };
+var PLAN_PRICE = { 1: 9500, 3: 19500, 6: 29500, 13: 34500 };
+var FIXED_REPLIES = {
+  price: 'ဘာသာရပ်အားလုံး ၁ လ ၉၅၀၀၊ ၃ လ ၁၉၅၀၀၊ ၆ လ ၂၉၅၀၀၊ ၁၃ လ ၃၄၅၀၀ ကျပ်ပါ။ Grade 10, 11, 12 အတူတူပါ။',
+  pay: 'ငွေလွှဲပြေစာပုံကို ဒီချတ်မှာ ပို့ပါ။ ပုံအောက်မှာ Grade နဲ့ ဘာသာရပ်ရေးပါ။ ဥပမာ Grade 10 Myanmar။',
+  grade: 'Grade 10, 11, 12 ထဲက တစ်တန်းရွေးပါ။ ဝယ်ထားတဲ့ဘာသာရပ်က အဲဒီတန်းမှာပဲ ပွင့်ပါတယ်။',
+  locked: 'Chapter 1 က အခမဲ့ စမ်းသုံးလို့ရပါတယ်။ ကျန်တဲ့အခန်းတွေက ဝယ်ပြီးမှ ပွင့်ပါတယ်။',
+  photo: 'ပြေစာရပါပြီ။ စစ်ပြီးမှ ဘာသာရပ်ဖွင့်ပေးပါမယ်။',
+  other: 'ဈေး၊ ငွေပေးနည်း၊ Grade၊ ပိတ်ထားတဲ့ဘာသာရပ် မေးနိုင်ပါတယ်။ ဝယ်ရန် @minaphayarkot။'
+};
+var SUBJECT_WORDS = [
+  ['all', /all|အားလုံး/i],
+  ['mm', /myanmar|မြန်မာ/i],
+  ['en', /english|အင်္ဂလိပ်/i],
+  ['math', /maths?|သင်္ချာ/i],
+  ['phy', /physics|ရူပ/i],
+  ['chem', /chemistry|chem|ဓာတု/i],
+  ['bio', /biology|bio|ဇီဝ/i],
+  ['eco', /economics|eco|ဘောဂ/i]
+];
+var SUBJECT_LABELS = {
+  all: 'All', mm: 'Myanmar', en: 'English', math: 'Mathematics',
+  phy: 'Physics', chem: 'Chemistry', bio: 'Biology', eco: 'Economics'
+};
+
+function fixedReply(intent) {
+  return FIXED_REPLIES[intent] || FIXED_REPLIES.other;
+}
+
+function keywordIntent(text) {
+  var s = String(text || '');
+  if (/ဈေး|price|ဘယ်လောက်|how much/i.test(s)) return 'price';
+  if (/ပြေစာ|screenshot|slip|ငွေလွှဲ|kpay|wave|kbz|how to pay|ဘယ်လိုပေး/i.test(s)) return 'pay';
+  if (/grade|တန်း|၁၀|၁၁|၁၂/.test(s) && /ရွေး|which|grade/i.test(s)) return 'grade';
+  if (/ပိတ်|lock|မပွင့်|chapter 1|အခမဲ့/i.test(s)) return 'locked';
+  return 'other';
+}
+
+async function classifyIntent(text, apiKey) {
+  var raw = String(text || '').trim();
+  var lowerQ = raw.toLowerCase();
+  if (commandName(raw) === '/start' || commandName(raw) === '/help') return 'other';
+  if (['hi', 'hello', 'hey', 'hii', 'yo', 'mingalaba', 'မင်္ဂလာပါ'].indexOf(lowerQ) !== -1) return 'other';
+  if (!apiKey) return keywordIntent(raw);
+  try {
+    var response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + apiKey,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        temperature: 0,
+        max_tokens: 8,
+        messages: [
+          {
+            role: 'system',
+            content: 'Classify the customer message. Reply with one word only: price, pay, grade, locked, photo, other.'
+          },
+          { role: 'user', content: raw }
+        ]
+      })
+    });
+    var data = await response.json();
+    var word = String(data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || '')
+      .toLowerCase().match(/price|pay|grade|locked|photo|other/);
+    if (word) return word[0];
+  } catch (e) {}
+  return keywordIntent(raw);
+}
+
+function paymentPhoto(msg) {
+  if (!msg) return null;
+  if (msg.photo && msg.photo.length) return msg.photo[msg.photo.length - 1];
+  if (msg.document && String(msg.document.mime_type || '').indexOf('image/') === 0) return msg.document;
+  return null;
+}
+
+function parseAsk(text) {
+  var raw = String(text || '')
+    .replace(/၁၀/g, '10')
+    .replace(/၁၁/g, '11')
+    .replace(/၁၂/g, '12');
+  var gradeMatch = raw.match(/grade\s*(10|11|12)/i)
+    || raw.match(/\bg\s*(10|11|12)\b/i)
+    || raw.match(/(?:^|[^\d])(10|11|12)\s*တန်း/);
+  var grade = gradeMatch ? Number(gradeMatch[1]) : 0;
+  var subjects = [];
+  for (var i = 0; i < SUBJECT_WORDS.length; i++) {
+    if (SUBJECT_WORDS[i][1].test(raw) && subjects.indexOf(SUBJECT_WORDS[i][0]) === -1) {
+      subjects.push(SUBJECT_WORDS[i][0]);
+    }
+  }
+  if (subjects.indexOf('all') !== -1) subjects = ['all'];
+  return { grade: grade, subjects: subjects };
+}
+
+function amountNumber(text) {
+  var s = String(text || '')
+    .replace(/[၀-၉]/g, function (d) { return String('၀၁၂၃၄၅၆၇၈၉'.indexOf(d)); })
+    .replace(/,/g, '');
+  var m = s.match(/(\d+)(?:\.\d+)?/);
+  return m ? Number(m[1]) : 0;
+}
+
+function monthsForAmount(amount) {
+  return PLAN_BY_AMOUNT[amountNumber(amount)] || 0;
+}
+
+function yangonToday() {
+  try {
+    return new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Yangon', year: 'numeric', month: '2-digit', day: '2-digit'
+    }).format(new Date());
+  } catch (e) {
+    return new Date().toISOString().slice(0, 10);
+  }
+}
+
+function addMonths(ymd, months) {
+  var p = String(ymd || '').split('-');
+  var dt = new Date(Date.UTC(Number(p[0]), Number(p[1]) - 1, Number(p[2])));
+  if (isNaN(dt.getTime())) return '';
+  dt.setUTCMonth(dt.getUTCMonth() + Number(months || 0));
+  var m = String(dt.getUTCMonth() + 1);
+  var d = String(dt.getUTCDate());
+  if (m.length < 2) m = '0' + m;
+  if (d.length < 2) d = '0' + d;
+  return dt.getUTCFullYear() + '-' + m + '-' + d;
+}
+
+function logDay(value) {
+  var s = String(value || '').trim();
+  if (!s) return '';
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+  var d = new Date(s);
+  if (isNaN(d.getTime())) {
+    var iso = s.match(/^(\d{4}-\d{2}-\d{2})/);
+    return iso ? iso[1] : '';
+  }
+  try {
+    return new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Yangon', year: 'numeric', month: '2-digit', day: '2-digit'
+    }).format(d);
+  } catch (e) {
+    return d.toISOString().slice(0, 10);
+  }
+}
+
+function subjectLine(ids) {
+  return (ids || []).map(function (id) { return SUBJECT_LABELS[id] || id; }).join(', ');
+}
+
+function paymentCaption(fields) {
+  return [
+    'Payment check',
+    'Status: pending',
+    'ID: ' + fields.id,
+    'Name: ' + (fields.name || '-'),
+    'Amount: ' + (fields.amount || '-'),
+    'Time: ' + (fields.time || '-'),
+    'Last: ' + (fields.last4 || '-'),
+    'Grade: ' + fields.grade,
+    'Subjects: ' + fields.subjects.join(','),
+    'Months: ' + (fields.months || '-')
+  ].join('\n');
+}
+
+function parsePaymentCaption(text) {
+  var lines = String(text || '').split('\n');
+  var map = {};
+  for (var i = 0; i < lines.length; i++) {
+    var m = lines[i].match(/^([A-Za-z]+):\s*(.*)$/);
+    if (m) map[m[1].toLowerCase()] = String(m[2] || '').trim();
+  }
+  var subjects = String(map.subjects || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+  return {
+    status: map.status || '',
+    id: map.id || '',
+    name: map.name || '',
+    amount: map.amount || '',
+    time: map.time || '',
+    last4: map.last || '',
+    grade: Number(map.grade) || 0,
+    subjects: subjects,
+    months: Number(map.months) || 0
+  };
+}
+
+function payKeyboard() {
+  return {
+    inline_keyboard: [[
+      { text: 'Approve', callback_data: 'payok' },
+      { text: 'Reject', callback_data: 'payno' }
+    ]]
+  };
+}
+
+async function readSlip(fileId, env) {
+  var empty = { amount: '', name: '', time: '', last4: '' };
+  if (!env || !env.OPENAI_API_KEY || !fileId) return empty;
+  var file = await telegramApiJson(env.BOT_TOKEN, 'getFile', { file_id: fileId });
+  var path = file && file.result && file.result.file_path;
+  if (!path) return empty;
+  var bin = await fetch('https://api.telegram.org/file/bot' + env.BOT_TOKEN + '/' + path);
+  if (!bin.ok) return empty;
+  var bytes = new Uint8Array(await bin.arrayBuffer());
+  var b64 = bytesToBase64(bytes);
+  var mime = /\.png$/i.test(path) ? 'image/png' : 'image/jpeg';
+  try {
+    var response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + env.OPENAI_API_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        temperature: 0,
+        max_tokens: 180,
+        response_format: { type: 'json_object' },
+        messages: [{
+          role: 'user',
+          content: [
+            { type: 'text', text: 'Read this payment slip. Return JSON only with keys amount, name, time, last4. amount is digits of the money paid. name is the payer. time is the transfer time. last4 is the last digits shown. Use empty strings if missing.' },
+            { type: 'image_url', image_url: { url: 'data:' + mime + ';base64,' + b64 } }
+          ]
+        }]
+      })
+    });
+    var data = await response.json();
+    var parsed = JSON.parse(data.choices[0].message.content);
+    return {
+      amount: String(parsed.amount || ''),
+      name: String(parsed.name || ''),
+      time: String(parsed.time || ''),
+      last4: String(parsed.last4 || '')
+    };
+  } catch (e) {
+    return empty;
+  }
+}
+
+async function handlePaymentPhoto(msg, env) {
+  var photo = paymentPhoto(msg);
+  var ask = parseAsk(msg.caption || (msg.reply_to_message && (msg.reply_to_message.text || msg.reply_to_message.caption)) || '');
+  if (!ask.grade) {
+    await sendTelegramMessage(msg.chat.id, fixedReply('pay'), env.BOT_TOKEN);
+    return;
+  }
+  if (!ask.subjects.length) ask.subjects = ['all'];
+  var slip = await readSlip(photo.file_id, env);
+  var months = monthsForAmount(slip.amount);
+  var caption = paymentCaption({
+    id: String(msg.from && msg.from.id || msg.chat.id),
+    name: slip.name,
+    amount: slip.amount,
+    time: slip.time,
+    last4: slip.last4,
+    grade: ask.grade,
+    subjects: ask.subjects,
+    months: months
+  });
+  var sent = await telegramApiJson(env.BOT_TOKEN, 'sendPhoto', {
+    chat_id: POST_ADMIN_ID,
+    photo: photo.file_id,
+    caption: caption,
+    reply_markup: payKeyboard()
+  });
+  if (!sent || !sent.ok) {
+    await telegramApiJson(env.BOT_TOKEN, 'sendMessage', {
+      chat_id: POST_ADMIN_ID,
+      text: caption,
+      reply_markup: payKeyboard()
+    });
+  }
+  await sendTelegramMessage(msg.chat.id, fixedReply('photo'), env.BOT_TOKEN);
+}
+
+function bytesToBase64(bytes) {
+  var chunk = 0x8000;
+  var parts = [];
+  for (var i = 0; i < bytes.length; i += chunk) {
+    parts.push(String.fromCharCode.apply(null, bytes.subarray(i, i + chunk)));
+  }
+  return btoa(parts.join(''));
+}
+
+async function postPaidSheet(body) {
+  var payload = JSON.stringify(body);
+  var res = await fetch(PAID_SHEET_URL, {
+    method: 'POST',
+    redirect: 'manual',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: payload
+  });
+  if (res.status >= 300 && res.status < 400) {
+    var loc = res.headers.get('Location');
+    if (!loc) return { success: false, message: 'Sheet did not answer' };
+    res = await fetch(loc, { method: 'GET', redirect: 'follow' });
+  }
+  try {
+    return await res.json();
+  } catch (e) {
+    return { success: false, message: 'Sheet did not answer' };
+  }
+}
+
+async function savePaidSubjects(fields) {
+  var expiry = addMonths(yangonToday(), fields.months);
+  if (!fields.id || !fields.grade || !fields.subjects.length || !fields.months || !expiry) {
+    return { success: false, message: 'Missing payment fields' };
+  }
+  var subjects = fields.subjects.map(function (id) {
+    return { subject: id, grade: fields.grade, expiry: expiry, months: fields.months, unit: 'months' };
+  });
+  return postPaidSheet({ action: 'saveMulti', id: fields.id, role: 'paid', subjects: subjects });
+}
+
+async function handlePayDecision(q, env) {
+  var data = String(q.data || '');
+  if (data !== 'payok' && data !== 'payno') return;
+  var fromId = String(q.from && q.from.id || '');
+  if (!isPostAdmin({ from: { id: fromId } }, env)) {
+    await telegramApiJson(env.BOT_TOKEN, 'answerCallbackQuery', {
+      callback_query_id: q.id,
+      text: 'Not allowed.'
+    });
+    return;
+  }
+  var msg = q.message || {};
+  var fields = parsePaymentCaption(msg.caption || msg.text || '');
+  await telegramApiJson(env.BOT_TOKEN, 'answerCallbackQuery', { callback_query_id: q.id });
+  if (fields.status !== 'pending') return;
+  var customerText = '';
+  var nextStatus = 'rejected';
+  if (data === 'payno') {
+    customerText = 'ငွေလွှဲကို လက်မခံပါ။';
+  } else if (!fields.months) {
+    await telegramApiJson(env.BOT_TOKEN, 'sendMessage', {
+      chat_id: msg.chat.id,
+      text: 'Amount is not a plan. Subjects were not opened.'
+    });
+    return;
+  } else {
+    var wrote = await savePaidSubjects(fields);
+    if (!wrote || wrote.success !== true) {
+      await telegramApiJson(env.BOT_TOKEN, 'sendMessage', {
+        chat_id: msg.chat.id,
+        text: 'Sheet was not written. Subjects were not opened.'
+      });
+      return;
+    }
+    customerText = 'ဘာသာရပ်ဖွင့်ပြီးပါပြီ။ အက်ပ်ကို ပိတ်ပြီး ပြန်ဖွင့်ပါ။';
+    nextStatus = 'approved';
+  }
+  if (fields.id && customerText) await sendTelegramMessage(fields.id, customerText, env.BOT_TOKEN);
+  var body = String(msg.caption || msg.text || '').replace('Status: pending', 'Status: ' + nextStatus);
+  var editPayload = {
+    chat_id: msg.chat.id,
+    message_id: msg.message_id,
+    reply_markup: { inline_keyboard: [] }
+  };
+  try {
+    if (msg.photo) {
+      editPayload.caption = body;
+      await telegramApiJson(env.BOT_TOKEN, 'editMessageCaption', editPayload);
+    } else {
+      editPayload.text = body;
+      await telegramApiJson(env.BOT_TOKEN, 'editMessageText', editPayload);
+    }
+  } catch (e) {}
+}
+
+async function fetchPaidLogs() {
+  var res = await fetch(PAID_SHEET_URL + '?cb=' + Date.now());
+  var data = await res.json();
+  return (data && data.logs) || [];
+}
+
+function summarizeSales(logs, day) {
+  var groups = {};
+  var order = [];
+  (logs || []).forEach(function (row) {
+    if (String(row.role || 'paid').toLowerCase() === 'volunteer') return;
+    if (logDay(row.timestamp) !== day) return;
+    var id = String(row.id || '');
+    if (!id) return;
+    var key = id + '|' + (row.months || '') + '|' + (row.expiry || '') + '|' + day;
+    if (!groups[key]) {
+      groups[key] = { months: Number(row.months) || 0, subjects: [] };
+      order.push(key);
+    }
+    var label = 'G' + (row.grade || 12) + ' ' + (row.subject || row.column || '');
+    if (groups[key].subjects.indexOf(label) === -1) groups[key].subjects.push(label);
+  });
+  var amount = 0;
+  var opened = [];
+  order.forEach(function (key) {
+    var g = groups[key];
+    if (PLAN_PRICE[g.months]) amount += PLAN_PRICE[g.months];
+    opened = opened.concat(g.subjects);
+  });
+  return {
+    day: day,
+    count: order.length,
+    amount: amount,
+    subjects: opened
+  };
+}
+
+function salesText(summary) {
+  var subjects = summary.subjects.length ? summary.subjects.join(', ') : '-';
+  return [
+    'Sales ' + summary.day,
+    'Count: ' + summary.count,
+    'Amount: ' + summary.amount + ' MMK',
+    'Opened: ' + subjects
+  ].join('\n');
+}
+
+async function todaySales() {
+  var logs = await fetchPaidLogs();
+  return summarizeSales(logs, yangonToday());
+}
+
+async function handleSalesCommand(msg, env) {
+  if (!isPostAdmin(msg, env)) {
+    await sendTelegramMessage(msg.chat.id, 'Not allowed.', env.BOT_TOKEN);
+    return;
+  }
+  try {
+    await sendTelegramMessage(POST_ADMIN_ID, salesText(await todaySales()), env.BOT_TOKEN);
+  } catch (e) {
+    await sendTelegramMessage(msg.chat.id, 'Could not read the sheet.', env.BOT_TOKEN);
+  }
+}
+
+async function sendDailySales(env) {
+  if (!env || !env.BOT_TOKEN) return;
+  try {
+    await telegramApiJson(env.BOT_TOKEN, 'sendMessage', {
+      chat_id: POST_ADMIN_ID,
+      text: salesText(await todaySales())
+    });
+  } catch (e) {}
+}
 
 function cutButtonLabel(label) {
   var chars = Array.from(String(label || ''));
