@@ -362,34 +362,13 @@ async function openBuyerSubjects(msg, env, grade, sixth) {
   await sendTelegramMessage(msg.chat.id, 'ဘာသာရပ်ဖွင့်ပြီးပါပြီ။ App ကို ပိတ်ပြီး ပြန်ဖွင့်ပါ။', env.BOT_TOKEN);
 }
 
-async function notifyAdminUnmatched(msg, env) {
-  var from = msg.from || {};
-  var name = [from.first_name, from.last_name].filter(Boolean).join(' ') || '-';
-  var body = msg.text || msg.caption || '';
-  var note = [
-    'Customer',
-    'ID: ' + String(from.id || msg.chat.id),
-    'Name: ' + name,
-    'Message: ' + (body || '(no text)')
-  ].join('\n');
-  await sendTelegramMessage(POST_ADMIN_ID, note, env.BOT_TOKEN);
-  var voice = voiceFile(msg);
-  if (voice) {
-    await telegramApiJson(env.BOT_TOKEN, 'sendVoice', {
-      chat_id: POST_ADMIN_ID,
-      voice: voice.file_id
-    });
-  }
-}
-
 async function sendUnmatched(msg, env) {
   await sendTelegramMessage(msg.chat.id, UNMATCHED_REPLY, env.BOT_TOKEN);
-  await notifyAdminUnmatched(msg, env);
 }
 
 async function replyForIntent(chatId, text, env, msg) {
   var hinted = keywordIntent(text);
-  if (hinted === 'hello' || hinted === 'price' || hinted === 'pay') {
+  if (hinted === 'hello' || hinted === 'price' || hinted === 'pay' || hinted === 'reed') {
     await sendMeaning(chatId, hinted, env);
     return;
   }
@@ -400,7 +379,7 @@ async function replyForIntent(chatId, text, env, msg) {
     return;
   }
   var intent = await classifyIntent(text, env && env.OPENAI_API_KEY);
-  if (intent === 'hello' || intent === 'price' || intent === 'pay') {
+  if (intent === 'hello' || intent === 'price' || intent === 'pay' || intent === 'reed') {
     await sendMeaning(chatId, intent, env);
     return;
   }
@@ -414,16 +393,28 @@ function isHello(text) {
   return /^(မင်္ဂလာပါ|မဂလာပါ|ဟိုင်း|ဟဲလို|ဟယ်လို)(ဗျ|ရှင်|ခင်ဗျာ?)?$/.test(raw);
 }
 
+function isReedQuestion(text) {
+  var s = String(text || '');
+  if (/\breed\b|reededucation|ရီးဒ်|ရိဒ်/i.test(s)) return true;
+  if (/(what|who|about|for|ဘာ|ရှင်း|ဘယ်).{0,48}(\bapp\b|အက်ပ်|အက်ပ|\bbot\b)/i.test(s)) return true;
+  if (/(\bapp\b|အက်ပ်|အက်ပ|\bbot\b).{0,48}(what|who|about|for|ဘာ|ရှင်း)/i.test(s)) return true;
+  if (/what(?:'s| is| are)? (this|it)(?: for)?\b/i.test(s)) return true;
+  if (/what do you do|who are you|tell me about (this|it|yourself|reed|the app)/i.test(s)) return true;
+  if (/ဘာအတွက်|ဘာလုပ်|ဆိုတာ/.test(s)) return true;
+  return false;
+}
+
 function keywordIntent(text) {
   var s = String(text || '');
   if (/ဈေး|price|ဘယ်လောက်|how much|ဈေးနှုန်း/i.test(s)) return 'price';
   if (/k\s*pay|\bkbz\b|\bwave\b|transfer|ငွေလွှဲ|ငွေပို့|ဝယ်မယ်|ဝယ်ချင်|want to buy|\bbuy\b/i.test(s)) return 'pay';
   if (isHello(s)) return 'hello';
+  if (isReedQuestion(s)) return 'reed';
   return 'other';
 }
 
 function allowedMeanings() {
-  return ['hello', 'price', 'pay', 'other'];
+  return ['hello', 'price', 'pay', 'reed', 'other'];
 }
 
 async function classifyIntent(text, apiKey) {
@@ -447,7 +438,7 @@ async function classifyIntent(text, apiKey) {
         messages: [
           {
             role: 'system',
-            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '.'
+            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '. Use reed for a question about Reed, the app, or what it is for, including an indirect question that does not say Reed.'
           },
           { role: 'user', content: raw }
         ]
@@ -492,9 +483,25 @@ function parseAsk(text) {
 function amountNumber(text) {
   var s = String(text || '')
     .replace(/[၀-၉]/g, function (d) { return String('၀၁၂၃၄၅၆၇၈၉'.indexOf(d)); })
-    .replace(/,/g, '');
-  var m = s.match(/(\d+)(?:\.\d+)?/);
-  return m ? Number(m[1]) : 0;
+    .replace(/၊/g, ',');
+  var money = [];
+  var plain = [];
+  var re = /-?\s*(\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d+))?/g;
+  var match;
+  while ((match = re.exec(s))) {
+    var raw = match[1];
+    var digits = raw.replace(/,/g, '');
+    if (digits.length > 6) continue;
+    var n = Number(digits);
+    if (!n) continue;
+    var tail = s.slice(match.index, match.index + match[0].length + 12);
+    var looksMoney = raw.indexOf(',') !== -1 || !!match[2] || /ks|mmk|ကျပ်/i.test(tail);
+    if (looksMoney) money.push(n);
+    else plain.push(n);
+  }
+  if (money.length) return money[0];
+  if (plain.length === 1) return plain[0];
+  return 0;
 }
 
 function monthsForAmount(amount) {
@@ -616,7 +623,7 @@ async function readSlip(fileId, env) {
         messages: [{
           role: 'user',
           content: [
-            { type: 'text', text: 'Read this payment slip. Return JSON only with keys amount, name, time, last4. amount is digits of the money paid. name is the payer. time is the transfer time. last4 is the last digits shown. Use empty strings if missing.' },
+            { type: 'text', text: 'Read this payment slip. Return JSON only with keys amount, name, time, last4. amount is the money paid, not a phone number, fee of 0, or transaction id. On KBZ Pay use the large amount line such as -40,000.00 Ks and drop the leading minus. On Wave use the large amount under the yellow title; it may be Burmese digits with commas, such as ၅,၀၀၀.၀၀ ကျပ်. Convert Burmese digits to English digits. name is the payer. time is the transfer time. last4 is the last digits shown. Use empty strings if missing.' },
             { type: 'image_url', image_url: { url: 'data:' + mime + ';base64,' + b64 } }
           ]
         }]
