@@ -493,15 +493,12 @@ function isReedQuestion(text) {
 }
 
 function isExplainQuestion(text) {
-  var s = String(text || '');
-  if (!/explain|explanation|ရှင်းပြ|ရှင်းပေး/i.test(s)) return false;
-  if (/\breed\b|reededucation|ရီးဒ်|ရိဒ်|\bapp\b|အက်ပ်|အက်ပ|\bbot\b|\bthis\b|\bit\b/i.test(s)) return true;
-  return /^(?:please\s+)?(?:explain|explanation|ရှင်းပြ(?:ပါ|ပေး)?)[.!? ]*$/i.test(s.trim());
+  return /explain|explanation|ရှင်းပြ|ရှင်းပေး/i.test(String(text || ''));
 }
 
 function isEnterQuestion(text) {
   var s = String(text || '');
-  return /how (?:do|to|can|should).{0,48}(?:open|enter|get in|start)|(?:open|enter|get into) (?:the |this )?(?:app|bot)|app ထဲ|အက်ပ်ထဲ|ဘယ်လိုဖွင့်|ဘယ်လိုဝင်|ဝင်ရမလဲ|ဖွင့်ရမလဲ/i.test(s);
+  return /how (?:do|to|can|should).{0,60}(?:open|enter|get in|start)|(?:open|enter|get into|start) (?:the |this )?(?:reed |reededucation )?(?:app|bot)|app ထဲ|အက်ပ်ထဲ|ဘယ်လို\s*ဖွင့်|ဖွင့်\s*ရမလဲ|ဘယ်လို\s*ဝင်|ဝင်\s*ရမလဲ|အက်ပ်\s*ဖွင့်|app\s*ဖွင့်/i.test(s);
 }
 
 function isStudyQuestion(text) {
@@ -514,8 +511,8 @@ function keywordIntent(text) {
   if (/ဈေး|price|ဘယ်လောက်|how much|ဈေးနှုန်း/i.test(s)) return 'price';
   if (/k\s*pay|\bkbz\b|\bwave\b|transfer|ငွေလွှဲ|ငွေပို့|ဝယ်မယ်|ဝယ်ချင်|want to buy|\bbuy\b/i.test(s)) return 'pay';
   if (isHello(s)) return 'hello';
-  if (isExplainQuestion(s)) return 'explain';
   if (isEnterQuestion(s)) return 'stepbstep';
+  if (isExplainQuestion(s)) return 'explain';
   if (isStudyQuestion(s)) return 'study';
   if (isReedQuestion(s)) return 'reed';
   return 'other';
@@ -525,10 +522,20 @@ function allowedMeanings() {
   return ['hello', 'price', 'pay', 'reed', 'explain', 'stepbstep', 'study', 'other'];
 }
 
+var NOT_A_DOWNLOAD = 'Reed is not a download. Open @reededucation_bot and tap Start Practice.';
+
+function withoutStoreClaim(text) {
+  var s = String(text || '');
+  if (/play\s*store|app\s*store|google\s*play|download (?:reed|the app|this app|it\b)/i.test(s)) return NOT_A_DOWNLOAD;
+  return s;
+}
+
 var STUDY_FACTS = [
   'You answer only about Reed App and studying. Two or three short sentences. Plain text. No markdown.',
   'Write the names Reed and App in English letters. Never write those names in Burmese script.',
   'Match the customer language.',
+  'Reed is not on Google Play, the App Store, or any store. It is not a downloadable app. Never tell a customer to download it.',
+  'The only way in is to open @reededucation_bot and tap Start Practice.',
   'Facts: Reed App is an objective-question specialist. Other practice is minor.',
   'Grades are 10, 11, and 12. Pick one grade. Unlocks stay on that grade.',
   'Only the 6-subject pack is sold: Myanmar, English, Maths, Physics, Chemistry, plus Biology or Economics.',
@@ -559,7 +566,7 @@ async function studyAnswer(text, apiKey) {
     var data = await response.json();
     var said = String(data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || '').trim();
     if (!said || /^skip$/i.test(said)) return '';
-    return stripFancyText(said);
+    return withoutStoreClaim(stripFancyText(said));
   } catch (e) {
     return '';
   }
@@ -843,7 +850,7 @@ async function readSlip(fileId, env) {
         messages: [{
           role: 'user',
           content: [
-            { type: 'text', text: 'Read this payment slip. Return JSON only with keys amount, name, time, txn, last4, note. Convert every Burmese digit ၀၁၂၃၄၅၆၇၈၉ to 0123456789 before you return numbers. amount is English digits of the large paid total only. On KBZ Pay that is the large line such as -40,000.00 Ks; drop the leading minus, so 40000. On Wave that is the large number under the yellow title. ၅,၀၀၀ or ၅,၀၀၀.၀၀ ကျပ် must be returned as 5000. Do not use the phone number, a 0.00 fee, or the transaction id as amount. time is the transfer date and time as shown, such as 15/10/2026 18:03:06 on KBZ, or a Burmese date on Wave. txn is the transaction id only: the long KBZ number, or the long Wave number, never a 09 phone. last4 is the last digits shown. note is only the မှတ်ချက် line. Copy it as written. Leave note empty if that line is blank. Do not guess a grade or subject. Use empty strings if missing.' },
+            { type: 'text', text: 'Read this payment slip. Return JSON only with keys amount, name, time, txn, last4, note. amount must be the large paid total copied as printed. If those digits are Burmese, copy the Burmese characters ၀၁၂၃၄၅၆၇၈၉ exactly. Do not convert them to English digits. ၇ is not ၂. On Wave the amount is the large number under the yellow title, such as ၁၇,၀၀၀.၀၀ or ၅,၀၀၀.၀၀, not the phone and not the transaction id. On KBZ it is the large line such as -40,000.00 Ks; keep the digits, drop a leading minus. time is the transfer date and time as shown. txn is the transaction id only, never a 09 phone. last4 is the last digits shown, copied as printed. note is only the မှတ်ချက် line, copied as written. Leave note empty if that line is blank. Do not guess a grade or subject. Use empty strings if missing.' },
             { type: 'image_url', image_url: { url: 'data:' + mime + ';base64,' + b64 } }
           ]
         }]
@@ -968,12 +975,35 @@ async function postPaidSheet(body) {
   }
 }
 
+function renewalEnd(months) {
+  return addMonths(yangonToday(), months);
+}
+
+async function subjectsForRenewal(id, grade, sixth) {
+  var list = CORE_SUBJECTS.concat([sixth]);
+  var prefix = Number(grade) === 12 ? '' : 'g' + Number(grade) + '_';
+  try {
+    var res = await fetch(PAID_SHEET_URL + '?action=getUsers&cb=' + Date.now());
+    var data = await res.json();
+    var row = data && data[String(id)];
+    if (!row) return list;
+    ['all', 'mm', 'en', 'math', 'phy', 'chem', 'bio', 'eco'].forEach(function (subject) {
+      if (row[prefix + subject] && list.indexOf(subject) === -1) list.push(subject);
+    });
+  } catch (e) {}
+  return list;
+}
+
 async function savePaidSubjects(fields) {
-  var expiry = addMonths(yangonToday(), fields.months);
+  var expiry = renewalEnd(fields.months);
   if (!fields.id || !fields.grade || !fields.subjects.length || !fields.months || !expiry) {
     return { success: false, message: 'Missing payment fields' };
   }
-  var subjects = fields.subjects.map(function (id) {
+  var ids = await subjectsForRenewal(fields.id, fields.grade, fields.subjects[fields.subjects.length - 1]);
+  fields.subjects.forEach(function (subject) {
+    if (ids.indexOf(subject) === -1) ids.push(subject);
+  });
+  var subjects = ids.map(function (id) {
     return { subject: id, grade: fields.grade, expiry: expiry, months: fields.months, unit: 'months' };
   });
   return postPaidSheet({ action: 'saveMulti', id: fields.id, role: 'paid', subjects: subjects });
@@ -1271,7 +1301,8 @@ async function getAIReply(question, apiKey) {
     'You are Reed, the in-chat helper for Reed Education. You are friendly, specific, and practical.',
     '',
     'WHAT REED IS:',
-    'Reed App is an objective-question specialist for Myanmar Grade 10, 11, and 12. Other practice is minor. Website: reededucation.net. Contact to buy: @minaphayarkot. No Play Store or App Store install.',
+    'Reed App is an objective-question specialist for Myanmar Grade 10, 11, and 12. Other practice is minor. Website: reededucation.net. Contact to buy: @minaphayarkot.',
+    'Reed is not on Google Play, the App Store, or any store. It is not a downloadable app. Never tell a customer to download it. The only way in is to open @reededucation_bot and tap Start Practice.',
     'Write the names Reed and App in English letters. Never write those names in Burmese script.',
     '',
     'BOT vs CHANNEL — never mix these up:',
@@ -1350,7 +1381,7 @@ async function getAIReply(question, apiKey) {
     if (data.error) {
       return 'Sorry, I could not answer just now. Please try again, or open the Mini App with Start Practice.';
     }
-    return stripFancyText(data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) ||
+    return withoutStoreClaim(stripFancyText(data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content)) ||
       'Sorry, I could not answer that. Try asking about Reed, the timetable, or how to open the app.';
   } catch (err) {
     return 'Sorry, I could not answer just now. Please try again in a moment.';
