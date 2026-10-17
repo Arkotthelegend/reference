@@ -81,14 +81,16 @@ export default {
           // Admin media is a saved reply, never a customer payment slip.
         } else if (paymentPhoto(msg) && isPrivateChat(msg)) {
           await handlePaymentPhoto(msg, env);
-        } else if (videoFileIdFromMessage(msg) && isPrivateChat(msg)) {
+        } else if (videoFileIdFromMessage(msg) && isPrivateChat(msg) && isPostAdmin(msg, env)) {
           await sendTelegramMessage(
             chatId,
             'Save this as Worker secret START_VIDEO_FILE_ID:\n' + videoFileIdFromMessage(msg),
             env.BOT_TOKEN
           );
         } else if (typeof msg.text === 'string' && msg.text.trim()) {
-          await replyForIntent(chatId, msg.text, env);
+          await replyForIntent(chatId, msg.text, env, msg);
+        } else if (isPrivateChat(msg) && !isPostAdmin(msg, env)) {
+          await sendUnmatched(msg, env);
         }
       } catch (e) {}
     }
@@ -178,13 +180,10 @@ var PAID_SHEET_URL = 'https://script.google.com/macros/s/AKfycbw8uoBL28zm8B52oeG
 var PLAN_BY_AMOUNT = { 9500: 1, 19500: 3, 29500: 6, 34500: 13 };
 var PLAN_PRICE = { 1: 9500, 3: 19500, 6: 29500, 13: 34500 };
 var FIXED_REPLIES = {
-  price: 'ဘာသာစုံ ၁ လ ၉၅၀၀၊ ၃ လ ၁၉၅၀၀၊ ၆ လ ၂၉၅၀၀၊ ၁၃ လ ၃၄၅၀၀ ကျပ်ပါ။ Grade 10, 11, 12 အတူတူပါ။',
-  pay: 'ငွေလွှဲပြေစာပုံကို ဒီချတ်မှာ ပို့ပါ။ ပုံအောက်မှာ Grade ရေးပါ။ ဥပမာ Grade 10။ ဘာသာစုံပဲ ရောင်းပါတယ်။',
-  grade: 'Grade 10, 11, 12 ထဲက တစ်တန်းရွေးပါ။ ဘာသာစုံက အဲဒီတန်းမှာပဲ ပွင့်ပါတယ်။',
-  locked: 'Chapter 1 က အခမဲ့ စမ်းသုံးလို့ရပါတယ်။ ကျန်တာက ဘာသာစုံဝယ်မှ ပွင့်ပါတယ်။',
-  photo: 'ပြေစာရပါပြီ။ စစ်ပြီးမှ ဘာသာစုံဖွင့်ပေးပါမယ်။',
-  other: 'Reed App က objective question အတွက်ပါ။ တစ်ခြားလေ့ကျင့်မှုက နည်းပါတယ်။ ဈေး၊ ငွေပေးနည်း၊ Grade မေးနိုင်ပါတယ်။'
+  hello: 'မင်္ဂလာပါဗျ'
 };
+var UNMATCHED_REPLY = 'Reed App က objective question အတွက်ပါ။';
+var CORE_SUBJECTS = ['mm', 'en', 'math', 'phy', 'chem'];
 var SUBJECT_WORDS = [
   ['all', /all|အားလုံး/i],
   ['mm', /myanmar|မြန်မာ/i],
@@ -201,7 +200,7 @@ var SUBJECT_LABELS = {
 };
 
 function fixedReply(intent) {
-  return FIXED_REPLIES[intent] || FIXED_REPLIES.other;
+  return FIXED_REPLIES[intent] || UNMATCHED_REPLY;
 }
 
 function meaningWord(text) {
@@ -300,44 +299,140 @@ async function sendSavedReply(chatId, record, env) {
   return !!(sent && sent.ok);
 }
 
-async function replyForIntent(chatId, text, env) {
-  var extras = await savedMeanings(env);
-  var intent = await classifyIntent(text, env && env.OPENAI_API_KEY, extras);
-  var saved = await loadReplyRecord(env, intent);
+async function sendMeaning(chatId, meaning, env) {
+  var saved = await loadReplyRecord(env, meaning);
   if (saved && saved.messageId && saved.fileId) {
     try {
-      if (await sendSavedReply(chatId, saved, env)) return;
+      if (await sendSavedReply(chatId, saved, env)) return true;
     } catch (e) {}
   }
-  await sendTelegramMessage(chatId, fixedReply(intent), env.BOT_TOKEN);
+  var text = FIXED_REPLIES[meaning];
+  if (!text) return false;
+  await sendTelegramMessage(chatId, text, env.BOT_TOKEN);
+  return true;
+}
+
+function pendingKey(chatId) {
+  return 'pending:' + chatId;
+}
+
+async function rememberSlip(env, chatId, months) {
+  if (!env || !env.REPLIES) return;
+  await env.REPLIES.put(pendingKey(chatId), JSON.stringify({ months: Number(months) || 0 }));
+}
+
+async function loadPending(env, chatId) {
+  if (!env || !env.REPLIES) return null;
+  var raw = await env.REPLIES.get(pendingKey(chatId));
+  if (!raw) return null;
+  try { return JSON.parse(raw); } catch (e) { return null; }
+}
+
+async function clearPending(env, chatId) {
+  if (!env || !env.REPLIES || !env.REPLIES.delete) return;
+  try { await env.REPLIES.delete(pendingKey(chatId)); } catch (e) {}
+}
+
+function sixthSubject(text) {
+  var raw = String(text || '');
+  var bio = /biology|\bbio\b|ဇီဝ/i.test(raw);
+  var eco = /econom/i.test(raw) || /\beco\b/i.test(raw) || /ဘောဂ/.test(raw);
+  if (bio === eco) return '';
+  return bio ? 'bio' : 'eco';
+}
+
+function typedId(text) {
+  var match = String(text || '').match(/(?:^|\D)(\d{6,12})(?!\d)/);
+  return match ? match[1] : '';
+}
+
+async function openBuyerSubjects(msg, env, grade, sixth) {
+  var pending = await loadPending(env, msg.chat.id);
+  var months = pending && Number(pending.months) || 0;
+  if (!months || !sixth) return;
+  var id = typedId(msg.text || msg.caption || '') || String(msg.from && msg.from.id || msg.chat.id);
+  var wrote = await savePaidSubjects({
+    id: id,
+    grade: grade,
+    subjects: CORE_SUBJECTS.concat([sixth]),
+    months: months
+  });
+  if (!wrote || wrote.success !== true) return;
+  await clearPending(env, msg.chat.id);
+  await sendTelegramMessage(msg.chat.id, 'ဘာသာရပ်ဖွင့်ပြီးပါပြီ။ App ကို ပိတ်ပြီး ပြန်ဖွင့်ပါ။', env.BOT_TOKEN);
+}
+
+async function notifyAdminUnmatched(msg, env) {
+  var from = msg.from || {};
+  var name = [from.first_name, from.last_name].filter(Boolean).join(' ') || '-';
+  var body = msg.text || msg.caption || '';
+  var note = [
+    'Customer',
+    'ID: ' + String(from.id || msg.chat.id),
+    'Name: ' + name,
+    'Message: ' + (body || '(no text)')
+  ].join('\n');
+  await sendTelegramMessage(POST_ADMIN_ID, note, env.BOT_TOKEN);
+  var voice = voiceFile(msg);
+  if (voice) {
+    await telegramApiJson(env.BOT_TOKEN, 'sendVoice', {
+      chat_id: POST_ADMIN_ID,
+      voice: voice.file_id
+    });
+  }
+}
+
+async function sendUnmatched(msg, env) {
+  await sendTelegramMessage(msg.chat.id, UNMATCHED_REPLY, env.BOT_TOKEN);
+  await notifyAdminUnmatched(msg, env);
+}
+
+async function replyForIntent(chatId, text, env, msg) {
+  var hinted = keywordIntent(text);
+  if (hinted === 'hello' || hinted === 'price' || hinted === 'pay') {
+    await sendMeaning(chatId, hinted, env);
+    return;
+  }
+  var sixth = sixthSubject(text);
+  var grade = parseAsk(text).grade;
+  if (sixth && grade) {
+    await openBuyerSubjects(msg || { chat: { id: chatId }, text: text, from: {} }, env, grade, sixth);
+    return;
+  }
+  var intent = await classifyIntent(text, env && env.OPENAI_API_KEY);
+  if (intent === 'hello' || intent === 'price' || intent === 'pay') {
+    await sendMeaning(chatId, intent, env);
+    return;
+  }
+  await sendUnmatched(msg || { chat: { id: chatId }, text: text, from: {} }, env);
+}
+
+function isHello(text) {
+  var raw = String(text || '').trim();
+  var lower = raw.toLowerCase();
+  if (['hi', 'hello', 'hey', 'hii', 'yo', 'mingalaba', 'mingalarbar', 'good morning', 'good evening'].indexOf(lower) !== -1) return true;
+  return /^(မင်္ဂလာပါ|မဂလာပါ|ဟိုင်း|ဟဲလို|ဟယ်လို)(ဗျ|ရှင်|ခင်ဗျာ?)?$/.test(raw);
 }
 
 function keywordIntent(text) {
   var s = String(text || '');
-  if (/ဈေး|price|ဘယ်လောက်|how much/i.test(s)) return 'price';
-  if (/ပြေစာ|screenshot|slip|ငွေလွှဲ|kpay|wave|kbz|how to pay|ဘယ်လိုပေး/i.test(s)) return 'pay';
-  if (/grade|တန်း|၁၀|၁၁|၁၂/.test(s) && /ရွေး|which|grade/i.test(s)) return 'grade';
-  if (/ပိတ်|lock|မပွင့်|chapter 1|အခမဲ့/i.test(s)) return 'locked';
+  if (/ဈေး|price|ဘယ်လောက်|how much|ဈေးနှုန်း/i.test(s)) return 'price';
+  if (/k\s*pay|\bkbz\b|\bwave\b|transfer|ငွေလွှဲ|ငွေပို့|ဝယ်မယ်|ဝယ်ချင်|want to buy|\bbuy\b/i.test(s)) return 'pay';
+  if (isHello(s)) return 'hello';
   return 'other';
 }
 
-function allowedMeanings(extra) {
-  var words = ['price', 'pay', 'grade', 'locked', 'photo', 'other'];
-  (extra || []).forEach(function (word) {
-    var w = String(word || '').toLowerCase();
-    if (w && words.indexOf(w) === -1) words.push(w);
-  });
-  return words.sort(function (a, b) { return b.length - a.length; });
+function allowedMeanings() {
+  return ['hello', 'price', 'pay', 'other'];
 }
 
-async function classifyIntent(text, apiKey, extra) {
+async function classifyIntent(text, apiKey) {
   var raw = String(text || '').trim();
-  var lowerQ = raw.toLowerCase();
-  var allowed = allowedMeanings(extra);
+  var allowed = allowedMeanings();
   if (commandName(raw) === '/start' || commandName(raw) === '/help') return 'other';
-  if (['hi', 'hello', 'hey', 'hii', 'yo', 'mingalaba', 'မင်္ဂလာပါ'].indexOf(lowerQ) !== -1) return 'other';
-  if (allowed.indexOf(lowerQ) !== -1) return lowerQ;
-  if (!apiKey) return keywordIntent(raw);
+  var hinted = keywordIntent(raw);
+  if (hinted !== 'other') return hinted;
+  if (!apiKey) return 'other';
   try {
     var response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -542,37 +637,14 @@ async function readSlip(fileId, env) {
 
 async function handlePaymentPhoto(msg, env) {
   var photo = paymentPhoto(msg);
-  var ask = parseAsk(msg.caption || (msg.reply_to_message && (msg.reply_to_message.text || msg.reply_to_message.caption)) || '');
-  if (!ask.grade) {
-    await sendTelegramMessage(msg.chat.id, fixedReply('pay'), env.BOT_TOKEN);
-    return;
-  }
-  var slip = await readSlip(photo.file_id, env);
-  var months = monthsForAmount(slip.amount);
-  var caption = paymentCaption({
-    id: String(msg.from && msg.from.id || msg.chat.id),
-    name: slip.name,
-    amount: slip.amount,
-    time: slip.time,
-    last4: slip.last4,
-    grade: ask.grade,
-    subjects: ['all'],
-    months: months
-  });
-  var sent = await telegramApiJson(env.BOT_TOKEN, 'sendPhoto', {
-    chat_id: POST_ADMIN_ID,
-    photo: photo.file_id,
-    caption: caption,
-    reply_markup: payKeyboard()
-  });
-  if (!sent || !sent.ok) {
-    await telegramApiJson(env.BOT_TOKEN, 'sendMessage', {
-      chat_id: POST_ADMIN_ID,
-      text: caption,
-      reply_markup: payKeyboard()
-    });
-  }
-  await sendTelegramMessage(msg.chat.id, fixedReply('photo'), env.BOT_TOKEN);
+  var slip = photo ? await readSlip(photo.file_id, env) : { amount: '' };
+  var months = monthsForAmount(slip && slip.amount);
+  await rememberSlip(env, msg.chat.id, months);
+  var note = msg.caption || '';
+  var sixth = sixthSubject(note);
+  var grade = parseAsk(note).grade;
+  if (sixth && grade && months) await openBuyerSubjects(msg, env, grade, sixth);
+  await sendMeaning(msg.chat.id, 'idask', env);
 }
 
 function bytesToBase64(bytes) {
