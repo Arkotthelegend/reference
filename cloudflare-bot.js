@@ -439,6 +439,10 @@ async function sendUnmatched(msg, env) {
 
 async function replyForIntent(chatId, text, env, msg) {
   var hinted = keywordIntent(text);
+  if (hinted === 'notopen') {
+    if (!(await sendMeaning(chatId, 'notopen', env))) await sendStudyAnswer(chatId, text, env);
+    return;
+  }
   if (hinted === 'hello' || hinted === 'price' || hinted === 'pay' || hinted === 'reed' || hinted === 'explain' || hinted === 'stepbstep') {
     await sendMeaning(chatId, hinted, env);
     return;
@@ -462,6 +466,10 @@ async function replyForIntent(chatId, text, env, msg) {
     return;
   }
   var intent = await classifyIntent(text, env && env.OPENAI_API_KEY);
+  if (intent === 'notopen') {
+    if (!(await sendMeaning(chatId, 'notopen', env))) await sendStudyAnswer(chatId, text, env);
+    return;
+  }
   if (intent === 'hello' || intent === 'price' || intent === 'pay' || intent === 'reed' || intent === 'explain' || intent === 'stepbstep') {
     await sendMeaning(chatId, intent, env);
     return;
@@ -496,8 +504,14 @@ function isExplainQuestion(text) {
   return /explain|explanation|ရှင်းပြ|ရှင်းပေး/i.test(String(text || ''));
 }
 
+function isNotOpenQuestion(text) {
+  var s = String(text || '');
+  return /not unlock|cannot open|can't open|can not open|doesn't open|does not open|won't open|will not open|not opening|not working|subjects?.{0,24}not|မပွင့်|မဖွင့်နိုင်|အလုပ်မလုပ်/i.test(s);
+}
+
 function isEnterQuestion(text) {
   var s = String(text || '');
+  if (isNotOpenQuestion(s)) return false;
   return /how (?:do|to|can|should).{0,60}(?:open|enter|get in|start)|(?:open|enter|get into|start) (?:the |this )?(?:reed |reededucation )?(?:app|bot)|app ထဲ|အက်ပ်ထဲ|ဘယ်လို\s*ဖွင့်|ဖွင့်\s*ရမလဲ|ဘယ်လို\s*ဝင်|ဝင်\s*ရမလဲ|အက်ပ်\s*ဖွင့်|app\s*ဖွင့်/i.test(s);
 }
 
@@ -511,6 +525,7 @@ function keywordIntent(text) {
   if (/ဈေး|price|ဘယ်လောက်|how much|ဈေးနှုန်း/i.test(s)) return 'price';
   if (/k\s*pay|\bkbz\b|\bwave\b|transfer|ငွေလွှဲ|ငွေပို့|ဝယ်မယ်|ဝယ်ချင်|want to buy|\bbuy\b/i.test(s)) return 'pay';
   if (isHello(s)) return 'hello';
+  if (isNotOpenQuestion(s)) return 'notopen';
   if (isEnterQuestion(s)) return 'stepbstep';
   if (isExplainQuestion(s)) return 'explain';
   if (isStudyQuestion(s)) return 'study';
@@ -519,7 +534,7 @@ function keywordIntent(text) {
 }
 
 function allowedMeanings() {
-  return ['hello', 'price', 'pay', 'reed', 'explain', 'stepbstep', 'study', 'other'];
+  return ['hello', 'price', 'pay', 'reed', 'explain', 'stepbstep', 'notopen', 'study', 'other'];
 }
 
 var NOT_A_DOWNLOAD = 'Reed is not a download. Open @reededucation_bot and tap Start Practice.';
@@ -536,6 +551,7 @@ var STUDY_FACTS = [
   'Match the customer language.',
   'Reed is not on Google Play, the App Store, or any store. It is not a downloadable app. Never tell a customer to download it.',
   'The only way in is to open @reededucation_bot and tap Start Practice.',
+  'If a customer cannot open the app or the subjects, it can be their internet. Tell them to use a VPN, especially 1.1.1.1. Do not mention a store. Do not send them to an admin.',
   'Facts: Reed App is an objective-question specialist. Other practice is minor.',
   'Grades are 10, 11, and 12. Pick one grade. Unlocks stay on that grade.',
   'Only the 6-subject pack is sold: Myanmar, English, Maths, Physics, Chemistry, plus Biology or Economics.',
@@ -598,7 +614,7 @@ async function classifyIntent(text, apiKey) {
         messages: [
           {
             role: 'system',
-            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '. explain means they want Reed or the app explained. stepbstep means how to open or enter the app. reed means what Reed is. study means practicing or higher grades. other means daily life or personal.'
+            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '. notopen means the subjects or the app will not open or are not working. explain means they want Reed or the app explained. stepbstep means how to open or enter the app. reed means what Reed is. study means practicing or higher grades. other means daily life or personal.'
           },
           { role: 'user', content: raw }
         ]
@@ -987,6 +1003,22 @@ function renewalEnd(months) {
   return addMonths(yangonToday(), months);
 }
 
+function addedMonths(logs, id, grade, bought) {
+  var groups = {};
+  (logs || []).forEach(function (row) {
+    if (String(row.id || '') !== String(id || '')) return;
+    if (String(row.role || 'paid').toLowerCase() === 'volunteer') return;
+    if (Number(row.grade || 12) !== Number(grade)) return;
+    var months = Number(row.months) || 0;
+    if (!months) return;
+    var key = String(row.expiry || '') + '|' + months + '|' + logDay(row.timestamp);
+    if (!groups[key]) groups[key] = months;
+  });
+  var prior = 0;
+  Object.keys(groups).forEach(function (key) { prior += groups[key]; });
+  return prior + (Number(bought) || 0);
+}
+
 async function subjectsForRenewal(id, grade, sixth) {
   var list = CORE_SUBJECTS.concat([sixth]);
   var prefix = Number(grade) === 12 ? '' : 'g' + Number(grade) + '_';
@@ -1003,18 +1035,29 @@ async function subjectsForRenewal(id, grade, sixth) {
 }
 
 async function savePaidSubjects(fields) {
-  var expiry = renewalEnd(fields.months);
-  if (!fields.id || !fields.grade || !fields.subjects.length || !fields.months || !expiry) {
+  var bought = Number(fields.months) || 0;
+  var expiry = renewalEnd(bought);
+  if (!fields.id || !fields.grade || !fields.subjects.length || !bought || !expiry) {
     return { success: false, message: 'Missing payment fields' };
   }
+  var logs = [];
+  try { logs = await fetchPaidLogs(); } catch (e) {}
+  var months = addedMonths(logs, fields.id, fields.grade, bought);
   var ids = await subjectsForRenewal(fields.id, fields.grade, fields.subjects[fields.subjects.length - 1]);
   fields.subjects.forEach(function (subject) {
     if (ids.indexOf(subject) === -1) ids.push(subject);
   });
   var subjects = ids.map(function (id) {
-    return { subject: id, grade: fields.grade, expiry: expiry, months: fields.months, unit: 'months' };
+    return { subject: id, grade: fields.grade, expiry: expiry, months: months, unit: 'months' };
   });
-  return postPaidSheet({ action: 'saveMulti', id: fields.id, role: 'paid', subjects: subjects });
+  return postPaidSheet({
+    action: 'saveMulti',
+    id: fields.id,
+    role: 'paid',
+    months: months,
+    expiry: expiry,
+    subjects: subjects
+  });
 }
 
 async function handlePayDecision(q, env) {
@@ -1311,6 +1354,7 @@ async function getAIReply(question, apiKey) {
     'WHAT REED IS:',
     'Reed App is an objective-question specialist for Myanmar Grade 10, 11, and 12. Other practice is minor. Website: reededucation.net. Contact to buy: @minaphayarkot.',
     'Reed is not on Google Play, the App Store, or any store. It is not a downloadable app. Never tell a customer to download it. The only way in is to open @reededucation_bot and tap Start Practice.',
+    'If a customer cannot open the app or the subjects, it can be their internet. Tell them to use a VPN, especially 1.1.1.1. Do not send them to an admin.',
     'Write the names Reed and App in English letters. Never write those names in Burmese script.',
     '',
     'BOT vs CHANNEL — never mix these up:',
