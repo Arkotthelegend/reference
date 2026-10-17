@@ -1,7 +1,8 @@
 /* Reed Education Telegram bot — Cloudflare Worker
    Secrets: BOT_TOKEN, OPENAI_API_KEY
    Optional: START_VIDEO_FILE_ID, START_VIDEO_URL
-   Paste this file into the Worker and deploy. No KV.
+   Paste this file into the Worker and deploy.
+   Saved customer replies need a KV namespace binding named REPLIES.
 
    Daily sales to the admin needs a Cloudflare Cron Trigger on this worker:
    30 17 * * *  (23:30 Asia/Yangon).
@@ -74,6 +75,10 @@ export default {
           await handleSalesCommand(msg, env);
         } else if (commandName(msg.text) === '/start') {
           await sendStartWelcome(chatId, env);
+        } else if (isPostAdmin(msg, env) && isPrivateChat(msg) && meaningWord(msg.text)) {
+          await handleSaveReply(msg, env);
+        } else if (isPostAdmin(msg, env) && isPrivateChat(msg) && (paymentPhoto(msg) || voiceFile(msg))) {
+          // Admin media is a saved reply, never a customer payment slip.
         } else if (paymentPhoto(msg) && isPrivateChat(msg)) {
           await handlePaymentPhoto(msg, env);
         } else if (videoFileIdFromMessage(msg) && isPrivateChat(msg)) {
@@ -83,8 +88,7 @@ export default {
             env.BOT_TOKEN
           );
         } else if (typeof msg.text === 'string' && msg.text.trim()) {
-          var intent = await classifyIntent(msg.text, env.OPENAI_API_KEY);
-          await sendTelegramMessage(chatId, fixedReply(intent), env.BOT_TOKEN);
+          await replyForIntent(chatId, msg.text, env);
         }
       } catch (e) {}
     }
@@ -200,6 +204,114 @@ function fixedReply(intent) {
   return FIXED_REPLIES[intent] || FIXED_REPLIES.other;
 }
 
+function meaningWord(text) {
+  var raw = String(text || '').trim();
+  var match = raw.match(/^\+\s*(\S+)$/);
+  if (!match) return '';
+  var word = match[1].toLowerCase();
+  if (!word || word.length > 32 || /[+\s]/.test(word)) return '';
+  return word;
+}
+
+function voiceFile(msg) {
+  return msg && msg.voice && msg.voice.file_id ? msg.voice : null;
+}
+
+function mediaRecord(msg) {
+  if (!msg) return null;
+  var voice = voiceFile(msg);
+  if (voice) return { type: 'voice', fileId: voice.file_id, caption: '' };
+  var photo = paymentPhoto(msg);
+  if (photo && photo.file_id) {
+    return { type: 'photo', fileId: photo.file_id, caption: String(msg.caption || '') };
+  }
+  return null;
+}
+
+function replyKey(word) {
+  return 'reply:' + word;
+}
+
+async function saveReplyRecord(env, word, record) {
+  if (!env || !env.REPLIES || !word) return false;
+  await env.REPLIES.put(replyKey(word), JSON.stringify(record));
+  return true;
+}
+
+async function loadReplyRecord(env, word) {
+  if (!env || !env.REPLIES || !word) return null;
+  var raw = await env.REPLIES.get(replyKey(word));
+  if (!raw) return null;
+  try { return JSON.parse(raw); } catch (e) { return null; }
+}
+
+async function savedMeanings(env) {
+  if (!env || !env.REPLIES || !env.REPLIES.list) return [];
+  try {
+    var listed = await env.REPLIES.list({ prefix: 'reply:' });
+    return (listed && listed.keys || []).map(function (key) {
+      return String(key.name || '').replace(/^reply:/, '');
+    }).filter(Boolean);
+  } catch (e) {
+    return [];
+  }
+}
+
+async function handleSaveReply(msg, env) {
+  var word = meaningWord(msg.text);
+  var media = mediaRecord(msg.reply_to_message);
+  if (!media) {
+    await sendTelegramMessage(msg.chat.id, 'Reply to the photo or voice.', env.BOT_TOKEN);
+    return;
+  }
+  var from = msg.reply_to_message;
+  var ok = await saveReplyRecord(env, word, {
+    meaning: word,
+    fromChatId: String(from.chat && from.chat.id || msg.chat.id),
+    messageId: from.message_id,
+    fileId: media.fileId,
+    type: media.type,
+    caption: media.caption
+  });
+  await sendTelegramMessage(
+    msg.chat.id,
+    ok ? 'Saved' : 'Not saved. Add KV binding REPLIES on this worker.',
+    env.BOT_TOKEN
+  );
+}
+
+async function sendSavedReply(chatId, record, env) {
+  var copied = await telegramApiJson(env.BOT_TOKEN, 'copyMessage', {
+    chat_id: chatId,
+    from_chat_id: record.fromChatId,
+    message_id: record.messageId
+  });
+  if (copied && copied.ok) return true;
+  if (record.type === 'voice') {
+    var voice = await telegramApiJson(env.BOT_TOKEN, 'sendVoice', {
+      chat_id: chatId,
+      voice: record.fileId
+    });
+    return !!(voice && voice.ok);
+  }
+  var photo = { chat_id: chatId, photo: record.fileId };
+  if (record.caption) photo.caption = record.caption;
+  var sent = await telegramApiJson(env.BOT_TOKEN, 'sendPhoto', photo);
+  return !!(sent && sent.ok);
+}
+
+async function replyForIntent(chatId, text, env) {
+  var extras = await savedMeanings(env);
+  var intent = await classifyIntent(text, env && env.OPENAI_API_KEY, extras);
+  var saved = await loadReplyRecord(env, intent);
+  if (saved && saved.messageId && saved.fileId) {
+    try {
+      if (await sendSavedReply(chatId, saved, env)) return;
+    } catch (e) {}
+  }
+  await sendTelegramMessage(chatId, fixedReply(intent), env.BOT_TOKEN);
+}
+
 function keywordIntent(text) {
   var s = String(text || '');
   if (/ဈေး|price|ဘယ်လောက်|how much/i.test(s)) return 'price';
@@ -209,11 +321,22 @@ function keywordIntent(text) {
   return 'other';
 }
 
-async function classifyIntent(text, apiKey) {
+function allowedMeanings(extra) {
+  var words = ['price', 'pay', 'grade', 'locked', 'photo', 'other'];
+  (extra || []).forEach(function (word) {
+    var w = String(word || '').toLowerCase();
+    if (w && words.indexOf(w) === -1) words.push(w);
+  });
+  return words.sort(function (a, b) { return b.length - a.length; });
+}
+
+async function classifyIntent(text, apiKey, extra) {
   var raw = String(text || '').trim();
   var lowerQ = raw.toLowerCase();
+  var allowed = allowedMeanings(extra);
   if (commandName(raw) === '/start' || commandName(raw) === '/help') return 'other';
   if (['hi', 'hello', 'hey', 'hii', 'yo', 'mingalaba', 'မင်္ဂလာပါ'].indexOf(lowerQ) !== -1) return 'other';
+  if (allowed.indexOf(lowerQ) !== -1) return lowerQ;
   if (!apiKey) return keywordIntent(raw);
   try {
     var response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -229,16 +352,18 @@ async function classifyIntent(text, apiKey) {
         messages: [
           {
             role: 'system',
-            content: 'Classify the customer message. Reply with one word only: price, pay, grade, locked, photo, other.'
+            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '.'
           },
           { role: 'user', content: raw }
         ]
       })
     });
     var data = await response.json();
-    var word = String(data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || '')
-      .toLowerCase().match(/price|pay|grade|locked|photo|other/);
-    if (word) return word[0];
+    var said = String(data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || '').toLowerCase();
+    var found = said.match(new RegExp('\\b(' + allowed.map(function (word) {
+      return word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }).join('|') + ')\\b'));
+    if (found) return found[1];
   } catch (e) {}
   return keywordIntent(raw);
 }
