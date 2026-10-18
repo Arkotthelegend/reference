@@ -3793,7 +3793,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
                     <div class="rw-answer" id="rw-answer"></div>
                     <p class="rw-try-note" id="rw-try-note"></p>
                 </div>
-                <p class="rw-keys">Laptop: Space = reveal / next</p>
+                <p class="rw-keys">Laptop: Enter or Space = reveal / next</p>
             </div>
 
             <div style="display: flex; gap: 10px;">
@@ -8610,7 +8610,7 @@ function loadQuestion() {
                 };
             }
         };
-        setQuizKeysHint(isTestPlay() ? 'Laptop: Enter = next' : '');
+        setQuizKeysHint(isTestPlay() ? 'Laptop: Enter = next' : 'Laptop: Enter = answer, then next');
     }
     else if (q.type === 'mcq' || q.type === 'tf') {
         let opts = [];
@@ -8694,8 +8694,8 @@ function loadQuestion() {
                 : 'Laptop: 1–' + opts.length + ' or A–' + String.fromCharCode(64 + Math.min(opts.length, 9)) + ' shows the answer · Enter = next');
         } else {
             setQuizKeysHint(q.type === 'tf'
-                ? 'Laptop: 1 = True · 2 = False'
-                : 'Laptop: ' + opts.map((_, n) => n + 1).join(' ') + ' to choose');
+                ? 'Laptop: 1 = True · 2 = False · Enter = next'
+                : 'Laptop: ' + opts.map((_, n) => n + 1).join(' ') + ' to choose · Enter = next');
         }
     }
     else if (q.type === 'blank') {
@@ -8730,11 +8730,9 @@ function loadQuestion() {
             if (isTestPlay()) focusTestChoiceKeys();
         };
         optDiv.appendChild(sBtn);
-        setQuizKeysHint(isTestPlay()
-            ? (count > 1
-                ? 'Laptop: Enter moves to the next blank, then checks. Enter again = next question'
-                : 'Laptop: Enter = check · Enter again = next question')
-            : '');
+        setQuizKeysHint(count > 1 && isTestPlay()
+            ? 'Laptop: Enter moves to the next blank, then checks. Enter again = next question'
+            : 'Laptop: Enter = check · Enter again = next question');
     } else {
         setQuizKeysHint('');
     }
@@ -10685,44 +10683,76 @@ document.addEventListener('keydown', function(e) {
 
     const tag = (e.target && e.target.tagName) || '';
     const keyCatch = !!(e.target && e.target.id === 'quiz-keycatch');
-    const quizOn = document.getElementById('quiz-screen')?.classList.contains('active-screen');
+    const quizScreen = document.getElementById('quiz-screen');
+    const quizOn = !!(quizScreen && quizScreen.classList.contains('active-screen'));
     const mathOn = document.getElementById('math-solution-screen')?.classList.contains('active-screen');
     const flashOn = document.getElementById('flashcard-screen')?.classList.contains('active-screen');
     const rewriteOn = flashOn && document.getElementById('flashcard-screen')?.classList.contains('flash-rewrite-on');
     const inQuizField = !!(e.target && e.target.closest && e.target.closest('#quiz-options'));
 
-    if (keyName === 'Enter' && isTestPlay() && (quizOn || mathOn)) {
-        const typingElsewhere = (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) && !inQuizField && !keyCatch;
+    if (keyName === 'Enter' && (quizOn || mathOn || flashOn)) {
+        const typingElsewhere = (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) && !inQuizField && !keyCatch && !(e.target && e.target.id === 'rw-try');
         if (typingElsewhere) return;
+        if (flashOn) {
+            if (e.target && e.target.id === 'rw-try') return;
+            e.preventDefault();
+            if (rewriteOn) {
+                const wrap = document.getElementById('rw-answer-wrap');
+                if (wrap && wrap.hidden) revealRewriteAnswer();
+                else nextFlash();
+                return;
+            }
+            const card = document.getElementById('flash-card');
+            if (card && !card.classList.contains('is-flipped')) {
+                flipCard();
+                return;
+            }
+            nextFlash();
+            return;
+        }
         e.preventDefault();
+        if (quizOn && quizScreen.classList.contains('quiz-done')) {
+            const endNext = document.getElementById('quiz-end-next');
+            if (endNext) endNext.click();
+            return;
+        }
         if (mathOn) {
             const mathNext = document.getElementById('math-next-btn');
             if (mathNext && mathNext.style.display !== 'none' && !mathNext.disabled) mathNext.click();
             return;
         }
         const qNow = currentQuestions[currentIdx];
-        if (qNow && qNow.type === 'blank' && isAnswered) {
-            nextQuestion();
-            return;
-        }
-        if (tag === 'INPUT' && e.target.classList.contains('quiz-input') && !isAnswered) {
-            const inputs = Array.from(document.querySelectorAll('#quiz-options .quiz-input'));
-            const i = inputs.indexOf(e.target);
-            for (let j = i + 1; j < inputs.length; j++) {
-                if (!inputs[j].disabled && !String(inputs[j].value || '').trim()) {
-                    focusQuizField(inputs[j]);
-                    return;
+        if (qNow && qNow.type === 'blank' && !isAnswered) {
+            if (tag === 'INPUT' && e.target.classList.contains('quiz-input')) {
+                const inputs = Array.from(document.querySelectorAll('#quiz-options .quiz-input'));
+                const i = inputs.indexOf(e.target);
+                for (let j = i + 1; j < inputs.length; j++) {
+                    if (!inputs[j].disabled && !String(inputs[j].value || '').trim()) {
+                        focusQuizField(inputs[j]);
+                        return;
+                    }
                 }
             }
             gradeOpenBlank();
-            focusTestChoiceKeys();
+            if (isTestPlay()) focusTestChoiceKeys();
             return;
         }
-        if (qNow && (qNow.type === 'mcq' || qNow.type === 'tf')) {
+        if (isAnswered) {
             nextQuestion();
             return;
         }
-        speedSubmitAndAdvance();
+        if (isTestPlay() && qNow && (qNow.type === 'mcq' || qNow.type === 'tf')) {
+            nextQuestion();
+            return;
+        }
+        if (isTestPlay()) {
+            speedSubmitAndAdvance();
+            return;
+        }
+        if (qNow && qNow.type === 'math_show') {
+            const showBtn = document.getElementById('math-sol-footer-btn');
+            if (showBtn && showBtn.style.display !== 'none' && !showBtn.disabled) showBtn.click();
+        }
         return;
     }
 
