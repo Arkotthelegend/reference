@@ -86,7 +86,7 @@ export default {
         } else if (isPostAdmin(msg, env) && isPrivateChat(msg)) {
           // Admin text, photo, or voice is a saved reply, never a customer payment slip.
         } else if (paymentPhoto(msg) && isPrivateChat(msg)) {
-          await handlePaymentPhoto(msg, env);
+          await handleCustomerPhoto(msg, env);
         } else if (typeof msg.text === 'string' && msg.text.trim()) {
           await replyForIntent(chatId, msg.text, env, msg);
         } else if (isPrivateChat(msg) && !isPostAdmin(msg, env)) {
@@ -506,7 +506,7 @@ function isExplainQuestion(text) {
 
 function isNotOpenQuestion(text) {
   var s = String(text || '');
-  return /not unlock|cannot open|can't open|can not open|doesn't open|does not open|won't open|will not open|not opening|not working|subjects?.{0,24}not|မပွင့်|မဖွင့်နိုင်|အလုပ်မလုပ်/i.test(s);
+  return /not unlock|cannot open|can't open|can not open|doesn't open|does not open|won't open|will not open|not opening|not working|subjects?.{0,24}not|ဝင်မရ|မဝင်ဘူး|မဝင်နိုင်|မပွင့်|မဖွင့်နိုင်|မဖွင့်ရ|အလုပ်မလုပ်/i.test(s);
 }
 
 function isEnterQuestion(text) {
@@ -614,7 +614,7 @@ async function classifyIntent(text, apiKey) {
         messages: [
           {
             role: 'system',
-            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '. notopen means the subjects or the app will not open or are not working. explain means they want Reed or the app explained. stepbstep means how to open or enter the app. reed means what Reed is. study means practicing or higher grades. other means daily life or personal.'
+            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '. If the sentence is incomplete, choose the closest of those meanings. notopen means they cannot get in or the subjects will not open, including Burmese such as ဝင်မရဘူး. explain means they want Reed or the app explained. stepbstep means how to open or enter the app. reed means what Reed is. study means practicing or higher grades. other means daily life or personal. A photo of the app is not a payment.'
           },
           { role: 'user', content: raw }
         ]
@@ -929,6 +929,59 @@ async function forwardUnplannedPayment(msg, env, amount, extra) {
     chat_id: POST_ADMIN_ID,
     text: caption
   });
+}
+
+async function receiptKind(fileId, env) {
+  if (!env || !env.OPENAI_API_KEY || !fileId) return 'other';
+  var file = await telegramApiJson(env.BOT_TOKEN, 'getFile', { file_id: fileId });
+  var path = file && file.result && file.result.file_path;
+  if (!path) return 'other';
+  var bin = await fetch('https://api.telegram.org/file/bot' + env.BOT_TOKEN + '/' + path);
+  if (!bin.ok) return 'other';
+  var bytes = new Uint8Array(await bin.arrayBuffer());
+  var b64 = '';
+  try { b64 = bytesToBase64(bytes); } catch (e) { return 'other'; }
+  if (!b64) return 'other';
+  var mime = /\.png$/i.test(path) ? 'image/png' : 'image/jpeg';
+  try {
+    var response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + env.OPENAI_API_KEY,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        temperature: 0,
+        max_tokens: 8,
+        messages: [{
+          role: 'user',
+          content: [
+            { type: 'text', text: 'What is this image? Reply with one word: kbz, wave, or other. kbz only for a blue KBZ Pay or KBZ Bank receipt. wave only for a yellow Wave receipt. other for a phone screen, a black or grey mini app, REED Official App, four squares, an app link, or anything that is not one of those two receipts.' },
+            { type: 'image_url', image_url: { url: 'data:' + mime + ';base64,' + b64 } }
+          ]
+        }]
+      })
+    });
+    var data = await response.json();
+    var word = String(data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || '').toLowerCase();
+    if (word.indexOf('kbz') >= 0) return 'kbz';
+    if (word.indexOf('wave') >= 0) return 'wave';
+    return 'other';
+  } catch (e) {
+    return 'other';
+  }
+}
+
+async function handleCustomerPhoto(msg, env) {
+  var photo = paymentPhoto(msg);
+  var kind = 'other';
+  try { kind = await receiptKind(photo && photo.file_id, env); } catch (e) {}
+  if (kind !== 'kbz' && kind !== 'wave') {
+    await sendMeaning(msg.chat.id, 'notopen', env);
+    return;
+  }
+  await handlePaymentPhoto(msg, env);
 }
 
 async function handlePaymentPhoto(msg, env) {

@@ -1192,6 +1192,10 @@
         return i === 1 ? 'REED-timetable-Sat-Sun-A4.png' : 'REED-timetable-Mon-Fri-A4.png';
     }
 
+    function pagePublicUrl(i) {
+        return 'https://reededucation.net/' + pageFileName(i);
+    }
+
     function setPreviewImage(img, blob, canvas) {
         if (!img) return;
         if (img._url) {
@@ -2037,23 +2041,16 @@
         }
         var idx = parseInt(which, 10);
         if (idx !== 1) idx = 0;
-        var img = document.getElementById('tt-preview-' + idx);
-        var blob = img && img._blob;
         var name = pageFileName(idx);
-
-        if (!blob) {
-            if (api && api.alert) api.alert('ပုံ မရသေးပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
-            return;
-        }
-        saveImage(api, blob, name, function (busy, label) {
-            setDlState(idx, busy, label);
-        }, img && img._httpsUrl).then(function (result) {
-            if (img && result && result.url) img._httpsUrl = result.url;
-            if (!result.ok) {
-                if (api && api.alert) api.alert('ပုံကို ဖွင့်မရပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
-            } else if (!result.downloaded && !result.showedImage) {
-                tellSaved(api, result.sentToChat, false, 'timetable');
-            }
+        var url = pagePublicUrl(idx);
+        setDlState(idx, true, 'Saving…');
+        confirmPng(url).then(function (isPng) {
+            setDlState(idx, false);
+            if (isPng && requestTelegramDownload(url, name)) return;
+            if (isPng && showSaveSheet(url, name)) return;
+            var img = document.getElementById('tt-preview-' + idx);
+            if (img && img._blob && showBlobSheet(img._blob, name)) return;
+            if (api && api.alert) api.alert('ပုံကို ဖွင့်မရပါ။ ခဏစောင့်ပြီး ထပ်နှိပ်ပါ။');
         });
     }
 
