@@ -2544,10 +2544,13 @@ body.math-expand-page .container {
     overflow-wrap: break-word;
 }
 #question-box svg,
-#math-solution-content svg {
+#math-solution-content svg,
+#explanation-box svg {
+    width: 100%;
     max-width: 100%;
     height: auto;
     display: block;
+    margin: 10px auto;
 }
 #math-solution-content .math-step {
     color: #F0B90B;
@@ -2650,6 +2653,9 @@ body.math-expand-page .container {
     opacity: 1;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+}
+#explanation-box.show:has(svg) {
+    max-height: min(68vh, 520px);
 }
 
 #explanation-box.wrong {
@@ -4899,6 +4905,21 @@ function typesetQuizMath() {
     ].filter(Boolean);
     if (!nodes.length) return;
     MathJax.typesetPromise(nodes).catch(function () {});
+}
+
+function showQuizFigures(root) {
+    if (!root || !root.querySelectorAll) return;
+    root.querySelectorAll('svg').forEach(function (svg) {
+        var vb = svg.viewBox && svg.viewBox.baseVal;
+        if (vb && vb.width > 0 && vb.height > 0) {
+            if (!svg.getAttribute('width')) svg.setAttribute('width', String(vb.width));
+            if (!svg.getAttribute('height')) svg.setAttribute('height', String(vb.height));
+        }
+        svg.style.width = '100%';
+        svg.style.maxWidth = '100%';
+        svg.style.height = 'auto';
+        svg.style.display = 'block';
+    });
 }
 
 function tidyMathSolutionHtml(html) {
@@ -8351,6 +8372,7 @@ function renderExplanationPanel(rawText, isCorrect, correctAnswerText) {
     `;
     box.classList.toggle('wrong', !isCorrect);
     box.classList.add('show');
+    showQuizFigures(box);
 
 	if (window.MathJax && MathJax.typesetPromise) {
         MathJax.typesetPromise([box]);
@@ -8568,7 +8590,9 @@ function loadQuestion() {
 
     const oldChip = isOldQuestionFlow ? ' <span class="old-q-chip">Old question</span>' : '';
     document.getElementById('quiz-progress').innerHTML = `${currentIdx + 1} / ${currentQuestions.length}${oldChip}`;
-    document.getElementById('question-box').innerHTML = formatQuizMath(q.q);
+    const questionBox = document.getElementById('question-box');
+    questionBox.innerHTML = formatQuizMath(q.q);
+    showQuizFigures(questionBox);
 
     const optDiv = document.getElementById('quiz-options');
     optDiv.innerHTML = '';
@@ -8591,6 +8615,7 @@ function loadQuestion() {
             showScreen('math-solution');
             const solBox = document.getElementById('math-solution-content');
             solBox.innerHTML = tidyMathSolutionHtml(q.c);
+            showQuizFigures(solBox);
             unwrapMathSolutionScroll(solBox);
             if (window.MathJax && MathJax.typesetPromise) {
                 MathJax.typesetPromise([solBox]).then(function() {
@@ -8694,9 +8719,9 @@ function loadQuestion() {
                 }
                 options.forEach(b => b.disabled = true);
 
-                // Explanation panel for phy / chem / bio / eco / English
-                if (isExplSubject) {
-                    const explText = buildExplanationText(q, isCorrect, opts[correctIdx]);
+                // Worked notes, and a math figure stored on the answer (q.e).
+                const explText = buildExplanationText(q, isCorrect, opts[correctIdx]);
+                if (isExplSubject || explText) {
                     renderExplanationPanel(explText, isCorrect, opts[correctIdx]);
                 }
 
