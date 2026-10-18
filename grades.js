@@ -469,9 +469,15 @@ function isSharedEnGrammarFile(fileName) {
     return EN_GRAMMAR_TOPICS.some(function (t) { return t.id === id; });
 }
 
+function isMiitQuizFile(fileName) {
+    const raw = stripGradeFilePrefix(String(fileName || '').replace(/\.json$/i, ''));
+    return raw.indexOf('miit_') === 0;
+}
+
 function withGradePrefix(fileName) {
     if (!fileName) return fileName;
     if (fileName.startsWith('old_') || fileName.startsWith('daily_')) return fileName;
+    if (isMiitQuizFile(fileName)) return stripGradeFilePrefix(String(fileName).replace(/\.json$/i, ''));
     if (isSharedEnGrammarFile(fileName)) return stripGradeFilePrefix(fileName);
     const prefix = getGradeCfg().filePrefix || '';
     const base = stripGradeFilePrefix(fileName);
@@ -506,6 +512,10 @@ function isMmPlayQuizFile(fileName) {
 
 function quizUrlForGrade(grade, fileName) {
     const cfg = getGradeCfgFor(grade);
+    if (isMiitQuizFile(fileName)) {
+        const base = stripGradeFilePrefix(String(fileName || '').replace(/\.json$/i, ''));
+        return './quizzes/' + base + '.json';
+    }
     if (isSharedEnGrammarFile(fileName)) {
         const base = stripGradeFilePrefix(fileName).replace(/\.json$/i, '');
         return './quizzes/' + base + '.json';
@@ -597,7 +607,7 @@ function quizUrlCandidatesForGrade(grade, fileName) {
     const cfg = getGradeCfgFor(grade);
     const folder = cfg.quizFolder || '';
     const raw = String(fileName || '').replace(/\.json$/i, '');
-    if (!folder || raw.startsWith('old_') || raw.startsWith('daily_') || isSharedEnGrammarFile(fileName)) {
+    if (!folder || raw.startsWith('old_') || raw.startsWith('daily_') || isSharedEnGrammarFile(fileName) || isMiitQuizFile(fileName)) {
         return list;
     }
     const prefix = cfg.filePrefix || '';
