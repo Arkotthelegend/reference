@@ -439,11 +439,16 @@ async function sendUnmatched(msg, env) {
 
 async function replyForIntent(chatId, text, env, msg) {
   var hinted = keywordIntent(text);
+  if (hinted === 'reed') {
+    if (await sendMeaning(chatId, 'reed', env)) return;
+    await sendStudyAnswer(chatId, text, env);
+    return;
+  }
   if (hinted === 'notopen') {
     if (!(await sendMeaning(chatId, 'notopen', env))) await sendStudyAnswer(chatId, text, env);
     return;
   }
-  if (hinted === 'hello' || hinted === 'price' || hinted === 'pay' || hinted === 'reed' || hinted === 'explain' || hinted === 'stepbstep') {
+  if (hinted === 'hello' || hinted === 'price' || hinted === 'pay' || hinted === 'explain' || hinted === 'stepbstep') {
     await sendMeaning(chatId, hinted, env);
     return;
   }
@@ -461,25 +466,9 @@ async function replyForIntent(chatId, text, env, msg) {
       return;
     }
   }
-  if (hinted === 'study') {
+  if (isAboutReedOrStudy(text) || hinted === 'study') {
     await sendStudyAnswer(chatId, text, env);
-    return;
   }
-  var intent = await classifyIntent(text, env && env.OPENAI_API_KEY);
-  if (intent === 'notopen') {
-    if (!(await sendMeaning(chatId, 'notopen', env))) await sendStudyAnswer(chatId, text, env);
-    return;
-  }
-  if (intent === 'hello' || intent === 'price' || intent === 'pay' || intent === 'reed' || intent === 'explain' || intent === 'stepbstep') {
-    await sendMeaning(chatId, intent, env);
-    return;
-  }
-  if (intent === 'study') {
-    await sendStudyAnswer(chatId, text, env);
-    return;
-  }
-  var answer = await studyAnswer(text, env && env.OPENAI_API_KEY);
-  if (answer) await sendTelegramMessage(chatId, answer, env.BOT_TOKEN);
 }
 
 function isHello(text) {
@@ -490,23 +479,28 @@ function isHello(text) {
 }
 
 function isReedQuestion(text) {
-  var s = String(text || '');
-  if (/\breed\b|reededucation|ရီးဒ်|ရိဒ်/i.test(s)) return true;
-  if (/(what|who|about|for|ဘာ|ရှင်း|ဘယ်).{0,48}(\bapp\b|အက်ပ်|အက်ပ|\bbot\b)/i.test(s)) return true;
-  if (/(\bapp\b|အက်ပ်|အက်ပ|\bbot\b).{0,48}(what|who|about|for|ဘာ|ရှင်း)/i.test(s)) return true;
-  if (/what(?:'s| is| are)? (this|it)(?: for)?\b/i.test(s)) return true;
-  if (/what do you do|who are you|tell me about (this|it|yourself|reed|the app)/i.test(s)) return true;
-  if (/ဘာအတွက်|ဘာလုပ်|ဆိုတာ/.test(s)) return true;
+  var s = String(text || '').trim();
+  if (/^(?:what(?:'s| is| are)|who is|tell me about)\s+(?:reed|reed education|reed app|the reed|the app)\b/i.test(s)) return true;
+  if (/^(?:reed|reed app|reed education)\s*\??$/i.test(s)) return true;
+  if (/reed\s*(?:ဆိုတာ|က\s*ဘာ)|(?:ရီးဒ်|ရိဒ်)\s*(?:ဆိုတာ|က\s*ဘာ)/.test(s)) return true;
   return false;
 }
 
 function isExplainQuestion(text) {
-  return /explain|explanation|ရှင်းပြ|ရှင်းပေး/i.test(String(text || ''));
+  var s = String(text || '');
+  if (!/explain|explanation|ရှင်းပြ|ရှင်းပေး/i.test(s)) return false;
+  return /\breed\b|reededucation|ရီးဒ်|ရိဒ်|\bapp\b|အက်ပ်|\bbot\b/.test(s)
+    || /^(?:please\s+)?(?:explain|explanation|ရှင်းပြ(?:ပါ|ပေး)?)[.!? ]*$/i.test(s.trim());
+}
+
+function isAboutReedOrStudy(text) {
+  var s = String(text || '');
+  return /reed|reededucation|ရီးဒ်|ရိဒ်|အက်ပ်|\bapp\b|\bbot\b|subject|grade|practice|stud(?:y|ying)|quiz|chapter|exam|ဘာသာ|တန်း|လေ့ကျင့်/i.test(s);
 }
 
 function isNotOpenQuestion(text) {
   var s = String(text || '');
-  return /not unlock|cannot open|can't open|can not open|doesn't open|does not open|won't open|will not open|not opening|not working|subjects?.{0,24}not|ဝင်မရ|မဝင်ဘူး|မဝင်နိုင်|မပွင့်|မဖွင့်နိုင်|မဖွင့်ရ|အလုပ်မလုပ်/i.test(s);
+  return /not unlock|cannot open|can't open|can not open|doesn't open|does not open|won't open|will not open|not opening|not working|subjects?.{0,16}(?:not open|not work|won't)|ဝင်မရ|မဝင်ဘူး|မဝင်နိုင်|မပွင့်|မဖွင့်နိုင်|မဖွင့်ရ|အလုပ်မလုပ်/i.test(s);
 }
 
 function isEnterQuestion(text) {
@@ -522,8 +516,8 @@ function isStudyQuestion(text) {
 
 function keywordIntent(text) {
   var s = String(text || '');
-  if (/ဈေး|price|ဘယ်လောက်|how much|ဈေးနှုန်း/i.test(s)) return 'price';
-  if (/k\s*pay|\bkbz\b|\bwave\b|transfer|ငွေလွှဲ|ငွေပို့|ဝယ်မယ်|ဝယ်ချင်|want to buy|\bbuy\b/i.test(s)) return 'pay';
+  if (/ဈေး|price list|what(?:'s| is) the price|ဘယ်လောက်|how much|ဈေးနှုန်း/i.test(s)) return 'price';
+  if (/how to pay|k\s*pay|\bkbz\b|\bwave\b|send (?:the |a )?(?:slip|screenshot)|transfer|ငွေလွှဲ|ငွေပို့|ဝယ်မယ်|ဝယ်ချင်|want to buy/i.test(s)) return 'pay';
   if (isHello(s)) return 'hello';
   if (isNotOpenQuestion(s)) return 'notopen';
   if (isEnterQuestion(s)) return 'stepbstep';
@@ -554,8 +548,10 @@ var STUDY_FACTS = [
   'If a customer cannot open the app or the subjects, it can be their internet. Tell them to use a VPN, especially 1.1.1.1. Do not mention a store. Do not send them to an admin.',
   'Facts: Reed App is an objective-question specialist. Other practice is minor.',
   'Grades are 10, 11, and 12. Pick one grade. Unlocks stay on that grade.',
-  'Only the 6-subject pack is sold: Myanmar, English, Maths, Physics, Chemistry, plus Biology or Economics.',
-  'Prices in MMK: 1 month 9500, 3 months 19500, 6 months 29500, 13 months 34500.',
+  'Only the 6-subject pack is sold: Myanmar, English, Maths, Physics, Chemistry, plus Biology or Economics. There is no one-subject option.',
+  'If they ask whether they can buy one subject, or confirm that only all 6 are sold, say that in your own words. Do not paste the price list.',
+  'Prices in MMK, only if they asked how much or for the price list: 1 month 9500, 3 months 19500, 6 months 29500, 13 months 34500.',
+  'Do not choose a saved reply. Write the answer yourself.',
   'Chapter 1 can be tried. Later chapters open after the pack is bought.',
   'If the message is daily life or personal, or not about Reed, the app, studying, practice, grades, quizzes, or subjects, reply with exactly SKIP.'
 ].join('\n');
@@ -614,7 +610,7 @@ async function classifyIntent(text, apiKey) {
         messages: [
           {
             role: 'system',
-            content: 'Classify the customer message. Reply with one word only: ' + allowed.join(', ') + '. If the sentence is incomplete, choose the closest of those meanings. notopen means they cannot get in or the subjects will not open, including Burmese such as ဝင်မရဘူး. explain means they want Reed or the app explained. stepbstep means how to open or enter the app. reed means what Reed is. study means practicing or higher grades. other means daily life or personal. A photo of the app is not a payment.'
+            content: 'Classify only an exact request. Reply with one word: ' + allowed.join(', ') + '. price only if they ask how much or for the price list. pay only if they ask how to pay, KPay, Wave, or to send the slip. explain only if they ask to explain Reed or the app. stepbstep only if they ask how to open or enter the app. notopen only if they cannot get in, including ဝင်မရဘူး. hello only for a greeting. reed only if they ask what Reed is. study for other practice questions. other for daily life. Do not pick the closest saved meaning for a confirming question.'
           },
           { role: 'user', content: raw }
         ]
