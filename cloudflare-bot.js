@@ -500,7 +500,7 @@ function isAboutReedOrStudy(text) {
 
 function isNotOpenQuestion(text) {
   var s = String(text || '');
-  return /not unlock|cannot open|can't open|can not open|doesn't open|does not open|won't open|will not open|not opening|not working|subjects?.{0,16}(?:not open|not work|won't)|ဝင်မရ|မဝင်ဘူး|မဝင်နိုင်|မပွင့်|မဖွင့်နိုင်|မဖွင့်ရ|အလုပ်မလုပ်/i.test(s);
+  return /not unlock|cannot open|can't open|can not open|doesn't open|does not open|won't open|will not open|not opening|not working|subjects?.{0,16}(?:not open|not work|won't)|ဝင်မရ|မဝင်ဘူး|မဝင်နိုင်|မရသေး|မပွင့်|မဖွင့်နိုင်|မဖွင့်ရ|အလုပ်မလုပ်/i.test(s);
 }
 
 function isEnterQuestion(text) {
@@ -514,10 +514,15 @@ function isStudyQuestion(text) {
   return /practice|stud(?:y|ying)|revise|revision|quiz|chapter|exam|higher grade|how (?:do|to|can).{0,24}(?:practice|study|learn)|လေ့ကျင့်|ကျက်|စာမေးပွဲ|အခန်း/i.test(s);
 }
 
+function foldReed(text) {
+  return String(text || '').replace(/\u1038/g, '');
+}
+
 function keywordIntent(text) {
-  var s = String(text || '');
-  if (/ဈေး|price list|what(?:'s| is) the price|ဘယ်လောက်|how much|ဈေးနှုန်း/i.test(s)) return 'price';
+  var s = foldReed(text);
+  if (/ဈေး|ဈေနှုန်း|ဈေနုန်း|price list|what(?:'s| is) the price|ဘယ်လောက်|how much|ဈေးနှုန်း/i.test(s)) return 'price';
   if (/how to pay|k\s*pay|\bkbz\b|\bwave\b|send (?:the |a )?(?:slip|screenshot)|transfer|ငွေလွှဲ|ငွေပို့|ဝယ်မယ်|ဝယ်ချင်|want to buy/i.test(s)) return 'pay';
+  if (/လွှဲ/.test(s) && /ဘယ်/.test(s)) return 'pay';
   if (isHello(s)) return 'hello';
   if (isNotOpenQuestion(s)) return 'notopen';
   if (isEnterQuestion(s)) return 'stepbstep';
@@ -1068,34 +1073,43 @@ function addedMonths(logs, id, grade, bought) {
   return prior + (Number(bought) || 0);
 }
 
-async function subjectsForRenewal(id, grade, sixth) {
-  var list = CORE_SUBJECTS.concat([sixth]);
+function packSubjects(sixth) {
+  var list = ['mm', 'en', 'math', 'phy', 'chem'];
+  if (sixth === 'bio' || sixth === 'eco') list.push(sixth);
+  return list;
+}
+
+async function gradeBaseEnd(id, grade) {
+  var today = yangonToday();
+  var best = today;
   var prefix = Number(grade) === 12 ? '' : 'g' + Number(grade) + '_';
   try {
     var res = await fetch(PAID_SHEET_URL + '?action=getUsers&cb=' + Date.now());
     var data = await res.json();
     var row = data && data[String(id)];
-    if (!row) return list;
-    ['all', 'mm', 'en', 'math', 'phy', 'chem', 'bio', 'eco'].forEach(function (subject) {
-      if (row[prefix + subject] && list.indexOf(subject) === -1) list.push(subject);
+    ['mm', 'en', 'math', 'phy', 'chem', 'bio', 'eco'].forEach(function (subject) {
+      var found = String(row && row[prefix + subject] || '').match(/^(\d{4}-\d{2}-\d{2})/);
+      if (found && found[1] > best) best = found[1];
     });
   } catch (e) {}
-  return list;
+  return best;
 }
 
 async function savePaidSubjects(fields) {
   var bought = Number(fields.months) || 0;
-  var expiry = renewalEnd(bought);
-  if (!fields.id || !fields.grade || !fields.subjects.length || !bought || !expiry) {
+  var sixth = fields.subjects.filter(function (id) { return id === 'bio' || id === 'eco'; })[0] || '';
+  var ids = packSubjects(sixth);
+  if (!fields.id || !fields.grade || !ids.length || !bought) {
+    return { success: false, message: 'Missing payment fields' };
+  }
+  var base = await gradeBaseEnd(fields.id, fields.grade);
+  var expiry = addMonths(base, bought);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(expiry)) {
     return { success: false, message: 'Missing payment fields' };
   }
   var logs = [];
   try { logs = await fetchPaidLogs(); } catch (e) {}
   var months = addedMonths(logs, fields.id, fields.grade, bought);
-  var ids = await subjectsForRenewal(fields.id, fields.grade, fields.subjects[fields.subjects.length - 1]);
-  fields.subjects.forEach(function (subject) {
-    if (ids.indexOf(subject) === -1) ids.push(subject);
-  });
   var subjects = ids.map(function (id) {
     return { subject: id, grade: fields.grade, expiry: expiry, months: months, unit: 'months' };
   });
