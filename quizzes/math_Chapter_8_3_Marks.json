@@ -148,5 +148,355 @@
     "type": "math_show",
     "q": "Sketch the graph of \\( y = -e^{-x} + 2 \\). Show the horizontal asymptote.",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Identify transformations from \\( y = e^x \\): reflect over y-axis, reflect over x-axis, shift up 2 units.<br><br>Horizontal asymptote is \\( y = 2 \\).<br><br>Step 2<br><br>Key points: \\( (0, 1) \\), \\( (1, 2 - 1/e) \\), \\( (-1, 2 - e) \\).<br><br>Step 3<br><br>The sketch is shown below.<br><br><strong>Final Answer:</strong><br><br>See sketch.<br><svg viewBox=\"0 0 460 330\" width=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Graph of the function\" data-chapter-graph=\"1\"><rect width=\"100%\" height=\"100%\" fill=\"#1e1e1e\"/><defs><clipPath id=\"cg244\"><rect x=\"50\" y=\"30\" width=\"386\" height=\"258\"/></clipPath></defs><line x1=\"87.4\" y1=\"30\" x2=\"87.4\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"165.2\" y1=\"30\" x2=\"165.2\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"320.8\" y1=\"30\" x2=\"320.8\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"398.6\" y1=\"30\" x2=\"398.6\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"259.8\" x2=\"436\" y2=\"259.8\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"197.7\" x2=\"436\" y2=\"197.7\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"135.7\" x2=\"436\" y2=\"135.7\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"73.6\" x2=\"436\" y2=\"73.6\" stroke=\"#FFFFFF\" stroke-width=\"1.4\"/><polygon points=\"436,73.6 428,69.6 428,77.6\" fill=\"#FFFFFF\"/><text x=\"434\" y=\"65.6\" fill=\"#FFFFFF\" font-size=\"13\" text-anchor=\"end\">x</text><line x1=\"243.0\" y1=\"288\" x2=\"243.0\" y2=\"30\" stroke=\"#FFFFFF\" stroke-width=\"1.4\"/><polygon points=\"243.0,30 239.0,38 247.0,38\" fill=\"#FFFFFF\"/><text x=\"251.0\" y=\"34\" fill=\"#FFFFFF\" font-size=\"13\">y</text><text x=\"249.0\" y=\"87.6\" fill=\"#FFFFFF\" font-size=\"12\">O</text><text x=\"87.4\" y=\"89.6\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">-4</text><text x=\"165.2\" y=\"89.6\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">-2</text><text x=\"320.8\" y=\"89.6\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">2</text><text x=\"398.6\" y=\"89.6\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">4</text><text x=\"237.0\" y=\"263.8\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">-30</text><text x=\"237.0\" y=\"201.7\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">-20</text><text x=\"237.0\" y=\"139.7\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">-10</text><g clip-path=\"url(#cg244)\"><polyline points=\"87.4,400.1 89.3,383.6 91.2,367.9 93.2,352.9 95.1,338.7 97.1,325.1 99.0,312.3 101.0,300.0 102.9,288.4 104.9,277.3 106.8,266.8 108.8,256.7 110.7,247.2 112.6,238.1 114.6,229.5 116.5,221.3 118.5,213.5 120.4,206.0 122.4,199.0 124.3,192.3 126.3,185.9 128.2,179.8 130.2,174.0 132.1,168.5 134.0,163.3 136.0,158.3 137.9,153.5 139.9,149.0 141.8,144.7 143.8,140.7 145.7,136.8 147.7,133.1 149.6,129.6 151.6,126.3 153.5,123.1 155.4,120.1 157.4,117.2 159.3,114.5 161.3,111.9 163.2,109.4 165.2,107.0 167.1,104.8 169.1,102.7 171.0,100.6 173.0,98.7 174.9,96.9 176.9,95.1 178.8,93.5 180.7,91.9 182.7,90.4 184.6,89.0 186.6,87.6 188.5,86.3 190.5,85.1 192.4,83.9 194.4,82.8 196.3,81.8 198.3,80.8 200.2,79.8 202.1,78.9 204.1,78.0 206.0,77.2 208.0,76.4 209.9,75.7 211.9,75.0 213.8,74.3 215.8,73.7 217.7,73.1 219.7,72.5 221.6,71.9 223.5,71.4 225.5,70.9 227.4,70.4 229.4,70.0 231.3,69.5 233.3,69.1 235.2,68.7 237.2,68.4 239.1,68.0 241.1,67.7 243.0,67.4 244.9,67.1 246.9,66.8 248.8,66.5 250.8,66.2 252.7,66.0 254.7,65.8 256.6,65.5 258.6,65.3 260.5,65.1 262.5,64.9 264.4,64.7 266.3,64.6 268.3,64.4 270.2,64.2 272.2,64.1 274.1,63.9 276.1,63.8 278.0,63.7 280.0,63.6 281.9,63.4 283.9,63.3 285.8,63.2 287.7,63.1 289.7,63.0 291.6,62.9 293.6,62.9 295.5,62.8 297.5,62.7 299.4,62.6 301.4,62.5 303.3,62.5 305.3,62.4 307.2,62.4 309.1,62.3 311.1,62.2 313.0,62.2 315.0,62.1 316.9,62.1 318.9,62.0 320.8,62.0 322.8,62.0 324.7,61.9 326.7,61.9 328.6,61.8 330.6,61.8 332.5,61.8 334.4,61.8 336.4,61.7 338.3,61.7 340.3,61.7 342.2,61.6 344.2,61.6 346.1,61.6 348.1,61.6 350.0,61.6 352.0,61.5 353.9,61.5 355.8,61.5 357.8,61.5 359.7,61.5 361.7,61.5 363.6,61.4 365.6,61.4 367.5,61.4 369.5,61.4 371.4,61.4 373.4,61.4 375.3,61.4 377.2,61.4 379.2,61.3 381.1,61.3 383.1,61.3 385.0,61.3 387.0,61.3 388.9,61.3 390.9,61.3 392.8,61.3 394.8,61.3 396.7,61.3 398.6,61.3\" fill=\"none\" stroke=\"#00EDFF\" stroke-width=\"2.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></g><circle cx=\"243.0\" cy=\"67.4\" r=\"4.2\" fill=\"#F0B90B\" stroke=\"#1e1e1e\" stroke-width=\"1\"/><text x=\"251.0\" y=\"61.4\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"start\">(0, 1)</text></svg>"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = e^{1x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of e^{kx} is k e^{kx}.<br><br>Step 2<br><br>Here k = 1.<br><br><strong>Final Answer:</strong><br><br>\\( 1e^{1x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = x \\ln x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the product rule.<br><br>Step 2<br><br>\\( \\frac{dy}{dx} = \\ln x + x \\cdot \\frac{1}{x} = \\ln x + 1 \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\ln x + 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the domain of \\( y = \\ln(x - 3) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of a logarithm must be positive.<br><br>Step 2<br><br>\\( x - 3 > 0 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x > 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 4) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 2x, so divide 2x by x² + 4.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = e^{5x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of e^{kx} is k e^{kx}.<br><br>Step 2<br><br>Here k = 5.<br><br><strong>Final Answer:</strong><br><br>\\( 5e^{5x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the domain of \\( y = \\ln(x - 2) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of a logarithm must be positive.<br><br>Step 2<br><br>\\( x - 2 > 0 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x > 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 2) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 2x, so divide 2x by x² + 2.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = e^{3x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of e^{kx} is k e^{kx}.<br><br>Step 2<br><br>Here k = 3.<br><br><strong>Final Answer:</strong><br><br>\\( 3e^{3x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the domain of \\( y = \\ln(x - 1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of a logarithm must be positive.<br><br>Step 2<br><br>\\( x - 1 > 0 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x > 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 6) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 2x, so divide 2x by x² + 6.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 6} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the domain of \\( y = \\ln(x - 5) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of a logarithm must be positive.<br><br>Step 2<br><br>\\( x - 5 > 0 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x > 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the domain of \\( y = \\ln(x - 4) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of a logarithm must be positive.<br><br>Step 2<br><br>\\( x - 4 > 0 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x > 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{1x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 1e^{1x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 1 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1e^{1x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{2x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 2e^{2x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 2 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 4e^{2x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{3x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 3e^{3x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 3 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 9e^{3x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{4x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 4e^{4x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 4 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 16e^{4x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{5x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 5e^{5x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 5 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 25e^{5x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{6x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 6e^{6x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 6 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 36e^{6x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{7x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 7e^{7x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 7 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 49e^{7x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{8x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 8e^{8x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 8 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 64e^{8x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{9x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 9e^{9x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 9 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 81e^{9x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{10x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 10e^{10x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 10 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 100e^{10x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{11x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 11e^{11x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 11 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 121e^{11x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{12x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 12e^{12x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 12 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 144e^{12x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{13x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 13e^{13x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 13 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 169e^{13x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{14x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 14e^{14x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 14 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 196e^{14x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{15x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 15e^{15x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 15 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 225e^{15x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{16x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 16e^{16x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 16 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 256e^{16x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{17x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 17e^{17x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 17 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 289e^{17x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{18x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 18e^{18x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 18 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 324e^{18x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{19x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 19e^{19x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 19 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 361e^{19x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{20x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 20e^{20x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 20 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 400e^{20x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{21x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 21e^{21x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 21 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 441e^{21x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{22x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 22e^{22x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 22 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 484e^{22x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{23x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 23e^{23x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 23 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 529e^{23x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{24x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 24e^{24x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 24 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 576e^{24x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{25x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 25e^{25x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 25 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 625e^{25x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{26x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 26e^{26x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 26 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 676e^{26x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{27x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 27e^{27x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 27 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 729e^{27x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{28x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 28e^{28x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 28 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 784e^{28x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{29x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 29e^{29x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 29 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 841e^{29x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{30x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 30e^{30x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 30 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 900e^{30x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{31x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 31e^{31x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 31 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 961e^{31x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{32x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 32e^{32x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 32 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1024e^{32x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{33x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 33e^{33x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 33 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1089e^{33x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{34x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 34e^{34x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 34 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1156e^{34x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{35x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 35e^{35x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 35 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1225e^{35x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{36x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 36e^{36x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 36 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1296e^{36x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{37x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 37e^{37x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 37 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1369e^{37x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{38x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 38e^{38x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 38 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1444e^{38x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{39x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 39e^{39x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 39 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1521e^{39x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{40x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 40e^{40x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 40 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1600e^{40x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{41x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 41e^{41x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 41 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1681e^{41x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{42x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 42e^{42x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 42 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1764e^{42x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{43x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 43e^{43x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 43 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1849e^{43x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{44x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 44e^{44x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 44 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 1936e^{44x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{45x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 45e^{45x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 45 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 2025e^{45x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{46x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 46e^{46x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 46 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 2116e^{46x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{47x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 47e^{47x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 47 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 2209e^{47x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{48x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 48e^{48x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 48 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 2304e^{48x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{49x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 49e^{49x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 49 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 2401e^{49x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{50x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 50e^{50x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 50 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 2500e^{50x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{51x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 51e^{51x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 51 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 2601e^{51x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{52x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 52e^{52x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 52 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 2704e^{52x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{53x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 53e^{53x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 53 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 2809e^{53x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{54x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 54e^{54x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 54 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 2916e^{54x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{55x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 55e^{55x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 55 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 3025e^{55x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{56x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 56e^{56x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 56 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 3136e^{56x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{57x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 57e^{57x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 57 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 3249e^{57x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the second derivative of \\( y = e^{58x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first derivative is \\( 58e^{58x} \\).<br><br>Step 2<br><br>Differentiate again and multiply by 58 once more.<br><br><strong>Final Answer:</strong><br><br>\\( 3364e^{58x} \\)"
   }
 ]

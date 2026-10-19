@@ -148,5 +148,355 @@
     "type": "math_show",
     "q": "Find the value of \\( n \\) if \\( ^nP_3 = 6 \\times ^nP_2 \\).",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand the permutations:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(n-1)(n-2) = 6n(n-1) \\)</div><br><br>Step 2<br><br>Since \\( n \\ge 3 \\), divide both sides by \\( n(n-1) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n - 2 = 6 \\)</div><br><br>Step 3<br><br>Solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n = 8 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n = 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( ^{7}C_{2} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( ^{7}C_{2} = \\frac{7!}{2!5!} \\).<br><br>Step 2<br><br>The value is 21.<br><br><strong>Final Answer:</strong><br><br>\\( 21 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many subsets does a set with 5 elements have?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Each element can be in or out of a subset.<br><br>Step 2<br><br>The number of subsets is 2^5 = 32.<br><br><strong>Final Answer:</strong><br><br>\\( 32 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of distinct permutations of the letters of the word LETTER.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Repeated letters are not distinguishable.<br><br>Step 2<br><br>The number of distinct arrangements is 180.<br><br><strong>Final Answer:</strong><br><br>\\( 180 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 6 boys and 2 girls be arranged in a row if the girls must sit together?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Treat the 2 girls as one block. That gives 7 units to arrange.<br><br>Step 2<br><br>The girls can also change places inside the block in 2 ways.<br><br>Step 3<br><br>The total is 10080.<br><br><strong>Final Answer:</strong><br><br>\\( 10080 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( ^{7}C_{3} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( ^{7}C_{3} = \\frac{7!}{3!4!} \\).<br><br>Step 2<br><br>The value is 35.<br><br><strong>Final Answer:</strong><br><br>\\( 35 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many subsets does a set with 4 elements have?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Each element can be in or out of a subset.<br><br>Step 2<br><br>The number of subsets is 2^4 = 16.<br><br><strong>Final Answer:</strong><br><br>\\( 16 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of distinct permutations of the letters of the word BOOK.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Repeated letters are not distinguishable.<br><br>Step 2<br><br>The number of distinct arrangements is 12.<br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 6 boys and 3 girls be arranged in a row if the girls must sit together?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Treat the 3 girls as one block. That gives 7 units to arrange.<br><br>Step 2<br><br>The girls can also change places inside the block in 6 ways.<br><br>Step 3<br><br>The total is 30240.<br><br><strong>Final Answer:</strong><br><br>\\( 30240 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( ^{7}C_{4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( ^{7}C_{4} = \\frac{7!}{4!3!} \\).<br><br>Step 2<br><br>The value is 35.<br><br><strong>Final Answer:</strong><br><br>\\( 35 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many subsets does a set with 8 elements have?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Each element can be in or out of a subset.<br><br>Step 2<br><br>The number of subsets is 2^8 = 256.<br><br><strong>Final Answer:</strong><br><br>\\( 256 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of distinct permutations of the letters of the word BANANA.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Repeated letters are not distinguishable.<br><br>Step 2<br><br>The number of distinct arrangements is 60.<br><br><strong>Final Answer:</strong><br><br>\\( 60 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 6 boys and 4 girls be arranged in a row if the girls must sit together?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Treat the 4 girls as one block. That gives 7 units to arrange.<br><br>Step 2<br><br>The girls can also change places inside the block in 24 ways.<br><br>Step 3<br><br>The total is 120960.<br><br><strong>Final Answer:</strong><br><br>\\( 120960 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many subsets does a set with 7 elements have?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Each element can be in or out of a subset.<br><br>Step 2<br><br>The number of subsets is 2^7 = 128.<br><br><strong>Final Answer:</strong><br><br>\\( 128 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 5 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 5 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 5 × 4 = 20.<br><br><strong>Final Answer:</strong><br><br>\\( 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 6 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 6 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 6 × 5 = 30.<br><br><strong>Final Answer:</strong><br><br>\\( 30 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 7 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 7 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 7 × 6 = 42.<br><br><strong>Final Answer:</strong><br><br>\\( 42 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 8 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 8 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 8 × 7 = 56.<br><br><strong>Final Answer:</strong><br><br>\\( 56 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 9 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 9 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 9 × 8 = 72.<br><br><strong>Final Answer:</strong><br><br>\\( 72 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 10 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 10 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 10 × 9 = 90.<br><br><strong>Final Answer:</strong><br><br>\\( 90 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 11 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 11 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 11 × 10 = 110.<br><br><strong>Final Answer:</strong><br><br>\\( 110 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 12 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 12 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 12 × 11 = 132.<br><br><strong>Final Answer:</strong><br><br>\\( 132 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 13 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 13 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 13 × 12 = 156.<br><br><strong>Final Answer:</strong><br><br>\\( 156 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 14 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 14 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 14 × 13 = 182.<br><br><strong>Final Answer:</strong><br><br>\\( 182 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 15 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 15 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 15 × 14 = 210.<br><br><strong>Final Answer:</strong><br><br>\\( 210 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 16 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 16 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 16 × 15 = 240.<br><br><strong>Final Answer:</strong><br><br>\\( 240 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 17 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 17 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 17 × 16 = 272.<br><br><strong>Final Answer:</strong><br><br>\\( 272 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 18 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 18 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 18 × 17 = 306.<br><br><strong>Final Answer:</strong><br><br>\\( 306 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 19 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 19 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 19 × 18 = 342.<br><br><strong>Final Answer:</strong><br><br>\\( 342 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 20 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 20 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 20 × 19 = 380.<br><br><strong>Final Answer:</strong><br><br>\\( 380 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 21 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 21 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 21 × 20 = 420.<br><br><strong>Final Answer:</strong><br><br>\\( 420 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 22 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 22 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 22 × 21 = 462.<br><br><strong>Final Answer:</strong><br><br>\\( 462 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 23 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 23 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 23 × 22 = 506.<br><br><strong>Final Answer:</strong><br><br>\\( 506 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 24 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 24 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 24 × 23 = 552.<br><br><strong>Final Answer:</strong><br><br>\\( 552 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 25 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 25 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 25 × 24 = 600.<br><br><strong>Final Answer:</strong><br><br>\\( 600 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 26 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 26 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 26 × 25 = 650.<br><br><strong>Final Answer:</strong><br><br>\\( 650 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 27 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 27 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 27 × 26 = 702.<br><br><strong>Final Answer:</strong><br><br>\\( 702 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 28 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 28 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 28 × 27 = 756.<br><br><strong>Final Answer:</strong><br><br>\\( 756 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 29 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 29 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 29 × 28 = 812.<br><br><strong>Final Answer:</strong><br><br>\\( 812 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 30 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 30 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 30 × 29 = 870.<br><br><strong>Final Answer:</strong><br><br>\\( 870 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 31 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 31 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 31 × 30 = 930.<br><br><strong>Final Answer:</strong><br><br>\\( 930 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 32 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 32 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 32 × 31 = 992.<br><br><strong>Final Answer:</strong><br><br>\\( 992 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 33 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 33 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 33 × 32 = 1056.<br><br><strong>Final Answer:</strong><br><br>\\( 1056 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 34 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 34 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 34 × 33 = 1122.<br><br><strong>Final Answer:</strong><br><br>\\( 1122 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 35 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 35 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 35 × 34 = 1190.<br><br><strong>Final Answer:</strong><br><br>\\( 1190 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 36 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 36 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 36 × 35 = 1260.<br><br><strong>Final Answer:</strong><br><br>\\( 1260 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 37 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 37 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 37 × 36 = 1332.<br><br><strong>Final Answer:</strong><br><br>\\( 1332 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 38 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 38 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 38 × 37 = 1406.<br><br><strong>Final Answer:</strong><br><br>\\( 1406 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 39 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 39 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 39 × 38 = 1482.<br><br><strong>Final Answer:</strong><br><br>\\( 1482 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 40 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 40 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 40 × 39 = 1560.<br><br><strong>Final Answer:</strong><br><br>\\( 1560 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 41 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 41 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 41 × 40 = 1640.<br><br><strong>Final Answer:</strong><br><br>\\( 1640 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 42 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 42 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 42 × 41 = 1722.<br><br><strong>Final Answer:</strong><br><br>\\( 1722 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 43 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 43 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 43 × 42 = 1806.<br><br><strong>Final Answer:</strong><br><br>\\( 1806 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 44 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 44 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 44 × 43 = 1892.<br><br><strong>Final Answer:</strong><br><br>\\( 1892 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 45 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 45 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 45 × 44 = 1980.<br><br><strong>Final Answer:</strong><br><br>\\( 1980 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 46 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 46 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 46 × 45 = 2070.<br><br><strong>Final Answer:</strong><br><br>\\( 2070 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 47 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 47 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 47 × 46 = 2162.<br><br><strong>Final Answer:</strong><br><br>\\( 2162 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 48 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 48 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 48 × 47 = 2256.<br><br><strong>Final Answer:</strong><br><br>\\( 2256 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 49 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 49 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 49 × 48 = 2352.<br><br><strong>Final Answer:</strong><br><br>\\( 2352 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 50 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 50 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 50 × 49 = 2450.<br><br><strong>Final Answer:</strong><br><br>\\( 2450 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 51 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 51 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 51 × 50 = 2550.<br><br><strong>Final Answer:</strong><br><br>\\( 2550 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 52 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 52 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 52 × 51 = 2652.<br><br><strong>Final Answer:</strong><br><br>\\( 2652 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 53 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 53 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 53 × 52 = 2756.<br><br><strong>Final Answer:</strong><br><br>\\( 2756 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 54 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 54 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 54 × 53 = 2862.<br><br><strong>Final Answer:</strong><br><br>\\( 2862 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 55 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 55 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 55 × 54 = 2970.<br><br><strong>Final Answer:</strong><br><br>\\( 2970 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 56 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 56 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 56 × 55 = 3080.<br><br><strong>Final Answer:</strong><br><br>\\( 3080 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 57 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 57 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 57 × 56 = 3192.<br><br><strong>Final Answer:</strong><br><br>\\( 3192 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 58 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 58 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 58 × 57 = 3306.<br><br><strong>Final Answer:</strong><br><br>\\( 3306 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 59 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 59 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 59 × 58 = 3422.<br><br><strong>Final Answer:</strong><br><br>\\( 3422 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 60 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 60 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 60 × 59 = 3540.<br><br><strong>Final Answer:</strong><br><br>\\( 3540 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can a president and a secretary be chosen from 61 people, with the jobs different?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The president has 61 choices and the secretary then has one fewer.<br><br>Step 2<br><br>The number of ways is 61 × 60 = 3660.<br><br><strong>Final Answer:</strong><br><br>\\( 3660 \\)"
   }
 ]

@@ -193,6 +193,355 @@
     "type": "math_show",
     "q": "Given that \\( \\sin y = x \\cos y \\), find \\( \\frac{dy}{dx} \\) using implicit differentiation.",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Differentiate both sides with respect to \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos y \\cdot \\frac{dy}{dx} = 1 \\cdot \\cos y + x(-\\sin y) \\cdot \\frac{dy}{dx} \\)</div><br><br>Step 2<br><br>Gather the \\( \\frac{dy}{dx} \\) terms on one side:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos y \\cdot \\frac{dy}{dx} + x\\sin y \\cdot \\frac{dy}{dx} = \\cos y \\)</div><br><br>Step 3<br><br>Factor out \\( \\frac{dy}{dx} \\) and solve:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx}(\\cos y + x\\sin y) = \\cos y \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{\\cos y}{\\cos y + x\\sin y} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{\\cos y}{\\cos y + x\\sin y} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(1x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of sin(u) is cos(u) times u'.<br><br><strong>Final Answer:</strong><br><br>\\( 1\\cos(1x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\cos(x^2 + 2) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x² + 2. Then y = cos u and du/dx = 2x.<br><br>Step 2<br><br>Multiply -sin(u) by 2x.<br><br><strong>Final Answer:</strong><br><br>\\( -2x\\sin(x^2 + 2) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^{4}(3x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on a power of sine.<br><br>Step 2<br><br>The derivative is 4 sin^3(3x) times the derivative of sin(3x).<br><br><strong>Final Answer:</strong><br><br>\\( 12\\sin^{3}(3x)\\cos(3x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( y = x \\sin x + \\cos x \\), find \\( \\dfrac{dy}{dx} \\) and its value at \\( x = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Differentiate with the product rule: the derivative of x sin x is sin x + x cos x.<br><br>Step 2<br><br>The derivative of cos x is -sin x, so those sine terms cancel.<br><br>Step 3<br><br>\\( dy/dx = x \\cos x \\). At x = 0 the value is 0.<br><br><strong>Final Answer:</strong><br><br>\\( 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(5x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of sin(u) is cos(u) times u'.<br><br><strong>Final Answer:</strong><br><br>\\( 5\\cos(5x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\cos(x^2 + 6) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x² + 6. Then y = cos u and du/dx = 2x.<br><br>Step 2<br><br>Multiply -sin(u) by 2x.<br><br><strong>Final Answer:</strong><br><br>\\( -2x\\sin(x^2 + 6) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^{4}(1x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on a power of sine.<br><br>Step 2<br><br>The derivative is 4 sin^3(1x) times the derivative of sin(1x).<br><br><strong>Final Answer:</strong><br><br>\\( 4\\sin^{3}(1x)\\cos(1x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(3x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of sin(u) is cos(u) times u'.<br><br><strong>Final Answer:</strong><br><br>\\( 3\\cos(3x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\cos(x^2 + 4) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x² + 4. Then y = cos u and du/dx = 2x.<br><br>Step 2<br><br>Multiply -sin(u) by 2x.<br><br><strong>Final Answer:</strong><br><br>\\( -2x\\sin(x^2 + 4) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^{4}(5x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on a power of sine.<br><br>Step 2<br><br>The derivative is 4 sin^3(5x) times the derivative of sin(5x).<br><br><strong>Final Answer:</strong><br><br>\\( 20\\sin^{3}(5x)\\cos(5x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(2x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(2x)\\cdot 2\\cos(2x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 4\\sin(2x)\\cos(2x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(3x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(3x)\\cdot 3\\cos(3x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 6\\sin(3x)\\cos(3x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(4x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(4x)\\cdot 4\\cos(4x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 8\\sin(4x)\\cos(4x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(5x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(5x)\\cdot 5\\cos(5x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 10\\sin(5x)\\cos(5x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(6x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(6x)\\cdot 6\\cos(6x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 12\\sin(6x)\\cos(6x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(7x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(7x)\\cdot 7\\cos(7x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 14\\sin(7x)\\cos(7x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(8x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(8x)\\cdot 8\\cos(8x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 16\\sin(8x)\\cos(8x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(9x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(9x)\\cdot 9\\cos(9x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 18\\sin(9x)\\cos(9x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(10x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(10x)\\cdot 10\\cos(10x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 20\\sin(10x)\\cos(10x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(11x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(11x)\\cdot 11\\cos(11x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 22\\sin(11x)\\cos(11x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(12x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(12x)\\cdot 12\\cos(12x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 24\\sin(12x)\\cos(12x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(13x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(13x)\\cdot 13\\cos(13x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 26\\sin(13x)\\cos(13x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(14x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(14x)\\cdot 14\\cos(14x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 28\\sin(14x)\\cos(14x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(15x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(15x)\\cdot 15\\cos(15x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 30\\sin(15x)\\cos(15x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(16x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(16x)\\cdot 16\\cos(16x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 32\\sin(16x)\\cos(16x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(17x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(17x)\\cdot 17\\cos(17x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 34\\sin(17x)\\cos(17x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(18x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(18x)\\cdot 18\\cos(18x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 36\\sin(18x)\\cos(18x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(19x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(19x)\\cdot 19\\cos(19x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 38\\sin(19x)\\cos(19x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(20x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(20x)\\cdot 20\\cos(20x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 40\\sin(20x)\\cos(20x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(21x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(21x)\\cdot 21\\cos(21x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 42\\sin(21x)\\cos(21x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(22x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(22x)\\cdot 22\\cos(22x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 44\\sin(22x)\\cos(22x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(23x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(23x)\\cdot 23\\cos(23x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 46\\sin(23x)\\cos(23x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(24x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(24x)\\cdot 24\\cos(24x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 48\\sin(24x)\\cos(24x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(25x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(25x)\\cdot 25\\cos(25x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 50\\sin(25x)\\cos(25x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(26x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(26x)\\cdot 26\\cos(26x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 52\\sin(26x)\\cos(26x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(27x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(27x)\\cdot 27\\cos(27x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 54\\sin(27x)\\cos(27x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(28x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(28x)\\cdot 28\\cos(28x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 56\\sin(28x)\\cos(28x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(29x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(29x)\\cdot 29\\cos(29x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 58\\sin(29x)\\cos(29x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(30x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(30x)\\cdot 30\\cos(30x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 60\\sin(30x)\\cos(30x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(31x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(31x)\\cdot 31\\cos(31x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 62\\sin(31x)\\cos(31x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(32x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(32x)\\cdot 32\\cos(32x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 64\\sin(32x)\\cos(32x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(33x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(33x)\\cdot 33\\cos(33x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 66\\sin(33x)\\cos(33x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(34x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(34x)\\cdot 34\\cos(34x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 68\\sin(34x)\\cos(34x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(35x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(35x)\\cdot 35\\cos(35x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 70\\sin(35x)\\cos(35x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(36x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(36x)\\cdot 36\\cos(36x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 72\\sin(36x)\\cos(36x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(37x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(37x)\\cdot 37\\cos(37x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 74\\sin(37x)\\cos(37x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(38x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(38x)\\cdot 38\\cos(38x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 76\\sin(38x)\\cos(38x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(39x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(39x)\\cdot 39\\cos(39x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 78\\sin(39x)\\cos(39x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(40x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(40x)\\cdot 40\\cos(40x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 80\\sin(40x)\\cos(40x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(41x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(41x)\\cdot 41\\cos(41x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 82\\sin(41x)\\cos(41x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(42x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(42x)\\cdot 42\\cos(42x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 84\\sin(42x)\\cos(42x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(43x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(43x)\\cdot 43\\cos(43x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 86\\sin(43x)\\cos(43x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(44x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(44x)\\cdot 44\\cos(44x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 88\\sin(44x)\\cos(44x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(45x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(45x)\\cdot 45\\cos(45x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 90\\sin(45x)\\cos(45x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(46x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(46x)\\cdot 46\\cos(46x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 92\\sin(46x)\\cos(46x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(47x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(47x)\\cdot 47\\cos(47x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 94\\sin(47x)\\cos(47x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(48x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(48x)\\cdot 48\\cos(48x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 96\\sin(48x)\\cos(48x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(49x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(49x)\\cdot 49\\cos(49x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 98\\sin(49x)\\cos(49x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(50x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(50x)\\cdot 50\\cos(50x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 100\\sin(50x)\\cos(50x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(51x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(51x)\\cdot 51\\cos(51x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 102\\sin(51x)\\cos(51x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(52x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(52x)\\cdot 52\\cos(52x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 104\\sin(52x)\\cos(52x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(53x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(53x)\\cdot 53\\cos(53x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 106\\sin(53x)\\cos(53x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(54x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(54x)\\cdot 54\\cos(54x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 108\\sin(54x)\\cos(54x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(55x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(55x)\\cdot 55\\cos(55x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 110\\sin(55x)\\cos(55x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(56x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(56x)\\cdot 56\\cos(56x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 112\\sin(56x)\\cos(56x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(57x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(57x)\\cdot 57\\cos(57x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 114\\sin(57x)\\cos(57x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(58x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(58x)\\cdot 58\\cos(58x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 116\\sin(58x)\\cos(58x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(59x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(59x)\\cdot 59\\cos(59x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 118\\sin(59x)\\cos(59x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(60x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(60x)\\cdot 60\\cos(60x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 120\\sin(60x)\\cos(60x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^2(61x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on the square and then on the sine.<br><br>Step 2<br><br>The derivative is \\( 2\\sin(61x)\\cdot 61\\cos(61x) \\).<br><br><strong>Final Answer:</strong><br><br>\\( 122\\sin(61x)\\cos(61x) \\)"
   }
 ]
-

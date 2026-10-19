@@ -328,5 +328,845 @@
       "\\( \\begin{pmatrix} -3 & 1 \\\\ 5 & -2 \\end{pmatrix} \\)"
     ],
     "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 1 rows and 2 columns?",
+    "a": [
+      "\\( 1 \\times 2 \\)",
+      "\\( 3 \\)",
+      "\\( 1 \\times 1 \\)",
+      "\\( 2 \\times 1 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is written as rows × columns, so 1 × 2."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 2 & 3 \\\\ -1 & 4 \\end{pmatrix} \\), what is the element \\( a_{21} \\)?",
+    "a": [
+      "\\( 3 \\)",
+      "\\( 4 \\)",
+      "\\( -1 \\)",
+      "\\( 2 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The element a_21 is in row 2 and column 1."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 3 & -1 \\\\ 2 & 6 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} -1 & 3 \\\\ 6 & 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -3 & 1 \\\\ -2 & -6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 3 & 2 \\\\ -1 & 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 3 & -1 \\\\ 2 & 6 \\end{pmatrix} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 1 & -2 \\\\ 3 & 4 \\end{pmatrix} \\), what is the element in row 1 column 2 of \\( 5A \\)?",
+    "a": [
+      "\\( -10 \\)",
+      "\\( 3 \\)",
+      "\\( 5 \\)",
+      "\\( -2 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Multiply every entry by 5. The chosen entry is 5 × -2 = -10."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 2 & -3 \\\\ 2 & 4 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} -2 & 3 \\\\ -2 & -4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 2 & -3 \\\\ 2 & 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 2 & 2 \\\\ -3 & 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -3 & 2 \\\\ 4 & 2 \\end{pmatrix} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 1 & -2 \\\\ 3 & 4 \\end{pmatrix} \\), what is the element in row 1 column 2 of \\( 4A \\)?",
+    "a": [
+      "\\( 2 \\)",
+      "\\( -8 \\)",
+      "\\( 4 \\)",
+      "\\( -2 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Multiply every entry by 4. The chosen entry is 4 × -2 = -8."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 1 & 1 \\\\ 2 & 5 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 1 & 1 \\\\ 5 & 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 1 \\\\ 2 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 2 \\\\ 1 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -1 & -1 \\\\ -2 & -5 \\end{pmatrix} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 1 & -2 \\\\ 3 & 4 \\end{pmatrix} \\), what is the element in row 1 column 2 of \\( 3A \\)?",
+    "a": [
+      "\\( -6 \\)",
+      "\\( -2 \\)",
+      "\\( 3 \\)",
+      "\\( 1 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Multiply every entry by 3. The chosen entry is 3 × -2 = -6."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 5 & -1 \\\\ 2 & 6 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 5 & -1 \\\\ 2 & 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -5 & 1 \\\\ -2 & -6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 5 & 2 \\\\ -1 & 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -1 & 5 \\\\ 6 & 2 \\end{pmatrix} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 1 & -2 \\\\ 3 & 4 \\end{pmatrix} \\), what is the element in row 1 column 2 of \\( 2A \\)?",
+    "a": [
+      "\\( 0 \\)",
+      "\\( -2 \\)",
+      "\\( 2 \\)",
+      "\\( -4 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Multiply every entry by 2. The chosen entry is 2 × -2 = -4."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 4 & -3 \\\\ 2 & 4 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} -3 & 4 \\\\ 4 & 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 4 & 2 \\\\ -3 & 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -4 & 3 \\\\ -2 & -4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 4 & -3 \\\\ 2 & 4 \\end{pmatrix} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 1 & -2 \\\\ 3 & 4 \\end{pmatrix} \\), what is the element in row 1 column 2 of \\( 6A \\)?",
+    "a": [
+      "\\( 6 \\)",
+      "\\( -2 \\)",
+      "\\( 4 \\)",
+      "\\( -12 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Multiply every entry by 6. The chosen entry is 6 × -2 = -12."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 3 & 1 \\\\ 2 & 5 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 3 & 1 \\\\ 2 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 3 & 2 \\\\ 1 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -3 & -1 \\\\ -2 & -5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 3 \\\\ 5 & 2 \\end{pmatrix} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 1 & 3 \\\\ -1 & 4 \\end{pmatrix} \\), what is the element \\( a_{21} \\)?",
+    "a": [
+      "\\( -1 \\)",
+      "\\( 3 \\)",
+      "\\( 4 \\)",
+      "\\( 1 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The element a_21 is in row 2 and column 1."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 2 & -1 \\\\ 2 & 6 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 2 & -1 \\\\ 2 & 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -2 & 1 \\\\ -2 & -6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 2 & 2 \\\\ -1 & 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -1 & 2 \\\\ 6 & 2 \\end{pmatrix} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 1 & -3 \\\\ 2 & 4 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} -3 & 1 \\\\ 4 & 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & -3 \\\\ 2 & 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 2 \\\\ -3 & 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -1 & 3 \\\\ -2 & -4 \\end{pmatrix} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 5 & 1 \\\\ 2 & 5 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 5 & 2 \\\\ 1 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 5 & 1 \\\\ 2 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -5 & -1 \\\\ -2 & -5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 5 \\\\ 5 & 2 \\end{pmatrix} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 4 & -1 \\\\ 2 & 6 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 4 & 2 \\\\ -1 & 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -1 & 4 \\\\ 6 & 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -4 & 1 \\\\ -2 & -6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 4 & -1 \\\\ 2 & 6 \\end{pmatrix} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 3 & -3 \\\\ 2 & 4 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} -3 & 3 \\\\ -2 & -4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 3 & 2 \\\\ -3 & 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 3 & -3 \\\\ 2 & 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -3 & 3 \\\\ 4 & 2 \\end{pmatrix} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 2 & 1 \\\\ 2 & 5 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 2 & 2 \\\\ 1 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 2 & 1 \\\\ 2 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -2 & -1 \\\\ -2 & -5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 2 \\\\ 5 & 2 \\end{pmatrix} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 5 & 3 \\\\ -1 & 4 \\end{pmatrix} \\), what is the element \\( a_{21} \\)?",
+    "a": [
+      "\\( 4 \\)",
+      "\\( 3 \\)",
+      "\\( 5 \\)",
+      "\\( -1 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The element a_21 is in row 2 and column 1."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 1 & -1 \\\\ 2 & 6 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} -1 & 1 \\\\ -2 & -6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -1 & 1 \\\\ 6 & 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 2 \\\\ -1 & 6 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & -1 \\\\ 2 & 6 \\end{pmatrix} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 5 & -3 \\\\ 2 & 4 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} 5 & 2 \\\\ -3 & 4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -3 & 5 \\\\ 4 & 2 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} -5 & 3 \\\\ -2 & -4 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 5 & -3 \\\\ 2 & 4 \\end{pmatrix} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "If \\( A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 5 \\end{pmatrix} \\), then \\( A^T \\) is",
+    "a": [
+      "\\( \\begin{pmatrix} -4 & -1 \\\\ -2 & -5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 4 & 1 \\\\ 2 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 4 & 2 \\\\ 1 & 5 \\end{pmatrix} \\)",
+      "\\( \\begin{pmatrix} 1 & 4 \\\\ 5 & 2 \\end{pmatrix} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The transpose swaps rows and columns."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 2 rows and 3 columns?",
+    "a": [
+      "\\( 2 \\times 3 \\)",
+      "\\( 3 \\times 2 \\)",
+      "\\( 5 \\)",
+      "\\( 2 \\times 2 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 2 × 3."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 3 rows and 4 columns?",
+    "a": [
+      "\\( 7 \\)",
+      "\\( 3 \\times 3 \\)",
+      "\\( 4 \\times 3 \\)",
+      "\\( 3 \\times 4 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 3 × 4."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 4 rows and 5 columns?",
+    "a": [
+      "\\( 4 \\times 4 \\)",
+      "\\( 4 \\times 5 \\)",
+      "\\( 5 \\times 4 \\)",
+      "\\( 9 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 4 × 5."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 5 rows and 6 columns?",
+    "a": [
+      "\\( 11 \\)",
+      "\\( 5 \\times 6 \\)",
+      "\\( 6 \\times 5 \\)",
+      "\\( 5 \\times 5 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 5 × 6."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 6 rows and 7 columns?",
+    "a": [
+      "\\( 7 \\times 6 \\)",
+      "\\( 6 \\times 6 \\)",
+      "\\( 6 \\times 7 \\)",
+      "\\( 13 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 6 × 7."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 7 rows and 8 columns?",
+    "a": [
+      "\\( 7 \\times 7 \\)",
+      "\\( 7 \\times 8 \\)",
+      "\\( 8 \\times 7 \\)",
+      "\\( 15 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 7 × 8."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 8 rows and 9 columns?",
+    "a": [
+      "\\( 17 \\)",
+      "\\( 8 \\times 9 \\)",
+      "\\( 9 \\times 8 \\)",
+      "\\( 8 \\times 8 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 8 × 9."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 9 rows and 10 columns?",
+    "a": [
+      "\\( 9 \\times 9 \\)",
+      "\\( 10 \\times 9 \\)",
+      "\\( 19 \\)",
+      "\\( 9 \\times 10 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 9 × 10."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 10 rows and 11 columns?",
+    "a": [
+      "\\( 21 \\)",
+      "\\( 10 \\times 11 \\)",
+      "\\( 11 \\times 10 \\)",
+      "\\( 10 \\times 10 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 10 × 11."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 11 rows and 12 columns?",
+    "a": [
+      "\\( 11 \\times 12 \\)",
+      "\\( 12 \\times 11 \\)",
+      "\\( 23 \\)",
+      "\\( 11 \\times 11 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 11 × 12."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 12 rows and 13 columns?",
+    "a": [
+      "\\( 13 \\times 12 \\)",
+      "\\( 25 \\)",
+      "\\( 12 \\times 12 \\)",
+      "\\( 12 \\times 13 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 12 × 13."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 13 rows and 14 columns?",
+    "a": [
+      "\\( 27 \\)",
+      "\\( 14 \\times 13 \\)",
+      "\\( 13 \\times 14 \\)",
+      "\\( 13 \\times 13 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 13 × 14."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 14 rows and 15 columns?",
+    "a": [
+      "\\( 14 \\times 15 \\)",
+      "\\( 29 \\)",
+      "\\( 14 \\times 14 \\)",
+      "\\( 15 \\times 14 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 14 × 15."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 15 rows and 16 columns?",
+    "a": [
+      "\\( 15 \\times 15 \\)",
+      "\\( 15 \\times 16 \\)",
+      "\\( 16 \\times 15 \\)",
+      "\\( 31 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 15 × 16."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 16 rows and 17 columns?",
+    "a": [
+      "\\( 17 \\times 16 \\)",
+      "\\( 16 \\times 16 \\)",
+      "\\( 16 \\times 17 \\)",
+      "\\( 33 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 16 × 17."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 17 rows and 18 columns?",
+    "a": [
+      "\\( 17 \\times 18 \\)",
+      "\\( 17 \\times 17 \\)",
+      "\\( 18 \\times 17 \\)",
+      "\\( 35 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 17 × 18."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 18 rows and 19 columns?",
+    "a": [
+      "\\( 19 \\times 18 \\)",
+      "\\( 37 \\)",
+      "\\( 18 \\times 19 \\)",
+      "\\( 18 \\times 18 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 18 × 19."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 19 rows and 20 columns?",
+    "a": [
+      "\\( 20 \\times 19 \\)",
+      "\\( 19 \\times 19 \\)",
+      "\\( 19 \\times 20 \\)",
+      "\\( 39 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 19 × 20."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 20 rows and 21 columns?",
+    "a": [
+      "\\( 20 \\times 20 \\)",
+      "\\( 20 \\times 21 \\)",
+      "\\( 41 \\)",
+      "\\( 21 \\times 20 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 20 × 21."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 21 rows and 22 columns?",
+    "a": [
+      "\\( 22 \\times 21 \\)",
+      "\\( 43 \\)",
+      "\\( 21 \\times 22 \\)",
+      "\\( 21 \\times 21 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 21 × 22."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 22 rows and 23 columns?",
+    "a": [
+      "\\( 45 \\)",
+      "\\( 22 \\times 22 \\)",
+      "\\( 23 \\times 22 \\)",
+      "\\( 22 \\times 23 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 22 × 23."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 23 rows and 24 columns?",
+    "a": [
+      "\\( 23 \\times 24 \\)",
+      "\\( 23 \\times 23 \\)",
+      "\\( 24 \\times 23 \\)",
+      "\\( 47 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 23 × 24."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 24 rows and 25 columns?",
+    "a": [
+      "\\( 24 \\times 25 \\)",
+      "\\( 25 \\times 24 \\)",
+      "\\( 49 \\)",
+      "\\( 24 \\times 24 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 24 × 25."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 25 rows and 26 columns?",
+    "a": [
+      "\\( 51 \\)",
+      "\\( 26 \\times 25 \\)",
+      "\\( 25 \\times 26 \\)",
+      "\\( 25 \\times 25 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 25 × 26."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 26 rows and 27 columns?",
+    "a": [
+      "\\( 53 \\)",
+      "\\( 27 \\times 26 \\)",
+      "\\( 26 \\times 26 \\)",
+      "\\( 26 \\times 27 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 26 × 27."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 27 rows and 28 columns?",
+    "a": [
+      "\\( 55 \\)",
+      "\\( 27 \\times 27 \\)",
+      "\\( 28 \\times 27 \\)",
+      "\\( 27 \\times 28 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 27 × 28."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 28 rows and 29 columns?",
+    "a": [
+      "\\( 57 \\)",
+      "\\( 28 \\times 29 \\)",
+      "\\( 29 \\times 28 \\)",
+      "\\( 28 \\times 28 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 28 × 29."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 29 rows and 30 columns?",
+    "a": [
+      "\\( 29 \\times 30 \\)",
+      "\\( 29 \\times 29 \\)",
+      "\\( 30 \\times 29 \\)",
+      "\\( 59 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 29 × 30."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 30 rows and 31 columns?",
+    "a": [
+      "\\( 61 \\)",
+      "\\( 30 \\times 31 \\)",
+      "\\( 31 \\times 30 \\)",
+      "\\( 30 \\times 30 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 30 × 31."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 31 rows and 32 columns?",
+    "a": [
+      "\\( 32 \\times 31 \\)",
+      "\\( 31 \\times 32 \\)",
+      "\\( 31 \\times 31 \\)",
+      "\\( 63 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 31 × 32."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 32 rows and 33 columns?",
+    "a": [
+      "\\( 32 \\times 32 \\)",
+      "\\( 33 \\times 32 \\)",
+      "\\( 65 \\)",
+      "\\( 32 \\times 33 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 32 × 33."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 33 rows and 34 columns?",
+    "a": [
+      "\\( 67 \\)",
+      "\\( 33 \\times 34 \\)",
+      "\\( 33 \\times 33 \\)",
+      "\\( 34 \\times 33 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 33 × 34."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 34 rows and 35 columns?",
+    "a": [
+      "\\( 35 \\times 34 \\)",
+      "\\( 34 \\times 34 \\)",
+      "\\( 69 \\)",
+      "\\( 34 \\times 35 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 34 × 35."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 35 rows and 36 columns?",
+    "a": [
+      "\\( 35 \\times 36 \\)",
+      "\\( 35 \\times 35 \\)",
+      "\\( 36 \\times 35 \\)",
+      "\\( 71 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 35 × 36."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 36 rows and 37 columns?",
+    "a": [
+      "\\( 36 \\times 37 \\)",
+      "\\( 37 \\times 36 \\)",
+      "\\( 36 \\times 36 \\)",
+      "\\( 73 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 36 × 37."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 37 rows and 38 columns?",
+    "a": [
+      "\\( 37 \\times 38 \\)",
+      "\\( 38 \\times 37 \\)",
+      "\\( 37 \\times 37 \\)",
+      "\\( 75 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 37 × 38."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 38 rows and 39 columns?",
+    "a": [
+      "\\( 38 \\times 39 \\)",
+      "\\( 77 \\)",
+      "\\( 38 \\times 38 \\)",
+      "\\( 39 \\times 38 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 38 × 39."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 39 rows and 40 columns?",
+    "a": [
+      "\\( 39 \\times 40 \\)",
+      "\\( 40 \\times 39 \\)",
+      "\\( 79 \\)",
+      "\\( 39 \\times 39 \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 39 × 40."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 40 rows and 41 columns?",
+    "a": [
+      "\\( 40 \\times 40 \\)",
+      "\\( 81 \\)",
+      "\\( 40 \\times 41 \\)",
+      "\\( 41 \\times 40 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 40 × 41."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 41 rows and 42 columns?",
+    "a": [
+      "\\( 41 \\times 41 \\)",
+      "\\( 42 \\times 41 \\)",
+      "\\( 41 \\times 42 \\)",
+      "\\( 83 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 41 × 42."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 42 rows and 43 columns?",
+    "a": [
+      "\\( 43 \\times 42 \\)",
+      "\\( 85 \\)",
+      "\\( 42 \\times 42 \\)",
+      "\\( 42 \\times 43 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 42 × 43."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 43 rows and 44 columns?",
+    "a": [
+      "\\( 87 \\)",
+      "\\( 43 \\times 43 \\)",
+      "\\( 44 \\times 43 \\)",
+      "\\( 43 \\times 44 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 43 × 44."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 44 rows and 45 columns?",
+    "a": [
+      "\\( 89 \\)",
+      "\\( 44 \\times 44 \\)",
+      "\\( 44 \\times 45 \\)",
+      "\\( 45 \\times 44 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 44 × 45."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 45 rows and 46 columns?",
+    "a": [
+      "\\( 45 \\times 45 \\)",
+      "\\( 91 \\)",
+      "\\( 46 \\times 45 \\)",
+      "\\( 45 \\times 46 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 45 × 46."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 46 rows and 47 columns?",
+    "a": [
+      "\\( 46 \\times 46 \\)",
+      "\\( 46 \\times 47 \\)",
+      "\\( 47 \\times 46 \\)",
+      "\\( 93 \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 46 × 47."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the order of a matrix with 47 rows and 48 columns?",
+    "a": [
+      "\\( 48 \\times 47 \\)",
+      "\\( 47 \\times 47 \\)",
+      "\\( 95 \\)",
+      "\\( 47 \\times 48 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Order is rows × columns: 47 × 48."
   }
 ]

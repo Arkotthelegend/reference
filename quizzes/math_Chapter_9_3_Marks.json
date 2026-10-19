@@ -148,5 +148,355 @@
     "type": "math_show",
     "q": "Determine the intervals of concavity and the point of inflection for \\( f(x) = x^4 - 6x^2 \\). Sketch the general shape of the graph showing the inflection points.",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the second derivative:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = 4x^3 - 12x \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f''(x) = 12x^2 - 12 = 12(x - 1)(x + 1) \\)</div><br><br>Step 2<br><br>Set \\( f''(x) = 0 \\) to find potential inflection points:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x = 1, x = -1 \\)</div><br><br>Step 3<br><br>Test concavity:<br><br>For \\( x < -1 \\), \\( f''(x) > 0 \\) (concave up).<br>For \\( -1 < x < 1 \\), \\( f''(x) < 0 \\) (concave down).<br>For \\( x > 1 \\), \\( f''(x) > 0 \\) (concave up).<br><br>Inflection points at \\( x = \\pm 1 \\), \\( f(\\pm 1) = -5 \\).<br><br>The sketch is shown below.<br><br><strong>Final Answer:</strong><br><br>Concave up on \\( (-\\infty, -1) \\cup (1, \\infty) \\), Concave down on \\( (-1, 1) \\), Inflection points: \\( (-1, -5) \\) and \\( (1, -5) \\)<br><svg viewBox=\"0 0 460 330\" width=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Curve with inflection points\" data-chapter-graph=\"1\"><rect width=\"100%\" height=\"100%\" fill=\"#1e1e1e\"/><defs><clipPath id=\"cg273\"><rect x=\"50\" y=\"30\" width=\"386\" height=\"258\"/></clipPath></defs><line x1=\"146.7\" y1=\"30\" x2=\"146.7\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"339.3\" y1=\"30\" x2=\"339.3\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"140.6\" x2=\"436\" y2=\"140.6\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"60.5\" x2=\"436\" y2=\"60.5\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"220.7\" x2=\"436\" y2=\"220.7\" stroke=\"#FFFFFF\" stroke-width=\"1.4\"/><polygon points=\"436,220.7 428,216.7 428,224.7\" fill=\"#FFFFFF\"/><text x=\"434\" y=\"212.7\" fill=\"#FFFFFF\" font-size=\"13\" text-anchor=\"end\">x</text><line x1=\"243.0\" y1=\"288\" x2=\"243.0\" y2=\"30\" stroke=\"#FFFFFF\" stroke-width=\"1.4\"/><polygon points=\"243.0,30 239.0,38 247.0,38\" fill=\"#FFFFFF\"/><text x=\"251.0\" y=\"34\" fill=\"#FFFFFF\" font-size=\"13\">y</text><text x=\"249.0\" y=\"234.7\" fill=\"#FFFFFF\" font-size=\"12\">O</text><text x=\"146.7\" y=\"236.7\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">-2</text><text x=\"339.3\" y=\"236.7\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">2</text><text x=\"237.0\" y=\"144.6\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">20</text><text x=\"237.0\" y=\"64.5\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">40</text><g clip-path=\"url(#cg273)\"><polyline points=\"87.4,34.7 89.1,48.3 90.8,61.3 92.5,73.7 94.3,85.6 96.0,96.9 97.7,107.8 99.5,118.1 101.2,127.9 102.9,137.3 104.6,146.2 106.4,154.7 108.1,162.7 109.8,170.3 111.6,177.5 113.3,184.3 115.0,190.7 116.8,196.7 118.5,202.3 120.2,207.7 121.9,212.6 123.7,217.3 125.4,221.6 127.1,225.6 128.9,229.3 130.6,232.7 132.3,235.9 134.0,238.8 135.8,241.4 137.5,243.8 139.2,245.9 141.0,247.9 142.7,249.6 144.4,251.1 146.2,252.4 147.9,253.5 149.6,254.4 151.3,255.2 153.1,255.8 154.8,256.2 156.5,256.5 158.3,256.7 160.0,256.7 161.7,256.6 163.4,256.4 165.2,256.1 166.9,255.7 168.6,255.2 170.4,254.6 172.1,254.0 173.8,253.2 175.6,252.4 177.3,251.5 179.0,250.6 180.7,249.7 182.5,248.7 184.2,247.6 185.9,246.5 187.7,245.4 189.4,244.3 191.1,243.2 192.8,242.0 194.6,240.9 196.3,239.7 198.0,238.6 199.8,237.5 201.5,236.3 203.2,235.2 205.0,234.1 206.7,233.1 208.4,232.0 210.1,231.0 211.9,230.0 213.6,229.1 215.3,228.2 217.1,227.3 218.8,226.5 220.5,225.7 222.2,225.0 224.0,224.3 225.7,223.7 227.4,223.2 229.2,222.7 230.9,222.2 232.6,221.8 234.4,221.5 236.1,221.2 237.8,221.0 239.5,220.8 241.3,220.7 243.0,220.7 244.7,220.7 246.5,220.8 248.2,221.0 249.9,221.2 251.6,221.5 253.4,221.8 255.1,222.2 256.8,222.7 258.6,223.2 260.3,223.7 262.0,224.3 263.8,225.0 265.5,225.7 267.2,226.5 268.9,227.3 270.7,228.2 272.4,229.1 274.1,230.0 275.9,231.0 277.6,232.0 279.3,233.1 281.0,234.1 282.8,235.2 284.5,236.3 286.2,237.5 288.0,238.6 289.7,239.7 291.4,240.9 293.2,242.0 294.9,243.2 296.6,244.3 298.3,245.4 300.1,246.5 301.8,247.6 303.5,248.7 305.3,249.7 307.0,250.6 308.7,251.5 310.4,252.4 312.2,253.2 313.9,254.0 315.6,254.6 317.4,255.2 319.1,255.7 320.8,256.1 322.6,256.4 324.3,256.6 326.0,256.7 327.7,256.7 329.5,256.5 331.2,256.2 332.9,255.8 334.7,255.2 336.4,254.4 338.1,253.5 339.8,252.4 341.6,251.1 343.3,249.6 345.0,247.9 346.8,245.9 348.5,243.8 350.2,241.4 352.0,238.8 353.7,235.9 355.4,232.7 357.1,229.3 358.9,225.6 360.6,221.6 362.3,217.3 364.1,212.6 365.8,207.7 367.5,202.3 369.2,196.7 371.0,190.7 372.7,184.3 374.4,177.5 376.2,170.3 377.9,162.7 379.6,154.7 381.4,146.2 383.1,137.3 384.8,127.9 386.5,118.1 388.3,107.8 390.0,96.9 391.7,85.6 393.5,73.7 395.2,61.3 396.9,48.3 398.6,34.7\" fill=\"none\" stroke=\"#00EDFF\" stroke-width=\"2.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></g><circle cx=\"194.8\" cy=\"240.7\" r=\"4.2\" fill=\"#F0B90B\" stroke=\"#1e1e1e\" stroke-width=\"1\"/><text x=\"202.8\" y=\"234.7\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"start\">inflection (-1, -5)</text><circle cx=\"291.2\" cy=\"240.7\" r=\"4.2\" fill=\"#F0B90B\" stroke=\"#1e1e1e\" stroke-width=\"1\"/><text x=\"299.2\" y=\"256.7\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"start\">inflection (1, -5)</text><circle cx=\"159.6\" cy=\"256.7\" r=\"4.2\" fill=\"#FFFFFF\" stroke=\"#1e1e1e\" stroke-width=\"1\"/><text x=\"167.6\" y=\"250.7\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"start\">(-1.73, -9)</text><circle cx=\"243.0\" cy=\"220.7\" r=\"4.2\" fill=\"#FFFFFF\" stroke=\"#1e1e1e\" stroke-width=\"1\"/><text x=\"251.0\" y=\"214.7\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"start\">(0, 0)</text><circle cx=\"326.4\" cy=\"256.7\" r=\"4.2\" fill=\"#FFFFFF\" stroke=\"#1e1e1e\" stroke-width=\"1\"/><text x=\"334.4\" y=\"272.7\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"start\">(1.73, -9)</text></svg>"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the gradient of the tangent to \\( y = 1x^2 + 3x \\) at x = -2.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Differentiate: \\( y' = 2x + 3 \\).<br><br>Step 2<br><br>Substitute x = -2.<br><br><strong>Final Answer:</strong><br><br>\\( -1 \\)<br><svg viewBox=\"0 0 460 330\" width=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Graph of the function\" data-chapter-graph=\"1\"><rect width=\"100%\" height=\"100%\" fill=\"#1e1e1e\"/><defs><clipPath id=\"ng1051\"><rect x=\"50\" y=\"30\" width=\"386\" height=\"258\"/></clipPath></defs><line x1=\"114.3\" y1=\"30\" x2=\"114.3\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"243.0\" y1=\"30\" x2=\"243.0\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"371.7\" y1=\"30\" x2=\"371.7\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"288.0\" x2=\"436\" y2=\"288.0\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"236.4\" x2=\"436\" y2=\"236.4\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"184.8\" x2=\"436\" y2=\"184.8\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"133.2\" x2=\"436\" y2=\"133.2\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"81.6\" x2=\"436\" y2=\"81.6\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"236.4\" x2=\"436\" y2=\"236.4\" stroke=\"#FFFFFF\" stroke-width=\"1.4\"/><polygon points=\"436,236.4 428,232.4 428,240.4\" fill=\"#FFFFFF\"/><text x=\"434\" y=\"228.4\" fill=\"#FFFFFF\" font-size=\"13\" text-anchor=\"end\">x</text><line x1=\"371.7\" y1=\"288\" x2=\"371.7\" y2=\"30\" stroke=\"#FFFFFF\" stroke-width=\"1.4\"/><polygon points=\"371.7,30 367.7,38 375.7,38\" fill=\"#FFFFFF\"/><text x=\"379.7\" y=\"34\" fill=\"#FFFFFF\" font-size=\"13\">y</text><text x=\"377.7\" y=\"250.4\" fill=\"#FFFFFF\" font-size=\"12\">O</text><text x=\"114.3\" y=\"252.4\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">-4</text><text x=\"243.0\" y=\"252.4\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">-2</text><text x=\"365.7\" y=\"292.0\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">-5</text><text x=\"365.7\" y=\"188.8\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">5</text><text x=\"365.7\" y=\"137.2\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">10</text><text x=\"365.7\" y=\"85.6\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">15</text><g clip-path=\"url(#ng1051)\"><polyline points=\"50.0,133.2 56.9,140.8 63.8,148.2 70.7,155.4 77.6,162.3 84.5,168.9 91.4,175.4 98.2,181.6 105.1,187.5 112.0,193.3 118.9,198.8 125.8,204.0 132.7,209.0 139.6,213.8 146.5,218.3 153.4,222.6 160.3,226.7 167.2,230.5 174.1,234.1 181.0,237.5 187.9,240.6 194.8,243.5 201.6,246.1 208.5,248.5 215.4,250.7 222.3,252.7 229.2,254.4 236.1,255.8 243.0,257.0 249.9,258.0 256.8,258.8 263.7,259.3 270.6,259.6 277.5,259.6 284.4,259.4 291.2,259.0 298.1,258.3 305.0,257.4 311.9,256.3 318.8,254.9 325.7,253.2 332.6,251.4 339.5,249.3 346.4,247.0 353.3,244.4 360.2,241.6 367.1,238.6 374.0,235.3 380.9,231.8 387.8,228.0 394.6,224.0 401.5,219.8 408.4,215.3 415.3,210.6 422.2,205.7 429.1,200.5 436.0,195.1\" fill=\"none\" stroke=\"#00EDFF\" stroke-width=\"2.2\"/></g><circle cx=\"243.0\" cy=\"257.0\" r=\"4.2\" fill=\"#F0B90B\" stroke=\"#1e1e1e\" stroke-width=\"1\"/><text x=\"251.0\" y=\"249.0\" fill=\"#F0B90B\" font-size=\"12\" text-anchor=\"start\">point</text></svg>"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 4x  + 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 4 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -2.<br><br>Step 3<br><br>f(-2) = -2.<br><br><strong>Final Answer:</strong><br><br>\\( x = -2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine the open interval on which \\( f(x) = x^2 - 6x \\) is decreasing.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 6 = 2(x - 3) \\).<br><br>Step 2<br><br>f'(x) < 0 when x < 3.<br><br><strong>Final Answer:</strong><br><br>\\( (-\\infty, 3) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the global maximum and global minimum of \\( f(x) = x^2 \\) on [-2, 5].",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>A continuous function on a closed interval attains its extrema at critical points or endpoints.<br><br>Step 2<br><br>The only critical point of x² is x = 0.<br><br>Step 3<br><br>Compare the values. The maximum is 25 and the minimum is 0.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{maximum } 25,\\ \\text{minimum } 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the gradient of the tangent to \\( y = 1x^2 + 3x \\) at x = 2.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Differentiate: \\( y' = 2x + 3 \\).<br><br>Step 2<br><br>Substitute x = 2.<br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)<br><svg viewBox=\"0 0 460 330\" width=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Graph of the function\" data-chapter-graph=\"1\"><rect width=\"100%\" height=\"100%\" fill=\"#1e1e1e\"/><defs><clipPath id=\"ng1052\"><rect x=\"50\" y=\"30\" width=\"386\" height=\"258\"/></clipPath></defs><line x1=\"114.3\" y1=\"30\" x2=\"114.3\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"243.0\" y1=\"30\" x2=\"243.0\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"371.7\" y1=\"30\" x2=\"371.7\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"288.0\" x2=\"436\" y2=\"288.0\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"236.4\" x2=\"436\" y2=\"236.4\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"184.8\" x2=\"436\" y2=\"184.8\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"133.2\" x2=\"436\" y2=\"133.2\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"81.6\" x2=\"436\" y2=\"81.6\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"236.4\" x2=\"436\" y2=\"236.4\" stroke=\"#FFFFFF\" stroke-width=\"1.4\"/><polygon points=\"436,236.4 428,232.4 428,240.4\" fill=\"#FFFFFF\"/><text x=\"434\" y=\"228.4\" fill=\"#FFFFFF\" font-size=\"13\" text-anchor=\"end\">x</text><line x1=\"114.3\" y1=\"288\" x2=\"114.3\" y2=\"30\" stroke=\"#FFFFFF\" stroke-width=\"1.4\"/><polygon points=\"114.3,30 110.3,38 118.3,38\" fill=\"#FFFFFF\"/><text x=\"122.3\" y=\"34\" fill=\"#FFFFFF\" font-size=\"13\">y</text><text x=\"120.3\" y=\"250.4\" fill=\"#FFFFFF\" font-size=\"12\">O</text><text x=\"243.0\" y=\"252.4\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">2</text><text x=\"371.7\" y=\"252.4\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">4</text><text x=\"108.3\" y=\"292.0\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">-5</text><text x=\"108.3\" y=\"188.8\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">5</text><text x=\"108.3\" y=\"137.2\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">10</text><text x=\"108.3\" y=\"85.6\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">15</text><g clip-path=\"url(#ng1052)\"><polyline points=\"50.0,257.0 56.9,255.8 63.8,254.4 70.7,252.7 77.6,250.7 84.5,248.5 91.4,246.1 98.2,243.5 105.1,240.6 112.0,237.5 118.9,234.1 125.8,230.5 132.7,226.7 139.6,222.6 146.5,218.3 153.4,213.8 160.3,209.0 167.2,204.0 174.1,198.8 181.0,193.3 187.9,187.5 194.8,181.6 201.6,175.4 208.5,168.9 215.4,162.3 222.3,155.4 229.2,148.2 236.1,140.8 243.0,133.2 249.9,125.3 256.8,117.2 263.7,108.9 270.6,100.3 277.5,91.5 284.4,82.5 291.2,73.2 298.1,63.7 305.0,53.9 311.9,44.0 318.8,33.7 325.7,23.3 332.6,12.6 339.5,1.6 346.4,-9.6 353.3,-21.0 360.2,-32.6 367.1,-44.5 374.0,-56.6 380.9,-69.0 387.8,-81.6 394.6,-94.4 401.5,-107.5 408.4,-120.8 415.3,-134.3 422.2,-148.1 429.1,-162.1 436.0,-176.4\" fill=\"none\" stroke=\"#00EDFF\" stroke-width=\"2.2\"/></g><circle cx=\"243.0\" cy=\"133.2\" r=\"4.2\" fill=\"#F0B90B\" stroke=\"#1e1e1e\" stroke-width=\"1\"/><text x=\"251.0\" y=\"125.2\" fill=\"#F0B90B\" font-size=\"12\" text-anchor=\"start\">point</text></svg>"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 4x  + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 4 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 2.<br><br>Step 3<br><br>f(2) = -3.<br><br><strong>Final Answer:</strong><br><br>\\( x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine the open interval on which \\( f(x) = x^2 - 4x \\) is decreasing.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 4 = 2(x - 2) \\).<br><br>Step 2<br><br>f'(x) < 0 when x < 2.<br><br><strong>Final Answer:</strong><br><br>\\( (-\\infty, 2) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the global maximum and global minimum of \\( f(x) = x^2 \\) on [-1, 5].",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>A continuous function on a closed interval attains its extrema at critical points or endpoints.<br><br>Step 2<br><br>The only critical point of x² is x = 0.<br><br>Step 3<br><br>Compare the values. The maximum is 25 and the minimum is 0.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{maximum } 25,\\ \\text{minimum } 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the gradient of the tangent to \\( y = 1x^2 + 3x \\) at x = 0.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Differentiate: \\( y' = 2x + 3 \\).<br><br>Step 2<br><br>Substitute x = 0.<br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)<br><svg viewBox=\"0 0 460 330\" width=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Graph of the function\" data-chapter-graph=\"1\"><rect width=\"100%\" height=\"100%\" fill=\"#1e1e1e\"/><defs><clipPath id=\"ng1053\"><rect x=\"50\" y=\"30\" width=\"386\" height=\"258\"/></clipPath></defs><line x1=\"114.3\" y1=\"30\" x2=\"114.3\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"243.0\" y1=\"30\" x2=\"243.0\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"371.7\" y1=\"30\" x2=\"371.7\" y2=\"288\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"288.0\" x2=\"436\" y2=\"288.0\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"236.4\" x2=\"436\" y2=\"236.4\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"184.8\" x2=\"436\" y2=\"184.8\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"133.2\" x2=\"436\" y2=\"133.2\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"81.6\" x2=\"436\" y2=\"81.6\" stroke=\"#2A3548\" stroke-width=\"1\"/><line x1=\"50\" y1=\"236.4\" x2=\"436\" y2=\"236.4\" stroke=\"#FFFFFF\" stroke-width=\"1.4\"/><polygon points=\"436,236.4 428,232.4 428,240.4\" fill=\"#FFFFFF\"/><text x=\"434\" y=\"228.4\" fill=\"#FFFFFF\" font-size=\"13\" text-anchor=\"end\">x</text><line x1=\"243.0\" y1=\"288\" x2=\"243.0\" y2=\"30\" stroke=\"#FFFFFF\" stroke-width=\"1.4\"/><polygon points=\"243.0,30 239.0,38 247.0,38\" fill=\"#FFFFFF\"/><text x=\"251.0\" y=\"34\" fill=\"#FFFFFF\" font-size=\"13\">y</text><text x=\"249.0\" y=\"250.4\" fill=\"#FFFFFF\" font-size=\"12\">O</text><text x=\"114.3\" y=\"252.4\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">-2</text><text x=\"371.7\" y=\"252.4\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"middle\">2</text><text x=\"237.0\" y=\"292.0\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">-5</text><text x=\"237.0\" y=\"188.8\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">5</text><text x=\"237.0\" y=\"137.2\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">10</text><text x=\"237.0\" y=\"85.6\" fill=\"#FFFFFF\" font-size=\"12\" text-anchor=\"end\">15</text><g clip-path=\"url(#ng1053)\"><polyline points=\"50.0,236.4 56.9,239.6 63.8,242.6 70.7,245.3 77.6,247.8 84.5,250.0 91.4,252.0 98.2,253.8 105.1,255.4 112.0,256.7 118.9,257.7 125.8,258.6 132.7,259.1 139.6,259.5 146.5,259.6 153.4,259.5 160.3,259.1 167.2,258.6 174.1,257.7 181.0,256.7 187.9,255.4 194.8,253.8 201.6,252.0 208.5,250.0 215.4,247.8 222.3,245.3 229.2,242.6 236.1,239.6 243.0,236.4 249.9,233.0 256.8,229.3 263.7,225.4 270.6,221.2 277.5,216.9 284.4,212.2 291.2,207.4 298.1,202.3 305.0,196.9 311.9,191.4 318.8,185.6 325.7,179.5 332.6,173.3 339.5,166.7 346.4,160.0 353.3,153.0 360.2,145.8 367.1,138.3 374.0,130.6 380.9,122.7 387.8,114.5 394.6,106.1 401.5,97.4 408.4,88.6 415.3,79.4 422.2,70.1 429.1,60.5 436.0,50.6\" fill=\"none\" stroke=\"#00EDFF\" stroke-width=\"2.2\"/></g><circle cx=\"243.0\" cy=\"236.4\" r=\"4.2\" fill=\"#F0B90B\" stroke=\"#1e1e1e\" stroke-width=\"1\"/><text x=\"251.0\" y=\"228.4\" fill=\"#F0B90B\" font-size=\"12\" text-anchor=\"start\">point</text></svg>"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 2x  + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 2 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -1.<br><br>Step 3<br><br>f(-1) = 4.<br><br><strong>Final Answer:</strong><br><br>\\( x = -1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine the open interval on which \\( f(x) = x^2 - 2x \\) is decreasing.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 2 = 2(x - 1) \\).<br><br>Step 2<br><br>f'(x) < 0 when x < 1.<br><br><strong>Final Answer:</strong><br><br>\\( (-\\infty, 1) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the global maximum and global minimum of \\( f(x) = x^2 \\) on [0, 5].",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>A continuous function on a closed interval attains its extrema at critical points or endpoints.<br><br>Step 2<br><br>The only critical point of x² is x = 0.<br><br>Step 3<br><br>Compare the values. The maximum is 25 and the minimum is 0.<br><br><strong>Final Answer:</strong><br><br>\\( \\text{maximum } 25,\\ \\text{minimum } 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 6x  + 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 6 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 3.<br><br>Step 3<br><br>f(3) = -5.<br><br><strong>Final Answer:</strong><br><br>\\( x = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine the open interval on which \\( f(x) = x^2 - 10x \\) is decreasing.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 10 = 2(x - 5) \\).<br><br>Step 2<br><br>f'(x) < 0 when x < 5.<br><br><strong>Final Answer:</strong><br><br>\\( (-\\infty, 5) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 0x  + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 0 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 0.<br><br>Step 3<br><br>f(0) = 3.<br><br><strong>Final Answer:</strong><br><br>\\( x = 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Determine the open interval on which \\( f(x) = x^2 - 8x \\) is decreasing.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 8 = 2(x - 4) \\).<br><br>Step 2<br><br>f'(x) < 0 when x < 4.<br><br><strong>Final Answer:</strong><br><br>\\( (-\\infty, 4) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 6x  + 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 6 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -3.<br><br>Step 3<br><br>f(-3) = -7.<br><br><strong>Final Answer:</strong><br><br>\\( x = -3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 2x  + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 2 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 1.<br><br>Step 3<br><br>f(1) = 0.<br><br><strong>Final Answer:</strong><br><br>\\( x = 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 4x  + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 4 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -2.<br><br>Step 3<br><br>f(-2) = 1.<br><br><strong>Final Answer:</strong><br><br>\\( x = -2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 4x  + 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 4 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 2.<br><br>Step 3<br><br>f(2) = 0.<br><br><strong>Final Answer:</strong><br><br>\\( x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 2x  + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 2 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -1.<br><br>Step 3<br><br>f(-1) = 2.<br><br><strong>Final Answer:</strong><br><br>\\( x = -1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 6x  + 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 6 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 3.<br><br>Step 3<br><br>f(3) = -7.<br><br><strong>Final Answer:</strong><br><br>\\( x = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 0x  + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 0 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 0.<br><br>Step 3<br><br>f(0) = 1.<br><br><strong>Final Answer:</strong><br><br>\\( x = 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 6x  + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 6 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -3.<br><br>Step 3<br><br>f(-3) = -4.<br><br><strong>Final Answer:</strong><br><br>\\( x = -3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 2x  + 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 2 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 1.<br><br>Step 3<br><br>f(1) = 3.<br><br><strong>Final Answer:</strong><br><br>\\( x = 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 4x  + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 4 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -2.<br><br>Step 3<br><br>f(-2) = -1.<br><br><strong>Final Answer:</strong><br><br>\\( x = -2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 4x  + 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 4 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 2.<br><br>Step 3<br><br>f(2) = -2.<br><br><strong>Final Answer:</strong><br><br>\\( x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 2x  + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 2 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -1.<br><br>Step 3<br><br>f(-1) = 0.<br><br><strong>Final Answer:</strong><br><br>\\( x = -1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 6x  + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 6 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 3.<br><br>Step 3<br><br>f(3) = -4.<br><br><strong>Final Answer:</strong><br><br>\\( x = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 0x  + 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 0 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 0.<br><br>Step 3<br><br>f(0) = 4.<br><br><strong>Final Answer:</strong><br><br>\\( x = 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 6x  + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 6 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -3.<br><br>Step 3<br><br>f(-3) = -6.<br><br><strong>Final Answer:</strong><br><br>\\( x = -3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 2x  + 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 2 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 1.<br><br>Step 3<br><br>f(1) = 1.<br><br><strong>Final Answer:</strong><br><br>\\( x = 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 4x  + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 4 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -2.<br><br>Step 3<br><br>f(-2) = -3.<br><br><strong>Final Answer:</strong><br><br>\\( x = -2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 4x  + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 4 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 2.<br><br>Step 3<br><br>f(2) = 1.<br><br><strong>Final Answer:</strong><br><br>\\( x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 2x  + 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 2 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -1.<br><br>Step 3<br><br>f(-1) = 3.<br><br><strong>Final Answer:</strong><br><br>\\( x = -1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 6x  + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 6 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 3.<br><br>Step 3<br><br>f(3) = -6.<br><br><strong>Final Answer:</strong><br><br>\\( x = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 0x  + 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 0 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 0.<br><br>Step 3<br><br>f(0) = 2.<br><br><strong>Final Answer:</strong><br><br>\\( x = 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 6x  + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 6 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -3.<br><br>Step 3<br><br>f(-3) = -8.<br><br><strong>Final Answer:</strong><br><br>\\( x = -3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 2x  + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 2 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 1.<br><br>Step 3<br><br>f(1) = 4.<br><br><strong>Final Answer:</strong><br><br>\\( x = 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 4x  + 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 4 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -2.<br><br>Step 3<br><br>f(-2) = 0.<br><br><strong>Final Answer:</strong><br><br>\\( x = -2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 4x  + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 4 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 2.<br><br>Step 3<br><br>f(2) = -1.<br><br><strong>Final Answer:</strong><br><br>\\( x = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 2x  + 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 2 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -1.<br><br>Step 3<br><br>f(-1) = 1.<br><br><strong>Final Answer:</strong><br><br>\\( x = -1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 6x  + 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 6 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 3.<br><br>Step 3<br><br>f(3) = -8.<br><br><strong>Final Answer:</strong><br><br>\\( x = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 0x  + 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 0 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 0.<br><br>Step 3<br><br>f(0) = 5.<br><br><strong>Final Answer:</strong><br><br>\\( x = 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  + 6x  + 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  + 6 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = -3.<br><br>Step 3<br><br>f(-3) = -5.<br><br><strong>Final Answer:</strong><br><br>\\( x = -3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical points of \\( f(x) = x^2  - 2x  + 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x  - 2 \\).<br><br>Step 2<br><br>Set the derivative equal to 0. x = 1.<br><br>Step 3<br><br>f(1) = 2.<br><br><strong>Final Answer:</strong><br><br>\\( x = 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 2x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 2 \\).<br><br>Step 2<br><br>The derivative is zero at x = 1.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 1,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 4x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 4 \\).<br><br>Step 2<br><br>The derivative is zero at x = 2.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 2,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 6x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 6 \\).<br><br>Step 2<br><br>The derivative is zero at x = 3.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 3,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 8x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 8 \\).<br><br>Step 2<br><br>The derivative is zero at x = 4.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 4,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 10x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 10 \\).<br><br>Step 2<br><br>The derivative is zero at x = 5.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 5,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 12x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 12 \\).<br><br>Step 2<br><br>The derivative is zero at x = 6.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 6,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 14x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 14 \\).<br><br>Step 2<br><br>The derivative is zero at x = 7.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 7,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 16x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 16 \\).<br><br>Step 2<br><br>The derivative is zero at x = 8.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 8,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 18x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 18 \\).<br><br>Step 2<br><br>The derivative is zero at x = 9.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 9,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 20x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 20 \\).<br><br>Step 2<br><br>The derivative is zero at x = 10.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 10,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 22x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 22 \\).<br><br>Step 2<br><br>The derivative is zero at x = 11.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 11,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 24x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 24 \\).<br><br>Step 2<br><br>The derivative is zero at x = 12.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 12,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 26x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 26 \\).<br><br>Step 2<br><br>The derivative is zero at x = 13.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 13,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 28x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 28 \\).<br><br>Step 2<br><br>The derivative is zero at x = 14.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 14,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 30x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 30 \\).<br><br>Step 2<br><br>The derivative is zero at x = 15.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 15,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 32x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 32 \\).<br><br>Step 2<br><br>The derivative is zero at x = 16.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 16,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 34x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 34 \\).<br><br>Step 2<br><br>The derivative is zero at x = 17.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 17,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 36x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 36 \\).<br><br>Step 2<br><br>The derivative is zero at x = 18.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 18,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 38x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 38 \\).<br><br>Step 2<br><br>The derivative is zero at x = 19.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 19,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 40x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 40 \\).<br><br>Step 2<br><br>The derivative is zero at x = 20.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 20,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 42x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 42 \\).<br><br>Step 2<br><br>The derivative is zero at x = 21.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 21,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 44x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 44 \\).<br><br>Step 2<br><br>The derivative is zero at x = 22.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 22,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 46x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 46 \\).<br><br>Step 2<br><br>The derivative is zero at x = 23.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 23,\\ \\text{local minimum} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the critical point of \\( f(x) = x^2 - 48x \\) and state whether it is a local minimum or a local maximum.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(x) = 2x - 48 \\).<br><br>Step 2<br><br>The derivative is zero at x = 24.<br><br>Step 3<br><br>The second derivative is 2, which is positive, so the critical point is a local minimum.<br><br><strong>Final Answer:</strong><br><br>\\( x = 24,\\ \\text{local minimum} \\)"
   }
 ]

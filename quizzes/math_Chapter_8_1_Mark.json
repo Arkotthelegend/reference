@@ -328,5 +328,845 @@
       "\\( \\frac{\\cos x \\sin x}{x \\ln 10} \\)"
     ],
     "c": 0
+  },
+  {
+    "type": "mcq",
+    "q": "Find \\( \\dfrac{dy}{dx} \\) if \\( y = \\ln(x^2 + 2) \\).",
+    "a": [
+      "\\( \\frac{2x}{x^2} \\)",
+      "\\( 2x \\)",
+      "\\( \\frac{2x}{x^2 + 2} \\)",
+      "\\( \\frac{1}{x^2 + 2} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The derivative of ln(u) is u'/u."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = \\log_{3} x \\) with respect to x?",
+    "a": [
+      "\\( \\frac{1}{x \\ln 3} \\)",
+      "\\( \\log_{3} x \\)",
+      "\\( \\frac{1}{\\ln 3} \\)",
+      "\\( \\frac{1}{x} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Change to natural logarithms: log_b x = ln x / ln b."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the vertical asymptote of \\( y = \\log_{4}(x - 4) \\)?",
+    "a": [
+      "\\( y = 4 \\)",
+      "\\( x = 0 \\)",
+      "\\( x = -4 \\)",
+      "\\( x = 4 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The log is undefined when its argument is 0, so x = a is the asymptote."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = \\ln x \\)?",
+    "a": [
+      "\\( \\ln x \\)",
+      "\\( e^x \\)",
+      "\\( x \\)",
+      "\\( \\frac{1}{x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The derivative of ln x is 1/x."
+  },
+  {
+    "type": "mcq",
+    "q": "Find \\( \\dfrac{dy}{dx} \\) if \\( y = \\ln(x^2 + 6) \\).",
+    "a": [
+      "\\( \\frac{2x}{x^2} \\)",
+      "\\( 2x \\)",
+      "\\( \\frac{1}{x^2 + 6} \\)",
+      "\\( \\frac{2x}{x^2 + 6} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The derivative of ln(u) is u'/u."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = \\log_{2} x \\) with respect to x?",
+    "a": [
+      "\\( \\frac{1}{x} \\)",
+      "\\( \\log_{2} x \\)",
+      "\\( \\frac{1}{\\ln 2} \\)",
+      "\\( \\frac{1}{x \\ln 2} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Change to natural logarithms: log_b x = ln x / ln b."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the vertical asymptote of \\( y = \\log_{4}(x - 2) \\)?",
+    "a": [
+      "\\( x = 0 \\)",
+      "\\( y = 2 \\)",
+      "\\( x = -2 \\)",
+      "\\( x = 2 \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The log is undefined when its argument is 0, so x = a is the asymptote."
+  },
+  {
+    "type": "mcq",
+    "q": "Find \\( \\dfrac{dy}{dx} \\) if \\( y = \\ln(x^2 + 4) \\).",
+    "a": [
+      "\\( \\frac{2x}{x^2} \\)",
+      "\\( \\frac{2x}{x^2 + 4} \\)",
+      "\\( 2x \\)",
+      "\\( \\frac{1}{x^2 + 4} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The derivative of ln(u) is u'/u."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = \\log_{6} x \\) with respect to x?",
+    "a": [
+      "\\( \\frac{1}{\\ln 6} \\)",
+      "\\( \\frac{1}{x} \\)",
+      "\\( \\log_{6} x \\)",
+      "\\( \\frac{1}{x \\ln 6} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>Change to natural logarithms: log_b x = ln x / ln b."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the vertical asymptote of \\( y = \\log_{4}(x - 6) \\)?",
+    "a": [
+      "\\( x = 0 \\)",
+      "\\( x = -6 \\)",
+      "\\( x = 6 \\)",
+      "\\( y = 6 \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The log is undefined when its argument is 0, so x = a is the asymptote."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = \\log_{5} x \\) with respect to x?",
+    "a": [
+      "\\( \\frac{1}{\\ln 5} \\)",
+      "\\( \\frac{1}{x} \\)",
+      "\\( \\frac{1}{x \\ln 5} \\)",
+      "\\( \\log_{5} x \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>Change to natural logarithms: log_b x = ln x / ln b."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = \\log_{4} x \\) with respect to x?",
+    "a": [
+      "\\( \\frac{1}{x \\ln 4} \\)",
+      "\\( \\frac{1}{x} \\)",
+      "\\( \\log_{4} x \\)",
+      "\\( \\frac{1}{\\ln 4} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>Change to natural logarithms: log_b x = ln x / ln b."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{1x} \\)?",
+    "a": [
+      "\\( e^{1x} \\)",
+      "\\( x e^{1x} \\)",
+      "\\( 1e^{1x} \\)",
+      "\\( 1e^x \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{1x} by 1."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{2x} \\)?",
+    "a": [
+      "\\( 2e^{2x} \\)",
+      "\\( e^{2x} \\)",
+      "\\( x e^{2x} \\)",
+      "\\( 2e^x \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{2x} by 2."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{3x} \\)?",
+    "a": [
+      "\\( 3e^{3x} \\)",
+      "\\( x e^{3x} \\)",
+      "\\( 3e^x \\)",
+      "\\( e^{3x} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{3x} by 3."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{4x} \\)?",
+    "a": [
+      "\\( e^{4x} \\)",
+      "\\( 4e^x \\)",
+      "\\( x e^{4x} \\)",
+      "\\( 4e^{4x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{4x} by 4."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{5x} \\)?",
+    "a": [
+      "\\( 5e^x \\)",
+      "\\( x e^{5x} \\)",
+      "\\( 5e^{5x} \\)",
+      "\\( e^{5x} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{5x} by 5."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{6x} \\)?",
+    "a": [
+      "\\( x e^{6x} \\)",
+      "\\( 6e^{6x} \\)",
+      "\\( e^{6x} \\)",
+      "\\( 6e^x \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{6x} by 6."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{7x} \\)?",
+    "a": [
+      "\\( 7e^x \\)",
+      "\\( 7e^{7x} \\)",
+      "\\( x e^{7x} \\)",
+      "\\( e^{7x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{7x} by 7."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{8x} \\)?",
+    "a": [
+      "\\( e^{8x} \\)",
+      "\\( 8e^{8x} \\)",
+      "\\( 8e^x \\)",
+      "\\( x e^{8x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{8x} by 8."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{9x} \\)?",
+    "a": [
+      "\\( e^{9x} \\)",
+      "\\( 9e^x \\)",
+      "\\( x e^{9x} \\)",
+      "\\( 9e^{9x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{9x} by 9."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{10x} \\)?",
+    "a": [
+      "\\( 10e^x \\)",
+      "\\( 10e^{10x} \\)",
+      "\\( x e^{10x} \\)",
+      "\\( e^{10x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{10x} by 10."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{11x} \\)?",
+    "a": [
+      "\\( 11e^x \\)",
+      "\\( x e^{11x} \\)",
+      "\\( 11e^{11x} \\)",
+      "\\( e^{11x} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{11x} by 11."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{12x} \\)?",
+    "a": [
+      "\\( 12e^{12x} \\)",
+      "\\( x e^{12x} \\)",
+      "\\( e^{12x} \\)",
+      "\\( 12e^x \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{12x} by 12."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{13x} \\)?",
+    "a": [
+      "\\( 13e^{13x} \\)",
+      "\\( e^{13x} \\)",
+      "\\( 13e^x \\)",
+      "\\( x e^{13x} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{13x} by 13."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{14x} \\)?",
+    "a": [
+      "\\( 14e^x \\)",
+      "\\( x e^{14x} \\)",
+      "\\( e^{14x} \\)",
+      "\\( 14e^{14x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{14x} by 14."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{15x} \\)?",
+    "a": [
+      "\\( 15e^{15x} \\)",
+      "\\( 15e^x \\)",
+      "\\( e^{15x} \\)",
+      "\\( x e^{15x} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{15x} by 15."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{16x} \\)?",
+    "a": [
+      "\\( 16e^{16x} \\)",
+      "\\( e^{16x} \\)",
+      "\\( x e^{16x} \\)",
+      "\\( 16e^x \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{16x} by 16."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{17x} \\)?",
+    "a": [
+      "\\( 17e^{17x} \\)",
+      "\\( x e^{17x} \\)",
+      "\\( e^{17x} \\)",
+      "\\( 17e^x \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{17x} by 17."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{18x} \\)?",
+    "a": [
+      "\\( e^{18x} \\)",
+      "\\( 18e^x \\)",
+      "\\( x e^{18x} \\)",
+      "\\( 18e^{18x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{18x} by 18."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{19x} \\)?",
+    "a": [
+      "\\( 19e^{19x} \\)",
+      "\\( x e^{19x} \\)",
+      "\\( 19e^x \\)",
+      "\\( e^{19x} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{19x} by 19."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{20x} \\)?",
+    "a": [
+      "\\( e^{20x} \\)",
+      "\\( 20e^{20x} \\)",
+      "\\( 20e^x \\)",
+      "\\( x e^{20x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{20x} by 20."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{21x} \\)?",
+    "a": [
+      "\\( 21e^x \\)",
+      "\\( 21e^{21x} \\)",
+      "\\( x e^{21x} \\)",
+      "\\( e^{21x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{21x} by 21."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{22x} \\)?",
+    "a": [
+      "\\( e^{22x} \\)",
+      "\\( 22e^x \\)",
+      "\\( 22e^{22x} \\)",
+      "\\( x e^{22x} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{22x} by 22."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{23x} \\)?",
+    "a": [
+      "\\( 23e^{23x} \\)",
+      "\\( e^{23x} \\)",
+      "\\( 23e^x \\)",
+      "\\( x e^{23x} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{23x} by 23."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{24x} \\)?",
+    "a": [
+      "\\( 24e^x \\)",
+      "\\( e^{24x} \\)",
+      "\\( 24e^{24x} \\)",
+      "\\( x e^{24x} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{24x} by 24."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{25x} \\)?",
+    "a": [
+      "\\( e^{25x} \\)",
+      "\\( 25e^{25x} \\)",
+      "\\( 25e^x \\)",
+      "\\( x e^{25x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{25x} by 25."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{26x} \\)?",
+    "a": [
+      "\\( e^{26x} \\)",
+      "\\( 26e^{26x} \\)",
+      "\\( x e^{26x} \\)",
+      "\\( 26e^x \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{26x} by 26."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{27x} \\)?",
+    "a": [
+      "\\( x e^{27x} \\)",
+      "\\( e^{27x} \\)",
+      "\\( 27e^x \\)",
+      "\\( 27e^{27x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{27x} by 27."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{28x} \\)?",
+    "a": [
+      "\\( x e^{28x} \\)",
+      "\\( 28e^x \\)",
+      "\\( e^{28x} \\)",
+      "\\( 28e^{28x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{28x} by 28."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{29x} \\)?",
+    "a": [
+      "\\( 29e^{29x} \\)",
+      "\\( e^{29x} \\)",
+      "\\( x e^{29x} \\)",
+      "\\( 29e^x \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{29x} by 29."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{30x} \\)?",
+    "a": [
+      "\\( x e^{30x} \\)",
+      "\\( 30e^{30x} \\)",
+      "\\( 30e^x \\)",
+      "\\( e^{30x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{30x} by 30."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{31x} \\)?",
+    "a": [
+      "\\( x e^{31x} \\)",
+      "\\( 31e^x \\)",
+      "\\( e^{31x} \\)",
+      "\\( 31e^{31x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{31x} by 31."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{32x} \\)?",
+    "a": [
+      "\\( 32e^x \\)",
+      "\\( 32e^{32x} \\)",
+      "\\( e^{32x} \\)",
+      "\\( x e^{32x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{32x} by 32."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{33x} \\)?",
+    "a": [
+      "\\( x e^{33x} \\)",
+      "\\( e^{33x} \\)",
+      "\\( 33e^x \\)",
+      "\\( 33e^{33x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{33x} by 33."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{34x} \\)?",
+    "a": [
+      "\\( 34e^x \\)",
+      "\\( e^{34x} \\)",
+      "\\( x e^{34x} \\)",
+      "\\( 34e^{34x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{34x} by 34."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{35x} \\)?",
+    "a": [
+      "\\( 35e^x \\)",
+      "\\( e^{35x} \\)",
+      "\\( x e^{35x} \\)",
+      "\\( 35e^{35x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{35x} by 35."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{36x} \\)?",
+    "a": [
+      "\\( x e^{36x} \\)",
+      "\\( 36e^{36x} \\)",
+      "\\( 36e^x \\)",
+      "\\( e^{36x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{36x} by 36."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{37x} \\)?",
+    "a": [
+      "\\( 37e^{37x} \\)",
+      "\\( x e^{37x} \\)",
+      "\\( 37e^x \\)",
+      "\\( e^{37x} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{37x} by 37."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{38x} \\)?",
+    "a": [
+      "\\( e^{38x} \\)",
+      "\\( 38e^{38x} \\)",
+      "\\( x e^{38x} \\)",
+      "\\( 38e^x \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{38x} by 38."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{39x} \\)?",
+    "a": [
+      "\\( 39e^x \\)",
+      "\\( x e^{39x} \\)",
+      "\\( e^{39x} \\)",
+      "\\( 39e^{39x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{39x} by 39."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{40x} \\)?",
+    "a": [
+      "\\( 40e^x \\)",
+      "\\( 40e^{40x} \\)",
+      "\\( e^{40x} \\)",
+      "\\( x e^{40x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{40x} by 40."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{41x} \\)?",
+    "a": [
+      "\\( 41e^x \\)",
+      "\\( x e^{41x} \\)",
+      "\\( 41e^{41x} \\)",
+      "\\( e^{41x} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{41x} by 41."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{42x} \\)?",
+    "a": [
+      "\\( 42e^{42x} \\)",
+      "\\( x e^{42x} \\)",
+      "\\( 42e^x \\)",
+      "\\( e^{42x} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{42x} by 42."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{43x} \\)?",
+    "a": [
+      "\\( x e^{43x} \\)",
+      "\\( 43e^{43x} \\)",
+      "\\( e^{43x} \\)",
+      "\\( 43e^x \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{43x} by 43."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{44x} \\)?",
+    "a": [
+      "\\( e^{44x} \\)",
+      "\\( x e^{44x} \\)",
+      "\\( 44e^{44x} \\)",
+      "\\( 44e^x \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{44x} by 44."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{45x} \\)?",
+    "a": [
+      "\\( 45e^x \\)",
+      "\\( e^{45x} \\)",
+      "\\( 45e^{45x} \\)",
+      "\\( x e^{45x} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{45x} by 45."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{46x} \\)?",
+    "a": [
+      "\\( 46e^x \\)",
+      "\\( e^{46x} \\)",
+      "\\( 46e^{46x} \\)",
+      "\\( x e^{46x} \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{46x} by 46."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{47x} \\)?",
+    "a": [
+      "\\( x e^{47x} \\)",
+      "\\( 47e^{47x} \\)",
+      "\\( 47e^x \\)",
+      "\\( e^{47x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{47x} by 47."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{48x} \\)?",
+    "a": [
+      "\\( 48e^{48x} \\)",
+      "\\( e^{48x} \\)",
+      "\\( x e^{48x} \\)",
+      "\\( 48e^x \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{48x} by 48."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{49x} \\)?",
+    "a": [
+      "\\( 49e^{49x} \\)",
+      "\\( 49e^x \\)",
+      "\\( e^{49x} \\)",
+      "\\( x e^{49x} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{49x} by 49."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{50x} \\)?",
+    "a": [
+      "\\( x e^{50x} \\)",
+      "\\( e^{50x} \\)",
+      "\\( 50e^x \\)",
+      "\\( 50e^{50x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{50x} by 50."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{51x} \\)?",
+    "a": [
+      "\\( x e^{51x} \\)",
+      "\\( 51e^{51x} \\)",
+      "\\( 51e^x \\)",
+      "\\( e^{51x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{51x} by 51."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{52x} \\)?",
+    "a": [
+      "\\( e^{52x} \\)",
+      "\\( x e^{52x} \\)",
+      "\\( 52e^{52x} \\)",
+      "\\( 52e^x \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{52x} by 52."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{53x} \\)?",
+    "a": [
+      "\\( e^{53x} \\)",
+      "\\( x e^{53x} \\)",
+      "\\( 53e^x \\)",
+      "\\( 53e^{53x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{53x} by 53."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{54x} \\)?",
+    "a": [
+      "\\( x e^{54x} \\)",
+      "\\( e^{54x} \\)",
+      "\\( 54e^{54x} \\)",
+      "\\( 54e^x \\)"
+    ],
+    "c": 2,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{54x} by 54."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{55x} \\)?",
+    "a": [
+      "\\( 55e^x \\)",
+      "\\( 55e^{55x} \\)",
+      "\\( x e^{55x} \\)",
+      "\\( e^{55x} \\)"
+    ],
+    "c": 1,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{55x} by 55."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{56x} \\)?",
+    "a": [
+      "\\( 56e^{56x} \\)",
+      "\\( e^{56x} \\)",
+      "\\( 56e^x \\)",
+      "\\( x e^{56x} \\)"
+    ],
+    "c": 0,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{56x} by 56."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{57x} \\)?",
+    "a": [
+      "\\( x e^{57x} \\)",
+      "\\( e^{57x} \\)",
+      "\\( 57e^x \\)",
+      "\\( 57e^{57x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{57x} by 57."
+  },
+  {
+    "type": "mcq",
+    "q": "What is the derivative of \\( y = e^{58x} \\)?",
+    "a": [
+      "\\( x e^{58x} \\)",
+      "\\( e^{58x} \\)",
+      "\\( 58e^x \\)",
+      "\\( 58e^{58x} \\)"
+    ],
+    "c": 3,
+    "e": "<strong>Solution:</strong><br><br>The chain rule multiplies e^{58x} by 58."
   }
 ]

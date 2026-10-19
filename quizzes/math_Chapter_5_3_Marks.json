@@ -148,5 +148,355 @@
     "type": "math_show",
     "q": "Find the number of permutations of the letters of the word 'PARALLEL' such that P and L are at the two ends.",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The word 'PARALLEL' has 8 letters: 3 L's, 2 A's, 1 P, 1 R, 1 E.<br><br>Case 1: P at the start, L at the end. Remaining 6 letters: 2 L's, 2 A's, 1 R, 1 E.<br><br>Step 2<br><br>Arrange the remaining 6 letters for Case 1:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{6!}{2!2!} = \\frac{720}{4} = 180 \\)</div><br><br>Case 2: L at the start, P at the end. Remaining 6 letters: 2 L's, 2 A's, 1 R, 1 E.<br><br>Step 3<br><br>Arrange the remaining 6 letters for Case 2:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{6!}{2!2!} = 180 \\)</div><br><br>Total permutations = \\( 180 + 180 = 360 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 360 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( ^{7}C_{2} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( ^{7}C_{2} = \\frac{7!}{2!5!} \\).<br><br>Step 2<br><br>The value is 21.<br><br><strong>Final Answer:</strong><br><br>\\( 21 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many subsets does a set with 5 elements have?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Each element can be in or out of a subset.<br><br>Step 2<br><br>The number of subsets is 2^5 = 32.<br><br><strong>Final Answer:</strong><br><br>\\( 32 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of distinct permutations of the letters of the word LETTER.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Repeated letters are not distinguishable.<br><br>Step 2<br><br>The number of distinct arrangements is 180.<br><br><strong>Final Answer:</strong><br><br>\\( 180 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 6 boys and 2 girls be arranged in a row if the girls must sit together?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Treat the 2 girls as one block. That gives 7 units to arrange.<br><br>Step 2<br><br>The girls can also change places inside the block in 2 ways.<br><br>Step 3<br><br>The total is 10080.<br><br><strong>Final Answer:</strong><br><br>\\( 10080 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( ^{7}C_{3} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( ^{7}C_{3} = \\frac{7!}{3!4!} \\).<br><br>Step 2<br><br>The value is 35.<br><br><strong>Final Answer:</strong><br><br>\\( 35 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many subsets does a set with 4 elements have?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Each element can be in or out of a subset.<br><br>Step 2<br><br>The number of subsets is 2^4 = 16.<br><br><strong>Final Answer:</strong><br><br>\\( 16 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of distinct permutations of the letters of the word BOOK.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Repeated letters are not distinguishable.<br><br>Step 2<br><br>The number of distinct arrangements is 12.<br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 6 boys and 3 girls be arranged in a row if the girls must sit together?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Treat the 3 girls as one block. That gives 7 units to arrange.<br><br>Step 2<br><br>The girls can also change places inside the block in 6 ways.<br><br>Step 3<br><br>The total is 30240.<br><br><strong>Final Answer:</strong><br><br>\\( 30240 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( ^{7}C_{4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( ^{7}C_{4} = \\frac{7!}{4!3!} \\).<br><br>Step 2<br><br>The value is 35.<br><br><strong>Final Answer:</strong><br><br>\\( 35 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many subsets does a set with 8 elements have?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Each element can be in or out of a subset.<br><br>Step 2<br><br>The number of subsets is 2^8 = 256.<br><br><strong>Final Answer:</strong><br><br>\\( 256 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the number of distinct permutations of the letters of the word BANANA.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Repeated letters are not distinguishable.<br><br>Step 2<br><br>The number of distinct arrangements is 60.<br><br><strong>Final Answer:</strong><br><br>\\( 60 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "In how many ways can 6 boys and 4 girls be arranged in a row if the girls must sit together?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Treat the 4 girls as one block. That gives 7 units to arrange.<br><br>Step 2<br><br>The girls can also change places inside the block in 24 ways.<br><br>Step 3<br><br>The total is 120960.<br><br><strong>Final Answer:</strong><br><br>\\( 120960 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many subsets does a set with 7 elements have?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Each element can be in or out of a subset.<br><br>Step 2<br><br>The number of subsets is 2^7 = 128.<br><br><strong>Final Answer:</strong><br><br>\\( 128 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "How many subsets does a set with 6 elements have?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Each element can be in or out of a subset.<br><br>Step 2<br><br>The number of subsets is 2^6 = 64.<br><br><strong>Final Answer:</strong><br><br>\\( 64 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 7 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{7}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{7 \\times 6}{2} = 21 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 21 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 8 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{8}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{8 \\times 7}{2} = 28 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 28 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 9 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{9}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{9 \\times 8}{2} = 36 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 36 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 10 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{10}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{10 \\times 9}{2} = 45 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 45 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 11 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{11}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{11 \\times 10}{2} = 55 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 55 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 12 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{12}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{12 \\times 11}{2} = 66 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 66 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 13 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{13}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{13 \\times 12}{2} = 78 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 78 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 14 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{14}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{14 \\times 13}{2} = 91 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 91 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 15 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{15}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{15 \\times 14}{2} = 105 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 105 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 16 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{16}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{16 \\times 15}{2} = 120 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 120 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 17 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{17}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{17 \\times 16}{2} = 136 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 136 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 18 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{18}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{18 \\times 17}{2} = 153 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 153 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 19 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{19}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{19 \\times 18}{2} = 171 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 171 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 20 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{20}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{20 \\times 19}{2} = 190 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 190 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 21 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{21}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{21 \\times 20}{2} = 210 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 210 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 22 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{22}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{22 \\times 21}{2} = 231 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 231 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 23 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{23}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{23 \\times 22}{2} = 253 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 253 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 24 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{24}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{24 \\times 23}{2} = 276 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 276 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 25 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{25}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{25 \\times 24}{2} = 300 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 300 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 26 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{26}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{26 \\times 25}{2} = 325 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 325 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 27 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{27}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{27 \\times 26}{2} = 351 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 351 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 28 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{28}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{28 \\times 27}{2} = 378 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 378 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 29 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{29}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{29 \\times 28}{2} = 406 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 406 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 30 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{30}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{30 \\times 29}{2} = 435 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 435 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 31 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{31}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{31 \\times 30}{2} = 465 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 465 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 32 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{32}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{32 \\times 31}{2} = 496 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 496 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 33 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{33}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{33 \\times 32}{2} = 528 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 528 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 34 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{34}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{34 \\times 33}{2} = 561 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 561 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 35 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{35}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{35 \\times 34}{2} = 595 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 595 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 36 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{36}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{36 \\times 35}{2} = 630 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 630 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 37 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{37}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{37 \\times 36}{2} = 666 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 666 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 38 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{38}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{38 \\times 37}{2} = 703 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 703 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 39 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{39}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{39 \\times 38}{2} = 741 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 741 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 40 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{40}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{40 \\times 39}{2} = 780 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 780 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 41 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{41}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{41 \\times 40}{2} = 820 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 820 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 42 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{42}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{42 \\times 41}{2} = 861 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 861 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 43 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{43}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{43 \\times 42}{2} = 903 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 903 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 44 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{44}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{44 \\times 43}{2} = 946 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 946 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 45 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{45}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{45 \\times 44}{2} = 990 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 990 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 46 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{46}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{46 \\times 45}{2} = 1035 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1035 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 47 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{47}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{47 \\times 46}{2} = 1081 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1081 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 48 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{48}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{48 \\times 47}{2} = 1128 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1128 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 49 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{49}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{49 \\times 48}{2} = 1176 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1176 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 50 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{50}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{50 \\times 49}{2} = 1225 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1225 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 51 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{51}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{51 \\times 50}{2} = 1275 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1275 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 52 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{52}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{52 \\times 51}{2} = 1326 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1326 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 53 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{53}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{53 \\times 52}{2} = 1378 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1378 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 54 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{54}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{54 \\times 53}{2} = 1431 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1431 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 55 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{55}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{55 \\times 54}{2} = 1485 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1485 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 56 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{56}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{56 \\times 55}{2} = 1540 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1540 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 57 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{57}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{57 \\times 56}{2} = 1596 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1596 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 58 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{58}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{58 \\times 57}{2} = 1653 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1653 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 59 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{59}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{59 \\times 58}{2} = 1711 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1711 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 60 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{60}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{60 \\times 59}{2} = 1770 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1770 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 61 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{61}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{61 \\times 60}{2} = 1830 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1830 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A committee of 2 is chosen from 62 people. How many committees are possible?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Order does not matter, so use \\( ^{62}C_2 \\).<br><br>Step 2<br><br>\\( \\frac{62 \\times 61}{2} = 1891 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1891 \\)"
   }
 ]

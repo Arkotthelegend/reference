@@ -128,5 +128,355 @@
     "type": "math_show",
     "q": "Find the function \\( f(x) \\) given that \\( f''(x) = \\cos 2x - e^{-x} \\), \\( f'(0) = 1 \\), and \\( f(0) = 0 \\).",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate \\( f''(x) \\) to find \\( f'(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f'(x) = \\int (\\cos 2x - e^{-x}) dx = \\frac{1}{2}\\sin 2x + e^{-x} + C_1 \\)</div><br><br>Use \\( f'(0) = 1 \\): \\( 0 + 1 + C_1 = 1 \\implies C_1 = 0 \\).<br><br>So, \\( f'(x) = \\frac{1}{2}\\sin 2x + e^{-x} \\).<br><br>Step 2<br><br>Integrate \\( f'(x) \\) to find \\( f(x) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = \\int \\left(\\frac{1}{2}\\sin 2x + e^{-x}\\right) dx = -\\frac{1}{4}\\cos 2x - e^{-x} + C_2 \\)</div><br><br>Step 3<br><br>Use \\( f(0) = 0 \\) to find \\( C_2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -\\frac{1}{4} - 1 + C_2 = 0 \\implies C_2 = \\frac{5}{4} \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( f(x) = -\\frac{1}{4}\\cos 2x - e^{-x} + \\frac{5}{4} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{1}{4}\\cos 2x - e^{-x} + \\frac{5}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (2x^{3} - \\dfrac{1}{x} + 1) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{2}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -1\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{4}x^{4} - 1\\ln|x| + 1x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x e^{3x} \\, dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x and dv = e^{kx} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x}{3} - \\frac{1}{9}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\dfrac{6x}{3x^2 + 4} \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator is the derivative of the inside of the denominator.<br><br>Step 2<br><br>The integral is a natural logarithm.<br><br><strong>Final Answer:</strong><br><br>\\( \\ln|3x^2 + 4| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\dfrac{1}{(x - 4)(x - 6)} \\, dx \\) using partial fractions.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write \\( \\frac{1}{(x-4)(x-6)} = \\frac{A}{x-4} + \\frac{B}{x-6} \\).<br><br>Step 2<br><br>A = -\\frac{1}{2} and B = \\frac{1}{2}.<br><br>Step 3<br><br>Integrate each term.<br><br><strong>Final Answer:</strong><br><br>\\( -\\frac{1}{2}\\ln|x - 4| + (\\frac{1}{2})\\ln|x - 6| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (3x^{3} - \\dfrac{5}{x} + 2) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{3}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -5\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{4}x^{4} - 5\\ln|x| + 2x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x e^{2x} \\, dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x and dv = e^{kx} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\dfrac{6x}{3x^2 + 3} \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator is the derivative of the inside of the denominator.<br><br>Step 2<br><br>The integral is a natural logarithm.<br><br><strong>Final Answer:</strong><br><br>\\( \\ln|3x^2 + 3| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (4x^{3} - \\dfrac{4}{x} + 3) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{4}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -4\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{4}x^{4} - 4\\ln|x| + 3x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x e^{6x} \\, dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x and dv = e^{kx} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{6x}/6.<br><br>Step 3<br><br>The integral is \\( e^{6x}\\left(\\frac{x}{6} - \\frac{1}{36}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{6x}\\left(\\frac{x}{6} - \\frac{1}{36}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\dfrac{6x}{3x^2 + 2} \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator is the derivative of the inside of the denominator.<br><br>Step 2<br><br>The integral is a natural logarithm.<br><br><strong>Final Answer:</strong><br><br>\\( \\ln|3x^2 + 2| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (2x^{3} - \\dfrac{3}{x} + 1) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{2}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -3\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{4}x^{4} - 3\\ln|x| + 1x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x e^{5x} \\, dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x and dv = e^{kx} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\dfrac{6x}{3x^2 + 6} \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator is the derivative of the inside of the denominator.<br><br>Step 2<br><br>The integral is a natural logarithm.<br><br><strong>Final Answer:</strong><br><br>\\( \\ln|3x^2 + 6| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (3x^{3} - \\dfrac{2}{x} + 2) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{3}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -2\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{4}x^{4} - 2\\ln|x| + 2x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int x e^{4x} \\, dx \\) using integration by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x and dv = e^{kx} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int \\dfrac{6x}{3x^2 + 5} \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator is the derivative of the inside of the denominator.<br><br>Step 2<br><br>The integral is a natural logarithm.<br><br><strong>Final Answer:</strong><br><br>\\( \\ln|3x^2 + 5| + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (4x^{3} - \\dfrac{1}{x} + 3) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{4}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -1\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{4}x^{4} - 1\\ln|x| + 3x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (2x^{3} - \\dfrac{5}{x} + 1) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{2}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -5\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{4}x^{4} - 5\\ln|x| + 1x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (3x^{3} - \\dfrac{4}{x} + 2) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{3}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -4\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{4}x^{4} - 4\\ln|x| + 2x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (4x^{3} - \\dfrac{3}{x} + 3) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{4}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -3\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{4}x^{4} - 3\\ln|x| + 3x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (2x^{3} - \\dfrac{2}{x} + 1) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{2}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -2\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{4}x^{4} - 2\\ln|x| + 1x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (3x^{3} - \\dfrac{1}{x} + 2) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{3}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -1\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{4}x^{4} - 1\\ln|x| + 2x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (4x^{3} - \\dfrac{5}{x} + 3) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{4}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -5\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{4}x^{4} - 5\\ln|x| + 3x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (2x^{3} - \\dfrac{4}{x} + 1) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{2}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -4\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{4}x^{4} - 4\\ln|x| + 1x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (3x^{3} - \\dfrac{3}{x} + 2) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{3}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -3\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{4}x^{4} - 3\\ln|x| + 2x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (4x^{3} - \\dfrac{2}{x} + 3) \\, dx \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Integrate each term.<br><br>Step 2<br><br>The power term becomes \\( \\frac{4}{4} x^{4} \\).<br><br>Step 3<br><br>The middle term becomes \\( -2\\ln|x| \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{4}x^{4} - 2\\ln|x| + 3x + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 1) e^{2x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 1 and dv = e^{2x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x+1}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x+1}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 1) e^{3x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 1 and dv = e^{3x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x+1}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x+1}{3} - \\frac{1}{9}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 1) e^{4x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 1 and dv = e^{4x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x+1}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x+1}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 1) e^{5x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 1 and dv = e^{5x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x+1}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x+1}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 2) e^{3x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 2 and dv = e^{3x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x+2}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x+2}{3} - \\frac{1}{9}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 2) e^{4x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 2 and dv = e^{4x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x+2}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x+2}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 2) e^{5x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 2 and dv = e^{5x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x+2}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x+2}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 2) e^{2x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 2 and dv = e^{2x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x+2}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x+2}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 3) e^{4x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 3 and dv = e^{4x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x+3}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x+3}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 3) e^{5x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 3 and dv = e^{5x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x+3}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x+3}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 3) e^{2x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 3 and dv = e^{2x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x+3}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x+3}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 3) e^{3x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 3 and dv = e^{3x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x+3}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x+3}{3} - \\frac{1}{9}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 4) e^{5x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 4 and dv = e^{5x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x+4}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x+4}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 4) e^{2x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 4 and dv = e^{2x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x+4}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x+4}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 4) e^{3x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 4 and dv = e^{3x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x+4}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x+4}{3} - \\frac{1}{9}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 4) e^{4x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 4 and dv = e^{4x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x+4}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x+4}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 5) e^{2x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 5 and dv = e^{2x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x+5}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x+5}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 5) e^{3x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 5 and dv = e^{3x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x+5}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x+5}{3} - \\frac{1}{9}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 5) e^{4x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 5 and dv = e^{4x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x+5}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x+5}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 5) e^{5x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 5 and dv = e^{5x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x+5}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x+5}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 6) e^{3x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 6 and dv = e^{3x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x+6}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x+6}{3} - \\frac{1}{9}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 6) e^{4x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 6 and dv = e^{4x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x+6}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x+6}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 6) e^{5x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 6 and dv = e^{5x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x+6}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x+6}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 6) e^{2x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 6 and dv = e^{2x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x+6}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x+6}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 7) e^{4x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 7 and dv = e^{4x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x+7}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x+7}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 7) e^{5x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 7 and dv = e^{5x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x+7}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x+7}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 7) e^{2x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 7 and dv = e^{2x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x+7}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x+7}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 7) e^{3x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 7 and dv = e^{3x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x+7}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x+7}{3} - \\frac{1}{9}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 8) e^{5x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 8 and dv = e^{5x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x+8}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x+8}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 8) e^{2x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 8 and dv = e^{2x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x+8}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x+8}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 8) e^{3x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 8 and dv = e^{3x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x+8}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x+8}{3} - \\frac{1}{9}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 8) e^{4x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 8 and dv = e^{4x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x+8}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x+8}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 9) e^{2x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 9 and dv = e^{2x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x+9}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x+9}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 9) e^{3x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 9 and dv = e^{3x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x+9}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x+9}{3} - \\frac{1}{9}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 9) e^{4x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 9 and dv = e^{4x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x+9}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x+9}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 9) e^{5x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 9 and dv = e^{5x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x+9}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x+9}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 10) e^{3x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 10 and dv = e^{3x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x+10}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x+10}{3} - \\frac{1}{9}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 10) e^{4x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 10 and dv = e^{4x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x+10}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x+10}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 10) e^{5x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 10 and dv = e^{5x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x+10}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x+10}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 10) e^{2x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 10 and dv = e^{2x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x+10}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x+10}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 11) e^{4x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 11 and dv = e^{4x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{4x}/4.<br><br>Step 3<br><br>The integral is \\( e^{4x}\\left(\\frac{x+11}{4} - \\frac{1}{16}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{4x}\\left(\\frac{x+11}{4} - \\frac{1}{16}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 11) e^{5x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 11 and dv = e^{5x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{5x}/5.<br><br>Step 3<br><br>The integral is \\( e^{5x}\\left(\\frac{x+11}{5} - \\frac{1}{25}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{5x}\\left(\\frac{x+11}{5} - \\frac{1}{25}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 11) e^{2x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 11 and dv = e^{2x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{2x}/2.<br><br>Step 3<br><br>The integral is \\( e^{2x}\\left(\\frac{x+11}{2} - \\frac{1}{4}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{2x}\\left(\\frac{x+11}{2} - \\frac{1}{4}\\right) + C \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\int (x + 11) e^{3x} \\, dx \\) by parts.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x + 11 and dv = e^{3x} dx.<br><br>Step 2<br><br>Then du = dx and v = e^{3x}/3.<br><br>Step 3<br><br>The integral is \\( e^{3x}\\left(\\frac{x+11}{3} - \\frac{1}{9}\\right) + C \\).<br><br><strong>Final Answer:</strong><br><br>\\( e^{3x}\\left(\\frac{x+11}{3} - \\frac{1}{9}\\right) + C \\)"
   }
 ]

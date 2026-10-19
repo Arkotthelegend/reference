@@ -138,5 +138,355 @@
     "type": "math_show",
     "q": "Evaluate \\( \\sqrt{1.44 \\times 10^8} \\) and express the answer in scientific notation.",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the square root to both the decimal part and the power of 10 separately:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{1.44 \\times 10^8} = \\sqrt{1.44} \\times \\sqrt{10^8} \\)</div><br><br>Step 2<br><br>Calculate the square root of the decimal part:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{1.44} = 1.2 \\)</div><br><br>Step 3<br><br>Calculate the square root of the power of 10 by halving the exponent:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{10^8} = 10^{8/2} = 10^4 \\)</div><br><br>Combine the results. The number \\( 1.2 \\) is between 1 and 10, so it is in proper scientific notation.<br><br><strong>Final Answer:</strong><br><br>\\( 1.2 \\times 10^4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 0.000025 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is -5.<br><br><strong>Final Answer:</strong><br><br>\\( 2.5 \\times 10^{-5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the exponential equation \\( 3^{3} = 27 \\) in logarithmic form.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The base stays 3, the result becomes the argument, and the exponent becomes the logarithm.<br><br>Step 2<br><br>\\( \\log_{3} 27 = 3 \\)<br><br><strong>Final Answer:</strong><br><br>\\( \\log_{3} 27 = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{5} 625 + \\log_{5} 125 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{5} 625 = 4 \\) and \\( \\log_{5} 125 = 3 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 4 + 3 = 7 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{10} (x - 4) = 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 4 = 10^{4} = 10000 \\).<br><br>Step 2<br><br>\\( x = 4 + 10000 = 10004 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 10004 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand \\( \\log_{2} \\left( \\dfrac{x^{2} \\sqrt{y}}{z} \\right) \\) in terms of \\( \\log_{2} x \\), \\( \\log_{2} y \\), and \\( \\log_{2} z \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient, product, and power rules.<br><br>Step 2<br><br>\\( 2\\log_{2} x + \\frac{1}{2}\\log_{2} y - \\log_{2} z \\)<br><br><strong>Final Answer:</strong><br><br>\\( 2\\log_{2} x + \\frac{1}{2}\\log_{2} y - \\log_{2} z \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 36000 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is 4.<br><br><strong>Final Answer:</strong><br><br>\\( 3.6 \\times 10^{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the exponential equation \\( 5^{4} = 625 \\) in logarithmic form.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The base stays 5, the result becomes the argument, and the exponent becomes the logarithm.<br><br>Step 2<br><br>\\( \\log_{5} 625 = 4 \\)<br><br><strong>Final Answer:</strong><br><br>\\( \\log_{5} 625 = 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{10} 100000 + \\log_{10} 100 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{10} 100000 = 5 \\) and \\( \\log_{10} 100 = 2 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 5 + 2 = 7 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{2} (x - 3) = 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 3 = 2^{1} = 2 \\).<br><br>Step 2<br><br>\\( x = 3 + 2 = 5 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand \\( \\log_{3} \\left( \\dfrac{x^{3} \\sqrt{y}}{z} \\right) \\) in terms of \\( \\log_{3} x \\), \\( \\log_{3} y \\), and \\( \\log_{3} z \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient, product, and power rules.<br><br>Step 2<br><br>\\( 3\\log_{3} x + \\frac{1}{2}\\log_{3} y - \\log_{3} z \\)<br><br><strong>Final Answer:</strong><br><br>\\( 3\\log_{3} x + \\frac{1}{2}\\log_{3} y - \\log_{3} z \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 0.000804 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is -4.<br><br><strong>Final Answer:</strong><br><br>\\( 8.04 \\times 10^{-4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the exponential equation \\( 10^{5} = 100000 \\) in logarithmic form.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The base stays 10, the result becomes the argument, and the exponent becomes the logarithm.<br><br>Step 2<br><br>\\( \\log_{10} 100000 = 5 \\)<br><br><strong>Final Answer:</strong><br><br>\\( \\log_{10} 100000 = 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{2} 4 + \\log_{2} 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{2} 4 = 2 \\) and \\( \\log_{2} 2 = 1 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 2 + 1 = 3 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{3} (x - 2) = 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 2 = 3^{2} = 9 \\).<br><br>Step 2<br><br>\\( x = 2 + 9 = 11 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 11 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand \\( \\log_{5} \\left( \\dfrac{x^{4} \\sqrt{y}}{z} \\right) \\) in terms of \\( \\log_{5} x \\), \\( \\log_{5} y \\), and \\( \\log_{5} z \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient, product, and power rules.<br><br>Step 2<br><br>\\( 4\\log_{5} x + \\frac{1}{2}\\log_{5} y - \\log_{5} z \\)<br><br><strong>Final Answer:</strong><br><br>\\( 4\\log_{5} x + \\frac{1}{2}\\log_{5} y - \\log_{5} z \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 12.5 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is 1.<br><br><strong>Final Answer:</strong><br><br>\\( 1.25 \\times 10^{1} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the exponential equation \\( 2^{2} = 4 \\) in logarithmic form.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The base stays 2, the result becomes the argument, and the exponent becomes the logarithm.<br><br>Step 2<br><br>\\( \\log_{2} 4 = 2 \\)<br><br><strong>Final Answer:</strong><br><br>\\( \\log_{2} 4 = 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{3} 27 + \\log_{3} 27 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{3} 27 = 3 \\) and \\( \\log_{3} 27 = 3 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 3 + 3 = 6 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{5} (x - 1) = 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 1 = 5^{3} = 125 \\).<br><br>Step 2<br><br>\\( x = 1 + 125 = 126 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 126 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand \\( \\log_{10} \\left( \\dfrac{x^{5} \\sqrt{y}}{z} \\right) \\) in terms of \\( \\log_{10} x \\), \\( \\log_{10} y \\), and \\( \\log_{10} z \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient, product, and power rules.<br><br>Step 2<br><br>\\( 5\\log_{10} x + \\frac{1}{2}\\log_{10} y - \\log_{10} z \\)<br><br><strong>Final Answer:</strong><br><br>\\( 5\\log_{10} x + \\frac{1}{2}\\log_{10} y - \\log_{10} z \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 0.0063 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is -3.<br><br><strong>Final Answer:</strong><br><br>\\( 6.3 \\times 10^{-3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{5} 625 + \\log_{5} 25 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{5} 625 = 4 \\) and \\( \\log_{5} 25 = 2 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 4 + 2 = 6 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{10} (x - 6) = 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 6 = 10^{4} = 10000 \\).<br><br>Step 2<br><br>\\( x = 6 + 10000 = 10006 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 10006 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 408 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is 2.<br><br><strong>Final Answer:</strong><br><br>\\( 4.08 \\times 10^{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{10} 100000 + \\log_{10} 10 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{10} 100000 = 5 \\) and \\( \\log_{10} 10 = 1 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 5 + 1 = 6 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{2} (x - 5) = 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 5 = 2^{1} = 2 \\).<br><br>Step 2<br><br>\\( x = 5 + 2 = 7 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 0.025 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is -2.<br><br><strong>Final Answer:</strong><br><br>\\( 2.5 \\times 10^{-2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{2} 4 + \\log_{2} 8 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{2} 4 = 2 \\) and \\( \\log_{2} 8 = 3 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 2 + 3 = 5 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{3} (x - 4) = 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 4 = 3^{2} = 9 \\).<br><br>Step 2<br><br>\\( x = 4 + 9 = 13 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 13 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 3600 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is 3.<br><br><strong>Final Answer:</strong><br><br>\\( 3.6 \\times 10^{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{3} 27 + \\log_{3} 9 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{3} 27 = 3 \\) and \\( \\log_{3} 9 = 2 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 3 + 2 = 5 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{5} (x - 3) = 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 3 = 5^{3} = 125 \\).<br><br>Step 2<br><br>\\( x = 3 + 125 = 128 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 128 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 0.804 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is -1.<br><br><strong>Final Answer:</strong><br><br>\\( 8.04 \\times 10^{-1} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{5} 625 + \\log_{5} 5 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{5} 625 = 4 \\) and \\( \\log_{5} 5 = 1 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 4 + 1 = 5 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{10} (x - 2) = 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 2 = 10^{4} = 10000 \\).<br><br>Step 2<br><br>\\( x = 2 + 10000 = 10002 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 10002 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 0.0000125 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is -5.<br><br><strong>Final Answer:</strong><br><br>\\( 1.25 \\times 10^{-5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{10} 100000 + \\log_{10} 1000 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{10} 100000 = 5 \\) and \\( \\log_{10} 1000 = 3 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 5 + 3 = 8 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{2} (x - 1) = 1 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 1 = 2^{1} = 2 \\).<br><br>Step 2<br><br>\\( x = 1 + 2 = 3 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 63000 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is 4.<br><br><strong>Final Answer:</strong><br><br>\\( 6.3 \\times 10^{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{2} 4 + \\log_{2} 4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{2} 4 = 2 \\) and \\( \\log_{2} 4 = 2 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 2 + 2 = 4 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{3} (x - 6) = 2 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 6 = 3^{2} = 9 \\).<br><br>Step 2<br><br>\\( x = 6 + 9 = 15 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 15 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 0.000408 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is -4.<br><br><strong>Final Answer:</strong><br><br>\\( 4.08 \\times 10^{-4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\log_{3} 27 + \\log_{3} 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( \\log_{3} 27 = 3 \\) and \\( \\log_{3} 3 = 1 \\).<br><br>Step 2<br><br>Add the logarithms. \\( 3 + 1 = 4 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Solve for \\( x \\): \\( \\log_{5} (x - 5) = 3 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Rewrite in exponential form. \\( x - 5 = 5^{3} = 125 \\).<br><br>Step 2<br><br>\\( x = 5 + 125 = 130 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x = 130 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 25 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is 1.<br><br><strong>Final Answer:</strong><br><br>\\( 2.5 \\times 10^{1} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 0.0036 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is -3.<br><br><strong>Final Answer:</strong><br><br>\\( 3.6 \\times 10^{-3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 804 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is 2.<br><br><strong>Final Answer:</strong><br><br>\\( 8.04 \\times 10^{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 0.0125 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is -2.<br><br><strong>Final Answer:</strong><br><br>\\( 1.25 \\times 10^{-2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 6300 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is 3.<br><br><strong>Final Answer:</strong><br><br>\\( 6.3 \\times 10^{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write the number \\( 0.408 \\) in scientific notation.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Place the decimal point after the first non-zero digit.<br><br>Step 2<br><br>The power of 10 that restores the value is -1.<br><br><strong>Final Answer:</strong><br><br>\\( 4.08 \\times 10^{-1} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{2} \\left( \\dfrac{x^{1}}{y} \\right) \\) in terms of \\( \\log_{2} x \\) and \\( \\log_{2} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 1 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 1\\log_{2} x - \\log_{2} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{3} \\left( \\dfrac{x^{2}}{y} \\right) \\) in terms of \\( \\log_{3} x \\) and \\( \\log_{3} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 2 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 2\\log_{3} x - \\log_{3} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{4} \\left( \\dfrac{x^{3}}{y} \\right) \\) in terms of \\( \\log_{4} x \\) and \\( \\log_{4} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 3 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 3\\log_{4} x - \\log_{4} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{5} \\left( \\dfrac{x^{4}}{y} \\right) \\) in terms of \\( \\log_{5} x \\) and \\( \\log_{5} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 4 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 4\\log_{5} x - \\log_{5} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{6} \\left( \\dfrac{x^{5}}{y} \\right) \\) in terms of \\( \\log_{6} x \\) and \\( \\log_{6} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 5 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 5\\log_{6} x - \\log_{6} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{7} \\left( \\dfrac{x^{6}}{y} \\right) \\) in terms of \\( \\log_{7} x \\) and \\( \\log_{7} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 6 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 6\\log_{7} x - \\log_{7} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{8} \\left( \\dfrac{x^{7}}{y} \\right) \\) in terms of \\( \\log_{8} x \\) and \\( \\log_{8} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 7 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 7\\log_{8} x - \\log_{8} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{9} \\left( \\dfrac{x^{8}}{y} \\right) \\) in terms of \\( \\log_{9} x \\) and \\( \\log_{9} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 8 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 8\\log_{9} x - \\log_{9} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{10} \\left( \\dfrac{x^{9}}{y} \\right) \\) in terms of \\( \\log_{10} x \\) and \\( \\log_{10} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 9 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 9\\log_{10} x - \\log_{10} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{11} \\left( \\dfrac{x^{10}}{y} \\right) \\) in terms of \\( \\log_{11} x \\) and \\( \\log_{11} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 10 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 10\\log_{11} x - \\log_{11} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{12} \\left( \\dfrac{x^{11}}{y} \\right) \\) in terms of \\( \\log_{12} x \\) and \\( \\log_{12} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 11 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 11\\log_{12} x - \\log_{12} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{13} \\left( \\dfrac{x^{12}}{y} \\right) \\) in terms of \\( \\log_{13} x \\) and \\( \\log_{13} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 12 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 12\\log_{13} x - \\log_{13} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{14} \\left( \\dfrac{x^{13}}{y} \\right) \\) in terms of \\( \\log_{14} x \\) and \\( \\log_{14} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 13 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 13\\log_{14} x - \\log_{14} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{15} \\left( \\dfrac{x^{14}}{y} \\right) \\) in terms of \\( \\log_{15} x \\) and \\( \\log_{15} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 14 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 14\\log_{15} x - \\log_{15} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{16} \\left( \\dfrac{x^{15}}{y} \\right) \\) in terms of \\( \\log_{16} x \\) and \\( \\log_{16} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 15 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 15\\log_{16} x - \\log_{16} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{17} \\left( \\dfrac{x^{16}}{y} \\right) \\) in terms of \\( \\log_{17} x \\) and \\( \\log_{17} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 16 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 16\\log_{17} x - \\log_{17} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{18} \\left( \\dfrac{x^{17}}{y} \\right) \\) in terms of \\( \\log_{18} x \\) and \\( \\log_{18} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 17 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 17\\log_{18} x - \\log_{18} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{19} \\left( \\dfrac{x^{18}}{y} \\right) \\) in terms of \\( \\log_{19} x \\) and \\( \\log_{19} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 18 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 18\\log_{19} x - \\log_{19} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{20} \\left( \\dfrac{x^{19}}{y} \\right) \\) in terms of \\( \\log_{20} x \\) and \\( \\log_{20} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 19 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 19\\log_{20} x - \\log_{20} y \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Write \\( \\log_{21} \\left( \\dfrac{x^{20}}{y} \\right) \\) in terms of \\( \\log_{21} x \\) and \\( \\log_{21} y \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the quotient rule and then the power rule.<br><br>Step 2<br><br>The exponent 20 multiplies the logarithm of x.<br><br><strong>Final Answer:</strong><br><br>\\( 20\\log_{21} x - \\log_{21} y \\)"
   }
 ]

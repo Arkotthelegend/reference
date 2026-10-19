@@ -138,5 +138,355 @@
     "type": "math_show",
     "q": "Find the coefficient of \\( x \\) in the expansion of \\( (1 + x)^5 (1 - x)^5 \\).",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Simplify the expression using the difference of squares:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 + x)^5 (1 - x)^5 = ((1 + x)(1 - x))^5 = (1 - x^2)^5 \\)</div><br><br>Step 2<br><br>Observe the powers of \\( x \\) in the expansion of \\( (1 - x^2)^5 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 - x^2)^5 = 1 - 5x^2 + 10x^4 - ... \\)</div><br><br>Step 3<br><br>Since the expansion contains only even powers of \\( x \\), the coefficient of \\( x \\) (an odd power) is 0.<br><br><strong>Final Answer:</strong><br><br>\\( 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand and simplify \\( (2 + x)^{3} \\) in ascending powers of x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the binomial theorem. The general term has coefficient \\( C(3, k) 2^{n-k} \\).<br><br>Step 2<br><br>Write every term from k = 0 to k = 3.<br><br><strong>Final Answer:</strong><br><br>\\( 8 + 12x + 6x^{2} + 1x^{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^{3} \\) in the expansion of \\( (3 - x)^{6} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term in x^3 is \\( C(6, 3) (3)^{3} (-x)^{3} \\).<br><br>Step 2<br><br>The coefficient is -540.<br><br><strong>Final Answer:</strong><br><br>\\( -540 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in the expansion of \\( \\left(3x + \\dfrac{4}{x}\\right)^{8} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>In the term with index r, the power of x is \\( 8 - 2r \\).<br><br>Step 2<br><br>Set the power equal to 0, so r = 4.<br><br>Step 3<br><br>The term is \\( 1451520 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1451520 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the middle term in the expansion of \\( \\left(x - \\dfrac{4}{x}\\right)^{4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 5 terms, so the middle term is term number 3.<br><br>Step 2<br><br>It is \\( C(4, 2) x^{2} \\left(-\\dfrac{4}{x}\\right)^{2} \\).<br><br><strong>Final Answer:</strong><br><br>\\( 96 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand and simplify \\( (2 + x)^{4} \\) in ascending powers of x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the binomial theorem. The general term has coefficient \\( C(4, k) 2^{n-k} \\).<br><br>Step 2<br><br>Write every term from k = 0 to k = 4.<br><br><strong>Final Answer:</strong><br><br>\\( 16 + 32x + 24x^{2} + 8x^{3} + 1x^{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^{4} \\) in the expansion of \\( (4 - x)^{6} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term in x^4 is \\( C(6, 4) (4)^{2} (-x)^{4} \\).<br><br>Step 2<br><br>The coefficient is 240.<br><br><strong>Final Answer:</strong><br><br>\\( 240 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in the expansion of \\( \\left(3x + \\dfrac{2}{x}\\right)^{8} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>In the term with index r, the power of x is \\( 8 - 2r \\).<br><br>Step 2<br><br>Set the power equal to 0, so r = 4.<br><br>Step 3<br><br>The term is \\( 90720 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 90720 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the middle term in the expansion of \\( \\left(x - \\dfrac{4}{x}\\right)^{6} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 7 terms, so the middle term is term number 4.<br><br>Step 2<br><br>It is \\( C(6, 3) x^{3} \\left(-\\dfrac{4}{x}\\right)^{3} \\).<br><br><strong>Final Answer:</strong><br><br>\\( -1280 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand and simplify \\( (2 + x)^{5} \\) in ascending powers of x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the binomial theorem. The general term has coefficient \\( C(5, k) 2^{n-k} \\).<br><br>Step 2<br><br>Write every term from k = 0 to k = 5.<br><br><strong>Final Answer:</strong><br><br>\\( 32 + 80x + 80x^{2} + 40x^{3} + 10x^{4} + 1x^{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^{2} \\) in the expansion of \\( (2 - x)^{6} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term in x^2 is \\( C(6, 2) (2)^{4} (-x)^{2} \\).<br><br>Step 2<br><br>The coefficient is 240.<br><br><strong>Final Answer:</strong><br><br>\\( 240 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in the expansion of \\( \\left(3x + \\dfrac{3}{x}\\right)^{8} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>In the term with index r, the power of x is \\( 8 - 2r \\).<br><br>Step 2<br><br>Set the power equal to 0, so r = 4.<br><br>Step 3<br><br>The term is \\( 459270 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 459270 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the middle term in the expansion of \\( \\left(x - \\dfrac{4}{x}\\right)^{8} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 9 terms, so the middle term is term number 5.<br><br>Step 2<br><br>It is \\( C(8, 4) x^{4} \\left(-\\dfrac{4}{x}\\right)^{4} \\).<br><br><strong>Final Answer:</strong><br><br>\\( 17920 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{1}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 1^2 = 6 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{2}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 2^2 = 24 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 24 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{3}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 3^2 = 54 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 54 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{4}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 4^2 = 96 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 96 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{5}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 5^2 = 150 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 150 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{6}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 6^2 = 216 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 216 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{7}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 7^2 = 294 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 294 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{8}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 8^2 = 384 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 384 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{9}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 9^2 = 486 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 486 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{10}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 10^2 = 600 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 600 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{11}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 11^2 = 726 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 726 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{12}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 12^2 = 864 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 864 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{13}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 13^2 = 1014 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1014 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{14}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 14^2 = 1176 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1176 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{15}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 15^2 = 1350 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1350 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{16}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 16^2 = 1536 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1536 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{17}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 17^2 = 1734 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1734 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{18}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 18^2 = 1944 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1944 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{19}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 19^2 = 2166 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 2166 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{20}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 20^2 = 2400 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 2400 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{21}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 21^2 = 2646 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 2646 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{22}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 22^2 = 2904 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 2904 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{23}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 23^2 = 3174 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 3174 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{24}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 24^2 = 3456 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 3456 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{25}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 25^2 = 3750 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 3750 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{26}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 26^2 = 4056 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 4056 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{27}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 27^2 = 4374 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 4374 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{28}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 28^2 = 4704 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 4704 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{29}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 29^2 = 5046 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 5046 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{30}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 30^2 = 5400 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 5400 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{31}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 31^2 = 5766 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 5766 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{32}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 32^2 = 6144 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 6144 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{33}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 33^2 = 6534 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 6534 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{34}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 34^2 = 6936 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 6936 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{35}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 35^2 = 7350 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 7350 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{36}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 36^2 = 7776 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 7776 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{37}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 37^2 = 8214 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 8214 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{38}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 38^2 = 8664 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 8664 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{39}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 39^2 = 9126 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 9126 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{40}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 40^2 = 9600 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 9600 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{41}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 41^2 = 10086 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 10086 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{42}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 42^2 = 10584 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 10584 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{43}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 43^2 = 11094 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 11094 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{44}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 44^2 = 11616 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 11616 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{45}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 45^2 = 12150 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 12150 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{46}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 46^2 = 12696 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 12696 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{47}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 47^2 = 13254 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 13254 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{48}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 48^2 = 13824 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 13824 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{49}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 49^2 = 14406 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 14406 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{50}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 50^2 = 15000 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 15000 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{51}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 51^2 = 15606 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 15606 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{52}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 52^2 = 16224 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 16224 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{53}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 53^2 = 16854 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 16854 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{54}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 54^2 = 17496 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 17496 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{55}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 55^2 = 18150 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 18150 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{56}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 56^2 = 18816 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 18816 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{57}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 57^2 = 19494 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 19494 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in \\( \\left(x + \\dfrac{58}{x}\\right)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The power of x in the r-th term is 4 - 2r. Set it equal to 0, so r = 2.<br><br>Step 2<br><br>The coefficient is \\( C(4, 2) 58^2 = 20184 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 20184 \\)"
   }
 ]

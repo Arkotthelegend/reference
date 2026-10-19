@@ -148,5 +148,355 @@
     "type": "math_show",
     "q": "Find the derivative of \\( y = \\frac{\\ln x}{x^2} \\).",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the quotient rule: \\( \\frac{d}{dx}\\left(\\frac{u}{v}\\right) = \\frac{v \\frac{du}{dx} - u \\frac{dv}{dx}}{v^2} \\).<br><br>Let \\( u = \\ln x \\) and \\( v = x^2 \\).<br><br>Then \\( \\frac{du}{dx} = \\frac{1}{x} \\) and \\( \\frac{dv}{dx} = 2x \\).<br><br>Step 2<br><br>Substitute into the quotient rule formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{x^2(1/x) - \\ln x(2x)}{(x^2)^2} = \\frac{x - 2x \\ln x}{x^4} \\)</div><br><br>Step 3<br><br>Simplify the expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{dy}{dx} = \\frac{1 - 2\\ln x}{x^3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1 - 2\\ln x}{x^3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = e^{1x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of e^{kx} is k e^{kx}.<br><br>Step 2<br><br>Here k = 1.<br><br><strong>Final Answer:</strong><br><br>\\( 1e^{1x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the domain of \\( y = \\ln(x - 3) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of a logarithm must be positive.<br><br>Step 2<br><br>\\( x - 3 > 0 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x > 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 4) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 2x, so divide 2x by x² + 4.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = e^{5x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of e^{kx} is k e^{kx}.<br><br>Step 2<br><br>Here k = 5.<br><br><strong>Final Answer:</strong><br><br>\\( 5e^{5x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the domain of \\( y = \\ln(x - 2) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of a logarithm must be positive.<br><br>Step 2<br><br>\\( x - 2 > 0 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x > 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 2) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 2x, so divide 2x by x² + 2.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = e^{3x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of e^{kx} is k e^{kx}.<br><br>Step 2<br><br>Here k = 3.<br><br><strong>Final Answer:</strong><br><br>\\( 3e^{3x} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the domain of \\( y = \\ln(x - 1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of a logarithm must be positive.<br><br>Step 2<br><br>\\( x - 1 > 0 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x > 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 6) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 2x, so divide 2x by x² + 6.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 6} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the domain of \\( y = \\ln(x - 5) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of a logarithm must be positive.<br><br>Step 2<br><br>\\( x - 5 > 0 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x > 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the domain of \\( y = \\ln(x - 4) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The argument of a logarithm must be positive.<br><br>Step 2<br><br>\\( x - 4 > 0 \\).<br><br><strong>Final Answer:</strong><br><br>\\( x > 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 1} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 1} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 3) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 3} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 5) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 7) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 7} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 7} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 8) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 8} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 8} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 9) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 9} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 9} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 10) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 10} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 10} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 11) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 11} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 11} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 12) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 12} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 12} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 13) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 13} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 13} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 14) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 14} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 14} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 15) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 15} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 15} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 16) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 16} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 16} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 17) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 17} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 17} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 18) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 18} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 18} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 19) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 19} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 19} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 20) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 20} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 20} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 21) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 21} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 21} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 22) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 22} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 22} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 23) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 23} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 23} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 24) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 24} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 24} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 25) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 25} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 25} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 26) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 26} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 26} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 27) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 27} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 27} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 28) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 28} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 28} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 29) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 29} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 29} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 30) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 30} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 30} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 31) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 31} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 31} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 32) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 32} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 32} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 33) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 33} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 33} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 34) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 34} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 34} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 35) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 35} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 35} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 36) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 36} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 36} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 37) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 37} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 37} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 38) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 38} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 38} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 39) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 39} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 39} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 40) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 40} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 40} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 41) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 41} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 41} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 42) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 42} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 42} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 43) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 43} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 43} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 44) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 44} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 44} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 45) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 45} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 45} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 46) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 46} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 46} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 47) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 47} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 47} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 48) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 48} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 48} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 49) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 49} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 49} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 50) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 50} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 50} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 51) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 51} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 51} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 52) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 52} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 52} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 53) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 53} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 53} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 54) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 54} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 54} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 55) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 55} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 55} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 56) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 56} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 56} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 57) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 57} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 57} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 58) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 58} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 58} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 59) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 59} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 59} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 60) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 60} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 60} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 61) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 61} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 61} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the derivative of \\( y = \\ln(x^2 + 62) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The derivative of ln(u) is u'/u.<br><br>Step 2<br><br>Here u' = 2x, so the derivative is \\( \\frac{2x}{x^2 + 62} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2x}{x^2 + 62} \\)"
   }
 ]

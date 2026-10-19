@@ -148,5 +148,355 @@
     "type": "math_show",
     "q": "The first and fourth terms of a G.P. are \\( 8 \\) and \\( 1 \\) respectively. Find \\( S_n \\) and the sum to infinity of the progression.",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 8 \\) and \\( ar^3 = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 8r^3 = 1 \\implies r^3 = \\frac{1}{8} \\implies r = \\frac{1}{2} \\)</div><br><br>Step 2<br><br>The sum of the first \\( n \\) terms is<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S_n = \\frac{8\\left(1 - \\left(\\frac{1}{2}\\right)^n\\right)}{1 - \\frac{1}{2}} = 16\\left(1 - \\frac{1}{2^n}\\right) \\)</div><br><br>Step 3<br><br>Since \\( |r| = \\dfrac{1}{2} < 1 \\),<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( S = \\frac{8}{1 - \\frac{1}{2}} = 16 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( S_n = 16\\left(1 - 2^{-n}\\right),\\ S = 16 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 8th term of the arithmetic progression -3, -1, 1, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is -3 and the common difference is 2.<br><br>Step 2<br><br>\\( u_{8} = -3 + 7 \\times 2 = 11 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 11 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of the first 7 terms of the arithmetic progression 5, 9, 13, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( S_n = \\frac{n}{2}[2a + (n-1)d] \\).<br><br>Step 2<br><br>\\( S_{7} = \\frac{7}{2}[2\\cdot5 + 6\\cdot4] = 119 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 119 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert three arithmetic means between 5 and 25.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 4 equal steps from 5 to 25.<br><br>Step 2<br><br>The common difference is \\( \\frac{25 - 5}{4} = 5 \\).<br><br>Step 3<br><br>The means are 10, 15, 20.<br><br><strong>Final Answer:</strong><br><br>\\( 10, 15, 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 25 and 36.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{25 \\times 36} = 30 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 30 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 12th term of the arithmetic progression 1, 7, 13, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is 1 and the common difference is 6.<br><br>Step 2<br><br>\\( u_{12} = 1 + 11 \\times 6 = 67 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 67 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of the first 11 terms of the arithmetic progression 9, 13, 17, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( S_n = \\frac{n}{2}[2a + (n-1)d] \\).<br><br>Step 2<br><br>\\( S_{11} = \\frac{11}{2}[2\\cdot9 + 10\\cdot4] = 319 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 319 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert three arithmetic means between 9 and 29.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 4 equal steps from 9 to 29.<br><br>Step 2<br><br>The common difference is \\( \\frac{29 - 9}{4} = 5 \\).<br><br>Step 3<br><br>The means are 14, 19, 24.<br><br><strong>Final Answer:</strong><br><br>\\( 14, 19, 24 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 4 and 16.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{4 \\times 16} = 8 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 16th term of the arithmetic progression 5, 9, 13, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is 5 and the common difference is 4.<br><br>Step 2<br><br>\\( u_{16} = 5 + 15 \\times 4 = 65 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 65 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of the first 7 terms of the arithmetic progression 7, 11, 15, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( S_n = \\frac{n}{2}[2a + (n-1)d] \\).<br><br>Step 2<br><br>\\( S_{7} = \\frac{7}{2}[2\\cdot7 + 6\\cdot4] = 133 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 133 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert three arithmetic means between 5 and 33.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 4 equal steps from 5 to 33.<br><br>Step 2<br><br>The common difference is \\( \\frac{33 - 5}{4} = 7 \\).<br><br>Step 3<br><br>The means are 12, 19, 26.<br><br><strong>Final Answer:</strong><br><br>\\( 12, 19, 26 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 36 and 64.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{36 \\times 64} = 48 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 48 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 10th term of the arithmetic progression -1, 1, 3, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is -1 and the common difference is 2.<br><br>Step 2<br><br>\\( u_{10} = -1 + 9 \\times 2 = 17 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 17 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of the first 11 terms of the arithmetic progression 5, 9, 13, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( S_n = \\frac{n}{2}[2a + (n-1)d] \\).<br><br>Step 2<br><br>\\( S_{11} = \\frac{11}{2}[2\\cdot5 + 10\\cdot4] = 275 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 275 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert three arithmetic means between 9 and 37.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 4 equal steps from 9 to 37.<br><br>Step 2<br><br>The common difference is \\( \\frac{37 - 9}{4} = 7 \\).<br><br>Step 3<br><br>The means are 16, 23, 30.<br><br><strong>Final Answer:</strong><br><br>\\( 16, 23, 30 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 9 and 36.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{9 \\times 36} = 18 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 18 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 14th term of the arithmetic progression 3, 9, 15, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is 3 and the common difference is 6.<br><br>Step 2<br><br>\\( u_{14} = 3 + 13 \\times 6 = 81 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 81 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of the first 7 terms of the arithmetic progression 9, 13, 17, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( S_n = \\frac{n}{2}[2a + (n-1)d] \\).<br><br>Step 2<br><br>\\( S_{7} = \\frac{7}{2}[2\\cdot9 + 6\\cdot4] = 147 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 147 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 49 and 16.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{49 \\times 16} = 28 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 28 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 8th term of the arithmetic progression -3, 1, 5, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is -3 and the common difference is 4.<br><br>Step 2<br><br>\\( u_{8} = -3 + 7 \\times 4 = 25 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 25 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the sum of the first 11 terms of the arithmetic progression 7, 11, 15, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( S_n = \\frac{n}{2}[2a + (n-1)d] \\).<br><br>Step 2<br><br>\\( S_{11} = \\frac{11}{2}[2\\cdot7 + 10\\cdot4] = 297 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 297 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 16 and 64.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{16 \\times 64} = 32 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 32 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 12th term of the arithmetic progression 1, 3, 5, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is 1 and the common difference is 2.<br><br>Step 2<br><br>\\( u_{12} = 1 + 11 \\times 2 = 23 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 23 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 64 and 36.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{64 \\times 36} = 48 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 48 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 16th term of the arithmetic progression 5, 11, 17, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is 5 and the common difference is 6.<br><br>Step 2<br><br>\\( u_{16} = 5 + 15 \\times 6 = 95 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 95 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert three arithmetic means between 9 and 21.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 4 equal steps from 9 to 21.<br><br>Step 2<br><br>The common difference is \\( \\frac{21 - 9}{4} = 3 \\).<br><br>Step 3<br><br>The means are 12, 15, 18.<br><br><strong>Final Answer:</strong><br><br>\\( 12, 15, 18 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 25 and 16.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{25 \\times 16} = 20 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 10th term of the arithmetic progression -1, 3, 7, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is -1 and the common difference is 4.<br><br>Step 2<br><br>\\( u_{10} = -1 + 9 \\times 4 = 35 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 35 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 4 and 64.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{4 \\times 64} = 16 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 16 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 14th term of the arithmetic progression 3, 5, 7, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is 3 and the common difference is 2.<br><br>Step 2<br><br>\\( u_{14} = 3 + 13 \\times 2 = 29 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 29 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 36 and 36.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{36 \\times 36} = 36 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 36 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 8th term of the arithmetic progression -3, 3, 9, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is -3 and the common difference is 6.<br><br>Step 2<br><br>\\( u_{8} = -3 + 7 \\times 6 = 39 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 39 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 9 and 16.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{9 \\times 16} = 12 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 12th term of the arithmetic progression 1, 5, 9, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is 1 and the common difference is 4.<br><br>Step 2<br><br>\\( u_{12} = 1 + 11 \\times 4 = 45 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 45 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 49 and 64.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{49 \\times 64} = 56 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 56 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 16th term of the arithmetic progression 5, 7, 9, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is 5 and the common difference is 2.<br><br>Step 2<br><br>\\( u_{16} = 5 + 15 \\times 2 = 35 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 35 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 16 and 36.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{16 \\times 36} = 24 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 24 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 10th term of the arithmetic progression -1, 5, 11, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is -1 and the common difference is 6.<br><br>Step 2<br><br>\\( u_{10} = -1 + 9 \\times 6 = 53 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 53 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 64 and 16.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{64 \\times 16} = 32 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 32 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the 14th term of the arithmetic progression 3, 7, 11, …",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first term is 3 and the common difference is 4.<br><br>Step 2<br><br>\\( u_{14} = 3 + 13 \\times 4 = 55 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 55 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 25 and 64.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{25 \\times 64} = 40 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 40 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert three arithmetic means between 9 and 25.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 4 equal steps from 9 to 25.<br><br>Step 2<br><br>The common difference is \\( \\frac{25 - 9}{4} = 4 \\).<br><br>Step 3<br><br>The means are 13, 17, 21.<br><br><strong>Final Answer:</strong><br><br>\\( 13, 17, 21 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 4 and 36.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{4 \\times 36} = 12 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert three arithmetic means between 5 and 29.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 4 equal steps from 5 to 29.<br><br>Step 2<br><br>The common difference is \\( \\frac{29 - 5}{4} = 6 \\).<br><br>Step 3<br><br>The means are 11, 17, 23.<br><br><strong>Final Answer:</strong><br><br>\\( 11, 17, 23 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 36 and 16.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{36 \\times 16} = 24 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 24 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert three arithmetic means between 9 and 33.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 4 equal steps from 9 to 33.<br><br>Step 2<br><br>The common difference is \\( \\frac{33 - 9}{4} = 6 \\).<br><br>Step 3<br><br>The means are 15, 21, 27.<br><br><strong>Final Answer:</strong><br><br>\\( 15, 21, 27 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 9 and 64.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{9 \\times 64} = 24 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 24 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert three arithmetic means between 5 and 37.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 4 equal steps from 5 to 37.<br><br>Step 2<br><br>The common difference is \\( \\frac{37 - 5}{4} = 8 \\).<br><br>Step 3<br><br>The means are 13, 21, 29.<br><br><strong>Final Answer:</strong><br><br>\\( 13, 21, 29 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 49 and 36.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{49 \\times 36} = 42 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 42 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 16 and 16.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{16 \\times 16} = 16 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 16 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the geometric mean of 64 and 64.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The geometric mean of two positive numbers is the square root of their product.<br><br>Step 2<br><br>\\( \\sqrt{64 \\times 64} = 64 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 64 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert three arithmetic means between 5 and 21.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 4 equal steps from 5 to 21.<br><br>Step 2<br><br>The common difference is \\( \\frac{21 - 5}{4} = 4 \\).<br><br>Step 3<br><br>The means are 9, 13, 17.<br><br><strong>Final Answer:</strong><br><br>\\( 9, 13, 17 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 1 and 10.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 1 to 10.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 4 and 7.<br><br><strong>Final Answer:</strong><br><br>\\( 4, 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 2 and 11.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 2 to 11.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 5 and 8.<br><br><strong>Final Answer:</strong><br><br>\\( 5, 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 3 and 12.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 3 to 12.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 6 and 9.<br><br><strong>Final Answer:</strong><br><br>\\( 6, 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 4 and 13.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 4 to 13.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 7 and 10.<br><br><strong>Final Answer:</strong><br><br>\\( 7, 10 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 5 and 14.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 5 to 14.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 8 and 11.<br><br><strong>Final Answer:</strong><br><br>\\( 8, 11 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 6 and 15.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 6 to 15.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 9 and 12.<br><br><strong>Final Answer:</strong><br><br>\\( 9, 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 7 and 16.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 7 to 16.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 10 and 13.<br><br><strong>Final Answer:</strong><br><br>\\( 10, 13 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 8 and 17.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 8 to 17.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 11 and 14.<br><br><strong>Final Answer:</strong><br><br>\\( 11, 14 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 9 and 18.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 9 to 18.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 12 and 15.<br><br><strong>Final Answer:</strong><br><br>\\( 12, 15 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 10 and 19.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 10 to 19.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 13 and 16.<br><br><strong>Final Answer:</strong><br><br>\\( 13, 16 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 11 and 20.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 11 to 20.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 14 and 17.<br><br><strong>Final Answer:</strong><br><br>\\( 14, 17 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 12 and 21.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 12 to 21.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 15 and 18.<br><br><strong>Final Answer:</strong><br><br>\\( 15, 18 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 13 and 22.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 13 to 22.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 16 and 19.<br><br><strong>Final Answer:</strong><br><br>\\( 16, 19 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 14 and 23.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 14 to 23.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 17 and 20.<br><br><strong>Final Answer:</strong><br><br>\\( 17, 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 15 and 24.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 15 to 24.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 18 and 21.<br><br><strong>Final Answer:</strong><br><br>\\( 18, 21 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 16 and 25.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 16 to 25.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 19 and 22.<br><br><strong>Final Answer:</strong><br><br>\\( 19, 22 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 17 and 26.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 17 to 26.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 20 and 23.<br><br><strong>Final Answer:</strong><br><br>\\( 20, 23 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Insert two arithmetic means between 18 and 27.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 3 equal steps from 18 to 27.<br><br>Step 2<br><br>The common difference is \\( \\frac{9}{3} = 3 \\).<br><br>Step 3<br><br>The means are 21 and 24.<br><br><strong>Final Answer:</strong><br><br>\\( 21, 24 \\)"
   }
 ]

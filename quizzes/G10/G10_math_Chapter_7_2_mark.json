@@ -108,5 +108,355 @@
     "type": "math_show",
     "q": "A bag contains 3 red, 4 blue, and 3 green balls. Two balls are drawn with replacement. Find the probability of getting two blue balls.",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the total number of balls and the probability of drawing a blue ball:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n(S) = 3 + 4 + 3 = 10, \\quad P(\\text{blue}) = \\frac{4}{10} = \\frac{2}{5} \\)</div><br><br>Step 2<br><br>Since the balls are drawn with replacement, the events are independent:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( P(\\text{two blue}) = \\frac{2}{5} \\times \\frac{2}{5} = \\frac{4}{25} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{25} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 2 red, 1 green, and 2 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 5.<br><br>Step 2<br><br>\\( P = \\frac{1}{5} = \\frac{1}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two fair dice are thrown. Find the probability that the sum of the numbers on the top faces is 4.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 6 × 6 = 36 equally likely outcomes.<br><br>Step 2<br><br>There are 3 outcomes whose sum is 4.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{12} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 4 white balls and 5 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{5}{9} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{1}{2} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{18} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{1}{5} \\). In a period of 13 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{1}{5} \\times 13 = \\frac{13}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{13}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 6 red, 5 green, and 5 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 16.<br><br>Step 2<br><br>\\( P = \\frac{5}{16} = \\frac{5}{16} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{16} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two fair dice are thrown. Find the probability that the sum of the numbers on the top faces is 8.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 6 × 6 = 36 equally likely outcomes.<br><br>Step 2<br><br>There are 5 outcomes whose sum is 8.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{36} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 3 white balls and 3 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{1}{2} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{2}{5} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{2}{5} \\). In a period of 17 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{2}{5} \\times 17 = \\frac{34}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{34}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 4 red, 4 green, and 3 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 11.<br><br>Step 2<br><br>\\( P = \\frac{4}{11} = \\frac{4}{11} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{11} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two fair dice are thrown. Find the probability that the sum of the numbers on the top faces is 12.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 6 × 6 = 36 equally likely outcomes.<br><br>Step 2<br><br>There are 1 outcomes whose sum is 12.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{36} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 2 white balls and 7 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{7}{9} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{3}{4} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{7}{12} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{3}{5} \\). In a period of 21 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{3}{5} \\times 21 = \\frac{63}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{63}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 2 red, 3 green, and 6 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 11.<br><br>Step 2<br><br>\\( P = \\frac{3}{11} = \\frac{3}{11} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{11} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two fair dice are thrown. Find the probability that the sum of the numbers on the top faces is 6.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 6 × 6 = 36 equally likely outcomes.<br><br>Step 2<br><br>There are 5 outcomes whose sum is 6.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{36} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 6 white balls and 5 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{5}{11} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{2}{5} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{11} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{1}{5} \\). In a period of 10 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{1}{5} \\times 10 = 2 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 6 red, 2 green, and 4 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 12.<br><br>Step 2<br><br>\\( P = \\frac{2}{12} = \\frac{1}{6} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{6} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Two fair dice are thrown. Find the probability that the sum of the numbers on the top faces is 10.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 6 × 6 = 36 equally likely outcomes.<br><br>Step 2<br><br>There are 3 outcomes whose sum is 10.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{12} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 5 white balls and 3 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{3}{8} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{2}{7} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{28} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{2}{5} \\). In a period of 14 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{2}{5} \\times 14 = \\frac{28}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{28}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 4 red, 1 green, and 2 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 7.<br><br>Step 2<br><br>\\( P = \\frac{1}{7} = \\frac{1}{7} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{7} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 4 white balls and 7 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{7}{11} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{3}{5} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{21}{55} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{3}{5} \\). In a period of 18 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{3}{5} \\times 18 = \\frac{54}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{54}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 2 red, 5 green, and 5 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 12.<br><br>Step 2<br><br>\\( P = \\frac{5}{12} = \\frac{5}{12} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{12} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 3 white balls and 5 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{5}{8} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{4}{7} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{14} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{1}{5} \\). In a period of 22 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{1}{5} \\times 22 = \\frac{22}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{22}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 6 red, 4 green, and 3 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 13.<br><br>Step 2<br><br>\\( P = \\frac{4}{13} = \\frac{4}{13} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{13} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 2 white balls and 3 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{3}{5} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{1}{2} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{10} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{2}{5} \\). In a period of 11 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{2}{5} \\times 11 = \\frac{22}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{22}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 4 red, 3 green, and 6 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 13.<br><br>Step 2<br><br>\\( P = \\frac{3}{13} = \\frac{3}{13} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{13} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 6 white balls and 7 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{7}{13} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{1}{2} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{7}{26} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{3}{5} \\). In a period of 15 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{3}{5} \\times 15 = 9 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 2 red, 2 green, and 4 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 8.<br><br>Step 2<br><br>\\( P = \\frac{2}{8} = \\frac{1}{4} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 5 white balls and 5 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{1}{2} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{4}{9} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{9} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{1}{5} \\). In a period of 19 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{1}{5} \\times 19 = \\frac{19}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{19}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 6 red, 1 green, and 2 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 9.<br><br>Step 2<br><br>\\( P = \\frac{1}{9} = \\frac{1}{9} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{9} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 4 white balls and 3 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{3}{7} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{1}{3} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{7} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{2}{5} \\). In a period of 23 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{2}{5} \\times 23 = \\frac{46}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{46}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 4 red, 5 green, and 5 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 14.<br><br>Step 2<br><br>\\( P = \\frac{5}{14} = \\frac{5}{14} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{14} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 3 white balls and 7 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{7}{10} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{2}{3} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{7}{15} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{3}{5} \\). In a period of 12 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{3}{5} \\times 12 = \\frac{36}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{36}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 2 red, 4 green, and 3 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 9.<br><br>Step 2<br><br>\\( P = \\frac{4}{9} = \\frac{4}{9} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4}{9} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 2 white balls and 5 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{5}{7} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{2}{3} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{10}{21} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{1}{5} \\). In a period of 16 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{1}{5} \\times 16 = \\frac{16}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{16}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 6 red, 3 green, and 6 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 15.<br><br>Step 2<br><br>\\( P = \\frac{3}{15} = \\frac{1}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 6 white balls and 3 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{1}{3} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{1}{4} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{12} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{2}{5} \\). In a period of 20 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{2}{5} \\times 20 = 8 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 4 red, 2 green, and 4 blue marbles. Find the probability of drawing a green marble at random.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The total number of marbles is 10.<br><br>Step 2<br><br>\\( P = \\frac{2}{10} = \\frac{1}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "A box contains 5 white balls and 7 black balls. Two balls are drawn at random without replacement. Find the probability that both balls are black.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The first black ball has probability \\( \\frac{7}{12} \\).<br><br>Step 2<br><br>The second then has probability \\( \\frac{6}{11} \\).<br><br>Step 3<br><br>Multiply the probabilities.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{7}{22} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on any given day is \\( \\frac{3}{5} \\). In a period of 24 days, what is the expected frequency of rainy days?",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency = probability × number of days.<br><br>Step 2<br><br>\\( \\frac{3}{5} \\times 24 = \\frac{72}{5} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{72}{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{1}{5} \\). Find the expected number of rainy days in 10 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{1}{5} \\times 10 = 2 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{1}{3} \\). Find the expected number of rainy days in 11 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{1}{3} \\times 11 = \\frac{11}{3} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{11}{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{3}{7} \\). Find the expected number of rainy days in 12 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{3}{7} \\times 12 = \\frac{36}{7} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{36}{7} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{1}{2} \\). Find the expected number of rainy days in 13 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{1}{2} \\times 13 = \\frac{13}{2} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{13}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{5}{9} \\). Find the expected number of rainy days in 14 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{5}{9} \\times 14 = \\frac{70}{9} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{70}{9} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{3}{5} \\). Find the expected number of rainy days in 15 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{3}{5} \\times 15 = 9 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{7}{11} \\). Find the expected number of rainy days in 16 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{7}{11} \\times 16 = \\frac{112}{11} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{112}{11} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{2}{3} \\). Find the expected number of rainy days in 17 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{2}{3} \\times 17 = \\frac{34}{3} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{34}{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{9}{13} \\). Find the expected number of rainy days in 18 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{9}{13} \\times 18 = \\frac{162}{13} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{162}{13} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{5}{7} \\). Find the expected number of rainy days in 19 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{5}{7} \\times 19 = \\frac{95}{7} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{95}{7} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{11}{15} \\). Find the expected number of rainy days in 20 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{11}{15} \\times 20 = \\frac{44}{3} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{44}{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{3}{4} \\). Find the expected number of rainy days in 21 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{3}{4} \\times 21 = \\frac{63}{4} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{63}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{13}{17} \\). Find the expected number of rainy days in 22 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{13}{17} \\times 22 = \\frac{286}{17} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{286}{17} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{7}{9} \\). Find the expected number of rainy days in 23 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{7}{9} \\times 23 = \\frac{161}{9} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{161}{9} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{15}{19} \\). Find the expected number of rainy days in 24 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{15}{19} \\times 24 = \\frac{360}{19} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{360}{19} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{4}{5} \\). Find the expected number of rainy days in 25 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{4}{5} \\times 25 = 20 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{17}{21} \\). Find the expected number of rainy days in 26 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{17}{21} \\times 26 = \\frac{442}{21} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{442}{21} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{9}{11} \\). Find the expected number of rainy days in 27 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{9}{11} \\times 27 = \\frac{243}{11} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{243}{11} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{19}{23} \\). Find the expected number of rainy days in 28 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{19}{23} \\times 28 = \\frac{532}{23} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{532}{23} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "The probability of rain on a day is \\( \\frac{5}{6} \\). Find the expected number of rainy days in 29 days.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expected frequency equals probability times the number of days.<br><br>Step 2<br><br>\\( \\frac{5}{6} \\times 29 = \\frac{145}{6} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{145}{6} \\)"
   }
 ]

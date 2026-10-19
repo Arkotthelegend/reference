@@ -133,5 +133,355 @@
     "type": "math_show",
     "q": "Find the Cartesian equation of the plane through $A\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$, $B\\begin{pmatrix} 4 \\\\ 5 \\\\ 6 \\end{pmatrix}$, and $C\\begin{pmatrix} 7 \\\\ 8 \\\\ 10 \\end{pmatrix}$.",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find two direction vectors on the plane:<br><br>$$\\mathbf{AB} = \\begin{pmatrix} 4 - 1 \\\\ 5 - 2 \\\\ 6 - 3 \\end{pmatrix} \\\\ \\mathbf{AB} = \\begin{pmatrix} 3 \\\\ 3 \\\\ 3 \\end{pmatrix}$$<br><br>$$\\mathbf{AC} = \\begin{pmatrix} 7 - 1 \\\\ 8 - 2 \\\\ 10 - 3 \\end{pmatrix} \\\\ \\mathbf{AC} = \\begin{pmatrix} 6 \\\\ 6 \\\\ 7 \\end{pmatrix}$$<br><br>Step 2<br><br>Find the normal vector $\\mathbf{n} = \\mathbf{AB} \\times \\mathbf{AC}$:<br><br>$$\\mathbf{n} = \\begin{pmatrix} 3(7) - 3(6) \\\\ 3(6) - 3(7) \\\\ 3(6) - 3(6) \\end{pmatrix} \\\\ \\mathbf{n} = \\begin{pmatrix} 21 - 18 \\\\ 18 - 21 \\\\ 18 - 18 \\end{pmatrix} \\\\ \\mathbf{n} = \\begin{pmatrix} 3 \\\\ -3 \\\\ 0 \\end{pmatrix}$$<br><br>Simplify to $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix}$.<br><br>Step 3<br><br>Use point $A\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$ to find the equation:<br><br>$1(x - 1) - 1(y - 2) + 0(z - 3) = 0$<br><br>$x - 1 - y + 2 = 0$ \\\\ $x - y + 1 = 0$<br><br><strong>Final Answer:</strong><br><br>$x - y + 1 = 0$"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the magnitude of \\( \\mathbf{a} = 1\\mathbf{i} + 2\\mathbf{j} + 2\\mathbf{k} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( |\\mathbf{a}| = \\sqrt{1^2 + 2^2 + 2^2} \\).<br><br>Step 2<br><br>The magnitude is 3.<br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Calculate \\( \\mathbf{a} \\times \\mathbf{b} \\) for \\( \\mathbf{a} = (2, 3, 0) \\) and \\( \\mathbf{b} = (3, -1, 2) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the determinant formula for the cross product.<br><br>Step 2<br><br>The components are 6, -4, and -11.<br><br><strong>Final Answer:</strong><br><br>\\( (6, -4, -11) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Calculate the dot product of \\( \\mathbf{a} = (3, 0, 0) \\) and \\( \\mathbf{b} = (3, 2, -1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply corresponding components and add.<br><br>Step 2<br><br>3×3 + 0×2 + 0×-1 = 9.<br><br><strong>Final Answer:</strong><br><br>\\( 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the magnitude of \\( \\mathbf{a} = 4\\mathbf{i} + 4\\mathbf{j} + 7\\mathbf{k} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( |\\mathbf{a}| = \\sqrt{4^2 + 4^2 + 7^2} \\).<br><br>Step 2<br><br>The magnitude is 9.<br><br><strong>Final Answer:</strong><br><br>\\( 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Calculate \\( \\mathbf{a} \\times \\mathbf{b} \\) for \\( \\mathbf{a} = (1, 3, -1) \\) and \\( \\mathbf{b} = (3, -1, 1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the determinant formula for the cross product.<br><br>Step 2<br><br>The components are 2, -4, and -10.<br><br><strong>Final Answer:</strong><br><br>\\( (2, -4, -10) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Calculate the dot product of \\( \\mathbf{a} = (3, 0, 0) \\) and \\( \\mathbf{b} = (2, 2, -1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply corresponding components and add.<br><br>Step 2<br><br>3×2 + 0×2 + 0×-1 = 6.<br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the magnitude of \\( \\mathbf{a} = 2\\mathbf{i} + 4\\mathbf{j} + 4\\mathbf{k} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( |\\mathbf{a}| = \\sqrt{2^2 + 4^2 + 4^2} \\).<br><br>Step 2<br><br>The magnitude is 6.<br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Calculate \\( \\mathbf{a} \\times \\mathbf{b} \\) for \\( \\mathbf{a} = (4, 3, 2) \\) and \\( \\mathbf{b} = (3, -1, 4) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the determinant formula for the cross product.<br><br>Step 2<br><br>The components are 14, -10, and -13.<br><br><strong>Final Answer:</strong><br><br>\\( (14, -10, -13) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Calculate the dot product of \\( \\mathbf{a} = (3, 0, 0) \\) and \\( \\mathbf{b} = (1, 2, -1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply corresponding components and add.<br><br>Step 2<br><br>3×1 + 0×2 + 0×-1 = 3.<br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the magnitude of \\( \\mathbf{a} = 2\\mathbf{i} + 3\\mathbf{j} + 6\\mathbf{k} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( |\\mathbf{a}| = \\sqrt{2^2 + 3^2 + 6^2} \\).<br><br>Step 2<br><br>The magnitude is 7.<br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Calculate \\( \\mathbf{a} \\times \\mathbf{b} \\) for \\( \\mathbf{a} = (3, 3, 1) \\) and \\( \\mathbf{b} = (3, -1, 3) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the determinant formula for the cross product.<br><br>Step 2<br><br>The components are 10, -6, and -12.<br><br><strong>Final Answer:</strong><br><br>\\( (10, -6, -12) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Calculate the dot product of \\( \\mathbf{a} = (3, 0, 0) \\) and \\( \\mathbf{b} = (4, 2, -1) \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply corresponding components and add.<br><br>Step 2<br><br>3×4 + 0×2 + 0×-1 = 12.<br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the magnitude of \\( \\mathbf{a} = 2\\mathbf{i} + 6\\mathbf{j} + 3\\mathbf{k} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( |\\mathbf{a}| = \\sqrt{2^2 + 6^2 + 3^2} \\).<br><br>Step 2<br><br>The magnitude is 7.<br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the magnitude of \\( \\mathbf{a} = 3\\mathbf{i} + 6\\mathbf{j} + 6\\mathbf{k} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( |\\mathbf{a}| = \\sqrt{3^2 + 6^2 + 6^2} \\).<br><br>Step 2<br><br>The magnitude is 9.<br><br><strong>Final Answer:</strong><br><br>\\( 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the magnitude of \\( \\mathbf{a} = 1\\mathbf{i} + 4\\mathbf{j} + 8\\mathbf{k} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( |\\mathbf{a}| = \\sqrt{1^2 + 4^2 + 8^2} \\).<br><br>Step 2<br><br>The magnitude is 9.<br><br><strong>Final Answer:</strong><br><br>\\( 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the magnitude of \\( \\mathbf{a} = 6\\mathbf{i} + 6\\mathbf{j} + 7\\mathbf{k} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( |\\mathbf{a}| = \\sqrt{6^2 + 6^2 + 7^2} \\).<br><br>Step 2<br><br>The magnitude is 11.<br><br><strong>Final Answer:</strong><br><br>\\( 11 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (1, 0, 0) and (0, 1, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -1, 1).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -1, 1) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (2, 0, 0) and (0, 2, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -2, 4).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -2, 4) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (3, 0, 0) and (0, 3, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -3, 9).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -3, 9) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (4, 0, 0) and (0, 4, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -4, 16).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -4, 16) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (5, 0, 0) and (0, 5, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -5, 25).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -5, 25) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (6, 0, 0) and (0, 6, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -6, 36).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -6, 36) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (7, 0, 0) and (0, 7, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -7, 49).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -7, 49) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (8, 0, 0) and (0, 8, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -8, 64).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -8, 64) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (9, 0, 0) and (0, 9, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -9, 81).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -9, 81) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (10, 0, 0) and (0, 10, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -10, 100).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -10, 100) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (11, 0, 0) and (0, 11, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -11, 121).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -11, 121) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (12, 0, 0) and (0, 12, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -12, 144).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -12, 144) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (13, 0, 0) and (0, 13, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -13, 169).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -13, 169) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (14, 0, 0) and (0, 14, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -14, 196).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -14, 196) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (15, 0, 0) and (0, 15, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -15, 225).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -15, 225) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (16, 0, 0) and (0, 16, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -16, 256).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -16, 256) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (17, 0, 0) and (0, 17, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -17, 289).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -17, 289) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (18, 0, 0) and (0, 18, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -18, 324).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -18, 324) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (19, 0, 0) and (0, 19, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -19, 361).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -19, 361) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (20, 0, 0) and (0, 20, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -20, 400).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -20, 400) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (21, 0, 0) and (0, 21, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -21, 441).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -21, 441) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (22, 0, 0) and (0, 22, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -22, 484).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -22, 484) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (23, 0, 0) and (0, 23, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -23, 529).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -23, 529) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (24, 0, 0) and (0, 24, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -24, 576).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -24, 576) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (25, 0, 0) and (0, 25, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -25, 625).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -25, 625) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (26, 0, 0) and (0, 26, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -26, 676).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -26, 676) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (27, 0, 0) and (0, 27, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -27, 729).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -27, 729) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (28, 0, 0) and (0, 28, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -28, 784).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -28, 784) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (29, 0, 0) and (0, 29, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -29, 841).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -29, 841) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (30, 0, 0) and (0, 30, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -30, 900).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -30, 900) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (31, 0, 0) and (0, 31, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -31, 961).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -31, 961) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (32, 0, 0) and (0, 32, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -32, 1024).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -32, 1024) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (33, 0, 0) and (0, 33, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -33, 1089).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -33, 1089) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (34, 0, 0) and (0, 34, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -34, 1156).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -34, 1156) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (35, 0, 0) and (0, 35, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -35, 1225).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -35, 1225) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (36, 0, 0) and (0, 36, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -36, 1296).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -36, 1296) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (37, 0, 0) and (0, 37, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -37, 1369).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -37, 1369) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (38, 0, 0) and (0, 38, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -38, 1444).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -38, 1444) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (39, 0, 0) and (0, 39, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -39, 1521).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -39, 1521) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (40, 0, 0) and (0, 40, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -40, 1600).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -40, 1600) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (41, 0, 0) and (0, 41, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -41, 1681).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -41, 1681) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (42, 0, 0) and (0, 42, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -42, 1764).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -42, 1764) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (43, 0, 0) and (0, 43, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -43, 1849).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -43, 1849) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (44, 0, 0) and (0, 44, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -44, 1936).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -44, 1936) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (45, 0, 0) and (0, 45, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -45, 2025).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -45, 2025) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (46, 0, 0) and (0, 46, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -46, 2116).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -46, 2116) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (47, 0, 0) and (0, 47, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -47, 2209).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -47, 2209) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (48, 0, 0) and (0, 48, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -48, 2304).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -48, 2304) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (49, 0, 0) and (0, 49, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -49, 2401).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -49, 2401) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (50, 0, 0) and (0, 50, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -50, 2500).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -50, 2500) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (51, 0, 0) and (0, 51, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -51, 2601).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -51, 2601) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (52, 0, 0) and (0, 52, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -52, 2704).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -52, 2704) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (53, 0, 0) and (0, 53, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -53, 2809).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -53, 2809) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the cross product of (54, 0, 0) and (0, 54, 1).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the component formula for the vector product.<br><br>Step 2<br><br>The result is (0, -54, 2916).<br><br><strong>Final Answer:</strong><br><br>\\( (0, -54, 2916) \\)"
   }
 ]

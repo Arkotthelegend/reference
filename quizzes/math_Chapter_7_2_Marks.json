@@ -148,5 +148,355 @@
     "type": "math_show",
     "q": "Find the amplitude and vertical shift of the function \\( y = 3\\sin(2x) - 1 \\).",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Compare the given function with the standard form \\( y = a\\sin(bx) + k \\).<br><br>Here, \\( a = 3 \\) and \\( k = -1 \\).<br><br>Step 2<br><br>The amplitude is given by \\( |a| \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Amplitude} = |3| = 3 \\)</div><br><br>Step 3<br><br>The vertical shift is given by \\( k \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Vertical shift: } 1 \\text{ unit downward} \\)</div><br><br><strong>Final Answer:</strong><br><br>Amplitude: \\( 3 \\), Vertical shift: \\( -1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(1x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of sin(u) is cos(u) times u'.<br><br><strong>Final Answer:</strong><br><br>\\( 1\\cos(1x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\cos(x^2 + 2) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x² + 2. Then y = cos u and du/dx = 2x.<br><br>Step 2<br><br>Multiply -sin(u) by 2x.<br><br><strong>Final Answer:</strong><br><br>\\( -2x\\sin(x^2 + 2) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^{4}(3x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on a power of sine.<br><br>Step 2<br><br>The derivative is 4 sin^3(3x) times the derivative of sin(3x).<br><br><strong>Final Answer:</strong><br><br>\\( 12\\sin^{3}(3x)\\cos(3x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "If \\( y = x \\sin x + \\cos x \\), find \\( \\dfrac{dy}{dx} \\) and its value at \\( x = 0 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Differentiate with the product rule: the derivative of x sin x is sin x + x cos x.<br><br>Step 2<br><br>The derivative of cos x is -sin x, so those sine terms cancel.<br><br>Step 3<br><br>\\( dy/dx = x \\cos x \\). At x = 0 the value is 0.<br><br><strong>Final Answer:</strong><br><br>\\( 0 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(5x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of sin(u) is cos(u) times u'.<br><br><strong>Final Answer:</strong><br><br>\\( 5\\cos(5x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\cos(x^2 + 6) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x² + 6. Then y = cos u and du/dx = 2x.<br><br>Step 2<br><br>Multiply -sin(u) by 2x.<br><br><strong>Final Answer:</strong><br><br>\\( -2x\\sin(x^2 + 6) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^{4}(1x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on a power of sine.<br><br>Step 2<br><br>The derivative is 4 sin^3(1x) times the derivative of sin(1x).<br><br><strong>Final Answer:</strong><br><br>\\( 4\\sin^{3}(1x)\\cos(1x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(3x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule.<br><br>Step 2<br><br>The derivative of sin(u) is cos(u) times u'.<br><br><strong>Final Answer:</strong><br><br>\\( 3\\cos(3x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\cos(x^2 + 4) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let u = x² + 4. Then y = cos u and du/dx = 2x.<br><br>Step 2<br><br>Multiply -sin(u) by 2x.<br><br><strong>Final Answer:</strong><br><br>\\( -2x\\sin(x^2 + 4) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin^{4}(5x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the chain rule on a power of sine.<br><br>Step 2<br><br>The derivative is 4 sin^3(5x) times the derivative of sin(5x).<br><br><strong>Final Answer:</strong><br><br>\\( 20\\sin^{3}(5x)\\cos(5x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(2x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 2.<br><br><strong>Final Answer:</strong><br><br>\\( 2\\cos(2x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(4x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 4.<br><br><strong>Final Answer:</strong><br><br>\\( 4\\cos(4x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(6x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 6.<br><br><strong>Final Answer:</strong><br><br>\\( 6\\cos(6x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(7x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 7.<br><br><strong>Final Answer:</strong><br><br>\\( 7\\cos(7x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(8x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 8.<br><br><strong>Final Answer:</strong><br><br>\\( 8\\cos(8x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(9x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 9.<br><br><strong>Final Answer:</strong><br><br>\\( 9\\cos(9x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(10x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 10.<br><br><strong>Final Answer:</strong><br><br>\\( 10\\cos(10x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(11x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 11.<br><br><strong>Final Answer:</strong><br><br>\\( 11\\cos(11x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(12x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 12.<br><br><strong>Final Answer:</strong><br><br>\\( 12\\cos(12x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(13x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 13.<br><br><strong>Final Answer:</strong><br><br>\\( 13\\cos(13x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(14x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 14.<br><br><strong>Final Answer:</strong><br><br>\\( 14\\cos(14x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(15x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 15.<br><br><strong>Final Answer:</strong><br><br>\\( 15\\cos(15x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(16x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 16.<br><br><strong>Final Answer:</strong><br><br>\\( 16\\cos(16x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(17x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 17.<br><br><strong>Final Answer:</strong><br><br>\\( 17\\cos(17x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(18x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 18.<br><br><strong>Final Answer:</strong><br><br>\\( 18\\cos(18x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(19x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 19.<br><br><strong>Final Answer:</strong><br><br>\\( 19\\cos(19x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(20x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 20.<br><br><strong>Final Answer:</strong><br><br>\\( 20\\cos(20x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(21x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 21.<br><br><strong>Final Answer:</strong><br><br>\\( 21\\cos(21x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(22x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 22.<br><br><strong>Final Answer:</strong><br><br>\\( 22\\cos(22x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(23x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 23.<br><br><strong>Final Answer:</strong><br><br>\\( 23\\cos(23x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(24x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 24.<br><br><strong>Final Answer:</strong><br><br>\\( 24\\cos(24x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(25x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 25.<br><br><strong>Final Answer:</strong><br><br>\\( 25\\cos(25x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(26x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 26.<br><br><strong>Final Answer:</strong><br><br>\\( 26\\cos(26x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(27x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 27.<br><br><strong>Final Answer:</strong><br><br>\\( 27\\cos(27x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(28x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 28.<br><br><strong>Final Answer:</strong><br><br>\\( 28\\cos(28x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(29x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 29.<br><br><strong>Final Answer:</strong><br><br>\\( 29\\cos(29x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(30x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 30.<br><br><strong>Final Answer:</strong><br><br>\\( 30\\cos(30x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(31x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 31.<br><br><strong>Final Answer:</strong><br><br>\\( 31\\cos(31x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(32x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 32.<br><br><strong>Final Answer:</strong><br><br>\\( 32\\cos(32x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(33x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 33.<br><br><strong>Final Answer:</strong><br><br>\\( 33\\cos(33x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(34x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 34.<br><br><strong>Final Answer:</strong><br><br>\\( 34\\cos(34x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(35x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 35.<br><br><strong>Final Answer:</strong><br><br>\\( 35\\cos(35x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(36x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 36.<br><br><strong>Final Answer:</strong><br><br>\\( 36\\cos(36x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(37x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 37.<br><br><strong>Final Answer:</strong><br><br>\\( 37\\cos(37x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(38x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 38.<br><br><strong>Final Answer:</strong><br><br>\\( 38\\cos(38x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(39x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 39.<br><br><strong>Final Answer:</strong><br><br>\\( 39\\cos(39x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(40x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 40.<br><br><strong>Final Answer:</strong><br><br>\\( 40\\cos(40x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(41x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 41.<br><br><strong>Final Answer:</strong><br><br>\\( 41\\cos(41x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(42x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 42.<br><br><strong>Final Answer:</strong><br><br>\\( 42\\cos(42x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(43x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 43.<br><br><strong>Final Answer:</strong><br><br>\\( 43\\cos(43x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(44x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 44.<br><br><strong>Final Answer:</strong><br><br>\\( 44\\cos(44x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(45x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 45.<br><br><strong>Final Answer:</strong><br><br>\\( 45\\cos(45x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(46x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 46.<br><br><strong>Final Answer:</strong><br><br>\\( 46\\cos(46x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(47x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 47.<br><br><strong>Final Answer:</strong><br><br>\\( 47\\cos(47x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(48x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 48.<br><br><strong>Final Answer:</strong><br><br>\\( 48\\cos(48x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(49x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 49.<br><br><strong>Final Answer:</strong><br><br>\\( 49\\cos(49x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(50x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 50.<br><br><strong>Final Answer:</strong><br><br>\\( 50\\cos(50x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(51x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 51.<br><br><strong>Final Answer:</strong><br><br>\\( 51\\cos(51x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(52x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 52.<br><br><strong>Final Answer:</strong><br><br>\\( 52\\cos(52x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(53x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 53.<br><br><strong>Final Answer:</strong><br><br>\\( 53\\cos(53x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(54x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 54.<br><br><strong>Final Answer:</strong><br><br>\\( 54\\cos(54x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(55x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 55.<br><br><strong>Final Answer:</strong><br><br>\\( 55\\cos(55x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(56x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 56.<br><br><strong>Final Answer:</strong><br><br>\\( 56\\cos(56x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(57x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 57.<br><br><strong>Final Answer:</strong><br><br>\\( 57\\cos(57x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(58x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 58.<br><br><strong>Final Answer:</strong><br><br>\\( 58\\cos(58x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(59x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 59.<br><br><strong>Final Answer:</strong><br><br>\\( 59\\cos(59x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(60x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 60.<br><br><strong>Final Answer:</strong><br><br>\\( 60\\cos(60x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(61x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 61.<br><br><strong>Final Answer:</strong><br><br>\\( 61\\cos(61x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(62x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 62.<br><br><strong>Final Answer:</strong><br><br>\\( 62\\cos(62x) \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Differentiate \\( y = \\sin(63x) \\) with respect to x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the chain rule.<br><br>Step 2<br><br>The derivative of the inside is 63.<br><br><strong>Final Answer:</strong><br><br>\\( 63\\cos(63x) \\)"
   }
 ]

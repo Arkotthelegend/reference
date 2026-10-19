@@ -123,5 +123,355 @@
     "type": "math_show",
     "q": "Evaluate the limit \\( \\lim_{x \\to 1} \\frac{x^3 - 1}{x^2 - 1} \\).",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Factor both the numerator (difference of cubes) and the denominator (difference of squares):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 1} \\frac{(x - 1)(x^2 + x + 1)}{(x - 1)(x + 1)} \\)</div><br><br>Step 2<br><br>Cancel the common factor \\( (x - 1) \\) since \\( x \\neq 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\lim_{x \\to 1} \\frac{x^2 + x + 1}{x + 1} \\)</div><br><br>Step 3<br><br>Substitute \\( x = 1 \\) into the simplified expression:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1^2 + 1 + 1}{1 + 1} = \\frac{3}{2} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{3}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 1} \\dfrac{x^{2} - 1}{x - 1} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 1, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^2 at x = 1.<br><br>Step 3<br><br>The value is 2.<br><br><strong>Final Answer:</strong><br><br>\\( 2 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 0} \\dfrac{\\sqrt{x + 4} - 2}{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply by the conjugate.<br><br>Step 2<br><br>The limit simplifies to \\( \\frac{1}{2\\cdot2} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{4x^2 - 3x + 3}{8x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find \\( f'(5) \\) for \\( f(x) = x^2 - 3x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(5) = \\lim_{h \\to 0} \\frac{f(5+h) - f(5)}{h} \\).<br><br>Step 2<br><br>f(5+h) - f(5) = (2·5 - 3)h + h².<br><br>Step 3<br><br>The limit is 7.<br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 5} \\dfrac{x^{3} - 125}{x - 5} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 5, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^3 at x = 5.<br><br>Step 3<br><br>The value is 75.<br><br><strong>Final Answer:</strong><br><br>\\( 75 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 0} \\dfrac{\\sqrt{x + 36} - 6}{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply by the conjugate.<br><br>Step 2<br><br>The limit simplifies to \\( \\frac{1}{2\\cdot6} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{12} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{2x^2 - 2x + 3}{4x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find \\( f'(4) \\) for \\( f(x) = x^2 - 3x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(4) = \\lim_{h \\to 0} \\frac{f(4+h) - f(4)}{h} \\).<br><br>Step 2<br><br>f(4+h) - f(4) = (2·4 - 3)h + h².<br><br>Step 3<br><br>The limit is 5.<br><br><strong>Final Answer:</strong><br><br>\\( 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 4} \\dfrac{x^{4} - 256}{x - 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 4, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^4 at x = 4.<br><br>Step 3<br><br>The value is 256.<br><br><strong>Final Answer:</strong><br><br>\\( 256 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 0} \\dfrac{\\sqrt{x + 16} - 4}{x} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply by the conjugate.<br><br>Step 2<br><br>The limit simplifies to \\( \\frac{1}{2\\cdot4} \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{8} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{6x^2 - 1x + 3}{12x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find \\( f'(3) \\) for \\( f(x) = x^2 - 3x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(3) = \\lim_{h \\to 0} \\frac{f(3+h) - f(3)}{h} \\).<br><br>Step 2<br><br>f(3+h) - f(3) = (2·3 - 3)h + h².<br><br>Step 3<br><br>The limit is 3.<br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 3} \\dfrac{x^{2} - 9}{x - 3} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 3, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^2 at x = 3.<br><br>Step 3<br><br>The value is 6.<br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{4x^2 - 5x + 3}{8x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find \\( f'(2) \\) for \\( f(x) = x^2 - 3x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(2) = \\lim_{h \\to 0} \\frac{f(2+h) - f(2)}{h} \\).<br><br>Step 2<br><br>f(2+h) - f(2) = (2·2 - 3)h + h².<br><br>Step 3<br><br>The limit is 1.<br><br><strong>Final Answer:</strong><br><br>\\( 1 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 2} \\dfrac{x^{3} - 8}{x - 2} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 2, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^3 at x = 2.<br><br>Step 3<br><br>The value is 12.<br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{2x^2 - 4x + 3}{4x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find \\( f'(6) \\) for \\( f(x) = x^2 - 3x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>\\( f'(6) = \\lim_{h \\to 0} \\frac{f(6+h) - f(6)}{h} \\).<br><br>Step 2<br><br>f(6+h) - f(6) = (2·6 - 3)h + h².<br><br>Step 3<br><br>The limit is 9.<br><br><strong>Final Answer:</strong><br><br>\\( 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 1} \\dfrac{x^{4} - 1}{x - 1} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 1, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^4 at x = 1.<br><br>Step 3<br><br>The value is 4.<br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{6x^2 - 3x + 3}{12x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 5} \\dfrac{x^{2} - 25}{x - 5} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 5, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^2 at x = 5.<br><br>Step 3<br><br>The value is 10.<br><br><strong>Final Answer:</strong><br><br>\\( 10 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{4x^2 - 2x + 3}{8x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 4} \\dfrac{x^{3} - 64}{x - 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 4, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^3 at x = 4.<br><br>Step 3<br><br>The value is 48.<br><br><strong>Final Answer:</strong><br><br>\\( 48 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{2x^2 - 1x + 3}{4x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 3} \\dfrac{x^{4} - 81}{x - 3} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 3, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^4 at x = 3.<br><br>Step 3<br><br>The value is 108.<br><br><strong>Final Answer:</strong><br><br>\\( 108 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{6x^2 - 5x + 3}{12x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 2} \\dfrac{x^{2} - 4}{x - 2} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 2, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^2 at x = 2.<br><br>Step 3<br><br>The value is 4.<br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{4x^2 - 4x + 3}{8x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 1} \\dfrac{x^{3} - 1}{x - 1} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 1, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^3 at x = 1.<br><br>Step 3<br><br>The value is 3.<br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{2x^2 - 3x + 3}{4x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 5} \\dfrac{x^{4} - 625}{x - 5} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 5, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^4 at x = 5.<br><br>Step 3<br><br>The value is 500.<br><br><strong>Final Answer:</strong><br><br>\\( 500 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{6x^2 - 2x + 3}{12x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 4} \\dfrac{x^{2} - 16}{x - 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 4, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^2 at x = 4.<br><br>Step 3<br><br>The value is 8.<br><br><strong>Final Answer:</strong><br><br>\\( 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{4x^2 - 1x + 3}{8x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 3} \\dfrac{x^{3} - 27}{x - 3} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 3, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^3 at x = 3.<br><br>Step 3<br><br>The value is 27.<br><br><strong>Final Answer:</strong><br><br>\\( 27 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{2x^2 - 5x + 3}{4x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to 2} \\dfrac{x^{4} - 16}{x - 2} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The numerator and denominator are both zero at x = 2, so factor the numerator.<br><br>Step 2<br><br>The limit equals the derivative of x^4 at x = 2.<br><br>Step 3<br><br>The value is 32.<br><br><strong>Final Answer:</strong><br><br>\\( 32 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Evaluate \\( \\lim_{x \\to \\infty} \\dfrac{6x^2 - 4x + 3}{12x^2 + 4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Divide the numerator and the denominator by x².<br><br>Step 2<br><br>Every term with a remaining power of x in the denominator tends to 0.<br><br>Step 3<br><br>The limit is the ratio of the leading coefficients, \\frac{1}{2}.<br><br><strong>Final Answer:</strong><br><br>\\( \\frac{1}{2} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 2x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 2)h + h².<br><br>Step 3<br><br>The limit is 4.<br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 3x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 3)h + h².<br><br>Step 3<br><br>The limit is 5.<br><br><strong>Final Answer:</strong><br><br>\\( 5 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 4x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 4)h + h².<br><br>Step 3<br><br>The limit is 6.<br><br><strong>Final Answer:</strong><br><br>\\( 6 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 5x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 5)h + h².<br><br>Step 3<br><br>The limit is 7.<br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 6x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 6)h + h².<br><br>Step 3<br><br>The limit is 8.<br><br><strong>Final Answer:</strong><br><br>\\( 8 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 7x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 7)h + h².<br><br>Step 3<br><br>The limit is 9.<br><br><strong>Final Answer:</strong><br><br>\\( 9 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 8x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 8)h + h².<br><br>Step 3<br><br>The limit is 10.<br><br><strong>Final Answer:</strong><br><br>\\( 10 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 9x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 9)h + h².<br><br>Step 3<br><br>The limit is 11.<br><br><strong>Final Answer:</strong><br><br>\\( 11 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 10x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 10)h + h².<br><br>Step 3<br><br>The limit is 12.<br><br><strong>Final Answer:</strong><br><br>\\( 12 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 11x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 11)h + h².<br><br>Step 3<br><br>The limit is 13.<br><br><strong>Final Answer:</strong><br><br>\\( 13 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 12x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 12)h + h².<br><br>Step 3<br><br>The limit is 14.<br><br><strong>Final Answer:</strong><br><br>\\( 14 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 13x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 13)h + h².<br><br>Step 3<br><br>The limit is 15.<br><br><strong>Final Answer:</strong><br><br>\\( 15 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 14x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 14)h + h².<br><br>Step 3<br><br>The limit is 16.<br><br><strong>Final Answer:</strong><br><br>\\( 16 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 15x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 15)h + h².<br><br>Step 3<br><br>The limit is 17.<br><br><strong>Final Answer:</strong><br><br>\\( 17 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 16x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 16)h + h².<br><br>Step 3<br><br>The limit is 18.<br><br><strong>Final Answer:</strong><br><br>\\( 18 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 17x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 17)h + h².<br><br>Step 3<br><br>The limit is 19.<br><br><strong>Final Answer:</strong><br><br>\\( 19 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 18x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 18)h + h².<br><br>Step 3<br><br>The limit is 20.<br><br><strong>Final Answer:</strong><br><br>\\( 20 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 19x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 19)h + h².<br><br>Step 3<br><br>The limit is 21.<br><br><strong>Final Answer:</strong><br><br>\\( 21 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 20x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 20)h + h².<br><br>Step 3<br><br>The limit is 22.<br><br><strong>Final Answer:</strong><br><br>\\( 22 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 21x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 21)h + h².<br><br>Step 3<br><br>The limit is 23.<br><br><strong>Final Answer:</strong><br><br>\\( 23 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 22x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 22)h + h².<br><br>Step 3<br><br>The limit is 24.<br><br><strong>Final Answer:</strong><br><br>\\( 24 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 23x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 23)h + h².<br><br>Step 3<br><br>The limit is 25.<br><br><strong>Final Answer:</strong><br><br>\\( 25 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 24x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 24)h + h².<br><br>Step 3<br><br>The limit is 26.<br><br><strong>Final Answer:</strong><br><br>\\( 26 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 25x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 25)h + h².<br><br>Step 3<br><br>The limit is 27.<br><br><strong>Final Answer:</strong><br><br>\\( 27 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 26x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 26)h + h².<br><br>Step 3<br><br>The limit is 28.<br><br><strong>Final Answer:</strong><br><br>\\( 28 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 27x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 27)h + h².<br><br>Step 3<br><br>The limit is 29.<br><br><strong>Final Answer:</strong><br><br>\\( 29 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 28x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 28)h + h².<br><br>Step 3<br><br>The limit is 30.<br><br><strong>Final Answer:</strong><br><br>\\( 30 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 29x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 29)h + h².<br><br>Step 3<br><br>The limit is 31.<br><br><strong>Final Answer:</strong><br><br>\\( 31 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 30x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 30)h + h².<br><br>Step 3<br><br>The limit is 32.<br><br><strong>Final Answer:</strong><br><br>\\( 32 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 31x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 31)h + h².<br><br>Step 3<br><br>The limit is 33.<br><br><strong>Final Answer:</strong><br><br>\\( 33 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 32x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 32)h + h².<br><br>Step 3<br><br>The limit is 34.<br><br><strong>Final Answer:</strong><br><br>\\( 34 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Use the definition of the derivative to find f'(1) for \\( f(x) = x^2 + 33x \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>f'(1) = \\( \\lim_{h \\to 0} \\frac{f(1+h) - f(1)}{h} \\).<br><br>Step 2<br><br>f(1+h) - f(1) = (2 + 33)h + h².<br><br>Step 3<br><br>The limit is 35.<br><br><strong>Final Answer:</strong><br><br>\\( 35 \\)"
   }
 ]

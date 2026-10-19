@@ -123,5 +123,355 @@
     "type": "math_show",
     "q": "Expand \\( (1 - 3x)^5 \\) up to the term in \\( x^2 \\). Hence, approximate \\( (0.97)^5 \\) correct to 4 decimal places.",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand up to \\( x^2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (1 - 3x)^5 \\approx 1 + 5(-3x) + 10(-3x)^2 = 1 - 15x + 90x^2 \\)</div><br><br>Step 2<br><br>Let \\( 1 - 3x = 0.97 \\), which gives \\( 3x = 0.03 \\Rightarrow x = 0.01 \\).<br><br>Step 3<br><br>Substitute \\( x = 0.01 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 - 15(0.01) + 90(0.01)^2 = 1 - 0.15 + 0.0090 = 0.8590 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 0.8590 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand and simplify \\( (2 + x)^{3} \\) in ascending powers of x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the binomial theorem. The general term has coefficient \\( C(3, k) 2^{n-k} \\).<br><br>Step 2<br><br>Write every term from k = 0 to k = 3.<br><br><strong>Final Answer:</strong><br><br>\\( 8 + 12x + 6x^{2} + 1x^{3} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^{3} \\) in the expansion of \\( (3 - x)^{6} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term in x^3 is \\( C(6, 3) (3)^{3} (-x)^{3} \\).<br><br>Step 2<br><br>The coefficient is -540.<br><br><strong>Final Answer:</strong><br><br>\\( -540 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in the expansion of \\( \\left(3x + \\dfrac{4}{x}\\right)^{8} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>In the term with index r, the power of x is \\( 8 - 2r \\).<br><br>Step 2<br><br>Set the power equal to 0, so r = 4.<br><br>Step 3<br><br>The term is \\( 1451520 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1451520 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the middle term in the expansion of \\( \\left(x - \\dfrac{4}{x}\\right)^{4} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 5 terms, so the middle term is term number 3.<br><br>Step 2<br><br>It is \\( C(4, 2) x^{2} \\left(-\\dfrac{4}{x}\\right)^{2} \\).<br><br><strong>Final Answer:</strong><br><br>\\( 96 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand and simplify \\( (2 + x)^{4} \\) in ascending powers of x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the binomial theorem. The general term has coefficient \\( C(4, k) 2^{n-k} \\).<br><br>Step 2<br><br>Write every term from k = 0 to k = 4.<br><br><strong>Final Answer:</strong><br><br>\\( 16 + 32x + 24x^{2} + 8x^{3} + 1x^{4} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^{4} \\) in the expansion of \\( (4 - x)^{6} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term in x^4 is \\( C(6, 4) (4)^{2} (-x)^{4} \\).<br><br>Step 2<br><br>The coefficient is 240.<br><br><strong>Final Answer:</strong><br><br>\\( 240 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in the expansion of \\( \\left(3x + \\dfrac{2}{x}\\right)^{8} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>In the term with index r, the power of x is \\( 8 - 2r \\).<br><br>Step 2<br><br>Set the power equal to 0, so r = 4.<br><br>Step 3<br><br>The term is \\( 90720 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 90720 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the middle term in the expansion of \\( \\left(x - \\dfrac{4}{x}\\right)^{6} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 7 terms, so the middle term is term number 4.<br><br>Step 2<br><br>It is \\( C(6, 3) x^{3} \\left(-\\dfrac{4}{x}\\right)^{3} \\).<br><br><strong>Final Answer:</strong><br><br>\\( -1280 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Expand and simplify \\( (2 + x)^{5} \\) in ascending powers of x.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the binomial theorem. The general term has coefficient \\( C(5, k) 2^{n-k} \\).<br><br>Step 2<br><br>Write every term from k = 0 to k = 5.<br><br><strong>Final Answer:</strong><br><br>\\( 32 + 80x + 80x^{2} + 40x^{3} + 10x^{4} + 1x^{5} \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^{2} \\) in the expansion of \\( (2 - x)^{6} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term in x^2 is \\( C(6, 2) (2)^{4} (-x)^{2} \\).<br><br>Step 2<br><br>The coefficient is 240.<br><br><strong>Final Answer:</strong><br><br>\\( 240 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the term independent of x in the expansion of \\( \\left(3x + \\dfrac{3}{x}\\right)^{8} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>In the term with index r, the power of x is \\( 8 - 2r \\).<br><br>Step 2<br><br>Set the power equal to 0, so r = 4.<br><br>Step 3<br><br>The term is \\( 459270 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 459270 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the middle term in the expansion of \\( \\left(x - \\dfrac{4}{x}\\right)^{8} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>There are 9 terms, so the middle term is term number 5.<br><br>Step 2<br><br>It is \\( C(8, 4) x^{4} \\left(-\\dfrac{4}{x}\\right)^{4} \\).<br><br><strong>Final Answer:</strong><br><br>\\( 17920 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (2 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (2)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 4 = 24 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 24 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (3 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (3)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 9 = 54 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 54 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (4 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (4)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 16 = 96 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 96 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (5 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (5)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 25 = 150 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 150 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (6 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (6)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 36 = 216 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 216 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (7 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (7)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 49 = 294 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 294 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (8 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (8)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 64 = 384 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 384 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (9 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (9)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 81 = 486 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 486 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (10 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (10)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 100 = 600 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 600 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (11 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (11)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 121 = 726 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 726 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (12 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (12)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 144 = 864 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 864 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (13 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (13)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 169 = 1014 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1014 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (14 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (14)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 196 = 1176 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1176 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (15 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (15)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 225 = 1350 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1350 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (16 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (16)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 256 = 1536 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1536 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (17 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (17)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 289 = 1734 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1734 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (18 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (18)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 324 = 1944 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 1944 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (19 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (19)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 361 = 2166 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 2166 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (20 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (20)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 400 = 2400 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 2400 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (21 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (21)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 441 = 2646 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 2646 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (22 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (22)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 484 = 2904 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 2904 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (23 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (23)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 529 = 3174 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 3174 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (24 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (24)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 576 = 3456 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 3456 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (25 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (25)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 625 = 3750 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 3750 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (26 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (26)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 676 = 4056 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 4056 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (27 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (27)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 729 = 4374 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 4374 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (28 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (28)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 784 = 4704 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 4704 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (29 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (29)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 841 = 5046 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 5046 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (30 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (30)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 900 = 5400 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 5400 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (31 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (31)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 961 = 5766 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 5766 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (32 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (32)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1024 = 6144 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 6144 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (33 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (33)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1089 = 6534 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 6534 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (34 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (34)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1156 = 6936 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 6936 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (35 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (35)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1225 = 7350 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 7350 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (36 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (36)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1296 = 7776 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 7776 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (37 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (37)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1369 = 8214 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 8214 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (38 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (38)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1444 = 8664 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 8664 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (39 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (39)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1521 = 9126 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 9126 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (40 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (40)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1600 = 9600 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 9600 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (41 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (41)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1681 = 10086 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 10086 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (42 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (42)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1764 = 10584 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 10584 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (43 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (43)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1849 = 11094 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 11094 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (44 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (44)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 1936 = 11616 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 11616 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (45 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (45)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 2025 = 12150 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 12150 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (46 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (46)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 2116 = 12696 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 12696 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (47 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (47)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 2209 = 13254 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 13254 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (48 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (48)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 2304 = 13824 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 13824 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (49 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (49)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 2401 = 14406 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 14406 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (50 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (50)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 2500 = 15000 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 15000 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (51 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (51)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 2601 = 15606 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 15606 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (52 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (52)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 2704 = 16224 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 16224 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (53 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (53)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 2809 = 16854 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 16854 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (54 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (54)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 2916 = 17496 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 17496 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (55 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (55)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 3025 = 18150 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 18150 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (56 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (56)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 3136 = 18816 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 18816 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (57 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (57)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 3249 = 19494 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 19494 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (58 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (58)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 3364 = 20184 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 20184 \\)"
+  },
+  {
+    "type": "math_show",
+    "q": "Find the coefficient of \\( x^2 \\) in \\( (59 + x)^4 \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The term is \\( C(4, 2) (59)^2 x^2 \\).<br><br>Step 2<br><br>\\( 6 \\times 3481 = 20886 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 20886 \\)"
   }
 ]
