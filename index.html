@@ -2489,10 +2489,25 @@ body.math-expand-page .container {
     color: #000 !important;
     border: none !important;
 }
+#quiz-screen.math-expand #quiz-footer #prev-btn {
+    flex: 1 1 0;
+    order: 3;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    min-width: 0;
+    min-height: 54px;
+    padding: 16px 8px !important;
+    font-size: 0.82rem !important;
+    white-space: normal !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
 #quiz-screen.math-expand #next-btn,
 #math-next-btn {
     flex: 1 1 0;
-    order: 3;
+    order: 4;
 }
 #math-sol-footer-btn {
     display: none;
@@ -2702,6 +2717,35 @@ body.math-expand-page .container {
     margin-top: auto;
     padding-top: 8px;
     padding-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: stretch;
+}
+#quiz-screen:not(.math-expand) #quiz-footer #prev-btn,
+#quiz-screen:not(.math-expand) #quiz-footer #next-btn {
+    width: calc(50% - 4px) !important;
+    max-width: calc(50% - 4px) !important;
+    margin: 0 !important;
+    flex: 1 1 calc(50% - 4px);
+}
+#quiz-footer #prev-btn {
+    background: #1E293B !important;
+    color: #fff !important;
+    border: 1px solid #64748B !important;
+    border-radius: 14px !important;
+    font-weight: 800 !important;
+    padding: 15px 10px !important;
+}
+#quiz-footer #prev-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+#quiz-footer #quiz-back-btn,
+#quiz-footer #math-sol-footer-btn {
+    flex: 1 1 100%;
+    width: 100% !important;
+    max-width: 100% !important;
 }
 	   /* Old Question Timer Colors */
 /* Old Question Timer Colors */
@@ -3830,6 +3874,7 @@ body.volunteer-role .vol-report-link { display: block !important; }
     
         <div id="quiz-footer">
         <button id="math-sol-footer-btn" class="btn" type="button">အဖြေကြည့်ရန်</button>
+        <button id="prev-btn" class="btn" type="button" onclick="prevQuestion()">အရင်အပုဒ်သို့</button>
         <button id="next-btn" class="btn next-btn" onclick="nextQuestion()">နောက်တစ်ပုဒ်သို့ ➔</button>
         <button class="btn back-btn" id="quiz-back-btn" style="margin-top: 10px;">ထွက်မည်</button>
     </div>
@@ -8513,6 +8558,7 @@ function loadQuestion() {
     nextBtn.className = 'btn next-btn';
     nextBtn.innerText = 'နောက်တစ်ပုဒ်သို့ ➔';
     nextBtn.disabled = false;
+    syncPrevButton();
 
     const q = currentQuestions[currentIdx];
     if (currentSubject && currentSubject.id === 'math' && (q.type === undefined || q.type === 'math_show')) {
@@ -8831,6 +8877,30 @@ function offerWeakRetry(remaining) {
     if (typeof window.confirm === 'function' && window.confirm(msg)) goWeak();
 }
 
+function syncPrevButton() {
+    const btn = document.getElementById('prev-btn');
+    if (!btn) return;
+    const screen = document.getElementById('quiz-screen');
+    const done = !!(screen && screen.classList.contains('quiz-done'));
+    btn.disabled = !done && !(currentIdx > 0);
+}
+function prevQuestion() {
+    const screen = document.getElementById('quiz-screen');
+    const mathScreen = document.getElementById('math-solution-screen');
+    const mathOn = !!(mathScreen && mathScreen.classList.contains('active-screen'));
+    if (screen && screen.classList.contains('quiz-done')) {
+        hideQuizEnd();
+        if (currentQuestions && currentQuestions.length) {
+            currentIdx = currentQuestions.length - 1;
+            loadQuestion();
+        }
+        return;
+    }
+    if (!(currentIdx > 0)) return;
+    currentIdx--;
+    if (mathOn) showScreen('quiz');
+    loadQuestion();
+}
 function nextQuestion() {
     if (currentIdx < currentQuestions.length - 1) {
         currentIdx++;
@@ -10671,7 +10741,18 @@ function quizKeyName(e) {
     if (/^Numpad[1-9]$/.test(code)) return code.slice(6);
     if (/^Key[A-Z]$/.test(code)) return code.slice(3).toLowerCase();
     if (code === 'Enter' || code === 'NumpadEnter') return 'Enter';
+    if (code === 'Delete') return 'Delete';
+    if (code === 'Backspace') return 'Backspace';
     return key;
+}
+function quizTypingTarget(el) {
+    if (!el || el.id === 'quiz-keycatch') return false;
+    const tag = el.tagName || '';
+    if (tag === 'TEXTAREA') return true;
+    if (el.isContentEditable) return true;
+    if (tag !== 'INPUT') return false;
+    const type = String(el.type || 'text').toLowerCase();
+    return type !== 'button' && type !== 'submit' && type !== 'checkbox' && type !== 'radio' && type !== 'file' && type !== 'range' && type !== 'color';
 }
 
 document.addEventListener('keydown', function(e) {
@@ -10689,6 +10770,18 @@ document.addEventListener('keydown', function(e) {
     const flashOn = document.getElementById('flashcard-screen')?.classList.contains('active-screen');
     const rewriteOn = flashOn && document.getElementById('flashcard-screen')?.classList.contains('flash-rewrite-on');
     const inQuizField = !!(e.target && e.target.closest && e.target.closest('#quiz-options'));
+
+    if (keyName === 'Delete') {
+        if (quizTypingTarget(e.target)) return;
+        if (!(quizOn || mathOn || flashOn)) return;
+        e.preventDefault();
+        if (flashOn) {
+            prevFlash();
+            return;
+        }
+        prevQuestion();
+        return;
+    }
 
     if (keyName === 'Enter' && (quizOn || mathOn || flashOn)) {
         const typingElsewhere = (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) && !inQuizField && !keyCatch && !(e.target && e.target.id === 'rw-try');
