@@ -52,7 +52,7 @@
   {
     "type": "math_show",
     "q": "Solve for \\( n \\): \\( ^{n+2}P_4 = 12 \\times ^nP_2 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand the permutations:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (n+2)(n+1)n(n-1) = 12n(n-1) \\)</div><br><br>Step 2<br><br>Since \\( n \\ge 2 \\), divide both sides by \\( n(n-1) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (n+2)(n+1) = 12 \\)</div><br><br>Step 3<br><br>Solve the quadratic equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n^2 + 3n + 2 = 12 \\implies n^2 + 3n - 10 = 0 \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (n+5)(n-2) = 0 \\implies n = 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n = 2 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand the permutations:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (n+2)(n+1)n(n-1) = 12n(n-1) \\)</div><br><br>Step 2<br><br>Since \\( n \\ge 2 \\), divide both sides by \\( n(n-1) \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (n+2)(n+1) = 12 \\)</div><br><br>Step 3<br><br>Solve the quadratic equation:<br><br><div class=\"math-line\">\\(n^2 + 3n + 2 = 12\\)</div><div class=\"math-line\">\\(\\implies n^2 + 3n - 10 = 0\\)</div><br><br><div class=\"math-line\">\\((n+5)(n-2) = 0\\)</div><div class=\"math-line\">\\(\\implies n = 2\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( n = 2 \\)"
   },
   {
     "type": "math_show",

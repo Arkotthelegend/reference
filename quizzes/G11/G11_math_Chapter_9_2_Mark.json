@@ -21,8 +21,8 @@
   },
   {
     "type": "math_show",
-    "q": "Given \\( \\vec{u} = \\begin{pmatrix} 3 \\\\ -2 \\end{pmatrix} \\) and \\( \\vec{v} = \\begin{pmatrix} -1 \\\\ 4 \\end{pmatrix} \\), find \\( 2\\vec{u} + 3\\vec{v} \\) as a column vector.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply each vector by its respective scalar:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2\\vec{u} = \\begin{pmatrix} 6 \\\\ -4 \\end{pmatrix}, \\quad 3\\vec{v} = \\begin{pmatrix} -3 \\\\ 12 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Add the resulting column vectors:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 6 \\\\ -4 \\end{pmatrix} + \\begin{pmatrix} -3 \\\\ 12 \\end{pmatrix} = \\begin{pmatrix} 6 + (-3) \\\\ -4 + 12 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 8 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 3 \\\\ 8 \\end{pmatrix} \\)"
+    "q": "Given <div class=\"math-line\">\\(\\vec{u} = \\begin{pmatrix} 3 \\\\ -2 \\end{pmatrix}\\)</div> and <div class=\"math-line\">\\(\\vec{v} = \\begin{pmatrix} -1 \\\\ 4 \\end{pmatrix}\\)</div>, find \\( 2\\vec{u} + 3\\vec{v} \\) as a column vector.",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply each vector by its respective scalar:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2\\vec{u} = \\begin{pmatrix} 6 \\\\ -4 \\end{pmatrix}, \\quad 3\\vec{v} = \\begin{pmatrix} -3 \\\\ 12 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Add the resulting column vectors:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 6 \\\\ -4 \\end{pmatrix} + \\begin{pmatrix} -3 \\\\ 12 \\end{pmatrix} = \\begin{pmatrix} 6 + (-3) \\\\ -4 + 12 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 8 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br><div class=\"math-line\">\\(\\begin{pmatrix} 3 \\\\ 8 \\end{pmatrix}\\)</div>"
   },
   {
     "type": "math_show",
@@ -57,7 +57,7 @@
   {
     "type": "math_show",
     "q": "Given non-parallel vectors \\( \\vec{a} \\) and \\( \\vec{b} \\), if \\( (2x - 1)\\vec{a} + 3\\vec{b} = 5\\vec{a} + (y + 2)\\vec{b} \\), find the values of \\( x \\) and \\( y \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>By Corollary 9.2, equate the coefficients of \\( \\vec{a} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x - 1 = 5 \\implies 2x = 6 \\implies x = 3 \\)</div><br><br>Step 2<br><br>Equate the coefficients of \\( \\vec{b} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3 = y + 2 \\implies y = 1 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 3, y = 1 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>By Corollary 9.2, equate the coefficients of \\( \\vec{a} \\):<br><br><div class=\"math-line\">\\(2x - 1 = 5\\)</div><div class=\"math-line\">\\(\\implies 2x = 6\\)</div><div class=\"math-line\">\\(\\implies x = 3\\)</div><br><br>Step 2<br><br>Equate the coefficients of \\( \\vec{b} \\):<br><br><div class=\"math-line\">\\(3 = y + 2\\)</div><div class=\"math-line\">\\(\\implies y = 1\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 3, y = 1 \\)"
   },
   {
     "type": "math_show",
@@ -67,12 +67,12 @@
   {
     "type": "math_show",
     "q": "Find the value of \\( k \\) if the vectors \\( \\vec{u} = 3\\vec{i} - 2\\vec{j} \\) and \\( \\vec{v} = 6\\vec{i} + k\\vec{j} \\) are parallel.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since the vectors are parallel, \\( \\vec{v} = c\\vec{u} \\) for some scalar \\( c \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6\\vec{i} + k\\vec{j} = c(3\\vec{i} - 2\\vec{j}) \\)</div><br><br>Step 2<br><br>Equate the \\( \\vec{i} \\) components to find \\( c \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6 = 3c \\implies c = 2 \\)</div><br><br>Step 3<br><br>Equate the \\( \\vec{j} \\) components and substitute \\( c = 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k = -2c = -2(2) = -4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( k = -4 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Since the vectors are parallel, \\( \\vec{v} = c\\vec{u} \\) for some scalar \\( c \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6\\vec{i} + k\\vec{j} = c(3\\vec{i} - 2\\vec{j}) \\)</div><br><br>Step 2<br><br>Equate the \\( \\vec{i} \\) components to find \\( c \\):<br><br><div class=\"math-line\">\\(6 = 3c\\)</div><div class=\"math-line\">\\(\\implies c = 2\\)</div><br><br>Step 3<br><br>Equate the \\( \\vec{j} \\) components and substitute \\( c = 2 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k = -2c = -2(2) = -4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( k = -4 \\)"
   },
   {
     "type": "math_show",
-    "q": "Given \\( \\vec{p} = \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix} \\) and \\( \\vec{q} = \\begin{pmatrix} -2 \\\\ 5 \\end{pmatrix} \\), find \\( 3\\vec{p} - \\vec{q} \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply \\( \\vec{p} \\) by 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3\\vec{p} = \\begin{pmatrix} 12 \\\\ -3 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Subtract \\( \\vec{q} \\) from \\( 3\\vec{p} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 12 \\\\ -3 \\end{pmatrix} - \\begin{pmatrix} -2 \\\\ 5 \\end{pmatrix} = \\begin{pmatrix} 12 - (-2) \\\\ -3 - 5 \\end{pmatrix} \\)</div><br><br>Step 3<br><br>Simplify the components:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 14 \\\\ -8 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\begin{pmatrix} 14 \\\\ -8 \\end{pmatrix} \\)"
+    "q": "Given <div class=\"math-line\">\\(\\vec{p} = \\begin{pmatrix} 4 \\\\ -1 \\end{pmatrix}\\)</div> and <div class=\"math-line\">\\(\\vec{q} = \\begin{pmatrix} -2 \\\\ 5 \\end{pmatrix}\\)</div>, find \\( 3\\vec{p} - \\vec{q} \\).",
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Multiply \\( \\vec{p} \\) by 3:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3\\vec{p} = \\begin{pmatrix} 12 \\\\ -3 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Subtract \\( \\vec{q} \\) from \\( 3\\vec{p} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 12 \\\\ -3 \\end{pmatrix} - \\begin{pmatrix} -2 \\\\ 5 \\end{pmatrix} = \\begin{pmatrix} 12 - (-2) \\\\ -3 - 5 \\end{pmatrix} \\)</div><br><br>Step 3<br><br>Simplify the components:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\begin{pmatrix} 14 \\\\ -8 \\end{pmatrix} \\)</div><br><br><strong>Final Answer:</strong><br><br><div class=\"math-line\">\\(\\begin{pmatrix} 14 \\\\ -8 \\end{pmatrix}\\)</div>"
   },
   {
     "type": "math_show",
@@ -86,7 +86,7 @@
   },
   {
     "type": "math_show",
-    "q": "If \\( \\vec{a} = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} \\) and \\( \\vec{b} = \\begin{pmatrix} 3 \\\\ -1 \\end{pmatrix} \\), find the magnitude of \\( \\vec{a} + \\vec{b} \\).",
+    "q": "If <div class=\"math-line\">\\(\\vec{a} = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}\\)</div> and <div class=\"math-line\">\\(\\vec{b} = \\begin{pmatrix} 3 \\\\ -1 \\end{pmatrix}\\)</div>, find the magnitude of \\( \\vec{a} + \\vec{b} \\).",
     "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Add the two vectors:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{a} + \\vec{b} = \\begin{pmatrix} 1 + 3 \\\\ 2 + (-1) \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 1 \\end{pmatrix} \\)</div><br><br>Step 2<br><br>Calculate the magnitude of the resulting vector:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |\\vec{a} + \\vec{b}| = \\sqrt{4^2 + 1^2} = \\sqrt{16 + 1} \\)</div><br><br>Step 3<br><br>Simplify the square root:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( |\\vec{a} + \\vec{b}| = \\sqrt{17} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\sqrt{17} \\)"
   },
   {
@@ -117,7 +117,7 @@
   {
     "type": "math_show",
     "q": "Points \\( P, Q, \\) and \\( R \\) have position vectors \\( \\vec{i} + 2\\vec{j} \\), \\( 3\\vec{i} + 4\\vec{j} \\), and \\( 5\\vec{i} + k\\vec{j} \\) respectively. Find the value of \\( k \\) if \\( P, Q, \\) and \\( R \\) are collinear.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the vector \\( \\vec{PQ} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{PQ} = (3 - 1)\\vec{i} + (4 - 2)\\vec{j} = 2\\vec{i} + 2\\vec{j} \\)</div><br><br>Step 2<br><br>Find the vector \\( \\vec{QR} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{QR} = (5 - 3)\\vec{i} + (k - 4)\\vec{j} = 2\\vec{i} + (k - 4)\\vec{j} \\)</div><br><br>Step 3<br><br>For collinearity, \\( \\vec{QR} = c\\vec{PQ} \\). Since the \\( \\vec{i} \\) components are equal, \\( c = 1 \\). Thus:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( k - 4 = 2 \\implies k = 6 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( k = 6 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find the vector \\( \\vec{PQ} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{PQ} = (3 - 1)\\vec{i} + (4 - 2)\\vec{j} = 2\\vec{i} + 2\\vec{j} \\)</div><br><br>Step 2<br><br>Find the vector \\( \\vec{QR} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\vec{QR} = (5 - 3)\\vec{i} + (k - 4)\\vec{j} = 2\\vec{i} + (k - 4)\\vec{j} \\)</div><br><br>Step 3<br><br>For collinearity, \\( \\vec{QR} = c\\vec{PQ} \\). Since the \\( \\vec{i} \\) components are equal, \\( c = 1 \\). Thus:<br><br><div class=\"math-line\">\\(k - 4 = 2\\)</div><div class=\"math-line\">\\(\\implies k = 6\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( k = 6 \\)"
   },
   {
     "type": "math_show",

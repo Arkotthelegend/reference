@@ -42,7 +42,7 @@
   {
     "type": "math_show",
     "q": "If \\( \\cos \\theta = \\frac{5}{13} \\) and \\( \\theta \\) is an acute angle, find \\( \\sin \\theta \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the Pythagorean identity \\( \\sin^2 \\theta + \\cos^2 \\theta = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin^2 \\theta + \\left(\\frac{5}{13}\\right)^2 = 1 \\)</div><br><br>Step 2<br><br>Solve for \\( \\sin \\theta \\) (positive since \\( \\theta \\) is acute):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin^2 \\theta = 1 - \\frac{25}{169} = \\frac{144}{169} \\implies \\sin \\theta = \\frac{12}{13} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{12}{13} \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the Pythagorean identity \\( \\sin^2 \\theta + \\cos^2 \\theta = 1 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin^2 \\theta + \\left(\\frac{5}{13}\\right)^2 = 1 \\)</div><br><br>Step 2<br><br>Solve for \\( \\sin \\theta \\) (positive since \\( \\theta \\) is acute):<br><br><div class=\"math-line\">\\(\\sin^2 \\theta = 1 - \\frac{25}{169} = \\frac{144}{169}\\)</div><div class=\"math-line\">\\(\\implies \\sin \\theta = \\frac{12}{13}\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{12}{13} \\)"
   },
   {
     "type": "math_show",
@@ -72,7 +72,7 @@
   {
     "type": "math_show",
     "q": "In a right triangle \\( ABC \\) with \\( \\angle C = 90^\\circ \\) and \\( \\angle A = 30^\\circ \\), if \\( b = 10\\sqrt{3} \\), find the length of side \\( a \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the tangent ratio \\( \\tan A = \\frac{a}{b} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\tan 30^\\circ = \\frac{a}{10\\sqrt{3}} \\)</div><br><br>Step 2<br><br>Substitute \\( \\tan 30^\\circ = \\frac{1}{\\sqrt{3}} \\) and solve for \\( a \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{\\sqrt{3}} = \\frac{a}{10\\sqrt{3}} \\implies a = 10 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the tangent ratio \\( \\tan A = \\frac{a}{b} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\tan 30^\\circ = \\frac{a}{10\\sqrt{3}} \\)</div><br><br>Step 2<br><br>Substitute \\( \\tan 30^\\circ = \\frac{1}{\\sqrt{3}} \\) and solve for \\( a \\):<br><br><div class=\"math-line\">\\(\\frac{1}{\\sqrt{3}} = \\frac{a}{10\\sqrt{3}}\\)</div><div class=\"math-line\">\\(\\implies a = 10\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10 \\)"
   },
   {
     "type": "math_show",
@@ -82,22 +82,22 @@
   {
     "type": "math_show",
     "q": "A tree is \\( 15 \\) m tall and casts a shadow of \\( 15\\sqrt{3} \\) m on level ground. Find the angle of elevation of the sun.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( \\theta \\) be the angle of elevation. Use the tangent ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\tan \\theta = \\frac{\\text{height}}{\\text{shadow}} = \\frac{15}{15\\sqrt{3}} \\)</div><br><br>Step 2<br><br>Simplify the fraction and find \\( \\theta \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\tan \\theta = \\frac{1}{\\sqrt{3}} \\implies \\theta = 30^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 30^\\circ \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( \\theta \\) be the angle of elevation. Use the tangent ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\tan \\theta = \\frac{\\text{height}}{\\text{shadow}} = \\frac{15}{15\\sqrt{3}} \\)</div><br><br>Step 2<br><br>Simplify the fraction and find \\( \\theta \\):<br><br><div class=\"math-line\">\\(\\tan \\theta = \\frac{1}{\\sqrt{3}}\\)</div><div class=\"math-line\">\\(\\implies \\theta = 30^\\circ\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 30^\\circ \\)"
   },
   {
     "type": "math_show",
     "q": "From the top of a \\( 40 \\) m high cliff, the angle of depression to a boat is \\( 30^\\circ \\). Find the horizontal distance from the boat to the base of the cliff.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The angle of depression equals the angle of elevation from the boat. Let \\( d \\) be the distance. Use the tangent ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\tan 30^\\circ = \\frac{40}{d} \\)</div><br><br>Step 2<br><br>Substitute \\( \\tan 30^\\circ = \\frac{1}{\\sqrt{3}} \\) and solve for \\( d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{\\sqrt{3}} = \\frac{40}{d} \\implies d = 40\\sqrt{3} \\text{ m} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 40\\sqrt{3} \\text{ m} \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The angle of depression equals the angle of elevation from the boat. Let \\( d \\) be the distance. Use the tangent ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\tan 30^\\circ = \\frac{40}{d} \\)</div><br><br>Step 2<br><br>Substitute \\( \\tan 30^\\circ = \\frac{1}{\\sqrt{3}} \\) and solve for \\( d \\):<br><br><div class=\"math-line\">\\(\\frac{1}{\\sqrt{3}} = \\frac{40}{d}\\)</div><div class=\"math-line\">\\(\\implies d = 40\\sqrt{3} \\text{ m}\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 40\\sqrt{3} \\text{ m} \\)"
   },
   {
     "type": "math_show",
     "q": "A sector of a circle has an area of \\( 18\\pi \\) cm\\(^2\\) and a radius of \\( 9 \\) cm. Find the central angle \\( \\theta \\) in radians.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the sector area formula \\( A = \\frac{1}{2}r^2\\theta \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 18\\pi = \\frac{1}{2}(9)^2\\theta \\)</div><br><br>Step 2<br><br>Solve for \\( \\theta \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 18\\pi = \\frac{81}{2}\\theta \\implies \\theta = \\frac{36\\pi}{81} = \\frac{4\\pi}{9} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4\\pi}{9} \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the sector area formula \\( A = \\frac{1}{2}r^2\\theta \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 18\\pi = \\frac{1}{2}(9)^2\\theta \\)</div><br><br>Step 2<br><br>Solve for \\( \\theta \\):<br><br><div class=\"math-line\">\\(18\\pi = \\frac{81}{2}\\theta\\)</div><div class=\"math-line\">\\(\\implies \\theta = \\frac{36\\pi}{81} = \\frac{4\\pi}{9}\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{4\\pi}{9} \\)"
   },
   {
     "type": "math_show",
     "q": "If \\( \\sec \\theta = \\frac{13}{12} \\) and \\( \\theta \\) is an acute angle, find \\( \\tan \\theta \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the identity \\( 1 + \\tan^2 \\theta = \\sec^2 \\theta \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 + \\tan^2 \\theta = \\left(\\frac{13}{12}\\right)^2 \\)</div><br><br>Step 2<br><br>Solve for \\( \\tan \\theta \\) (positive since \\( \\theta \\) is acute):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\tan^2 \\theta = \\frac{169}{144} - 1 = \\frac{25}{144} \\implies \\tan \\theta = \\frac{5}{12} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{12} \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the identity \\( 1 + \\tan^2 \\theta = \\sec^2 \\theta \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 + \\tan^2 \\theta = \\left(\\frac{13}{12}\\right)^2 \\)</div><br><br>Step 2<br><br>Solve for \\( \\tan \\theta \\) (positive since \\( \\theta \\) is acute):<br><br><div class=\"math-line\">\\(\\tan^2 \\theta = \\frac{169}{144} - 1 = \\frac{25}{144}\\)</div><div class=\"math-line\">\\(\\implies \\tan \\theta = \\frac{5}{12}\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{5}{12} \\)"
   },
   {
     "type": "math_show",
@@ -117,7 +117,7 @@
   {
     "type": "math_show",
     "q": "A ladder \\( 12 \\) m long leans against a vertical wall, making an angle of \\( 30^\\circ \\) with the horizontal ground. Find the height of the point where the ladder touches the wall.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( h \\) be the height. Use the sine ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin 30^\\circ = \\frac{h}{12} \\)</div><br><br>Step 2<br><br>Substitute \\( \\sin 30^\\circ = \\frac{1}{2} \\) and solve for \\( h \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{1}{2} = \\frac{h}{12} \\implies h = 6 \\text{ m} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 6 \\text{ m} \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( h \\) be the height. Use the sine ratio:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin 30^\\circ = \\frac{h}{12} \\)</div><br><br>Step 2<br><br>Substitute \\( \\sin 30^\\circ = \\frac{1}{2} \\) and solve for \\( h \\):<br><br><div class=\"math-line\">\\(\\frac{1}{2} = \\frac{h}{12}\\)</div><div class=\"math-line\">\\(\\implies h = 6 \\text{ m}\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 6 \\text{ m} \\)"
   },
   {
     "type": "math_show",

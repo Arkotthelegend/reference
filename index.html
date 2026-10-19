@@ -1127,15 +1127,28 @@ mjx-container:not([display="true"]),
     flex-shrink: 0;
 }
 #math-solution-content {
-    flex: 0 1 auto;
+    flex: 1 1 auto;
     min-height: 0 !important;
     overflow-x: hidden !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;
     max-width: 100%;
-    word-break: break-word;
+    word-break: normal;
+    overflow-wrap: break-word;
     line-height: 1.8;
     margin-bottom: 12px;
+}
+.math-line {
+    display: block;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 10px 0 14px;
+    padding: 2px 0 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    text-align: center;
+    -webkit-overflow-scrolling: touch;
 }
 #math-solution-actions {
     flex-shrink: 0;
@@ -1178,8 +1191,13 @@ mjx-container:not([display="true"]),
 
 mjx-mtable {
     margin: 5px 0 !important;
-    max-width: 100% !important;
+    max-width: none !important;
+    width: auto !important;
     display: inline-table !important;
+}
+mjx-container, mjx-container * {
+    word-break: normal !important;
+    overflow-wrap: normal !important;
 }
 #math-solution-content .math-hscroll mjx-mtable,
 #math-solution-content [style*="overflow-x"] mjx-mtable {
@@ -2572,7 +2590,7 @@ body.math-expand-page .container {
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.04em;
-    margin: 14px 0 6px;
+    margin: 20px 0 8px;
 }
 #math-solution-content .math-final {
     margin-top: 16px;

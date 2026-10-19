@@ -72,7 +72,7 @@
   {
     "type": "math_show",
     "q": "Solve the equation \\( \\log_3 (x - 2) = 2 \\) for \\( x \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Convert the logarithmic equation to exponential form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 2 = 3^2 \\)</div><br><br>Step 2<br><br>Solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 2 = 9 \\implies x = 11 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 11 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Convert the logarithmic equation to exponential form:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 2 = 3^2 \\)</div><br><br>Step 2<br><br>Solve for \\( x \\):<br><br><div class=\"math-line\">\\(x - 2 = 9\\)</div><div class=\"math-line\">\\(\\implies x = 11\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 11 \\)"
   },
   {
     "type": "math_show",
@@ -87,7 +87,7 @@
   {
     "type": "math_show",
     "q": "Solve for \\( t \\) in the equation \\( e^{0.05t} = 2 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Take the natural logarithm of both sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\ln(e^{0.05t}) = \\ln 2 \\)</div><br><br>Step 2<br><br>Simplify and solve for \\( t \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 0.05t = \\ln 2 \\implies t = \\frac{\\ln 2}{0.05} = 20 \\ln 2 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 20 \\ln 2 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Take the natural logarithm of both sides:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\ln(e^{0.05t}) = \\ln 2 \\)</div><br><br>Step 2<br><br>Simplify and solve for \\( t \\):<br><br><div class=\"math-line\">\\(0.05t = \\ln 2\\)</div><div class=\"math-line\">\\(\\implies t = \\frac{\\ln 2}{0.05} = 20 \\ln 2\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 20 \\ln 2 \\)"
   },
   {
     "type": "math_show",
@@ -97,7 +97,7 @@
   {
     "type": "math_show",
     "q": "Solve the equation \\( \\log_2 x + \\log_2 (x - 3) = 2 \\) for \\( x \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Combine the logarithms using the product property:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log_2 (x(x - 3)) = 2 \\)</div><br><br>Step 2<br><br>Convert to exponential form and solve the quadratic equation:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 - 3x = 2^2 \\implies x^2 - 3x - 4 = 0 \\)</div><br><br>Step 3<br><br>Factor and find valid solutions (\\( x > 3 \\) for the domain):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (x - 4)(x + 1) = 0 \\implies x = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Combine the logarithms using the product property:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\log_2 (x(x - 3)) = 2 \\)</div><br><br>Step 2<br><br>Convert to exponential form and solve the quadratic equation:<br><br><div class=\"math-line\">\\(x^2 - 3x = 2^2\\)</div><div class=\"math-line\">\\(\\implies x^2 - 3x - 4 = 0\\)</div><br><br>Step 3<br><br>Factor and find valid solutions (\\( x > 3 \\) for the domain):<br><br><div class=\"math-line\">\\((x - 4)(x + 1) = 0\\)</div><div class=\"math-line\">\\(\\implies x = 4\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
   },
   {
     "type": "math_show",
@@ -112,7 +112,7 @@
   {
     "type": "math_show",
     "q": "Evaluate \\( \\log_8 4 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( x = \\log_8 4 \\), which means \\( 8^x = 4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2^3)^x = 2^2 \\)</div><br><br>Step 2<br><br>Equate the exponents and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3x = 2 \\implies x = \\frac{2}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{3} \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let \\( x = \\log_8 4 \\), which means \\( 8^x = 4 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( (2^3)^x = 2^2 \\)</div><br><br>Step 2<br><br>Equate the exponents and solve for \\( x \\):<br><br><div class=\"math-line\">\\(3x = 2\\)</div><div class=\"math-line\">\\(\\implies x = \\frac{2}{3}\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{3} \\)"
   },
   {
     "type": "math_show",
@@ -122,7 +122,7 @@
   {
     "type": "math_show",
     "q": "Solve the equation \\( 2^{x+1} = 16 \\) for \\( x \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Express 16 as a power of 2:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^{x+1} = 2^4 \\)</div><br><br>Step 2<br><br>Equate the exponents and solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x + 1 = 4 \\implies x = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Express 16 as a power of 2:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2^{x+1} = 2^4 \\)</div><br><br>Step 2<br><br>Equate the exponents and solve for \\( x \\):<br><br><div class=\"math-line\">\\(x + 1 = 4\\)</div><div class=\"math-line\">\\(\\implies x = 3\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
   },
   {
     "type": "math_show",

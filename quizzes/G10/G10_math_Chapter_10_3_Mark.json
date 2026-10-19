@@ -47,7 +47,7 @@
   {
     "type": "math_show",
     "q": "Solve the right triangle \\( ABC \\) with \\( \\angle C = 90^\\circ \\), \\( \\angle A = 45^\\circ \\), and \\( b = 9 \\). Find \\( a \\) and \\( c \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find \\( \\angle B \\): \\( \\angle B = 90^\\circ - \\angle A = 90^\\circ - 45^\\circ = 45^\\circ \\).<br><br>Step 2<br><br>Since \\( \\angle A = \\angle B = 45^\\circ \\), the triangle is isosceles, so \\( a = b = 9 \\).<br><br>Step 3<br><br>Find \\( c \\) using \\( \\sin A = \\frac{a}{c} \\implies c = \\frac{a}{\\sin 45^\\circ} = \\frac{9}{\\frac{1}{\\sqrt{2}}} = 9\\sqrt{2} \\).<br><br><strong>Final Answer:</strong><br><br>\\( a = 9 \\), \\( c = 9\\sqrt{2} \\), \\( \\angle B = 45^\\circ \\)."
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find \\( \\angle B \\): \\( \\angle B = 90^\\circ - \\angle A = 90^\\circ - 45^\\circ = 45^\\circ \\).<br><br>Step 2<br><br>Since \\( \\angle A = \\angle B = 45^\\circ \\), the triangle is isosceles, so \\( a = b = 9 \\).<br><br>Step 3<br><br>Find \\( c \\) using <div class=\"math-line\">\\(\\sin A = \\frac{a}{c}\\)</div><div class=\"math-line\">\\(\\implies c = \\frac{a}{\\sin 45^\\circ} = \\frac{9}{\\frac{1}{\\sqrt{2}}} = 9\\sqrt{2}\\)</div>.<br><br><strong>Final Answer:</strong><br><br>\\( a = 9 \\), \\( c = 9\\sqrt{2} \\), \\( \\angle B = 45^\\circ \\)."
   },
   {
     "type": "math_show",
@@ -62,7 +62,7 @@
   {
     "type": "math_show",
     "q": "A sector of a circle has an arc length of \\( 15 \\) cm and a radius of \\( 10 \\) cm. Find the central angle in radians and the area of the sector.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the arc length formula \\( s = r\\theta \\) to find \\( \\theta \\): \\( 15 = 10\\theta \\implies \\theta = 1.5 \\) radians.<br><br>Step 2<br><br>Use the area of sector formula \\( A = \\frac{1}{2}r^2\\theta \\).<br><br>Step 3<br><br>Substitute the values: \\( A = \\frac{1}{2}(10)^2(1.5) = \\frac{1}{2}(100)(1.5) = 50 \\times 1.5 = 75 \\).<br><br><strong>Final Answer:</strong><br><br>Angle \\( = 1.5 \\) radians, Area \\( = 75 \\) cm\\(^2\\)."
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the arc length formula \\( s = r\\theta \\) to find \\( \\theta \\): <div class=\"math-line\">\\(15 = 10\\theta\\)</div><div class=\"math-line\">\\(\\implies \\theta = 1.5\\)</div> radians.<br><br>Step 2<br><br>Use the area of sector formula \\( A = \\frac{1}{2}r^2\\theta \\).<br><br>Step 3<br><br>Substitute the values: \\( A = \\frac{1}{2}(10)^2(1.5) = \\frac{1}{2}(100)(1.5) = 50 \\times 1.5 = 75 \\).<br><br><strong>Final Answer:</strong><br><br>Angle \\( = 1.5 \\) radians, Area \\( = 75 \\) cm\\(^2\\)."
   },
   {
     "type": "math_show",
@@ -72,7 +72,7 @@
   {
     "type": "math_show",
     "q": "Find the value of the acute angle \\( \\alpha \\) if \\( \\sin 3\\alpha = \\cos 2\\alpha \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the complementary angle identity: \\( \\cos 2\\alpha = \\sin(90^\\circ - 2\\alpha) \\).<br><br>Step 2<br><br>Equate the angles since the sine values are equal: \\( 3\\alpha = 90^\\circ - 2\\alpha \\).<br><br>Step 3<br><br>Solve for \\( \\alpha \\): \\( 5\\alpha = 90^\\circ \\implies \\alpha = 18^\\circ \\).<br><br><strong>Final Answer:</strong><br><br>\\( \\alpha = 18^\\circ \\)."
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the complementary angle identity: \\( \\cos 2\\alpha = \\sin(90^\\circ - 2\\alpha) \\).<br><br>Step 2<br><br>Equate the angles since the sine values are equal: \\( 3\\alpha = 90^\\circ - 2\\alpha \\).<br><br>Step 3<br><br>Solve for \\( \\alpha \\): <div class=\"math-line\">\\(5\\alpha = 90^\\circ\\)</div><div class=\"math-line\">\\(\\implies \\alpha = 18^\\circ\\)</div>.<br><br><strong>Final Answer:</strong><br><br>\\( \\alpha = 18^\\circ \\)."
   },
   {
     "type": "math_show",
@@ -82,7 +82,7 @@
   {
     "type": "math_show",
     "q": "An observer \\( 1.5 \\) m tall is standing \\( 20 \\) m away from a tree. The angle of elevation from the observer's eye to the top of the tree is \\( 45^\\circ \\). Find the total height of the tree.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the height of the tree above the observer's eye be \\( h \\). Use \\( \\tan 45^\\circ = \\frac{h}{20} \\).<br><br>Step 2<br><br>Since \\( \\tan 45^\\circ = 1 \\), we have \\( 1 = \\frac{h}{20} \\implies h = 20 \\) m.<br><br>Step 3<br><br>Add the observer's height to find the total height: \\( \\text{Total height} = 20 + 1.5 = 21.5 \\) m.<br><br><strong>Final Answer:</strong><br><br>\\( 21.5 \\) m."
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the height of the tree above the observer's eye be \\( h \\). Use \\( \\tan 45^\\circ = \\frac{h}{20} \\).<br><br>Step 2<br><br>Since \\( \\tan 45^\\circ = 1 \\), we have <div class=\"math-line\">\\(1 = \\frac{h}{20}\\)</div><div class=\"math-line\">\\(\\implies h = 20\\)</div> m.<br><br>Step 3<br><br>Add the observer's height to find the total height: \\( \\text{Total height} = 20 + 1.5 = 21.5 \\) m.<br><br><strong>Final Answer:</strong><br><br>\\( 21.5 \\) m."
   },
   {
     "type": "math_show",
@@ -97,12 +97,12 @@
   {
     "type": "math_show",
     "q": "Solve the right triangle \\( ABC \\) with \\( \\angle C = 90^\\circ \\), \\( \\angle A = 60^\\circ \\), and \\( a = 12\\sqrt{3} \\). Find \\( b \\) and \\( c \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find \\( \\angle B \\): \\( \\angle B = 90^\\circ - 60^\\circ = 30^\\circ \\).<br><br>Step 2<br><br>Use \\( \\tan A = \\frac{a}{b} \\implies \\tan 60^\\circ = \\frac{12\\sqrt{3}}{b} \\implies \\sqrt{3} = \\frac{12\\sqrt{3}}{b} \\implies b = 12 \\).<br><br>Step 3<br><br>Use \\( \\sin A = \\frac{a}{c} \\implies \\sin 60^\\circ = \\frac{12\\sqrt{3}}{c} \\implies \\frac{\\sqrt{3}}{2} = \\frac{12\\sqrt{3}}{c} \\implies c = 24 \\).<br><br><strong>Final Answer:</strong><br><br>\\( b = 12 \\), \\( c = 24 \\), \\( \\angle B = 30^\\circ \\)."
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Find \\( \\angle B \\): \\( \\angle B = 90^\\circ - 60^\\circ = 30^\\circ \\).<br><br>Step 2<br><br>Use <div class=\"math-line\">\\(\\tan A = \\frac{a}{b}\\)</div><div class=\"math-line\">\\(\\implies \\tan 60^\\circ = \\frac{12\\sqrt{3}}{b}\\)</div><div class=\"math-line\">\\(\\implies \\sqrt{3} = \\frac{12\\sqrt{3}}{b}\\)</div><div class=\"math-line\">\\(\\implies b = 12\\)</div>.<br><br>Step 3<br><br>Use <div class=\"math-line\">\\(\\sin A = \\frac{a}{c}\\)</div><div class=\"math-line\">\\(\\implies \\sin 60^\\circ = \\frac{12\\sqrt{3}}{c}\\)</div><div class=\"math-line\">\\(\\implies \\frac{\\sqrt{3}}{2} = \\frac{12\\sqrt{3}}{c}\\)</div><div class=\"math-line\">\\(\\implies c = 24\\)</div>.<br><br><strong>Final Answer:</strong><br><br>\\( b = 12 \\), \\( c = 24 \\), \\( \\angle B = 30^\\circ \\)."
   },
   {
     "type": "math_show",
     "q": "The perimeter of a sector of a circle is \\( 32 \\) cm, and its radius is \\( 12 \\) cm. Find the area of the sector.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The perimeter of a sector is \\( 2r + s \\), where \\( s \\) is the arc length. So, \\( 32 = 2(12) + s \\implies s = 32 - 24 = 8 \\) cm.<br><br>Step 2<br><br>Find the central angle \\( \\theta \\) in radians: \\( \\theta = \\frac{s}{r} = \\frac{8}{12} = \\frac{2}{3} \\) radians.<br><br>Step 3<br><br>Calculate the area \\( A = \\frac{1}{2}r^2\\theta = \\frac{1}{2}(12)^2\\left(\\frac{2}{3}\\right) = \\frac{1}{2}(144)\\left(\\frac{2}{3}\\right) = 72 \\times \\frac{2}{3} = 48 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 48 \\) cm\\(^2\\)."
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>The perimeter of a sector is \\( 2r + s \\), where \\( s \\) is the arc length. So, <div class=\"math-line\">\\(32 = 2(12) + s\\)</div><div class=\"math-line\">\\(\\implies s = 32 - 24 = 8\\)</div> cm.<br><br>Step 2<br><br>Find the central angle \\( \\theta \\) in radians: \\( \\theta = \\frac{s}{r} = \\frac{8}{12} = \\frac{2}{3} \\) radians.<br><br>Step 3<br><br>Calculate the area \\( A = \\frac{1}{2}r^2\\theta = \\frac{1}{2}(12)^2\\left(\\frac{2}{3}\\right) = \\frac{1}{2}(144)\\left(\\frac{2}{3}\\right) = 72 \\times \\frac{2}{3} = 48 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 48 \\) cm\\(^2\\)."
   },
   {
     "type": "math_show",
@@ -112,7 +112,7 @@
   {
     "type": "math_show",
     "q": "From the top of a building, the angle of depression to the top and bottom of a \\( 10 \\) m high pole are \\( 30^\\circ \\) and \\( 45^\\circ \\) respectively. Find the height of the building.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the building height be \\( H \\) and the horizontal distance be \\( x \\). From the bottom, \\( \\tan 45^\\circ = \\frac{H}{x} \\implies x = H \\).<br><br>Step 2<br><br>From the top of the pole, the vertical distance is \\( H - 10 \\). So, \\( \\tan 30^\\circ = \\frac{H - 10}{x} \\).<br><br>Step 3<br><br>Substitute \\( x = H \\): \\( \\frac{1}{\\sqrt{3}} = \\frac{H - 10}{H} \\implies H = \\sqrt{3}H - 10\\sqrt{3} \\implies H(\\sqrt{3} - 1) = 10\\sqrt{3} \\implies H = \\frac{10\\sqrt{3}}{\\sqrt{3} - 1} = \\frac{10\\sqrt{3}(\\sqrt{3} + 1)}{3 - 1} = 5(3 + \\sqrt{3}) = 15 + 5\\sqrt{3} \\).<br><br><strong>Final Answer:</strong><br><br>\\( 15 + 5\\sqrt{3} \\) m."
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the building height be \\( H \\) and the horizontal distance be \\( x \\). From the bottom, <div class=\"math-line\">\\(\\tan 45^\\circ = \\frac{H}{x}\\)</div><div class=\"math-line\">\\(\\implies x = H\\)</div>.<br><br>Step 2<br><br>From the top of the pole, the vertical distance is \\( H - 10 \\). So, \\( \\tan 30^\\circ = \\frac{H - 10}{x} \\).<br><br>Step 3<br><br>Substitute \\( x = H \\): <div class=\"math-line\">\\(\\frac{1}{\\sqrt{3}} = \\frac{H - 10}{H}\\)</div><div class=\"math-line\">\\(\\implies H = \\sqrt{3}H - 10\\sqrt{3}\\)</div><div class=\"math-line\">\\(\\implies H(\\sqrt{3} - 1) = 10\\sqrt{3}\\)</div><div class=\"math-line\">\\(\\implies H = \\frac{10\\sqrt{3}}{\\sqrt{3} - 1} = \\frac{10\\sqrt{3}(\\sqrt{3} + 1)}{3 - 1} = 5(3 + \\sqrt{3}) = 15 + 5\\sqrt{3}\\)</div>.<br><br><strong>Final Answer:</strong><br><br>\\( 15 + 5\\sqrt{3} \\) m."
   },
   {
     "type": "math_show",

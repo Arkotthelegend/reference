@@ -37,7 +37,7 @@
   {
     "type": "math_show",
     "q": "Express \\( \\sqrt{3} \\sin x + \\cos x \\) in the form \\( R \\sin(x + \\alpha) \\), where \\( R > 0 \\) and \\( 0^\\circ \\le \\alpha \\le 90^\\circ \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the amplitude \\( R \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( R = \\sqrt{(\\sqrt{3})^2 + 1^2} = \\sqrt{3 + 1} = \\sqrt{4} = 2 \\)</div><br><br>Step 2<br><br>Find the phase angle \\( \\alpha \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos \\alpha = \\frac{\\sqrt{3}}{2} \\) and \\( \\sin \\alpha = \\frac{1}{2} \\implies \\alpha = 30^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\sin(x + 30^\\circ) \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Calculate the amplitude \\( R \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( R = \\sqrt{(\\sqrt{3})^2 + 1^2} = \\sqrt{3 + 1} = \\sqrt{4} = 2 \\)</div><br><br>Step 2<br><br>Find the phase angle \\( \\alpha \\):<br><br>\\( \\cos \\alpha = \\frac{\\sqrt{3}}{2} \\) and <div class=\"math-line\">\\(\\sin \\alpha = \\frac{1}{2}\\)</div><div class=\"math-line\">\\(\\implies \\alpha = 30^\\circ\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 2 \\sin(x + 30^\\circ) \\)"
   },
   {
     "type": "math_show",
@@ -57,7 +57,7 @@
   {
     "type": "math_show",
     "q": "In \\( \\triangle ABC \\), \\( A = 45^\\circ \\), \\( B = 60^\\circ \\), and \\( a = 10 \\). Find the exact length of side \\( b \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the Law of Sines:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} \\implies b = \\frac{a \\sin B}{\\sin A} \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b = \\frac{10 \\sin 60^\\circ}{\\sin 45^\\circ} = \\frac{10 \\left(\\frac{\\sqrt{3}}{2}\\right)}{\\frac{\\sqrt{2}}{2}} = \\frac{10\\sqrt{3}}{\\sqrt{2}} = 5\\sqrt{6} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5\\sqrt{6} \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the Law of Sines:<br><br><div class=\"math-line\">\\(\\frac{a}{\\sin A} = \\frac{b}{\\sin B}\\)</div><div class=\"math-line\">\\(\\implies b = \\frac{a \\sin B}{\\sin A}\\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( b = \\frac{10 \\sin 60^\\circ}{\\sin 45^\\circ} = \\frac{10 \\left(\\frac{\\sqrt{3}}{2}\\right)}{\\frac{\\sqrt{2}}{2}} = \\frac{10\\sqrt{3}}{\\sqrt{2}} = 5\\sqrt{6} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 5\\sqrt{6} \\)"
   },
   {
     "type": "math_show",
@@ -77,7 +77,7 @@
   {
     "type": "math_show",
     "q": "Solve \\( \\sin 2x = \\sin x \\) for \\( 0^\\circ \\le x \\le 360^\\circ \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand using the double angle formula and factorize:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2\\sin x \\cos x - \\sin x = 0 \\implies \\sin x (2\\cos x - 1) = 0 \\)</div><br><br>Step 2<br><br>Solve each factor for \\( x \\) in the given range:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sin x = 0 \\implies x = 0^\\circ, 180^\\circ, 360^\\circ \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos x = \\frac{1}{2} \\implies x = 60^\\circ, 300^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 0^\\circ, 60^\\circ, 180^\\circ, 300^\\circ, 360^\\circ \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Expand using the double angle formula and factorize:<br><br><div class=\"math-line\">\\(2\\sin x \\cos x - \\sin x = 0\\)</div><div class=\"math-line\">\\(\\implies \\sin x (2\\cos x - 1) = 0\\)</div><br><br>Step 2<br><br>Solve each factor for \\( x \\) in the given range:<br><br><div class=\"math-line\">\\(\\sin x = 0\\)</div><div class=\"math-line\">\\(\\implies x = 0^\\circ, 180^\\circ, 360^\\circ\\)</div><br><br><div class=\"math-line\">\\(\\cos x = \\frac{1}{2}\\)</div><div class=\"math-line\">\\(\\implies x = 60^\\circ, 300^\\circ\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 0^\\circ, 60^\\circ, 180^\\circ, 300^\\circ, 360^\\circ \\)"
   },
   {
     "type": "math_show",
@@ -117,12 +117,12 @@
   {
     "type": "math_show",
     "q": "A triangle has sides \\( a = 4 \\) and \\( b = 5 \\), and its area is \\( 5\\sqrt{3} \\). Find the included angle \\( C \\), given that \\( C \\) is acute.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the area formula:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\text{Area} = \\frac{1}{2}ab \\sin C \\implies 5\\sqrt{3} = \\frac{1}{2}(4)(5) \\sin C \\)</div><br><br>Step 2<br><br>Solve for \\( \\sin C \\) and find the acute angle:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5\\sqrt{3} = 10 \\sin C \\implies \\sin C = \\frac{5\\sqrt{3}}{10} = \\frac{\\sqrt{3}}{2} \\)</div><br><br>Since \\( C \\) is acute, \\( C = 60^\\circ \\).<br><br><strong>Final Answer:</strong><br><br>\\( 60^\\circ \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Apply the area formula:<br><br><div class=\"math-line\">\\(\\text{Area} = \\frac{1}{2}ab \\sin C\\)</div><div class=\"math-line\">\\(\\implies 5\\sqrt{3} = \\frac{1}{2}(4)(5) \\sin C\\)</div><br><br>Step 2<br><br>Solve for \\( \\sin C \\) and find the acute angle:<br><br><div class=\"math-line\">\\(5\\sqrt{3} = 10 \\sin C\\)</div><div class=\"math-line\">\\(\\implies \\sin C = \\frac{5\\sqrt{3}}{10} = \\frac{\\sqrt{3}}{2}\\)</div><br><br>Since \\( C \\) is acute, \\( C = 60^\\circ \\).<br><br><strong>Final Answer:</strong><br><br>\\( 60^\\circ \\)"
   },
   {
     "type": "math_show",
     "q": "Solve \\( \\cos 2x + \\cos x = 0 \\) for \\( 0^\\circ \\le x \\le 360^\\circ \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the double angle identity \\( \\cos 2x = 2\\cos^2 x - 1 \\) and factorize:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2\\cos^2 x + \\cos x - 1 = 0 \\implies (2\\cos x - 1)(\\cos x + 1) = 0 \\)</div><br><br>Step 2<br><br>Solve each factor for \\( x \\) in the given range:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos x = \\frac{1}{2} \\implies x = 60^\\circ, 300^\\circ \\)</div><br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\cos x = -1 \\implies x = 180^\\circ \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 60^\\circ, 180^\\circ, 300^\\circ \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use the double angle identity \\( \\cos 2x = 2\\cos^2 x - 1 \\) and factorize:<br><br><div class=\"math-line\">\\(2\\cos^2 x + \\cos x - 1 = 0\\)</div><div class=\"math-line\">\\(\\implies (2\\cos x - 1)(\\cos x + 1) = 0\\)</div><br><br>Step 2<br><br>Solve each factor for \\( x \\) in the given range:<br><br><div class=\"math-line\">\\(\\cos x = \\frac{1}{2}\\)</div><div class=\"math-line\">\\(\\implies x = 60^\\circ, 300^\\circ\\)</div><br><br><div class=\"math-line\">\\(\\cos x = -1\\)</div><div class=\"math-line\">\\(\\implies x = 180^\\circ\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( x = 60^\\circ, 180^\\circ, 300^\\circ \\)"
   },
   {
     "type": "math_show",

@@ -17,12 +17,12 @@
   {
     "type": "math_show",
     "q": "Which term of the A.P. \\( 80,\\ 73,\\ 66,\\ \\dots \\) is \\( 24 \\)?",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 80 \\) and \\( d = -7 \\). Set \\( u_n = 24 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 24 = 80 + (n-1)(-7) \\)</div><br><br>Step 2<br><br>Solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -56 = -7(n-1) \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n-1 = 8 \\implies n = 9 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 9\\text{th term} \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 80 \\) and \\( d = -7 \\). Set \\( u_n = 24 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 24 = 80 + (n-1)(-7) \\)</div><br><br>Step 2<br><br>Solve for \\( n \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( -56 = -7(n-1) \\)</div><div class=\"math-line\">\\(n-1 = 8\\)</div><div class=\"math-line\">\\(\\implies n = 9\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 9\\text{th term} \\)"
   },
   {
     "type": "math_show",
     "q": "The 6th term of an A.P. is \\( 20 \\) and the 11th term is \\( 40 \\). Find the common difference.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the given terms using \\( u_n = a + (n-1)d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_{11} - u_6 = 5d \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 40 - 20 = 5d \\implies d = 4 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Write the given terms using \\( u_n = a + (n-1)d \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( u_{11} - u_6 = 5d \\)</div><br><br>Step 2<br><br>Substitute the given values:<br><br><div class=\"math-line\">\\(40 - 20 = 5d\\)</div><div class=\"math-line\">\\(\\implies d = 4\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 4 \\)"
   },
   {
     "type": "math_show",
@@ -37,7 +37,7 @@
   {
     "type": "math_show",
     "q": "Insert three arithmetic means between \\( 6 \\) and \\( 22 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the A.P. be \\( 6,\\ x_1,\\ x_2,\\ x_3,\\ 22 \\). Then \\( a = 6 \\) and \\( u_5 = 22 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 6 + 4d = 22 \\implies 4d = 16 \\implies d = 4 \\)</div><br><br>Step 2<br><br>The three arithmetic means are<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x_1 = 6 + 4 = 10 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x_2 = 10 + 4 = 14 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x_3 = 14 + 4 = 18 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10,\\ 14,\\ 18 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the A.P. be \\( 6,\\ x_1,\\ x_2,\\ x_3,\\ 22 \\). Then \\( a = 6 \\) and \\( u_5 = 22 \\):<br><br><div class=\"math-line\">\\(6 + 4d = 22\\)</div><div class=\"math-line\">\\(\\implies 4d = 16\\)</div><div class=\"math-line\">\\(\\implies d = 4\\)</div><br><br>Step 2<br><br>The three arithmetic means are<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x_1 = 6 + 4 = 10 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x_2 = 10 + 4 = 14 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x_3 = 14 + 4 = 18 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10,\\ 14,\\ 18 \\)"
   },
   {
     "type": "math_show",
@@ -62,7 +62,7 @@
   {
     "type": "math_show",
     "q": "The second term of a G.P. is \\( 18 \\) and the fifth term is \\( 486 \\). If every term is positive, find the common ratio.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Then \\( ar = 18 \\) and \\( ar^4 = 486 \\).<br><br>Step 2<br><br>Divide the second equation by the first:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{ar^4}{ar} = \\frac{486}{18} \\implies r^3 = 27 \\implies r = 3 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Then \\( ar = 18 \\) and \\( ar^4 = 486 \\).<br><br>Step 2<br><br>Divide the second equation by the first:<br><br><div class=\"math-line\">\\(\\frac{ar^4}{ar} = \\frac{486}{18}\\)</div><div class=\"math-line\">\\(\\implies r^3 = 27\\)</div><div class=\"math-line\">\\(\\implies r = 3\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 3 \\)"
   },
   {
     "type": "math_show",
@@ -77,12 +77,12 @@
   {
     "type": "math_show",
     "q": "Insert two geometric means between \\( 5 \\) and \\( 40 \\), given that every term is positive.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the G.P. be \\( 5,\\ g_1,\\ g_2,\\ 40 \\). Then \\( a = 5 \\) and \\( ar^3 = 40 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 5r^3 = 40 \\implies r^3 = 8 \\implies r = 2 \\)</div><br><br>Step 2<br><br>The two geometric means are<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g_1 = 5 \\times 2 = 10 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g_2 = 10 \\times 2 = 20 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10,\\ 20 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Let the G.P. be \\( 5,\\ g_1,\\ g_2,\\ 40 \\). Then \\( a = 5 \\) and \\( ar^3 = 40 \\):<br><br><div class=\"math-line\">\\(5r^3 = 40\\)</div><div class=\"math-line\">\\(\\implies r^3 = 8\\)</div><div class=\"math-line\">\\(\\implies r = 2\\)</div><br><br>Step 2<br><br>The two geometric means are<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g_1 = 5 \\times 2 = 10 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( g_2 = 10 \\times 2 = 20 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 10,\\ 20 \\)"
   },
   {
     "type": "math_show",
     "q": "The A.M. of two positive numbers is \\( 17 \\) and their G.M. is \\( 8 \\). Find \\( x^2 + y^2 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>A.M. and G.M. give<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{x+y}{2} = 17 \\implies x + y = 34 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{xy} = 8 \\implies xy = 64 \\)</div><br><br>Step 2<br><br>Use \\( x^2 + y^2 = (x+y)^2 - 2xy \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + y^2 = 34^2 - 2(64) = 1156 - 128 = 1028 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1028 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>A.M. and G.M. give<br><br><div class=\"math-line\">\\(\\frac{x+y}{2} = 17\\)</div><div class=\"math-line\">\\(\\implies x + y = 34\\)</div><div class=\"math-line\">\\(\\sqrt{xy} = 8\\)</div><div class=\"math-line\">\\(\\implies xy = 64\\)</div><br><br>Step 2<br><br>Use \\( x^2 + y^2 = (x+y)^2 - 2xy \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + y^2 = 34^2 - 2(64) = 1156 - 128 = 1028 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 1028 \\)"
   },
   {
     "type": "math_show",
@@ -102,7 +102,7 @@
   {
     "type": "math_show",
     "q": "The first term of a G.P. is \\( 15 \\) and its sum to infinity is \\( 45 \\). Find the common ratio.",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( S = \\dfrac{a}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 45 = \\frac{15}{1 - r} \\)</div><br><br>Step 2<br><br>Solve for \\( r \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 1 - r = \\frac{15}{45} = \\frac{1}{3} \\implies r = \\frac{2}{3} \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{3} \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Use \\( S = \\dfrac{a}{1 - r} \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 45 = \\frac{15}{1 - r} \\)</div><br><br>Step 2<br><br>Solve for \\( r \\):<br><br><div class=\"math-line\">\\(1 - r = \\frac{15}{45} = \\frac{1}{3}\\)</div><div class=\"math-line\">\\(\\implies r = \\frac{2}{3}\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( \\frac{2}{3} \\)"
   },
   {
     "type": "math_show",
@@ -112,7 +112,7 @@
   {
     "type": "math_show",
     "q": "How many terms are there in the G.P. \\( 3,\\ 6,\\ 12,\\ \\dots,\\ 192 \\)?",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 3 \\), \\( r = 2 \\) and \\( u_n = 192 \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 3 \\times 2^{n-1} = 192 \\implies 2^{n-1} = 64 \\)</div><br><br>Step 2<br><br>Therefore<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( n-1 = 6 \\implies n = 7 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Here \\( a = 3 \\), \\( r = 2 \\) and \\( u_n = 192 \\):<br><br><div class=\"math-line\">\\(3 \\times 2^{n-1} = 192\\)</div><div class=\"math-line\">\\(\\implies 2^{n-1} = 64\\)</div><br><br>Step 2<br><br>Therefore<br><br><div class=\"math-line\">\\(n-1 = 6\\)</div><div class=\"math-line\">\\(\\implies n = 7\\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 7 \\)"
   },
   {
     "type": "math_show",
@@ -122,7 +122,7 @@
   {
     "type": "math_show",
     "q": "If \\( 7,\\ x,\\ 19 \\) are consecutive terms of an A.P., find \\( x \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Equate consecutive differences:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 7 = 19 - x \\)</div><br><br>Step 2<br><br>Solve for \\( x \\):<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( 2x = 26 \\implies x = 13 \\)</div><br>This is the A.M. of \\( 7 \\) and \\( 19 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 13 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>Equate consecutive differences:<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x - 7 = 19 - x \\)</div><br><br>Step 2<br><br>Solve for \\( x \\):<br><br><div class=\"math-line\">\\(2x = 26\\)</div><div class=\"math-line\">\\(\\implies x = 13\\)</div><br>This is the A.M. of \\( 7 \\) and \\( 19 \\).<br><br><strong>Final Answer:</strong><br><br>\\( 13 \\)"
   },
   {
     "type": "math_show",
@@ -147,7 +147,7 @@
   {
     "type": "math_show",
     "q": "The A.M. of two positive numbers is \\( 10 \\) and their G.M. is \\( 8 \\). Find \\( x^2 + y^2 \\).",
-    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>From the definitions,<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\frac{x+y}{2} = 10 \\implies x + y = 20 \\)</div><div style=\"overflow-x:auto; white-space:nowrap;\">\\( \\sqrt{xy} = 8 \\implies xy = 64 \\)</div><br><br>Step 2<br><br>Then<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + y^2 = (x+y)^2 - 2xy = 400 - 128 = 272 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 272 \\)"
+    "c": "<strong>Solution:</strong><br><br>Step 1<br><br>From the definitions,<br><br><div class=\"math-line\">\\(\\frac{x+y}{2} = 10\\)</div><div class=\"math-line\">\\(\\implies x + y = 20\\)</div><div class=\"math-line\">\\(\\sqrt{xy} = 8\\)</div><div class=\"math-line\">\\(\\implies xy = 64\\)</div><br><br>Step 2<br><br>Then<br><br><div style=\"overflow-x:auto; white-space:nowrap;\">\\( x^2 + y^2 = (x+y)^2 - 2xy = 400 - 128 = 272 \\)</div><br><br><strong>Final Answer:</strong><br><br>\\( 272 \\)"
   },
   {
     "type": "math_show",
