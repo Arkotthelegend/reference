@@ -10754,10 +10754,60 @@ function quizTypingTarget(el) {
     const type = String(el.type || 'text').toLowerCase();
     return type !== 'button' && type !== 'submit' && type !== 'checkbox' && type !== 'radio' && type !== 'file' && type !== 'range' && type !== 'color';
 }
+function isQuizPrevKey(e) {
+    const key = e.key || '';
+    const code = e.code || '';
+    if (key === 'Backspace' || key === 'Delete' || code === 'Backspace' || code === 'Delete') return true;
+    const which = e.keyCode || e.which || 0;
+    return which === 8 || which === 46;
+}
+function quizSurfaceOn() {
+    const quizScreen = document.getElementById('quiz-screen');
+    const mathScreen = document.getElementById('math-solution-screen');
+    const flashScreen = document.getElementById('flashcard-screen');
+    return {
+        quizOn: !!(quizScreen && quizScreen.classList.contains('active-screen')),
+        mathOn: !!(mathScreen && mathScreen.classList.contains('active-screen')),
+        flashOn: !!(flashScreen && flashScreen.classList.contains('active-screen'))
+    };
+}
+let quizPrevFromKeyDown = false;
+function goQuizPrevious() {
+    const where = quizSurfaceOn();
+    if (!where.quizOn && !where.mathOn && !where.flashOn) return false;
+    if (where.flashOn && !where.quizOn && !where.mathOn) {
+        prevFlash();
+        return true;
+    }
+    prevQuestion();
+    return true;
+}
 
+document.addEventListener('keyup', function(e) {
+    if (e.ctrlKey || e.altKey || e.metaKey || e.repeat) return;
+    if (!isQuizPrevKey(e)) {
+        quizPrevFromKeyDown = false;
+        return;
+    }
+    if (quizPrevFromKeyDown) {
+        quizPrevFromKeyDown = false;
+        return;
+    }
+    if (quizTypingTarget(e.target)) return;
+    if (goQuizPrevious()) e.preventDefault();
+});
 document.addEventListener('keydown', function(e) {
     if (e.ctrlKey || e.altKey || e.metaKey) return;
     if (e.repeat) return;
+    if (isQuizPrevKey(e)) {
+        quizPrevFromKeyDown = false;
+        if (quizTypingTarget(e.target)) return;
+        if (goQuizPrevious()) {
+            e.preventDefault();
+            quizPrevFromKeyDown = true;
+        }
+        return;
+    }
     if (e.isComposing) return;
     const keyName = quizKeyName(e);
     if (!keyName || keyName === 'Unidentified' || keyName === 'Process') return;
@@ -10770,18 +10820,6 @@ document.addEventListener('keydown', function(e) {
     const flashOn = document.getElementById('flashcard-screen')?.classList.contains('active-screen');
     const rewriteOn = flashOn && document.getElementById('flashcard-screen')?.classList.contains('flash-rewrite-on');
     const inQuizField = !!(e.target && e.target.closest && e.target.closest('#quiz-options'));
-
-    if (keyName === 'Delete') {
-        if (quizTypingTarget(e.target)) return;
-        if (!(quizOn || mathOn || flashOn)) return;
-        e.preventDefault();
-        if (flashOn) {
-            prevFlash();
-            return;
-        }
-        prevQuestion();
-        return;
-    }
 
     if (keyName === 'Enter' && (quizOn || mathOn || flashOn)) {
         const typingElsewhere = (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) && !inQuizField && !keyCatch && !(e.target && e.target.id === 'rw-try');
